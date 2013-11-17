@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+  Document   : tag-pattern.xsd
+  Description: This document is the schema for valid tag pattern
+               definitions. For successful parsing of tag pattern 
+               from XML files, the XML file should be validated 
+               with this schema.
+  See        : com.github.haixing_hu.commons.text.xml.TagPattern.java
+ -->
+
+<xs:schema xmlns:this="http://www.ascentdimension.com" 
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  targetNamespace="http://www.ascentdimension.com"   
+  elementFormDefault="qualified">
+
+  <xs:element name="tag-pattern" type="this:tag-pattern" />
+
+  <xs:complexType name="tag-pattern">     
+    <xs:sequence>
+      <!-- 一个可选的标签名称 -->
+      <xs:element name="tag" minOccurs="0" type="xs:string" />
+      <!-- 一个可选的属性模板 -->
+      <xs:element name="attribute" minOccurs="0" >
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:string">
+              <!-- 必须的属性名称 -->
+              <xs:attribute name="name" type="xs:string" use="required" />
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <!-- 可选的子节点模式，注意这里递归引用了tag-pattern-node类型 -->
+      <xs:element name="tag-pattern" minOccurs="0" type="this:tag-pattern"/>
+    </xs:sequence>
+    <!-- 表示所需匹配的节点是第几个符合该模式的节点，默认值为1 -->
+    <xs:attribute name="order" type="xs:nonNegativeInteger" use="optional" default="0"/>
+  </xs:complexType>
+  
+</xs:schema>

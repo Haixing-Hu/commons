@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<default-ports xmlns="http://www.ascentdimension.com"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.ascentdimension.com default-ports.xsd ">  
+	<default-port>
+		<scheme>ftp</scheme>
+		<port>21</port>
+	</default-port>
+	<default-port>
+		<scheme>gopher</scheme>
+		<port>70</port>
+	</default-port>	
+	<default-port>
+		<scheme>http</scheme>
+		<port>80</port>
+	</default-port>
+	<default-port>
+		<scheme>https</scheme>
+		<port>443</port>
+	</default-port>	
+</default-ports>

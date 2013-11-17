@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<url-patterns>
+
+    <url-pattern>
+        <part>url</part>
+        <pattern type="prefix">http://www.sina.com.cn/news/</pattern>
+    </url-pattern>
+    
+    <url-pattern>
+        <pattern type="glob">http://www.sina.com.cn/*</pattern>
+    </url-pattern>
+    
+    <url-pattern>
+        <pattern type="suffix">news.html</pattern>
+    </url-pattern>
+
+    <url-pattern>
+        <part>hostname</part>
+        <pattern type="regex">.*\.com$</pattern>
+    </url-pattern>    
+    
+    <url-pattern>
+        <part>hostname</part>
+        <pattern type="glob">*.com</pattern>
+    </url-pattern>
+
+    <url-pattern>
+        <part>scheme</part>
+        <pattern type="literal">http</pattern>
+    </url-pattern>
+    
+    <url-pattern>
+        <part>scheme</part>
+        <pattern>https</pattern>
+    </url-pattern>
+    
+</url-patterns>

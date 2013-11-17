@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jdbc-connection-config>
+  <id>2</id>
+  <name>SecondConnection</name>
+  <driver>oracle.jdbc.driver.OracleDriver</driver>
+  <url>jdbc:oracle:thin:@localhost:1521:xe</url>  
+</jdbc-connection-config>

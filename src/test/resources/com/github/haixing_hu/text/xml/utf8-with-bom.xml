@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+  <property name="com.github.haixing_hu.oghma.crawler.web.protocol.http.HttpProtocol">
+    <description>The HttpProtocol supports HTTP and HTTPS protocols.</description>
+    <value>http</value>
+    <value>https</value>
+  </property>
+
+<!--
+  <property name="com.github.haixing_hu.oghma.crawler.web.protocol.ftp.FtpProtocol">
+    <description>The FtpProtocol supports the FTP protocol.</description>
+    <value>ftp</value>
+  </property>
+-->
+
+</configuration>

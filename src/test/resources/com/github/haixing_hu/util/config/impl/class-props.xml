@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  
+  <property name="prop1" type="class">
+    <description>description 1</description>
+    <value>com.github.haixing_hu.util.config.impl.DefaultConfig</value>
+  </property>
+  
+  <property name="prop2" type="class" final="true">
+    <description>description 2</description>
+    <value>com.github.haixing_hu.util.config.impl.DefaultConfig</value>
+    <value>com.github.haixing_hu.util.config.impl.DefaultProperty</value>
+  </property>
+
+  <property name="prop3" type="class" final="false">
+    <value>java.lang.String</value>
+    <value>java.lang.Integer</value>
+    <value>java.lang.Float</value>
+    <value>com.github.haixing_hu.util.config.impl.DefaultConfig</value>
+    <value>com.github.haixing_hu.util.config.impl.DefaultProperty</value>
+  </property>
+  
+  <property type="class" name="prop4">
+    <description>description 4</description>
+  </property>
+  
+  <property name="prop5" type="class" final="false">
+    <value>java.lang.String</value>
+  </property>
+  
+</configuration>

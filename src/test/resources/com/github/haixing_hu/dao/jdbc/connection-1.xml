@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jdbc-connection-config>
+  <id>1</id>
+  <name>FirstConnection</name>
+  <description>The first connection configuration.  </description>
+  <driver>oracle.jdbc.driver.OracleDriver</driver>
+  <url>jdbc:oracle:thin:@localhost:1521:xe</url>
+  <username>test</username>
+  <password>testpassword</password>
+</jdbc-connection-config>

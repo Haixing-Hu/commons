@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  
+  <property name="prop1">
+    <description>description 1</description>
+    <value>value1</value>
+  </property>
+  
+  <property name="prop2" type="string" final="true">
+    <description>  </description>
+    <value>value2</value>
+  </property>
+
+  <property name="prop3" final="true">
+    <value>value3.1</value>
+    <value>value3.2</value>
+    <value>value3.3</value>
+    <value>value3.4</value>
+    <value>value3.5</value>
+  </property>
+  
+  <property name="prop4">
+    <description>description 4</description>
+  </property>  
+
+  <property name="prop5" type="string" final="false">
+    <description>description 5 with trailing whitespace       
+        
+    </description>
+    <value>   value 5.1 with leading and trailing whitespace </value>
+    <value preserve-space="true">  value 5.2 with preserved whitespace </value>
+  </property>
+  
+  <property name="prop6">
+    <description preserve-space="true">  description 6 with preserved leading and trailing whitespace  </description>
+  </property>
+  
+  
+</configuration>

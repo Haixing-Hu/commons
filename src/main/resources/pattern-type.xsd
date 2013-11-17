@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+  Document   : pattern-type.xsd
+  Description: This document defines the XML type of the 
+               pattern type enumeration.
+  See        : com.github.haixing_hu.commons.text.PatternType.java
+ -->
+<xsd:schema xmlns:this="http://www.ascentdimension.com" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  targetNamespace="http://www.ascentdimension.com"   
+  elementFormDefault="qualified">
+  
+  <xsd:simpleType name="pattern-type">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="literal" />   <!-- 匹配整个字符串 -->
+      <xsd:enumeration value="prefix" />    <!-- 作为前缀匹配 -->
+      <xsd:enumeration value="suffix" />    <!-- 作为后缀匹配 -->
+      <xsd:enumeration value="regex" />     <!-- 作为正则表达式匹配 -->
+      <xsd:enumeration value="glob" />      <!-- 作为glob表达式匹配 -->
+    </xsd:restriction>
+  </xsd:simpleType>  
+  
+</xsd:schema>

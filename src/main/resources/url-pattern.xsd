@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+  Document   : url-pattern.xsd
+  Description: This document is the schema for valid URL pattern
+               definitions. For successful parsing of URL pattern 
+               from XML files, the XML file should be validated 
+               with this schema.
+  See        : com.github.haixing_hu.commons.net.UrlPattern.java
+ -->
+
+<xsd:schema xmlns:this="http://www.ascentdimension.com" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  targetNamespace="http://www.ascentdimension.com"   
+  elementFormDefault="qualified">
+
+  <xsd:include schemaLocation="url-part.xsd" />
+  <xsd:include schemaLocation="pattern.xsd" />
+
+  <xsd:element name="url-pattern" type="this:url-pattern" />
+
+  <xsd:complexType name="url-pattern">
+    <xsd:sequence>
+      <!-- 表示该模式匹配URL的哪一部分，可选 -->
+      <xsd:element name="part" minOccurs="0" type="this:url-part" />
+      <!-- 所匹配的文本模板，必须 -->
+      <xsd:element name="pattern" type="this:pattern" />
+    </xsd:sequence>
+  </xsd:complexType>
+  
+</xsd:schema>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  
+  <property name="prop1" type="char">
+    <description>description 1</description>
+    <value>a</value>
+  </property>
+  
+  <property name="prop2" type="char" final="true">
+    <description>description 2</description>
+    <value>a</value>
+    <value>b</value>
+  </property>
+
+  <property name="prop3" type="char" final="false">
+    <value>a</value>
+    <value>b</value>
+    <value>c</value>
+    <value>d</value>
+  </property>
+  
+  <property type="char" name="prop4">
+    <description>description 4</description>
+  </property>
+  
+
+</configuration>

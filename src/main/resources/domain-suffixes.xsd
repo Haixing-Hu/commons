@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Document   : domain-suffixes.xsd
+  Description: This document is the schema for valid domain-suffixes
+               definitions. For successful parsing of domain-suffixes
+               XML files, the XML file should be validated with this 
+               schema.
+  See        : com.github.haixing_hu.commons.net.DomainSuffixes.java
+-->
+<xsd:schema xmlns:this="http://www.ascentdimension.com" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  targetNamespace="http://www.ascentdimension.com"   
+  elementFormDefault="qualified">
+
+  <xsd:element name="domains">
+    
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="tlds">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="itlds">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="tld" maxOccurs="unbounded" type="this:gtld" />
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+
+              <xsd:element name="gtlds">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="tld" maxOccurs="unbounded" type="this:gtld" />
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+
+              <xsd:element name="cctlds">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="tld" maxOccurs="unbounded" type="this:cctld" />
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+
+        <xsd:element name="suffixes">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="suffix" maxOccurs="unbounded" type="this:sld" />
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+    </xsd:element>
+
+  <xsd:complexType name="gtld">
+    <xsd:sequence>
+      <xsd:element name="status" minOccurs="0" type="this:gtld-status" />
+      <xsd:element name="description" minOccurs="0" type="xsd:string" />
+    </xsd:sequence>
+    <xsd:attribute name="domain" type="xsd:string" />
+  </xsd:complexType>
+
+  <xsd:simpleType name="gtld-status">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="INFRASTRUCTURE" />
+      <xsd:enumeration value="SPONSORED" />
+      <xsd:enumeration value="UNSPONSORED" />
+      <xsd:enumeration value="STARTUP" />
+      <xsd:enumeration value="PROPOSED" />
+      <xsd:enumeration value="DELETED" />
+      <xsd:enumeration value="PSEUDO_DOMAIN" />
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:complexType name="cctld">
+    <xsd:sequence>
+      <xsd:element name="country" type="xsd:string" />
+      <xsd:element name="status" minOccurs="0" type="this:std-status" />
+      <xsd:element name="description" minOccurs="0" type="xsd:string" />
+    </xsd:sequence>
+    <xsd:attribute name="domain" type="xsd:string" />
+  </xsd:complexType>
+
+  <xsd:complexType name="sld">
+    <xsd:sequence>
+      <xsd:element name="status" minOccurs="0" type="this:std-status" />
+      <xsd:element name="description" minOccurs="0" type="xsd:string" />
+    </xsd:sequence>
+    <xsd:attribute name="domain" type="xsd:string" />
+  </xsd:complexType>
+
+  <xsd:simpleType name="std-status">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="IN_USE" />
+      <xsd:enumeration value="NOT_IN_USE" />
+      <xsd:enumeration value="DELETED" />
+    </xsd:restriction>
+  </xsd:simpleType>
+
+</xsd:schema>

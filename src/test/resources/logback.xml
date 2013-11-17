@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <!-- Defines the console appender -->
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger - %msg%n</pattern>
+    </encoder>
+  </appender>
+  <!-- Control the log level -->
+  <logger name="com.github.haixing_hu" level="DEBUG"/>
+  <root level="WARN">
+    <appender-ref ref="STDOUT" />
+  </root>
+</configuration>

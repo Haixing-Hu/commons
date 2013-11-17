@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+  Document   : default-ports.xsd
+  Description: This document is the schema for valid default-ports
+               definitions. For successful parsing of default-ports
+               XML files, the XML file should be validated with this 
+               schema.
+  See        : com.github.haixing_hu.commons.net.DefaultPortMap.java
+ -->
+
+<xsd:schema xmlns:this="http://www.ascentdimension.com"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+  targetNamespace="http://www.ascentdimension.com"
+  elementFormDefault="qualified">
+
+  <xsd:element name="default-ports">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="default-port" maxOccurs="unbounded" type="this:default-port" />
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+
+  <xsd:complexType name="default-port">
+    <xsd:sequence>
+      <xsd:element name="scheme" type="xsd:string"/>
+      <xsd:element name="port" type="xsd:int"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+</xsd:schema>

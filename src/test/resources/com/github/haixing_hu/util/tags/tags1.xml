@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tags>
+  <tag id="0" parent-id="-1">
+    <scope>scope0</scope>
+    <name>name0</name>
+    <description> description 0 </description>
+  </tag>
+
+  <tag id="1" parent-id="0">
+    <scope>scope0</scope>
+    <name>name1</name>
+    <description> description 1 </description>
+  </tag>
+  
+  <tag id="2" parent-id="0">
+    <scope>scope0</scope>
+    <name>name2</name>
+  </tag>
+  
+  <tag id="3">
+    <scope>scope1</scope>
+    <name>name3</name>
+  </tag>
+  
+</tags>

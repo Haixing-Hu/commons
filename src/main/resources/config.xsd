@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://www.ascentdimension.com/config" 
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+		targetNamespace="http://www.ascentdimension.com/config" 		
+		elementFormDefault="qualified">
+		
+	<xsd:element name="configuration">
+    	<xsd:complexType>
+      		<xsd:sequence>
+        		<xsd:element name="property" minOccurs="0" maxOccurs="unbounded" type="property"/>
+      		</xsd:sequence>
+    	</xsd:complexType>
+  	</xsd:element>
+  	
+	<xsd:complexType name="property">		
+    	<xsd:sequence>
+    		<xsd:element name="description" minOccurs="0">
+    			<xsd:simpleType>
+  					<xsd:restriction base="xsd:string">
+    					<xsd:whiteSpace value="collapse"/>
+  					</xsd:restriction>
+				</xsd:simpleType>
+    		</xsd:element>    		      		
+      		<xsd:element name="value" maxOccurs="unbounded">
+				<xsd:complexType>				
+    				<xsd:simpleContent>
+      					<xsd:extension base="xsd:string">
+        					<xsd:attribute name="preserve-space" type="xsd:boolean" default="false"/>	
+      					</xsd:extension>      					
+    				</xsd:simpleContent>
+  				</xsd:complexType>								
+    		</xsd:element>    
+    	</xsd:sequence>    	
+    	<xsd:attribute name="name" type="xsd:string" use="required"/>	
+    	<xsd:attribute name="type" type="type" default="string"/>		
+    	<xsd:attribute name="final" type="xsd:boolean" default="false"/>	    	
+  	</xsd:complexType> 	
+  	
+	<xsd:simpleType name="type">
+    	<xsd:restriction base="xsd:string">
+    		<xsd:enumeration value="boolean" />
+    		<xsd:enumeration value="char" />
+    		<xsd:enumeration value="byte" />
+    		<xsd:enumeration value="short" />
+      		<xsd:enumeration value="int" />
+      		<xsd:enumeration value="long" />
+      		<xsd:enumeration value="float" />
+      		<xsd:enumeration value="double" />
+      		<xsd:enumeration value="date" />
+      		<xsd:enumeration value="class" />
+      		<xsd:enumeration value="string" />
+      		<xsd:enumeration value="byte[]" />      		
+      		<xsd:enumeration value="big-decimal" />
+      		<xsd:enumeration value="big-integer" />      		
+	    </xsd:restriction>
+  	</xsd:simpleType>  	  	
+</xsd:schema>

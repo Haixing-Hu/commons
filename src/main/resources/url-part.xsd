@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+  Document   : url-part.xsd
+  Description: This document defines the XML type of the 
+               URL part enumeration.
+  See        : com.github.haixing_hu.commons.net.UrlPart.java
+ -->
+<xsd:schema xmlns:this="http://www.ascentdimension.com" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  targetNamespace="http://www.ascentdimension.com"   
+  elementFormDefault="qualified">
+  
+  <xsd:simpleType name="url-part">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="url" />
+      <xsd:enumeration value="protocol" />
+      <xsd:enumeration value="user-info" />
+      <xsd:enumeration value="host" />
+      <xsd:enumeration value="domain" />
+      <xsd:enumeration value="port" />
+      <xsd:enumeration value="path" />
+      <xsd:enumeration value="query" />
+      <xsd:enumeration value="fragment" />
+    </xsd:restriction>
+  </xsd:simpleType>  
+  
+</xsd:schema>

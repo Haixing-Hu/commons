@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+  Document   : pattern-type.xsd
+  Description: This document defines the XML serialization format
+               of the Pattern class, which represents a generic
+               pattern of strings.
+  See        : com.github.haixing_hu.commons.text.Pattern.java
+ -->
+<xsd:schema xmlns:this="http://www.ascentdimension.com" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  targetNamespace="http://www.ascentdimension.com"   
+  elementFormDefault="qualified">
+  
+  <xsd:include schemaLocation="pattern-type.xsd" />
+
+  <xsd:element name="pattern" type="this:pattern" />
+  
+  <xsd:complexType name="pattern">
+    <xsd:simpleContent>
+      <xsd:extension base="xsd:string">
+        <!-- 模式的具体类型，可选，默认为"literal" -->
+        <xsd:attribute name="type" type="this:pattern-type" default="literal" />
+        <!-- 是否忽略大小写，可选，默认否 -->
+        <xsd:attribute name="case-insensitive" type="xsd:boolean" default="false" />
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  
+</xsd:schema>

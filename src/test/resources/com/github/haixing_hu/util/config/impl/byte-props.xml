@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  
+  <property name="prop1" type="byte">
+    <description>description 1</description>
+    <value>12</value>
+  </property>
+  
+  <property name="prop2" type="byte" final="true">
+    <description>description 2</description>
+    <value>0  </value>
+    <value>-10</value>
+  </property>
+
+  <property name="prop3" type="byte" final="false">
+    <value>0x10</value>
+    <value>0B1010110</value>
+    <value>-0</value>
+    <value>-013</value>
+    <value>-23</value>
+  </property>
+  
+  <property type="byte" name="prop4">
+    <description>description 4</description>
+  </property>
+  
+
+</configuration>

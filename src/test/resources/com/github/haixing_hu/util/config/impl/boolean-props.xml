@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+ 
+  <property name="prop1" type="boolean">
+    <description>description 1</description>
+    <value>true</value>
+  </property>
+  
+  <property name="prop2" type="boolean" final="true">
+    <description>description 2</description>
+    <value> FAlse</value>
+    <value>TRUE</value>
+  </property>
+
+  <property name="prop3" type="boolean" final="false">
+    <value>true</value>
+    <value>false</value>
+    <value>TRue</value>
+    <value>  falsE   </value>
+  </property>
+  
+  <property type="boolean" name="prop4">
+    <description>description 4</description>
+  </property>
+  
+
+</configuration>
