@@ -368,9 +368,7 @@ public class FloatUtilsTest {
       final Float x = AREA[i];
       final Integer y = (int) AREA[i];
       assertEquals(y, FloatUtils.toIntObject(x, null));
-      for (final Integer element : a) {
-        assertEquals(y, FloatUtils.toIntObject(x, a[i]));
-      }
+      assertEquals(y, FloatUtils.toIntObject(x, a[i]));
     }
   }
 
