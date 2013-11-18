@@ -16,34 +16,25 @@
  *
  ******************************************************************************/
 
-package com.github.haixing_hu.reflect;
+package com.github.haixing_hu.reflect.testbed;
 
-/**
- * Thrown to indicate an exception occurs during a reflection operation.
- *
- * @author Haixing Hu
- */
-public class ReflectionException extends RuntimeException {
+public class BetaBean extends AbstractChild {
 
-  private static final long serialVersionUID = -4383352207393863063L;
+  private String secret = "utah";
 
-  private static final String DEFAULT_MESSAGE =
-    "An exception occurs during the reflection operation.";
-
-  public ReflectionException() {
-    super(DEFAULT_MESSAGE);
+  public String getSecret() {
+    return secret;
   }
 
-  public ReflectionException(final String message) {
-    super(message);
+  public void setNoGetterProperty(String secret) {
+    this.secret = secret;
   }
 
-  public ReflectionException(final Throwable cause) {
-    super(DEFAULT_MESSAGE, cause);
+  public void setNoGetterMappedProperty(String secret, String key) {
+    this.secret = "MAP:" + secret;
   }
 
-  public ReflectionException(final String message, final Throwable cause) {
-    super(message, cause);
+  public BetaBean(String name) {
+    setName(name);
   }
-
 }

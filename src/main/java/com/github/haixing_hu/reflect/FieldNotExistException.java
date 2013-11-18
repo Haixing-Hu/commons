@@ -19,31 +19,20 @@
 package com.github.haixing_hu.reflect;
 
 /**
- * Thrown to indicate an exception occurs during a reflection operation.
+ * Thrown to indicate the specified field does not exist.
  *
  * @author Haixing Hu
  */
-public class ReflectionException extends RuntimeException {
+public class FieldNotExistException extends ReflectionException {
 
-  private static final long serialVersionUID = -4383352207393863063L;
+  private static final long serialVersionUID = 5409166838535034334L;
 
-  private static final String DEFAULT_MESSAGE =
-    "An exception occurs during the reflection operation.";
-
-  public ReflectionException() {
-    super(DEFAULT_MESSAGE);
+  public FieldNotExistException(Class<?> cls, int options, String name) {
+    super("There is no "
+        + Option.toString(options)
+        + " field named with '"
+        + name
+        + "' for the class "
+        + cls.getName());
   }
-
-  public ReflectionException(final String message) {
-    super(message);
-  }
-
-  public ReflectionException(final Throwable cause) {
-    super(DEFAULT_MESSAGE, cause);
-  }
-
-  public ReflectionException(final String message, final Throwable cause) {
-    super(message, cause);
-  }
-
 }

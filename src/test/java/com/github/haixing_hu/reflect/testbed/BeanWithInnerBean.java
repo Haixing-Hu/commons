@@ -16,34 +16,34 @@
  *
  ******************************************************************************/
 
-package com.github.haixing_hu.reflect;
+package com.github.haixing_hu.reflect.testbed;
+
+import java.util.Properties;
 
 /**
- * Thrown to indicate an exception occurs during a reflection operation.
+ * Bean with inner bean.
  *
  * @author Haixing Hu
  */
-public class ReflectionException extends RuntimeException {
+public class BeanWithInnerBean {
+  private InnerBean innerBean = new InnerBean();
 
-  private static final long serialVersionUID = -4383352207393863063L;
-
-  private static final String DEFAULT_MESSAGE =
-    "An exception occurs during the reflection operation.";
-
-  public ReflectionException() {
-    super(DEFAULT_MESSAGE);
+  public BeanWithInnerBean() {
   }
 
-  public ReflectionException(final String message) {
-    super(message);
+  public InnerBean getInnerBean() {
+    return innerBean;
   }
 
-  public ReflectionException(final Throwable cause) {
-    super(DEFAULT_MESSAGE, cause);
-  }
+  public class InnerBean {
+    private Properties fish = new Properties();
 
-  public ReflectionException(final String message, final Throwable cause) {
-    super(message, cause);
-  }
+    public String getFish(String key) {
+      return fish.getProperty(key);
+    }
 
+    public void setFish(String key, String value) {
+      fish.setProperty(key, value);
+    }
+  }
 }

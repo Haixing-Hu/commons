@@ -19,31 +19,16 @@
 package com.github.haixing_hu.reflect;
 
 /**
- * Thrown to indicate an exception occurs during a reflection operation.
+ * Thrown to indicate the specified member is ambiguous.
  *
  * @author Haixing Hu
  */
-public class ReflectionException extends RuntimeException {
+public class AmbiguousMemberException extends ReflectionException {
 
-  private static final long serialVersionUID = -4383352207393863063L;
+  private static final long serialVersionUID = - 7385799996559327654L;
 
-  private static final String DEFAULT_MESSAGE =
-    "An exception occurs during the reflection operation.";
-
-  public ReflectionException() {
-    super(DEFAULT_MESSAGE);
+  public AmbiguousMemberException(Class<?> cls, String name) {
+    super("The specified member '" + name
+        + "' for the class " + cls.getName() + " is ambiguous.");
   }
-
-  public ReflectionException(final String message) {
-    super(message);
-  }
-
-  public ReflectionException(final Throwable cause) {
-    super(DEFAULT_MESSAGE, cause);
-  }
-
-  public ReflectionException(final String message, final Throwable cause) {
-    super(message, cause);
-  }
-
 }

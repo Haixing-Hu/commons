@@ -16,34 +16,38 @@
  *
  ******************************************************************************/
 
-package com.github.haixing_hu.reflect;
+package com.github.haixing_hu.reflect.testbed;
 
-/**
- * Thrown to indicate an exception occurs during a reflection operation.
- *
- * @author Haixing Hu
- */
-public class ReflectionException extends RuntimeException {
+public abstract class AbstractParent {
 
-  private static final long serialVersionUID = -4383352207393863063L;
+  private Child child;
 
-  private static final String DEFAULT_MESSAGE =
-    "An exception occurs during the reflection operation.";
-
-  public ReflectionException() {
-    super(DEFAULT_MESSAGE);
+  public Child getChild() {
+    return child;
   }
 
-  public ReflectionException(final String message) {
-    super(message);
+  /**
+   * Method which matches signature but which has wrong parameters
+   */
+  public String testAddChild(String badParameter) {
+    return null;
   }
 
-  public ReflectionException(final Throwable cause) {
-    super(DEFAULT_MESSAGE, cause);
+  /**
+   * Method which matches signature but which has wrong parameters
+   */
+  public String testAddChild2(String ignore, String badParameter) {
+    return null;
   }
 
-  public ReflectionException(final String message, final Throwable cause) {
-    super(message, cause);
+  public String testAddChild(Child child) {
+    this.child = child;
+    return child.getName();
+  }
+
+  public String testAddChild2(String ignore, Child child) {
+    this.child = child;
+    return child.getName();
   }
 
 }

@@ -18,32 +18,33 @@
 
 package com.github.haixing_hu.reflect;
 
+import com.github.haixing_hu.lang.StringUtils;
+
 /**
- * Thrown to indicate an exception occurs during a reflection operation.
+ * Thrown to indicate the specified constructor does not exist.
  *
  * @author Haixing Hu
  */
-public class ReflectionException extends RuntimeException {
+public class ConstructorNotExistException extends ReflectionException {
 
-  private static final long serialVersionUID = -4383352207393863063L;
+  private static final long serialVersionUID = - 4255851177528512471L;
 
-  private static final String DEFAULT_MESSAGE =
-    "An exception occurs during the reflection operation.";
-
-  public ReflectionException() {
-    super(DEFAULT_MESSAGE);
+  public ConstructorNotExistException(Class<?> cls, int options) {
+    super("There is no "
+        + Option.toString(options)
+        + " default constructor for the class "
+        + cls.getName());
   }
 
-  public ReflectionException(final String message) {
-    super(message);
-  }
-
-  public ReflectionException(final Throwable cause) {
-    super(DEFAULT_MESSAGE, cause);
-  }
-
-  public ReflectionException(final String message, final Throwable cause) {
-    super(message, cause);
+  public ConstructorNotExistException(Class<?> cls, int options,
+      Class<?>[] paramTypes) {
+    super("There is no "
+        + Option.toString(options)
+        + " constructor for the class "
+        + cls.getName()
+        + " with the parameter types ["
+        + StringUtils.join(',', paramTypes)
+        + "].");
   }
 
 }

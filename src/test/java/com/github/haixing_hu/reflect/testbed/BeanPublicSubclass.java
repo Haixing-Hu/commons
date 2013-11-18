@@ -16,34 +16,16 @@
  *
  ******************************************************************************/
 
-package com.github.haixing_hu.reflect;
+package com.github.haixing_hu.reflect.testbed;
 
 /**
- * Thrown to indicate an exception occurs during a reflection operation.
+ * This is a public subclass of TestBean. All of our properties should still be
+ * accessible via reflection.
  *
  * @author Haixing Hu
  */
-public class ReflectionException extends RuntimeException {
+public class BeanPublicSubclass extends Bean {
 
-  private static final long serialVersionUID = -4383352207393863063L;
-
-  private static final String DEFAULT_MESSAGE =
-    "An exception occurs during the reflection operation.";
-
-  public ReflectionException() {
-    super(DEFAULT_MESSAGE);
-  }
-
-  public ReflectionException(final String message) {
-    super(message);
-  }
-
-  public ReflectionException(final Throwable cause) {
-    super(DEFAULT_MESSAGE, cause);
-  }
-
-  public ReflectionException(final String message, final Throwable cause) {
-    super(message, cause);
-  }
+  private static final long serialVersionUID = 2508782625029106748L;
 
 }

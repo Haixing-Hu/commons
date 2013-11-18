@@ -18,32 +18,27 @@
 
 package com.github.haixing_hu.reflect;
 
+import com.github.haixing_hu.lang.StringUtils;
+
 /**
- * Thrown to indicate an exception occurs during a reflection operation.
+ * Thrown to indicate the specified method does not exist.
  *
  * @author Haixing Hu
  */
-public class ReflectionException extends RuntimeException {
+public class MethodNotExistException extends ReflectionException {
 
-  private static final long serialVersionUID = -4383352207393863063L;
+  private static final long serialVersionUID = 7457691421536998975L;
 
-  private static final String DEFAULT_MESSAGE =
-    "An exception occurs during the reflection operation.";
-
-  public ReflectionException() {
-    super(DEFAULT_MESSAGE);
+  public MethodNotExistException(Class<?> cls, int options, String name,
+      Class<?>[] paramTypes) {
+    super("There is no "
+        + Option.toString(options)
+        + " method named with '"
+        + name
+        + "' for the class "
+        + cls.getName()
+        + " with the parameter types ["
+        + StringUtils.join(',', paramTypes)
+        + "].");
   }
-
-  public ReflectionException(final String message) {
-    super(message);
-  }
-
-  public ReflectionException(final Throwable cause) {
-    super(DEFAULT_MESSAGE, cause);
-  }
-
-  public ReflectionException(final String message, final Throwable cause) {
-    super(message, cause);
-  }
-
 }

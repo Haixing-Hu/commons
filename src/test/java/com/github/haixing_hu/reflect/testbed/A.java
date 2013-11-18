@@ -16,34 +16,20 @@
  *
  ******************************************************************************/
 
-package com.github.haixing_hu.reflect;
+package com.github.haixing_hu.reflect.testbed;
+
+import java.io.OutputStream;
 
 /**
- * Thrown to indicate an exception occurs during a reflection operation.
+ * Class used in MethodUtils test
  *
  * @author Haixing Hu
  */
-public class ReflectionException extends RuntimeException {
+public class A {
 
-  private static final long serialVersionUID = -4383352207393863063L;
+  boolean called = false;
 
-  private static final String DEFAULT_MESSAGE =
-    "An exception occurs during the reflection operation.";
-
-  public ReflectionException() {
-    super(DEFAULT_MESSAGE);
+  public void foo(OutputStream os) {
+    called = true;
   }
-
-  public ReflectionException(final String message) {
-    super(message);
-  }
-
-  public ReflectionException(final Throwable cause) {
-    super(DEFAULT_MESSAGE, cause);
-  }
-
-  public ReflectionException(final String message, final Throwable cause) {
-    super(message, cause);
-  }
-
 }
