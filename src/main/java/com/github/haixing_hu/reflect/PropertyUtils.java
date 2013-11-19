@@ -193,7 +193,7 @@ public final class PropertyUtils {
           + "' has no getter method in the bean class '" + bean.getClass() + "'");
     }
     // Call the property getter and return the value
-    final Object value = MethodUtils.invokeMethod(bean, readMethod);
+    final Object value = MethodUtils.invokeMethod(readMethod, bean);
     return value;
   }
 
@@ -275,7 +275,7 @@ public final class PropertyUtils {
           + "' has no setter method in class '" + beanClass + "'");
     }
     // Call the property setter method
-    MethodUtils.invokeMethod(bean, writeMethod, value);
+    MethodUtils.invokeMethod(writeMethod, bean, value);
   }
 
 }

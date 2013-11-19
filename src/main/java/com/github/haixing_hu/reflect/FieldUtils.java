@@ -157,39 +157,6 @@ public class FieldUtils {
   }
 
   /**
-   * Gets the class of a field on a specified class.
-   * <p>
-   * NOTE: if the <code>options</code> argument contains {@link Option#ANCESTOR}
-   * , and there is more than one field with the specified name declared in the
-   * specified class or its ancestor class or its ancestor interfaces, the
-   * function will try to read the field with the shallower depth; if there are
-   * more than one field has the specified name in the same depth, the function
-   * will throw an {@link AmbiguousMemberException}.
-   *
-   * @param cls
-   *          The class on which to get the field type.
-   * @param options
-   *          A bitwise combination of reflection options defined in the
-   *          {@link Option} class. The default value could be
-   *          {@link Option#DEFAULT}.
-   * @param name
-   *          The name of the field to be get.
-   * @return the class of the specified field, or <code>null</code> if no such
-   *         field.
-   * @throws ReflectionException
-   *           if any error occurred.
-   */
-  public static Class<?> getFieldType(Class<?> cls, int options, String name)
-      throws ReflectionException {
-    final Field field = getField(cls, options, name);
-    if (field == null) {
-      return null;
-    } else {
-      return field.getClass();
-    }
-  }
-
-  /**
    * Gets the value of a field on the specified object.
    * <p>
    * The value is automatically wrapped in an object if it has a primitive type.
@@ -216,7 +183,7 @@ public class FieldUtils {
    * @throws ReflectionException
    *           if any error occurred.
    */
-  public static Object getFieldValue(Class<?> cls, int options, String name,
+  public static Object readField(Class<?> cls, int options, String name,
       @Nullable Object object) throws ReflectionException {
     final Field field = getField(cls, options, name);
     if (field == null) {
@@ -259,7 +226,7 @@ public class FieldUtils {
    * @throws ReflectionException
    *           if any error occurred.
    */
-  public static void setFieldValue(Class<?> cls, int options, String name,
+  public static void writeField(Class<?> cls, int options, String name,
       Object object, Object value) throws ReflectionException {
     requireNonNull("object", object);
     final Field field = getField(cls, options, name);

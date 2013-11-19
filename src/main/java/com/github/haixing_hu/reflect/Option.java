@@ -128,6 +128,12 @@ public class Option {
   public static final int BEAN_METHOD = ANCESTOR | NON_STATIC | PUBLIC;
 
   /**
+   * Indicates that the options is applied to static or non-static public members of the
+   * specified class or its super classes/interfaces.
+   */
+  public static final int ANCESTOR_PUBLIC = ANCESTOR | STATIC | NON_STATIC | PUBLIC;
+
+  /**
    * The default options, which is only applied to non-static members declared
    * in the specified class, with all possible accessibility.
    */

@@ -267,10 +267,10 @@ public class MethodUtils {
    * This function simply wrap the IllegalArgumentException to make the message
    * more instructive.
    *
-   * @param object
-   *          An object whose method should be invoked.
    * @param method
    *          The method to be invoked.
+   * @param object
+   *          An object whose method should be invoked.
    * @param arguments
    *          The arguments used to invoke the method, which may be
    *          <code>null</code> or empty if the method has no arguments.
@@ -278,7 +278,7 @@ public class MethodUtils {
    * @throws InvokingMethodFailedException
    *           if any error occurred.
    */
-  public static Object invokeMethod(Object object, Method method,
+  public static Object invokeMethod(Method method, Object object,
       @Nullable Object ... arguments) throws InvokingMethodFailedException {
     requireNonNull("object", object);
     requireNonNull("method", method);
