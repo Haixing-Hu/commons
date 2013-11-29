@@ -2,16 +2,16 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>com.github.haixing_hu</groupId>
+    <groupId>com.github.haixinghu</groupId>
     <artifactId>pom-root</artifactId>
     <version>1.0.0</version>
   </parent>
 
-  <groupId>com.github.haixing_hu</groupId>
-  <artifactId>haixing-commons</artifactId>
-  <version>${haixing-commons.version}</version>
+  <groupId>com.github.haixinghu</groupId>
+  <artifactId>commons</artifactId>
+  <version>${commons.version}</version>
   <packaging>jar</packaging>
-  <name>Commons</name>
+  <name>Commons Module</name>
 
   <dependencies>   
     <dependency>
