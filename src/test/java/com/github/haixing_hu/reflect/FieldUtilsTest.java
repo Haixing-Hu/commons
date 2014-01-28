@@ -115,8 +115,6 @@ public class FieldUtilsTest {
       fillSet(actual, FieldUtils.getAllFields(PublicBase.class, Option.ALL));
       assertEquals(expected, actual);
 
-
-
     }
 
 /*

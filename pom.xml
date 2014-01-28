@@ -8,10 +8,10 @@
   </parent>
 
   <groupId>com.github.haixing_hu</groupId>
-  <artifactId>haixing-commons</artifactId>
-  <version>${haixing-commons.version}</version>
+  <artifactId>commons</artifactId>
+  <version>${commons.version}</version>
   <packaging>jar</packaging>
-  <name>Commons</name>
+  <name>Common Modules</name>
 
   <dependencies>   
     <dependency>
