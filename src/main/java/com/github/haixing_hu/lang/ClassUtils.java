@@ -243,8 +243,8 @@ public final class ClassUtils {
    * is non-primitive.
    * <p>
    * Specifically, this method tests whether the type represented by the
-   * specified <code>Class</code> parameter can be converted to the type
-   * represented by this <code>Class</code> object via an identity conversion
+   * specified <code>cls</code> parameter can be converted to the type
+   * represented by the <code>toClass</code> parameter via an identity conversion
    * widening primitive or widening reference conversion. See
    * <em><a href="http://java.sun.com/docs/books/jls/">The Java Language Specification</a></em>
    * , sections 5.1.1, 5.1.2 and 5.1.4 for details.

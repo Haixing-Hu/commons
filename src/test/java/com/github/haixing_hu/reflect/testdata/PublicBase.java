@@ -23,7 +23,7 @@ package com.github.haixing_hu.reflect.testdata;
  *
  * @author Haixing Hu
  */
-public class PublicBase {
+public class PublicBase implements Interface {
 
   public static final String VALUE_2 = "PublicBase.VALUE_2";
 

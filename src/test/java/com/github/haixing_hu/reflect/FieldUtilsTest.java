@@ -36,7 +36,6 @@ import static org.junit.Assert.assertEquals;
 
 /**
  * Unit tests FieldUtils
- * @version $Id: FieldUtilsTest.java 1199724 2011-11-09 12:51:52Z sebb $
  */
 public class FieldUtilsTest {
 

@@ -29,9 +29,6 @@ import java.util.Set;
 
 import org.junit.Test;
 
-import com.github.haixing_hu.lang.ArrayUtils;
-import com.github.haixing_hu.lang.ClassUtils;
-
 import static org.junit.Assert.*;
 
 /**
@@ -204,8 +201,8 @@ public class ClassUtilsTest {
       assertEquals(true, ClassUtils.isAssignable(String.class, Object.class));
       assertEquals(true, ClassUtils.isAssignable(String.class, String.class));
       assertEquals(false, ClassUtils.isAssignable(Object.class, String.class));
-      assertEquals(false, ClassUtils.isAssignable(Integer.TYPE, Integer.class));
-      assertEquals(false, ClassUtils.isAssignable(Integer.class, Integer.TYPE));
+      assertEquals(true, ClassUtils.isAssignable(Integer.TYPE, Integer.class));
+      assertEquals(true, ClassUtils.isAssignable(Integer.class, Integer.TYPE));
       assertEquals(true, ClassUtils.isAssignable(Integer.TYPE, Integer.TYPE));
       assertEquals(true, ClassUtils.isAssignable(Integer.class, Integer.class));
   }
