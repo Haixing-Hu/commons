@@ -16,28 +16,27 @@
  *
  ******************************************************************************/
 
-package com.github.haixing_hu.collection;
+package com.github.haixing_hu.collection.tree;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.annotation.concurrent.NotThreadSafe;
 
 /**
- * An implementation of tree using a array list to store the children.
+ * An implementation of tree using an hash map to store the children.
  *
  * @author Haixing Hu
  */
 @NotThreadSafe
-public class ArrayListTree<KEY, VALUE> extends AbstractListTree<KEY, VALUE> {
+public class HashMapTree<KEY, VALUE> extends AbstractMapTree<KEY, VALUE> {
 
   @Override
-  protected List<Tree<KEY, VALUE>> makeTreeList() {
-    return new ArrayList<Tree<KEY, VALUE>>();
+  protected Map<KEY, Tree<KEY, VALUE>> makeTreeMap() {
+    return new HashMap<KEY, Tree<KEY, VALUE>>();
   }
 
-  public ArrayListTree(KEY key, VALUE value) {
+  public HashMapTree(KEY key, VALUE value) {
     super(key, value);
   }
-
 }

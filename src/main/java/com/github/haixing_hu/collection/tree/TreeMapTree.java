@@ -16,27 +16,27 @@
  *
  ******************************************************************************/
 
-package com.github.haixing_hu.collection;
+package com.github.haixing_hu.collection.tree;
 
-import java.util.LinkedList;
-import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 import javax.annotation.concurrent.NotThreadSafe;
 
 /**
- * An implementation of tree using a linked list to store the children.
+ * An implementation of tree using an tree map to store the children.
  *
  * @author Haixing Hu
  */
 @NotThreadSafe
-public class LinkedListTree<KEY, VALUE> extends AbstractListTree<KEY, VALUE> {
+public class TreeMapTree<KEY, VALUE> extends AbstractMapTree<KEY, VALUE> {
 
   @Override
-  protected List<Tree<KEY, VALUE>> makeTreeList() {
-    return new LinkedList<Tree<KEY, VALUE>>();
+  protected Map<KEY, Tree<KEY, VALUE>> makeTreeMap() {
+    return new TreeMap<KEY, Tree<KEY, VALUE>>();
   }
 
-  public LinkedListTree(KEY key, VALUE value) {
+  public TreeMapTree(KEY key, VALUE value) {
     super(key, value);
   }
 

@@ -16,7 +16,7 @@
  *
  ******************************************************************************/
 
-package com.github.haixing_hu.collection;
+package com.github.haixing_hu.collection.tree;
 
 import java.util.Collection;
 import java.util.Collections;
