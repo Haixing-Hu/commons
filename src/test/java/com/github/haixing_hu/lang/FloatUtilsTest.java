@@ -545,7 +545,7 @@ public class FloatUtilsTest {
     value2 = null;
     // there is a bug through JDK 1.3 to 1.6, and is resolved in JDK 1.7
     // see http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=4511638
-    if (SystemUtils.IS_JAVA_1_7) {
+    if (SystemUtils.JAVA_VERSION_FLOAT >= 1.70f) {
       assertEquals("0.005", FloatUtils.toString(value1, value2));
     } else {
       assertEquals("0.0050", FloatUtils.toString(value1, value2));
@@ -553,7 +553,7 @@ public class FloatUtilsTest {
 
     value1 = 0.005f;
     value2 = "helloworld";
-    if (SystemUtils.IS_JAVA_1_7) {
+    if (SystemUtils.JAVA_VERSION_FLOAT >= 1.70f) {
       assertEquals("0.005", FloatUtils.toString(value1, value2));
     } else {
       assertEquals("0.0050", FloatUtils.toString(value1, value2));
