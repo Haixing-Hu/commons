@@ -33,13 +33,11 @@ public class EnumUtils {
 
   /**
    * Gets the enumeration name of a short name of an {@link Enum} value.
-   * <p>
-   * A short name of an {@link Enum} value comes from lowercase the enumeration
-   * name of the {@link Enum} value and replacing all '_' with '-'.
-   * </p>
    *
    * @param shortName
-   *          The short name of an {@link Enum} value.
+   *          The short name of an {@link Enum} value. A short name of an
+   *          {@link Enum} value comes from lowercase the enumeration name of
+   *          the {@link Enum} value and replacing all '_' with '-'.
    * @return The enumeration name of the {@link Enum} value.
    */
   public static String getFullName(final String shortName) {
@@ -53,7 +51,9 @@ public class EnumUtils {
    *          The class object of a {@link Enum} class.
    * @param name
    *          The name of an {@link Enum} value, either the enumeration name or
-   *          the short name.
+   *          the short name. A short name of an {@link Enum} value comes from
+   *          lowercase the enumeration name of the {@link Enum} value and
+   *          replacing all '_' with '-'.
    * @param isShortName
    *          whether the name is the short name.
    * @param ignoreCase
@@ -75,6 +75,20 @@ public class EnumUtils {
     return null;
   }
 
+  /**
+   * Converts an enumerator to its string representation.
+   *
+   * @param value
+   *          an enumerator.
+   * @param useShortName
+   *          indicates whether to convert to short name of the enumerator. A
+   *          short name of an {@link Enum} value comes from lowercase the
+   *          enumeration name of the {@link Enum} value and replacing all '_'
+   *          with '-'. If this argument is <code>false</code>, the string
+   *          representation of an enumerator is its name (without case
+   *          changing).
+   * @return the string representation of the enumerator.
+   */
   public static <E extends Enum<E>> String toString(@Nullable final E value,
       final boolean useShortName) {
     if (value == null) {
