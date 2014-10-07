@@ -34,7 +34,7 @@ public class ParseException extends java.text.ParseException {
   public ParseException(final String text, final int errorOffset) {
     super(text, errorOffset);
     this.text = text;
-    this.message = null;
+    message = null;
   }
 
   public ParseException(final String text, final int errorOffset,

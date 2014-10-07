@@ -45,7 +45,7 @@ public class EnumUtils {
   }
 
   /**
-   * Gets the {@link Enum} value accroding to its name.
+   * Gets the {@link Enum} value according to its name.
    *
    * @param <E>
    *          The class object of a {@link Enum} class.
@@ -60,7 +60,8 @@ public class EnumUtils {
    *          whether to ignore the case while comparing strings.
    * @param enumClass
    *          The class object of the {@link Enum} class.
-   * @return
+   * @return the {@link Enum} value corresponds to the name, or
+   *         <code>null</code> if no such value.
    */
   public static <E extends Enum<E>> E forName(final String name,
       final boolean isShortName, final boolean ignoreCase,

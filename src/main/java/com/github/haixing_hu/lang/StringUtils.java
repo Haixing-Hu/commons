@@ -2576,6 +2576,30 @@ public class StringUtils {
   }
 
   /**
+   * Tests whether a string contains a character.
+   *
+   * @param str
+   *          a string, may be {@code null}.
+   * @param ch
+   *          a character.
+   * @return {@code true} if the {@code str} is not {@code null} and contains
+   *         {@code ch}; {@code false} otherwise.
+   */
+  public static boolean containsChar(@Nullable String str, char ch) {
+    if (str == null) {
+      return false;
+    } else {
+      final int n = str.length();
+      for (int i = 0; i < n; ++i) {
+        if (str.charAt(i) == ch) {
+          return true;
+        }
+      }
+      return false;
+    }
+  }
+
+  /**
    * Checks if the string contains only certain characters.
    * <p>
    * A <code>null</code> string will return <code>false</code>. A

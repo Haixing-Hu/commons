@@ -286,8 +286,8 @@ public class ArrayUtils {
     }
     return map;
   }*/
-  
-  public static <T extends Comparable<? super T>> 
+
+  public static <T extends Comparable<? super T>>
   T max(@Nullable T[] array, int start, int end) {
     if (array == null) {
       return null;
@@ -307,21 +307,21 @@ public class ArrayUtils {
         if (result == null) {
           result = array[i];
         } else if (result.compareTo(array[i]) < 0) {
-          result = array[i];          
+          result = array[i];
         }
       }
     }
     return result;
   }
-  
+
   public static <T extends Comparable<? super T>> T max(@Nullable T[] array) {
     if (array == null) {
       return null;
     }
     return max(array, 0, array.length);
   }
-  
-  public static <T extends Comparable<? super T>> 
+
+  public static <T extends Comparable<? super T>>
   T min(@Nullable T[] array, int start, int end) {
     if (array == null) {
       return null;
@@ -341,13 +341,13 @@ public class ArrayUtils {
         if (result == null) {
           result = null;
         } else if (result.compareTo(array[i]) > 0) {
-          result = array[i];          
+          result = array[i];
         }
       }
     }
     return result;
   }
-  
+
   public static <T extends Comparable<? super T>> T min(@Nullable T[] array) {
     if (array == null) {
       return null;
@@ -4753,6 +4753,7 @@ public class ArrayUtils {
    * @param a the array by which the list will be backed
    * @return a list view of the specified array
    */
+  @SafeVarargs
   public static <T> List<T> asList(final T... a) {
     return new ArrayAsList<T>(a);
   }
@@ -5923,5 +5924,510 @@ public class ArrayUtils {
       }
     }
     return index;
+  }
+
+  /**
+   * Sums the values of elements in an array.
+   *
+   * @param array
+   *      the array of values.
+   * @return
+   *      the sum of all values in the array.
+   */
+  public static int sum(byte[] array) {
+    int result = 0;
+    for (final byte v : array) {
+      result += v;
+    }
+    return result;
+  }
+
+  /**
+   * Sums the values of elements in an array.
+   *
+   * @param array
+   *      the array of values.
+   * @param startIndex
+   *      the index of value starting the sum.
+   * @param endIndex
+   *      the index next to the value ending the sum.
+   * @return
+   *      the sum of all values in the array.
+   */
+  public static int sum(byte[] array, int startIndex, int endIndex) {
+    if (startIndex < 0) {
+      startIndex = 0;
+    }
+    if (endIndex > array.length) {
+      endIndex = array.length;
+    }
+    int result = 0;
+    for (int i = startIndex; i < endIndex; ++i) {
+      result += array[i];
+    }
+    return result;
+  }
+
+  /**
+   * Sums the values of elements in an array.
+   *
+   * @param array
+   *      the array of values.
+   * @return
+   *      the sum of all values in the array.
+   */
+  public static int sum(short[] array) {
+    int result = 0;
+    for (final short v : array) {
+      result += v;
+    }
+    return result;
+  }
+
+  /**
+   * Sums the values of elements in an array.
+   *
+   * @param array
+   *      the array of values.
+   * @param startIndex
+   *      the index of value starting the sum.
+   * @param endIndex
+   *      the index next to the value ending the sum.
+   * @return
+   *      the sum of all values in the array.
+   */
+  public static int sum(short[] array, int startIndex, int endIndex) {
+    if (startIndex < 0) {
+      startIndex = 0;
+    }
+    if (endIndex > array.length) {
+      endIndex = array.length;
+    }
+    int result = 0;
+    for (int i = startIndex; i < endIndex; ++i) {
+      result += array[i];
+    }
+    return result;
+  }
+
+  /**
+   * Sums the values of elements in an array.
+   *
+   * @param array
+   *      the array of values.
+   * @return
+   *      the sum of all values in the array.
+   */
+  public static int sum(int[] array) {
+    int result = 0;
+    for (final int v : array) {
+      result += v;
+    }
+    return result;
+  }
+
+  /**
+   * Sums the values of elements in an array.
+   *
+   * @param array
+   *      the array of values.
+   * @param startIndex
+   *      the index of value starting the sum.
+   * @param endIndex
+   *      the index next to the value ending the sum.
+   * @return
+   *      the sum of all values in the array.
+   */
+  public static int sum(int[] array, int startIndex, int endIndex) {
+    if (startIndex < 0) {
+      startIndex = 0;
+    }
+    if (endIndex > array.length) {
+      endIndex = array.length;
+    }
+    int result = 0;
+    for (int i = startIndex; i < endIndex; ++i) {
+      result += array[i];
+    }
+    return result;
+  }
+
+  /**
+   * Sums the values of elements in an array.
+   *
+   * @param array
+   *      the array of values.
+   * @return
+   *      the sum of all values in the array.
+   */
+  public static long sum(long[] array) {
+    long result = 0;
+    for (final long v : array) {
+      result += v;
+    }
+    return result;
+  }
+
+  /**
+   * Sums the values of elements in an array.
+   *
+   * @param array
+   *      the array of values.
+   * @param startIndex
+   *      the index of value starting the sum.
+   * @param endIndex
+   *      the index next to the value ending the sum.
+   * @return
+   *      the sum of all values in the array.
+   */
+  public static long sum(long[] array, int startIndex, int endIndex) {
+    if (startIndex < 0) {
+      startIndex = 0;
+    }
+    if (endIndex > array.length) {
+      endIndex = array.length;
+    }
+    long result = 0;
+    for (int i = startIndex; i < endIndex; ++i) {
+      result += array[i];
+    }
+    return result;
+  }
+
+  /**
+   * Sums the values of elements in an array.
+   *
+   * @param array
+   *      the array of values.
+   * @return
+   *      the sum of all values in the array.
+   */
+  public static float sum(float[] array) {
+    float result = 0;
+    for (final float v : array) {
+      result += v;
+    }
+    return result;
+  }
+
+  /**
+   * Sums the values of elements in an array.
+   *
+   * @param array
+   *      the array of values.
+   * @param startIndex
+   *      the index of value starting the sum.
+   * @param endIndex
+   *      the index next to the value ending the sum.
+   * @return
+   *      the sum of all values in the array.
+   */
+  public static float sum(float[] array, int startIndex, int endIndex) {
+    if (startIndex < 0) {
+      startIndex = 0;
+    }
+    if (endIndex > array.length) {
+      endIndex = array.length;
+    }
+    float result = 0;
+    for (int i = startIndex; i < endIndex; ++i) {
+      result += array[i];
+    }
+    return result;
+  }
+
+  /**
+   * Sums the values of elements in an array.
+   *
+   * @param array
+   *      the array of values.
+   * @return
+   *      the sum of all values in the array.
+   */
+  public static double sum(double[] array) {
+    double result = 0;
+    for (final double v : array) {
+      result += v;
+    }
+    return result;
+  }
+
+  /**
+   * Sums the values of elements in an array.
+   *
+   * @param array
+   *      the array of values.
+   * @param startIndex
+   *      the index of value starting the sum.
+   * @param endIndex
+   *      the index next to the value ending the sum.
+   * @return
+   *      the sum of all values in the array.
+   */
+  public static double sum(double[] array, int startIndex, int endIndex) {
+    if (startIndex < 0) {
+      startIndex = 0;
+    }
+    if (endIndex > array.length) {
+      endIndex = array.length;
+    }
+    double result = 0;
+    for (int i = startIndex; i < endIndex; ++i) {
+      result += array[i];
+    }
+    return result;
+  }
+
+
+  /**
+   * Products the values of elements in an array.
+   *
+   * @param array
+   *      the array of values.
+   * @return
+   *      the production of all values in the array.
+   */
+  public static double product(byte[] array) {
+    double result = 1;
+    for (final byte v : array) {
+      result *= v;
+    }
+    return result;
+  }
+
+  /**
+   * Products the values of elements in an array.
+   *
+   * @param array
+   *      the array of values.
+   * @param startIndex
+   *      the index of value starting the sum.
+   * @param endIndex
+   *      the index next to the value ending the sum.
+   * @return
+   *      the production of all values in the array.
+   */
+  public static double product(byte[] array, int startIndex, int endIndex) {
+    if (startIndex < 0) {
+      startIndex = 0;
+    }
+    if (endIndex > array.length) {
+      endIndex = array.length;
+    }
+    double result = 1;
+    for (int i = startIndex; i < endIndex; ++i) {
+      result *= array[i];
+    }
+    return result;
+  }
+
+  /**
+   * Products the values of elements in an array.
+   *
+   * @param array
+   *      the array of values.
+   * @return
+   *      the production of all values in the array.
+   */
+  public static double product(short[] array) {
+    double result = 1;
+    for (final short v : array) {
+      result *= v;
+    }
+    return result;
+  }
+
+  /**
+   * Products the values of elements in an array.
+   *
+   * @param array
+   *      the array of values.
+   * @param startIndex
+   *      the index of value starting the sum.
+   * @param endIndex
+   *      the index next to the value ending the sum.
+   * @return
+   *      the production of all values in the array.
+   */
+  public static double product(short[] array, int startIndex, int endIndex) {
+    if (startIndex < 0) {
+      startIndex = 0;
+    }
+    if (endIndex > array.length) {
+      endIndex = array.length;
+    }
+    double result = 1;
+    for (int i = startIndex; i < endIndex; ++i) {
+      result *= array[i];
+    }
+    return result;
+  }
+
+  /**
+   * Products the values of elements in an array.
+   *
+   * @param array
+   *      the array of values.
+   * @return
+   *      the production of all values in the array.
+   */
+  public static double product(int[] array) {
+    double result = 1;
+    for (final int v : array) {
+      result *= v;
+    }
+    return result;
+  }
+
+  /**
+   * Products the values of elements in an array.
+   *
+   * @param array
+   *      the array of values.
+   * @param startIndex
+   *      the index of value starting the sum.
+   * @param endIndex
+   *      the index next to the value ending the sum.
+   * @return
+   *      the production of all values in the array.
+   */
+  public static double product(int[] array, int startIndex, int endIndex) {
+    if (startIndex < 0) {
+      startIndex = 0;
+    }
+    if (endIndex > array.length) {
+      endIndex = array.length;
+    }
+    double result = 1;
+    for (int i = startIndex; i < endIndex; ++i) {
+      result *= array[i];
+    }
+    return result;
+  }
+
+  /**
+   * Products the values of elements in an array.
+   *
+   * @param array
+   *      the array of values.
+   * @return
+   *      the production of all values in the array.
+   */
+  public static double product(long[] array) {
+    double result = 1;
+    for (final long v : array) {
+      result *= v;
+    }
+    return result;
+  }
+
+  /**
+   * Products the values of elements in an array.
+   *
+   * @param array
+   *      the array of values.
+   * @param startIndex
+   *      the index of value starting the sum.
+   * @param endIndex
+   *      the index next to the value ending the sum.
+   * @return
+   *      the production of all values in the array.
+   */
+  public static double product(long[] array, int startIndex, int endIndex) {
+    if (startIndex < 0) {
+      startIndex = 0;
+    }
+    if (endIndex > array.length) {
+      endIndex = array.length;
+    }
+    double result = 1;
+    for (int i = startIndex; i < endIndex; ++i) {
+      result *= array[i];
+    }
+    return result;
+  }
+
+  /**
+   * Products the values of elements in an array.
+   *
+   * @param array
+   *      the array of values.
+   * @return
+   *      the production of all values in the array.
+   */
+  public static float product(float[] array) {
+    float result = 1;
+    for (final float v : array) {
+      result *= v;
+    }
+    return result;
+  }
+
+  /**
+   * Products the values of elements in an array.
+   *
+   * @param array
+   *      the array of values.
+   * @param startIndex
+   *      the index of value starting the sum.
+   * @param endIndex
+   *      the index next to the value ending the sum.
+   * @return
+   *      the production of all values in the array.
+   */
+  public static float product(float[] array, int startIndex, int endIndex) {
+    if (startIndex < 0) {
+      startIndex = 0;
+    }
+    if (endIndex > array.length) {
+      endIndex = array.length;
+    }
+    float result = 1;
+    for (int i = startIndex; i < endIndex; ++i) {
+      result *= array[i];
+    }
+    return result;
+  }
+
+  /**
+   * Products the values of elements in an array.
+   *
+   * @param array
+   *      the array of values.
+   * @return
+   *      the production of all values in the array.
+   */
+  public static double product(double[] array) {
+    double result = 1;
+    for (final double v : array) {
+      result *= v;
+    }
+    return result;
+  }
+
+  /**
+   * Products the values of elements in an array.
+   *
+   * @param array
+   *      the array of values.
+   * @param startIndex
+   *      the index of value starting the sum.
+   * @param endIndex
+   *      the index next to the value ending the sum.
+   * @return
+   *      the production of all values in the array.
+   */
+  public static double product(double[] array, int startIndex, int endIndex) {
+    if (startIndex < 0) {
+      startIndex = 0;
+    }
+    if (endIndex > array.length) {
+      endIndex = array.length;
+    }
+    double result = 1;
+    for (int i = startIndex; i < endIndex; ++i) {
+      result *= array[i];
+    }
+    return result;
   }
 }

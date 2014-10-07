@@ -152,8 +152,8 @@ public class CStringLiteral {
   /**
    * Given a C-style string literal (without quoted), decode it into a byte
    * array.
-   *
-   * This function reads a C-style string literal, and decode it to a byte
+   * <p>
+   * This function reads a C-style string literal, and decodes it to a byte
    * array. The string literal is in the unquoted form (i.e., without leading
    * and trailing double quote), and does not contain any character whose code
    * point is greater than 0xFF.
@@ -174,8 +174,8 @@ public class CStringLiteral {
   /**
    * Given a C-style string literal (without quoted), decode it into a byte
    * array.
-   *
-   * This function reads a C-style string literal, and decode it to a byte
+   * <p>
+   * This function reads a C-style string literal, and decodes it to a byte
    * array. The string literal is in the unquoted form (i.e., without leading
    * and trailing double quote), and does not contain any character whose code
    * point is greater than 0xFF.
@@ -199,8 +199,8 @@ public class CStringLiteral {
   /**
    * Given a C-style string literal (without quoted), decode it into a byte
    * array.
-   *
-   * This function reads a C-style string literal, and decode it to a byte
+   * <p>
+   * This function reads a C-style string literal, and decodes it to a byte
    * array. The string literal is in the unquoted form (i.e., without leading
    * and trailing double quote), and does not contain any character whose code
    * point is greater than 0xFF.
@@ -340,12 +340,42 @@ public class CStringLiteral {
     return result;
   }
 
+  /**
+   * Given a byte array of the raw data of an ASCII string, encode it to a
+   * C-style string literal (without quoted).
+   * <p>
+   * This function reads a byte array of the raw data of an ASCII string, and
+   * encodes it into a C-style string literal. The string literal is in the
+   * unquoted form (i.e., without leading and trailing double quote), and does
+   * not contain any character whose code point is greater than 0xFF.
+   *
+   * @param rawData
+   *          the byte array of the raw data of an ASCII string, which cannot be
+   *          {@code null}.
+   * @return the C-style string literal encoded from the byte array.
+   */
   public static String encode(final byte[] rawData) {
     final StringBuilder builder = new StringBuilder();
     encode(rawData, builder);
     return builder.toString();
   }
 
+  /**
+   * Given a byte array of the raw data of an ASCII string, encode it to a
+   * C-style string literal (without quoted).
+   * <p>
+   * This function reads a byte array of the raw data of an ASCII string, and
+   * encodes it into a C-style string literal. The string literal is in the
+   * unquoted form (i.e., without leading and trailing double quote), and does
+   * not contain any character whose code point is greater than 0xFF.
+   *
+   * @param rawData
+   *          the byte array of the raw data of an ASCII string, which cannot be
+   *          {@code null}.
+   * @param builder
+   *          used to append the C-style string literal encoded from the byte
+   *          array.
+   */
   public static void encode(final byte[] rawData, final StringBuilder builder) {
     final NumberFormat nf = new NumberFormat();
     final NumberFormatOptions options = nf.getOptions();
