@@ -38,7 +38,7 @@ import static com.github.haixing_hu.lang.Argument.*;
 import static com.github.haixing_hu.lang.ArrayUtils.EMPTY_FLOAT_ARRAY;
 
 /**
- * A simple auto-expansion buffer of <code>float</code> values.
+ * A simple auto-expansion buffer of {@code float} values.
  *
  * @author Haixing Hu
  */
@@ -54,12 +54,12 @@ public final class FloatBuffer implements Swapable<FloatBuffer>,
   }
 
   /**
-   * The buffer used to store the <code>float</code> values.
+   * The buffer used to store the {@code float} values.
    */
   protected float[] buffer;
 
   /**
-   * The length of the array stored in this <code>float</code> buffer.
+   * The length of the array stored in this {@code float} buffer.
    */
   protected int length;
 
@@ -235,16 +235,16 @@ public final class FloatBuffer implements Swapable<FloatBuffer>,
   /**
    * Returns the current within this buffer of the first occurrence of the
    * specified value, starting the search at the specified
-   * <code>beginIndex</code> and finishing at <code>endIndex</code>. If no such
-   * value occurs in this buffer within the specified bounds, <code>-1</code> is
+   * {@code beginIndex} and finishing at {@code endIndex}. If no such
+   * value occurs in this buffer within the specified bounds, {@code -1} is
    * returned.
    * <p>
-   * There is no restriction on the value of <code>beginIndex</code> and
-   * <code>endIndex</code>. If <code>beginIndex</code> is negative, it has the
-   * same effect as if it were zero. If <code>endIndex</code> is greater than
+   * There is no restriction on the value of {@code beginIndex} and
+   * {@code endIndex}. If {@code beginIndex} is negative, it has the
+   * same effect as if it were zero. If {@code endIndex} is greater than
    * {@link #length()}, it has the same effect as if it were {@link #length()}.
-   * If the <code>beginIndex</code> is greater than the <code>endIndex</code>,
-   * <code>-1</code> is returned.
+   * If the {@code beginIndex} is greater than the {@code endIndex},
+   * {@code -1} is returned.
    *
    * @param value
    *          the value to search for.
@@ -255,7 +255,7 @@ public final class FloatBuffer implements Swapable<FloatBuffer>,
    * @param epsilon
    *          the epsilon used to compare floating-point values.
    * @return the current of the first occurrence of the value in the buffer
-   *         within the given bounds, or <code>-1</code> if the value does not
+   *         within the given bounds, or {@code -1} if the value does not
    *         occur.
    */
   public int indexOf(final float value, int beginIndex, int endIndex,
@@ -280,16 +280,16 @@ public final class FloatBuffer implements Swapable<FloatBuffer>,
   /**
    * Returns the current within this buffer of the last occurrence of the
    * specified value, starting the search at the specified
-   * <code>beginIndex</code> and finishing at <code>endIndex</code>. If no such
-   * value occurs in this buffer within the specified bounds, <code>-1</code> is
+   * {@code beginIndex} and finishing at {@code endIndex}. If no such
+   * value occurs in this buffer within the specified bounds, {@code -1} is
    * returned.
    * <p>
-   * There is no restriction on the value of <code>beginIndex</code> and
-   * <code>endIndex</code>. If <code>beginIndex</code> is negative, it has the
-   * same effect as if it were zero. If <code>endIndex</code> is greater than
+   * There is no restriction on the value of {@code beginIndex} and
+   * {@code endIndex}. If {@code beginIndex} is negative, it has the
+   * same effect as if it were zero. If {@code endIndex} is greater than
    * {@link #length()}, it has the same effect as if it were {@link #length()}.
-   * If the <code>beginIndex</code> is greater than the <code>endIndex</code>,
-   * <code>-1</code> is returned.
+   * If the {@code beginIndex} is greater than the {@code endIndex},
+   * {@code -1} is returned.
    *
    * @param ch
    *          the value to search for.
@@ -301,7 +301,7 @@ public final class FloatBuffer implements Swapable<FloatBuffer>,
    * @param epsilon
    *          the epsilon used to compare floating-point values.
    * @return the current of the first occurrence of the value in the buffer
-   *         within the given bounds, or <code>-1</code> if the value does not
+   *         within the given bounds, or {@code -1} if the value does not
    *         occur.
    */
   public int lastIndexOf(final float value, int beginIndex, int endIndex,
@@ -325,16 +325,16 @@ public final class FloatBuffer implements Swapable<FloatBuffer>,
 
   /**
    * Returns the current within this buffer of the first occurrence of the
-   * specified value, starting the search at <code>0</code> and finishing at
+   * specified value, starting the search at {@code 0} and finishing at
    * {@link #length()}. If no such value occurs in this buffer within those
-   * bounds, <code>-1</code> is returned.
+   * bounds, {@code -1} is returned.
    *
    * @param value
    *          the value to search for.
    * @param epsilon
    *          the epsilon used to compare floating-point values.
    * @return the current of the first occurrence of the character in the buffer,
-   *         or <code>-1</code> if the value does not occur.
+   *         or {@code -1} if the value does not occur.
    */
   public int indexOf(final float value, final float epsilon) {
     return indexOf(value, 0, length, epsilon);
@@ -342,16 +342,16 @@ public final class FloatBuffer implements Swapable<FloatBuffer>,
 
   /**
    * Returns the current within this buffer of the last occurrence of the
-   * specified value, starting the search at <code>0</code> and finishing at
+   * specified value, starting the search at {@code 0} and finishing at
    * {@link #length()}. If no such value occurs in this buffer within those
-   * bounds, <code>-1</code> is returned.
+   * bounds, {@code -1} is returned.
    *
    * @param value
    *          the value to search for.
    * @param epsilon
    *          the epsilon used to compare floating-point values.
    * @return the current of the first occurrence of the character in the buffer,
-   *         or <code>-1</code> if the value does not occur.
+   *         or {@code -1} if the value does not occur.
    */
   public int lastIndexOf(final float value, final float epsilon) {
     return lastIndexOf(value, 0, length, epsilon);

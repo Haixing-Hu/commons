@@ -25,7 +25,7 @@ import javax.annotation.concurrent.Immutable;
 /**
  * This {@link Writer} writes all data to the famous <b>/dev/null</b>.
  *
- * This <code>Writer</code> has no destination (file/socket etc.) and all
+ * This {@code Writer} has no destination (file/socket etc.) and all
  * characters written to it are ignored and lost.
  *
  * @author Haixing Hu
@@ -46,7 +46,7 @@ public final class NullWriter extends Writer {
   }
 
   /**
-   * Does nothing - output to <code>/dev/null</code>.
+   * Does nothing - output to {@code /dev/null}.
    *
    * @param idx
    *          The character to write
@@ -57,7 +57,7 @@ public final class NullWriter extends Writer {
   }
 
   /**
-   * Does nothing - output to <code>/dev/null</code>.
+   * Does nothing - output to {@code /dev/null}.
    *
    * @param chr
    *          The characters to write
@@ -68,7 +68,7 @@ public final class NullWriter extends Writer {
   }
 
   /**
-   * Does nothing - output to <code>/dev/null</code>.
+   * Does nothing - output to {@code /dev/null}.
    *
    * @param chr
    *          The characters to write
@@ -83,7 +83,7 @@ public final class NullWriter extends Writer {
   }
 
   /**
-   * Does nothing - output to <code>/dev/null</code>.
+   * Does nothing - output to {@code /dev/null}.
    *
    * @param str
    *          The string to write
@@ -94,7 +94,7 @@ public final class NullWriter extends Writer {
   }
 
   /**
-   * Does nothing - output to <code>/dev/null</code>.
+   * Does nothing - output to {@code /dev/null}.
    *
    * @param str
    *          The string to write

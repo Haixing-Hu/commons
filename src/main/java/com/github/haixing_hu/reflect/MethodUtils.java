@@ -45,12 +45,12 @@ import static com.github.haixing_hu.lang.Argument.requireNonNull;
  * There is an issue when invoking public methods contained in a default access
  * superclass on JREs prior to 1.4. Reflection locates these methods fine and
  * correctly assigns them as public. However, an
- * <code>IllegalAccessException</code> is thrown if the method is invoked.
+ * {@code IllegalAccessException} is thrown if the method is invoked.
  * </p>
  *
  * <p>
- * <code>MethodUtils</code> contains a workaround for this situation. It will
- * attempt to call <code>setAccessible</code> on this method. If this call
+ * {@code MethodUtils} contains a workaround for this situation. It will
+ * attempt to call {@code setAccessible} on this method. If this call
  * succeeds, then the method can be invoked as normal. This call will only
  * succeed when the application has sufficient security privileges. If this call
  * fails then the method may fail.
@@ -131,7 +131,7 @@ public class MethodUtils {
    * Gets a method of a class that matches the given name and the given
    * parameter types.
    * <p>
-   * NOTE: if the <code>options</code> argument contains {@link Option#ANCESTOR}
+   * NOTE: if the {@code options} argument contains {@link Option#ANCESTOR}
    * , and there is more than one method with the specified name and parameter
    * types declared in the specified class or its ancestor class or its ancestor
    * interfaces, the function will try to return the method with the shallower
@@ -149,9 +149,9 @@ public class MethodUtils {
    *          The name of the method to be get.
    * @param paramTypes
    *          The types of the parameters of the method to be get, or
-   *          <code>null</code> or an empty array if the method to be get has no
+   *          {@code null} or an empty array if the method to be get has no
    *          parameter.
-   * @return the specified method, or <code>null</code> if no such field.
+   * @return the specified method, or {@code null} if no such field.
    * @throws ReflectionException
    *           if any error occurred.
    */
@@ -196,7 +196,7 @@ public class MethodUtils {
    * Gets a method of a class that matches the given name and the compatible
    * parameter types.
    * <p>
-   * NOTE: if the <code>options</code> argument contains {@link Option#ANCESTOR}
+   * NOTE: if the {@code options} argument contains {@link Option#ANCESTOR}
    * , and there is more than one method with the specified name and parameter
    * types declared in the specified class or its ancestor class or its ancestor
    * interfaces, the function will try to return the method with the shallower
@@ -215,7 +215,7 @@ public class MethodUtils {
    * @param paramTypes
    *          The types of the compatible parameters of the method to be get, or
    *          an empty array if the method to be get has no parameter.
-   * @return the specified method, or <code>null</code> if no such field.
+   * @return the specified method, or {@code null} if no such field.
    * @throws ReflectionException
    *           if any error occurred.
    */
@@ -273,7 +273,7 @@ public class MethodUtils {
    *          An object whose method should be invoked.
    * @param arguments
    *          The arguments used to invoke the method, which may be
-   *          <code>null</code> or empty if the method has no arguments.
+   *          {@code null} or empty if the method has no arguments.
    * @return The value returned by the invoked method.
    * @throws InvokingMethodFailedException
    *           if any error occurred.
@@ -300,8 +300,8 @@ public class MethodUtils {
    * {@link #getMatchingMethod(Class, String, Class[])}.
    * <p>
    * This method supports calls to methods taking primitive parameters via
-   * passing in wrapping classes. So, for example, a <code>Boolean</code> object
-   * would match a <code>boolean</code> primitive.
+   * passing in wrapping classes. So, for example, a {@code Boolean} object
+   * would match a {@code boolean} primitive.
    *
    * @param cls
    *          The class on which to get the method.
@@ -313,10 +313,10 @@ public class MethodUtils {
    *          The name of the method to be get.
    * @param object
    *          The object on which the method should be called. If the method is
-   *          a static method, this argument could be <code>null</code>.
+   *          a static method, this argument could be {@code null}.
    * @param arguments
    *          The arguments used to invoke the method. If the method has no
-   *          argument, this argument could be <code>null</code> or an empty
+   *          argument, this argument could be {@code null} or an empty
    *          array.
    * @return The value returned by the invoked method.
    * @throws ReflectionException
@@ -343,8 +343,8 @@ public class MethodUtils {
    * {@link #getMatchingMethod(Class, String, Class[])}.
    * <p>
    * This method supports calls to methods taking primitive parameters via
-   * passing in wrapping classes. So, for example, a <code>Boolean</code> object
-   * would match a <code>boolean</code> primitive.
+   * passing in wrapping classes. So, for example, a {@code Boolean} object
+   * would match a {@code boolean} primitive.
    *
    * @param cls
    *          The class on which to get the method.
@@ -356,14 +356,14 @@ public class MethodUtils {
    *          The name of the method to be get.
    * @param paramTypes
    *          The types of the parameters of the method to be get, which could
-   *          be <code>null</code> or an empty array if the method has no
+   *          be {@code null} or an empty array if the method has no
    *          argument.
    * @param object
    *          The object on which the method should be called. If the method is
-   *          a static method, this argument could be <code>null</code>.
+   *          a static method, this argument could be {@code null}.
    * @param arguments
    *          The arguments used to invoke the method. If the method has no
-   *          argument, this argument could be <code>null</code> or an empty
+   *          argument, this argument could be {@code null} or an empty
    *          array.
    * @return The value returned by the invoked method.
    * @throws ReflectionException
@@ -403,10 +403,10 @@ public class MethodUtils {
    *          The name of the method to be get.
    * @param object
    *          The object on which the method should be called. If the method is
-   *          a static method, this argument could be <code>null</code>.
+   *          a static method, this argument could be {@code null}.
    * @param arguments
    *          The arguments used to invoke the method. If the method has no
-   *          argument, this argument could be <code>null</code> or an empty
+   *          argument, this argument could be {@code null} or an empty
    *          array.
    * @return The value returned by the invoked method.
    * @throws ReflectionException
@@ -443,14 +443,14 @@ public class MethodUtils {
    *          The name of the method to be get.
    * @param paramTypes
    *          The types of the parameters of the method to be get, which could
-   *          be <code>null</code> or an empty array if the method has no
+   *          be {@code null} or an empty array if the method has no
    *          argument.
    * @param object
    *          The object on which the method should be called. If the method is
-   *          a static method, this argument could be <code>null</code>.
+   *          a static method, this argument could be {@code null}.
    * @param arguments
    *          The arguments used to invoke the method. If the method has no
-   *          argument, this argument could be <code>null</code> or an empty
+   *          argument, this argument could be {@code null} or an empty
    *          array.
    * @return The value returned by the invoked method.
    * @throws ReflectionException

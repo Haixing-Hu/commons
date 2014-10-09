@@ -56,7 +56,7 @@ public final class DateFormat {
 
   private final String pattern;
   private final SimpleDateFormat format;
-  private final ParsePosition position;
+  private final ParsingPosition position;
   private boolean skipBlanks;
 
   public DateFormat() {
@@ -74,7 +74,7 @@ public final class DateFormat {
   public DateFormat(final String pattern, final Locale locale) {
     this.pattern = requireNonNull("pattern", pattern);
     this.format = new SimpleDateFormat(pattern, locale);
-    this.position = new ParsePosition();
+    this.position = new ParsingPosition();
     this.skipBlanks = DEFAULT_SKIP_BLANKS;
   }
 
@@ -115,14 +115,14 @@ public final class DateFormat {
    *
    * @param startDate
    *          During parsing, two digit years will be placed in the range
-   *          <code>startDate</code> to <code>startDate + 100 years</code>.
+   *          {@code startDate} to {@code startDate + 100 years}.
    * @see #get2DigitYearStart
    */
   public void set2DigitYearStart(final Date startDate) {
     format.set2DigitYearStart(startDate);
   }
 
-  public ParsePosition getParsePosition() {
+  public ParsingPosition getParsePosition() {
     return position;
   }
 
@@ -151,8 +151,8 @@ public final class DateFormat {
    *
    * @param str
    *          the text segment to be parsed. The parsing starts from the
-   *          character at the index <code>0</code> and stops at the character
-   *          before the index <code>str.length()</code>.
+   *          character at the index {@code 0} and stops at the character
+   *          before the index {@code str.length()}.
    * @return the parsed value.
    */
   public Date parse(final String str) {
@@ -164,8 +164,8 @@ public final class DateFormat {
    *
    * @param str
    *          the text segment to be parsed. The parsing starts from the
-   *          character at the index <code>startIndex</code> and stops at the
-   *          character before the index <code>str.length()</code>.
+   *          character at the index {@code startIndex} and stops at the
+   *          character before the index {@code str.length()}.
    * @param startIndex
    *          the index where to start parsing.
    * @return the parsed value.
@@ -179,8 +179,8 @@ public final class DateFormat {
    *
    * @param str
    *          the text segment to be parsed. The parsing starts from the
-   *          character at the index <code>startIndex</code> and stops at the
-   *          character before the index <code>endIndex</code>.
+   *          character at the index {@code startIndex} and stops at the
+   *          character before the index {@code endIndex}.
    * @param startIndex
    *          the index where to start parsing.
    * @param endIndex

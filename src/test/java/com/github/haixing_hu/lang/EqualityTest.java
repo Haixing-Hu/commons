@@ -34,13 +34,12 @@ import com.github.haixing_hu.collection.primitive.impl.ArrayFloatList;
 import com.github.haixing_hu.collection.primitive.impl.ArrayIntList;
 import com.github.haixing_hu.collection.primitive.impl.ArrayLongList;
 import com.github.haixing_hu.collection.primitive.impl.ArrayShortList;
-import com.github.haixing_hu.lang.Equality;
 
 import static org.junit.Assert.assertEquals;
 
 /**
  * Unit test for the Equality class.
- * 
+ *
  * @author Haixing Hu
  */
 public class EqualityTest {
@@ -87,21 +86,30 @@ public class EqualityTest {
     }
 
     @Override
-    public boolean equals(final Object o) {
-      if (o == this) {
+    public int hashCode() {
+      return a;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+      if (this == obj) {
         return true;
       }
-      if (o instanceof TestACanEqualB) {
-        return this.a == ((TestACanEqualB) o).getA();
+      if (obj == null) {
+        return false;
       }
-      if (o instanceof TestBCanEqualA) {
-        return this.a == ((TestBCanEqualA) o).getB();
+      if (getClass() != obj.getClass()) {
+        return false;
       }
-      return false;
+      final TestACanEqualB other = (TestACanEqualB) obj;
+      if (a != other.a) {
+        return false;
+      }
+      return true;
     }
 
     public int getA() {
-      return this.a;
+      return a;
     }
   }
 
@@ -113,21 +121,26 @@ public class EqualityTest {
     }
 
     @Override
+    public int hashCode() {
+      return b;
+    }
+
+    @Override
     public boolean equals(final Object o) {
       if (o == this) {
         return true;
       }
       if (o instanceof TestACanEqualB) {
-        return this.b == ((TestACanEqualB) o).getA();
+        return b == ((TestACanEqualB) o).getA();
       }
       if (o instanceof TestBCanEqualA) {
-        return this.b == ((TestBCanEqualA) o).getB();
+        return b == ((TestBCanEqualA) o).getB();
       }
       return false;
     }
 
     public int getB() {
-      return this.b;
+      return b;
     }
   }
 
@@ -169,9 +182,9 @@ public class EqualityTest {
    */
   @Test
   public void testBooleanArrayIndexLength() {
-    boolean[] array1 = new boolean[] { true, true, false, false };
-    boolean[] array2 = new boolean[] { true, true, false, false };
-    boolean[] array3 = new boolean[] { true, true, true, false };
+    final boolean[] array1 = new boolean[] { true, true, false, false };
+    final boolean[] array2 = new boolean[] { true, true, false, false };
+    final boolean[] array3 = new boolean[] { true, true, true, false };
 
     assertEquals(true, Equality.equals(array1, 0, array2, 0, 4));
     assertEquals(true, Equality.equals(array1, 0, array2, 0, 3));
@@ -228,9 +241,9 @@ public class EqualityTest {
    */
   @Test
   public void testBooleanObjectArrayIndexLength() {
-    Boolean[] array1 = new Boolean[] { true, true, false, false };
-    Boolean[] array2 = new Boolean[] { true, true, false, false };
-    Boolean[] array3 = new Boolean[] { true, true, true, false };
+    final Boolean[] array1 = new Boolean[] { true, true, false, false };
+    final Boolean[] array2 = new Boolean[] { true, true, false, false };
+    final Boolean[] array3 = new Boolean[] { true, true, true, false };
 
     assertEquals(true, Equality.equals(array1, 0, array2, 0, 4));
     assertEquals(true, Equality.equals(array1, 0, array2, 0, 3));
@@ -269,8 +282,8 @@ public class EqualityTest {
    */
   @Test
   public void testCharArrayIndexLength() {
-    char[] obj1 = new char[] { 'a', 'b', 'c' };
-    char[] obj2 = new char[] { 'a', 'b', 'c' };
+    final char[] obj1 = new char[] { 'a', 'b', 'c' };
+    final char[] obj2 = new char[] { 'a', 'b', 'c' };
 
     assertEquals(true, Equality.equals(obj1, 0, obj1, 0, 3));
     assertEquals(true, Equality.equals(obj1, 1, obj2, 1, 2));
@@ -1396,12 +1409,12 @@ public class EqualityTest {
   @Test
   public void testDoubleArrayIndexLengthWithEpsilon() {
     final double epsilon = 0.0000001;
-    final double[] array1 = new double[] { (double) 0, (double) -1, (double) 1,
+    final double[] array1 = new double[] { 0, -1, 1,
         Double.MIN_VALUE, Double.MAX_VALUE };
-    final double[] array2 = new double[] { (double) 0, (double) -1 + epsilon,
-        (double) 1, Double.MIN_VALUE + epsilon, Double.MAX_VALUE };
-    final double[] array3 = new double[] { (double) 1, Double.MIN_VALUE,
-        (double) 0, (double) -1, Double.MAX_VALUE };
+    final double[] array2 = new double[] { 0, -1 + epsilon,
+        1, Double.MIN_VALUE + epsilon, Double.MAX_VALUE };
+    final double[] array3 = new double[] { 1, Double.MIN_VALUE,
+        0, -1, Double.MAX_VALUE };
 
     assertEquals(true, Equality.valueEquals(array1, 0, array2, 0, 5, epsilon));
     assertEquals(true, Equality.valueEquals(array1, 1, array2, 1, 3, epsilon));
@@ -1594,10 +1607,10 @@ public class EqualityTest {
     final Double epsilon = 0.0000001;
     final Double[] array1 = new Double[] { (double) 0, (double) -1, (double) 1,
         Double.MIN_VALUE, Double.MAX_VALUE };
-    final Double[] array2 = new Double[] { (double) 0, (double) -1 + epsilon,
+    final Double[] array2 = new Double[] { (double) 0, -1 + epsilon,
         (double) 1, Double.MIN_VALUE + epsilon, Double.MAX_VALUE };
-    final Double[] array3 = new Double[] { (double) 1 + epsilon,
-        Double.MIN_VALUE, (double) 0 + epsilon, (double) -1, Double.MAX_VALUE };
+    final Double[] array3 = new Double[] { 1 + epsilon,
+        Double.MIN_VALUE, 0 + epsilon, (double) -1, Double.MAX_VALUE };
 
     assertEquals(true, Equality.valueEquals(array1, 0, array2, 0, 5, epsilon));
     assertEquals(true, Equality.valueEquals(array1, 1, array2, 1, 3, epsilon));
@@ -1629,7 +1642,7 @@ public class EqualityTest {
   public void testEnumArray() {
     TestEnum[] Array1 = { TestEnum.a, TestEnum.b };
     TestEnum[] Array2 = { TestEnum.a, TestEnum.b };
-    TestEnum[] Array3 = { TestEnum.a, TestEnum.b, TestEnum.c };
+    final TestEnum[] Array3 = { TestEnum.a, TestEnum.b, TestEnum.c };
 
     assertEquals(true, Equality.equals(Array1, Array2));
     Array2[1] = TestEnum.c;
@@ -1647,9 +1660,9 @@ public class EqualityTest {
    */
   @Test
   public void testEnumArrayIndexLength() {
-    TestEnum[] Array1 = { TestEnum.a, TestEnum.b, TestEnum.c, TestEnum.d };
-    TestEnum[] Array2 = { TestEnum.a, TestEnum.b, TestEnum.c, TestEnum.d };
-    TestEnum[] Array3 = { TestEnum.a, TestEnum.b, TestEnum.c, TestEnum.e };
+    final TestEnum[] Array1 = { TestEnum.a, TestEnum.b, TestEnum.c, TestEnum.d };
+    final TestEnum[] Array2 = { TestEnum.a, TestEnum.b, TestEnum.c, TestEnum.d };
+    final TestEnum[] Array3 = { TestEnum.a, TestEnum.b, TestEnum.c, TestEnum.e };
 
     assertEquals(true, Equality.equals(Array1, 0, Array2, 0, 4));
     assertEquals(false, Equality.equals(Array1, 0, Array3, 0, 4));
@@ -1739,8 +1752,8 @@ public class EqualityTest {
   public void testIgnoreCaseStringArray() {
     String[] array1 = { "long", "long", "ago" };
     String[] array2 = { "long", "long", "ago" };
-    String[] array3 = { "lOng", "long", "AGO" };
-    String[] array4 = { "long", "ago" };
+    final String[] array3 = { "lOng", "long", "AGO" };
+    final String[] array4 = { "long", "ago" };
 
     assertEquals(true, Equality.equalsIgnoreCase(array1, array2));
     assertEquals(true, Equality.equalsIgnoreCase(array1, array3));
@@ -1896,7 +1909,7 @@ public class EqualityTest {
     }
     Class<?>[] array1 = new Class<?>[] { TestClassA.class, TestClassA.class };
     Class<?>[] array2 = new Class<?>[] { TestClassB.class, TestClassB.class };
-    Class<?>[] array3 = new Class<?>[] { TestClassA.class, TestClassA.class };
+    final Class<?>[] array3 = new Class<?>[] { TestClassA.class, TestClassA.class };
 
     assertEquals(false, Equality.equals(array1, array2));
     assertEquals(true, Equality.equals(array1, array3));
@@ -1916,9 +1929,9 @@ public class EqualityTest {
     }
     final class TestClassB {
     }
-    Class<?>[] array1 = new Class<?>[] { TestClassA.class, TestClassA.class };
-    Class<?>[] array2 = new Class<?>[] { TestClassB.class, TestClassB.class };
-    Class<?>[] array3 = new Class<?>[] { TestClassA.class, TestClassA.class };
+    final Class<?>[] array1 = new Class<?>[] { TestClassA.class, TestClassA.class };
+    final Class<?>[] array2 = new Class<?>[] { TestClassB.class, TestClassB.class };
+    final Class<?>[] array3 = new Class<?>[] { TestClassA.class, TestClassA.class };
 
     assertEquals(false, Equality.equals(array1, 0, array2, 0, 2));
     assertEquals(true, Equality.equals(array1, 0, array3, 0, 2));
@@ -1945,174 +1958,174 @@ public class EqualityTest {
     o2 = null;
     assertEquals(true, Equality.equals(o1, o2));
 
-    boolean[] booleanarray1 = { true, false, false, true };
-    boolean[] booleanarray2 = { true, false, false, true };
-    boolean[] booleanarray3 = { false, true, true };
+    final boolean[] booleanarray1 = { true, false, false, true };
+    final boolean[] booleanarray2 = { true, false, false, true };
+    final boolean[] booleanarray3 = { false, true, true };
     assertEquals(true, Equality.equals(booleanarray1, (Object) booleanarray2));
     assertEquals(false, Equality.equals(booleanarray3, (Object) booleanarray2));
 
-    char[] chararray1 = { (char) 0, (char) 1,
+    final char[] chararray1 = { (char) 0, (char) 1,
         (char) (Character.MIN_VALUE / 2), Character.MIN_VALUE,
         (char) (Character.MAX_VALUE / 2), Character.MAX_VALUE };
-    char[] chararray2 = { (char) 0, (char) 1,
+    final char[] chararray2 = { (char) 0, (char) 1,
         (char) (Character.MIN_VALUE / 2), Character.MIN_VALUE,
         (char) (Character.MAX_VALUE / 2), Character.MAX_VALUE };
-    char[] chararray3 = { (char) 0, Character.MAX_VALUE };
+    final char[] chararray3 = { (char) 0, Character.MAX_VALUE };
 
     assertEquals(true, Equality.equals(chararray1, (Object) chararray2));
     assertEquals(false, Equality.equals(chararray3, (Object) chararray2));
 
-    byte[] bytearray1 = { (byte) 0, (byte) -1, (byte) 1, Byte.MIN_VALUE,
+    final byte[] bytearray1 = { (byte) 0, (byte) -1, (byte) 1, Byte.MIN_VALUE,
         (byte) (Byte.MIN_VALUE / 2), (byte) (Byte.MAX_VALUE / 2),
         Byte.MAX_VALUE };
-    byte[] bytearray2 = { (byte) 0, (byte) -1, (byte) 1, Byte.MIN_VALUE,
+    final byte[] bytearray2 = { (byte) 0, (byte) -1, (byte) 1, Byte.MIN_VALUE,
         (byte) (Byte.MIN_VALUE / 2), (byte) (Byte.MAX_VALUE / 2),
         Byte.MAX_VALUE };
-    byte[] bytearray3 = { (byte) 0, Byte.MAX_VALUE };
+    final byte[] bytearray3 = { (byte) 0, Byte.MAX_VALUE };
     assertEquals(true, Equality.equals(bytearray1, (Object) bytearray2));
     assertEquals(false, Equality.equals(bytearray3, (Object) bytearray2));
 
-    short[] shortarray1 = { (short) 0, (short) -1, (short) 1, Short.MAX_VALUE,
+    final short[] shortarray1 = { (short) 0, (short) -1, (short) 1, Short.MAX_VALUE,
         (short) (Short.MIN_VALUE / 2), Short.MIN_VALUE,
         (short) (Short.MAX_VALUE / 2) };
-    short[] shortarray2 = { (short) 0, (short) -1, (short) 1, Short.MAX_VALUE,
+    final short[] shortarray2 = { (short) 0, (short) -1, (short) 1, Short.MAX_VALUE,
         (short) (Short.MIN_VALUE / 2), Short.MIN_VALUE,
         (short) (Short.MAX_VALUE / 2) };
-    short[] shortarray3 = { (short) 0, Short.MAX_VALUE };
+    final short[] shortarray3 = { (short) 0, Short.MAX_VALUE };
     assertEquals(true, Equality.equals(shortarray1, (Object) shortarray2));
     assertEquals(false, Equality.equals(shortarray3, (Object) shortarray2));
 
-    int[] intarray1 = { (int) 0, (int) -1, (int) 1, Integer.MIN_VALUE,
-        (int) (Integer.MIN_VALUE / 2), (int) (Integer.MAX_VALUE / 2),
+    final int[] intarray1 = { 0, -1, 1, Integer.MIN_VALUE,
+        Integer.MIN_VALUE / 2, Integer.MAX_VALUE / 2,
         Integer.MAX_VALUE };
-    int[] intarray2 = { (int) 0, (int) -1, (int) 1, Integer.MIN_VALUE,
-        (int) (Integer.MIN_VALUE / 2), (int) (Integer.MAX_VALUE / 2),
+    final int[] intarray2 = { 0, -1, 1, Integer.MIN_VALUE,
+        Integer.MIN_VALUE / 2, Integer.MAX_VALUE / 2,
         Integer.MAX_VALUE };
-    int[] intarray3 = { (int) 0, Integer.MAX_VALUE };
+    final int[] intarray3 = { 0, Integer.MAX_VALUE };
     assertEquals(true, Equality.equals(intarray1, (Object) intarray2));
     assertEquals(false, Equality.equals(intarray3, (Object) intarray2));
 
-    long[] longarray1 = { (long) 0, (long) -1, (long) 1, Long.MIN_VALUE,
-        (long) (Long.MIN_VALUE / 2), (long) (Long.MAX_VALUE / 2),
+    final long[] longarray1 = { 0, -1, 1, Long.MIN_VALUE,
+        Long.MIN_VALUE / 2, Long.MAX_VALUE / 2,
         Long.MAX_VALUE };
-    long[] longarray2 = { (long) 0, (long) -1, (long) 1, Long.MIN_VALUE,
-        (long) (Long.MIN_VALUE / 2), (long) (Long.MAX_VALUE / 2),
+    final long[] longarray2 = { 0, -1, 1, Long.MIN_VALUE,
+        Long.MIN_VALUE / 2, Long.MAX_VALUE / 2,
         Long.MAX_VALUE };
-    long[] longarray3 = { (long) 0, Long.MAX_VALUE };
+    final long[] longarray3 = { 0, Long.MAX_VALUE };
     assertEquals(true, Equality.equals(longarray1, (Object) longarray2));
     assertEquals(false, Equality.equals(longarray3, (Object) longarray2));
 
-    float[] floatarray1 = { (float) 0, (float) -1, (float) 1, Float.MIN_VALUE,
-        (float) (Float.MIN_VALUE / 2), (float) (Float.MAX_VALUE / 2),
+    final float[] floatarray1 = { 0, -1, 1, Float.MIN_VALUE,
+        Float.MIN_VALUE / 2, Float.MAX_VALUE / 2,
         Float.MAX_VALUE };
-    float[] floatarray2 = { (float) 0, (float) -1, (float) 1, Float.MIN_VALUE,
-        (float) (Float.MIN_VALUE / 2), (float) (Float.MAX_VALUE / 2),
+    final float[] floatarray2 = { 0, -1, 1, Float.MIN_VALUE,
+        Float.MIN_VALUE / 2, Float.MAX_VALUE / 2,
         Float.MAX_VALUE };
-    float[] floatarray3 = { (float) 0, Float.MAX_VALUE };
+    final float[] floatarray3 = { 0, Float.MAX_VALUE };
     assertEquals(true, Equality.equals(floatarray1, (Object) floatarray2));
     assertEquals(false, Equality.equals(floatarray3, (Object) floatarray2));
 
-    double[] doublearray1 = { (double) 0, (double) -1, (double) 1,
-        Double.MIN_VALUE, (double) (Double.MIN_VALUE / 2),
-        (double) (Double.MAX_VALUE / 2), Double.MAX_VALUE };
-    double[] doublearray2 = { (double) 0, (double) -1, (double) 1,
-        Double.MIN_VALUE, (double) (Double.MIN_VALUE / 2),
-        (double) (Double.MAX_VALUE / 2), Double.MAX_VALUE };
-    double[] doublearray3 = { (double) 0, Double.MAX_VALUE };
+    final double[] doublearray1 = { 0, -1, 1,
+        Double.MIN_VALUE, Double.MIN_VALUE / 2,
+        Double.MAX_VALUE / 2, Double.MAX_VALUE };
+    final double[] doublearray2 = { 0, -1, 1,
+        Double.MIN_VALUE, Double.MIN_VALUE / 2,
+        Double.MAX_VALUE / 2, Double.MAX_VALUE };
+    final double[] doublearray3 = { 0, Double.MAX_VALUE };
     assertEquals(true, Equality.equals(doublearray1, (Object) doublearray2));
     assertEquals(false, Equality.equals(doublearray3, (Object) doublearray2));
 
-    String[] stringarray1 = { "long", "long", "ago" };
-    String[] stringarray2 = { "long", "long", "ago" };
-    String[] stringarray3 = { "long", "time", "no", "see" };
+    final String[] stringarray1 = { "long", "long", "ago" };
+    final String[] stringarray2 = { "long", "long", "ago" };
+    final String[] stringarray3 = { "long", "time", "no", "see" };
     assertEquals(true, Equality.equals(stringarray1, (Object) stringarray2));
     assertEquals(false, Equality.equals(stringarray3, (Object) stringarray2));
 
-    Boolean[] booleanobjectarray1 = { true, false, false, true };
-    Boolean[] booleanobjectarray2 = { true, false, false, true };
-    Boolean[] booleanobjectarray3 = { false, true, true };
+    final Boolean[] booleanobjectarray1 = { true, false, false, true };
+    final Boolean[] booleanobjectarray2 = { true, false, false, true };
+    final Boolean[] booleanobjectarray3 = { false, true, true };
     assertEquals(true,
         Equality.equals(booleanobjectarray1, (Object) booleanobjectarray2));
     assertEquals(false,
         Equality.equals(booleanobjectarray3, (Object) booleanobjectarray2));
 
-    Character[] charobjectarray1 = { (char) 0, (char) 1,
+    final Character[] charobjectarray1 = { (char) 0, (char) 1,
         (char) (Character.MIN_VALUE / 2), Character.MIN_VALUE,
         (char) (Character.MAX_VALUE / 2), Character.MAX_VALUE };
-    Character[] charobjectarray2 = { (char) 0, (char) 1,
+    final Character[] charobjectarray2 = { (char) 0, (char) 1,
         (char) (Character.MIN_VALUE / 2), Character.MIN_VALUE,
         (char) (Character.MAX_VALUE / 2), Character.MAX_VALUE };
-    Character[] charobjectarray3 = { (char) 0, Character.MAX_VALUE };
+    final Character[] charobjectarray3 = { (char) 0, Character.MAX_VALUE };
     assertEquals(true,
         Equality.equals(charobjectarray1, (Object) charobjectarray2));
     assertEquals(false,
         Equality.equals(charobjectarray3, (Object) charobjectarray2));
 
-    Byte[] byteobjectarray1 = { (byte) 0, (byte) -1, (byte) 1, Byte.MIN_VALUE,
+    final Byte[] byteobjectarray1 = { (byte) 0, (byte) -1, (byte) 1, Byte.MIN_VALUE,
         (byte) (Byte.MIN_VALUE / 2), (byte) (Byte.MAX_VALUE / 2),
         Byte.MAX_VALUE };
-    Byte[] byteobjectarray2 = { (byte) 0, (byte) -1, (byte) 1, Byte.MIN_VALUE,
+    final Byte[] byteobjectarray2 = { (byte) 0, (byte) -1, (byte) 1, Byte.MIN_VALUE,
         (byte) (Byte.MIN_VALUE / 2), (byte) (Byte.MAX_VALUE / 2),
         Byte.MAX_VALUE };
-    Byte[] byteobjectarray3 = { (byte) 0, Byte.MAX_VALUE };
+    final Byte[] byteobjectarray3 = { (byte) 0, Byte.MAX_VALUE };
     assertEquals(true,
         Equality.equals(byteobjectarray1, (Object) byteobjectarray2));
     assertEquals(false,
         Equality.equals(byteobjectarray3, (Object) byteobjectarray2));
 
-    Short[] shortobjectarray1 = { (short) 0, (short) -1, (short) 1,
+    final Short[] shortobjectarray1 = { (short) 0, (short) -1, (short) 1,
         Short.MIN_VALUE, (short) (Short.MIN_VALUE / 2),
         (short) (Short.MAX_VALUE / 2), Short.MAX_VALUE };
-    Short[] shortobjectarray2 = { (short) 0, (short) -1, (short) 1,
+    final Short[] shortobjectarray2 = { (short) 0, (short) -1, (short) 1,
         Short.MIN_VALUE, (short) (Short.MIN_VALUE / 2),
         (short) (Short.MAX_VALUE / 2), Short.MAX_VALUE };
-    Short[] shortobjectarray3 = { (short) 0, Short.MAX_VALUE };
+    final Short[] shortobjectarray3 = { (short) 0, Short.MAX_VALUE };
     assertEquals(true,
         Equality.equals(shortobjectarray1, (Object) shortobjectarray2));
     assertEquals(false,
         Equality.equals(shortobjectarray3, (Object) shortobjectarray2));
 
-    Integer[] integerarray1 = { (int) 0, (int) -1, (int) 1, Integer.MIN_VALUE,
+    final Integer[] integerarray1 = { (int) 0, (int) -1, (int) 1, Integer.MIN_VALUE,
         (int) (Integer.MIN_VALUE / 2), (int) (Integer.MAX_VALUE / 2),
         Integer.MAX_VALUE };
-    Integer[] integerarray2 = { (int) 0, (int) -1, (int) 1, Integer.MIN_VALUE,
+    final Integer[] integerarray2 = { (int) 0, (int) -1, (int) 1, Integer.MIN_VALUE,
         (int) (Integer.MIN_VALUE / 2), (int) (Integer.MAX_VALUE / 2),
         Integer.MAX_VALUE };
-    Integer[] integerarray3 = { (int) 0, Integer.MAX_VALUE };
+    final Integer[] integerarray3 = { (int) 0, Integer.MAX_VALUE };
     assertEquals(true, Equality.equals(integerarray1, (Object) integerarray2));
     assertEquals(false, Equality.equals(integerarray3, (Object) integerarray2));
 
-    Long[] longobjectarray1 = { (long) 0, (long) -1, (long) 1, Long.MIN_VALUE,
+    final Long[] longobjectarray1 = { (long) 0, (long) -1, (long) 1, Long.MIN_VALUE,
         (long) (Long.MIN_VALUE / 2), (long) (Long.MAX_VALUE / 2),
         Long.MAX_VALUE };
-    Long[] longobjectarray2 = { (long) 0, (long) -1, (long) 1, Long.MIN_VALUE,
+    final Long[] longobjectarray2 = { (long) 0, (long) -1, (long) 1, Long.MIN_VALUE,
         (long) (Long.MIN_VALUE / 2), (long) (Long.MAX_VALUE / 2),
         Long.MAX_VALUE };
-    Long[] longobjectarray3 = { (long) 0, Long.MAX_VALUE };
+    final Long[] longobjectarray3 = { (long) 0, Long.MAX_VALUE };
     assertEquals(true,
         Equality.equals(longobjectarray1, (Object) longobjectarray2));
     assertEquals(false,
         Equality.equals(longobjectarray3, (Object) longobjectarray2));
 
-    Float[] floatobjectarray1 = { (float) 0, (float) -1, (float) 1,
+    final Float[] floatobjectarray1 = { (float) 0, (float) -1, (float) 1,
         Float.MIN_VALUE, (float) (Float.MIN_VALUE / 2),
         (float) (Float.MAX_VALUE / 2), Float.MAX_VALUE };
-    Float[] floatobjectarray2 = { (float) 0, (float) -1, (float) 1,
+    final Float[] floatobjectarray2 = { (float) 0, (float) -1, (float) 1,
         Float.MIN_VALUE, (float) (Float.MIN_VALUE / 2),
         (float) (Float.MAX_VALUE / 2), Float.MAX_VALUE };
-    Float[] floatobjectarray3 = { (float) 0, Float.MAX_VALUE };
+    final Float[] floatobjectarray3 = { (float) 0, Float.MAX_VALUE };
     assertEquals(true,
         Equality.equals(floatobjectarray1, (Object) floatobjectarray2));
     assertEquals(false,
         Equality.equals(floatobjectarray3, (Object) floatobjectarray2));
 
-    Double[] doubleobjectarray1 = { (double) 0, (double) -1, (double) 1,
+    final Double[] doubleobjectarray1 = { (double) 0, (double) -1, (double) 1,
         (double) (Double.MIN_VALUE / 2), Double.MIN_VALUE,
         (double) (Double.MAX_VALUE / 2), Double.MAX_VALUE };
-    Double[] doubleobjectarray2 = { (double) 0, (double) -1, (double) 1,
+    final Double[] doubleobjectarray2 = { (double) 0, (double) -1, (double) 1,
         (double) (Double.MIN_VALUE / 2), Double.MIN_VALUE,
         (double) (Double.MAX_VALUE / 2), Double.MAX_VALUE };
-    Double[] doubleobjectarray3 = { (double) 0, Double.MAX_VALUE };
+    final Double[] doubleobjectarray3 = { (double) 0, Double.MAX_VALUE };
     assertEquals(true,
         Equality.equals(doubleobjectarray1, (Object) doubleobjectarray2));
     assertEquals(false,
@@ -2122,64 +2135,64 @@ public class EqualityTest {
     }
     final class TestClassB {
     }
-    Class<?>[] classarray1 = new Class<?>[] { TestClassA.class,
+    final Class<?>[] classarray1 = new Class<?>[] { TestClassA.class,
         TestClassA.class };
-    Class<?>[] classarray2 = new Class<?>[] { TestClassA.class,
+    final Class<?>[] classarray2 = new Class<?>[] { TestClassA.class,
         TestClassA.class };
-    Class<?>[] classarray3 = new Class<?>[] { TestClassB.class,
+    final Class<?>[] classarray3 = new Class<?>[] { TestClassB.class,
         TestClassB.class };
     assertEquals(true, Equality.equals(classarray1, (Object) classarray2));
     assertEquals(false, Equality.equals(classarray3, (Object) classarray2));
 
-    Date datea = new Date();
-    datea.setTime((long) 123456);
-    Date dateb = new Date();
-    dateb.setTime((long) 7891011);
-    Date datec = new Date();
-    datec.setTime((long) 654321);
-    Date[] datearray1 = { datea, dateb, datec };
-    Date[] datearray2 = { datea, dateb, datec };
-    Date[] datearray3 = { datec, datea, dateb };
+    final Date datea = new Date();
+    datea.setTime(123456);
+    final Date dateb = new Date();
+    dateb.setTime(7891011);
+    final Date datec = new Date();
+    datec.setTime(654321);
+    final Date[] datearray1 = { datea, dateb, datec };
+    final Date[] datearray2 = { datea, dateb, datec };
+    final Date[] datearray3 = { datec, datea, dateb };
     assertEquals(true, Equality.equals(datearray1, (Object) datearray2));
     assertEquals(false, Equality.equals(datearray3, (Object) datearray2));
 
-    BigInteger[] bigintegerarray1 = { new BigInteger(bytearray1),
+    final BigInteger[] bigintegerarray1 = { new BigInteger(bytearray1),
         new BigInteger(bytearray3) };
-    BigInteger[] bigintegerarray2 = { new BigInteger(bytearray2),
+    final BigInteger[] bigintegerarray2 = { new BigInteger(bytearray2),
         new BigInteger(bytearray3) };
-    BigInteger[] bigintegerarray3 = { new BigInteger(bytearray3) };
+    final BigInteger[] bigintegerarray3 = { new BigInteger(bytearray3) };
     assertEquals(true,
         Equality.equals(bigintegerarray1, (Object) bigintegerarray2));
     assertEquals(false,
         Equality.equals(bigintegerarray3, (Object) bigintegerarray2));
 
-    BigDecimal[] bigdecimalarray1 = { new BigDecimal(Integer.MIN_VALUE),
+    final BigDecimal[] bigdecimalarray1 = { new BigDecimal(Integer.MIN_VALUE),
         new BigDecimal(Integer.MAX_VALUE) };
-    BigDecimal[] bigdecimalarray2 = { new BigDecimal(Integer.MIN_VALUE),
+    final BigDecimal[] bigdecimalarray2 = { new BigDecimal(Integer.MIN_VALUE),
         new BigDecimal(Integer.MAX_VALUE) };
-    BigDecimal[] bigdecimalarray3 = { new BigDecimal(0), new BigDecimal(-1) };
+    final BigDecimal[] bigdecimalarray3 = { new BigDecimal(0), new BigDecimal(-1) };
     assertEquals(true,
         Equality.equals(bigdecimalarray1, (Object) bigdecimalarray2));
     assertEquals(false,
         Equality.equals(bigdecimalarray3, (Object) bigdecimalarray2));
 
-    Boolean[][] objectarray1 = { { true, false }, { true, true },
+    final Boolean[][] objectarray1 = { { true, false }, { true, true },
         { false, false, true } };
-    Boolean[][] objectarray2 = { { true, false }, { true, true },
+    final Boolean[][] objectarray2 = { { true, false }, { true, true },
         { false, false, true } };
-    Boolean[][] objectarray3 = { { true, false }, { true, true } };
+    final Boolean[][] objectarray3 = { { true, false }, { true, true } };
     assertEquals(true, Equality.equals(objectarray1, (Object) objectarray2));
     assertEquals(false, Equality.equals(objectarray3, (Object) objectarray2));
 
-    ArrayList<Character> col1 = new ArrayList<Character>();
+    final ArrayList<Character> col1 = new ArrayList<Character>();
     col1.add('a');
     col1.add('b');
     col1.add('c');
-    ArrayList<Character> col2 = new ArrayList<Character>();
+    final ArrayList<Character> col2 = new ArrayList<Character>();
     col2.add('a');
     col2.add('b');
     col2.add('c');
-    ArrayList<Character> col3 = new ArrayList<Character>();
+    final ArrayList<Character> col3 = new ArrayList<Character>();
     col3.add('b');
     col3.add('c');
     assertEquals(true, Equality.equals(col1, (Object) col2));
@@ -2218,173 +2231,173 @@ public class EqualityTest {
     obj1 = null;
     assertEquals(true, Equality.equals(obj1, obj2));
 
-    boolean[][] booleanarray1 = { { true }, { false, false }, { true } };
-    boolean[][] booleanarray2 = { { true }, { false, false }, { true } };
-    boolean[][] booleanarray3 = { { false, true }, { true } };
+    final boolean[][] booleanarray1 = { { true }, { false, false }, { true } };
+    final boolean[][] booleanarray2 = { { true }, { false, false }, { true } };
+    final boolean[][] booleanarray3 = { { false, true }, { true } };
     assertEquals(true, Equality.equals(booleanarray1, (Object) booleanarray2));
     assertEquals(false, Equality.equals(booleanarray3, (Object) booleanarray2));
 
-    char[][] chararray1 = { { (char) 0, (char) 1 },
+    final char[][] chararray1 = { { (char) 0, (char) 1 },
         { (char) (Character.MIN_VALUE / 2), Character.MIN_VALUE },
         { (char) (Character.MAX_VALUE / 2), Character.MAX_VALUE } };
-    char[][] chararray2 = { { (char) 0, (char) 1 },
+    final char[][] chararray2 = { { (char) 0, (char) 1 },
         { (char) (Character.MIN_VALUE / 2), Character.MIN_VALUE },
         { (char) (Character.MAX_VALUE / 2), Character.MAX_VALUE } };
-    char[][] chararray3 = { { (char) 0, Character.MAX_VALUE } };
+    final char[][] chararray3 = { { (char) 0, Character.MAX_VALUE } };
     assertEquals(true, Equality.equals(chararray1, (Object) chararray2));
     assertEquals(false, Equality.equals(chararray3, (Object) chararray2));
 
-    byte[][] bytearray1 = { { (byte) 0, (byte) -1, (byte) 1 },
+    final byte[][] bytearray1 = { { (byte) 0, (byte) -1, (byte) 1 },
         { Byte.MIN_VALUE, (byte) (Byte.MIN_VALUE / 2) },
         { (byte) (Byte.MAX_VALUE / 2), Byte.MAX_VALUE } };
-    byte[][] bytearray2 = { { (byte) 0, (byte) -1, (byte) 1 },
+    final byte[][] bytearray2 = { { (byte) 0, (byte) -1, (byte) 1 },
         { Byte.MIN_VALUE, (byte) (Byte.MIN_VALUE / 2) },
         { (byte) (Byte.MAX_VALUE / 2), Byte.MAX_VALUE } };
-    byte[][] bytearray3 = { { (byte) 0, Byte.MAX_VALUE } };
+    final byte[][] bytearray3 = { { (byte) 0, Byte.MAX_VALUE } };
     assertEquals(true, Equality.equals(bytearray1, (Object) bytearray2));
     assertEquals(false, Equality.equals(bytearray3, (Object) bytearray2));
 
-    short[][] shortarray1 = { { (short) 0, (short) -1, (short) 1 },
+    final short[][] shortarray1 = { { (short) 0, (short) -1, (short) 1 },
         { Short.MAX_VALUE, (short) (Short.MIN_VALUE / 2) },
         { Short.MIN_VALUE, (short) (Short.MAX_VALUE / 2) } };
-    short[][] shortarray2 = { { (short) 0, (short) -1, (short) 1 },
+    final short[][] shortarray2 = { { (short) 0, (short) -1, (short) 1 },
         { Short.MAX_VALUE, (short) (Short.MIN_VALUE / 2) },
         { Short.MIN_VALUE, (short) (Short.MAX_VALUE / 2) } };
-    short[][] shortarray3 = { { (short) 0, Short.MAX_VALUE } };
+    final short[][] shortarray3 = { { (short) 0, Short.MAX_VALUE } };
     assertEquals(true, Equality.equals(shortarray1, (Object) shortarray2));
     assertEquals(false, Equality.equals(shortarray3, (Object) shortarray2));
 
-    int[][] intarray1 = { { (int) 0, (int) -1, (int) 1 },
-        { Integer.MIN_VALUE, (int) (Integer.MIN_VALUE / 2) },
-        { (int) (Integer.MAX_VALUE / 2), Integer.MAX_VALUE } };
-    int[][] intarray2 = { { (int) 0, (int) -1, (int) 1 },
-        { Integer.MIN_VALUE, (int) (Integer.MIN_VALUE / 2) },
-        { (int) (Integer.MAX_VALUE / 2), Integer.MAX_VALUE } };
-    int[][] intarray3 = { { (int) 0, Integer.MAX_VALUE } };
+    final int[][] intarray1 = { { 0, -1, 1 },
+        { Integer.MIN_VALUE, Integer.MIN_VALUE / 2 },
+        { Integer.MAX_VALUE / 2, Integer.MAX_VALUE } };
+    final int[][] intarray2 = { { 0, -1, 1 },
+        { Integer.MIN_VALUE, Integer.MIN_VALUE / 2 },
+        { Integer.MAX_VALUE / 2, Integer.MAX_VALUE } };
+    final int[][] intarray3 = { { 0, Integer.MAX_VALUE } };
     assertEquals(true, Equality.equals(intarray1, (Object) intarray2));
     assertEquals(false, Equality.equals(intarray3, (Object) intarray2));
 
-    long[][] longarray1 = { { (long) 0, (long) -1, (long) 1 },
-        { Long.MIN_VALUE, (long) (Long.MIN_VALUE / 2) },
-        { (long) (Long.MAX_VALUE / 2), Long.MAX_VALUE } };
-    long[][] longarray2 = { { (long) 0, (long) -1, (long) 1 },
-        { Long.MIN_VALUE, (long) (Long.MIN_VALUE / 2) },
-        { (long) (Long.MAX_VALUE / 2), Long.MAX_VALUE } };
-    long[][] longarray3 = { { (long) 0, Long.MAX_VALUE } };
+    final long[][] longarray1 = { { 0, -1, 1 },
+        { Long.MIN_VALUE, Long.MIN_VALUE / 2 },
+        { Long.MAX_VALUE / 2, Long.MAX_VALUE } };
+    final long[][] longarray2 = { { 0, -1, 1 },
+        { Long.MIN_VALUE, Long.MIN_VALUE / 2 },
+        { Long.MAX_VALUE / 2, Long.MAX_VALUE } };
+    final long[][] longarray3 = { { 0, Long.MAX_VALUE } };
     assertEquals(true, Equality.equals(longarray1, (Object) longarray2));
     assertEquals(false, Equality.equals(longarray3, (Object) longarray2));
 
-    float[][] floatarray1 = { { (float) 0, (float) -1, (float) 1 },
-        { Float.MIN_VALUE, (float) (Float.MIN_VALUE / 2) },
-        { (float) (Float.MAX_VALUE / 2), Float.MAX_VALUE } };
-    float[][] floatarray2 = { { (float) 0, (float) -1, (float) 1 },
-        { Float.MIN_VALUE, (float) (Float.MIN_VALUE / 2) },
-        { (float) (Float.MAX_VALUE / 2), Float.MAX_VALUE } };
-    float[][] floatarray3 = { { (float) 0, Float.MAX_VALUE } };
+    final float[][] floatarray1 = { { 0, -1, 1 },
+        { Float.MIN_VALUE, Float.MIN_VALUE / 2 },
+        { Float.MAX_VALUE / 2, Float.MAX_VALUE } };
+    final float[][] floatarray2 = { { 0, -1, 1 },
+        { Float.MIN_VALUE, Float.MIN_VALUE / 2 },
+        { Float.MAX_VALUE / 2, Float.MAX_VALUE } };
+    final float[][] floatarray3 = { { 0, Float.MAX_VALUE } };
     assertEquals(true, Equality.equals(floatarray1, (Object) floatarray2));
     assertEquals(false, Equality.equals(floatarray3, (Object) floatarray2));
 
-    double[][] doublearray1 = { { (double) 0, (double) -1, (double) 1 },
-        { Double.MIN_VALUE, (double) (Double.MIN_VALUE / 2) },
-        { (double) (Double.MAX_VALUE / 2), Double.MAX_VALUE } };
-    double[][] doublearray2 = { { (double) 0, (double) -1, (double) 1 },
-        { Double.MIN_VALUE, (double) (Double.MIN_VALUE / 2) },
-        { (double) (Double.MAX_VALUE / 2), Double.MAX_VALUE } };
-    double[][] doublearray3 = { { (double) 0, Double.MAX_VALUE } };
+    final double[][] doublearray1 = { { 0, -1, 1 },
+        { Double.MIN_VALUE, Double.MIN_VALUE / 2 },
+        { Double.MAX_VALUE / 2, Double.MAX_VALUE } };
+    final double[][] doublearray2 = { { 0, -1, 1 },
+        { Double.MIN_VALUE, Double.MIN_VALUE / 2 },
+        { Double.MAX_VALUE / 2, Double.MAX_VALUE } };
+    final double[][] doublearray3 = { { 0, Double.MAX_VALUE } };
     assertEquals(true, Equality.equals(doublearray1, (Object) doublearray2));
     assertEquals(false, Equality.equals(doublearray3, (Object) doublearray2));
 
-    String[][] stringarray1 = { { "long", "long" }, { "ago" } };
-    String[][] stringarray2 = { { "long", "long" }, { "ago" } };
-    String[][] stringarray3 = { { "long", "time" }, { "no", "see" } };
+    final String[][] stringarray1 = { { "long", "long" }, { "ago" } };
+    final String[][] stringarray2 = { { "long", "long" }, { "ago" } };
+    final String[][] stringarray3 = { { "long", "time" }, { "no", "see" } };
     assertEquals(true, Equality.equals(stringarray1, (Object) stringarray2));
     assertEquals(false, Equality.equals(stringarray3, (Object) stringarray2));
 
-    Boolean[][] booleanobjectarray1 = { { true, false }, { false }, { true } };
-    Boolean[][] booleanobjectarray2 = { { true, false }, { false }, { true } };
-    Boolean[][] booleanobjectarray3 = { { false, true }, { true } };
+    final Boolean[][] booleanobjectarray1 = { { true, false }, { false }, { true } };
+    final Boolean[][] booleanobjectarray2 = { { true, false }, { false }, { true } };
+    final Boolean[][] booleanobjectarray3 = { { false, true }, { true } };
     assertEquals(true,
         Equality.equals(booleanobjectarray1, (Object) booleanobjectarray2));
     assertEquals(false,
         Equality.equals(booleanobjectarray3, (Object) booleanobjectarray2));
 
-    Character[][] charobjectarray1 = { { (char) 0, (char) 1 },
+    final Character[][] charobjectarray1 = { { (char) 0, (char) 1 },
         { (char) (Character.MIN_VALUE / 2), Character.MIN_VALUE },
         { (char) (Character.MAX_VALUE / 2), Character.MAX_VALUE } };
-    Character[][] charobjectarray2 = { { (char) 0, (char) 1 },
+    final Character[][] charobjectarray2 = { { (char) 0, (char) 1 },
         { (char) (Character.MIN_VALUE / 2), Character.MIN_VALUE },
         { (char) (Character.MAX_VALUE / 2), Character.MAX_VALUE } };
-    Character[][] charobjectarray3 = { { (char) 0, Character.MAX_VALUE } };
+    final Character[][] charobjectarray3 = { { (char) 0, Character.MAX_VALUE } };
     assertEquals(true,
         Equality.equals(charobjectarray1, (Object) charobjectarray2));
     assertEquals(false,
         Equality.equals(charobjectarray3, (Object) charobjectarray2));
 
-    Byte[][] byteobjectarray1 = { { (byte) 0, (byte) -1, (byte) 1 },
+    final Byte[][] byteobjectarray1 = { { (byte) 0, (byte) -1, (byte) 1 },
         { Byte.MIN_VALUE, (byte) (Byte.MIN_VALUE / 2) },
         { (byte) (Byte.MAX_VALUE / 2), Byte.MAX_VALUE } };
-    Byte[][] byteobjectarray2 = { { (byte) 0, (byte) -1, (byte) 1 },
+    final Byte[][] byteobjectarray2 = { { (byte) 0, (byte) -1, (byte) 1 },
         { Byte.MIN_VALUE, (byte) (Byte.MIN_VALUE / 2) },
         { (byte) (Byte.MAX_VALUE / 2), Byte.MAX_VALUE } };
-    Byte[][] byteobjectarray3 = { { (byte) 0, Byte.MAX_VALUE } };
+    final Byte[][] byteobjectarray3 = { { (byte) 0, Byte.MAX_VALUE } };
     assertEquals(true,
         Equality.equals(byteobjectarray1, (Object) byteobjectarray2));
     assertEquals(false,
         Equality.equals(byteobjectarray3, (Object) byteobjectarray2));
 
-    Short[][] shortobjectarray1 = { { (short) 0, (short) -1, (short) 1 },
+    final Short[][] shortobjectarray1 = { { (short) 0, (short) -1, (short) 1 },
         { Short.MIN_VALUE, (short) (Short.MIN_VALUE / 2) },
         { (short) (Short.MAX_VALUE / 2), Short.MAX_VALUE } };
-    Short[][] shortobjectarray2 = { { (short) 0, (short) -1, (short) 1 },
+    final Short[][] shortobjectarray2 = { { (short) 0, (short) -1, (short) 1 },
         { Short.MIN_VALUE, (short) (Short.MIN_VALUE / 2) },
         { (short) (Short.MAX_VALUE / 2), Short.MAX_VALUE } };
-    Short[][] shortobjectarray3 = { { (short) 0, Short.MAX_VALUE } };
+    final Short[][] shortobjectarray3 = { { (short) 0, Short.MAX_VALUE } };
     assertEquals(true,
         Equality.equals(shortobjectarray1, (Object) shortobjectarray2));
     assertEquals(false,
         Equality.equals(shortobjectarray3, (Object) shortobjectarray2));
 
-    Integer[][] integerarray1 = { { (int) 0, (int) -1, (int) 1 },
+    final Integer[][] integerarray1 = { { (int) 0, (int) -1, (int) 1 },
         { Integer.MIN_VALUE, (int) (Integer.MIN_VALUE / 2) },
         { (int) (Integer.MAX_VALUE / 2), Integer.MAX_VALUE } };
-    Integer[][] integerarray2 = { { (int) 0, (int) -1, (int) 1 },
+    final Integer[][] integerarray2 = { { (int) 0, (int) -1, (int) 1 },
         { Integer.MIN_VALUE, (int) (Integer.MIN_VALUE / 2) },
         { (int) (Integer.MAX_VALUE / 2), Integer.MAX_VALUE } };
-    Integer[][] integerarray3 = { { (int) 0, Integer.MAX_VALUE } };
+    final Integer[][] integerarray3 = { { (int) 0, Integer.MAX_VALUE } };
     assertEquals(true, Equality.equals(integerarray1, (Object) integerarray2));
     assertEquals(false, Equality.equals(integerarray3, (Object) integerarray2));
 
-    Long[][] longobjectarray1 = { { (long) 0, (long) -1, (long) 1 },
+    final Long[][] longobjectarray1 = { { (long) 0, (long) -1, (long) 1 },
         { Long.MIN_VALUE, (long) (Long.MIN_VALUE / 2) },
         { (long) (Long.MAX_VALUE / 2), Long.MAX_VALUE } };
-    Long[][] longobjectarray2 = { { (long) 0, (long) -1, (long) 1 },
+    final Long[][] longobjectarray2 = { { (long) 0, (long) -1, (long) 1 },
         { Long.MIN_VALUE, (long) (Long.MIN_VALUE / 2) },
         { (long) (Long.MAX_VALUE / 2), Long.MAX_VALUE } };
-    Long[][] longobjectarray3 = { { (long) 0, Long.MAX_VALUE } };
+    final Long[][] longobjectarray3 = { { (long) 0, Long.MAX_VALUE } };
     assertEquals(true,
         Equality.equals(longobjectarray1, (Object) longobjectarray2));
     assertEquals(false,
         Equality.equals(longobjectarray3, (Object) longobjectarray2));
 
-    Float[][] floatobjectarray1 = { { (float) 0, (float) -1, (float) 1 },
+    final Float[][] floatobjectarray1 = { { (float) 0, (float) -1, (float) 1 },
         { Float.MIN_VALUE, (float) (Float.MIN_VALUE / 2) },
         { (float) (Float.MAX_VALUE / 2), Float.MAX_VALUE } };
-    Float[][] floatobjectarray2 = { { (float) 0, (float) -1, (float) 1 },
+    final Float[][] floatobjectarray2 = { { (float) 0, (float) -1, (float) 1 },
         { Float.MIN_VALUE, (float) (Float.MIN_VALUE / 2) },
         { (float) (Float.MAX_VALUE / 2), Float.MAX_VALUE } };
-    Float[][] floatobjectarray3 = { { (float) 0, Float.MAX_VALUE } };
+    final Float[][] floatobjectarray3 = { { (float) 0, Float.MAX_VALUE } };
     assertEquals(true,
         Equality.equals(floatobjectarray1, (Object) floatobjectarray2));
     assertEquals(false,
         Equality.equals(floatobjectarray3, (Object) floatobjectarray2));
 
-    Double[][] doubleobjectarray1 = { { (double) 0, (double) -1, (double) 1 },
+    final Double[][] doubleobjectarray1 = { { (double) 0, (double) -1, (double) 1 },
         { (double) (Double.MIN_VALUE / 2), Double.MIN_VALUE },
         { (double) (Double.MAX_VALUE / 2), Double.MAX_VALUE } };
-    Double[][] doubleobjectarray2 = { { (double) 0, (double) -1, (double) 1 },
+    final Double[][] doubleobjectarray2 = { { (double) 0, (double) -1, (double) 1 },
         { (double) (Double.MIN_VALUE / 2), Double.MIN_VALUE },
         { (double) (Double.MAX_VALUE / 2), Double.MAX_VALUE } };
-    Double[][] doubleobjectarray3 = { { (double) 0, Double.MAX_VALUE } };
+    final Double[][] doubleobjectarray3 = { { (double) 0, Double.MAX_VALUE } };
     assertEquals(true,
         Equality.equals(doubleobjectarray1, (Object) doubleobjectarray2));
     assertEquals(false,
@@ -2394,343 +2407,343 @@ public class EqualityTest {
     }
     final class TestClassB {
     }
-    Class<?>[][] classarray1 = { { TestClassA.class }, { TestClassA.class } };
-    Class<?>[][] classarray2 = { { TestClassA.class }, { TestClassA.class } };
-    Class<?>[][] classarray3 = { { TestClassB.class, TestClassA.class } };
+    final Class<?>[][] classarray1 = { { TestClassA.class }, { TestClassA.class } };
+    final Class<?>[][] classarray2 = { { TestClassA.class }, { TestClassA.class } };
+    final Class<?>[][] classarray3 = { { TestClassB.class, TestClassA.class } };
     assertEquals(true, Equality.equals(classarray1, classarray2));
     assertEquals(false, Equality.equals(classarray3, classarray2));
 
-    Date datea = new Date();
-    datea.setTime((long) 123456);
-    Date dateb = new Date();
-    dateb.setTime((long) 7891011);
-    Date datec = new Date();
-    datec.setTime((long) 654321);
-    Date[][] datearray1 = { { datea, dateb }, { datec } };
-    Date[][] datearray2 = { { datea, dateb }, { datec } };
-    Date[][] datearray3 = { { datec }, { datea, dateb } };
+    final Date datea = new Date();
+    datea.setTime(123456);
+    final Date dateb = new Date();
+    dateb.setTime(7891011);
+    final Date datec = new Date();
+    datec.setTime(654321);
+    final Date[][] datearray1 = { { datea, dateb }, { datec } };
+    final Date[][] datearray2 = { { datea, dateb }, { datec } };
+    final Date[][] datearray3 = { { datec }, { datea, dateb } };
     assertEquals(true, Equality.equals(datearray1, (Object) datearray2));
     assertEquals(false, Equality.equals(datearray3, (Object) datearray2));
 
-    BigInteger[][] bigintegerarray1 = { { new BigInteger(bytearray1[0]),
+    final BigInteger[][] bigintegerarray1 = { { new BigInteger(bytearray1[0]),
         new BigInteger(bytearray3[0]) } };
-    BigInteger[][] bigintegerarray2 = { { new BigInteger(bytearray2[0]),
+    final BigInteger[][] bigintegerarray2 = { { new BigInteger(bytearray2[0]),
         new BigInteger(bytearray3[0]) } };
-    BigInteger[][] bigintegerarray3 = { { new BigInteger(bytearray3[0]) } };
+    final BigInteger[][] bigintegerarray3 = { { new BigInteger(bytearray3[0]) } };
     assertEquals(true,
         Equality.equals(bigintegerarray1, (Object) bigintegerarray2));
     assertEquals(false,
         Equality.equals(bigintegerarray3, (Object) bigintegerarray2));
 
-    BigDecimal[][] bigdecimalarray1 = { { new BigDecimal(Integer.MIN_VALUE) },
+    final BigDecimal[][] bigdecimalarray1 = { { new BigDecimal(Integer.MIN_VALUE) },
         { new BigDecimal(Integer.MAX_VALUE) } };
-    BigDecimal[][] bigdecimalarray2 = { { new BigDecimal(Integer.MIN_VALUE) },
+    final BigDecimal[][] bigdecimalarray2 = { { new BigDecimal(Integer.MIN_VALUE) },
         { new BigDecimal(Integer.MAX_VALUE) } };
-    BigDecimal[][] bigdecimalarray3 = { { new BigDecimal(0), new BigDecimal(-1) } };
+    final BigDecimal[][] bigdecimalarray3 = { { new BigDecimal(0), new BigDecimal(-1) } };
     assertEquals(true,
         Equality.equals(bigdecimalarray1, (Object) bigdecimalarray2));
     assertEquals(false,
         Equality.equals(bigdecimalarray3, (Object) bigdecimalarray2));
 
-    Boolean[][][][] objectarray1 = { { { { true, false }, { true, true } } },
+    final Boolean[][][][] objectarray1 = { { { { true, false }, { true, true } } },
         { { { false, false }, { true } } } };
-    Boolean[][][][] objectarray2 = { { { { true, false }, { true, true } } },
+    final Boolean[][][][] objectarray2 = { { { { true, false }, { true, true } } },
         { { { false, false }, { true } } } };
-    Boolean[][][][] objectarray3 = { { { { true }, { false } } },
+    final Boolean[][][][] objectarray3 = { { { { true }, { false } } },
         { { { true, true } } } };
     assertEquals(true, Equality.equals(objectarray1, (Object) objectarray2));
     assertEquals(false, Equality.equals(objectarray3, (Object) objectarray2));
 
-    ArrayList<Character> arraylist1 = new ArrayList<Character>();
-    ArrayList<Character> arraylist2 = new ArrayList<Character>();
-    Object[] col1 = { arraylist1, arraylist2 };
+    final ArrayList<Character> arraylist1 = new ArrayList<Character>();
+    final ArrayList<Character> arraylist2 = new ArrayList<Character>();
+    final Object[] col1 = { arraylist1, arraylist2 };
     arraylist1.add('a');
     arraylist2.add('b');
     arraylist1.add('c');
-    ArrayList<Character> arraylist3 = new ArrayList<Character>();
-    ArrayList<Character> arraylist4 = new ArrayList<Character>();
-    Object[] col2 = { arraylist3, arraylist4 };
+    final ArrayList<Character> arraylist3 = new ArrayList<Character>();
+    final ArrayList<Character> arraylist4 = new ArrayList<Character>();
+    final Object[] col2 = { arraylist3, arraylist4 };
     arraylist3.add('a');
     arraylist4.add('b');
     arraylist3.add('c');
-    ArrayList<Character> arraylist5 = new ArrayList<Character>();
-    Object[] col3 = { arraylist5 };
+    final ArrayList<Character> arraylist5 = new ArrayList<Character>();
+    final Object[] col3 = { arraylist5 };
     arraylist5.add('a');
-    assertEquals(true, Equality.equals(col1, (Object[]) col2));
-    assertEquals(false, Equality.equals(col3, (Object[]) col2));
+    assertEquals(true, Equality.equals(col1, col2));
+    assertEquals(false, Equality.equals(col3, col2));
   }
 
   @Test
   public void testObjectArrayIndexLength() {
-    boolean[][] booleanarray1 = { { true }, { false, false }, { true } };
-    boolean[][] booleanarray2 = { { true }, { false, false }, { true } };
-    boolean[][] booleanarray3 = { { false, true }, { true } };
+    final boolean[][] booleanarray1 = { { true }, { false, false }, { true } };
+    final boolean[][] booleanarray2 = { { true }, { false, false }, { true } };
+    final boolean[][] booleanarray3 = { { false, true }, { true } };
     assertEquals(true, Equality.equals(booleanarray1, 0,
-        (Object[]) booleanarray2, 0, booleanarray2.length));
+        booleanarray2, 0, booleanarray2.length));
     assertEquals(false, Equality.equals(booleanarray3, 0,
-        (Object[]) booleanarray2, 0, booleanarray2.length));
+        booleanarray2, 0, booleanarray2.length));
     assertEquals(false,
-        Equality.equals(booleanarray1, 1, (Object[]) booleanarray2, 0, 1));
+        Equality.equals(booleanarray1, 1, booleanarray2, 0, 1));
     assertEquals(true,
-        Equality.equals(booleanarray1, 0, (Object[]) booleanarray2, 2, 1));
+        Equality.equals(booleanarray1, 0, booleanarray2, 2, 1));
 
-    char[][] chararray1 = { { (char) 0, (char) 1 },
+    final char[][] chararray1 = { { (char) 0, (char) 1 },
         { (char) (Character.MIN_VALUE / 2), Character.MIN_VALUE },
         { (char) (Character.MAX_VALUE / 2), Character.MAX_VALUE } };
-    char[][] chararray2 = { { (char) 0, (char) 1 },
+    final char[][] chararray2 = { { (char) 0, (char) 1 },
         { (char) (Character.MIN_VALUE / 2), Character.MIN_VALUE },
         { (char) (Character.MAX_VALUE / 2), Character.MAX_VALUE } };
-    char[][] chararray3 = { { (char) 0, Character.MAX_VALUE } };
-    assertEquals(true, Equality.equals(chararray1, 0, (Object[]) chararray2, 0,
+    final char[][] chararray3 = { { (char) 0, Character.MAX_VALUE } };
+    assertEquals(true, Equality.equals(chararray1, 0, chararray2, 0,
         chararray2.length));
-    assertEquals(false, Equality.equals(chararray3, 0, (Object[]) chararray2,
+    assertEquals(false, Equality.equals(chararray3, 0, chararray2,
         0, chararray2.length));
     assertEquals(false,
-        Equality.equals(chararray3, 0, (Object[]) chararray2, 2, 1));
+        Equality.equals(chararray3, 0, chararray2, 2, 1));
     assertEquals(true,
-        Equality.equals(chararray1, 1, (Object[]) chararray2, 1, 1));
+        Equality.equals(chararray1, 1, chararray2, 1, 1));
 
-    byte[][] bytearray1 = { { (byte) 0, (byte) -1, (byte) 1 },
+    final byte[][] bytearray1 = { { (byte) 0, (byte) -1, (byte) 1 },
         { Byte.MIN_VALUE, (byte) (Byte.MIN_VALUE / 2) },
         { (byte) (Byte.MAX_VALUE / 2), Byte.MAX_VALUE } };
-    byte[][] bytearray2 = { { (byte) 0, (byte) -1, (byte) 1 },
+    final byte[][] bytearray2 = { { (byte) 0, (byte) -1, (byte) 1 },
         { Byte.MIN_VALUE, (byte) (Byte.MIN_VALUE / 2) },
         { (byte) (Byte.MAX_VALUE / 2), Byte.MAX_VALUE } };
-    byte[][] bytearray3 = { { (byte) 0, Byte.MAX_VALUE } };
-    assertEquals(true, Equality.equals(bytearray1, 0, (Object[]) bytearray2, 0,
+    final byte[][] bytearray3 = { { (byte) 0, Byte.MAX_VALUE } };
+    assertEquals(true, Equality.equals(bytearray1, 0, bytearray2, 0,
         bytearray2.length));
-    assertEquals(false, Equality.equals(bytearray3, 0, (Object[]) bytearray2,
+    assertEquals(false, Equality.equals(bytearray3, 0, bytearray2,
         0, bytearray2.length));
     assertEquals(false,
-        Equality.equals(bytearray3, 0, (Object[]) bytearray2, 2, 1));
+        Equality.equals(bytearray3, 0, bytearray2, 2, 1));
     assertEquals(true,
-        Equality.equals(bytearray1, 1, (Object[]) bytearray2, 1, 1));
+        Equality.equals(bytearray1, 1, bytearray2, 1, 1));
 
-    short[][] shortarray1 = { { (short) 0, (short) -1, (short) 1 },
+    final short[][] shortarray1 = { { (short) 0, (short) -1, (short) 1 },
         { Short.MAX_VALUE, (short) (Short.MIN_VALUE / 2) },
         { Short.MIN_VALUE, (short) (Short.MAX_VALUE / 2) } };
-    short[][] shortarray2 = { { (short) 0, (short) -1, (short) 1 },
+    final short[][] shortarray2 = { { (short) 0, (short) -1, (short) 1 },
         { Short.MAX_VALUE, (short) (Short.MIN_VALUE / 2) },
         { Short.MIN_VALUE, (short) (Short.MAX_VALUE / 2) } };
-    short[][] shortarray3 = { { (short) 0, Short.MAX_VALUE } };
-    assertEquals(true, Equality.equals(shortarray1, 0, (Object[]) shortarray2,
+    final short[][] shortarray3 = { { (short) 0, Short.MAX_VALUE } };
+    assertEquals(true, Equality.equals(shortarray1, 0, shortarray2,
         0, shortarray2.length));
-    assertEquals(false, Equality.equals(shortarray3, 0, (Object[]) shortarray2,
+    assertEquals(false, Equality.equals(shortarray3, 0, shortarray2,
         0, shortarray2.length));
     assertEquals(false,
-        Equality.equals(shortarray3, 0, (Object[]) shortarray2, 2, 1));
+        Equality.equals(shortarray3, 0, shortarray2, 2, 1));
     assertEquals(true,
-        Equality.equals(shortarray1, 1, (Object[]) shortarray2, 1, 1));
+        Equality.equals(shortarray1, 1, shortarray2, 1, 1));
 
-    int[][] intarray1 = { { (int) 0, (int) -1, (int) 1 },
-        { Integer.MIN_VALUE, (int) (Integer.MIN_VALUE / 2) },
-        { (int) (Integer.MAX_VALUE / 2), Integer.MAX_VALUE } };
-    int[][] intarray2 = { { (int) 0, (int) -1, (int) 1 },
-        { Integer.MIN_VALUE, (int) (Integer.MIN_VALUE / 2) },
-        { (int) (Integer.MAX_VALUE / 2), Integer.MAX_VALUE } };
-    int[][] intarray3 = { { (int) 0, Integer.MAX_VALUE } };
+    final int[][] intarray1 = { { 0, -1, 1 },
+        { Integer.MIN_VALUE, Integer.MIN_VALUE / 2 },
+        { Integer.MAX_VALUE / 2, Integer.MAX_VALUE } };
+    final int[][] intarray2 = { { 0, -1, 1 },
+        { Integer.MIN_VALUE, Integer.MIN_VALUE / 2 },
+        { Integer.MAX_VALUE / 2, Integer.MAX_VALUE } };
+    final int[][] intarray3 = { { 0, Integer.MAX_VALUE } };
     assertEquals(
         true,
-        Equality.equals(intarray1, 0, (Object[]) intarray2, 0, intarray2.length));
+        Equality.equals(intarray1, 0, intarray2, 0, intarray2.length));
     assertEquals(
         false,
-        Equality.equals(intarray3, 0, (Object[]) intarray2, 0, intarray2.length));
+        Equality.equals(intarray3, 0, intarray2, 0, intarray2.length));
     assertEquals(false,
-        Equality.equals(intarray3, 0, (Object[]) intarray2, 2, 1));
+        Equality.equals(intarray3, 0, intarray2, 2, 1));
     assertEquals(true,
-        Equality.equals(intarray1, 1, (Object[]) intarray2, 1, 1));
+        Equality.equals(intarray1, 1, intarray2, 1, 1));
 
-    long[][] longarray1 = { { (long) 0, (long) -1, (long) 1 },
-        { Long.MIN_VALUE, (long) (Long.MIN_VALUE / 2) },
-        { (long) (Long.MAX_VALUE / 2), Long.MAX_VALUE } };
-    long[][] longarray2 = { { (long) 0, (long) -1, (long) 1 },
-        { Long.MIN_VALUE, (long) (Long.MIN_VALUE / 2) },
-        { (long) (Long.MAX_VALUE / 2), Long.MAX_VALUE } };
-    long[][] longarray3 = { { (long) 0, Long.MAX_VALUE } };
-    assertEquals(true, Equality.equals(longarray1, 0, (Object[]) longarray2, 0,
+    final long[][] longarray1 = { { 0, -1, 1 },
+        { Long.MIN_VALUE, Long.MIN_VALUE / 2 },
+        { Long.MAX_VALUE / 2, Long.MAX_VALUE } };
+    final long[][] longarray2 = { { 0, -1, 1 },
+        { Long.MIN_VALUE, Long.MIN_VALUE / 2 },
+        { Long.MAX_VALUE / 2, Long.MAX_VALUE } };
+    final long[][] longarray3 = { { 0, Long.MAX_VALUE } };
+    assertEquals(true, Equality.equals(longarray1, 0, longarray2, 0,
         longarray2.length));
-    assertEquals(false, Equality.equals(longarray3, 0, (Object[]) longarray2,
+    assertEquals(false, Equality.equals(longarray3, 0, longarray2,
         0, longarray2.length));
     assertEquals(false,
-        Equality.equals(longarray3, 0, (Object[]) longarray2, 2, 1));
+        Equality.equals(longarray3, 0, longarray2, 2, 1));
     assertEquals(true,
-        Equality.equals(longarray1, 1, (Object[]) longarray2, 1, 1));
+        Equality.equals(longarray1, 1, longarray2, 1, 1));
 
-    float[][] floatarray1 = { { (float) 0, (float) -1, (float) 1 },
-        { Float.MIN_VALUE, (float) (Float.MIN_VALUE / 2) },
-        { (float) (Float.MAX_VALUE / 2), Float.MAX_VALUE } };
-    float[][] floatarray2 = { { (float) 0, (float) -1, (float) 1 },
-        { Float.MIN_VALUE, (float) (Float.MIN_VALUE / 2) },
-        { (float) (Float.MAX_VALUE / 2), Float.MAX_VALUE } };
-    float[][] floatarray3 = { { (float) 0, Float.MAX_VALUE } };
-    assertEquals(true, Equality.equals(floatarray1, 0, (Object[]) floatarray2,
+    final float[][] floatarray1 = { { 0, -1, 1 },
+        { Float.MIN_VALUE, Float.MIN_VALUE / 2 },
+        { Float.MAX_VALUE / 2, Float.MAX_VALUE } };
+    final float[][] floatarray2 = { { 0, -1, 1 },
+        { Float.MIN_VALUE, Float.MIN_VALUE / 2 },
+        { Float.MAX_VALUE / 2, Float.MAX_VALUE } };
+    final float[][] floatarray3 = { { 0, Float.MAX_VALUE } };
+    assertEquals(true, Equality.equals(floatarray1, 0, floatarray2,
         0, floatarray2.length));
-    assertEquals(false, Equality.equals(floatarray3, 0, (Object[]) floatarray2,
+    assertEquals(false, Equality.equals(floatarray3, 0, floatarray2,
         0, floatarray2.length));
     assertEquals(false,
-        Equality.equals(floatarray3, 0, (Object[]) floatarray2, 2, 1));
+        Equality.equals(floatarray3, 0, floatarray2, 2, 1));
     assertEquals(true,
-        Equality.equals(floatarray1, 1, (Object[]) floatarray2, 1, 1));
+        Equality.equals(floatarray1, 1, floatarray2, 1, 1));
 
-    double[][] doublearray1 = { { (double) 0, (double) -1, (double) 1 },
-        { Double.MIN_VALUE, (double) (Double.MIN_VALUE / 2) },
-        { (double) (Double.MAX_VALUE / 2), Double.MAX_VALUE } };
-    double[][] doublearray2 = { { (double) 0, (double) -1, (double) 1 },
-        { Double.MIN_VALUE, (double) (Double.MIN_VALUE / 2) },
-        { (double) (Double.MAX_VALUE / 2), Double.MAX_VALUE } };
-    double[][] doublearray3 = { { (double) 0, Double.MAX_VALUE } };
+    final double[][] doublearray1 = { { 0, -1, 1 },
+        { Double.MIN_VALUE, Double.MIN_VALUE / 2 },
+        { Double.MAX_VALUE / 2, Double.MAX_VALUE } };
+    final double[][] doublearray2 = { { 0, -1, 1 },
+        { Double.MIN_VALUE, Double.MIN_VALUE / 2 },
+        { Double.MAX_VALUE / 2, Double.MAX_VALUE } };
+    final double[][] doublearray3 = { { 0, Double.MAX_VALUE } };
     assertEquals(true, Equality.equals(doublearray1, 0,
-        (Object[]) doublearray2, 0, doublearray2.length));
+        doublearray2, 0, doublearray2.length));
     assertEquals(false, Equality.equals(doublearray3, 0,
-        (Object[]) doublearray2, 0, doublearray2.length));
+        doublearray2, 0, doublearray2.length));
     assertEquals(false,
-        Equality.equals(doublearray3, 0, (Object[]) doublearray2, 2, 1));
+        Equality.equals(doublearray3, 0, doublearray2, 2, 1));
     assertEquals(true,
-        Equality.equals(doublearray1, 1, (Object[]) doublearray2, 1, 1));
+        Equality.equals(doublearray1, 1, doublearray2, 1, 1));
 
-    String[][] stringarray1 = { { "long", "long" }, { "ago" } };
-    String[][] stringarray2 = { { "long", "long" }, { "ago" } };
-    String[][] stringarray3 = { { "long", "time" }, { "no", "see" } };
+    final String[][] stringarray1 = { { "long", "long" }, { "ago" } };
+    final String[][] stringarray2 = { { "long", "long" }, { "ago" } };
+    final String[][] stringarray3 = { { "long", "time" }, { "no", "see" } };
     assertEquals(true, Equality.equals(stringarray1, 0,
-        (Object[]) stringarray2, 0, stringarray2.length));
+        stringarray2, 0, stringarray2.length));
     assertEquals(false, Equality.equals(stringarray3, 0,
-        (Object[]) stringarray2, 0, stringarray2.length));
+        stringarray2, 0, stringarray2.length));
     assertEquals(false,
-        Equality.equals(stringarray3, 0, (Object[]) stringarray2, 1, 1));
+        Equality.equals(stringarray3, 0, stringarray2, 1, 1));
     assertEquals(true,
-        Equality.equals(stringarray1, 1, (Object[]) stringarray2, 1, 1));
+        Equality.equals(stringarray1, 1, stringarray2, 1, 1));
 
-    Boolean[][] booleanobjectarray1 = { { true, false }, { false }, { true } };
-    Boolean[][] booleanobjectarray2 = { { true, false }, { false }, { true } };
-    Boolean[][] booleanobjectarray3 = { { false, true }, { true } };
+    final Boolean[][] booleanobjectarray1 = { { true, false }, { false }, { true } };
+    final Boolean[][] booleanobjectarray2 = { { true, false }, { false }, { true } };
+    final Boolean[][] booleanobjectarray3 = { { false, true }, { true } };
     assertEquals(true, Equality.equals(booleanobjectarray1, 0,
-        (Object[]) booleanobjectarray2, 0, booleanobjectarray2.length));
+        booleanobjectarray2, 0, booleanobjectarray2.length));
     assertEquals(false, Equality.equals(booleanobjectarray3, 0,
-        (Object[]) booleanobjectarray2, 0, booleanobjectarray2.length));
+        booleanobjectarray2, 0, booleanobjectarray2.length));
     assertEquals(false, Equality.equals(booleanobjectarray3, 0,
-        (Object[]) booleanobjectarray2, 2, 1));
+        booleanobjectarray2, 2, 1));
     assertEquals(true, Equality.equals(booleanobjectarray1, 1,
-        (Object[]) booleanobjectarray2, 1, 1));
+        booleanobjectarray2, 1, 1));
 
-    Character[][] charobjectarray1 = { { (char) 0, (char) 1 },
+    final Character[][] charobjectarray1 = { { (char) 0, (char) 1 },
         { (char) (Character.MIN_VALUE / 2), Character.MIN_VALUE },
         { (char) (Character.MAX_VALUE / 2), Character.MAX_VALUE } };
-    Character[][] charobjectarray2 = { { (char) 0, (char) 1 },
+    final Character[][] charobjectarray2 = { { (char) 0, (char) 1 },
         { (char) (Character.MIN_VALUE / 2), Character.MIN_VALUE },
         { (char) (Character.MAX_VALUE / 2), Character.MAX_VALUE } };
-    Character[][] charobjectarray3 = { { (char) 0, Character.MAX_VALUE } };
+    final Character[][] charobjectarray3 = { { (char) 0, Character.MAX_VALUE } };
     assertEquals(true, Equality.equals(charobjectarray1, 0,
-        (Object[]) charobjectarray2, 0, charobjectarray2.length));
+        charobjectarray2, 0, charobjectarray2.length));
     assertEquals(false, Equality.equals(charobjectarray3, 0,
-        (Object[]) charobjectarray2, 0, charobjectarray2.length));
+        charobjectarray2, 0, charobjectarray2.length));
     assertEquals(false,
-        Equality.equals(charobjectarray3, 0, (Object[]) charobjectarray2, 2, 1));
+        Equality.equals(charobjectarray3, 0, charobjectarray2, 2, 1));
     assertEquals(true,
-        Equality.equals(charobjectarray1, 1, (Object[]) charobjectarray2, 1, 1));
+        Equality.equals(charobjectarray1, 1, charobjectarray2, 1, 1));
 
-    Byte[][] byteobjectarray1 = { { (byte) 0, (byte) -1, (byte) 1 },
+    final Byte[][] byteobjectarray1 = { { (byte) 0, (byte) -1, (byte) 1 },
         { Byte.MIN_VALUE, (byte) (Byte.MIN_VALUE / 2) },
         { (byte) (Byte.MAX_VALUE / 2), Byte.MAX_VALUE } };
-    Byte[][] byteobjectarray2 = { { (byte) 0, (byte) -1, (byte) 1 },
+    final Byte[][] byteobjectarray2 = { { (byte) 0, (byte) -1, (byte) 1 },
         { Byte.MIN_VALUE, (byte) (Byte.MIN_VALUE / 2) },
         { (byte) (Byte.MAX_VALUE / 2), Byte.MAX_VALUE } };
-    Byte[][] byteobjectarray3 = { { (byte) 0, Byte.MAX_VALUE } };
+    final Byte[][] byteobjectarray3 = { { (byte) 0, Byte.MAX_VALUE } };
     assertEquals(true, Equality.equals(byteobjectarray1, 0,
-        (Object[]) byteobjectarray2, 0, byteobjectarray2.length));
+        byteobjectarray2, 0, byteobjectarray2.length));
     assertEquals(false, Equality.equals(byteobjectarray3, 0,
-        (Object[]) byteobjectarray2, 0, byteobjectarray2.length));
+        byteobjectarray2, 0, byteobjectarray2.length));
     assertEquals(false,
-        Equality.equals(byteobjectarray3, 0, (Object[]) byteobjectarray2, 2, 1));
+        Equality.equals(byteobjectarray3, 0, byteobjectarray2, 2, 1));
     assertEquals(true,
-        Equality.equals(byteobjectarray1, 1, (Object[]) byteobjectarray2, 1, 1));
+        Equality.equals(byteobjectarray1, 1, byteobjectarray2, 1, 1));
 
-    Short[][] shortobjectarray1 = { { (short) 0, (short) -1, (short) 1 },
+    final Short[][] shortobjectarray1 = { { (short) 0, (short) -1, (short) 1 },
         { Short.MIN_VALUE, (short) (Short.MIN_VALUE / 2) },
         { (short) (Short.MAX_VALUE / 2), Short.MAX_VALUE } };
-    Short[][] shortobjectarray2 = { { (short) 0, (short) -1, (short) 1 },
+    final Short[][] shortobjectarray2 = { { (short) 0, (short) -1, (short) 1 },
         { Short.MIN_VALUE, (short) (Short.MIN_VALUE / 2) },
         { (short) (Short.MAX_VALUE / 2), Short.MAX_VALUE } };
-    Short[][] shortobjectarray3 = { { (short) 0, Short.MAX_VALUE } };
+    final Short[][] shortobjectarray3 = { { (short) 0, Short.MAX_VALUE } };
     assertEquals(true, Equality.equals(shortobjectarray1, 0,
-        (Object[]) shortobjectarray2, 0, shortobjectarray2.length));
+        shortobjectarray2, 0, shortobjectarray2.length));
     assertEquals(false, Equality.equals(shortobjectarray3, 0,
-        (Object[]) shortobjectarray2, 0, shortobjectarray2.length));
+        shortobjectarray2, 0, shortobjectarray2.length));
     assertEquals(false, Equality.equals(shortobjectarray3, 0,
-        (Object[]) shortobjectarray2, 2, 1));
+        shortobjectarray2, 2, 1));
     assertEquals(true, Equality.equals(shortobjectarray1, 1,
-        (Object[]) shortobjectarray2, 1, 1));
+        shortobjectarray2, 1, 1));
 
-    Integer[][] integerarray1 = { { (int) 0, (int) -1, (int) 1 },
+    final Integer[][] integerarray1 = { { (int) 0, (int) -1, (int) 1 },
         { Integer.MIN_VALUE, (int) (Integer.MIN_VALUE / 2) },
         { (int) (Integer.MAX_VALUE / 2), Integer.MAX_VALUE } };
-    Integer[][] integerarray2 = { { (int) 0, (int) -1, (int) 1 },
+    final Integer[][] integerarray2 = { { (int) 0, (int) -1, (int) 1 },
         { Integer.MIN_VALUE, (int) (Integer.MIN_VALUE / 2) },
         { (int) (Integer.MAX_VALUE / 2), Integer.MAX_VALUE } };
-    Integer[][] integerarray3 = { { (int) 0, Integer.MAX_VALUE } };
+    final Integer[][] integerarray3 = { { (int) 0, Integer.MAX_VALUE } };
     assertEquals(true, Equality.equals(integerarray1, 0,
-        (Object[]) integerarray2, 0, integerarray2.length));
+        integerarray2, 0, integerarray2.length));
     assertEquals(false, Equality.equals(integerarray3, 0,
-        (Object[]) integerarray2, 0, integerarray2.length));
+        integerarray2, 0, integerarray2.length));
     assertEquals(false,
-        Equality.equals(integerarray3, 0, (Object[]) integerarray2, 2, 1));
+        Equality.equals(integerarray3, 0, integerarray2, 2, 1));
     assertEquals(true,
-        Equality.equals(integerarray1, 1, (Object[]) integerarray2, 1, 1));
+        Equality.equals(integerarray1, 1, integerarray2, 1, 1));
 
-    Long[][] longobjectarray1 = { { (long) 0, (long) -1, (long) 1 },
+    final Long[][] longobjectarray1 = { { (long) 0, (long) -1, (long) 1 },
         { Long.MIN_VALUE, (long) (Long.MIN_VALUE / 2) },
         { (long) (Long.MAX_VALUE / 2), Long.MAX_VALUE } };
-    Long[][] longobjectarray2 = { { (long) 0, (long) -1, (long) 1 },
+    final Long[][] longobjectarray2 = { { (long) 0, (long) -1, (long) 1 },
         { Long.MIN_VALUE, (long) (Long.MIN_VALUE / 2) },
         { (long) (Long.MAX_VALUE / 2), Long.MAX_VALUE } };
-    Long[][] longobjectarray3 = { { (long) 0, Long.MAX_VALUE } };
+    final Long[][] longobjectarray3 = { { (long) 0, Long.MAX_VALUE } };
     assertEquals(true, Equality.equals(longobjectarray1, 0,
-        (Object[]) longobjectarray2, 0, longobjectarray2.length));
+        longobjectarray2, 0, longobjectarray2.length));
     assertEquals(false, Equality.equals(longobjectarray3, 0,
-        (Object[]) longobjectarray2, 0, longobjectarray2.length));
+        longobjectarray2, 0, longobjectarray2.length));
     assertEquals(false,
-        Equality.equals(longobjectarray3, 0, (Object[]) longobjectarray2, 2, 1));
+        Equality.equals(longobjectarray3, 0, longobjectarray2, 2, 1));
     assertEquals(true,
-        Equality.equals(longobjectarray1, 1, (Object[]) longobjectarray2, 1, 1));
+        Equality.equals(longobjectarray1, 1, longobjectarray2, 1, 1));
 
-    Float[][] floatobjectarray1 = { { (float) 0, (float) -1, (float) 1 },
+    final Float[][] floatobjectarray1 = { { (float) 0, (float) -1, (float) 1 },
         { Float.MIN_VALUE, (float) (Float.MIN_VALUE / 2) },
         { (float) (Float.MAX_VALUE / 2), Float.MAX_VALUE } };
-    Float[][] floatobjectarray2 = { { (float) 0, (float) -1, (float) 1 },
+    final Float[][] floatobjectarray2 = { { (float) 0, (float) -1, (float) 1 },
         { Float.MIN_VALUE, (float) (Float.MIN_VALUE / 2) },
         { (float) (Float.MAX_VALUE / 2), Float.MAX_VALUE } };
-    Float[][] floatobjectarray3 = { { (float) 0, Float.MAX_VALUE } };
+    final Float[][] floatobjectarray3 = { { (float) 0, Float.MAX_VALUE } };
     assertEquals(true, Equality.equals(floatobjectarray1, 0,
-        (Object[]) floatobjectarray2, 0, floatobjectarray2.length));
+        floatobjectarray2, 0, floatobjectarray2.length));
     assertEquals(false, Equality.equals(floatobjectarray3, 0,
-        (Object[]) floatobjectarray2, 0, floatobjectarray2.length));
+        floatobjectarray2, 0, floatobjectarray2.length));
     assertEquals(false, Equality.equals(floatobjectarray3, 0,
-        (Object[]) floatobjectarray2, 2, 1));
+        floatobjectarray2, 2, 1));
     assertEquals(true, Equality.equals(floatobjectarray1, 1,
-        (Object[]) floatobjectarray2, 1, 1));
+        floatobjectarray2, 1, 1));
 
-    Double[][] doubleobjectarray1 = { { (double) 0, (double) -1, (double) 1 },
+    final Double[][] doubleobjectarray1 = { { (double) 0, (double) -1, (double) 1 },
         { (double) (Double.MIN_VALUE / 2), Double.MIN_VALUE },
         { (double) (Double.MAX_VALUE / 2), Double.MAX_VALUE } };
-    Double[][] doubleobjectarray2 = { { (double) 0, (double) -1, (double) 1 },
+    final Double[][] doubleobjectarray2 = { { (double) 0, (double) -1, (double) 1 },
         { (double) (Double.MIN_VALUE / 2), Double.MIN_VALUE },
         { (double) (Double.MAX_VALUE / 2), Double.MAX_VALUE } };
-    Double[][] doubleobjectarray3 = { { (double) 0, Double.MAX_VALUE } };
+    final Double[][] doubleobjectarray3 = { { (double) 0, Double.MAX_VALUE } };
     assertEquals(true, Equality.equals(doubleobjectarray1, 0,
-        (Object[]) doubleobjectarray2, 0, doubleobjectarray2.length));
+        doubleobjectarray2, 0, doubleobjectarray2.length));
     assertEquals(false, Equality.equals(doubleobjectarray3, 0,
-        (Object[]) doubleobjectarray2, 0, doubleobjectarray2.length));
+        doubleobjectarray2, 0, doubleobjectarray2.length));
     assertEquals(false, Equality.equals(doubleobjectarray3, 0,
-        (Object[]) doubleobjectarray2, 2, 1));
+        doubleobjectarray2, 2, 1));
     assertEquals(true, Equality.equals(doubleobjectarray1, 1,
-        (Object[]) doubleobjectarray2, 1, 1));
+        doubleobjectarray2, 1, 1));
 
     final class TestClassA {
     }
     final class TestClassB {
     }
-    Class<?>[][] classarray1 = { { TestClassA.class }, { TestClassA.class } };
-    Class<?>[][] classarray2 = { { TestClassA.class }, { TestClassA.class } };
-    Class<?>[][] classarray3 = { { TestClassB.class, TestClassA.class } };
+    final Class<?>[][] classarray1 = { { TestClassA.class }, { TestClassA.class } };
+    final Class<?>[][] classarray2 = { { TestClassA.class }, { TestClassA.class } };
+    final Class<?>[][] classarray3 = { { TestClassB.class, TestClassA.class } };
 
     assertEquals(true,
         Equality.equals(classarray1, 0, classarray2, 0, classarray2.length));
@@ -2741,57 +2754,57 @@ public class EqualityTest {
     assertEquals(false, Equality.equals(classarray3, 0, classarray2, 1, 1));
     assertEquals(true, Equality.equals(classarray1, 1, classarray2, 1, 1));
 
-    Date datea = new Date();
-    datea.setTime((long) 123456);
-    Date dateb = new Date();
-    dateb.setTime((long) 7891011);
-    Date datec = new Date();
-    datec.setTime((long) 654321);
-    Date[][] datearray1 = { { datea, dateb }, { datec } };
-    Date[][] datearray2 = { { datea, dateb }, { datec } };
-    Date[][] datearray3 = { { datec }, { datea, dateb } };
-    assertEquals(true, Equality.equals(datearray1, 0, (Object[]) datearray2, 0,
+    final Date datea = new Date();
+    datea.setTime(123456);
+    final Date dateb = new Date();
+    dateb.setTime(7891011);
+    final Date datec = new Date();
+    datec.setTime(654321);
+    final Date[][] datearray1 = { { datea, dateb }, { datec } };
+    final Date[][] datearray2 = { { datea, dateb }, { datec } };
+    final Date[][] datearray3 = { { datec }, { datea, dateb } };
+    assertEquals(true, Equality.equals(datearray1, 0, datearray2, 0,
         datearray2.length));
-    assertEquals(false, Equality.equals(datearray3, 0, (Object[]) datearray2,
+    assertEquals(false, Equality.equals(datearray3, 0, datearray2,
         0, datearray2.length));
     assertEquals(false,
-        Equality.equals(datearray3, 0, (Object[]) datearray2, 0, 1));
+        Equality.equals(datearray3, 0, datearray2, 0, 1));
     assertEquals(true,
-        Equality.equals(datearray3, 0, (Object[]) datearray2, 1, 1));
+        Equality.equals(datearray3, 0, datearray2, 1, 1));
     assertEquals(true,
-        Equality.equals(datearray1, 1, (Object[]) datearray2, 1, 1));
+        Equality.equals(datearray1, 1, datearray2, 1, 1));
 
-    BigInteger[][] bigintegerarray1 = { { new BigInteger(bytearray1[0]),
+    final BigInteger[][] bigintegerarray1 = { { new BigInteger(bytearray1[0]),
         new BigInteger(bytearray3[0]) } };
-    BigInteger[][] bigintegerarray2 = { { new BigInteger(bytearray2[0]),
+    final BigInteger[][] bigintegerarray2 = { { new BigInteger(bytearray2[0]),
         new BigInteger(bytearray3[0]) } };
-    BigInteger[][] bigintegerarray3 = { { new BigInteger(bytearray3[0]) } };
+    final BigInteger[][] bigintegerarray3 = { { new BigInteger(bytearray3[0]) } };
     assertEquals(true, Equality.equals(bigintegerarray1, 0,
-        (Object[]) bigintegerarray2, 0, bigintegerarray2.length));
+        bigintegerarray2, 0, bigintegerarray2.length));
     assertEquals(false, Equality.equals(bigintegerarray3, 0,
-        (Object[]) bigintegerarray2, 0, bigintegerarray2.length));
+        bigintegerarray2, 0, bigintegerarray2.length));
     assertEquals(false,
-        Equality.equals(bigintegerarray3, 0, (Object[]) bigintegerarray2, 0, 1));
+        Equality.equals(bigintegerarray3, 0, bigintegerarray2, 0, 1));
 
-    BigDecimal[][] bigdecimalarray1 = { { new BigDecimal(Integer.MIN_VALUE) },
+    final BigDecimal[][] bigdecimalarray1 = { { new BigDecimal(Integer.MIN_VALUE) },
         { new BigDecimal(Integer.MAX_VALUE) } };
-    BigDecimal[][] bigdecimalarray2 = { { new BigDecimal(Integer.MIN_VALUE) },
+    final BigDecimal[][] bigdecimalarray2 = { { new BigDecimal(Integer.MIN_VALUE) },
         { new BigDecimal(Integer.MAX_VALUE) } };
-    BigDecimal[][] bigdecimalarray3 = { { new BigDecimal(0), new BigDecimal(-1) } };
+    final BigDecimal[][] bigdecimalarray3 = { { new BigDecimal(0), new BigDecimal(-1) } };
     assertEquals(true, Equality.equals(bigdecimalarray1, 0,
-        (Object[]) bigdecimalarray2, 0, bigdecimalarray2.length));
+        bigdecimalarray2, 0, bigdecimalarray2.length));
     assertEquals(false, Equality.equals(bigdecimalarray3, 0,
-        (Object[]) bigdecimalarray2, 0, bigdecimalarray2.length));
+        bigdecimalarray2, 0, bigdecimalarray2.length));
     assertEquals(false,
-        Equality.equals(bigdecimalarray3, 0, (Object[]) bigdecimalarray2, 1, 1));
+        Equality.equals(bigdecimalarray3, 0, bigdecimalarray2, 1, 1));
     assertEquals(true,
-        Equality.equals(bigdecimalarray1, 1, (Object[]) bigdecimalarray2, 1, 1));
+        Equality.equals(bigdecimalarray1, 1, bigdecimalarray2, 1, 1));
 
-    Boolean[][][][] objectarray1 = { { { { true, false }, { true, true } } },
+    final Boolean[][][][] objectarray1 = { { { { true, false }, { true, true } } },
         { { { false, false }, { true } } } };
-    Boolean[][][][] objectarray2 = { { { { true, false }, { true, true } } },
+    final Boolean[][][][] objectarray2 = { { { { true, false }, { true, true } } },
         { { { false, false }, { true } } } };
-    Boolean[][][][] objectarray3 = { { { { true }, { false } } },
+    final Boolean[][][][] objectarray3 = { { { { true }, { false } } },
         { { { true, true } } } };
     assertEquals(true,
         Equality.equals(objectarray1, 0, objectarray2, 0, objectarray2.length));
@@ -2800,27 +2813,27 @@ public class EqualityTest {
     assertEquals(false, Equality.equals(objectarray3, 0, objectarray2, 1, 1));
     assertEquals(true, Equality.equals(objectarray1, 1, objectarray2, 1, 1));
 
-    ArrayList<Character> arraylist1 = new ArrayList<Character>();
-    ArrayList<Character> arraylist2 = new ArrayList<Character>();
-    Object[] col1 = { arraylist1, arraylist2 };
+    final ArrayList<Character> arraylist1 = new ArrayList<Character>();
+    final ArrayList<Character> arraylist2 = new ArrayList<Character>();
+    final Object[] col1 = { arraylist1, arraylist2 };
     arraylist1.add('a');
     arraylist2.add('b');
     arraylist1.add('c');
-    ArrayList<Character> arraylist3 = new ArrayList<Character>();
-    ArrayList<Character> arraylist4 = new ArrayList<Character>();
-    Object[] col2 = { arraylist3, arraylist4 };
+    final ArrayList<Character> arraylist3 = new ArrayList<Character>();
+    final ArrayList<Character> arraylist4 = new ArrayList<Character>();
+    final Object[] col2 = { arraylist3, arraylist4 };
     arraylist3.add('a');
     arraylist4.add('b');
     arraylist3.add('c');
-    ArrayList<Character> arraylist5 = new ArrayList<Character>();
-    Object[] col3 = { arraylist5 };
+    final ArrayList<Character> arraylist5 = new ArrayList<Character>();
+    final Object[] col3 = { arraylist5 };
     arraylist5.add('a');
     assertEquals(true,
-        Equality.equals(col1, 0, (Object[]) col2, 0, col2.length));
+        Equality.equals(col1, 0, col2, 0, col2.length));
     assertEquals(false,
-        Equality.equals(col3, 0, (Object[]) col2, 0, col2.length));
-    assertEquals(false, Equality.equals(col3, 0, (Object[]) col2, 1, 1));
-    assertEquals(true, Equality.equals(col1, 1, (Object[]) col2, 1, 1));
+        Equality.equals(col3, 0, col2, 0, col2.length));
+    assertEquals(false, Equality.equals(col3, 0, col2, 1, 1));
+    assertEquals(true, Equality.equals(col1, 1, col2, 1, 1));
   }
 
   /**
@@ -2831,12 +2844,12 @@ public class EqualityTest {
   @Test
   public void testObjectWithEpsilon() {
     final double epsilon = 0.01;
-    ArrayList<Double> value1 = new ArrayList<Double>();
+    final ArrayList<Double> value1 = new ArrayList<Double>();
     value1.add(0.0);
     value1.add(1.0);
     value1.add(-1.0);
     value1.add(Double.MAX_VALUE);
-    ArrayList<Double> value2 = new ArrayList<Double>();
+    final ArrayList<Double> value2 = new ArrayList<Double>();
     value2.add(0.0);
     value2.add(1.0);
     value2.add(-1.0);
@@ -2849,193 +2862,193 @@ public class EqualityTest {
     assertEquals(true,
         Equality.valueEquals((Object) null, (Object) null, epsilon));
 
-    boolean[] booleanarray1 = { true, false, false, true };
-    boolean[] booleanarray2 = { true, false, false, true };
-    boolean[] booleanarray3 = { false, true, true };
+    final boolean[] booleanarray1 = { true, false, false, true };
+    final boolean[] booleanarray2 = { true, false, false, true };
+    final boolean[] booleanarray3 = { false, true, true };
     assertEquals(true,
-        Equality.valueEquals(booleanarray1, (Object) booleanarray2, epsilon));
+        Equality.valueEquals(booleanarray1, booleanarray2, epsilon));
     assertEquals(false,
-        Equality.valueEquals(booleanarray3, (Object) booleanarray2, epsilon));
+        Equality.valueEquals(booleanarray3, booleanarray2, epsilon));
 
-    char[] chararray1 = { (char) 0, (char) 1,
+    final char[] chararray1 = { (char) 0, (char) 1,
         (char) (Character.MIN_VALUE / 2), Character.MIN_VALUE,
         (char) (Character.MAX_VALUE / 2), Character.MAX_VALUE };
-    char[] chararray2 = { (char) 0, (char) 1,
+    final char[] chararray2 = { (char) 0, (char) 1,
         (char) (Character.MIN_VALUE / 2), Character.MIN_VALUE,
         (char) (Character.MAX_VALUE / 2), Character.MAX_VALUE };
-    char[] chararray3 = { (char) 0, Character.MAX_VALUE };
+    final char[] chararray3 = { (char) 0, Character.MAX_VALUE };
     assertEquals(true,
-        Equality.valueEquals(chararray1, (Object) chararray2, epsilon));
+        Equality.valueEquals(chararray1, chararray2, epsilon));
     assertEquals(false,
-        Equality.valueEquals(chararray3, (Object) chararray2, epsilon));
+        Equality.valueEquals(chararray3, chararray2, epsilon));
 
-    byte[] bytearray1 = { (byte) 0, (byte) -1, (byte) 1, Byte.MIN_VALUE,
+    final byte[] bytearray1 = { (byte) 0, (byte) -1, (byte) 1, Byte.MIN_VALUE,
         (byte) (Byte.MIN_VALUE / 2), (byte) (Byte.MAX_VALUE / 2),
         Byte.MAX_VALUE };
-    byte[] bytearray2 = { (byte) 0, (byte) -1, (byte) 1, Byte.MIN_VALUE,
+    final byte[] bytearray2 = { (byte) 0, (byte) -1, (byte) 1, Byte.MIN_VALUE,
         (byte) (Byte.MIN_VALUE / 2), (byte) (Byte.MAX_VALUE / 2),
         Byte.MAX_VALUE };
-    byte[] bytearray3 = { (byte) 0, Byte.MAX_VALUE };
+    final byte[] bytearray3 = { (byte) 0, Byte.MAX_VALUE };
     assertEquals(true,
-        Equality.valueEquals(bytearray1, (Object) bytearray2, epsilon));
+        Equality.valueEquals(bytearray1, bytearray2, epsilon));
     assertEquals(false,
-        Equality.valueEquals(bytearray3, (Object) bytearray2, epsilon));
+        Equality.valueEquals(bytearray3, bytearray2, epsilon));
 
-    short[] shortarray1 = { (short) 0, (short) -1, (short) 1, Short.MAX_VALUE,
+    final short[] shortarray1 = { (short) 0, (short) -1, (short) 1, Short.MAX_VALUE,
         (short) (Short.MIN_VALUE / 2), Short.MIN_VALUE,
         (short) (Short.MAX_VALUE / 2) };
-    short[] shortarray2 = { (short) 0, (short) -1, (short) 1, Short.MAX_VALUE,
+    final short[] shortarray2 = { (short) 0, (short) -1, (short) 1, Short.MAX_VALUE,
         (short) (Short.MIN_VALUE / 2), Short.MIN_VALUE,
         (short) (Short.MAX_VALUE / 2) };
-    short[] shortarray3 = { (short) 0, Short.MAX_VALUE };
+    final short[] shortarray3 = { (short) 0, Short.MAX_VALUE };
     assertEquals(true,
-        Equality.valueEquals(shortarray1, (Object) shortarray2, epsilon));
+        Equality.valueEquals(shortarray1, shortarray2, epsilon));
     assertEquals(false,
-        Equality.valueEquals(shortarray3, (Object) shortarray2, epsilon));
+        Equality.valueEquals(shortarray3, shortarray2, epsilon));
 
-    int[] intarray1 = { (int) 0, (int) -1, (int) 1, Integer.MIN_VALUE,
-        (int) (Integer.MIN_VALUE / 2), (int) (Integer.MAX_VALUE / 2),
+    final int[] intarray1 = { 0, -1, 1, Integer.MIN_VALUE,
+        Integer.MIN_VALUE / 2, Integer.MAX_VALUE / 2,
         Integer.MAX_VALUE };
-    int[] intarray2 = { (int) 0, (int) -1, (int) 1, Integer.MIN_VALUE,
-        (int) (Integer.MIN_VALUE / 2), (int) (Integer.MAX_VALUE / 2),
+    final int[] intarray2 = { 0, -1, 1, Integer.MIN_VALUE,
+        Integer.MIN_VALUE / 2, Integer.MAX_VALUE / 2,
         Integer.MAX_VALUE };
-    int[] intarray3 = { (int) 0, Integer.MAX_VALUE };
+    final int[] intarray3 = { 0, Integer.MAX_VALUE };
     assertEquals(true,
-        Equality.valueEquals(intarray1, (Object) intarray2, epsilon));
+        Equality.valueEquals(intarray1, intarray2, epsilon));
     assertEquals(false,
-        Equality.valueEquals(intarray3, (Object) intarray2, epsilon));
+        Equality.valueEquals(intarray3, intarray2, epsilon));
 
-    long[] longarray1 = { (long) 0, (long) -1, (long) 1, Long.MIN_VALUE,
-        (long) (Long.MIN_VALUE / 2), (long) (Long.MAX_VALUE / 2),
+    final long[] longarray1 = { 0, -1, 1, Long.MIN_VALUE,
+        Long.MIN_VALUE / 2, Long.MAX_VALUE / 2,
         Long.MAX_VALUE };
-    long[] longarray2 = { (long) 0, (long) -1, (long) 1, Long.MIN_VALUE,
-        (long) (Long.MIN_VALUE / 2), (long) (Long.MAX_VALUE / 2),
+    final long[] longarray2 = { 0, -1, 1, Long.MIN_VALUE,
+        Long.MIN_VALUE / 2, Long.MAX_VALUE / 2,
         Long.MAX_VALUE };
-    long[] longarray3 = { (long) 0, Long.MAX_VALUE };
+    final long[] longarray3 = { 0, Long.MAX_VALUE };
     assertEquals(true,
-        Equality.valueEquals(longarray1, (Object) longarray2, epsilon));
+        Equality.valueEquals(longarray1, longarray2, epsilon));
     assertEquals(false,
-        Equality.valueEquals(longarray3, (Object) longarray2, epsilon));
+        Equality.valueEquals(longarray3, longarray2, epsilon));
 
-    float[] floatarray1 = { (float) 0, (float) -1, (float) 1, Float.MIN_VALUE,
-        (float) (Float.MIN_VALUE / 2), (float) (Float.MAX_VALUE / 2),
+    final float[] floatarray1 = { 0, -1, 1, Float.MIN_VALUE,
+        Float.MIN_VALUE / 2, Float.MAX_VALUE / 2,
         Float.MAX_VALUE };
-    float[] floatarray2 = { (float) 0, (float) -1, (float) 1, Float.MIN_VALUE,
-        (float) (Float.MIN_VALUE / 2), (float) (Float.MAX_VALUE / 2),
+    final float[] floatarray2 = { 0, -1, 1, Float.MIN_VALUE,
+        Float.MIN_VALUE / 2, Float.MAX_VALUE / 2,
         Float.MAX_VALUE };
-    float[] floatarray3 = { (float) 0, Float.MAX_VALUE };
+    final float[] floatarray3 = { 0, Float.MAX_VALUE };
     assertEquals(true,
-        Equality.valueEquals(floatarray1, (Object) floatarray2, epsilon));
+        Equality.valueEquals(floatarray1, floatarray2, epsilon));
     assertEquals(false,
-        Equality.valueEquals(floatarray3, (Object) floatarray2, epsilon));
+        Equality.valueEquals(floatarray3, floatarray2, epsilon));
 
-    double[] doublearray1 = { (double) 0, (double) -1, (double) 1,
-        Double.MIN_VALUE, (double) (Double.MIN_VALUE / 2),
-        (double) (Double.MAX_VALUE / 2), Double.MAX_VALUE };
-    double[] doublearray2 = { (double) 0, (double) -1, (double) 1,
-        Double.MIN_VALUE, (double) (Double.MIN_VALUE / 2),
-        (double) (Double.MAX_VALUE / 2), Double.MAX_VALUE };
-    double[] doublearray3 = { (double) 0, Double.MAX_VALUE };
+    final double[] doublearray1 = { 0, -1, 1,
+        Double.MIN_VALUE, Double.MIN_VALUE / 2,
+        Double.MAX_VALUE / 2, Double.MAX_VALUE };
+    final double[] doublearray2 = { 0, -1, 1,
+        Double.MIN_VALUE, Double.MIN_VALUE / 2,
+        Double.MAX_VALUE / 2, Double.MAX_VALUE };
+    final double[] doublearray3 = { 0, Double.MAX_VALUE };
     assertEquals(true,
         Equality.valueEquals(doublearray1, (Object) doublearray2, epsilon));
     assertEquals(false,
         Equality.valueEquals(doublearray3, (Object) doublearray2, epsilon));
 
-    String[] stringarray1 = { "long", "long", "ago" };
-    String[] stringarray2 = { "long", "long", "ago" };
-    String[] stringarray3 = { "long", "time", "no", "see" };
+    final String[] stringarray1 = { "long", "long", "ago" };
+    final String[] stringarray2 = { "long", "long", "ago" };
+    final String[] stringarray3 = { "long", "time", "no", "see" };
     assertEquals(true,
         Equality.valueEquals(stringarray1, (Object) stringarray2, epsilon));
     assertEquals(false,
         Equality.valueEquals(stringarray3, (Object) stringarray2, epsilon));
 
-    Boolean[] booleanobjectarray1 = { true, false, false, true };
-    Boolean[] booleanobjectarray2 = { true, false, false, true };
-    Boolean[] booleanobjectarray3 = { false, true, true };
+    final Boolean[] booleanobjectarray1 = { true, false, false, true };
+    final Boolean[] booleanobjectarray2 = { true, false, false, true };
+    final Boolean[] booleanobjectarray3 = { false, true, true };
     assertEquals(true, Equality.valueEquals(booleanobjectarray1,
         (Object) booleanobjectarray2, epsilon));
     assertEquals(false, Equality.valueEquals(booleanobjectarray3,
         (Object) booleanobjectarray2, epsilon));
 
-    Character[] charobjectarray1 = { (char) 0, (char) 1,
+    final Character[] charobjectarray1 = { (char) 0, (char) 1,
         (char) (Character.MIN_VALUE / 2), Character.MIN_VALUE,
         (char) (Character.MAX_VALUE / 2), Character.MAX_VALUE };
-    Character[] charobjectarray2 = { (char) 0, (char) 1,
+    final Character[] charobjectarray2 = { (char) 0, (char) 1,
         (char) (Character.MIN_VALUE / 2), Character.MIN_VALUE,
         (char) (Character.MAX_VALUE / 2), Character.MAX_VALUE };
-    Character[] charobjectarray3 = { (char) 0, Character.MAX_VALUE };
+    final Character[] charobjectarray3 = { (char) 0, Character.MAX_VALUE };
     assertEquals(true, Equality.valueEquals(charobjectarray1,
         (Object) charobjectarray2, epsilon));
     assertEquals(false, Equality.valueEquals(charobjectarray3,
         (Object) charobjectarray2, epsilon));
 
-    Byte[] byteobjectarray1 = { (byte) 0, (byte) -1, (byte) 1, Byte.MIN_VALUE,
+    final Byte[] byteobjectarray1 = { (byte) 0, (byte) -1, (byte) 1, Byte.MIN_VALUE,
         (byte) (Byte.MIN_VALUE / 2), (byte) (Byte.MAX_VALUE / 2),
         Byte.MAX_VALUE };
-    Byte[] byteobjectarray2 = { (byte) 0, (byte) -1, (byte) 1, Byte.MIN_VALUE,
+    final Byte[] byteobjectarray2 = { (byte) 0, (byte) -1, (byte) 1, Byte.MIN_VALUE,
         (byte) (Byte.MIN_VALUE / 2), (byte) (Byte.MAX_VALUE / 2),
         Byte.MAX_VALUE };
-    Byte[] byteobjectarray3 = { (byte) 0, Byte.MAX_VALUE };
+    final Byte[] byteobjectarray3 = { (byte) 0, Byte.MAX_VALUE };
     assertEquals(true, Equality.valueEquals(byteobjectarray1,
         (Object) byteobjectarray2, epsilon));
     assertEquals(false, Equality.valueEquals(byteobjectarray3,
         (Object) byteobjectarray2, epsilon));
 
-    Short[] shortobjectarray1 = { (short) 0, (short) -1, (short) 1,
+    final Short[] shortobjectarray1 = { (short) 0, (short) -1, (short) 1,
         Short.MIN_VALUE, (short) (Short.MIN_VALUE / 2),
         (short) (Short.MAX_VALUE / 2), Short.MAX_VALUE };
-    Short[] shortobjectarray2 = { (short) 0, (short) -1, (short) 1,
+    final Short[] shortobjectarray2 = { (short) 0, (short) -1, (short) 1,
         Short.MIN_VALUE, (short) (Short.MIN_VALUE / 2),
         (short) (Short.MAX_VALUE / 2), Short.MAX_VALUE };
-    Short[] shortobjectarray3 = { (short) 0, Short.MAX_VALUE };
+    final Short[] shortobjectarray3 = { (short) 0, Short.MAX_VALUE };
     assertEquals(true, Equality.valueEquals(shortobjectarray1,
         (Object) shortobjectarray2, epsilon));
     assertEquals(false, Equality.valueEquals(shortobjectarray3,
         (Object) shortobjectarray2, epsilon));
 
-    Integer[] integerarray1 = { (int) 0, (int) -1, (int) 1, Integer.MIN_VALUE,
+    final Integer[] integerarray1 = { (int) 0, (int) -1, (int) 1, Integer.MIN_VALUE,
         (int) (Integer.MIN_VALUE / 2), (int) (Integer.MAX_VALUE / 2),
         Integer.MAX_VALUE };
-    Integer[] integerarray2 = { (int) 0, (int) -1, (int) 1, Integer.MIN_VALUE,
+    final Integer[] integerarray2 = { (int) 0, (int) -1, (int) 1, Integer.MIN_VALUE,
         (int) (Integer.MIN_VALUE / 2), (int) (Integer.MAX_VALUE / 2),
         Integer.MAX_VALUE };
-    Integer[] integerarray3 = { (int) 0, Integer.MAX_VALUE };
+    final Integer[] integerarray3 = { (int) 0, Integer.MAX_VALUE };
     assertEquals(true,
         Equality.valueEquals(integerarray1, (Object) integerarray2, epsilon));
     assertEquals(false,
         Equality.valueEquals(integerarray3, (Object) integerarray2, epsilon));
 
-    Long[] longobjectarray1 = { (long) 0, (long) -1, (long) 1, Long.MIN_VALUE,
+    final Long[] longobjectarray1 = { (long) 0, (long) -1, (long) 1, Long.MIN_VALUE,
         (long) (Long.MIN_VALUE / 2), (long) (Long.MAX_VALUE / 2),
         Long.MAX_VALUE };
-    Long[] longobjectarray2 = { (long) 0, (long) -1, (long) 1, Long.MIN_VALUE,
+    final Long[] longobjectarray2 = { (long) 0, (long) -1, (long) 1, Long.MIN_VALUE,
         (long) (Long.MIN_VALUE / 2), (long) (Long.MAX_VALUE / 2),
         Long.MAX_VALUE };
-    Long[] longobjectarray3 = { (long) 0, Long.MAX_VALUE };
+    final Long[] longobjectarray3 = { (long) 0, Long.MAX_VALUE };
     assertEquals(true, Equality.valueEquals(longobjectarray1,
         (Object) longobjectarray2, epsilon));
     assertEquals(false, Equality.valueEquals(longobjectarray3,
         (Object) longobjectarray2, epsilon));
 
-    Float[] floatobjectarray1 = { (float) 0, (float) -1, (float) 1,
+    final Float[] floatobjectarray1 = { (float) 0, (float) -1, (float) 1,
         Float.MIN_VALUE, (float) (Float.MIN_VALUE / 2),
         (float) (Float.MAX_VALUE / 2), Float.MAX_VALUE };
-    Float[] floatobjectarray2 = { (float) 0, (float) -1, (float) 1,
+    final Float[] floatobjectarray2 = { (float) 0, (float) -1, (float) 1,
         Float.MIN_VALUE, (float) (Float.MIN_VALUE / 2),
         (float) (Float.MAX_VALUE / 2), Float.MAX_VALUE };
-    Float[] floatobjectarray3 = { (float) 0, Float.MAX_VALUE };
+    final Float[] floatobjectarray3 = { (float) 0, Float.MAX_VALUE };
     assertEquals(true, Equality.valueEquals(floatobjectarray1,
         (Object) floatobjectarray2, epsilon));
     assertEquals(false, Equality.valueEquals(floatobjectarray3,
         (Object) floatobjectarray2, epsilon));
 
-    Double[] doubleobjectarray1 = { (double) 0, (double) -1, (double) 1,
+    final Double[] doubleobjectarray1 = { (double) 0, (double) -1, (double) 1,
         (double) (Double.MIN_VALUE / 2), Double.MIN_VALUE,
         (double) (Double.MAX_VALUE / 2), Double.MAX_VALUE };
-    Double[] doubleobjectarray2 = { (double) 0, (double) -1, (double) 1,
+    final Double[] doubleobjectarray2 = { (double) 0, (double) -1, (double) 1,
         (double) (Double.MIN_VALUE / 2), Double.MIN_VALUE,
         (double) (Double.MAX_VALUE / 2), Double.MAX_VALUE };
-    Double[] doubleobjectarray3 = { (double) 0, Double.MAX_VALUE };
+    final Double[] doubleobjectarray3 = { (double) 0, Double.MAX_VALUE };
     assertEquals(true, Equality.valueEquals(doubleobjectarray1,
         (Object) doubleobjectarray2, epsilon));
     assertEquals(false, Equality.valueEquals(doubleobjectarray3,
@@ -3045,70 +3058,70 @@ public class EqualityTest {
     }
     final class TestClassB {
     }
-    Class<?>[] classarray1 = new Class<?>[] { TestClassA.class,
+    final Class<?>[] classarray1 = new Class<?>[] { TestClassA.class,
         TestClassA.class };
-    Class<?>[] classarray2 = new Class<?>[] { TestClassA.class,
+    final Class<?>[] classarray2 = new Class<?>[] { TestClassA.class,
         TestClassA.class };
-    Class<?>[] classarray3 = new Class<?>[] { TestClassB.class,
+    final Class<?>[] classarray3 = new Class<?>[] { TestClassB.class,
         TestClassB.class };
     assertEquals(true,
         Equality.valueEquals(classarray1, (Object) classarray2, epsilon));
     assertEquals(false,
         Equality.valueEquals(classarray3, (Object) classarray2, epsilon));
 
-    Date datea = new Date();
-    datea.setTime((long) 123456);
-    Date dateb = new Date();
-    dateb.setTime((long) 7891011);
-    Date datec = new Date();
-    datec.setTime((long) 654321);
-    Date[] datearray1 = { datea, dateb, datec };
-    Date[] datearray2 = { datea, dateb, datec };
-    Date[] datearray3 = { datec, datea, dateb };
+    final Date datea = new Date();
+    datea.setTime(123456);
+    final Date dateb = new Date();
+    dateb.setTime(7891011);
+    final Date datec = new Date();
+    datec.setTime(654321);
+    final Date[] datearray1 = { datea, dateb, datec };
+    final Date[] datearray2 = { datea, dateb, datec };
+    final Date[] datearray3 = { datec, datea, dateb };
     assertEquals(true,
         Equality.valueEquals(datearray1, (Object) datearray2, epsilon));
     assertEquals(false,
         Equality.valueEquals(datearray3, (Object) datearray2, epsilon));
 
-    BigInteger[] bigintegerarray1 = { new BigInteger(bytearray1),
+    final BigInteger[] bigintegerarray1 = { new BigInteger(bytearray1),
         new BigInteger(bytearray3) };
-    BigInteger[] bigintegerarray2 = { new BigInteger(bytearray2),
+    final BigInteger[] bigintegerarray2 = { new BigInteger(bytearray2),
         new BigInteger(bytearray3) };
-    BigInteger[] bigintegerarray3 = { new BigInteger(bytearray3) };
+    final BigInteger[] bigintegerarray3 = { new BigInteger(bytearray3) };
     assertEquals(true, Equality.valueEquals(bigintegerarray1,
         (Object) bigintegerarray2, epsilon));
     assertEquals(false, Equality.valueEquals(bigintegerarray3,
         (Object) bigintegerarray2, epsilon));
 
-    BigDecimal[] bigdecimalarray1 = { new BigDecimal(Integer.MIN_VALUE),
+    final BigDecimal[] bigdecimalarray1 = { new BigDecimal(Integer.MIN_VALUE),
         new BigDecimal(Integer.MAX_VALUE) };
-    BigDecimal[] bigdecimalarray2 = { new BigDecimal(Integer.MIN_VALUE),
+    final BigDecimal[] bigdecimalarray2 = { new BigDecimal(Integer.MIN_VALUE),
         new BigDecimal(Integer.MAX_VALUE) };
-    BigDecimal[] bigdecimalarray3 = { new BigDecimal(0), new BigDecimal(-1) };
+    final BigDecimal[] bigdecimalarray3 = { new BigDecimal(0), new BigDecimal(-1) };
     assertEquals(true, Equality.valueEquals(bigdecimalarray1,
         (Object) bigdecimalarray2, epsilon));
     assertEquals(false, Equality.valueEquals(bigdecimalarray3,
         (Object) bigdecimalarray2, epsilon));
 
-    Boolean[][] objectarray1 = { { true, false }, { true, true },
+    final Boolean[][] objectarray1 = { { true, false }, { true, true },
         { false, false, true } };
-    Boolean[][] objectarray2 = { { true, false }, { true, true },
+    final Boolean[][] objectarray2 = { { true, false }, { true, true },
         { false, false, true } };
-    Boolean[][] objectarray3 = { { true, false }, { true, true } };
+    final Boolean[][] objectarray3 = { { true, false }, { true, true } };
     assertEquals(true,
         Equality.valueEquals(objectarray1, (Object) objectarray2, epsilon));
     assertEquals(false,
         Equality.valueEquals(objectarray3, (Object) objectarray2, epsilon));
 
-    ArrayList<Character> col1 = new ArrayList<Character>();
+    final ArrayList<Character> col1 = new ArrayList<Character>();
     col1.add('a');
     col1.add('b');
     col1.add('c');
-    ArrayList<Character> col2 = new ArrayList<Character>();
+    final ArrayList<Character> col2 = new ArrayList<Character>();
     col2.add('a');
     col2.add('b');
     col2.add('c');
-    ArrayList<Character> col3 = new ArrayList<Character>();
+    final ArrayList<Character> col3 = new ArrayList<Character>();
     col3.add('b');
     col3.add('c');
     assertEquals(true, Equality.valueEquals(col1, (Object) col2, epsilon));
@@ -3124,9 +3137,9 @@ public class EqualityTest {
   public void testObjectArrayWithEpsilon() {
     final double epsilon = 0.01;
 
-    boolean[][] booleanarray1 = { { true }, { false, false }, { true } };
-    boolean[][] booleanarray2 = { { true }, { false, false }, { true } };
-    boolean[][] booleanarray3 = { { false, true }, { true } };
+    final boolean[][] booleanarray1 = { { true }, { false, false }, { true } };
+    final boolean[][] booleanarray2 = { { true }, { false, false }, { true } };
+    final boolean[][] booleanarray3 = { { false, true }, { true } };
     assertEquals(true,
         Equality.valueEquals(booleanarray1, (Object) booleanarray2, epsilon));
     assertEquals(false,
@@ -3136,185 +3149,185 @@ public class EqualityTest {
     assertEquals(true,
         Equality.valueEquals((Object) null, (Object) null, epsilon));
 
-    char[][] chararray1 = { { (char) 0, (char) 1 },
+    final char[][] chararray1 = { { (char) 0, (char) 1 },
         { (char) (Character.MIN_VALUE / 2), Character.MIN_VALUE },
         { (char) (Character.MAX_VALUE / 2), Character.MAX_VALUE } };
-    char[][] chararray2 = { { (char) 0, (char) 1 },
+    final char[][] chararray2 = { { (char) 0, (char) 1 },
         { (char) (Character.MIN_VALUE / 2), Character.MIN_VALUE },
         { (char) (Character.MAX_VALUE / 2), Character.MAX_VALUE } };
-    char[][] chararray3 = { { (char) 0, Character.MAX_VALUE } };
+    final char[][] chararray3 = { { (char) 0, Character.MAX_VALUE } };
     assertEquals(true,
         Equality.valueEquals(chararray1, (Object) chararray2, epsilon));
     assertEquals(false,
         Equality.valueEquals(chararray3, (Object) chararray2, epsilon));
 
-    byte[][] bytearray1 = { { (byte) 0, (byte) -1, (byte) 1 },
+    final byte[][] bytearray1 = { { (byte) 0, (byte) -1, (byte) 1 },
         { Byte.MIN_VALUE, (byte) (Byte.MIN_VALUE / 2) },
         { (byte) (Byte.MAX_VALUE / 2), Byte.MAX_VALUE } };
-    byte[][] bytearray2 = { { (byte) 0, (byte) -1, (byte) 1 },
+    final byte[][] bytearray2 = { { (byte) 0, (byte) -1, (byte) 1 },
         { Byte.MIN_VALUE, (byte) (Byte.MIN_VALUE / 2) },
         { (byte) (Byte.MAX_VALUE / 2), Byte.MAX_VALUE } };
-    byte[][] bytearray3 = { { (byte) 0, Byte.MAX_VALUE } };
+    final byte[][] bytearray3 = { { (byte) 0, Byte.MAX_VALUE } };
     assertEquals(true,
         Equality.valueEquals(bytearray1, (Object) bytearray2, epsilon));
     assertEquals(false,
         Equality.valueEquals(bytearray3, (Object) bytearray2, epsilon));
 
-    short[][] shortarray1 = { { (short) 0, (short) -1, (short) 1 },
+    final short[][] shortarray1 = { { (short) 0, (short) -1, (short) 1 },
         { Short.MAX_VALUE, (short) (Short.MIN_VALUE / 2) },
         { Short.MIN_VALUE, (short) (Short.MAX_VALUE / 2) } };
-    short[][] shortarray2 = { { (short) 0, (short) -1, (short) 1 },
+    final short[][] shortarray2 = { { (short) 0, (short) -1, (short) 1 },
         { Short.MAX_VALUE, (short) (Short.MIN_VALUE / 2) },
         { Short.MIN_VALUE, (short) (Short.MAX_VALUE / 2) } };
-    short[][] shortarray3 = { { (short) 0, Short.MAX_VALUE } };
+    final short[][] shortarray3 = { { (short) 0, Short.MAX_VALUE } };
     assertEquals(true,
         Equality.valueEquals(shortarray1, (Object) shortarray2, epsilon));
     assertEquals(false,
         Equality.valueEquals(shortarray3, (Object) shortarray2, epsilon));
 
-    int[][] intarray1 = { { (int) 0, (int) -1, (int) 1 },
-        { Integer.MIN_VALUE, (int) (Integer.MIN_VALUE / 2) },
-        { (int) (Integer.MAX_VALUE / 2), Integer.MAX_VALUE } };
-    int[][] intarray2 = { { (int) 0, (int) -1, (int) 1 },
-        { Integer.MIN_VALUE, (int) (Integer.MIN_VALUE / 2) },
-        { (int) (Integer.MAX_VALUE / 2), Integer.MAX_VALUE } };
-    int[][] intarray3 = { { (int) 0, Integer.MAX_VALUE } };
+    final int[][] intarray1 = { { 0, -1, 1 },
+        { Integer.MIN_VALUE, Integer.MIN_VALUE / 2 },
+        { Integer.MAX_VALUE / 2, Integer.MAX_VALUE } };
+    final int[][] intarray2 = { { 0, -1, 1 },
+        { Integer.MIN_VALUE, Integer.MIN_VALUE / 2 },
+        { Integer.MAX_VALUE / 2, Integer.MAX_VALUE } };
+    final int[][] intarray3 = { { 0, Integer.MAX_VALUE } };
     assertEquals(true,
         Equality.valueEquals(intarray1, (Object) intarray2, epsilon));
     assertEquals(false,
         Equality.valueEquals(intarray3, (Object) intarray2, epsilon));
 
-    long[][] longarray1 = { { (long) 0, (long) -1, (long) 1 },
-        { Long.MIN_VALUE, (long) (Long.MIN_VALUE / 2) },
-        { (long) (Long.MAX_VALUE / 2), Long.MAX_VALUE } };
-    long[][] longarray2 = { { (long) 0, (long) -1, (long) 1 },
-        { Long.MIN_VALUE, (long) (Long.MIN_VALUE / 2) },
-        { (long) (Long.MAX_VALUE / 2), Long.MAX_VALUE } };
-    long[][] longarray3 = { { (long) 0, Long.MAX_VALUE } };
+    final long[][] longarray1 = { { 0, -1, 1 },
+        { Long.MIN_VALUE, Long.MIN_VALUE / 2 },
+        { Long.MAX_VALUE / 2, Long.MAX_VALUE } };
+    final long[][] longarray2 = { { 0, -1, 1 },
+        { Long.MIN_VALUE, Long.MIN_VALUE / 2 },
+        { Long.MAX_VALUE / 2, Long.MAX_VALUE } };
+    final long[][] longarray3 = { { 0, Long.MAX_VALUE } };
     assertEquals(true,
         Equality.valueEquals(longarray1, (Object) longarray2, epsilon));
     assertEquals(false,
         Equality.valueEquals(longarray3, (Object) longarray2, epsilon));
 
-    float[][] floatarray1 = { { (float) 0, (float) -1, (float) 1 },
-        { Float.MIN_VALUE, (float) (Float.MIN_VALUE / 2) },
-        { (float) (Float.MAX_VALUE / 2), Float.MAX_VALUE } };
-    float[][] floatarray2 = { { (float) 0, (float) -1, (float) 1 },
-        { Float.MIN_VALUE, (float) (Float.MIN_VALUE / 2) },
-        { (float) (Float.MAX_VALUE / 2), Float.MAX_VALUE } };
-    float[][] floatarray3 = { { (float) 0, Float.MAX_VALUE } };
+    final float[][] floatarray1 = { { 0, -1, 1 },
+        { Float.MIN_VALUE, Float.MIN_VALUE / 2 },
+        { Float.MAX_VALUE / 2, Float.MAX_VALUE } };
+    final float[][] floatarray2 = { { 0, -1, 1 },
+        { Float.MIN_VALUE, Float.MIN_VALUE / 2 },
+        { Float.MAX_VALUE / 2, Float.MAX_VALUE } };
+    final float[][] floatarray3 = { { 0, Float.MAX_VALUE } };
     assertEquals(true,
         Equality.valueEquals(floatarray1, (Object) floatarray2, epsilon));
     assertEquals(false,
         Equality.valueEquals(floatarray3, (Object) floatarray2, epsilon));
 
-    double[][] doublearray1 = { { (double) 0, (double) -1, (double) 1 },
-        { Double.MIN_VALUE, (double) (Double.MIN_VALUE / 2) },
-        { (double) (Double.MAX_VALUE / 2), Double.MAX_VALUE } };
-    double[][] doublearray2 = { { (double) 0, (double) -1, (double) 1 },
-        { Double.MIN_VALUE, (double) (Double.MIN_VALUE / 2) },
-        { (double) (Double.MAX_VALUE / 2), Double.MAX_VALUE } };
-    double[][] doublearray3 = { { (double) 0, Double.MAX_VALUE } };
+    final double[][] doublearray1 = { { 0, -1, 1 },
+        { Double.MIN_VALUE, Double.MIN_VALUE / 2 },
+        { Double.MAX_VALUE / 2, Double.MAX_VALUE } };
+    final double[][] doublearray2 = { { 0, -1, 1 },
+        { Double.MIN_VALUE, Double.MIN_VALUE / 2 },
+        { Double.MAX_VALUE / 2, Double.MAX_VALUE } };
+    final double[][] doublearray3 = { { 0, Double.MAX_VALUE } };
     assertEquals(true,
         Equality.valueEquals(doublearray1, (Object) doublearray2, epsilon));
     assertEquals(false,
         Equality.valueEquals(doublearray3, (Object) doublearray2, epsilon));
 
-    String[][] stringarray1 = { { "long", "long" }, { "ago" } };
-    String[][] stringarray2 = { { "long", "long" }, { "ago" } };
-    String[][] stringarray3 = { { "long", "time" }, { "no", "see" } };
+    final String[][] stringarray1 = { { "long", "long" }, { "ago" } };
+    final String[][] stringarray2 = { { "long", "long" }, { "ago" } };
+    final String[][] stringarray3 = { { "long", "time" }, { "no", "see" } };
     assertEquals(true,
         Equality.valueEquals(stringarray1, (Object) stringarray2, epsilon));
     assertEquals(false,
         Equality.valueEquals(stringarray3, (Object) stringarray2, epsilon));
 
-    Boolean[][] booleanobjectarray1 = { { true, false }, { false }, { true } };
-    Boolean[][] booleanobjectarray2 = { { true, false }, { false }, { true } };
-    Boolean[][] booleanobjectarray3 = { { false, true }, { true } };
+    final Boolean[][] booleanobjectarray1 = { { true, false }, { false }, { true } };
+    final Boolean[][] booleanobjectarray2 = { { true, false }, { false }, { true } };
+    final Boolean[][] booleanobjectarray3 = { { false, true }, { true } };
     assertEquals(true, Equality.valueEquals(booleanobjectarray1,
         (Object) booleanobjectarray2, epsilon));
     assertEquals(false, Equality.valueEquals(booleanobjectarray3,
         (Object) booleanobjectarray2, epsilon));
 
-    Character[][] charobjectarray1 = { { (char) 0, (char) 1 },
+    final Character[][] charobjectarray1 = { { (char) 0, (char) 1 },
         { (char) (Character.MIN_VALUE / 2), Character.MIN_VALUE },
         { (char) (Character.MAX_VALUE / 2), Character.MAX_VALUE } };
-    Character[][] charobjectarray2 = { { (char) 0, (char) 1 },
+    final Character[][] charobjectarray2 = { { (char) 0, (char) 1 },
         { (char) (Character.MIN_VALUE / 2), Character.MIN_VALUE },
         { (char) (Character.MAX_VALUE / 2), Character.MAX_VALUE } };
-    Character[][] charobjectarray3 = { { (char) 0, Character.MAX_VALUE } };
+    final Character[][] charobjectarray3 = { { (char) 0, Character.MAX_VALUE } };
     assertEquals(true, Equality.valueEquals(charobjectarray1,
         (Object) charobjectarray2, epsilon));
     assertEquals(false, Equality.valueEquals(charobjectarray3,
         (Object) charobjectarray2, epsilon));
 
-    Byte[][] byteobjectarray1 = { { (byte) 0, (byte) -1, (byte) 1 },
+    final Byte[][] byteobjectarray1 = { { (byte) 0, (byte) -1, (byte) 1 },
         { Byte.MIN_VALUE, (byte) (Byte.MIN_VALUE / 2) },
         { (byte) (Byte.MAX_VALUE / 2), Byte.MAX_VALUE } };
-    Byte[][] byteobjectarray2 = { { (byte) 0, (byte) -1, (byte) 1 },
+    final Byte[][] byteobjectarray2 = { { (byte) 0, (byte) -1, (byte) 1 },
         { Byte.MIN_VALUE, (byte) (Byte.MIN_VALUE / 2) },
         { (byte) (Byte.MAX_VALUE / 2), Byte.MAX_VALUE } };
-    Byte[][] byteobjectarray3 = { { (byte) 0, Byte.MAX_VALUE } };
+    final Byte[][] byteobjectarray3 = { { (byte) 0, Byte.MAX_VALUE } };
     assertEquals(true, Equality.valueEquals(byteobjectarray1,
         (Object) byteobjectarray2, epsilon));
     assertEquals(false, Equality.valueEquals(byteobjectarray3,
         (Object) byteobjectarray2, epsilon));
 
-    Short[][] shortobjectarray1 = { { (short) 0, (short) -1, (short) 1 },
+    final Short[][] shortobjectarray1 = { { (short) 0, (short) -1, (short) 1 },
         { Short.MIN_VALUE, (short) (Short.MIN_VALUE / 2) },
         { (short) (Short.MAX_VALUE / 2), Short.MAX_VALUE } };
-    Short[][] shortobjectarray2 = { { (short) 0, (short) -1, (short) 1 },
+    final Short[][] shortobjectarray2 = { { (short) 0, (short) -1, (short) 1 },
         { Short.MIN_VALUE, (short) (Short.MIN_VALUE / 2) },
         { (short) (Short.MAX_VALUE / 2), Short.MAX_VALUE } };
-    Short[][] shortobjectarray3 = { { (short) 0, Short.MAX_VALUE } };
+    final Short[][] shortobjectarray3 = { { (short) 0, Short.MAX_VALUE } };
     assertEquals(true, Equality.valueEquals(shortobjectarray1,
         (Object) shortobjectarray2, epsilon));
     assertEquals(false, Equality.valueEquals(shortobjectarray3,
         (Object) shortobjectarray2, epsilon));
 
-    Integer[][] integerarray1 = { { (int) 0, (int) -1, (int) 1 },
+    final Integer[][] integerarray1 = { { (int) 0, (int) -1, (int) 1 },
         { Integer.MIN_VALUE, (int) (Integer.MIN_VALUE / 2) },
         { (int) (Integer.MAX_VALUE / 2), Integer.MAX_VALUE } };
-    Integer[][] integerarray2 = { { (int) 0, (int) -1, (int) 1 },
+    final Integer[][] integerarray2 = { { (int) 0, (int) -1, (int) 1 },
         { Integer.MIN_VALUE, (int) (Integer.MIN_VALUE / 2) },
         { (int) (Integer.MAX_VALUE / 2), Integer.MAX_VALUE } };
-    Integer[][] integerarray3 = { { (int) 0, Integer.MAX_VALUE } };
+    final Integer[][] integerarray3 = { { (int) 0, Integer.MAX_VALUE } };
     assertEquals(true,
         Equality.valueEquals(integerarray1, (Object) integerarray2, epsilon));
     assertEquals(false,
         Equality.valueEquals(integerarray3, (Object) integerarray2, epsilon));
 
-    Long[][] longobjectarray1 = { { (long) 0, (long) -1, (long) 1 },
+    final Long[][] longobjectarray1 = { { (long) 0, (long) -1, (long) 1 },
         { Long.MIN_VALUE, (long) (Long.MIN_VALUE / 2) },
         { (long) (Long.MAX_VALUE / 2), Long.MAX_VALUE } };
-    Long[][] longobjectarray2 = { { (long) 0, (long) -1, (long) 1 },
+    final Long[][] longobjectarray2 = { { (long) 0, (long) -1, (long) 1 },
         { Long.MIN_VALUE, (long) (Long.MIN_VALUE / 2) },
         { (long) (Long.MAX_VALUE / 2), Long.MAX_VALUE } };
-    Long[][] longobjectarray3 = { { (long) 0, Long.MAX_VALUE } };
+    final Long[][] longobjectarray3 = { { (long) 0, Long.MAX_VALUE } };
     assertEquals(true, Equality.valueEquals(longobjectarray1,
         (Object) longobjectarray2, epsilon));
     assertEquals(false, Equality.valueEquals(longobjectarray3,
         (Object) longobjectarray2, epsilon));
 
-    Float[][] floatobjectarray1 = { { (float) 0, (float) -1, (float) 1 },
+    final Float[][] floatobjectarray1 = { { (float) 0, (float) -1, (float) 1 },
         { Float.MIN_VALUE, (float) (Float.MIN_VALUE / 2) },
         { (float) (Float.MAX_VALUE / 2), Float.MAX_VALUE } };
-    Float[][] floatobjectarray2 = { { (float) 0, (float) -1, (float) 1 },
+    final Float[][] floatobjectarray2 = { { (float) 0, (float) -1, (float) 1 },
         { Float.MIN_VALUE, (float) (Float.MIN_VALUE / 2) },
         { (float) (Float.MAX_VALUE / 2), Float.MAX_VALUE } };
-    Float[][] floatobjectarray3 = { { (float) 0, Float.MAX_VALUE } };
+    final Float[][] floatobjectarray3 = { { (float) 0, Float.MAX_VALUE } };
     assertEquals(true, Equality.valueEquals(floatobjectarray1,
         (Object) floatobjectarray2, epsilon));
     assertEquals(false, Equality.valueEquals(floatobjectarray3,
         (Object) floatobjectarray2, epsilon));
 
-    Double[][] doubleobjectarray1 = { { (double) 0, (double) -1, (double) 1 },
+    final Double[][] doubleobjectarray1 = { { (double) 0, (double) -1, (double) 1 },
         { (double) (Double.MIN_VALUE / 2), Double.MIN_VALUE },
         { (double) (Double.MAX_VALUE / 2), Double.MAX_VALUE } };
-    Double[][] doubleobjectarray2 = { { (double) 0, (double) -1, (double) 1 },
+    final Double[][] doubleobjectarray2 = { { (double) 0, (double) -1, (double) 1 },
         { (double) (Double.MIN_VALUE / 2), Double.MIN_VALUE },
         { (double) (Double.MAX_VALUE / 2), Double.MAX_VALUE } };
-    Double[][] doubleobjectarray3 = { { (double) 0, Double.MAX_VALUE } };
+    final Double[][] doubleobjectarray3 = { { (double) 0, Double.MAX_VALUE } };
     assertEquals(true, Equality.valueEquals(doubleobjectarray1,
         (Object) doubleobjectarray2, epsilon));
     assertEquals(false, Equality.valueEquals(doubleobjectarray3,
@@ -3324,70 +3337,70 @@ public class EqualityTest {
     }
     final class TestClassB {
     }
-    Class<?>[][] classarray1 = { { TestClassA.class }, { TestClassA.class } };
-    Class<?>[][] classarray2 = { { TestClassA.class }, { TestClassA.class } };
-    Class<?>[][] classarray3 = { { TestClassB.class, TestClassA.class } };
+    final Class<?>[][] classarray1 = { { TestClassA.class }, { TestClassA.class } };
+    final Class<?>[][] classarray2 = { { TestClassA.class }, { TestClassA.class } };
+    final Class<?>[][] classarray3 = { { TestClassB.class, TestClassA.class } };
 
     assertEquals(true, Equality.valueEquals(classarray1, classarray2, epsilon));
     assertEquals(false, Equality.valueEquals(classarray2, classarray3, epsilon));
 
-    Date datea = new Date();
-    datea.setTime((long) 123456);
-    Date dateb = new Date();
-    dateb.setTime((long) 7891011);
-    Date datec = new Date();
-    datec.setTime((long) 654321);
-    Date[][] datearray1 = { { datea, dateb }, { datec } };
-    Date[][] datearray2 = { { datea, dateb }, { datec } };
-    Date[][] datearray3 = { { datec }, { datea, dateb } };
+    final Date datea = new Date();
+    datea.setTime(123456);
+    final Date dateb = new Date();
+    dateb.setTime(7891011);
+    final Date datec = new Date();
+    datec.setTime(654321);
+    final Date[][] datearray1 = { { datea, dateb }, { datec } };
+    final Date[][] datearray2 = { { datea, dateb }, { datec } };
+    final Date[][] datearray3 = { { datec }, { datea, dateb } };
     assertEquals(true, Equality.valueEquals(datearray1, datearray2, epsilon));
     assertEquals(false, Equality.valueEquals(datearray3, datearray2, epsilon));
 
-    BigInteger[][] bigintegerarray1 = { { new BigInteger(bytearray1[0]),
+    final BigInteger[][] bigintegerarray1 = { { new BigInteger(bytearray1[0]),
         new BigInteger(bytearray3[0]) } };
-    BigInteger[][] bigintegerarray2 = { { new BigInteger(bytearray2[0]),
+    final BigInteger[][] bigintegerarray2 = { { new BigInteger(bytearray2[0]),
         new BigInteger(bytearray3[0]) } };
-    BigInteger[][] bigintegerarray3 = { { new BigInteger(bytearray3[0]) } };
+    final BigInteger[][] bigintegerarray3 = { { new BigInteger(bytearray3[0]) } };
     assertEquals(true, Equality.valueEquals(bigintegerarray1,
         (Object) bigintegerarray2, epsilon));
     assertEquals(false, Equality.valueEquals(bigintegerarray3,
         (Object) bigintegerarray2, epsilon));
 
-    BigDecimal[][] bigdecimalarray1 = { { new BigDecimal(Integer.MIN_VALUE) },
+    final BigDecimal[][] bigdecimalarray1 = { { new BigDecimal(Integer.MIN_VALUE) },
         { new BigDecimal(Integer.MAX_VALUE) } };
-    BigDecimal[][] bigdecimalarray2 = { { new BigDecimal(Integer.MIN_VALUE) },
+    final BigDecimal[][] bigdecimalarray2 = { { new BigDecimal(Integer.MIN_VALUE) },
         { new BigDecimal(Integer.MAX_VALUE) } };
-    BigDecimal[][] bigdecimalarray3 = { { new BigDecimal(0), new BigDecimal(-1) } };
+    final BigDecimal[][] bigdecimalarray3 = { { new BigDecimal(0), new BigDecimal(-1) } };
     assertEquals(true, Equality.valueEquals(bigdecimalarray1,
         (Object) bigdecimalarray2, epsilon));
     assertEquals(false, Equality.valueEquals(bigdecimalarray3,
         (Object) bigdecimalarray2, epsilon));
 
-    Boolean[][][][] objectarray1 = { { { { true, false }, { true, true } } },
+    final Boolean[][][][] objectarray1 = { { { { true, false }, { true, true } } },
         { { { false, false }, { true } } } };
-    Boolean[][][][] objectarray2 = { { { { true, false }, { true, true } } },
+    final Boolean[][][][] objectarray2 = { { { { true, false }, { true, true } } },
         { { { false, false }, { true } } } };
-    Boolean[][][][] objectarray3 = { { { { true }, { false } } },
+    final Boolean[][][][] objectarray3 = { { { { true }, { false } } },
         { { { true, true } } } };
     assertEquals(true,
         Equality.valueEquals(objectarray1, (Object) objectarray2, epsilon));
     assertEquals(false,
         Equality.valueEquals(objectarray3, (Object) objectarray2, epsilon));
 
-    ArrayList<Character> arraylist1 = new ArrayList<Character>();
-    ArrayList<Character> arraylist2 = new ArrayList<Character>();
-    Object[] col1 = { arraylist1, arraylist2 };
+    final ArrayList<Character> arraylist1 = new ArrayList<Character>();
+    final ArrayList<Character> arraylist2 = new ArrayList<Character>();
+    final Object[] col1 = { arraylist1, arraylist2 };
     arraylist1.add('a');
     arraylist2.add('b');
     arraylist1.add('c');
-    ArrayList<Character> arraylist3 = new ArrayList<Character>();
-    ArrayList<Character> arraylist4 = new ArrayList<Character>();
-    Object[] col2 = { arraylist3, arraylist4 };
+    final ArrayList<Character> arraylist3 = new ArrayList<Character>();
+    final ArrayList<Character> arraylist4 = new ArrayList<Character>();
+    final Object[] col2 = { arraylist3, arraylist4 };
     arraylist3.add('a');
     arraylist4.add('b');
     arraylist3.add('c');
-    ArrayList<Character> arraylist5 = new ArrayList<Character>();
-    Object[] col3 = { arraylist5 };
+    final ArrayList<Character> arraylist5 = new ArrayList<Character>();
+    final Object[] col3 = { arraylist5 };
     arraylist5.add('a');
     assertEquals(true, Equality.valueEquals(col1, (Object) col2, epsilon));
     assertEquals(false, Equality.valueEquals(col3, (Object) col2, epsilon));
@@ -3402,273 +3415,273 @@ public class EqualityTest {
   public void testObjectArrayIndexLengthWithEpsilon() {
     final double epsilon = 0.0001;
 
-    boolean[][] booleanarray1 = { { true }, { false, false }, { true } };
-    boolean[][] booleanarray2 = { { true }, { false, false }, { true } };
-    boolean[][] booleanarray3 = { { false, true }, { true } };
+    final boolean[][] booleanarray1 = { { true }, { false, false }, { true } };
+    final boolean[][] booleanarray2 = { { true }, { false, false }, { true } };
+    final boolean[][] booleanarray3 = { { false, true }, { true } };
     assertEquals(true, Equality.valueEquals(booleanarray1, 0,
-        (Object[]) booleanarray2, 0, booleanarray2.length, epsilon));
+        booleanarray2, 0, booleanarray2.length, epsilon));
     assertEquals(false, Equality.valueEquals(booleanarray3, 0,
-        (Object[]) booleanarray2, 0, booleanarray2.length, epsilon));
+        booleanarray2, 0, booleanarray2.length, epsilon));
     assertEquals(false, Equality.valueEquals(booleanarray1, 1,
-        (Object[]) booleanarray2, 0, 1, epsilon));
+        booleanarray2, 0, 1, epsilon));
     assertEquals(true, Equality.valueEquals(booleanarray1, 0,
-        (Object[]) booleanarray2, 2, 1, epsilon));
+        booleanarray2, 2, 1, epsilon));
 
-    char[][] chararray1 = { { (char) 0, (char) 1 },
+    final char[][] chararray1 = { { (char) 0, (char) 1 },
         { (char) (Character.MIN_VALUE / 2), Character.MIN_VALUE },
         { (char) (Character.MAX_VALUE / 2), Character.MAX_VALUE } };
-    char[][] chararray2 = { { (char) 0, (char) 1 },
+    final char[][] chararray2 = { { (char) 0, (char) 1 },
         { (char) (Character.MIN_VALUE / 2), Character.MIN_VALUE },
         { (char) (Character.MAX_VALUE / 2), Character.MAX_VALUE } };
-    char[][] chararray3 = { { (char) 0, Character.MAX_VALUE } };
+    final char[][] chararray3 = { { (char) 0, Character.MAX_VALUE } };
     assertEquals(true, Equality.valueEquals(chararray1, 0,
-        (Object[]) chararray2, 0, chararray2.length, epsilon));
+        chararray2, 0, chararray2.length, epsilon));
     assertEquals(false, Equality.valueEquals(chararray3, 0,
-        (Object[]) chararray2, 0, chararray2.length, epsilon));
+        chararray2, 0, chararray2.length, epsilon));
     assertEquals(false, Equality.valueEquals(chararray3, 0,
-        (Object[]) chararray2, 2, 1, epsilon));
+        chararray2, 2, 1, epsilon));
     assertEquals(true, Equality.valueEquals(chararray1, 1,
-        (Object[]) chararray2, 1, 1, epsilon));
+        chararray2, 1, 1, epsilon));
 
-    byte[][] bytearray1 = { { (byte) 0, (byte) -1, (byte) 1 },
+    final byte[][] bytearray1 = { { (byte) 0, (byte) -1, (byte) 1 },
         { Byte.MIN_VALUE, (byte) (Byte.MIN_VALUE / 2) },
         { (byte) (Byte.MAX_VALUE / 2), Byte.MAX_VALUE } };
-    byte[][] bytearray2 = { { (byte) 0, (byte) -1, (byte) 1 },
+    final byte[][] bytearray2 = { { (byte) 0, (byte) -1, (byte) 1 },
         { Byte.MIN_VALUE, (byte) (Byte.MIN_VALUE / 2) },
         { (byte) (Byte.MAX_VALUE / 2), Byte.MAX_VALUE } };
-    byte[][] bytearray3 = { { (byte) 0, Byte.MAX_VALUE } };
+    final byte[][] bytearray3 = { { (byte) 0, Byte.MAX_VALUE } };
     assertEquals(true, Equality.valueEquals(bytearray1, 0,
-        (Object[]) bytearray2, 0, bytearray2.length, epsilon));
+        bytearray2, 0, bytearray2.length, epsilon));
     assertEquals(false, Equality.valueEquals(bytearray3, 0,
-        (Object[]) bytearray2, 0, bytearray2.length, epsilon));
+        bytearray2, 0, bytearray2.length, epsilon));
     assertEquals(false, Equality.valueEquals(bytearray3, 0,
-        (Object[]) bytearray2, 2, 1, epsilon));
+        bytearray2, 2, 1, epsilon));
     assertEquals(true, Equality.valueEquals(bytearray1, 1,
-        (Object[]) bytearray2, 1, 1, epsilon));
+        bytearray2, 1, 1, epsilon));
 
-    short[][] shortarray1 = { { (short) 0, (short) -1, (short) 1 },
+    final short[][] shortarray1 = { { (short) 0, (short) -1, (short) 1 },
         { Short.MAX_VALUE, (short) (Short.MIN_VALUE / 2) },
         { Short.MIN_VALUE, (short) (Short.MAX_VALUE / 2) } };
-    short[][] shortarray2 = { { (short) 0, (short) -1, (short) 1 },
+    final short[][] shortarray2 = { { (short) 0, (short) -1, (short) 1 },
         { Short.MAX_VALUE, (short) (Short.MIN_VALUE / 2) },
         { Short.MIN_VALUE, (short) (Short.MAX_VALUE / 2) } };
-    short[][] shortarray3 = { { (short) 0, Short.MAX_VALUE } };
+    final short[][] shortarray3 = { { (short) 0, Short.MAX_VALUE } };
     assertEquals(true, Equality.valueEquals(shortarray1, 0,
-        (Object[]) shortarray2, 0, shortarray2.length, epsilon));
+        shortarray2, 0, shortarray2.length, epsilon));
     assertEquals(false, Equality.valueEquals(shortarray3, 0,
-        (Object[]) shortarray2, 0, shortarray2.length, epsilon));
+        shortarray2, 0, shortarray2.length, epsilon));
     assertEquals(false, Equality.valueEquals(shortarray3, 0,
-        (Object[]) shortarray2, 2, 1, epsilon));
+        shortarray2, 2, 1, epsilon));
     assertEquals(true, Equality.valueEquals(shortarray1, 1,
-        (Object[]) shortarray2, 1, 1, epsilon));
+        shortarray2, 1, 1, epsilon));
 
-    int[][] intarray1 = { { (int) 0, (int) -1, (int) 1 },
-        { Integer.MIN_VALUE, (int) (Integer.MIN_VALUE / 2) },
-        { (int) (Integer.MAX_VALUE / 2), Integer.MAX_VALUE } };
-    int[][] intarray2 = { { (int) 0, (int) -1, (int) 1 },
-        { Integer.MIN_VALUE, (int) (Integer.MIN_VALUE / 2) },
-        { (int) (Integer.MAX_VALUE / 2), Integer.MAX_VALUE } };
-    int[][] intarray3 = { { (int) 0, Integer.MAX_VALUE } };
-    assertEquals(true, Equality.valueEquals(intarray1, 0, (Object[]) intarray2,
+    final int[][] intarray1 = { { 0, -1, 1 },
+        { Integer.MIN_VALUE, Integer.MIN_VALUE / 2 },
+        { Integer.MAX_VALUE / 2, Integer.MAX_VALUE } };
+    final int[][] intarray2 = { { 0, -1, 1 },
+        { Integer.MIN_VALUE, Integer.MIN_VALUE / 2 },
+        { Integer.MAX_VALUE / 2, Integer.MAX_VALUE } };
+    final int[][] intarray3 = { { 0, Integer.MAX_VALUE } };
+    assertEquals(true, Equality.valueEquals(intarray1, 0, intarray2,
         0, intarray2.length, epsilon));
     assertEquals(false, Equality.valueEquals(intarray3, 0,
-        (Object[]) intarray2, 0, intarray2.length, epsilon));
+        intarray2, 0, intarray2.length, epsilon));
     assertEquals(false,
-        Equality.valueEquals(intarray3, 0, (Object[]) intarray2, 2, 1, epsilon));
+        Equality.valueEquals(intarray3, 0, intarray2, 2, 1, epsilon));
     assertEquals(true,
-        Equality.valueEquals(intarray1, 1, (Object[]) intarray2, 1, 1, epsilon));
+        Equality.valueEquals(intarray1, 1, intarray2, 1, 1, epsilon));
 
-    long[][] longarray1 = { { (long) 0, (long) -1, (long) 1 },
-        { Long.MIN_VALUE, (long) (Long.MIN_VALUE / 2) },
-        { (long) (Long.MAX_VALUE / 2), Long.MAX_VALUE } };
-    long[][] longarray2 = { { (long) 0, (long) -1, (long) 1 },
-        { Long.MIN_VALUE, (long) (Long.MIN_VALUE / 2) },
-        { (long) (Long.MAX_VALUE / 2), Long.MAX_VALUE } };
-    long[][] longarray3 = { { (long) 0, Long.MAX_VALUE } };
+    final long[][] longarray1 = { { 0, -1, 1 },
+        { Long.MIN_VALUE, Long.MIN_VALUE / 2 },
+        { Long.MAX_VALUE / 2, Long.MAX_VALUE } };
+    final long[][] longarray2 = { { 0, -1, 1 },
+        { Long.MIN_VALUE, Long.MIN_VALUE / 2 },
+        { Long.MAX_VALUE / 2, Long.MAX_VALUE } };
+    final long[][] longarray3 = { { 0, Long.MAX_VALUE } };
     assertEquals(true, Equality.valueEquals(longarray1, 0,
-        (Object[]) longarray2, 0, longarray2.length, epsilon));
+        longarray2, 0, longarray2.length, epsilon));
     assertEquals(false, Equality.valueEquals(longarray3, 0,
-        (Object[]) longarray2, 0, longarray2.length, epsilon));
+        longarray2, 0, longarray2.length, epsilon));
     assertEquals(false, Equality.valueEquals(longarray3, 0,
-        (Object[]) longarray2, 2, 1, epsilon));
+        longarray2, 2, 1, epsilon));
     assertEquals(true, Equality.valueEquals(longarray1, 1,
-        (Object[]) longarray2, 1, 1, epsilon));
+        longarray2, 1, 1, epsilon));
 
-    float[][] floatarray1 = { { (float) 0, (float) -1, (float) 1 },
-        { Float.MIN_VALUE, (float) (Float.MIN_VALUE / 2) },
-        { (float) (Float.MAX_VALUE / 2), Float.MAX_VALUE } };
-    float[][] floatarray2 = { { (float) 0, (float) -1, (float) 1 },
-        { Float.MIN_VALUE, (float) (Float.MIN_VALUE / 2) },
-        { (float) (Float.MAX_VALUE / 2), Float.MAX_VALUE } };
-    float[][] floatarray3 = { { (float) 0, Float.MAX_VALUE } };
+    final float[][] floatarray1 = { { 0, -1, 1 },
+        { Float.MIN_VALUE, Float.MIN_VALUE / 2 },
+        { Float.MAX_VALUE / 2, Float.MAX_VALUE } };
+    final float[][] floatarray2 = { { 0, -1, 1 },
+        { Float.MIN_VALUE, Float.MIN_VALUE / 2 },
+        { Float.MAX_VALUE / 2, Float.MAX_VALUE } };
+    final float[][] floatarray3 = { { 0, Float.MAX_VALUE } };
     assertEquals(true, Equality.valueEquals(floatarray1, 0,
-        (Object[]) floatarray2, 0, floatarray2.length, epsilon));
+        floatarray2, 0, floatarray2.length, epsilon));
     assertEquals(false, Equality.valueEquals(floatarray3, 0,
-        (Object[]) floatarray2, 0, floatarray2.length, epsilon));
+        floatarray2, 0, floatarray2.length, epsilon));
     assertEquals(false, Equality.valueEquals(floatarray3, 0,
-        (Object[]) floatarray2, 2, 1, epsilon));
+        floatarray2, 2, 1, epsilon));
     assertEquals(true, Equality.valueEquals(floatarray1, 1,
-        (Object[]) floatarray2, 1, 1, epsilon));
+        floatarray2, 1, 1, epsilon));
 
-    double[][] doublearray1 = { { (double) 0, (double) -1, (double) 1 },
-        { Double.MIN_VALUE, (double) (Double.MIN_VALUE / 2) },
-        { (double) (Double.MAX_VALUE / 2), Double.MAX_VALUE } };
-    double[][] doublearray2 = { { (double) 0, (double) -1, (double) 1 },
-        { Double.MIN_VALUE, (double) (Double.MIN_VALUE / 2) },
-        { (double) (Double.MAX_VALUE / 2), Double.MAX_VALUE } };
-    double[][] doublearray3 = { { (double) 0, Double.MAX_VALUE } };
+    final double[][] doublearray1 = { { 0, -1, 1 },
+        { Double.MIN_VALUE, Double.MIN_VALUE / 2 },
+        { Double.MAX_VALUE / 2, Double.MAX_VALUE } };
+    final double[][] doublearray2 = { { 0, -1, 1 },
+        { Double.MIN_VALUE, Double.MIN_VALUE / 2 },
+        { Double.MAX_VALUE / 2, Double.MAX_VALUE } };
+    final double[][] doublearray3 = { { 0, Double.MAX_VALUE } };
     assertEquals(true, Equality.valueEquals(doublearray1, 0,
-        (Object[]) doublearray2, 0, doublearray2.length, epsilon));
+        doublearray2, 0, doublearray2.length, epsilon));
     assertEquals(false, Equality.valueEquals(doublearray3, 0,
-        (Object[]) doublearray2, 0, doublearray2.length, epsilon));
+        doublearray2, 0, doublearray2.length, epsilon));
     assertEquals(false, Equality.valueEquals(doublearray3, 0,
-        (Object[]) doublearray2, 2, 1, epsilon));
+        doublearray2, 2, 1, epsilon));
     assertEquals(true, Equality.valueEquals(doublearray1, 1,
-        (Object[]) doublearray2, 1, 1, epsilon));
+        doublearray2, 1, 1, epsilon));
 
-    String[][] stringarray1 = { { "long", "long" }, { "ago" } };
-    String[][] stringarray2 = { { "long", "long" }, { "ago" } };
-    String[][] stringarray3 = { { "long", "time" }, { "no", "see" } };
+    final String[][] stringarray1 = { { "long", "long" }, { "ago" } };
+    final String[][] stringarray2 = { { "long", "long" }, { "ago" } };
+    final String[][] stringarray3 = { { "long", "time" }, { "no", "see" } };
     assertEquals(true, Equality.valueEquals(stringarray1, 0,
-        (Object[]) stringarray2, 0, stringarray2.length, epsilon));
+        stringarray2, 0, stringarray2.length, epsilon));
     assertEquals(false, Equality.valueEquals(stringarray3, 0,
-        (Object[]) stringarray2, 0, stringarray2.length, epsilon));
+        stringarray2, 0, stringarray2.length, epsilon));
     assertEquals(false, Equality.valueEquals(stringarray3, 0,
-        (Object[]) stringarray2, 1, 1, epsilon));
+        stringarray2, 1, 1, epsilon));
     assertEquals(true, Equality.valueEquals(stringarray1, 1,
-        (Object[]) stringarray2, 1, 1, epsilon));
+        stringarray2, 1, 1, epsilon));
 
-    Boolean[][] booleanobjectarray1 = { { true, false }, { false }, { true } };
-    Boolean[][] booleanobjectarray2 = { { true, false }, { false }, { true } };
-    Boolean[][] booleanobjectarray3 = { { false, true }, { true } };
+    final Boolean[][] booleanobjectarray1 = { { true, false }, { false }, { true } };
+    final Boolean[][] booleanobjectarray2 = { { true, false }, { false }, { true } };
+    final Boolean[][] booleanobjectarray3 = { { false, true }, { true } };
     assertEquals(true, Equality.valueEquals(booleanobjectarray1, 0,
-        (Object[]) booleanobjectarray2, 0, booleanobjectarray2.length, epsilon));
+        booleanobjectarray2, 0, booleanobjectarray2.length, epsilon));
     assertEquals(false, Equality.valueEquals(booleanobjectarray3, 0,
-        (Object[]) booleanobjectarray2, 0, booleanobjectarray2.length, epsilon));
+        booleanobjectarray2, 0, booleanobjectarray2.length, epsilon));
     assertEquals(false, Equality.valueEquals(booleanobjectarray3, 0,
-        (Object[]) booleanobjectarray2, 2, 1, epsilon));
+        booleanobjectarray2, 2, 1, epsilon));
     assertEquals(true, Equality.valueEquals(booleanobjectarray1, 1,
-        (Object[]) booleanobjectarray2, 1, 1, epsilon));
+        booleanobjectarray2, 1, 1, epsilon));
 
-    Character[][] charobjectarray1 = { { (char) 0, (char) 1 },
+    final Character[][] charobjectarray1 = { { (char) 0, (char) 1 },
         { (char) (Character.MIN_VALUE / 2), Character.MIN_VALUE },
         { (char) (Character.MAX_VALUE / 2), Character.MAX_VALUE } };
-    Character[][] charobjectarray2 = { { (char) 0, (char) 1 },
+    final Character[][] charobjectarray2 = { { (char) 0, (char) 1 },
         { (char) (Character.MIN_VALUE / 2), Character.MIN_VALUE },
         { (char) (Character.MAX_VALUE / 2), Character.MAX_VALUE } };
-    Character[][] charobjectarray3 = { { (char) 0, Character.MAX_VALUE } };
+    final Character[][] charobjectarray3 = { { (char) 0, Character.MAX_VALUE } };
     assertEquals(true, Equality.valueEquals(charobjectarray1, 0,
-        (Object[]) charobjectarray2, 0, charobjectarray2.length, epsilon));
+        charobjectarray2, 0, charobjectarray2.length, epsilon));
     assertEquals(false, Equality.valueEquals(charobjectarray3, 0,
-        (Object[]) charobjectarray2, 0, charobjectarray2.length, epsilon));
+        charobjectarray2, 0, charobjectarray2.length, epsilon));
     assertEquals(false, Equality.valueEquals(charobjectarray3, 0,
-        (Object[]) charobjectarray2, 2, 1, epsilon));
+        charobjectarray2, 2, 1, epsilon));
     assertEquals(true, Equality.valueEquals(charobjectarray1, 1,
-        (Object[]) charobjectarray2, 1, 1, epsilon));
+        charobjectarray2, 1, 1, epsilon));
 
-    Byte[][] byteobjectarray1 = { { (byte) 0, (byte) -1, (byte) 1 },
+    final Byte[][] byteobjectarray1 = { { (byte) 0, (byte) -1, (byte) 1 },
         { Byte.MIN_VALUE, (byte) (Byte.MIN_VALUE / 2) },
         { (byte) (Byte.MAX_VALUE / 2), Byte.MAX_VALUE } };
-    Byte[][] byteobjectarray2 = { { (byte) 0, (byte) -1, (byte) 1 },
+    final Byte[][] byteobjectarray2 = { { (byte) 0, (byte) -1, (byte) 1 },
         { Byte.MIN_VALUE, (byte) (Byte.MIN_VALUE / 2) },
         { (byte) (Byte.MAX_VALUE / 2), Byte.MAX_VALUE } };
-    Byte[][] byteobjectarray3 = { { (byte) 0, Byte.MAX_VALUE } };
+    final Byte[][] byteobjectarray3 = { { (byte) 0, Byte.MAX_VALUE } };
     assertEquals(true, Equality.valueEquals(byteobjectarray1, 0,
-        (Object[]) byteobjectarray2, 0, byteobjectarray2.length, epsilon));
+        byteobjectarray2, 0, byteobjectarray2.length, epsilon));
     assertEquals(false, Equality.valueEquals(byteobjectarray3, 0,
-        (Object[]) byteobjectarray2, 0, byteobjectarray2.length, epsilon));
+        byteobjectarray2, 0, byteobjectarray2.length, epsilon));
     assertEquals(false, Equality.valueEquals(byteobjectarray3, 0,
-        (Object[]) byteobjectarray2, 2, 1, epsilon));
+        byteobjectarray2, 2, 1, epsilon));
     assertEquals(true, Equality.valueEquals(byteobjectarray1, 1,
-        (Object[]) byteobjectarray2, 1, 1, epsilon));
+        byteobjectarray2, 1, 1, epsilon));
 
-    Short[][] shortobjectarray1 = { { (short) 0, (short) -1, (short) 1 },
+    final Short[][] shortobjectarray1 = { { (short) 0, (short) -1, (short) 1 },
         { Short.MIN_VALUE, (short) (Short.MIN_VALUE / 2) },
         { (short) (Short.MAX_VALUE / 2), Short.MAX_VALUE } };
-    Short[][] shortobjectarray2 = { { (short) 0, (short) -1, (short) 1 },
+    final Short[][] shortobjectarray2 = { { (short) 0, (short) -1, (short) 1 },
         { Short.MIN_VALUE, (short) (Short.MIN_VALUE / 2) },
         { (short) (Short.MAX_VALUE / 2), Short.MAX_VALUE } };
-    Short[][] shortobjectarray3 = { { (short) 0, Short.MAX_VALUE } };
+    final Short[][] shortobjectarray3 = { { (short) 0, Short.MAX_VALUE } };
     assertEquals(true, Equality.valueEquals(shortobjectarray1, 0,
-        (Object[]) shortobjectarray2, 0, shortobjectarray2.length, epsilon));
+        shortobjectarray2, 0, shortobjectarray2.length, epsilon));
     assertEquals(false, Equality.valueEquals(shortobjectarray3, 0,
-        (Object[]) shortobjectarray2, 0, shortobjectarray2.length, epsilon));
+        shortobjectarray2, 0, shortobjectarray2.length, epsilon));
     assertEquals(false, Equality.valueEquals(shortobjectarray3, 0,
-        (Object[]) shortobjectarray2, 2, 1, epsilon));
+        shortobjectarray2, 2, 1, epsilon));
     assertEquals(true, Equality.valueEquals(shortobjectarray1, 1,
-        (Object[]) shortobjectarray2, 1, 1, epsilon));
+        shortobjectarray2, 1, 1, epsilon));
 
-    Integer[][] integerarray1 = { { (int) 0, (int) -1, (int) 1 },
+    final Integer[][] integerarray1 = { { (int) 0, (int) -1, (int) 1 },
         { Integer.MIN_VALUE, (int) (Integer.MIN_VALUE / 2) },
         { (int) (Integer.MAX_VALUE / 2), Integer.MAX_VALUE } };
-    Integer[][] integerarray2 = { { (int) 0, (int) -1, (int) 1 },
+    final Integer[][] integerarray2 = { { (int) 0, (int) -1, (int) 1 },
         { Integer.MIN_VALUE, (int) (Integer.MIN_VALUE / 2) },
         { (int) (Integer.MAX_VALUE / 2), Integer.MAX_VALUE } };
-    Integer[][] integerarray3 = { { (int) 0, Integer.MAX_VALUE } };
+    final Integer[][] integerarray3 = { { (int) 0, Integer.MAX_VALUE } };
     assertEquals(true, Equality.valueEquals(integerarray1, 0,
-        (Object[]) integerarray2, 0, integerarray2.length, epsilon));
+        integerarray2, 0, integerarray2.length, epsilon));
     assertEquals(false, Equality.valueEquals(integerarray3, 0,
-        (Object[]) integerarray2, 0, integerarray2.length, epsilon));
+        integerarray2, 0, integerarray2.length, epsilon));
     assertEquals(false, Equality.valueEquals(integerarray3, 0,
-        (Object[]) integerarray2, 2, 1, epsilon));
+        integerarray2, 2, 1, epsilon));
     assertEquals(true, Equality.valueEquals(integerarray1, 1,
-        (Object[]) integerarray2, 1, 1, epsilon));
+        integerarray2, 1, 1, epsilon));
 
-    Long[][] longobjectarray1 = { { (long) 0, (long) -1, (long) 1 },
+    final Long[][] longobjectarray1 = { { (long) 0, (long) -1, (long) 1 },
         { Long.MIN_VALUE, (long) (Long.MIN_VALUE / 2) },
         { (long) (Long.MAX_VALUE / 2), Long.MAX_VALUE } };
-    Long[][] longobjectarray2 = { { (long) 0, (long) -1, (long) 1 },
+    final Long[][] longobjectarray2 = { { (long) 0, (long) -1, (long) 1 },
         { Long.MIN_VALUE, (long) (Long.MIN_VALUE / 2) },
         { (long) (Long.MAX_VALUE / 2), Long.MAX_VALUE } };
-    Long[][] longobjectarray3 = { { (long) 0, Long.MAX_VALUE } };
+    final Long[][] longobjectarray3 = { { (long) 0, Long.MAX_VALUE } };
     assertEquals(true, Equality.valueEquals(longobjectarray1, 0,
-        (Object[]) longobjectarray2, 0, longobjectarray2.length, epsilon));
+        longobjectarray2, 0, longobjectarray2.length, epsilon));
     assertEquals(false, Equality.valueEquals(longobjectarray3, 0,
-        (Object[]) longobjectarray2, 0, longobjectarray2.length, epsilon));
+        longobjectarray2, 0, longobjectarray2.length, epsilon));
     assertEquals(false, Equality.valueEquals(longobjectarray3, 0,
-        (Object[]) longobjectarray2, 2, 1, epsilon));
+        longobjectarray2, 2, 1, epsilon));
     assertEquals(true, Equality.valueEquals(longobjectarray1, 1,
-        (Object[]) longobjectarray2, 1, 1, epsilon));
+        longobjectarray2, 1, 1, epsilon));
 
-    Float[][] floatobjectarray1 = { { (float) 0, (float) -1, (float) 1 },
+    final Float[][] floatobjectarray1 = { { (float) 0, (float) -1, (float) 1 },
         { Float.MIN_VALUE, (float) (Float.MIN_VALUE / 2) },
         { (float) (Float.MAX_VALUE / 2), Float.MAX_VALUE } };
-    Float[][] floatobjectarray2 = { { (float) 0, (float) -1, (float) 1 },
+    final Float[][] floatobjectarray2 = { { (float) 0, (float) -1, (float) 1 },
         { Float.MIN_VALUE, (float) (Float.MIN_VALUE / 2) },
         { (float) (Float.MAX_VALUE / 2), Float.MAX_VALUE } };
-    Float[][] floatobjectarray3 = { { (float) 0, Float.MAX_VALUE } };
+    final Float[][] floatobjectarray3 = { { (float) 0, Float.MAX_VALUE } };
     assertEquals(true, Equality.valueEquals(floatobjectarray1, 0,
-        (Object[]) floatobjectarray2, 0, floatobjectarray2.length, epsilon));
+        floatobjectarray2, 0, floatobjectarray2.length, epsilon));
     assertEquals(false, Equality.valueEquals(floatobjectarray3, 0,
-        (Object[]) floatobjectarray2, 0, floatobjectarray2.length, epsilon));
+        floatobjectarray2, 0, floatobjectarray2.length, epsilon));
     assertEquals(false, Equality.valueEquals(floatobjectarray3, 0,
-        (Object[]) floatobjectarray2, 2, 1, epsilon));
+        floatobjectarray2, 2, 1, epsilon));
     assertEquals(true, Equality.valueEquals(floatobjectarray1, 1,
-        (Object[]) floatobjectarray2, 1, 1, epsilon));
+        floatobjectarray2, 1, 1, epsilon));
 
-    Double[][] doubleobjectarray1 = { { (double) 0, (double) -1, (double) 1 },
+    final Double[][] doubleobjectarray1 = { { (double) 0, (double) -1, (double) 1 },
         { (double) (Double.MIN_VALUE / 2), Double.MIN_VALUE },
         { (double) (Double.MAX_VALUE / 2), Double.MAX_VALUE } };
-    Double[][] doubleobjectarray2 = { { (double) 0, (double) -1, (double) 1 },
+    final Double[][] doubleobjectarray2 = { { (double) 0, (double) -1, (double) 1 },
         { (double) (Double.MIN_VALUE / 2), Double.MIN_VALUE },
         { (double) (Double.MAX_VALUE / 2), Double.MAX_VALUE } };
-    Double[][] doubleobjectarray3 = { { (double) 0, Double.MAX_VALUE } };
+    final Double[][] doubleobjectarray3 = { { (double) 0, Double.MAX_VALUE } };
     assertEquals(true, Equality.valueEquals(doubleobjectarray1, 0,
-        (Object[]) doubleobjectarray2, 0, doubleobjectarray2.length, epsilon));
+        doubleobjectarray2, 0, doubleobjectarray2.length, epsilon));
     assertEquals(false, Equality.valueEquals(doubleobjectarray3, 0,
-        (Object[]) doubleobjectarray2, 0, doubleobjectarray2.length, epsilon));
+        doubleobjectarray2, 0, doubleobjectarray2.length, epsilon));
     assertEquals(false, Equality.valueEquals(doubleobjectarray3, 0,
-        (Object[]) doubleobjectarray2, 2, 1, epsilon));
+        doubleobjectarray2, 2, 1, epsilon));
     assertEquals(true, Equality.valueEquals(doubleobjectarray1, 1,
-        (Object[]) doubleobjectarray2, 1, 1, epsilon));
+        doubleobjectarray2, 1, 1, epsilon));
 
     final class TestClassA {
     }
     final class TestClassB {
     }
-    Class<?>[][] classarray1 = { { TestClassA.class }, { TestClassA.class } };
-    Class<?>[][] classarray2 = { { TestClassA.class }, { TestClassA.class } };
-    Class<?>[][] classarray3 = { { TestClassB.class, TestClassA.class } };
+    final Class<?>[][] classarray1 = { { TestClassA.class }, { TestClassA.class } };
+    final Class<?>[][] classarray2 = { { TestClassA.class }, { TestClassA.class } };
+    final Class<?>[][] classarray3 = { { TestClassB.class, TestClassA.class } };
 
     assertEquals(true, Equality.valueEquals(classarray1, 0, classarray2, 0,
         classarray2.length, epsilon));
@@ -3681,90 +3694,90 @@ public class EqualityTest {
     assertEquals(true,
         Equality.valueEquals(classarray1, 1, classarray2, 1, 1, epsilon));
 
-    Date datea = new Date();
-    datea.setTime((long) 123456);
-    Date dateb = new Date();
-    dateb.setTime((long) 7891011);
-    Date datec = new Date();
-    datec.setTime((long) 654321);
-    Date[][] datearray1 = { { datea, dateb }, { datec } };
-    Date[][] datearray2 = { { datea, dateb }, { datec } };
-    Date[][] datearray3 = { { datec }, { datea, dateb } };
+    final Date datea = new Date();
+    datea.setTime(123456);
+    final Date dateb = new Date();
+    dateb.setTime(7891011);
+    final Date datec = new Date();
+    datec.setTime(654321);
+    final Date[][] datearray1 = { { datea, dateb }, { datec } };
+    final Date[][] datearray2 = { { datea, dateb }, { datec } };
+    final Date[][] datearray3 = { { datec }, { datea, dateb } };
     assertEquals(true, Equality.valueEquals(datearray1, 0,
-        (Object[]) datearray2, 0, datearray2.length, epsilon));
+        datearray2, 0, datearray2.length, epsilon));
     assertEquals(false, Equality.valueEquals(datearray3, 0,
-        (Object[]) datearray2, 0, datearray2.length, epsilon));
+        datearray2, 0, datearray2.length, epsilon));
     assertEquals(false, Equality.valueEquals(datearray3, 0,
-        (Object[]) datearray2, 0, 1, epsilon));
+        datearray2, 0, 1, epsilon));
     assertEquals(true, Equality.valueEquals(datearray3, 0,
-        (Object[]) datearray2, 1, 1, epsilon));
+        datearray2, 1, 1, epsilon));
     assertEquals(true, Equality.valueEquals(datearray1, 1,
-        (Object[]) datearray2, 1, 1, epsilon));
+        datearray2, 1, 1, epsilon));
 
-    BigInteger[][] bigintegerarray1 = { { new BigInteger(bytearray1[0]),
+    final BigInteger[][] bigintegerarray1 = { { new BigInteger(bytearray1[0]),
         new BigInteger(bytearray3[0]) } };
-    BigInteger[][] bigintegerarray2 = { { new BigInteger(bytearray2[0]),
+    final BigInteger[][] bigintegerarray2 = { { new BigInteger(bytearray2[0]),
         new BigInteger(bytearray3[0]) } };
-    BigInteger[][] bigintegerarray3 = { { new BigInteger(bytearray3[0]) } };
+    final BigInteger[][] bigintegerarray3 = { { new BigInteger(bytearray3[0]) } };
     assertEquals(true, Equality.valueEquals(bigintegerarray1, 0,
-        (Object[]) bigintegerarray2, 0, bigintegerarray2.length, epsilon));
+        bigintegerarray2, 0, bigintegerarray2.length, epsilon));
     assertEquals(false, Equality.valueEquals(bigintegerarray3, 0,
-        (Object[]) bigintegerarray2, 0, bigintegerarray2.length, epsilon));
+        bigintegerarray2, 0, bigintegerarray2.length, epsilon));
     assertEquals(false, Equality.valueEquals(bigintegerarray3, 0,
-        (Object[]) bigintegerarray2, 0, 1, epsilon));
+        bigintegerarray2, 0, 1, epsilon));
 
-    BigDecimal[][] bigdecimalarray1 = { { new BigDecimal(Integer.MIN_VALUE) },
+    final BigDecimal[][] bigdecimalarray1 = { { new BigDecimal(Integer.MIN_VALUE) },
         { new BigDecimal(Integer.MAX_VALUE) } };
-    BigDecimal[][] bigdecimalarray2 = { { new BigDecimal(Integer.MIN_VALUE) },
+    final BigDecimal[][] bigdecimalarray2 = { { new BigDecimal(Integer.MIN_VALUE) },
         { new BigDecimal(Integer.MAX_VALUE) } };
-    BigDecimal[][] bigdecimalarray3 = { { new BigDecimal(0), new BigDecimal(-1) } };
+    final BigDecimal[][] bigdecimalarray3 = { { new BigDecimal(0), new BigDecimal(-1) } };
     assertEquals(true, Equality.valueEquals(bigdecimalarray1, 0,
-        (Object[]) bigdecimalarray2, 0, bigdecimalarray2.length, epsilon));
+        bigdecimalarray2, 0, bigdecimalarray2.length, epsilon));
     assertEquals(false, Equality.valueEquals(bigdecimalarray3, 0,
-        (Object[]) bigdecimalarray2, 0, bigdecimalarray2.length, epsilon));
+        bigdecimalarray2, 0, bigdecimalarray2.length, epsilon));
     assertEquals(false, Equality.valueEquals(bigdecimalarray3, 0,
-        (Object[]) bigdecimalarray2, 1, 1, epsilon));
+        bigdecimalarray2, 1, 1, epsilon));
     assertEquals(true, Equality.valueEquals(bigdecimalarray1, 1,
-        (Object[]) bigdecimalarray2, 1, 1, epsilon));
+        bigdecimalarray2, 1, 1, epsilon));
 
-    Boolean[][][][] objectarray1 = { { { { true, false }, { true, true } } },
+    final Boolean[][][][] objectarray1 = { { { { true, false }, { true, true } } },
         { { { false, false }, { true } } } };
-    Boolean[][][][] objectarray2 = { { { { true, false }, { true, true } } },
+    final Boolean[][][][] objectarray2 = { { { { true, false }, { true, true } } },
         { { { false, false }, { true } } } };
-    Boolean[][][][] objectarray3 = { { { { true }, { false } } },
+    final Boolean[][][][] objectarray3 = { { { { true }, { false } } },
         { { { true, true } } } };
     assertEquals(true, Equality.valueEquals(objectarray1, 0,
-        (Object[]) objectarray2, 0, objectarray2.length, epsilon));
+        objectarray2, 0, objectarray2.length, epsilon));
     assertEquals(false, Equality.valueEquals(objectarray3, 0,
-        (Object[]) objectarray2, 0, objectarray2.length, epsilon));
+        objectarray2, 0, objectarray2.length, epsilon));
     assertEquals(false, Equality.valueEquals(objectarray3, 0,
-        (Object[]) objectarray2, 1, 1, epsilon));
+        objectarray2, 1, 1, epsilon));
     assertEquals(true, Equality.valueEquals(objectarray1, 1,
-        (Object[]) objectarray2, 1, 1, epsilon));
+        objectarray2, 1, 1, epsilon));
 
-    ArrayList<Character> arraylist1 = new ArrayList<Character>();
-    ArrayList<Character> arraylist2 = new ArrayList<Character>();
-    Object[] col1 = { arraylist1, arraylist2 };
+    final ArrayList<Character> arraylist1 = new ArrayList<Character>();
+    final ArrayList<Character> arraylist2 = new ArrayList<Character>();
+    final Object[] col1 = { arraylist1, arraylist2 };
     arraylist1.add('a');
     arraylist2.add('b');
     arraylist1.add('c');
-    ArrayList<Character> arraylist3 = new ArrayList<Character>();
-    ArrayList<Character> arraylist4 = new ArrayList<Character>();
-    Object[] col2 = { arraylist3, arraylist4 };
+    final ArrayList<Character> arraylist3 = new ArrayList<Character>();
+    final ArrayList<Character> arraylist4 = new ArrayList<Character>();
+    final Object[] col2 = { arraylist3, arraylist4 };
     arraylist3.add('a');
     arraylist4.add('b');
     arraylist3.add('c');
-    ArrayList<Character> arraylist5 = new ArrayList<Character>();
-    Object[] col3 = { arraylist5 };
+    final ArrayList<Character> arraylist5 = new ArrayList<Character>();
+    final Object[] col3 = { arraylist5 };
     arraylist5.add('a');
     assertEquals(true,
-        Equality.valueEquals(col1, 0, (Object[]) col2, 0, col2.length, epsilon));
+        Equality.valueEquals(col1, 0, col2, 0, col2.length, epsilon));
     assertEquals(false,
-        Equality.valueEquals(col3, 0, (Object[]) col2, 0, col2.length, epsilon));
+        Equality.valueEquals(col3, 0, col2, 0, col2.length, epsilon));
     assertEquals(false,
-        Equality.valueEquals(col3, 0, (Object[]) col2, 1, 1, epsilon));
+        Equality.valueEquals(col3, 0, col2, 1, 1, epsilon));
     assertEquals(true,
-        Equality.valueEquals(col1, 1, (Object[]) col2, 1, 1, epsilon));
+        Equality.valueEquals(col1, 1, col2, 1, 1, epsilon));
   }
 
   public void testMultiBooleanArray() {
@@ -4428,13 +4441,13 @@ public class EqualityTest {
     ArrayLongList col1 = new ArrayLongList();
     ArrayLongList col2 = new ArrayLongList();
 
-    col1.add((long) 2);
+    col1.add(2);
     assertEquals(false, Equality.equals(col1, col2));
-    col2.add((long) 2);
+    col2.add(2);
     assertEquals(true, Equality.equals(col1, col2));
-    col1.add((long) 5);
+    col1.add(5);
     assertEquals(false, Equality.equals(col1, col2));
-    col2.add((long) 6);
+    col2.add(6);
     assertEquals(false, Equality.equals(col1, col2));
     col1 = null;
     assertEquals(false, Equality.equals(col1, col2));
@@ -4452,13 +4465,13 @@ public class EqualityTest {
     ArrayFloatList col1 = new ArrayFloatList();
     ArrayFloatList col2 = new ArrayFloatList();
 
-    col1.add((float) 2);
+    col1.add(2);
     assertEquals(false, Equality.equals(col1, col2));
-    col2.add((float) 2);
+    col2.add(2);
     assertEquals(true, Equality.equals(col1, col2));
-    col1.add((float) 5);
+    col1.add(5);
     assertEquals(false, Equality.equals(col1, col2));
-    col2.add((float) 6);
+    col2.add(6);
     assertEquals(false, Equality.equals(col1, col2));
     col1 = null;
     assertEquals(false, Equality.equals(col1, col2));
@@ -4477,13 +4490,13 @@ public class EqualityTest {
     ArrayFloatList col2 = new ArrayFloatList();
     final float epsilon = 0.01f;
 
-    col1.add((float) 2);
+    col1.add(2);
     assertEquals(false, Equality.valueEquals(col1, col2, epsilon));
-    col2.add((float) 2 + epsilon);
+    col2.add(2 + epsilon);
     assertEquals(true, Equality.valueEquals(col1, col2, epsilon));
-    col1.add((float) 5);
+    col1.add(5);
     assertEquals(false, Equality.valueEquals(col1, col2, epsilon));
-    col2.add((float) 6);
+    col2.add(6);
     assertEquals(false, Equality.valueEquals(col1, col2, epsilon));
     col1 = null;
     assertEquals(false, Equality.valueEquals(col1, col2, epsilon));
@@ -4501,13 +4514,13 @@ public class EqualityTest {
     ArrayDoubleList col1 = new ArrayDoubleList();
     ArrayDoubleList col2 = new ArrayDoubleList();
 
-    col1.add((double) 2);
+    col1.add(2);
     assertEquals(false, Equality.equals(col1, col2));
-    col2.add((double) 2);
+    col2.add(2);
     assertEquals(true, Equality.equals(col1, col2));
-    col1.add((double) 5);
+    col1.add(5);
     assertEquals(false, Equality.equals(col1, col2));
-    col2.add((double) 6);
+    col2.add(6);
     assertEquals(false, Equality.equals(col1, col2));
     col1 = null;
     assertEquals(false, Equality.equals(col1, col2));
@@ -4524,15 +4537,15 @@ public class EqualityTest {
   public void testDoubleCollectionWithEpsilon() {
     ArrayDoubleList col1 = new ArrayDoubleList();
     ArrayDoubleList col2 = new ArrayDoubleList();
-    final double epsilon = (double) 0.01;
+    final double epsilon = 0.01;
 
-    col1.add((double) 2);
+    col1.add(2);
     assertEquals(false, Equality.valueEquals(col1, col2, epsilon));
-    col2.add((double) 2 + epsilon);
+    col2.add(2 + epsilon);
     assertEquals(true, Equality.valueEquals(col1, col2, epsilon));
-    col1.add((double) 5);
+    col1.add(5);
     assertEquals(false, Equality.valueEquals(col1, col2, epsilon));
-    col2.add((double) 6);
+    col2.add(6);
     assertEquals(false, Equality.valueEquals(col1, col2, epsilon));
     col1 = null;
     assertEquals(false, Equality.valueEquals(col1, col2, epsilon));
@@ -4569,13 +4582,13 @@ public class EqualityTest {
   @Test
   public void testCollectionWithEpsilon() {
     ArrayList<Double> col1 = new ArrayList<Double>();
-    col1.add((Double) 0.002);
+    col1.add(0.002);
     final double epsilon = 0.000001;
     ArrayList<Double> col2 = new ArrayList<Double>();
-    col2.add((Double) (0.002));
+    col2.add((0.002));
 
     assertEquals(true, Equality.valueEquals(col1, col2, epsilon));
-    col1.add(0, (double) 0.3);
+    col1.add(0, 0.3);
     assertEquals(false, Equality.equals(col1, col2));
     col2 = null;
     assertEquals(false, Equality.equals(col1, col2));

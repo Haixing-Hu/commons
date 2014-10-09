@@ -25,10 +25,10 @@ import javax.annotation.concurrent.ThreadSafe;
 import static com.github.haixing_hu.lang.Argument.requireNonNull;
 
 /**
- * This class provides operations on <code>Object</code>.
+ * This class provides operations on {@code Object}.
  *
- * This class tries to handle <code>null</code> input gracefully. An exception
- * will generally not be thrown for a <code>null</code> input. Each method
+ * This class tries to handle {@code null} input gracefully. An exception
+ * will generally not be thrown for a {@code null} input. Each method
  * documents its behavior in more detail.
  *
  * @author Haixing Hu
@@ -37,16 +37,16 @@ import static com.github.haixing_hu.lang.Argument.requireNonNull;
 public final class ObjectUtils {
 
   /**
-   * Singleton used as a <code>null</code> place holder where <code>null</code>
+   * Singleton used as a {@code null} place holder where {@code null}
    * has another meaning.
    *
-   * For example, in a <code>HashMap</code> the
+   * For example, in a {@code HashMap} the
    * {@link java.util.HashMap#get(java.lang.Object)} method returns
-   * <code>null</code> if the <code>Map</code> contains <code>null</code> or if
-   * there is no matching key. The <code>Null</code> placeholder can be used to
+   * {@code null} if the {@code Map} contains {@code null} or if
+   * there is no matching key. The {@code Null} placeholder can be used to
    * distinguish between these two cases.
    *
-   * Another example is <code>Hashtable</code>, where <code>null</code> cannot
+   * Another example is {@code Hashtable}, where {@code null} cannot
    * be stored.
    *
    * This instance is Serializable.
@@ -56,7 +56,7 @@ public final class ObjectUtils {
   private ObjectUtils() { }
 
   /**
-   * Returns a default value if the object passed is <code>null</code>.
+   * Returns a default value if the object passed is {@code null}.
    *
    * <pre>
    * Objects.defaultIfNull(null, null)      = null
@@ -67,10 +67,10 @@ public final class ObjectUtils {
    * </pre>
    *
    * @param obj
-   *          the <code>Object</code> to test, may be <code>null</code>
+   *          the {@code Object} to test, may be {@code null}
    * @param defaultValue
-   *          the default value to return, may be <code>null</code>
-   * @return <code>object</code> if it is not <code>null</code>, defaultValue
+   *          the default value to return, may be {@code null}
+   * @return {@code object} if it is not {@code null}, defaultValue
    *         otherwise
    */
   public static <T> T defaultIfNull(final T obj, final T defaultValue) {
@@ -79,7 +79,7 @@ public final class ObjectUtils {
 
   /**
    * Gets the hash code of an object returning zero when the object is
-   * <code>null</code>.
+   * {@code null}.
    *
    * <pre>
    * Objects.hashCode(null)   = 0
@@ -87,7 +87,7 @@ public final class ObjectUtils {
    * </pre>
    *
    * @param obj
-   *          the object to obtain the hash code of, may be <code>null</code>
+   *          the object to obtain the hash code of, may be {@code null}
    * @return the hash code of the object, or zero if null
    */
   public static int hashCode(final Object obj) {
@@ -99,9 +99,9 @@ public final class ObjectUtils {
   }
 
   /**
-   * Gets the toString that would be produced by <code>Object</code> if a class
-   * did not override toString itself. <code>null</code> will return
-   * <code>null</code>.
+   * Gets the toString that would be produced by {@code Object} if a class
+   * did not override toString itself. {@code null} will return
+   * {@code null}.
    *
    * <pre>
    * Objects.identityToString(null)         = null
@@ -110,9 +110,9 @@ public final class ObjectUtils {
    * </pre>
    *
    * @param object
-   *          the object to create a toString for, may be <code>null</code>
-   * @return the default toString text, or <code>null</code> if
-   *         <code>null</code> passed in
+   *          the object to create a toString for, may be {@code null}
+   * @return the default toString text, or {@code null} if
+   *         {@code null} passed in
    */
   public static String identityToString(final Object object) {
     if (object == null) {
@@ -124,8 +124,8 @@ public final class ObjectUtils {
   }
 
   /**
-   * Appends the toString that would be produced by <code>Object</code> if a
-   * class did not override toString itself. <code>null</code> will throw a
+   * Appends the toString that would be produced by {@code Object} if a
+   * class did not override toString itself. {@code null} will throw a
    * NullPointerException for either of the two parameters.
    *
    * <pre>
@@ -147,8 +147,8 @@ public final class ObjectUtils {
   }
 
   /**
-   * Gets the <code>toString</code> of an <code>Object</code> returning an empty
-   * string ("") if <code>null</code> input.
+   * Gets the {@code toString} of an {@code Object} returning an empty
+   * string ("") if {@code null} input.
    *
    * <pre>
    * Objects.toString(null)         = ""
@@ -160,8 +160,8 @@ public final class ObjectUtils {
    * @see StringUtils#defaultString(String)
    * @see String#valueOf(Object)
    * @param obj
-   *          the Object to <code>toString</code>, may be null
-   * @return the passed in Object's toString, or nullStr if <code>null</code>
+   *          the Object to {@code toString}, may be null
+   * @return the passed in Object's toString, or nullStr if {@code null}
    *         input
    */
   public static String toString(final Object obj) {
@@ -169,8 +169,8 @@ public final class ObjectUtils {
   }
 
   /**
-   * Gets the <code>toString</code> of an <code>Object</code> returning a
-   * specified text if <code>null</code> input.
+   * Gets the {@code toString} of an {@code Object} returning a
+   * specified text if {@code null} input.
    *
    * <pre>
    * Objects.toString(null, null)           = null
@@ -183,10 +183,10 @@ public final class ObjectUtils {
    * @see StringUtils#defaultString(String, String)
    * @see String#valueOf(Object)
    * @param obj
-   *          the Object to <code>toString</code>, may be null
+   *          the Object to {@code toString}, may be null
    * @param nullStr
-   *          the String to return if <code>null</code> input, may be null
-   * @return the passed in Object's toString, or nullStr if <code>null</code>
+   *          the String to return if {@code null} input, may be null
+   * @return the passed in Object's toString, or nullStr if {@code null}
    *         input
    */
   public static String toString(final Object obj, final String nullStr) {
@@ -194,16 +194,16 @@ public final class ObjectUtils {
   }
 
   /**
-   * Class used as a null place holder where <code>null</code> has another
+   * Class used as a null place holder where {@code null} has another
    * meaning.
    *
-   * For example, in a <code>HashMap</code> the
+   * For example, in a {@code HashMap} the
    * {@link java.util.HashMap#get(java.lang.Object)} method returns
-   * <code>null</code> if the <code>Map</code> contains <code>null</code> or if
-   * there is no matching key. The <code>Null</code> place holder can be used to
+   * {@code null} if the {@code Map} contains {@code null} or if
+   * there is no matching key. The {@code Null} place holder can be used to
    * distinguish between these two cases.
    *
-   * Another example is <code>Hashtable</code>, where <code>null</code> cannot
+   * Another example is {@code Hashtable}, where {@code null} cannot
    * be stored.
    */
   public static class Null implements Serializable {

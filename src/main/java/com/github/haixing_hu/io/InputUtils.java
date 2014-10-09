@@ -76,35 +76,35 @@ public final class InputUtils {
    * <p>This method blocks until one of the following conditions occurs:</p>
    *
    * <ul>
-   * <li><code>len</code> bytes of input data are available, in which case a
+   * <li>{@code len} bytes of input data are available, in which case a
    * normal return is made.</li>
-   * <li>End of file is detected, in which case an <code>EOFException</code> is
+   * <li>End of file is detected, in which case an {@code EOFException} is
    * thrown.</li>
-   * <li>An I/O error occurs, in which case an <code>IOException</code> other
-   * than <code>EOFException</code> is thrown.</li>
+   * <li>An I/O error occurs, in which case an {@code IOException} other
+   * than {@code EOFException} is thrown.</li>
    * </ul>
    *
-   * <p>If <code>len</code> is zero, then no bytes are read. Otherwise, the first
-   * byte read is stored into element <code>buffer[off]</code>, the next one
-   * into <code>buffer[off+1]</code>, and so on. The number of bytes read is
-   * always equal to <code>len</code>.</p>
+   * <p>If {@code len} is zero, then no bytes are read. Otherwise, the first
+   * byte read is stored into element {@code buffer[off]}, the next one
+   * into {@code buffer[off+1]}, and so on. The number of bytes read is
+   * always equal to {@code len}.</p>
    *
    * @param in
    *          the input source where to read the data.
    * @param buf
    *          the byte array where to store the bytes read from the input.
    * @param off
-   *          the start offset in array <code>buffer</code> at which the data is
+   *          the start offset in array {@code buffer} at which the data is
    *          written.
    * @param len
    *          the number of bytes need to read.
    * @throws NullPointerException
-   *           If <code>buffer</code> is null.
+   *           If {@code buffer} is null.
    * @throws IndexOutOfBoundsException
-   *           If <code>off</code> is negative, <code>len</code> is negative, or
-   *           <code>len</code> is greater than <code>buff.length - off</code>.
+   *           If {@code off} is negative, {@code len} is negative, or
+   *           {@code len} is greater than {@code buff.length - off}.
    * @throws EOFException
-   *           if this input reaches the end before reading <code>len</code>
+   *           if this input reaches the end before reading {@code len}
    *           bytes.
    * @throws IOException
    *           if an I/O error occurs.
@@ -131,14 +131,14 @@ public final class InputUtils {
   }
 
   /**
-   * Reads a <code>boolean</code> value from the input.
+   * Reads a {@code boolean} value from the input.
    *
    * @param in
    *          the input source where to read the data.
-   * @return a <code>boolean</code> value read from the input.
+   * @return a {@code boolean} value read from the input.
    * @throws EOFException
    *           if the input reaches the end before reading the whole
-   *           <code>boolean</code> value.
+   *           {@code boolean} value.
    * @throws IOException
    *           if any I/O error occurs.
    */
@@ -151,19 +151,20 @@ public final class InputUtils {
   }
 
   /**
-   * Reads a <code>Boolean</code> object from the input.
+   * Reads a {@code Boolean} object from the input.
    *
    * @param in
    *          the input source where to read the data.
    * @param allowNull
-   *          if it is true, the <code>Boolean</code> object to be read could be a
-   *          null value; otherwise, if the <code>Boolean</code> object read from
-   *          the input is null, an <code>InvalidFormatException</code> will be
+   *          if it is true, the {@code Boolean} object to be read could be a
+   *          null value; otherwise, if the {@code Boolean} object read from
+   *          the input is null, an {@code InvalidFormatException} will be
    *          thrown.
-   * @return a <code>Boolean</code> object read from the input.
+   * @return a {@code Boolean} object read from the input, which could be
+   *        {@code null}.
    * @throws EOFException
    *           if the input reaches the end before reading the whole
-   *           <code>Boolean</code> object.
+   *           {@code Boolean} object.
    * @throws IOException
    *           if any I/O error occurs.
    */
@@ -181,14 +182,14 @@ public final class InputUtils {
   }
 
   /**
-   * Reads a <code>char</code> value from the input.
+   * Reads a {@code char} value from the input.
    *
    * @param in
    *          the input source where to read the data.
-   * @return a <code>char</code> value read from the input.
+   * @return a {@code char} value read from the input.
    * @throws EOFException
    *           if the input reaches the end before reading the whole
-   *           <code>char</code> value.
+   *           {@code char} value.
    * @throws IOException
    *           if any I/O error occurs.
    */
@@ -197,19 +198,19 @@ public final class InputUtils {
   }
 
   /**
-   * Reads a <code>Character</code> object from the input.
+   * Reads a {@code Character} object from the input.
    *
    * @param in
    *          the input source where to read the data.
    * @param allowNull
-   *          if it is true, the <code>Character</code> object to be read could be a
-   *          null value; otherwise, if the <code>Character</code> object read from
-   *          the input is null, an <code>InvalidFormatException</code> will be
+   *          if it is true, the {@code Character} object to be read could be a
+   *          null value; otherwise, if the {@code Character} object read from
+   *          the input is null, an {@code InvalidFormatException} will be
    *          thrown.
-   * @return a <code>Character</code> object read from the input.
+   * @return a {@code Character} object read from the input.
    * @throws EOFException
    *           if the input reaches the end before reading the whole
-   *           <code>Character</code> object.
+   *           {@code Character} object.
    * @throws IOException
    *           if any I/O error occurs.
    */
@@ -227,14 +228,14 @@ public final class InputUtils {
   }
 
   /**
-   * Reads a <code>byte</code> value from the input.
+   * Reads a {@code byte} value from the input.
    *
    * @param in
    *          the input source where to read the data.
-   * @return a <code>byte</code> value read from the input.
+   * @return a {@code byte} value read from the input.
    * @throws EOFException
    *           if the input reaches the end before reading the whole
-   *           <code>byte</code> value.
+   *           {@code byte} value.
    * @throws IOException
    *           if any I/O error occurs.
    */
@@ -247,19 +248,19 @@ public final class InputUtils {
   }
 
   /**
-   * Reads a <code>Byte</code> object from the input.
+   * Reads a {@code Byte} object from the input.
    *
    * @param in
    *          the input source where to read the data.
    * @param allowNull
-   *          if it is true, the <code>Byte</code> object to be read could be a
-   *          null value; otherwise, if the <code>Byte</code> object read from
-   *          the input is null, an <code>InvalidFormatException</code> will be
+   *          if it is true, the {@code Byte} object to be read could be a
+   *          null value; otherwise, if the {@code Byte} object read from
+   *          the input is null, an {@code InvalidFormatException} will be
    *          thrown.
-   * @return a <code>Byte</code> object read from the input.
+   * @return a {@code Byte} object read from the input.
    * @throws EOFException
    *           if the input reaches the end before reading the whole
-   *           <code>Byte</code> object.
+   *           {@code Byte} object.
    * @throws IOException
    *           if any I/O error occurs.
    */
@@ -277,14 +278,14 @@ public final class InputUtils {
   }
 
   /**
-   * Reads a <code>short</code> value from the input.
+   * Reads a {@code short} value from the input.
    *
    * @param in
    *          the input source where to read the data.
-   * @return a <code>short</code> value read from the input.
+   * @return a {@code short} value read from the input.
    * @throws EOFException
    *           if the input reaches the end before reading the whole
-   *           <code>short</code> value.
+   *           {@code short} value.
    * @throws IOException
    *           if any I/O error occurs.
    */
@@ -298,19 +299,19 @@ public final class InputUtils {
   }
 
   /**
-   * Reads a <code>Short</code> object from the input.
+   * Reads a {@code Short} object from the input.
    *
    * @param in
    *          the input source where to read the data.
    * @param allowNull
-   *          if it is true, the <code>Short</code> object to be read could be a
-   *          null value; otherwise, if the <code>Short</code> object read from
-   *          the input is null, an <code>InvalidFormatException</code> will be
+   *          if it is true, the {@code Short} object to be read could be a
+   *          null value; otherwise, if the {@code Short} object read from
+   *          the input is null, an {@code InvalidFormatException} will be
    *          thrown.
-   * @return a <code>Short</code> object read from the input.
+   * @return a {@code Short} object read from the input.
    * @throws EOFException
    *           if the input reaches the end before reading the whole
-   *           <code>Short</code> object.
+   *           {@code Short} object.
    * @throws IOException
    *           if any I/O error occurs.
    */
@@ -328,7 +329,7 @@ public final class InputUtils {
   }
 
   /**
-   * Reads a variant length encoded <code>short</code> value from the input.
+   * Reads a variant length encoded {@code short} value from the input.
    *
    * <p>A variable-length format for positive integers is defined where the
    * high-order bit of each byte indicates whether more bytes remain to be read.
@@ -342,15 +343,15 @@ public final class InputUtils {
    *
    * @param in
    *          the input source where to read the data.
-   * @return a variant length encoded <code>short</code> value read from the
-   *         input. Note that the <code>short</code> value encoded is always
+   * @return a variant length encoded {@code short} value read from the
+   *         input. Note that the {@code short} value encoded is always
    *         a positive value, therefore the returned value is always between
    *         0 and 32767.
    * @throws EOFException
    *           if the input reaches the end before reading the whole
-   *           <code>short</code> value.
+   *           {@code short} value.
    * @throws InvalidFormatExceptoin
-   *           if the <code>short</code> value is not correctly encoded.
+   *           if the {@code short} value is not correctly encoded.
    * @throws IOException
    *           if any I/O error occurs.
    */
@@ -382,19 +383,19 @@ public final class InputUtils {
   }
 
   /**
-   * Reads a variable length <code>Short</code> object from the input.
+   * Reads a variable length {@code Short} object from the input.
    *
    * @param in
    *          the input source where to read the data.
    * @param allowNull
-   *          if it is true, the <code>Short</code> object to be read could be a
-   *          null value; otherwise, if the <code>Short</code> object read from
-   *          the input is null, an <code>InvalidFormatException</code> will be
+   *          if it is true, the {@code Short} object to be read could be a
+   *          null value; otherwise, if the {@code Short} object read from
+   *          the input is null, an {@code InvalidFormatException} will be
    *          thrown.
-   * @return a <code>Short</code> object read from the input.
+   * @return a {@code Short} object read from the input.
    * @throws EOFException
    *           if the input reaches the end before reading the whole
-   *           <code>Short</code> object.
+   *           {@code Short} object.
    * @throws IOException
    *           if any I/O error occurs.
    */
@@ -412,14 +413,14 @@ public final class InputUtils {
   }
 
   /**
-   * Reads a <code>int</code> value from the input.
+   * Reads a {@code int} value from the input.
    *
    * @param in
    *          the input source where to read the data.
-   * @return a <code>int</code> value read from the input.
+   * @return a {@code int} value read from the input.
    * @throws EOFException
    *           if the input reaches the end before reading the whole
-   *           <code>int</code> value.
+   *           {@code int} value.
    * @throws IOException
    *           if any I/O error occurs.
    */
@@ -435,19 +436,19 @@ public final class InputUtils {
   }
 
   /**
-   * Reads a <code>Integer</code> object from the input.
+   * Reads a {@code Integer} object from the input.
    *
    * @param in
    *          the input source where to read the data.
    * @param allowNull
-   *          if it is true, the <code>Integer</code> object to be read could be a
-   *          null value; otherwise, if the <code>Integer</code> object read from
-   *          the input is null, an <code>InvalidFormatException</code> will be
+   *          if it is true, the {@code Integer} object to be read could be a
+   *          null value; otherwise, if the {@code Integer} object read from
+   *          the input is null, an {@code InvalidFormatException} will be
    *          thrown.
-   * @return a <code>Integer</code> object read from the input.
+   * @return a {@code Integer} object read from the input.
    * @throws EOFException
    *           if the input reaches the end before reading the whole
-   *           <code>Integer</code> object.
+   *           {@code Integer} object.
    * @throws IOException
    *           if any I/O error occurs.
    */
@@ -465,7 +466,7 @@ public final class InputUtils {
   }
 
   /**
-   * Reads a variant length encoded <code>int</code> value from the input.
+   * Reads a variant length encoded {@code int} value from the input.
    *
    * <p>A variable-length format for positive integers is defined where the
    * high-order bit of each byte indicates whether more bytes remain to be read.
@@ -479,15 +480,15 @@ public final class InputUtils {
    *
    * @param in
    *          the input source where to read the data.
-   * @return a variant length encoded <code>int</code> value read from the
-   *         input. Note that the <code>int</code> value encoded is always
+   * @return a variant length encoded {@code int} value read from the
+   *         input. Note that the {@code int} value encoded is always
    *         a positive value, therefore the returned value is always between
    *         0 and 2147483647.
    * @throws EOFException
    *           if the input reaches the end before reading the whole
-   *           <code>int</code> value.
+   *           {@code int} value.
    * @throws InvalidFormatExceptoin
-   *           if the <code>int</code> value is not correctly encoded.
+   *           if the {@code int} value is not correctly encoded.
    * @throws IOException
    *           if any I/O error occurs.
    */
@@ -518,19 +519,19 @@ public final class InputUtils {
   }
 
   /**
-   * Reads a variable length <code>Integer</code> object from the input.
+   * Reads a variable length {@code Integer} object from the input.
    *
    * @param in
    *          the input source where to read the data.
    * @param allowNull
-   *          if it is true, the <code>Integer</code> object to be read could be a
-   *          null value; otherwise, if the <code>Integer</code> object read from
-   *          the input is null, an <code>InvalidFormatException</code> will be
+   *          if it is true, the {@code Integer} object to be read could be a
+   *          null value; otherwise, if the {@code Integer} object read from
+   *          the input is null, an {@code InvalidFormatException} will be
    *          thrown.
-   * @return a <code>Integer</code> object read from the input.
+   * @return a {@code Integer} object read from the input.
    * @throws EOFException
    *           if the input reaches the end before reading the whole
-   *           <code>Integer</code> object.
+   *           {@code Integer} object.
    * @throws IOException
    *           if any I/O error occurs.
    */
@@ -548,14 +549,14 @@ public final class InputUtils {
   }
 
   /**
-   * Reads a <code>long</code> value from the input.
+   * Reads a {@code long} value from the input.
    *
    * @param in
    *          the input source where to read the data.
-   * @return a <code>long</code> value read from the input.
+   * @return a {@code long} value read from the input.
    * @throws EOFException
    *           if the input reaches the end before reading the whole
-   *           <code>long</code> value.
+   *           {@code long} value.
    * @throws IOException
    *           if any I/O error occurs.
    */
@@ -573,19 +574,19 @@ public final class InputUtils {
   }
 
   /**
-   * Reads a <code>Long</code> object from the input.
+   * Reads a {@code Long} object from the input.
    *
    * @param in
    *          the input source where to read the data.
    * @param allowNull
-   *          if it is true, the <code>Long</code> object to be read could be a
-   *          null value; otherwise, if the <code>Long</code> object read from
-   *          the input is null, an <code>InvalidFormatException</code> will be
+   *          if it is true, the {@code Long} object to be read could be a
+   *          null value; otherwise, if the {@code Long} object read from
+   *          the input is null, an {@code InvalidFormatException} will be
    *          thrown.
-   * @return a <code>Long</code> object read from the input.
+   * @return a {@code Long} object read from the input.
    * @throws EOFException
    *           if the input reaches the end before reading the whole
-   *           <code>Long</code> object.
+   *           {@code Long} object.
    * @throws IOException
    *           if any I/O error occurs.
    */
@@ -603,7 +604,7 @@ public final class InputUtils {
   }
 
   /**
-   * Reads a variant length encoded <code>long</code> value from the input.
+   * Reads a variant length encoded {@code long} value from the input.
    *
    * <p>A variable-length format for positive integers is defined where the
    * high-order bit of each byte indicates whether more bytes remain to be read.
@@ -617,15 +618,15 @@ public final class InputUtils {
    *
    * @param in
    *          the input source where to read the data.
-   * @return a variant length encoded <code>long</code> value read from the
-   *         input. Note that the <code>long</code> value encoded is always
+   * @return a variant length encoded {@code long} value read from the
+   *         input. Note that the {@code long} value encoded is always
    *         a positive value, therefore the returned value is always between
    *         0 and 9223372036854775807.
    * @throws EOFException
    *           if the input reaches the end before reading the whole
-   *           <code>long</code> value.
+   *           {@code long} value.
    * @throws InvalidFormatExceptoin
-   *           if the <code>long</code> value is not correctly encoded.
+   *           if the {@code long} value is not correctly encoded.
    * @throws IOException
    *           if any I/O error occurs.
    */
@@ -657,19 +658,19 @@ public final class InputUtils {
   }
 
   /**
-   * Reads a variable length<code>Long</code> object from the input.
+   * Reads a variable length{@code Long} object from the input.
    *
    * @param in
    *          the input source where to read the data.
    * @param allowNull
-   *          if it is true, the <code>Long</code> object to be read could be a
-   *          null value; otherwise, if the <code>Long</code> object read from
-   *          the input is null, an <code>InvalidFormatException</code> will be
+   *          if it is true, the {@code Long} object to be read could be a
+   *          null value; otherwise, if the {@code Long} object read from
+   *          the input is null, an {@code InvalidFormatException} will be
    *          thrown.
-   * @return a <code>Long</code> object read from the input.
+   * @return a {@code Long} object read from the input.
    * @throws EOFException
    *           if the input reaches the end before reading the whole
-   *           <code>Long</code> object.
+   *           {@code Long} object.
    * @throws IOException
    *           if any I/O error occurs.
    */
@@ -687,14 +688,14 @@ public final class InputUtils {
   }
 
   /**
-   * Reads a <code>float</code> value from the input.
+   * Reads a {@code float} value from the input.
    *
    * @param in
    *          the input source where to read the data.
-   * @return a <code>float</code> value read from the input.
+   * @return a {@code float} value read from the input.
    * @throws EOFException
    *           if the input reaches the end before reading the whole
-   *           <code>float</code> value.
+   *           {@code float} value.
    * @throws IOException
    *           if any I/O error occurs.
    */
@@ -704,19 +705,19 @@ public final class InputUtils {
   }
 
   /**
-   * Reads a <code>Float</code> object from the input.
+   * Reads a {@code Float} object from the input.
    *
    * @param in
    *          the input source where to read the data.
    * @param allowNull
-   *          if it is true, the <code>Float</code> object to be read could be a
-   *          null value; otherwise, if the <code>Float</code> object read from
-   *          the input is null, an <code>InvalidFormatException</code> will be
+   *          if it is true, the {@code Float} object to be read could be a
+   *          null value; otherwise, if the {@code Float} object read from
+   *          the input is null, an {@code InvalidFormatException} will be
    *          thrown.
-   * @return a <code>Float</code> object read from the input.
+   * @return a {@code Float} object read from the input.
    * @throws EOFException
    *           if the input reaches the end before reading the whole
-   *           <code>Float</code> object.
+   *           {@code Float} object.
    * @throws IOException
    *           if any I/O error occurs.
    */
@@ -734,14 +735,14 @@ public final class InputUtils {
   }
 
   /**
-   * Reads a <code>double</code> value from the input.
+   * Reads a {@code double} value from the input.
    *
    * @param in
    *          the input source where to read the data.
-   * @return a <code>double</code> value read from the input.
+   * @return a {@code double} value read from the input.
    * @throws EOFException
    *           if the input reaches the end before reading the whole
-   *           <code>double</code> value.
+   *           {@code double} value.
    * @throws IOException
    *           if any I/O error occurs.
    */
@@ -751,19 +752,19 @@ public final class InputUtils {
   }
 
   /**
-   * Reads a <code>Double</code> object from the input.
+   * Reads a {@code Double} object from the input.
    *
    * @param in
    *          the input source where to read the data.
    * @param allowNull
-   *          if it is true, the <code>Double</code> object to be read could be a
-   *          null value; otherwise, if the <code>Double</code> object read from
-   *          the input is null, an <code>InvalidFormatException</code> will be
+   *          if it is true, the {@code Double} object to be read could be a
+   *          null value; otherwise, if the {@code Double} object read from
+   *          the input is null, an {@code InvalidFormatException} will be
    *          thrown.
-   * @return a <code>Double</code> object read from the input.
+   * @return a {@code Double} object read from the input.
    * @throws EOFException
    *           if the input reaches the end before reading the whole
-   *           <code>Double</code> object.
+   *           {@code Double} object.
    * @throws IOException
    *           if any I/O error occurs.
    */
@@ -781,27 +782,27 @@ public final class InputUtils {
   }
 
   /**
-   * Reads a <code>String</code> value from the input.
+   * Reads a {@code String} value from the input.
    *
-   * <p>The <code>String</code> is encoded in the modified UTF-8 format, as
+   * <p>The {@code String} is encoded in the modified UTF-8 format, as
    * described in the {@link java.io.DataInput} interface.</p>
    *
    * @param in
    *          the input source where to read the data.
    * @param allowNull
-   *          if it is true, the <code>String</code> value to be read could be a
-   *          null value; otherwise, if the <code>String</code> value read from
-   *          the input is null, an <code>InvalidFormatException</code> will be
+   *          if it is true, the {@code String} value to be read could be a
+   *          null value; otherwise, if the {@code String} value read from
+   *          the input is null, an {@code InvalidFormatException} will be
    *          thrown.
-   * @return a <code>String</code> value read from the input. Note that it could
+   * @return a {@code String} value read from the input. Note that it could
    *         be null if the value read from the input is a null and the argument
    *         <code>allowNull<code> is true.
    * @throws EOFException
    *           if the input reaches the end before reading the whole
-   *           <code>String</code> value.
+   *           {@code String} value.
    * @throws InvalidFormatException
    *           if the value read from the input is a null value and the argument
-   *           <code>allowNull</code> is false.
+   *           {@code allowNull} is false.
    * @throws IOException
    *           if any I/O error occurs.
    */
@@ -888,24 +889,24 @@ public final class InputUtils {
   }
 
   /**
-   * Reads a <code>Date</code> value from the input.
+   * Reads a {@code Date} value from the input.
    *
    * @param in
    *          the input source where to read the data.
    * @param allowNull
-   *          if it is true, the <code>Date</code> value to be read could be a
-   *          null value; otherwise, if the <code>Date</code> value read from
-   *          the input is null, an <code>InvalidFormatException</code> will be
+   *          if it is true, the {@code Date} value to be read could be a
+   *          null value; otherwise, if the {@code Date} value read from
+   *          the input is null, an {@code InvalidFormatException} will be
    *          thrown.
-   * @return a <code>Date</code> value read from the input. Note that it could
+   * @return a {@code Date} value read from the input. Note that it could
    *         be null if the value read from the input is a null and the argument
    *         <code>allowNull<code> is true.
    * @throws EOFException
-   *           if the input reaches the end before reading the whole <code>Date
-   *           </code> value.
+   *           if the input reaches the end before reading the whole {@code Date
+   *           } value.
    * @throws InvalidFormatException
    *           if the value read from the input is a null value and the argument
-   *           <code>allowNull</code> is false.
+   *           {@code allowNull} is false.
    * @throws IOException
    *           if any I/O error occurs.
    */
@@ -923,24 +924,24 @@ public final class InputUtils {
   }
 
   /**
-   * Reads a <code>BigInteger</code> value from the input.
+   * Reads a {@code BigInteger} value from the input.
    *
    * @param in
    *          the input source where to read the data.
    * @param allowNull
-   *          if it is true, the <code>BigInteger</code> value to be read could
-   *          be a null value; otherwise, if the <code>BigInteger</code> value
+   *          if it is true, the {@code BigInteger} value to be read could
+   *          be a null value; otherwise, if the {@code BigInteger} value
    *          read from the input is null, an
-   *          <code>InvalidFormatException</code> will be thrown.
-   * @return a <code>BigInteger</code> value read from the input. Note that it
+   *          {@code InvalidFormatException} will be thrown.
+   * @return a {@code BigInteger} value read from the input. Note that it
    *         could be null if the value read from the input is a null and the
    *         argument <code>allowNull<code> is true.
    * @throws EOFException
    *           if the input reaches the end before reading the whole
-   *           <code>BigInteger</code> value.
+   *           {@code BigInteger} value.
    * @throws InvalidFormatException
    *           if the value read from the input is a null value and the argument
-   *           <code>allowNull</code> is false.
+   *           {@code allowNull} is false.
    * @throws IOException
    *           if any I/O error occurs.
    */
@@ -964,24 +965,24 @@ public final class InputUtils {
   }
 
   /**
-   * Reads a <code>BigDecimal</code> value from the input.
+   * Reads a {@code BigDecimal} value from the input.
    *
    * @param in
    *          the input source where to read the data.
    * @param allowNull
-   *          if it is true, the <code>BigDecimal</code> value to be read could
-   *          be a null value; otherwise, if the <code>BigDecimal</code> value
+   *          if it is true, the {@code BigDecimal} value to be read could
+   *          be a null value; otherwise, if the {@code BigDecimal} value
    *          read from the input is null, an
-   *          <code>InvalidFormatException</code> will be thrown.
-   * @return a <code>BigDecimal</code> value read from the input. Note that it
+   *          {@code InvalidFormatException} will be thrown.
+   * @return a {@code BigDecimal} value read from the input. Note that it
    *         could be null if the value read from the input is a null and the
    *         argument <code>allowNull<code> is true.
    * @throws EOFException
    *           if the input reaches the end before reading the whole
-   *           <code>BigDecimal</code> value.
+   *           {@code BigDecimal} value.
    * @throws InvalidFormatException
    *           if the value read from the input is a null value and the argument
-   *           <code>allowNull</code> is false.
+   *           {@code allowNull} is false.
    * @throws IOException
    *           if any I/O error occurs.
    */
@@ -1007,24 +1008,24 @@ public final class InputUtils {
   }
 
   /**
-   * Reads a <code>Class</code> value from the input.
+   * Reads a {@code Class} value from the input.
    *
    * @param in
    *          the input source where to read the data.
    * @param allowNull
-   *          if it is true, the <code>Class</code> value to be read could be a
-   *          null value; otherwise, if the <code>Class</code> value read from
-   *          the input is null, an <code>InvalidFormatException</code> will be
+   *          if it is true, the {@code Class} value to be read could be a
+   *          null value; otherwise, if the {@code Class} value read from
+   *          the input is null, an {@code InvalidFormatException} will be
    *          thrown.
-   * @return a <code>Class</code> value read from the input. Note that it could
+   * @return a {@code Class} value read from the input. Note that it could
    *         be null if the value read from the input is a null and the argument
    *         <code>allowNull<code> is true.
    * @throws EOFException
-   *           if the input reaches the end before reading the whole <code>Class
-   *           </code> value.
+   *           if the input reaches the end before reading the whole {@code Class
+   *           } value.
    * @throws InvalidFormatException
    *           if the value read from the input is a null value and the argument
-   *           <code>allowNull</code> is false.
+   *           {@code allowNull} is false.
    * @throws IOException
    *           if any I/O error occurs.
    */
@@ -1048,26 +1049,26 @@ public final class InputUtils {
   }
 
   /**
-   * Reads a <code>Enum</code> value from the input.
+   * Reads a {@code Enum} value from the input.
    *
    * @param enumClass
-   *          the class object of the <code>Enum</code> type.
+   *          the class object of the {@code Enum} type.
    * @param in
    *          the input source where to read the data.
    * @param allowNull
-   *          if it is true, the <code>Enum</code> value to be read could be a
-   *          null value; otherwise, if the <code>Enum</code> value read from
-   *          the input is null, an <code>InvalidFormatException</code> will be
+   *          if it is true, the {@code Enum} value to be read could be a
+   *          null value; otherwise, if the {@code Enum} value read from
+   *          the input is null, an {@code InvalidFormatException} will be
    *          thrown.
-   * @return a <code>Enum</code> value read from the input. Note that it could
+   * @return a {@code Enum} value read from the input. Note that it could
    *         be null if the value read from the input is a null and the argument
    *         <code>allowNull<code> is true.
    * @throws EOFException
-   *           if the input reaches the end before reading the whole <code>Enum
-   *           </code> value.
+   *           if the input reaches the end before reading the whole {@code Enum
+   *           } value.
    * @throws InvalidFormatException
    *           if the value read from the input is a null value and the argument
-   *           <code>allowNull</code> is false.
+   *           {@code allowNull} is false.
    * @throws IOException
    *           if any I/O error occurs.
    */
@@ -1090,31 +1091,31 @@ public final class InputUtils {
   }
 
   /**
-   * Reads a <code>boolean</code> array from the input.
+   * Reads a {@code boolean} array from the input.
    *
    * @param in
    *          the input source where to read the data.
    * @param allowNull
-   *          if it is true, the <code>boolean</code> array to be read could be
-   *          a null value; otherwise, if the <code>boolean</code> array read
-   *          from the input is null, an <code>InvalidFormatException</code>
+   *          if it is true, the {@code boolean} array to be read could be
+   *          a null value; otherwise, if the {@code boolean} array read
+   *          from the input is null, an {@code InvalidFormatException}
    *          will be thrown.
    * @param result
-   *          a <code>boolean</code> array used to store the result. It could be
+   *          a {@code boolean} array used to store the result. It could be
    *          null.
-   * @return a <code>boolean</code> array read from the input. If the length of
+   * @return a {@code boolean} array read from the input. If the length of
    *         the result array is of the same as the length of the argument
-   *         <code>result</code>, the returned values are stored in the argument
-   *         <code>result</code>; otherwise, a new <code>boolean</code> array is
+   *         {@code result}, the returned values are stored in the argument
+   *         {@code result}; otherwise, a new {@code boolean} array is
    *         created to store the returned values. Note that the returned array
-   *         may be null if <code>allowNull</code> is true and the array
+   *         may be null if {@code allowNull} is true and the array
    *         read from the input is a null value.
    * @throws EOFException
    *           if the input reaches the end before reading the whole
-   *           <code>boolean</code> array.
+   *           {@code boolean} array.
    * @throws InvalidFormatException
    *           if the array read from the input is null, while the argument
-   *           <code>allowNull</code> is false.
+   *           {@code allowNull} is false.
    * @throws IOException
    *           if any I/O error occurs.
    */
@@ -1143,31 +1144,31 @@ public final class InputUtils {
   }
 
   /**
-   * Reads a <code>boolean</code> list from the input.
+   * Reads a {@code boolean} list from the input.
    *
    * @param in
    *          the input source where to read the data.
    * @param allowNull
-   *          if it is true, the <code>boolean</code> list to be read could be a
-   *          null value; otherwise, if the <code>boolean</code> list read from
-   *          the input is null, an <code>InvalidFormatException</code> will be
+   *          if it is true, the {@code boolean} list to be read could be a
+   *          null value; otherwise, if the {@code boolean} list read from
+   *          the input is null, an {@code InvalidFormatException} will be
    *          thrown.
    * @param result
-   *          a <code>boolean</code> list used to store the result. It could be
+   *          a {@code boolean} list used to store the result. It could be
    *          null.
-   * @return a <code>boolean</code> list read from the input. If the argument
-   *         <code>result</code> is not null, and the list to be read is not a
-   *         null value, the argument <code>result</code> is cleared and the
+   * @return a {@code boolean} list read from the input. If the argument
+   *         {@code result} is not null, and the list to be read is not a
+   *         null value, the argument {@code result} is cleared and the
    *         returned values are stored in it; otherwise, a new array list of
-   *         <code>boolean</code> is created to store the returned values. Note
-   *         that the returned list may be null if <code>allowNull</code>
+   *         {@code boolean} is created to store the returned values. Note
+   *         that the returned list may be null if {@code allowNull}
    *         is true and the list read from the input is a null value.
    * @throws EOFException
    *           if the input reaches the end before reading the whole
-   *           <code>boolean</code> list.
+   *           {@code boolean} list.
    * @throws InvalidFormatException
    *           if the list read from the input is null, while the argument
-   *           <code>allowNull</code> is false.
+   *           {@code allowNull} is false.
    * @throws IOException
    *           if any I/O error occurs.
    */
@@ -1204,31 +1205,31 @@ public final class InputUtils {
   }
 
   /**
-   * Reads a <code>boolean</code> set from the input.
+   * Reads a {@code boolean} set from the input.
    *
    * @param in
    *          the input source where to read the data.
    * @param allowNull
-   *          if it is true, the <code>boolean</code> set to be read could be a
-   *          null value; otherwise, if the <code>boolean</code> set read from
-   *          the input is null, an <code>InvalidFormatException</code> will be
+   *          if it is true, the {@code boolean} set to be read could be a
+   *          null value; otherwise, if the {@code boolean} set read from
+   *          the input is null, an {@code InvalidFormatException} will be
    *          thrown.
    * @param result
-   *          a <code>boolean</code> set used to store the result. It could be
+   *          a {@code boolean} set used to store the result. It could be
    *          null.
-   * @return a <code>boolean</code> set read from the input. If the argument
-   *         <code>result</code> is not null, and the set to be read is not a
-   *         null value, the argument <code>result</code> is cleared and the
+   * @return a {@code boolean} set read from the input. If the argument
+   *         {@code result} is not null, and the set to be read is not a
+   *         null value, the argument {@code result} is cleared and the
    *         returned values are stored in it; otherwise, a new hash set of
-   *         <code>boolean</code> is created to store the returned values. Note
-   *         that the returned set may be null if <code>allowNull</code> is
+   *         {@code boolean} is created to store the returned values. Note
+   *         that the returned set may be null if {@code allowNull} is
    *         true and the set read from the input is a null value.
    * @throws EOFException
    *           if the input reaches the end before reading the whole
-   *           <code>boolean</code> set.
+   *           {@code boolean} set.
    * @throws InvalidFormatException
    *           if the set read from the input is null, while the argument
-   *           <code>allowNull</code> is false.
+   *           {@code allowNull} is false.
    * @throws IOException
    *           if any I/O error occurs.
    */
@@ -1265,31 +1266,31 @@ public final class InputUtils {
   }
 
   /**
-   * Reads a <code>char</code> array from the input.
+   * Reads a {@code char} array from the input.
    *
    * @param in
    *          the input source where to read the data.
    * @param allowNull
-   *          if it is true, the <code>char</code> array to be read could be a
-   *          null value; otherwise, if the <code>char</code> array read from
-   *          the input is null, an <code>InvalidFormatException</code> will be
+   *          if it is true, the {@code char} array to be read could be a
+   *          null value; otherwise, if the {@code char} array read from
+   *          the input is null, an {@code InvalidFormatException} will be
    *          thrown.
    * @param result
-   *          a <code>char</code> array used to store the result. It could be
+   *          a {@code char} array used to store the result. It could be
    *          null.
-   * @return a <code>char</code> array read from the input. If the length of the
+   * @return a {@code char} array read from the input. If the length of the
    *         result array is of the same as the length of the argument
-   *         <code>result</code>, the returned values are stored in the argument
-   *         <code>result</code>; otherwise, a new <code>char</code> array is
+   *         {@code result}, the returned values are stored in the argument
+   *         {@code result}; otherwise, a new {@code char} array is
    *         created to store the returned values. Note that the returned array
-   *         may be null if <code>allowNull</code> is true and the array
+   *         may be null if {@code allowNull} is true and the array
    *         read from the input is a null value.
    * @throws EOFException
    *           if the input reaches the end before reading the whole
-   *           <code>char</code> array.
+   *           {@code char} array.
    * @throws InvalidFormatException
    *           if the array read from the input is null, while the argument
-   *           <code>allowNull</code> is false.
+   *           {@code allowNull} is false.
    * @throws IOException
    *           if any I/O error occurs.
    */
@@ -1317,31 +1318,31 @@ public final class InputUtils {
   }
 
   /**
-   * Reads a <code>char</code> list from the input.
+   * Reads a {@code char} list from the input.
    *
    * @param in
    *          the input source where to read the data.
    * @param allowNull
-   *          if it is true, the <code>char</code> list to be read could be a
-   *          null value; otherwise, if the <code>char</code> list read from the
-   *          input is null, an <code>InvalidFormatException</code> will be
+   *          if it is true, the {@code char} list to be read could be a
+   *          null value; otherwise, if the {@code char} list read from the
+   *          input is null, an {@code InvalidFormatException} will be
    *          thrown.
    * @param result
-   *          a <code>char</code> list used to store the result. It could be
+   *          a {@code char} list used to store the result. It could be
    *          null.
-   * @return a <code>char</code> list read from the input. If the argument
-   *         <code>result</code> is not null, and the list to be read is not a
-   *         null value, the argument <code>result</code> is cleared and the
+   * @return a {@code char} list read from the input. If the argument
+   *         {@code result} is not null, and the list to be read is not a
+   *         null value, the argument {@code result} is cleared and the
    *         returned values are stored in it; otherwise, a new array list of
-   *         <code>char</code> is created to store the returned values. Note
-   *         that the returned list may be null if <code>allowNull</code>
+   *         {@code char} is created to store the returned values. Note
+   *         that the returned list may be null if {@code allowNull}
    *         is true and the list read from the input is a null value.
    * @throws EOFException
    *           if the input reaches the end before reading the whole
-   *           <code>char</code> list.
+   *           {@code char} list.
    * @throws InvalidFormatException
    *           if the list read from the input is null, while the argument
-   *           <code>allowNull</code> is false.
+   *           {@code allowNull} is false.
    * @throws IOException
    *           if any I/O error occurs.
    */
@@ -1378,31 +1379,31 @@ public final class InputUtils {
   }
 
   /**
-   * Reads a <code>char</code> set from the input.
+   * Reads a {@code char} set from the input.
    *
    * @param in
    *          the input source where to read the data.
    * @param allowNull
-   *          if it is true, the <code>char</code> set to be read could be a
-   *          null value; otherwise, if the <code>char</code> set read from the
-   *          input is null, an <code>InvalidFormatException</code> will be
+   *          if it is true, the {@code char} set to be read could be a
+   *          null value; otherwise, if the {@code char} set read from the
+   *          input is null, an {@code InvalidFormatException} will be
    *          thrown.
    * @param result
-   *          a <code>char</code> set used to store the result. It could be
+   *          a {@code char} set used to store the result. It could be
    *          null.
-   * @return a <code>char</code> set read from the input. If the argument
-   *         <code>result</code> is not null, and the set to be read is not a
-   *         null value, the argument <code>result</code> is cleared and the
+   * @return a {@code char} set read from the input. If the argument
+   *         {@code result} is not null, and the set to be read is not a
+   *         null value, the argument {@code result} is cleared and the
    *         returned values are stored in it; otherwise, a new hash set of
-   *         <code>char</code> is created to store the returned values. Note
-   *         that the returned set may be null if <code>allowNull</code> is
+   *         {@code char} is created to store the returned values. Note
+   *         that the returned set may be null if {@code allowNull} is
    *         true and the set read from the input is a null value.
    * @throws EOFException
    *           if the input reaches the end before reading the whole
-   *           <code>char</code> set.
+   *           {@code char} set.
    * @throws InvalidFormatException
    *           if the set read from the input is null, while the argument
-   *           <code>allowNull</code> is false.
+   *           {@code allowNull} is false.
    * @throws IOException
    *           if any I/O error occurs.
    */
@@ -1439,31 +1440,31 @@ public final class InputUtils {
   }
 
   /**
-   * Reads a <code>byte</code> array from the input.
+   * Reads a {@code byte} array from the input.
    *
    * @param in
    *          the input source where to read the data.
    * @param allowNull
-   *          if it is true, the <code>byte</code> array to be read could be a
-   *          null value; otherwise, if the <code>byte</code> array read from
-   *          the input is null, an <code>InvalidFormatException</code> will be
+   *          if it is true, the {@code byte} array to be read could be a
+   *          null value; otherwise, if the {@code byte} array read from
+   *          the input is null, an {@code InvalidFormatException} will be
    *          thrown.
    * @param result
-   *          a <code>byte</code> array used to store the result. It could be
+   *          a {@code byte} array used to store the result. It could be
    *          null.
-   * @return a <code>byte</code> array read from the input. If the length of the
+   * @return a {@code byte} array read from the input. If the length of the
    *         result array is of the same as the length of the argument
-   *         <code>result</code>, the returned values are stored in the argument
-   *         <code>result</code>; otherwise, a new <code>byte</code> array is
+   *         {@code result}, the returned values are stored in the argument
+   *         {@code result}; otherwise, a new {@code byte} array is
    *         created to store the returned values. Note that the returned array
-   *         may be null if <code>allowNull</code> is true and the array
+   *         may be null if {@code allowNull} is true and the array
    *         read from the input is a null value.
    * @throws EOFException
    *           if the input reaches the end before reading the whole
-   *           <code>byte</code> array.
+   *           {@code byte} array.
    * @throws InvalidFormatException
    *           if the array read from the input is null, while the argument
-   *           <code>allowNull</code> is false.
+   *           {@code allowNull} is false.
    * @throws IOException
    *           if any I/O error occurs.
    */
@@ -1489,31 +1490,31 @@ public final class InputUtils {
   }
 
   /**
-   * Reads a <code>byte</code> list from the input.
+   * Reads a {@code byte} list from the input.
    *
    * @param in
    *          the input source where to read the data.
    * @param allowNull
-   *          if it is true, the <code>byte</code> list to be read could be a
-   *          null value; otherwise, if the <code>byte</code> list read from the
-   *          input is null, an <code>InvalidFormatException</code> will be
+   *          if it is true, the {@code byte} list to be read could be a
+   *          null value; otherwise, if the {@code byte} list read from the
+   *          input is null, an {@code InvalidFormatException} will be
    *          thrown.
    * @param result
-   *          a <code>byte</code> list used to store the result. It could be
+   *          a {@code byte} list used to store the result. It could be
    *          null.
-   * @return a <code>byte</code> list read from the input. If the argument
-   *         <code>result</code> is not null, and the list to be read is not a
-   *         null value, the argument <code>result</code> is cleared and the
+   * @return a {@code byte} list read from the input. If the argument
+   *         {@code result} is not null, and the list to be read is not a
+   *         null value, the argument {@code result} is cleared and the
    *         returned values are stored in it; otherwise, a new array list of
-   *         <code>byte</code> is created to store the returned values. Note
-   *         that the returned list may be null if <code>allowNull</code>
+   *         {@code byte} is created to store the returned values. Note
+   *         that the returned list may be null if {@code allowNull}
    *         is true and the list read from the input is a null value.
    * @throws EOFException
    *           if the input reaches the end before reading the whole
-   *           <code>byte</code> list.
+   *           {@code byte} list.
    * @throws InvalidFormatException
    *           if the list read from the input is null, while the argument
-   *           <code>allowNull</code> is false.
+   *           {@code allowNull} is false.
    * @throws IOException
    *           if any I/O error occurs.
    */
@@ -1549,31 +1550,31 @@ public final class InputUtils {
   }
 
   /**
-   * Reads a <code>byte</code> set from the input.
+   * Reads a {@code byte} set from the input.
    *
    * @param in
    *          the input source where to read the data.
    * @param allowNull
-   *          if it is true, the <code>byte</code> set to be read could be a
-   *          null value; otherwise, if the <code>byte</code> set read from the
-   *          input is null, an <code>InvalidFormatException</code> will be
+   *          if it is true, the {@code byte} set to be read could be a
+   *          null value; otherwise, if the {@code byte} set read from the
+   *          input is null, an {@code InvalidFormatException} will be
    *          thrown.
    * @param result
-   *          a <code>byte</code> set used to store the result. It could be
+   *          a {@code byte} set used to store the result. It could be
    *          null.
-   * @return a <code>byte</code> set read from the input. If the argument
-   *         <code>result</code> is not null, and the set to be read is not a
-   *         null value, the argument <code>result</code> is cleared and the
+   * @return a {@code byte} set read from the input. If the argument
+   *         {@code result} is not null, and the set to be read is not a
+   *         null value, the argument {@code result} is cleared and the
    *         returned values are stored in it; otherwise, a new hash set of
-   *         <code>byte</code> is created to store the returned values. Note
-   *         that the returned set may be null if <code>allowNull</code> is
+   *         {@code byte} is created to store the returned values. Note
+   *         that the returned set may be null if {@code allowNull} is
    *         true and the set read from the input is a null value.
    * @throws EOFException
    *           if the input reaches the end before reading the whole
-   *           <code>byte</code> set.
+   *           {@code byte} set.
    * @throws InvalidFormatException
    *           if the set read from the input is null, while the argument
-   *           <code>allowNull</code> is false.
+   *           {@code allowNull} is false.
    * @throws IOException
    *           if any I/O error occurs.
    */
@@ -1609,31 +1610,31 @@ public final class InputUtils {
   }
 
   /**
-   * Reads a <code>short</code> array from the input.
+   * Reads a {@code short} array from the input.
    *
    * @param in
    *          the input source where to read the data.
    * @param allowNull
-   *          if it is true, the <code>short</code> array to be read could be a
-   *          null value; otherwise, if the <code>short</code> array read from
-   *          the input is null, an <code>InvalidFormatException</code> will be
+   *          if it is true, the {@code short} array to be read could be a
+   *          null value; otherwise, if the {@code short} array read from
+   *          the input is null, an {@code InvalidFormatException} will be
    *          thrown.
    * @param result
-   *          a <code>short</code> array used to store the result. It could be
+   *          a {@code short} array used to store the result. It could be
    *          null.
-   * @return a <code>short</code> array read from the input. If the length of
+   * @return a {@code short} array read from the input. If the length of
    *         the result array is of the same as the length of the argument
-   *         <code>result</code>, the returned values are stored in the argument
-   *         <code>result</code>; otherwise, a new <code>short</code> array is
+   *         {@code result}, the returned values are stored in the argument
+   *         {@code result}; otherwise, a new {@code short} array is
    *         created to store the returned values. Note that the returned array
-   *         may be null if <code>allowNull</code> is true and the array
+   *         may be null if {@code allowNull} is true and the array
    *         read from the input is a null value.
    * @throws EOFException
    *           if the input reaches the end before reading the whole
-   *           <code>short</code> array.
+   *           {@code short} array.
    * @throws InvalidFormatException
    *           if the array read from the input is null, while the argument
-   *           <code>allowNull</code> is false.
+   *           {@code allowNull} is false.
    * @throws IOException
    *           if any I/O error occurs.
    */
@@ -1661,31 +1662,31 @@ public final class InputUtils {
   }
 
   /**
-   * Reads a <code>short</code> list from the input.
+   * Reads a {@code short} list from the input.
    *
    * @param in
    *          the input source where to read the data.
    * @param allowNull
-   *          if it is true, the <code>short</code> list to be read could be a
-   *          null value; otherwise, if the <code>short</code> list read from
-   *          the input is null, an <code>InvalidFormatException</code> will be
+   *          if it is true, the {@code short} list to be read could be a
+   *          null value; otherwise, if the {@code short} list read from
+   *          the input is null, an {@code InvalidFormatException} will be
    *          thrown.
    * @param result
-   *          a <code>short</code> list used to store the result. It could be
+   *          a {@code short} list used to store the result. It could be
    *          null.
-   * @return a <code>short</code> list read from the input. If the argument
-   *         <code>result</code> is not null, and the list to be read is not a
-   *         null value, the argument <code>result</code> is cleared and the
+   * @return a {@code short} list read from the input. If the argument
+   *         {@code result} is not null, and the list to be read is not a
+   *         null value, the argument {@code result} is cleared and the
    *         returned values are stored in it; otherwise, a new array list of
-   *         <code>short</code> is created to store the returned values. Note
-   *         that the returned list may be null if <code>allowNull</code>
+   *         {@code short} is created to store the returned values. Note
+   *         that the returned list may be null if {@code allowNull}
    *         is true and the list read from the input is a null value.
    * @throws EOFException
    *           if the input reaches the end before reading the whole
-   *           <code>short</code> list.
+   *           {@code short} list.
    * @throws InvalidFormatException
    *           if the list read from the input is null, while the argument
-   *           <code>allowNull</code> is false.
+   *           {@code allowNull} is false.
    * @throws IOException
    *           if any I/O error occurs.
    */
@@ -1722,31 +1723,31 @@ public final class InputUtils {
 
 
   /**
-   * Reads a <code>short</code> set from the input.
+   * Reads a {@code short} set from the input.
    *
    * @param in
    *          the input source where to read the data.
    * @param allowNull
-   *          if it is true, the <code>short</code> set to be read could be a
-   *          null value; otherwise, if the <code>short</code> set read from the
-   *          input is null, an <code>InvalidFormatException</code> will be
+   *          if it is true, the {@code short} set to be read could be a
+   *          null value; otherwise, if the {@code short} set read from the
+   *          input is null, an {@code InvalidFormatException} will be
    *          thrown.
    * @param result
-   *          a <code>short</code> set used to store the result. It could be
+   *          a {@code short} set used to store the result. It could be
    *          null.
-   * @return a <code>short</code> set read from the input. If the argument
-   *         <code>result</code> is not null, and the set to be read is not a
-   *         null value, the argument <code>result</code> is cleared and the
+   * @return a {@code short} set read from the input. If the argument
+   *         {@code result} is not null, and the set to be read is not a
+   *         null value, the argument {@code result} is cleared and the
    *         returned values are stored in it; otherwise, a new hash set of
-   *         <code>short</code> is created to store the returned values. Note
-   *         that the returned set may be null if <code>allowNull</code> is
+   *         {@code short} is created to store the returned values. Note
+   *         that the returned set may be null if {@code allowNull} is
    *         true and the set read from the input is a null value.
    * @throws EOFException
    *           if the input reaches the end before reading the whole
-   *           <code>short</code> set.
+   *           {@code short} set.
    * @throws InvalidFormatException
    *           if the set read from the input is null, while the argument
-   *           <code>allowNull</code> is false.
+   *           {@code allowNull} is false.
    * @throws IOException
    *           if any I/O error occurs.
    */
@@ -1782,33 +1783,33 @@ public final class InputUtils {
   }
 
   /**
-   * Reads a variable length encoded <code>short</code> array from the input.
+   * Reads a variable length encoded {@code short} array from the input.
    *
    * @param in
    *          the input source where to read the data.
    * @param allowNull
-   *          if it is true, the <code>short</code> array to be read could be a
-   *          null value; otherwise, if the <code>short</code> array read from
-   *          the input is null, an <code>InvalidFormatException</code> will be
+   *          if it is true, the {@code short} array to be read could be a
+   *          null value; otherwise, if the {@code short} array read from
+   *          the input is null, an {@code InvalidFormatException} will be
    *          thrown.
    * @param result
-   *          a <code>short</code> array used to store the result. It could be
+   *          a {@code short} array used to store the result. It could be
    *          null.
-   * @return a variable length encoded <code>short</code> array read from the
+   * @return a variable length encoded {@code short} array read from the
    *         input. If the length of the result array is of the same as the
-   *         length of the argument <code>result</code>, the returned values are
-   *         stored in the argument <code>result</code>; otherwise, a new
-   *         <code>short</code> array is created to store the returned values.
+   *         length of the argument {@code result}, the returned values are
+   *         stored in the argument {@code result}; otherwise, a new
+   *         {@code short} array is created to store the returned values.
    *         Note that the returned array may be null if
-   *         <code>allowNull</code> is true and the array read from the
+   *         {@code allowNull} is true and the array read from the
    *         input is a null value.
    * @throws EOFException
    *           if the input reaches the end before reading the whole
-   *           <code>short</code> array.
+   *           {@code short} array.
    * @throws InvalidFormatException
    *           if the array read from the input is null, while the argument
-   *           <code>allowNull</code> is false; or a variable length
-   *           encoded <code>short</code> value has invalid format.
+   *           {@code allowNull} is false; or a variable length
+   *           encoded {@code short} value has invalid format.
    * @throws IOException
    *           if any I/O error occurs.
    */
@@ -1836,33 +1837,33 @@ public final class InputUtils {
   }
 
   /**
-   * Reads a variable length encoded <code>short</code> list from the input.
+   * Reads a variable length encoded {@code short} list from the input.
    *
    * @param in
    *          the input source where to read the data.
    * @param allowNull
-   *          if it is true, the <code>short</code> list to be read could be a
-   *          null value; otherwise, if the <code>short</code> list read from
-   *          the input is null, an <code>InvalidFormatException</code> will be
+   *          if it is true, the {@code short} list to be read could be a
+   *          null value; otherwise, if the {@code short} list read from
+   *          the input is null, an {@code InvalidFormatException} will be
    *          thrown.
    * @param result
-   *          a <code>short</code> list used to store the result. It could be
+   *          a {@code short} list used to store the result. It could be
    *          null.
-   * @return a variable length encoded <code>short</code> list read from the
-   *         input. If the argument <code>result</code> is not null, and the
+   * @return a variable length encoded {@code short} list read from the
+   *         input. If the argument {@code result} is not null, and the
    *         list to be read is not a null value, the argument
-   *         <code>result</code> is cleared and the returned values are stored
-   *         in it; otherwise, a new array list of <code>short</code> is created
+   *         {@code result} is cleared and the returned values are stored
+   *         in it; otherwise, a new array list of {@code short} is created
    *         to store the returned values. Note that the returned list may be
-   *         null if <code>allowNull</code> is true and the list read from
+   *         null if {@code allowNull} is true and the list read from
    *         the input is a null value.
    * @throws EOFException
    *           if the input reaches the end before reading the whole
-   *           <code>short</code> list.
+   *           {@code short} list.
    * @throws InvalidFormatException
    *           if the list read from the input is null, while the argument
-   *           <code>allowNull</code> is false; or a variable length
-   *           encoded <code>short</code> value has invalid format.
+   *           {@code allowNull} is false; or a variable length
+   *           encoded {@code short} value has invalid format.
    * @throws IOException
    *           if any I/O error occurs.
    */
@@ -1898,33 +1899,33 @@ public final class InputUtils {
   }
 
   /**
-   * Reads a variable length encoded <code>short</code> set from the input.
+   * Reads a variable length encoded {@code short} set from the input.
    *
    * @param in
    *          the input source where to read the data.
    * @param allowNull
-   *          if it is true, the <code>short</code> set to be read could be a
-   *          null value; otherwise, if the <code>short</code> set read from the
-   *          input is null, an <code>InvalidFormatException</code> will be
+   *          if it is true, the {@code short} set to be read could be a
+   *          null value; otherwise, if the {@code short} set read from the
+   *          input is null, an {@code InvalidFormatException} will be
    *          thrown.
    * @param result
-   *          a <code>short</code> set used to store the result. It could be
+   *          a {@code short} set used to store the result. It could be
    *          null.
-   * @return a variable length encoded <code>short</code> set read from the
-   *         input. If the argument <code>result</code> is not null, and the set
-   *         to be read is not a null value, the argument <code>result</code> is
+   * @return a variable length encoded {@code short} set read from the
+   *         input. If the argument {@code result} is not null, and the set
+   *         to be read is not a null value, the argument {@code result} is
    *         cleared and the returned values are stored in it; otherwise, a new
-   *         hash set of <code>short</code> is created to store the returned
+   *         hash set of {@code short} is created to store the returned
    *         values. Note that the returned set may be null if
-   *         <code>allowNull</code> is true and the set read from the input
+   *         {@code allowNull} is true and the set read from the input
    *         is a null value.
    * @throws EOFException
    *           if the input reaches the end before reading the whole
-   *           <code>short</code> set.
+   *           {@code short} set.
    * @throws InvalidFormatException
    *           if the set read from the input is null, while the argument
-   *           <code>allowNull</code> is false; or a variable length encoded
-   *           <code>short</code> value has invalid format.
+   *           {@code allowNull} is false; or a variable length encoded
+   *           {@code short} value has invalid format.
    * @throws IOException
    *           if any I/O error occurs.
    */
@@ -1960,31 +1961,31 @@ public final class InputUtils {
   }
 
   /**
-   * Reads a <code>int</code> array from the input.
+   * Reads a {@code int} array from the input.
    *
    * @param in
    *          the input source where to read the data.
    * @param allowNull
-   *          if it is true, the <code>int</code> array to be read could be a
-   *          null value; otherwise, if the <code>int</code> array read from the
-   *          input is null, an <code>InvalidFormatException</code> will be
+   *          if it is true, the {@code int} array to be read could be a
+   *          null value; otherwise, if the {@code int} array read from the
+   *          input is null, an {@code InvalidFormatException} will be
    *          thrown.
    * @param result
-   *          a <code>int</code> array used to store the result. It could be
+   *          a {@code int} array used to store the result. It could be
    *          null.
-   * @return a <code>int</code> array read from the input. If the length of the
+   * @return a {@code int} array read from the input. If the length of the
    *         result array is of the same as the length of the argument
-   *         <code>result</code>, the returned values are stored in the argument
-   *         <code>result</code>; otherwise, a new <code>int</code> array is
+   *         {@code result}, the returned values are stored in the argument
+   *         {@code result}; otherwise, a new {@code int} array is
    *         created to store the returned values. Note that the returned array
-   *         may be null if <code>allowNull</code> is true and the array
+   *         may be null if {@code allowNull} is true and the array
    *         read from the input is a null value.
    * @throws EOFException
    *           if the input reaches the end before reading the whole
-   *           <code>int</code> array.
+   *           {@code int} array.
    * @throws InvalidFormatException
    *           if the array read from the input is null, while the argument
-   *           <code>allowNull</code> is false.
+   *           {@code allowNull} is false.
    * @throws IOException
    *           if any I/O error occurs.
    */
@@ -2012,31 +2013,31 @@ public final class InputUtils {
   }
 
   /**
-   * Reads a <code>int</code> list from the input.
+   * Reads a {@code int} list from the input.
    *
    * @param in
    *          the input source where to read the data.
    * @param allowNull
-   *          if it is true, the <code>int</code> list to be read could be a
-   *          null value; otherwise, if the <code>int</code> list read from the
-   *          input is null, an <code>InvalidFormatException</code> will be
+   *          if it is true, the {@code int} list to be read could be a
+   *          null value; otherwise, if the {@code int} list read from the
+   *          input is null, an {@code InvalidFormatException} will be
    *          thrown.
    * @param result
-   *          a <code>int</code> list used to store the result. It could be
+   *          a {@code int} list used to store the result. It could be
    *          null.
-   * @return a <code>int</code> list read from the input. If the argument
-   *         <code>result</code> is not null, and the list to be read is not a
-   *         null value, the argument <code>result</code> is cleared and the
+   * @return a {@code int} list read from the input. If the argument
+   *         {@code result} is not null, and the list to be read is not a
+   *         null value, the argument {@code result} is cleared and the
    *         returned values are stored in it; otherwise, a new array list of
-   *         <code>int</code> is created to store the returned values. Note that
-   *         the returned list may be null if <code>allowNull</code> is
+   *         {@code int} is created to store the returned values. Note that
+   *         the returned list may be null if {@code allowNull} is
    *         true and the list read from the input is a null value.
    * @throws EOFException
    *           if the input reaches the end before reading the whole
-   *           <code>int</code> list.
+   *           {@code int} list.
    * @throws InvalidFormatException
    *           if the list read from the input is null, while the argument
-   *           <code>allowNull</code> is false.
+   *           {@code allowNull} is false.
    * @throws IOException
    *           if any I/O error occurs.
    */
@@ -2072,27 +2073,27 @@ public final class InputUtils {
   }
 
   /**
-   * Reads a <code>int</code> set from the input.
+   * Reads a {@code int} set from the input.
    *
    * @param allowNull
-   *          if it is true, the <code>int</code> set to be read could be a null
-   *          value; otherwise, if the <code>int</code> set read from the input
-   *          is null, an <code>InvalidFormatException</code> will be thrown.
+   *          if it is true, the {@code int} set to be read could be a null
+   *          value; otherwise, if the {@code int} set read from the input
+   *          is null, an {@code InvalidFormatException} will be thrown.
    * @param result
-   *          a <code>int</code> set used to store the result. It could be null.
-   * @return a <code>int</code> set read from the input. If the argument
-   *         <code>result</code> is not null, and the set to be read is not a
-   *         null value, the argument <code>result</code> is cleared and the
+   *          a {@code int} set used to store the result. It could be null.
+   * @return a {@code int} set read from the input. If the argument
+   *         {@code result} is not null, and the set to be read is not a
+   *         null value, the argument {@code result} is cleared and the
    *         returned values are stored in it; otherwise, a new hash set of
-   *         <code>int</code> is created to store the returned values. Note that
-   *         the returned set may be null if <code>allowNull</code> is true
+   *         {@code int} is created to store the returned values. Note that
+   *         the returned set may be null if {@code allowNull} is true
    *         and the set read from the input is a null value.
    * @throws EOFException
    *           if the input reaches the end before reading the whole
-   *           <code>int</code> set.
+   *           {@code int} set.
    * @throws InvalidFormatException
    *           if the set read from the input is null, while the argument
-   *           <code>allowNull</code> is false.
+   *           {@code allowNull} is false.
    * @throws IOException
    *           if any I/O error occurs.
    */
@@ -2128,33 +2129,33 @@ public final class InputUtils {
   }
 
   /**
-   * Reads a variable length encoded <code>int</code> array from the input.
+   * Reads a variable length encoded {@code int} array from the input.
    *
    * @param in
    *          the input source where to read the data.
    * @param allowNull
-   *          if it is true, the <code>int</code> array to be read could be a
-   *          null value; otherwise, if the <code>int</code> array read from the
-   *          input is null, an <code>InvalidFormatException</code> will be
+   *          if it is true, the {@code int} array to be read could be a
+   *          null value; otherwise, if the {@code int} array read from the
+   *          input is null, an {@code InvalidFormatException} will be
    *          thrown.
    * @param result
-   *          a <code>int</code> array used to store the result. It could be
+   *          a {@code int} array used to store the result. It could be
    *          null.
-   * @return a variable length encoded <code>int</code> array read from the
+   * @return a variable length encoded {@code int} array read from the
    *         input. If the length of the result array is of the same as the
-   *         length of the argument <code>result</code>, the returned values are
-   *         stored in the argument <code>result</code>; otherwise, a new
-   *         <code>int</code> array is created to store the returned values.
+   *         length of the argument {@code result}, the returned values are
+   *         stored in the argument {@code result}; otherwise, a new
+   *         {@code int} array is created to store the returned values.
    *         Note that the returned array may be null if
-   *         <code>allowNull</code> is true and the array read from the
+   *         {@code allowNull} is true and the array read from the
    *         input is a null value.
    * @throws EOFException
    *           if the input reaches the end before reading the whole
-   *           <code>int</code> array.
+   *           {@code int} array.
    * @throws InvalidFormatException
    *           if the array read from the input is null, while the argument
-   *           <code>allowNull</code> is false; or a variable length
-   *           encoded <code>short</code> value has invalid format.
+   *           {@code allowNull} is false; or a variable length
+   *           encoded {@code short} value has invalid format.
    * @throws IOException
    *           if any I/O error occurs.
    */
@@ -2182,33 +2183,33 @@ public final class InputUtils {
   }
 
   /**
-   * Reads a variable length encoded <code>int</code> list from the input.
+   * Reads a variable length encoded {@code int} list from the input.
    *
    * @param in
    *          the input source where to read the data.
    * @param allowNull
-   *          if it is true, the <code>int</code> list to be read could be a
-   *          null value; otherwise, if the <code>int</code> list read from the
-   *          input is null, an <code>InvalidFormatException</code> will be
+   *          if it is true, the {@code int} list to be read could be a
+   *          null value; otherwise, if the {@code int} list read from the
+   *          input is null, an {@code InvalidFormatException} will be
    *          thrown.
    * @param result
-   *          a <code>int</code> list used to store the result. It could be
+   *          a {@code int} list used to store the result. It could be
    *          null.
-   * @return a variable length encoded <code>int</code> list read from the
-   *         input. If the argument <code>result</code> is not null, and the
+   * @return a variable length encoded {@code int} list read from the
+   *         input. If the argument {@code result} is not null, and the
    *         list to be read is not a null value, the argument
-   *         <code>result</code> is cleared and the returned values are stored
-   *         in it; otherwise, a new array list of <code>int</code> is created
+   *         {@code result} is cleared and the returned values are stored
+   *         in it; otherwise, a new array list of {@code int} is created
    *         to store the returned values. Note that the returned list may be
-   *         null if <code>allowNull</code> is true and the list read from
+   *         null if {@code allowNull} is true and the list read from
    *         the input is a null value.
    * @throws EOFException
    *           if the input reaches the end before reading the whole
-   *           <code>int</code> list.
+   *           {@code int} list.
    * @throws InvalidFormatException
    *           if the list read from the input is null, while the argument
-   *           <code>allowNull</code> is false; or a variable length
-   *           encoded <code>short</code> value has invalid format.
+   *           {@code allowNull} is false; or a variable length
+   *           encoded {@code short} value has invalid format.
    * @throws IOException
    *           if any I/O error occurs.
    */
@@ -2244,31 +2245,31 @@ public final class InputUtils {
   }
 
   /**
-   * Reads a variable length encoded <code>int</code> set from the input.
+   * Reads a variable length encoded {@code int} set from the input.
    *
    * @param in
    *          the input source where to read the data.
    * @param allowNull
-   *          if it is true, the <code>int</code> set to be read could be a null
-   *          value; otherwise, if the <code>int</code> set read from the input
-   *          is null, an <code>InvalidFormatException</code> will be thrown.
+   *          if it is true, the {@code int} set to be read could be a null
+   *          value; otherwise, if the {@code int} set read from the input
+   *          is null, an {@code InvalidFormatException} will be thrown.
    * @param result
-   *          a <code>int</code> set used to store the result. It could be null.
-   * @return a variable length encoded <code>int</code> set read from the input.
-   *         If the argument <code>result</code> is not null, and the set to be
-   *         read is not a null value, the argument <code>result</code> is
+   *          a {@code int} set used to store the result. It could be null.
+   * @return a variable length encoded {@code int} set read from the input.
+   *         If the argument {@code result} is not null, and the set to be
+   *         read is not a null value, the argument {@code result} is
    *         cleared and the returned values are stored in it; otherwise, a new
-   *         hash set of <code>int</code> is created to store the returned
+   *         hash set of {@code int} is created to store the returned
    *         values. Note that the returned set may be null if
-   *         <code>allowNull</code> is true and the set read from the input
+   *         {@code allowNull} is true and the set read from the input
    *         is a null value.
    * @throws EOFException
    *           if the input reaches the end before reading the whole
-   *           <code>int</code> set.
+   *           {@code int} set.
    * @throws InvalidFormatException
    *           if the set read from the input is null, while the argument
-   *           <code>allowNull</code> is false; or a variable length encoded
-   *           <code>short</code> value has invalid format.
+   *           {@code allowNull} is false; or a variable length encoded
+   *           {@code short} value has invalid format.
    * @throws IOException
    *           if any I/O error occurs.
    */
@@ -2304,31 +2305,31 @@ public final class InputUtils {
   }
 
   /**
-   * Reads a <code>char</code> array from the input.
+   * Reads a {@code char} array from the input.
    *
    * @param in
    *          the input source where to read the data.
    * @param allowNull
-   *          if it is true, the <code>long</code> array to be read could be a
-   *          null value; otherwise, if the <code>long</code> array read from
-   *          the input is null, an <code>InvalidFormatException</code> will be
+   *          if it is true, the {@code long} array to be read could be a
+   *          null value; otherwise, if the {@code long} array read from
+   *          the input is null, an {@code InvalidFormatException} will be
    *          thrown.
    * @param result
-   *          a <code>long</code> array used to store the result. It could be
+   *          a {@code long} array used to store the result. It could be
    *          null.
-   * @return a <code>long</code> array read from the input. If the length of the
+   * @return a {@code long} array read from the input. If the length of the
    *         result array is of the same as the length of the argument
-   *         <code>result</code>, the returned values are stored in the argument
-   *         <code>result</code>; otherwise, a new <code>long</code> array is
+   *         {@code result}, the returned values are stored in the argument
+   *         {@code result}; otherwise, a new {@code long} array is
    *         created to store the returned values. Note that the returned array
-   *         may be null if <code>allowNull</code> is true and the array
+   *         may be null if {@code allowNull} is true and the array
    *         read from the input is a null value.
    * @throws EOFException
    *           if the input reaches the end before reading the whole
-   *           <code>long</code> array.
+   *           {@code long} array.
    * @throws InvalidFormatException
    *           if the array read from the input is null, while the argument
-   *           <code>allowNull</code> is false.
+   *           {@code allowNull} is false.
    * @throws IOException
    *           if any I/O error occurs.
    */
@@ -2356,31 +2357,31 @@ public final class InputUtils {
   }
 
   /**
-   * Reads a <code>long</code> list from the input.
+   * Reads a {@code long} list from the input.
    *
    * @param in
    *          the input source where to read the data.
    * @param allowNull
-   *          if it is true, the <code>long</code> list to be read could be a
-   *          null value; otherwise, if the <code>long</code> list read from the
-   *          input is null, an <code>InvalidFormatException</code> will be
+   *          if it is true, the {@code long} list to be read could be a
+   *          null value; otherwise, if the {@code long} list read from the
+   *          input is null, an {@code InvalidFormatException} will be
    *          thrown.
    * @param result
-   *          a <code>long</code> list used to store the result. It could be
+   *          a {@code long} list used to store the result. It could be
    *          null.
-   * @return a <code>long</code> list read from the input. If the argument
-   *         <code>result</code> is not null, and the list to be read is not a
-   *         null value, the argument <code>result</code> is cleared and the
+   * @return a {@code long} list read from the input. If the argument
+   *         {@code result} is not null, and the list to be read is not a
+   *         null value, the argument {@code result} is cleared and the
    *         returned values are stored in it; otherwise, a new array list of
-   *         <code>long</code> is created to store the returned values. Note
-   *         that the returned list may be null if <code>allowNull</code>
+   *         {@code long} is created to store the returned values. Note
+   *         that the returned list may be null if {@code allowNull}
    *         is true and the list read from the input is a null value.
    * @throws EOFException
    *           if the input reaches the end before reading the whole
-   *           <code>long</code> list.
+   *           {@code long} list.
    * @throws InvalidFormatException
    *           if the list read from the input is null, while the argument
-   *           <code>allowNull</code> is false.
+   *           {@code allowNull} is false.
    * @throws IOException
    *           if any I/O error occurs.
    */
@@ -2416,31 +2417,31 @@ public final class InputUtils {
   }
 
   /**
-   * Reads a <code>long</code> set from the input.
+   * Reads a {@code long} set from the input.
    *
    * @param in
    *          the input source where to read the data.
    * @param allowNull
-   *          if it is true, the <code>long</code> set to be read could be a
-   *          null value; otherwise, if the <code>long</code> set read from the
-   *          input is null, an <code>InvalidFormatException</code> will be
+   *          if it is true, the {@code long} set to be read could be a
+   *          null value; otherwise, if the {@code long} set read from the
+   *          input is null, an {@code InvalidFormatException} will be
    *          thrown.
    * @param result
-   *          a <code>long</code> set used to store the result. It could be
+   *          a {@code long} set used to store the result. It could be
    *          null.
-   * @return a <code>long</code> set read from the input. If the argument
-   *         <code>result</code> is not null, and the set to be read is not a
-   *         null value, the argument <code>result</code> is cleared and the
+   * @return a {@code long} set read from the input. If the argument
+   *         {@code result} is not null, and the set to be read is not a
+   *         null value, the argument {@code result} is cleared and the
    *         returned values are stored in it; otherwise, a new hash set of
-   *         <code>long</code> is created to store the returned values. Note
-   *         that the returned set may be null if <code>allowNull</code> is
+   *         {@code long} is created to store the returned values. Note
+   *         that the returned set may be null if {@code allowNull} is
    *         true and the set read from the input is a null value.
    * @throws EOFException
    *           if the input reaches the end before reading the whole
-   *           <code>long</code> set.
+   *           {@code long} set.
    * @throws InvalidFormatException
    *           if the set read from the input is null, while the argument
-   *           <code>allowNull</code> is false.
+   *           {@code allowNull} is false.
    * @throws IOException
    *           if any I/O error occurs.
    */
@@ -2476,33 +2477,33 @@ public final class InputUtils {
   }
 
   /**
-   * Reads a variable length encoded <code>char</code> array from the input.
+   * Reads a variable length encoded {@code char} array from the input.
    *
    * @param in
    *          the input source where to read the data.
    * @param allowNull
-   *          if it is true, the <code>long</code> array to be read could be a
-   *          null value; otherwise, if the <code>long</code> array read from
-   *          the input is null, an <code>InvalidFormatException</code> will be
+   *          if it is true, the {@code long} array to be read could be a
+   *          null value; otherwise, if the {@code long} array read from
+   *          the input is null, an {@code InvalidFormatException} will be
    *          thrown.
    * @param result
-   *          a <code>long</code> array used to store the result. It could be
+   *          a {@code long} array used to store the result. It could be
    *          null.
-   * @return a variable length encoded <code>long</code> array read from the
+   * @return a variable length encoded {@code long} array read from the
    *         input. If the length of the result array is of the same as the
-   *         length of the argument <code>result</code>, the returned values are
-   *         stored in the argument <code>result</code>; otherwise, a new
-   *         <code>long</code> array is created to store the returned values.
+   *         length of the argument {@code result}, the returned values are
+   *         stored in the argument {@code result}; otherwise, a new
+   *         {@code long} array is created to store the returned values.
    *         Note that the returned array may be null if
-   *         <code>allowNull</code> is true and the array read from the
+   *         {@code allowNull} is true and the array read from the
    *         input is a null value.
    * @throws EOFException
    *           if the input reaches the end before reading the whole
-   *           <code>long</code> array.
+   *           {@code long} array.
    * @throws InvalidFormatException
    *           if the array read from the input is null, while the argument
-   *           <code>allowNull</code> is false; or a variable length
-   *           encoded <code>short</code> value has invalid format.
+   *           {@code allowNull} is false; or a variable length
+   *           encoded {@code short} value has invalid format.
    * @throws IOException
    *           if any I/O error occurs.
    */
@@ -2530,33 +2531,33 @@ public final class InputUtils {
   }
 
   /**
-   * Reads a variable length encoded <code>long</code> list from the input.
+   * Reads a variable length encoded {@code long} list from the input.
    *
    * @param in
    *          the input source where to read the data.
    * @param allowNull
-   *          if it is true, the <code>long</code> list to be read could be a
-   *          null value; otherwise, if the <code>long</code> list read from the
-   *          input is null, an <code>InvalidFormatException</code> will be
+   *          if it is true, the {@code long} list to be read could be a
+   *          null value; otherwise, if the {@code long} list read from the
+   *          input is null, an {@code InvalidFormatException} will be
    *          thrown.
    * @param result
-   *          a <code>long</code> list used to store the result. It could be
+   *          a {@code long} list used to store the result. It could be
    *          null.
-   * @return a variable length encoded <code>long</code> list read from the
-   *         input. If the argument <code>result</code> is not null, and the
+   * @return a variable length encoded {@code long} list read from the
+   *         input. If the argument {@code result} is not null, and the
    *         list to be read is not a null value, the argument
-   *         <code>result</code> is cleared and the returned values are stored
-   *         in it; otherwise, a new array list of <code>long</code> is created
+   *         {@code result} is cleared and the returned values are stored
+   *         in it; otherwise, a new array list of {@code long} is created
    *         to store the returned values. Note that the returned list may be
-   *         null if <code>allowNull</code> is true and the list read from
+   *         null if {@code allowNull} is true and the list read from
    *         the input is a null value.
    * @throws EOFException
    *           if the input reaches the end before reading the whole
-   *           <code>long</code> list.
+   *           {@code long} list.
    * @throws InvalidFormatException
    *           if the list read from the input is null, while the argument
-   *           <code>allowNull</code> is false; or a variable length
-   *           encoded <code>short</code> value has invalid format.
+   *           {@code allowNull} is false; or a variable length
+   *           encoded {@code short} value has invalid format.
    * @throws IOException
    *           if any I/O error occurs.
    */
@@ -2592,33 +2593,33 @@ public final class InputUtils {
   }
 
   /**
-   * Reads a variable length encoded <code>long</code> set from the input.
+   * Reads a variable length encoded {@code long} set from the input.
    *
    * @param in
    *          the input source where to read the data.
    * @param allowNull
-   *          if it is true, the <code>long</code> set to be read could be a
-   *          null value; otherwise, if the <code>long</code> set read from the
-   *          input is null, an <code>InvalidFormatException</code> will be
+   *          if it is true, the {@code long} set to be read could be a
+   *          null value; otherwise, if the {@code long} set read from the
+   *          input is null, an {@code InvalidFormatException} will be
    *          thrown.
    * @param result
-   *          a <code>long</code> set used to store the result. It could be
+   *          a {@code long} set used to store the result. It could be
    *          null.
-   * @return a variable length encoded <code>long</code> set read from the
-   *         input. If the argument <code>result</code> is not null, and the set
-   *         to be read is not a null value, the argument <code>result</code> is
+   * @return a variable length encoded {@code long} set read from the
+   *         input. If the argument {@code result} is not null, and the set
+   *         to be read is not a null value, the argument {@code result} is
    *         cleared and the returned values are stored in it; otherwise, a new
-   *         hash set of <code>long</code> is created to store the returned
+   *         hash set of {@code long} is created to store the returned
    *         values. Note that the returned set may be null if
-   *         <code>allowNull</code> is true and the set read from the input
+   *         {@code allowNull} is true and the set read from the input
    *         is a null value.
    * @throws EOFException
    *           if the input reaches the end before reading the whole
-   *           <code>long</code> set.
+   *           {@code long} set.
    * @throws InvalidFormatException
    *           if the set read from the input is null, while the argument
-   *           <code>allowNull</code> is false; or a variable length encoded
-   *           <code>short</code> value has invalid format.
+   *           {@code allowNull} is false; or a variable length encoded
+   *           {@code short} value has invalid format.
    * @throws IOException
    *           if any I/O error occurs.
    */
@@ -2654,31 +2655,31 @@ public final class InputUtils {
   }
 
   /**
-   * Reads a <code>float</code> array from the input.
+   * Reads a {@code float} array from the input.
    *
    * @param in
    *          the input source where to read the data.
    * @param allowNull
-   *          if it is true, the <code>float</code> array to be read could be a
-   *          null value; otherwise, if the <code>float</code> array read from
-   *          the input is null, an <code>InvalidFormatException</code> will be
+   *          if it is true, the {@code float} array to be read could be a
+   *          null value; otherwise, if the {@code float} array read from
+   *          the input is null, an {@code InvalidFormatException} will be
    *          thrown.
    * @param result
-   *          a <code>float</code> array used to store the result. It could be
+   *          a {@code float} array used to store the result. It could be
    *          null.
-   * @return a <code>float</code> array read from the input. If the length of
+   * @return a {@code float} array read from the input. If the length of
    *         the result array is of the same as the length of the argument
-   *         <code>result</code>, the returned values are stored in the argument
-   *         <code>result</code>; otherwise, a new <code>float</code> array is
+   *         {@code result}, the returned values are stored in the argument
+   *         {@code result}; otherwise, a new {@code float} array is
    *         created to store the returned values. Note that the returned array
-   *         may be null if <code>allowNull</code> is true and the array
+   *         may be null if {@code allowNull} is true and the array
    *         read from the input is a null value.
    * @throws EOFException
    *           if the input reaches the end before reading the whole
-   *           <code>float</code> array.
+   *           {@code float} array.
    * @throws InvalidFormatException
    *           if the array read from the input is null, while the argument
-   *           <code>allowNull</code> is false.
+   *           {@code allowNull} is false.
    * @throws IOException
    *           if any I/O error occurs.
    */
@@ -2706,31 +2707,31 @@ public final class InputUtils {
   }
 
   /**
-   * Reads a <code>float</code> list from the input.
+   * Reads a {@code float} list from the input.
    *
    * @param in
    *          the input source where to read the data.
    * @param allowNull
-   *          if it is true, the <code>float</code> list to be read could be a
-   *          null value; otherwise, if the <code>float</code> list read from
-   *          the input is null, an <code>InvalidFormatException</code> will be
+   *          if it is true, the {@code float} list to be read could be a
+   *          null value; otherwise, if the {@code float} list read from
+   *          the input is null, an {@code InvalidFormatException} will be
    *          thrown.
    * @param result
-   *          a <code>float</code> list used to store the result. It could be
+   *          a {@code float} list used to store the result. It could be
    *          null.
-   * @return a <code>float</code> list read from the input. If the argument
-   *         <code>result</code> is not null, and the list to be read is not a
-   *         null value, the argument <code>result</code> is cleared and the
+   * @return a {@code float} list read from the input. If the argument
+   *         {@code result} is not null, and the list to be read is not a
+   *         null value, the argument {@code result} is cleared and the
    *         returned values are stored in it; otherwise, a new array list of
-   *         <code>float</code> is created to store the returned values. Note
-   *         that the returned list may be null if <code>allowNull</code>
+   *         {@code float} is created to store the returned values. Note
+   *         that the returned list may be null if {@code allowNull}
    *         is true and the list read from the input is a null value.
    * @throws EOFException
    *           if the input reaches the end before reading the whole
-   *           <code>float</code> list.
+   *           {@code float} list.
    * @throws InvalidFormatException
    *           if the list read from the input is null, while the argument
-   *           <code>allowNull</code> is false.
+   *           {@code allowNull} is false.
    * @throws IOException
    *           if any I/O error occurs.
    */
@@ -2766,31 +2767,31 @@ public final class InputUtils {
   }
 
   /**
-   * Reads a <code>float</code> set from the input.
+   * Reads a {@code float} set from the input.
    *
    * @param in
    *          the input source where to read the data.
    * @param allowNull
-   *          if it is true, the <code>float</code> set to be read could be a
-   *          null value; otherwise, if the <code>float</code> set read from the
-   *          input is null, an <code>InvalidFormatException</code> will be
+   *          if it is true, the {@code float} set to be read could be a
+   *          null value; otherwise, if the {@code float} set read from the
+   *          input is null, an {@code InvalidFormatException} will be
    *          thrown.
    * @param result
-   *          a <code>float</code> set used to store the result. It could be
+   *          a {@code float} set used to store the result. It could be
    *          null.
-   * @return a <code>float</code> set read from the input. If the argument
-   *         <code>result</code> is not null, and the set to be read is not a
-   *         null value, the argument <code>result</code> is cleared and the
+   * @return a {@code float} set read from the input. If the argument
+   *         {@code result} is not null, and the set to be read is not a
+   *         null value, the argument {@code result} is cleared and the
    *         returned values are stored in it; otherwise, a new hash set of
-   *         <code>float</code> is created to store the returned values. Note
-   *         that the returned set may be null if <code>allowNull</code> is
+   *         {@code float} is created to store the returned values. Note
+   *         that the returned set may be null if {@code allowNull} is
    *         true and the set read from the input is a null value.
    * @throws EOFException
    *           if the input reaches the end before reading the whole
-   *           <code>float</code> set.
+   *           {@code float} set.
    * @throws InvalidFormatException
    *           if the set read from the input is null, while the argument
-   *           <code>allowNull</code> is false.
+   *           {@code allowNull} is false.
    * @throws IOException
    *           if any I/O error occurs.
    */
@@ -2826,31 +2827,31 @@ public final class InputUtils {
   }
 
   /**
-   * Reads a <code>double</code> array from the input.
+   * Reads a {@code double} array from the input.
    *
    * @param in
    *          the input source where to read the data.
    * @param allowNull
-   *          if it is true, the <code>double</code> array to be read could be a
-   *          null value; otherwise, if the <code>double</code> array read from
-   *          the input is null, an <code>InvalidFormatException</code> will be
+   *          if it is true, the {@code double} array to be read could be a
+   *          null value; otherwise, if the {@code double} array read from
+   *          the input is null, an {@code InvalidFormatException} will be
    *          thrown.
    * @param result
-   *          a <code>double</code> array used to store the result. It could be
+   *          a {@code double} array used to store the result. It could be
    *          null.
-   * @return a <code>double</code> array read from the input. If the length of
+   * @return a {@code double} array read from the input. If the length of
    *         the result array is of the same as the length of the argument
-   *         <code>result</code>, the returned values are stored in the argument
-   *         <code>result</code>; otherwise, a new <code>double</code> array is
+   *         {@code result}, the returned values are stored in the argument
+   *         {@code result}; otherwise, a new {@code double} array is
    *         created to store the returned values. Note that the returned array
-   *         may be null if <code>allowNull</code> is true and the array
+   *         may be null if {@code allowNull} is true and the array
    *         read from the input is a null value.
    * @throws EOFException
    *           if the input reaches the end before reading the whole
-   *           <code>double</code> array.
+   *           {@code double} array.
    * @throws InvalidFormatException
    *           if the array read from the input is null, while the argument
-   *           <code>allowNull</code> is false.
+   *           {@code allowNull} is false.
    * @throws IOException
    *           if any I/O error occurs.
    */
@@ -2878,31 +2879,31 @@ public final class InputUtils {
   }
 
   /**
-   * Reads a <code>double</code> list from the input.
+   * Reads a {@code double} list from the input.
    *
    * @param in
    *          the input source where to read the data.
    * @param allowNull
-   *          if it is true, the <code>double</code> list to be read could be a
-   *          null value; otherwise, if the <code>double</code> list read from
-   *          the input is null, an <code>InvalidFormatException</code> will be
+   *          if it is true, the {@code double} list to be read could be a
+   *          null value; otherwise, if the {@code double} list read from
+   *          the input is null, an {@code InvalidFormatException} will be
    *          thrown.
    * @param result
-   *          a <code>double</code> list used to store the result. It could be
+   *          a {@code double} list used to store the result. It could be
    *          null.
-   * @return a <code>double</code> list read from the input. If the argument
-   *         <code>result</code> is not null, and the list to be read is not a
-   *         null value, the argument <code>result</code> is cleared and the
+   * @return a {@code double} list read from the input. If the argument
+   *         {@code result} is not null, and the list to be read is not a
+   *         null value, the argument {@code result} is cleared and the
    *         returned values are stored in it; otherwise, a new array list of
-   *         <code>double</code> is created to store the returned values. Note
-   *         that the returned list may be null if <code>allowNull</code>
+   *         {@code double} is created to store the returned values. Note
+   *         that the returned list may be null if {@code allowNull}
    *         is true and the list read from the input is a null value.
    * @throws EOFException
    *           if the input reaches the end before reading the whole
-   *           <code>double</code> list.
+   *           {@code double} list.
    * @throws InvalidFormatException
    *           if the list read from the input is null, while the argument
-   *           <code>allowNull</code> is false.
+   *           {@code allowNull} is false.
    * @throws IOException
    *           if any I/O error occurs.
    */
@@ -2938,31 +2939,31 @@ public final class InputUtils {
   }
 
   /**
-   * Reads a <code>double</code> set from the input.
+   * Reads a {@code double} set from the input.
    *
    * @param in
    *          the input source where to read the data.
    * @param allowNull
-   *          if it is true, the <code>double</code> set to be read could be a
-   *          null value; otherwise, if the <code>double</code> set read from
-   *          the input is null, an <code>InvalidFormatException</code> will be
+   *          if it is true, the {@code double} set to be read could be a
+   *          null value; otherwise, if the {@code double} set read from
+   *          the input is null, an {@code InvalidFormatException} will be
    *          thrown.
    * @param result
-   *          a <code>double</code> set used to store the result. It could be
+   *          a {@code double} set used to store the result. It could be
    *          null.
-   * @return a <code>double</code> set read from the input. If the argument
-   *         <code>result</code> is not null, and the set to be read is not a
-   *         null value, the argument <code>result</code> is cleared and the
+   * @return a {@code double} set read from the input. If the argument
+   *         {@code result} is not null, and the set to be read is not a
+   *         null value, the argument {@code result} is cleared and the
    *         returned values are stored in it; otherwise, a new hash set of
-   *         <code>double</code> is created to store the returned values. Note
-   *         that the returned set may be null if <code>allowNull</code> is
+   *         {@code double} is created to store the returned values. Note
+   *         that the returned set may be null if {@code allowNull} is
    *         true and the set read from the input is a null value.
    * @throws EOFException
    *           if the input reaches the end before reading the whole
-   *           <code>double</code> set.
+   *           {@code double} set.
    * @throws InvalidFormatException
    *           if the set read from the input is null, while the argument
-   *           <code>allowNull</code> is false.
+   *           {@code allowNull} is false.
    * @throws IOException
    *           if any I/O error occurs.
    */
@@ -3002,7 +3003,7 @@ public final class InputUtils {
    *
    * @param <T>
    *          The type of the class. The binary serializer of the class
-   *          <code>T</code> must have already been registered.
+   *          {@code T} must have already been registered.
    * @param obj
    *          The object to serialize.
    * @param in
@@ -3033,7 +3034,7 @@ public final class InputUtils {
    *
    * @param T
    *          the type of the elements of the array to be read. The binary
-   *          serializer of the class <code>T</code> must have already been
+   *          serializer of the class {@code T} must have already been
    *          registered.
    * @param valueClass
    *          the class of the elements of the array to be read.
@@ -3042,21 +3043,21 @@ public final class InputUtils {
    * @param allowNullArray
    *          if it is true, the array to be read could be null; otherwise, if
    *          the array read from the input is null, an
-   *          <code>InvalidFormatException</code> will be thrown.
+   *          {@code InvalidFormatException} will be thrown.
    * @param allowNullValue
    *          if it is true, the elements in the array to be read could be null;
    *          otherwise, if any element of the array read from the input is
-   *          null, an <code>InvalidFormatException</code> will be thrown.
+   *          null, an {@code InvalidFormatException} will be thrown.
    * @return an array of objects read from the input. The returned array may be
-   *         null if <code>allowNullArray</code> is true, and the element in the
-   *         returned array may be null if <code>allowNullValue</code> is true.
+   *         null if {@code allowNullArray} is true, and the element in the
+   *         returned array may be null if {@code allowNullValue} is true.
    * @throws EOFException
    *           if the input reaches the end before reading the whole array.
    * @throws InvalidFormatException
    *           if the array read from the input is null, while the argument
-   *           <code>allowNullArray</code> is false; or any element in the array
+   *           {@code allowNullArray} is false; or any element in the array
    *           read from the input is null, while the argument
-   *           <code>allowNullValue</code> is false.
+   *           {@code allowNullValue} is false.
    * @throws IOException
    *           if any I/O other error occurs.
    */
@@ -3102,7 +3103,7 @@ public final class InputUtils {
    *
    * @param T
    *          the type of the elements of the list to be read. The binary
-   *          serializer of the class <code>T</code> must have already been
+   *          serializer of the class {@code T} must have already been
    *          registered.
    * @param valueClass
    *          the class of the elements of the list to be read.
@@ -3111,23 +3112,23 @@ public final class InputUtils {
    * @param allowNullList
    *          if it is true, the list to be read could be null; otherwise, if
    *          the list read from the input is null, an
-   *          <code>InvalidFormatException</code> will be thrown.
+   *          {@code InvalidFormatException} will be thrown.
    * @param allowNullValue
    *          if it is true, the elements in the list to be read could be null;
    *          otherwise, if any element of the list read from the input is
-   *          null, an <code>InvalidFormatException</code> will be thrown.
+   *          null, an {@code InvalidFormatException} will be thrown.
    * @param result
    *          a list used to store the result. It could be null.
    * @return a list of objects read from the input. The returned list may be
-   *         null if <code>allowNullList</code> is true, and the element in the
-   *         returned list may be null if <code>allowNullValue</code> is true.
+   *         null if {@code allowNullList} is true, and the element in the
+   *         returned list may be null if {@code allowNullValue} is true.
    * @throws EOFException
    *           if the input reaches the end before reading the whole list.
    * @throws InvalidFormatException
    *           if the list read from the input is null, while the argument
-   *           <code>allowNullList</code> is false; or any element in the list
+   *           {@code allowNullList} is false; or any element in the list
    *           read from the input is null, while the argument
-   *           <code>allowNullValue</code> is false.
+   *           {@code allowNullValue} is false.
    * @throws IOException
    *           if any I/O other error occurs.
    */
@@ -3177,7 +3178,7 @@ public final class InputUtils {
    *
    * @param T
    *          the type of the elements of the set to be read. The binary
-   *          serializer of the class <code>T</code> must have already been
+   *          serializer of the class {@code T} must have already been
    *          registered.
    * @param valueClass
    *          the class of the elements of the set to be read.
@@ -3186,23 +3187,23 @@ public final class InputUtils {
    * @param allowNullSet
    *          if it is true, the set to be read could be null; otherwise, if
    *          the set read from the input is null, an
-   *          <code>InvalidFormatException</code> will be thrown.
+   *          {@code InvalidFormatException} will be thrown.
    * @param allowNullValue
    *          if it is true, the elements in the set to be read could be null;
    *          otherwise, if any element of the set read from the input is
-   *          null, an <code>InvalidFormatException</code> will be thrown.
+   *          null, an {@code InvalidFormatException} will be thrown.
    * @param result
    *          a set used to store the result. It could be null.
    * @return a set of objects read from the input. The returned set may be
-   *         null if <code>allowNullList</code> is true, and the element in the
-   *         returned set may be null if <code>allowNullValue</code> is true.
+   *         null if {@code allowNullList} is true, and the element in the
+   *         returned set may be null if {@code allowNullValue} is true.
    * @throws EOFException
    *           if the input reaches the end before reading the whole set.
    * @throws InvalidFormatException
    *           if the set read from the input is null, while the argument
-   *           <code>allowNullSet</code> is false; or any element in the set
+   *           {@code allowNullSet} is false; or any element in the set
    *           read from the input is null, while the argument
-   *           <code>allowNullValue</code> is false.
+   *           {@code allowNullValue} is false.
    * @throws IOException
    *           if any I/O other error occurs.
    */
@@ -3252,10 +3253,10 @@ public final class InputUtils {
    *
    * @param K
    *          the type of the keys of the map to be read. The binary serializer
-   *          of the class <code>K</code> must have already been registered.
+   *          of the class {@code K} must have already been registered.
    * @param V
    *          the type of the values of the map to be read. The binary
-   *          serializer of the class <code>V</code> must have already been
+   *          serializer of the class {@code V} must have already been
    *          registered.
    * @param keyClass
    *          the class of the keys of the map to be read.
@@ -3266,30 +3267,30 @@ public final class InputUtils {
    * @param allowNullMap
    *          if it is true, the map to be read could be null; otherwise, if the
    *          map read from the input is null, an
-   *          <code>InvalidFormatException</code> will be thrown.
+   *          {@code InvalidFormatException} will be thrown.
    * @param allowNullKey
    *          if it is true, the key in the map to be read could be null;
    *          otherwise, if any key of the map read from the input is null, an
-   *          <code>InvalidFormatException</code> will be thrown.
+   *          {@code InvalidFormatException} will be thrown.
    * @param allowNullValue
    *          if it is true, the value in the map to be read could be null;
    *          otherwise, if any value of the map read from the input is null, an
-   *          <code>InvalidFormatException</code> will be thrown.
+   *          {@code InvalidFormatException} will be thrown.
    * @param result
    *          a map used to store the result. It could be null.
    * @return a map read from the input. The returned map may be null if
-   *         <code>allowNullMap</code> is true; the key in the returned map may
-   *         be null if <code>allowNullKey</code> is true; and the value in the
-   *         returned map may be null if <code>allowNullValue</code> is true.
+   *         {@code allowNullMap} is true; the key in the returned map may
+   *         be null if {@code allowNullKey} is true; and the value in the
+   *         returned map may be null if {@code allowNullValue} is true.
    * @throws EOFException
    *           if the input reaches the end before reading the whole map.
    * @throws InvalidFormatException
    *           if the map read from the input is null, while the argument
-   *           <code>allowNullMap</code> is false; or any key in the map read
+   *           {@code allowNullMap} is false; or any key in the map read
    *           from the input is null, while the argument
-   *           <code>allowNullKey</code> is false; or any value in the map read
+   *           {@code allowNullKey} is false; or any value in the map read
    *           from the input is null, while the argument
-   *           <code>allowNullValue</code> is false.
+   *           {@code allowNullValue} is false.
    * @throws IOException
    *           if any I/O other error occurs.
    */
@@ -3347,11 +3348,11 @@ public final class InputUtils {
    *
    * @param K
    *          the type of the keys of the multimap to be read. The binary
-   *          serializer of the class <code>K</code> must have already been
+   *          serializer of the class {@code K} must have already been
    *          registered.
    * @param V
    *          the type of the values of the multimap to be read. The binary
-   *          serializer of the class <code>V</code> must have already been
+   *          serializer of the class {@code V} must have already been
    *          registered.
    * @param keyClass
    *          the class of the keys of the multimap to be read.
@@ -3362,31 +3363,31 @@ public final class InputUtils {
    * @param allowNullMap
    *          if it is true, the multimap to be read could be null; otherwise,
    *          if the multimap read from the input is null, an
-   *          <code>InvalidFormatException</code> will be thrown.
+   *          {@code InvalidFormatException} will be thrown.
    * @param allowNullKey
    *          if it is true, the key in the multimap to be read could be null;
    *          otherwise, if any key of the multimap read from the input is null,
-   *          an <code>InvalidFormatException</code> will be thrown.
+   *          an {@code InvalidFormatException} will be thrown.
    * @param allowNullValue
    *          if it is true, the value in the multimap to be read could be null;
    *          otherwise, if any value of the multimap read from the input is
-   *          null, an <code>InvalidFormatException</code> will be thrown.
+   *          null, an {@code InvalidFormatException} will be thrown.
    * @param result
    *          a multimap used to store the result. It could be null.
    * @return a multimap read from the input. The returned multimap may be null
-   *         if <code>allowNullMap</code> is true; the key in the returned
-   *         multimap may be null if <code>allowNullKey</code> is true; and the
+   *         if {@code allowNullMap} is true; the key in the returned
+   *         multimap may be null if {@code allowNullKey} is true; and the
    *         value in the returned multimap may be null if
-   *         <code>allowNullValue</code> is true.
+   *         {@code allowNullValue} is true.
    * @throws EOFException
    *           if the input reaches the end before reading the whole multimap.
    * @throws InvalidFormatException
    *           if the multimap read from the input is null, while the argument
-   *           <code>allowNullMap</code> is false; or any key in the multimap
+   *           {@code allowNullMap} is false; or any key in the multimap
    *           read from the input is null, while the argument
-   *           <code>allowNullKey</code> is false; or any value in the multimap
+   *           {@code allowNullKey} is false; or any value in the multimap
    *           read from the input is null, while the argument
-   *           <code>allowNullValue</code> is false.
+   *           {@code allowNullValue} is false.
    * @throws IOException
    *           if any I/O other error occurs.
    */

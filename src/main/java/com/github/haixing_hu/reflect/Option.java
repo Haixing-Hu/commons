@@ -148,8 +148,8 @@ public class Option {
    *          a member of the class.
    * @param options
    *          the options.
-   * @return <code>true</code> if the member of the class satisfies the options;
-   *         <code>false</code> otherwise.
+   * @return {@code true} if the member of the class satisfies the options;
+   *         {@code false} otherwise.
    */
   public static boolean satisfy(Class<?> cls, Member member, int options) {
     if (options == ALL) {

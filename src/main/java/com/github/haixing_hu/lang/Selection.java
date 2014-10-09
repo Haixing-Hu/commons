@@ -37,15 +37,15 @@ public final class Selection {
   private Selection() {}
 
   /**
-   * Returns the minimum of two <code>boolean</code> values.
+   * Returns the minimum of two {@code boolean} values.
    *
-   * Assume <code>true > false</code> for <code>boolean</code> values.
+   * Assume {@code true > false} for {@code boolean} values.
    *
    * @param value1
-   *          a <code>boolean</code> value;
+   *          a {@code boolean} value;
    * @param value2
-   *          a <code>boolean</code> value;
-   * @return the minimum of <code>value1</code> and <code>value2</code>. In case
+   *          a {@code boolean} value;
+   * @return the minimum of {@code value1} and {@code value2}. In case
    *         of ties, returns the one with the smallest position.
    */
   public static boolean min(boolean value1, boolean value2) {
@@ -57,18 +57,18 @@ public final class Selection {
   }
 
   /**
-   * Returns the minimum of three <code>boolean</code> values.
+   * Returns the minimum of three {@code boolean} values.
    *
-   * Assume <code>true > false</code> for <code>boolean</code> values.
+   * Assume {@code true > false} for {@code boolean} values.
    *
    * @param value1
-   *          a <code>boolean</code> value;
+   *          a {@code boolean} value;
    * @param value2
-   *          a <code>boolean</code> value;
+   *          a {@code boolean} value;
    * @param value3
-   *          a <code>boolean</code> value;
-   * @return the minimum of <code>value1</code>, <code>value2</code> and
-   *         <code>value3</code>. In case of ties, returns the one with the
+   *          a {@code boolean} value;
+   * @return the minimum of {@code value1}, {@code value2} and
+   *         {@code value3}. In case of ties, returns the one with the
    *         smallest position.
    */
   public static boolean min(boolean value1, boolean value2, boolean value3) {
@@ -80,23 +80,23 @@ public final class Selection {
   }
 
   /**
-   * Returns the minimum value in a <code>boolean</code> array.
+   * Returns the minimum value in a {@code boolean} array.
    *
-   * Assume <code>true > false</code> for <code>boolean</code> values.
+   * Assume {@code true > false} for {@code boolean} values.
    *
    * @param array
-   *          a <code>boolean</code> array, must not be <code>null</code>
+   *          a {@code boolean} array, must not be {@code null}
    *          nor empty.
    * @return the minimum value in the array. In case of ties, returns the
    *         one with the smallest position.
    * @throws NullArgumentException
-   *           if <code>array</code> is <code>null</code> or empty.
+   *           if {@code array} is {@code null} or empty.
    */
   public static boolean min(boolean... array) {
     if ((array == null) || (array.length == 0)) {
       throw new NullArgumentException();
     }
-    for (boolean element : array) {
+    for (final boolean element : array) {
       if (! element) {
         return false;
       }
@@ -105,26 +105,26 @@ public final class Selection {
   }
 
   /**
-   * Returns the minimum of two <code>Boolean</code> objects.
-   *
-   * Assume <code>Boolean.TRUE > Boolean.FALSE > null</code> for
-   * <code>Boolean</code> objects.
+   * Returns the minimum of two {@code Boolean} objects.
+   * <p>
+   * Assume {@code Boolean.TRUE > Boolean.FALSE > null} for {@code Boolean}
+   * objects.
    *
    * @param value1
-   *          a <code>Boolean</code> object, could be <code>null</code>.
+   *          a {@code Boolean} object, could be {@code null}.
    * @param value2
-   *          a <code>Boolean</code> object, could be <code>null</code>.
-   * @return the minimum of <code>value1</code> and <code>value2</code>. In case
-   *         of ties, returns the one with the smallest position. Note that the
-   *         returned value is either <code>null</code> or a reference to one of
-   *         the arguments.
+   *          a {@code Boolean} object, could be {@code null}.
+   * @return the minimum of {@code value1} and {@code value2}. In case of ties,
+   *         returns the one with the smallest position. Note that the returned
+   *         value is either {@code null} or a reference to one of the
+   *         arguments.
    */
   public static Boolean min(Boolean value1, Boolean value2) {
     if ((value1 == null) || (value2 == null)) {
       return null;
     } else {
-      boolean v1 = value1.booleanValue();
-      boolean v2 = value2.booleanValue();
+      final boolean v1 = value1.booleanValue();
+      final boolean v2 = value2.booleanValue();
       if (v1 == v2) {
         return value1;
       } else if (v1) {
@@ -138,21 +138,21 @@ public final class Selection {
   }
 
   /**
-   * Returns the minimum of three <code>Boolean</code> objects.
-   *
-   * Assume <code>Boolean.TRUE > Boolean.FALSE > null</code> for
-   * <code>Boolean</code> objects.
+   * Returns the minimum of three {@code Boolean} objects.
+   * <p>
+   * Assume {@code Boolean.TRUE > Boolean.FALSE > null} for {@code Boolean}
+   * objects.
    *
    * @param value1
-   *          a <code>Boolean</code> object, could be <code>null</code>.
+   *          a {@code Boolean} object, could be {@code null}.
    * @param value2
-   *          a <code>Boolean</code> object, could be <code>null</code>.
+   *          a {@code Boolean} object, could be {@code null}.
    * @param value3
-   *          a <code>Boolean</code> object, could be <code>null</code>.
-   * @return the minimum of <code>value1</code>, <code>value2</code> and
-   *         <code>value3</code>. In case of ties, returns the one with the
-   *         smallest position. Note that the returned value is either
-   *         <code>null</code> or a reference to one of the arguments.
+   *          a {@code Boolean} object, could be {@code null}.
+   * @return the minimum of {@code value1}, {@code value2} and {@code value3}.
+   *         In case of ties, returns the one with the smallest position. Note
+   *         that the returned value is either {@code null} or a reference to
+   *         one of the arguments.
    */
   public static Boolean min(Boolean value1, Boolean value2, Boolean value3) {
     if ((value1 == null) || (value2 == null) || (value3 == null)) {
@@ -175,20 +175,19 @@ public final class Selection {
   }
 
   /**
-   * Returns the minimum object in a <code>Boolean</code> array.
-   *
-   * Assume that <code>Boolean.TRUE > Boolean.FALSE > null</code> for
-   * <code>Boolean</code> objects.
+   * Returns the minimum object in a {@code Boolean} array.
+   * <p>
+   * Assume that {@code Boolean.TRUE > Boolean.FALSE > null} for {@code Boolean}
+   * objects.
    *
    * @param array
-   *          a <code>Boolean</code> array, must not be <code>null</code> nor
-   *          empty.
+   *          a {@code Boolean} array, must not be {@code null} nor empty.
    * @return the minimum object in the array. In case of ties, returns the one
    *         with the smallest position. Note that the returned value is either
-   *         <code>null</code> or a reference to one of elements in the
-   *         <code>array</code>.
+   *         {@code null} or a reference to one of elements in the {@code array}
+   *         .
    * @throws NullArgumentException
-   *           if <code>array</code> is <code>null</code> or empty.
+   *           if {@code array} is {@code null} or empty.
    */
   public static Boolean min(Boolean ... array) {
     if ((array == null) || (array.length == 0)) {
@@ -200,7 +199,7 @@ public final class Selection {
     }
     boolean minValue = min.booleanValue();
     for (int i = 1; i < array.length; ++i) {
-      Boolean element = array[i];
+      final Boolean element = array[i];
       if (element == null) {
         return null;
       }
@@ -214,13 +213,13 @@ public final class Selection {
 
 
   /**
-   * Returns the minimum of two <code>char</code> values.
+   * Returns the minimum of two {@code char} values.
    *
    * @param value1
-   *          a <code>char</code> value;
+   *          a {@code char} value;
    * @param value2
-   *          a <code>char</code> value;
-   * @return the minimum of <code>value1</code> and <code>value2</code>. In case
+   *          a {@code char} value;
+   * @return the minimum of {@code value1} and {@code value2}. In case
    *         of ties, returns the one with the smallest position.
    */
   public static char min(char value1, char value2) {
@@ -228,16 +227,16 @@ public final class Selection {
   }
 
   /**
-   * Returns the minimum of three <code>char</code> values.
+   * Returns the minimum of three {@code char} values.
    *
    * @param value1
-   *          a <code>char</code> value;
+   *          a {@code char} value;
    * @param value2
-   *          a <code>char</code> value;
+   *          a {@code char} value;
    * @param value3
-   *          a <code>char</code> value;
-   * @return the minimum of <code>value1</code>, <code>value2</code> and
-   *         <code>value3</code>. In case of ties, returns the one with the
+   *          a {@code char} value;
+   * @return the minimum of {@code value1}, {@code value2} and
+   *         {@code value3}. In case of ties, returns the one with the
    *         smallest position.
    */
   public static char min(char value1, char value2, char value3) {
@@ -255,15 +254,15 @@ public final class Selection {
   }
 
   /**
-   * Returns the minimum value in a <code>char</code> array.
+   * Returns the minimum value in a {@code char} array.
    *
    * @param array
-   *          a <code>char</code> array, must not be <code>null</code>
+   *          a {@code char} array, must not be {@code null}
    *          nor empty.
    * @return the minimum value in the array. In case of ties, returns the
    *         one with the smallest position.
    * @throws NullArgumentException
-   *           if <code>array</code> is <code>null</code> or empty.
+   *           if {@code array} is {@code null} or empty.
    */
   public static char min(char ... array) {
     if ((array == null) || (array.length == 0)) {
@@ -271,7 +270,7 @@ public final class Selection {
     }
     char min = array[0];
     for (int i = 1; i < array.length; ++i) {
-      char element = array[i];
+      final char element = array[i];
       if (element < min) {
         min = element;
       }
@@ -281,52 +280,52 @@ public final class Selection {
 
 
   /**
-   * Returns the minimum of two <code>Character</code> objects.
+   * Returns the minimum of two {@code Character} objects.
    *
-   * Assume that null is the minimum value of <code>Character</code> objects.
+   * Assume that null is the minimum value of {@code Character} objects.
    *
    * @param value1
-   *          a <code>Character</code> object, could be <code>null</code>.
+   *          a {@code Character} object, could be {@code null}.
    * @param value2
-   *          a <code>Character</code> object, could be <code>null</code>.
-   * @return the minimum of <code>value1</code> and <code>value2</code>. In case
+   *          a {@code Character} object, could be {@code null}.
+   * @return the minimum of {@code value1} and {@code value2}. In case
    *         of ties, returns the one with the smallest position. Note that the
-   *         returned value is either <code>null</code> or a reference to one of
+   *         returned value is either {@code null} or a reference to one of
    *         the arguments.
    */
   public static Character min(Character value1, Character value2) {
     if ((value1 == null) || (value2 == null)) {
       return null;
     } else {
-      char v1 = value1.charValue();
-      char v2 = value2.charValue();
+      final char v1 = value1.charValue();
+      final char v2 = value2.charValue();
       return (v1 <= v2 ? value1 : value2);
     }
   }
 
   /**
-   * Returns the minimum of three <code>Character</code> objects.
+   * Returns the minimum of three {@code Character} objects.
    *
-   * Assume that null is the minimum value of <code>Character</code> objects.
+   * Assume that null is the minimum value of {@code Character} objects.
    *
    * @param value1
-   *          a <code>Character</code> object, could be <code>null</code>.
+   *          a {@code Character} object, could be {@code null}.
    * @param value2
-   *          a <code>Character</code> object, could be <code>null</code>.
+   *          a {@code Character} object, could be {@code null}.
    * @param value3
-   *          a <code>Character</code> object, could be <code>null</code>.
-   * @return the minimum of <code>value1</code>, <code>value2</code> and
-   *         <code>value3</code>. In case of ties, returns the one with the
+   *          a {@code Character} object, could be {@code null}.
+   * @return the minimum of {@code value1}, {@code value2} and
+   *         {@code value3}. In case of ties, returns the one with the
    *         smallest position. Note that the returned value is either
-   *         <code>null</code> or a reference to one of the arguments.
+   *         {@code null} or a reference to one of the arguments.
    */
   public static Character min(Character value1, Character value2, Character value3) {
     if ((value1 == null) || (value2 == null) || (value3 == null)) {
       return null;
     }
-    char v1 = value1.charValue();
-    char v2 = value2.charValue();
-    char v3 = value3.charValue();
+    final char v1 = value1.charValue();
+    final char v2 = value2.charValue();
+    final char v3 = value3.charValue();
     if (v1 <= v2) {
       if (v1 <= v3) {
         return value1;
@@ -341,19 +340,19 @@ public final class Selection {
   }
 
   /**
-   * Returns the minimum object in a <code>Character</code> array.
+   * Returns the minimum object in a {@code Character} array.
    *
-   * Assume that null is the minimum value of <code>Character</code> objects.
+   * Assume that null is the minimum value of {@code Character} objects.
    *
    * @param array
-   *          a <code>Character</code> array, must not be <code>null</code> nor
+   *          a {@code Character} array, must not be {@code null} nor
    *          empty.
    * @return the minimum object in the array. In case of ties, returns the one
    *         with the smallest position. Note that the returned value is either
-   *         <code>null</code> or a reference to one of elements in the
-   *         <code>array</code>.
+   *         {@code null} or a reference to one of elements in the
+   *         {@code array}.
    * @throws NullArgumentException
-   *           if <code>array</code> is <code>null</code> or empty.
+   *           if {@code array} is {@code null} or empty.
    */
   public static Character min(Character ... array) {
     if ((array == null) || (array.length == 0)) {
@@ -365,11 +364,11 @@ public final class Selection {
     }
     char minValue = min.charValue();
     for (int i = 0; i < array.length; ++i) {
-      Character element = array[i];
+      final Character element = array[i];
       if (element == null) {
         return null;
       } else {
-        char value = element.charValue();
+        final char value = element.charValue();
         if (value < minValue) {
           minValue = value;
           min = element;
@@ -381,13 +380,13 @@ public final class Selection {
 
 
   /**
-   * Returns the minimum of two <code>byte</code> values.
+   * Returns the minimum of two {@code byte} values.
    *
    * @param value1
-   *          a <code>byte</code> value;
+   *          a {@code byte} value;
    * @param value2
-   *          a <code>byte</code> value;
-   * @return the minimum of <code>value1</code> and <code>value2</code>. In case
+   *          a {@code byte} value;
+   * @return the minimum of {@code value1} and {@code value2}. In case
    *         of ties, returns the one with the smallest position.
    */
   public static byte min(byte value1, byte value2) {
@@ -395,16 +394,16 @@ public final class Selection {
   }
 
   /**
-   * Returns the minimum of three <code>byte</code> values.
+   * Returns the minimum of three {@code byte} values.
    *
    * @param value1
-   *          a <code>byte</code> value;
+   *          a {@code byte} value;
    * @param value2
-   *          a <code>byte</code> value;
+   *          a {@code byte} value;
    * @param value3
-   *          a <code>byte</code> value;
-   * @return the minimum of <code>value1</code>, <code>value2</code> and
-   *         <code>value3</code>. In case of ties, returns the one with the
+   *          a {@code byte} value;
+   * @return the minimum of {@code value1}, {@code value2} and
+   *         {@code value3}. In case of ties, returns the one with the
    *         smallest position.
    */
   public static byte min(byte value1, byte value2, byte value3) {
@@ -422,15 +421,15 @@ public final class Selection {
   }
 
   /**
-   * Returns the minimum value in a <code>byte</code> array.
+   * Returns the minimum value in a {@code byte} array.
    *
    * @param array
-   *          a <code>byte</code> array, must not be <code>null</code>
+   *          a {@code byte} array, must not be {@code null}
    *          nor empty.
    * @return the minimum value in the array. In case of ties, returns the
    *         one with the smallest position.
    * @throws NullArgumentException
-   *           if <code>array</code> is <code>null</code> or empty.
+   *           if {@code array} is {@code null} or empty.
    */
   public static byte min(byte ... array) {
     if ((array == null) || (array.length == 0)) {
@@ -438,7 +437,7 @@ public final class Selection {
     }
     byte min = array[0];
     for (int i = 1; i < array.length; ++i) {
-      byte element = array[i];
+      final byte element = array[i];
       if (element < min) {
         min = element;
       }
@@ -448,52 +447,52 @@ public final class Selection {
 
 
   /**
-   * Returns the minimum of two <code>Byte</code> objects.
+   * Returns the minimum of two {@code Byte} objects.
    *
-   * Assume that null is the minimum value of <code>Byte</code> objects.
+   * Assume that null is the minimum value of {@code Byte} objects.
    *
    * @param value1
-   *          a <code>Byte</code> object, could be <code>null</code>.
+   *          a {@code Byte} object, could be {@code null}.
    * @param value2
-   *          a <code>Byte</code> object, could be <code>null</code>.
-   * @return the minimum of <code>value1</code> and <code>value2</code>. In case
+   *          a {@code Byte} object, could be {@code null}.
+   * @return the minimum of {@code value1} and {@code value2}. In case
    *         of ties, returns the one with the smallest position. Note that the
-   *         returned value is either <code>null</code> or a reference to one of
+   *         returned value is either {@code null} or a reference to one of
    *         the arguments.
    */
   public static Byte min(Byte value1, Byte value2) {
     if ((value1 == null) || (value2 == null)) {
       return null;
     } else {
-      byte v1 = value1.byteValue();
-      byte v2 = value2.byteValue();
+      final byte v1 = value1.byteValue();
+      final byte v2 = value2.byteValue();
       return (v1 <= v2 ? value1 : value2);
     }
   }
 
   /**
-   * Returns the minimum of three <code>Byte</code> objects.
+   * Returns the minimum of three {@code Byte} objects.
    *
-   * Assume that null is the minimum value of <code>Byte</code> objects.
+   * Assume that null is the minimum value of {@code Byte} objects.
    *
    * @param value1
-   *          a <code>Byte</code> object, could be <code>null</code>.
+   *          a {@code Byte} object, could be {@code null}.
    * @param value2
-   *          a <code>Byte</code> object, could be <code>null</code>.
+   *          a {@code Byte} object, could be {@code null}.
    * @param value3
-   *          a <code>Byte</code> object;
-   * @return the minimum of <code>value1</code>, <code>value2</code> and
-   *         <code>value3</code>. In case of ties, returns the one with the
+   *          a {@code Byte} object;
+   * @return the minimum of {@code value1}, {@code value2} and
+   *         {@code value3}. In case of ties, returns the one with the
    *         smallest position. Note that the returned value is either
-   *         <code>null</code> or a reference to one of the arguments.
+   *         {@code null} or a reference to one of the arguments.
    */
   public static Byte min(Byte value1, Byte value2, Byte value3) {
     if ((value1 == null) || (value2 == null) || (value3 == null)) {
       return null;
     }
-    byte v1 = value1.byteValue();
-    byte v2 = value2.byteValue();
-    byte v3 = value3.byteValue();
+    final byte v1 = value1.byteValue();
+    final byte v2 = value2.byteValue();
+    final byte v3 = value3.byteValue();
     if (v1 <= v2) {
       if (v1 <= v3) {
         return value1;
@@ -508,19 +507,19 @@ public final class Selection {
   }
 
   /**
-   * Returns the minimum object in a <code>Byte</code> array.
+   * Returns the minimum object in a {@code Byte} array.
    *
-   * Assume that null is the minimum value of <code>Byte</code> objects.
+   * Assume that null is the minimum value of {@code Byte} objects.
    *
    * @param array
-   *          a <code>Byte</code> array, must not be <code>null</code> nor
+   *          a {@code Byte} array, must not be {@code null} nor
    *          empty.
    * @return the minimum object in the array. In case of ties, returns the one
    *         with the smallest position. Note that the returned value is either
-   *         <code>null</code> or a reference to one of elements in the
-   *         <code>array</code>.
+   *         {@code null} or a reference to one of elements in the
+   *         {@code array}.
    * @throws NullArgumentException
-   *           if <code>array</code> is <code>null</code> or empty.
+   *           if {@code array} is {@code null} or empty.
    */
   public static Byte min(Byte ... array) {
     if ((array == null) || (array.length == 0)) {
@@ -532,11 +531,11 @@ public final class Selection {
     }
     byte minValue = min.byteValue();
     for (int i = 0; i < array.length; ++i) {
-      Byte element = array[i];
+      final Byte element = array[i];
       if (element == null) {
         return null;
       } else {
-        byte value = element.byteValue();
+        final byte value = element.byteValue();
         if (value < minValue) {
           minValue = value;
           min = element;
@@ -547,13 +546,13 @@ public final class Selection {
   }
 
   /**
-   * Returns the minimum of two <code>short</code> values.
+   * Returns the minimum of two {@code short} values.
    *
    * @param value1
-   *          a <code>short</code> value;
+   *          a {@code short} value;
    * @param value2
-   *          a <code>short</code> value;
-   * @return the minimum of <code>value1</code> and <code>value2</code>. In case
+   *          a {@code short} value;
+   * @return the minimum of {@code value1} and {@code value2}. In case
    *         of ties, returns the one with the smallest position.
    */
   public static short min(short value1, short value2) {
@@ -561,16 +560,16 @@ public final class Selection {
   }
 
   /**
-   * Returns the minimum of three <code>short</code> values.
+   * Returns the minimum of three {@code short} values.
    *
    * @param value1
-   *          a <code>short</code> value;
+   *          a {@code short} value;
    * @param value2
-   *          a <code>short</code> value;
+   *          a {@code short} value;
    * @param value3
-   *          a <code>short</code> value;
-   * @return the minimum of <code>value1</code>, <code>value2</code> and
-   *         <code>value3</code>. In case of ties, returns the one with the
+   *          a {@code short} value;
+   * @return the minimum of {@code value1}, {@code value2} and
+   *         {@code value3}. In case of ties, returns the one with the
    *         smallest position.
    */
   public static short min(short value1, short value2, short value3) {
@@ -588,15 +587,15 @@ public final class Selection {
   }
 
   /**
-   * Returns the minimum value in a <code>short</code> array.
+   * Returns the minimum value in a {@code short} array.
    *
    * @param array
-   *          a <code>short</code> array, must not be <code>null</code>
+   *          a {@code short} array, must not be {@code null}
    *          nor empty.
    * @return the minimum value in the array. In case of ties, returns the
    *         one with the smallest position.
    * @throws NullArgumentException
-   *           if <code>array</code> is <code>null</code> or empty.
+   *           if {@code array} is {@code null} or empty.
    */
   public static short min(short ... array) {
     if ((array == null) || (array.length == 0)) {
@@ -604,7 +603,7 @@ public final class Selection {
     }
     short min = array[0];
     for (int i = 1; i < array.length; ++i) {
-      short element = array[i];
+      final short element = array[i];
       if (element < min) {
         min = element;
       }
@@ -614,52 +613,52 @@ public final class Selection {
 
 
   /**
-   * Returns the minimum of two <code>Short</code> objects.
+   * Returns the minimum of two {@code Short} objects.
    *
-   * Assume that null is the minimum value of <code>Short</code> objects.
+   * Assume that null is the minimum value of {@code Short} objects.
    *
    * @param value1
-   *          a <code>Short</code> object, could be <code>null</code>.
+   *          a {@code Short} object, could be {@code null}.
    * @param value2
-   *          a <code>Short</code> object, could be <code>null</code>.
-   * @return the minimum of <code>value1</code> and <code>value2</code>. In case
+   *          a {@code Short} object, could be {@code null}.
+   * @return the minimum of {@code value1} and {@code value2}. In case
    *         of ties, returns the one with the smallest position. Note that the
-   *         returned value is either <code>null</code> or a reference to one of
+   *         returned value is either {@code null} or a reference to one of
    *         the arguments.
    */
   public static Short min(Short value1, Short value2) {
     if ((value1 == null) || (value2 == null)) {
       return null;
     } else {
-      short v1 = value1.shortValue();
-      short v2 = value2.shortValue();
+      final short v1 = value1.shortValue();
+      final short v2 = value2.shortValue();
       return (v1 <= v2 ? value1 : value2);
     }
   }
 
   /**
-   * Returns the minimum of three <code>Short</code> objects.
+   * Returns the minimum of three {@code Short} objects.
    *
-   * Assume that null is the minimum value of <code>Short</code> objects.
+   * Assume that null is the minimum value of {@code Short} objects.
    *
    * @param value1
-   *          a <code>Short</code> object, could be <code>null</code>.
+   *          a {@code Short} object, could be {@code null}.
    * @param value2
-   *          a <code>Short</code> object, could be <code>null</code>.
+   *          a {@code Short} object, could be {@code null}.
    * @param value3
-   *          a <code>Short</code> object, could be <code>null</code>.
-   * @return the minimum of <code>value1</code>, <code>value2</code> and
-   *         <code>value3</code>. In case of ties, returns the one with the
+   *          a {@code Short} object, could be {@code null}.
+   * @return the minimum of {@code value1}, {@code value2} and
+   *         {@code value3}. In case of ties, returns the one with the
    *         smallest position. Note that the returned value is either
-   *         <code>null</code> or a reference to one of the arguments.
+   *         {@code null} or a reference to one of the arguments.
    */
   public static Short min(Short value1, Short value2, Short value3) {
     if ((value1 == null) || (value2 == null) || (value3 == null)) {
       return null;
     }
-    short v1 = value1.shortValue();
-    short v2 = value2.shortValue();
-    short v3 = value3.shortValue();
+    final short v1 = value1.shortValue();
+    final short v2 = value2.shortValue();
+    final short v3 = value3.shortValue();
     if (v1 <= v2) {
       if (v1 <= v3) {
         return value1;
@@ -674,19 +673,19 @@ public final class Selection {
   }
 
   /**
-   * Returns the minimum object in a <code>Short</code> array.
+   * Returns the minimum object in a {@code Short} array.
    *
-   * Assume that null is the minimum value of <code>Short</code> objects.
+   * Assume that null is the minimum value of {@code Short} objects.
    *
    * @param array
-   *          a <code>Short</code> array, must not be <code>null</code> nor
+   *          a {@code Short} array, must not be {@code null} nor
    *          empty.
    * @return the minimum object in the array. In case of ties, returns the one
    *         with the smallest position. Note that the returned value is either
-   *         <code>null</code> or a reference to one of elements in the
-   *         <code>array</code>.
+   *         {@code null} or a reference to one of elements in the
+   *         {@code array}.
    * @throws NullArgumentException
-   *           if <code>array</code> is <code>null</code> or empty.
+   *           if {@code array} is {@code null} or empty.
    */
   public static Short min(Short ... array) {
     if ((array == null) || (array.length == 0)) {
@@ -698,11 +697,11 @@ public final class Selection {
     }
     short minValue = min.shortValue();
     for (int i = 0; i < array.length; ++i) {
-      Short element = array[i];
+      final Short element = array[i];
       if (element == null) {
         return null;
       } else {
-        short value = element.shortValue();
+        final short value = element.shortValue();
         if (value < minValue) {
           minValue = value;
           min = element;
@@ -713,13 +712,13 @@ public final class Selection {
   }
 
   /**
-   * Returns the minimum of two <code>int</code> values.
+   * Returns the minimum of two {@code int} values.
    *
    * @param value1
-   *          a <code>int</code> value;
+   *          a {@code int} value;
    * @param value2
-   *          a <code>int</code> value;
-   * @return the minimum of <code>value1</code> and <code>value2</code>. In case
+   *          a {@code int} value;
+   * @return the minimum of {@code value1} and {@code value2}. In case
    *         of ties, returns the one with the smallest position.
    */
   public static int min(int value1, int value2) {
@@ -727,16 +726,16 @@ public final class Selection {
   }
 
   /**
-   * Returns the minimum of three <code>int</code> values.
+   * Returns the minimum of three {@code int} values.
    *
    * @param value1
-   *          a <code>int</code> value;
+   *          a {@code int} value;
    * @param value2
-   *          a <code>int</code> value;
+   *          a {@code int} value;
    * @param value3
-   *          a <code>int</code> value;
-   * @return the minimum of <code>value1</code>, <code>value2</code> and
-   *         <code>value3</code>. In case of ties, returns the one with the
+   *          a {@code int} value;
+   * @return the minimum of {@code value1}, {@code value2} and
+   *         {@code value3}. In case of ties, returns the one with the
    *         smallest position.
    */
   public static int min(int value1, int value2, int value3) {
@@ -754,15 +753,15 @@ public final class Selection {
   }
 
   /**
-   * Returns the minimum value in a <code>int</code> array.
+   * Returns the minimum value in a {@code int} array.
    *
    * @param array
-   *          a <code>int</code> array, must not be <code>null</code>
+   *          a {@code int} array, must not be {@code null}
    *          nor empty.
    * @return the minimum value in the array. In case of ties, returns the
    *         one with the smallest position.
    * @throws NullArgumentException
-   *           if <code>array</code> is <code>null</code> or empty.
+   *           if {@code array} is {@code null} or empty.
    */
   public static int min(int ... array) {
     if ((array == null) || (array.length == 0)) {
@@ -770,7 +769,7 @@ public final class Selection {
     }
     int min = array[0];
     for (int i = 1; i < array.length; ++i) {
-      int element = array[i];
+      final int element = array[i];
       if (element < min) {
         min = element;
       }
@@ -780,52 +779,52 @@ public final class Selection {
 
 
   /**
-   * Returns the minimum of two <code>Integer</code> objects.
+   * Returns the minimum of two {@code Integer} objects.
    *
-   * Assume that null is the minimum value of <code>Integer</code> objects.
+   * Assume that null is the minimum value of {@code Integer} objects.
    *
    * @param value1
-   *          a <code>Integer</code> object, could be <code>null</code>.
+   *          a {@code Integer} object, could be {@code null}.
    * @param value2
-   *          a <code>Integer</code> object, could be <code>null</code>.
-   * @return the minimum of <code>value1</code> and <code>value2</code>. In case
+   *          a {@code Integer} object, could be {@code null}.
+   * @return the minimum of {@code value1} and {@code value2}. In case
    *         of ties, returns the one with the smallest position. Note that the
-   *         returned value is either <code>null</code> or a reference to one of
+   *         returned value is either {@code null} or a reference to one of
    *         the arguments.
    */
   public static Integer min(Integer value1, Integer value2) {
     if ((value1 == null) || (value2 == null)) {
       return null;
     } else {
-      int v1 = value1.intValue();
-      int v2 = value2.intValue();
+      final int v1 = value1.intValue();
+      final int v2 = value2.intValue();
       return (v1 <= v2 ? value1 : value2);
     }
   }
 
   /**
-   * Returns the minimum of three <code>Integer</code> objects.
+   * Returns the minimum of three {@code Integer} objects.
    *
-   * Assume that null is the minimum value of <code>Integer</code> objects.
+   * Assume that null is the minimum value of {@code Integer} objects.
    *
    * @param value1
-   *          a <code>Integer</code> object, could be <code>null</code>.
+   *          a {@code Integer} object, could be {@code null}.
    * @param value2
-   *          a <code>Integer</code> object, could be <code>null</code>.
+   *          a {@code Integer} object, could be {@code null}.
    * @param value3
-   *          a <code>Integer</code> object, could be <code>null</code>.
-   * @return the minimum of <code>value1</code>, <code>value2</code> and
-   *         <code>value3</code>. In case of ties, returns the one with the
+   *          a {@code Integer} object, could be {@code null}.
+   * @return the minimum of {@code value1}, {@code value2} and
+   *         {@code value3}. In case of ties, returns the one with the
    *         smallest position. Note that the returned value is either
-   *         <code>null</code> or a reference to one of the arguments.
+   *         {@code null} or a reference to one of the arguments.
    */
   public static Integer min(Integer value1, Integer value2, Integer value3) {
     if ((value1 == null) || (value2 == null) || (value3 == null)) {
       return null;
     }
-    int v1 = value1.intValue();
-    int v2 = value2.intValue();
-    int v3 = value3.intValue();
+    final int v1 = value1.intValue();
+    final int v2 = value2.intValue();
+    final int v3 = value3.intValue();
     if (v1 <= v2) {
       if (v1 <= v3) {
         return value1;
@@ -840,19 +839,19 @@ public final class Selection {
   }
 
   /**
-   * Returns the minimum object in a <code>Integer</code> array.
+   * Returns the minimum object in a {@code Integer} array.
    *
-   * Assume that null is the minimum value of <code>Integer</code> objects.
+   * Assume that null is the minimum value of {@code Integer} objects.
    *
    * @param array
-   *          a <code>Integer</code> array, must not be <code>null</code> nor
+   *          a {@code Integer} array, must not be {@code null} nor
    *          empty.
    * @return the minimum object in the array. In case of ties, returns the one
    *         with the smallest position. Note that the returned value is either
-   *         <code>null</code> or a reference to one of elements in the
-   *         <code>array</code>.
+   *         {@code null} or a reference to one of elements in the
+   *         {@code array}.
    * @throws NullArgumentException
-   *           if <code>array</code> is <code>null</code> or empty.
+   *           if {@code array} is {@code null} or empty.
    */
   public static Integer min(Integer ... array) {
     if ((array == null) || (array.length == 0)) {
@@ -864,11 +863,11 @@ public final class Selection {
     }
     int minValue = min.intValue();
     for (int i = 0; i < array.length; ++i) {
-      Integer element = array[i];
+      final Integer element = array[i];
       if (element == null) {
         return null;
       } else {
-        int value = element.intValue();
+        final int value = element.intValue();
         if (value < minValue) {
           minValue = value;
           min = element;
@@ -879,13 +878,13 @@ public final class Selection {
   }
 
   /**
-   * Returns the minimum of two <code>long</code> values.
+   * Returns the minimum of two {@code long} values.
    *
    * @param value1
-   *          a <code>long</code> value;
+   *          a {@code long} value;
    * @param value2
-   *          a <code>long</code> value;
-   * @return the minimum of <code>value1</code> and <code>value2</code>. In case
+   *          a {@code long} value;
+   * @return the minimum of {@code value1} and {@code value2}. In case
    *         of ties, returns the one with the smallest position.
    */
   public static long min(long value1, long value2) {
@@ -893,16 +892,16 @@ public final class Selection {
   }
 
   /**
-   * Returns the minimum of three <code>long</code> values.
+   * Returns the minimum of three {@code long} values.
    *
    * @param value1
-   *          a <code>long</code> value;
+   *          a {@code long} value;
    * @param value2
-   *          a <code>long</code> value;
+   *          a {@code long} value;
    * @param value3
-   *          a <code>long</code> value;
-   * @return the minimum of <code>value1</code>, <code>value2</code> and
-   *         <code>value3</code>. In case of ties, returns the one with the
+   *          a {@code long} value;
+   * @return the minimum of {@code value1}, {@code value2} and
+   *         {@code value3}. In case of ties, returns the one with the
    *         smallest position.
    */
   public static long min(long value1, long value2, long value3) {
@@ -920,15 +919,15 @@ public final class Selection {
   }
 
   /**
-   * Returns the minimum value in a <code>long</code> array.
+   * Returns the minimum value in a {@code long} array.
    *
    * @param array
-   *          a <code>long</code> array, must not be <code>null</code> nor
+   *          a {@code long} array, must not be {@code null} nor
    *          empty.
    * @return the minimum value in the array. In case of ties, returns the one
    *         with the smallest position.
    * @throws NullArgumentException
-   *           if <code>array</code> is <code>null</code> or empty.
+   *           if {@code array} is {@code null} or empty.
    */
   public static long min(long ... array) {
     if ((array == null) || (array.length == 0)) {
@@ -936,7 +935,7 @@ public final class Selection {
     }
     long min = array[0];
     for (int i = 1; i < array.length; ++i) {
-      long element = array[i];
+      final long element = array[i];
       if (element < min) {
         min = element;
       }
@@ -946,52 +945,52 @@ public final class Selection {
 
 
   /**
-   * Returns the minimum of two <code>Long</code> objects.
+   * Returns the minimum of two {@code Long} objects.
    *
-   * Assume that null is the minimum value of <code>Long</code> objects.
+   * Assume that null is the minimum value of {@code Long} objects.
    *
    * @param value1
-   *          a <code>Long</code> object, could be <code>null</code>.
+   *          a {@code Long} object, could be {@code null}.
    * @param value2
-   *          a <code>Long</code> object, could be <code>null</code>.
-   * @return the minimum of <code>value1</code> and <code>value2</code>. In case
+   *          a {@code Long} object, could be {@code null}.
+   * @return the minimum of {@code value1} and {@code value2}. In case
    *         of ties, returns the one with the smallest position. Note that the
-   *         returned value is either <code>null</code> or a reference to one of
+   *         returned value is either {@code null} or a reference to one of
    *         the arguments.
    */
   public static Long min(Long value1, Long value2) {
     if ((value1 == null) || (value2 == null)) {
       return null;
     } else {
-      long v1 = value1.longValue();
-      long v2 = value2.longValue();
+      final long v1 = value1.longValue();
+      final long v2 = value2.longValue();
       return (v1 <= v2 ? value1 : value2);
     }
   }
 
   /**
-   * Returns the minimum of three <code>Long</code> objects.
+   * Returns the minimum of three {@code Long} objects.
    *
-   * Assume that null is the minimum value of <code>Long</code> objects.
+   * Assume that null is the minimum value of {@code Long} objects.
    *
    * @param value1
-   *          a <code>Long</code> object, could be <code>null</code>.
+   *          a {@code Long} object, could be {@code null}.
    * @param value2
-   *          a <code>Long</code> object, could be <code>null</code>.
+   *          a {@code Long} object, could be {@code null}.
    * @param value3
-   *          a <code>Long</code> object, could be <code>null</code>.
-   * @return the minimum of <code>value1</code>, <code>value2</code> and
-   *         <code>value3</code>. In case of ties, returns the one with the
+   *          a {@code Long} object, could be {@code null}.
+   * @return the minimum of {@code value1}, {@code value2} and
+   *         {@code value3}. In case of ties, returns the one with the
    *         smallest position. Note that the returned value is either
-   *         <code>null</code> or a reference to one of the arguments.
+   *         {@code null} or a reference to one of the arguments.
    */
   public static Long min(Long value1, Long value2, Long value3) {
     if ((value1 == null) || (value2 == null) || (value3 == null)) {
       return null;
     }
-    long v1 = value1.longValue();
-    long v2 = value2.longValue();
-    long v3 = value3.longValue();
+    final long v1 = value1.longValue();
+    final long v2 = value2.longValue();
+    final long v3 = value3.longValue();
     if (v1 <= v2) {
       if (v1 <= v3) {
         return value1;
@@ -1006,19 +1005,19 @@ public final class Selection {
   }
 
   /**
-   * Returns the minimum object in a <code>Long</code> array.
+   * Returns the minimum object in a {@code Long} array.
    *
-   * Assume that null is the minimum value of <code>Long</code> objects.
+   * Assume that null is the minimum value of {@code Long} objects.
    *
    * @param array
-   *          a <code>Long</code> array, must not be <code>null</code> nor
+   *          a {@code Long} array, must not be {@code null} nor
    *          empty.
    * @return the minimum object in the array. In case of ties, returns the one
    *         with the smallest position. Note that the returned value is either
-   *         <code>null</code> or a reference to one of elements in the
-   *         <code>array</code>.
+   *         {@code null} or a reference to one of elements in the
+   *         {@code array}.
    * @throws NullArgumentException
-   *           if <code>array</code> is <code>null</code> or empty.
+   *           if {@code array} is {@code null} or empty.
    */
   public static Long min(Long ... array) {
     if ((array == null) || (array.length == 0)) {
@@ -1030,11 +1029,11 @@ public final class Selection {
     }
     long minValue = min.longValue();
     for (int i = 0; i < array.length; ++i) {
-      Long element = array[i];
+      final Long element = array[i];
       if (element == null) {
         return null;
       } else {
-        long value = element.longValue();
+        final long value = element.longValue();
         if (value < minValue) {
           minValue = value;
           min = element;
@@ -1045,13 +1044,13 @@ public final class Selection {
   }
 
   /**
-   * Returns the minimum of two <code>float</code> values.
+   * Returns the minimum of two {@code float} values.
    *
    * @param value1
-   *          a <code>float</code> value;
+   *          a {@code float} value;
    * @param value2
-   *          a <code>float</code> value;
-   * @return the minimum of <code>value1</code> and <code>value2</code>. In case
+   *          a {@code float} value;
+   * @return the minimum of {@code value1} and {@code value2}. In case
    *         of ties, returns the one with the smallest position.
    */
   public static float min(float value1, float value2) {
@@ -1063,16 +1062,16 @@ public final class Selection {
   }
 
   /**
-   * Returns the minimum of three <code>float</code> values.
+   * Returns the minimum of three {@code float} values.
    *
    * @param value1
-   *          a <code>float</code> value;
+   *          a {@code float} value;
    * @param value2
-   *          a <code>float</code> value;
+   *          a {@code float} value;
    * @param value3
-   *          a <code>float</code> value;
-   * @return the minimum of <code>value1</code>, <code>value2</code> and
-   *         <code>value3</code>. In case of ties, returns the one with the
+   *          a {@code float} value;
+   * @return the minimum of {@code value1}, {@code value2} and
+   *         {@code value3}. In case of ties, returns the one with the
    *         smallest position.
    */
   public static float min(float value1, float value2, float value3) {
@@ -1090,15 +1089,15 @@ public final class Selection {
   }
 
   /**
-   * Returns the minimum value in a <code>float</code> array.
+   * Returns the minimum value in a {@code float} array.
    *
    * @param array
-   *          a <code>float</code> array, must not be <code>null</code> nor
+   *          a {@code float} array, must not be {@code null} nor
    *          empty.
    * @return the minimum value in the array. In case of ties, returns the one
    *         with the smallest position.
    * @throws NullArgumentException
-   *           if <code>array</code> is <code>null</code> or empty.
+   *           if {@code array} is {@code null} or empty.
    */
   public static float min(float ... array) {
     if ((array == null) || (array.length == 0)) {
@@ -1106,7 +1105,7 @@ public final class Selection {
     }
     float min = array[0];
     for (int i = 1; i < array.length; ++i) {
-      float element = array[i];
+      final float element = array[i];
       if (Comparison.compare(element, min) < 0) {
         min = element;
       }
@@ -1116,25 +1115,25 @@ public final class Selection {
 
 
   /**
-   * Returns the minimum of two <code>Float</code> objects.
+   * Returns the minimum of two {@code Float} objects.
    *
-   * Assume that null is the minimum value of <code>Float</code> objects.
+   * Assume that null is the minimum value of {@code Float} objects.
    *
    * @param value1
-   *          a <code>Float</code> object, could be <code>null</code>.
+   *          a {@code Float} object, could be {@code null}.
    * @param value2
-   *          a <code>Float</code> object, could be <code>null</code>.
-   * @return the minimum of <code>value1</code> and <code>value2</code>. In case
+   *          a {@code Float} object, could be {@code null}.
+   * @return the minimum of {@code value1} and {@code value2}. In case
    *         of ties, returns the one with the smallest position. Note that the
-   *         returned value is either <code>null</code> or a reference to one of
+   *         returned value is either {@code null} or a reference to one of
    *         the arguments.
    */
   public static Float min(Float value1, Float value2) {
     if ((value1 == null) || (value2 == null)) {
       return null;
     }
-    float v1 = value1.floatValue();
-    float v2 = value2.floatValue();
+    final float v1 = value1.floatValue();
+    final float v2 = value2.floatValue();
     if (Comparison.compare(v1, v2) <= 0) {
       return value1;
     } else {
@@ -1143,28 +1142,28 @@ public final class Selection {
   }
 
   /**
-   * Returns the minimum of three <code>Float</code> objects.
+   * Returns the minimum of three {@code Float} objects.
    *
-   * Assume that null is the minimum value of <code>Float</code> objects.
+   * Assume that null is the minimum value of {@code Float} objects.
    *
    * @param value1
-   *          a <code>Float</code> object, could be <code>null</code>.
+   *          a {@code Float} object, could be {@code null}.
    * @param value2
-   *          a <code>Float</code> object, could be <code>null</code>.
+   *          a {@code Float} object, could be {@code null}.
    * @param value3
-   *          a <code>Float</code> object, could be <code>null</code>.
-   * @return the minimum of <code>value1</code>, <code>value2</code> and
-   *         <code>value3</code>. In case of ties, returns the one with the
+   *          a {@code Float} object, could be {@code null}.
+   * @return the minimum of {@code value1}, {@code value2} and
+   *         {@code value3}. In case of ties, returns the one with the
    *         smallest position. Note that the returned value is either
-   *         <code>null</code> or a reference to one of the arguments.
+   *         {@code null} or a reference to one of the arguments.
    */
   public static Float min(Float value1, Float value2, Float value3) {
     if ((value1 == null) || (value2 == null) || (value3 == null)) {
       return null;
     }
-    float v1 = value1.floatValue();
-    float v2 = value2.floatValue();
-    float v3 = value3.floatValue();
+    final float v1 = value1.floatValue();
+    final float v2 = value2.floatValue();
+    final float v3 = value3.floatValue();
     if (Comparison.compare(v1, v2) <= 0) {
       if (Comparison.compare(v1, v3) <= 0) {
         return value1;
@@ -1179,19 +1178,19 @@ public final class Selection {
   }
 
   /**
-   * Returns the minimum object in a <code>Float</code> array.
+   * Returns the minimum object in a {@code Float} array.
    *
-   * Assume that null is the minimum value of <code>Float</code> objects.
+   * Assume that null is the minimum value of {@code Float} objects.
    *
    * @param array
-   *          a <code>Float</code> array, must not be <code>null</code> nor
+   *          a {@code Float} array, must not be {@code null} nor
    *          empty.
    * @return the minimum object in the array. In case of ties, returns the one
    *         with the smallest position. Note that the returned value is either
-   *         <code>null</code> or a reference to one of elements in the
-   *         <code>array</code>.
+   *         {@code null} or a reference to one of elements in the
+   *         {@code array}.
    * @throws NullArgumentException
-   *           if <code>array</code> is <code>null</code> or empty.
+   *           if {@code array} is {@code null} or empty.
    */
   public static Float min(Float ... array) {
     if ((array == null) || (array.length == 0)) {
@@ -1203,11 +1202,11 @@ public final class Selection {
     }
     float minValue = min.floatValue();
     for (int i = 0; i < array.length; ++i) {
-      Float element = array[i];
+      final Float element = array[i];
       if (element == null) {
         return null;
       } else {
-        float value = element.floatValue();
+        final float value = element.floatValue();
         if (Comparison.compare(value, minValue) < 0) {
           minValue = value;
           min = element;
@@ -1219,13 +1218,13 @@ public final class Selection {
 
 
   /**
-   * Returns the minimum of two <code>double</code> values.
+   * Returns the minimum of two {@code double} values.
    *
    * @param value1
-   *          a <code>double</code> value;
+   *          a {@code double} value;
    * @param value2
-   *          a <code>double</code> value;
-   * @return the minimum of <code>value1</code> and <code>value2</code>. In case
+   *          a {@code double} value;
+   * @return the minimum of {@code value1} and {@code value2}. In case
    *         of ties, returns the one with the smallest position.
    */
   public static double min(double value1, double value2) {
@@ -1237,16 +1236,16 @@ public final class Selection {
   }
 
   /**
-   * Returns the minimum of three <code>double</code> values.
+   * Returns the minimum of three {@code double} values.
    *
    * @param value1
-   *          a <code>double</code> value;
+   *          a {@code double} value;
    * @param value2
-   *          a <code>double</code> value;
+   *          a {@code double} value;
    * @param value3
-   *          a <code>double</code> value;
-   * @return the minimum of <code>value1</code>, <code>value2</code> and
-   *         <code>value3</code>. In case of ties, returns the one with the
+   *          a {@code double} value;
+   * @return the minimum of {@code value1}, {@code value2} and
+   *         {@code value3}. In case of ties, returns the one with the
    *         smallest position.
    */
   public static double min(double value1, double value2, double value3) {
@@ -1264,15 +1263,15 @@ public final class Selection {
   }
 
   /**
-   * Returns the minimum value in a <code>double</code> array.
+   * Returns the minimum value in a {@code double} array.
    *
    * @param array
-   *          a <code>double</code> array, must not be <code>null</code> nor
+   *          a {@code double} array, must not be {@code null} nor
    *          empty.
    * @return the minimum value in the array. In case of ties, returns the one
    *         with the smallest position.
    * @throws NullArgumentException
-   *           if <code>array</code> is <code>null</code> or empty.
+   *           if {@code array} is {@code null} or empty.
    */
   public static double min(double ... array) {
     if ((array == null) || (array.length == 0)) {
@@ -1280,7 +1279,7 @@ public final class Selection {
     }
     double min = array[0];
     for (int i = 1; i < array.length; ++i) {
-      double element = array[i];
+      final double element = array[i];
       if (Comparison.compare(element, min) < 0) {
         min = element;
       }
@@ -1290,25 +1289,25 @@ public final class Selection {
 
 
   /**
-   * Returns the minimum of two <code>Double</code> objects.
+   * Returns the minimum of two {@code Double} objects.
    *
-   * Assume that null is the minimum value of <code>Double</code> objects.
+   * Assume that null is the minimum value of {@code Double} objects.
    *
    * @param value1
-   *          a <code>Double</code> object, could be <code>null</code>.
+   *          a {@code Double} object, could be {@code null}.
    * @param value2
-   *          a <code>Double</code> object, could be <code>null</code>.
-   * @return the minimum of <code>value1</code> and <code>value2</code>. In case
+   *          a {@code Double} object, could be {@code null}.
+   * @return the minimum of {@code value1} and {@code value2}. In case
    *         of ties, returns the one with the smallest position. Note that the
-   *         returned value is either <code>null</code> or a reference to one of
+   *         returned value is either {@code null} or a reference to one of
    *         the arguments.
    */
   public static Double min(Double value1, Double value2) {
     if ((value1 == null) || (value2 == null)) {
       return null;
     }
-    double v1 = value1.doubleValue();
-    double v2 = value2.doubleValue();
+    final double v1 = value1.doubleValue();
+    final double v2 = value2.doubleValue();
     if (Comparison.compare(v1, v2) <= 0) {
       return value1;
     } else {
@@ -1317,28 +1316,28 @@ public final class Selection {
   }
 
   /**
-   * Returns the minimum of three <code>Double</code> objects.
+   * Returns the minimum of three {@code Double} objects.
    *
-   * Assume that null is the minimum value of <code>Double</code> objects.
+   * Assume that null is the minimum value of {@code Double} objects.
    *
    * @param value1
-   *          a <code>Double</code> object, could be <code>null</code>.
+   *          a {@code Double} object, could be {@code null}.
    * @param value2
-   *          a <code>Double</code> object, could be <code>null</code>.
+   *          a {@code Double} object, could be {@code null}.
    * @param value3
-   *          a <code>Double</code> object, could be <code>null</code>.
-   * @return the minimum of <code>value1</code>, <code>value2</code> and
-   *         <code>value3</code>. In case of ties, returns the one with the
+   *          a {@code Double} object, could be {@code null}.
+   * @return the minimum of {@code value1}, {@code value2} and
+   *         {@code value3}. In case of ties, returns the one with the
    *         smallest position. Note that the returned value is either
-   *         <code>null</code> or a reference to one of the arguments.
+   *         {@code null} or a reference to one of the arguments.
    */
   public static Double min(Double value1, Double value2, Double value3) {
     if ((value1 == null) || (value2 == null) || (value3 == null)) {
       return null;
     }
-    double v1 = value1.doubleValue();
-    double v2 = value2.doubleValue();
-    double v3 = value3.doubleValue();
+    final double v1 = value1.doubleValue();
+    final double v2 = value2.doubleValue();
+    final double v3 = value3.doubleValue();
     if (Comparison.compare(v1, v2) <= 0) {
       if (Comparison.compare(v1, v3) <= 0) {
         return value1;
@@ -1353,19 +1352,19 @@ public final class Selection {
   }
 
   /**
-   * Returns the minimum object in a <code>Double</code> array.
+   * Returns the minimum object in a {@code Double} array.
    *
-   * Assume that null is the minimum value of <code>Double</code> objects.
+   * Assume that null is the minimum value of {@code Double} objects.
    *
    * @param array
-   *          a <code>Double</code> array, must not be <code>null</code> nor
+   *          a {@code Double} array, must not be {@code null} nor
    *          empty.
    * @return the minimum object in the array. In case of ties, returns the one
    *         with the smallest position. Note that the returned value is either
-   *         <code>null</code> or a reference to one of elements in the
-   *         <code>array</code>.
+   *         {@code null} or a reference to one of elements in the
+   *         {@code array}.
    * @throws NullArgumentException
-   *           if <code>array</code> is <code>null</code> or empty.
+   *           if {@code array} is {@code null} or empty.
    */
   public static Double min(Double ... array) {
     if ((array == null) || (array.length == 0)) {
@@ -1377,11 +1376,11 @@ public final class Selection {
     }
     double minValue = min.doubleValue();
     for (int i = 0; i < array.length; ++i) {
-      Double element = array[i];
+      final Double element = array[i];
       if (element == null) {
         return null;
       } else {
-        double value = element.doubleValue();
+        final double value = element.doubleValue();
         if (Comparison.compare(value, minValue) < 0) {
           minValue = value;
           min = element;
@@ -1392,16 +1391,16 @@ public final class Selection {
   }
 
   /**
-   * Returns the minimum of two <code>String</code> objects.
+   * Returns the minimum of two {@code String} objects.
    *
-   * Assume that <code>null</code> is the minimum value of
-   * <code>String</code> objects.
+   * Assume that {@code null} is the minimum value of
+   * {@code String} objects.
    *
    * @param value1
-   *          a <code>String</code> object, could be <code>null</code>.
+   *          a {@code String} object, could be {@code null}.
    * @param value2
-   *          a <code>String</code> object, could be <code>null</code>.
-   * @return the minimum of <code>value1</code> and <code>value2</code>. In case
+   *          a {@code String} object, could be {@code null}.
+   * @return the minimum of {@code value1} and {@code value2}. In case
    *         of ties, returns the one with the smallest position.
    */
   public static String min(String value1, String value2) {
@@ -1415,32 +1414,32 @@ public final class Selection {
   }
 
   /**
-   * Returns the minimum of three <code>String</code> objects.
+   * Returns the minimum of three {@code String} objects.
    *
-   * Assume that <code>null</code> is the minimum value of
-   *  <code>String</code> objects.
+   * Assume that {@code null} is the minimum value of
+   *  {@code String} objects.
    *
    * @param value1
-   *          a <code>String</code> object, could be <code>null</code>.
+   *          a {@code String} object, could be {@code null}.
    * @param value2
-   *          a <code>String</code> object, could be <code>null</code>.
+   *          a {@code String} object, could be {@code null}.
    * @param value3
-   *          a <code>String</code> object, could be <code>null</code>.
-   * @return the minimum of <code>value1</code>, <code>value2</code>
-   *         and <code>value3</code>. In case of ties, returns the
+   *          a {@code String} object, could be {@code null}.
+   * @return the minimum of {@code value1}, {@code value2}
+   *         and {@code value3}. In case of ties, returns the
    *         one with the smallest position.
    */
   public static String min(String value1, String value2, String value3) {
     if ((value1 == null) || (value2 == null) || (value3 == null)) {
       return null;
     }
-    if ((value1 == value2) || (value1.compareTo(value2) <= 0)) {
-      if ((value1 == value3) || (value1.compareTo(value3) <= 0)) {
+    if (value1.compareTo(value2) <= 0) {
+      if (value1.compareTo(value3) <= 0) {
         return value1;
       } else {
         return value3;
       }
-    } else if ((value2 == value3) || (value2.compareTo(value3) <= 0)) {
+    } else if (value2.compareTo(value3) <= 0) {
       return value2;
     } else {
       return value3;
@@ -1448,19 +1447,19 @@ public final class Selection {
   }
 
   /**
-   * Returns the minimum object in a <code>String</code> array.
+   * Returns the minimum object in a {@code String} array.
    *
-   * Assume that null is the minimum value of <code>String</code> objects.
+   * Assume that null is the minimum value of {@code String} objects.
    *
    * @param array
-   *          a <code>String</code> array, must not be <code>null</code> nor
+   *          a {@code String} array, must not be {@code null} nor
    *          empty.
    * @return the minimum object in the array. In case of ties, returns the one
    *         with the smallest position. Note that the returned value is either
-   *         <code>null</code> or a reference to one of elements in the
-   *         <code>array</code>.
+   *         {@code null} or a reference to one of elements in the
+   *         {@code array}.
    * @throws NullArgumentException
-   *           if <code>array</code> is <code>null</code> or empty.
+   *           if {@code array} is {@code null} or empty.
    */
   public static String min(String ... array) {
     if ((array == null) || (array.length == 0)) {
@@ -1471,10 +1470,10 @@ public final class Selection {
       return null;
     }
     for (int i = 0; i < array.length; ++i) {
-      String element = array[i];
+      final String element = array[i];
       if (element == null) {
         return null;
-      } else if ((element != min) && (element.compareTo(min) < 0)) {
+      } else if (element.compareTo(min) < 0) {
         min = element;
       }
     }
@@ -1482,18 +1481,18 @@ public final class Selection {
   }
 
   /**
-   * Returns the minimum of two <code>Comparable</code> objects.
+   * Returns the minimum of two {@code Comparable} objects.
    *
-   * Assume that <code>null</code> is the minimum value.
+   * Assume that {@code null} is the minimum value.
    *
    * @param T
    *          any object type. Note that it could be type of arrays or
    *          multi-dimensional arrays.
    * @param value1
-   *          an object of class <code>T</code>, could be <code>null</code>.
+   *          an object of class {@code T}, could be {@code null}.
    * @param value2
-   *          an object of class <code>T</code>, could be <code>null</code>.
-   * @return the minimum of <code>value1</code> and <code>value2</code>. In case
+   *          an object of class {@code T}, could be {@code null}.
+   * @return the minimum of {@code value1} and {@code value2}. In case
    *         of ties, returns the one with the smallest position.
    */
   public static <T> T min(T value1, T value2) {
@@ -1505,21 +1504,21 @@ public final class Selection {
   }
 
   /**
-   * Returns the minimum of three <code>Comparable</code> objects.
+   * Returns the minimum of three {@code Comparable} objects.
    *
-   * Assume that <code>null</code> is the minimum value.
+   * Assume that {@code null} is the minimum value.
    *
    * @param T
    *          any object type. Note that it could be type of arrays or
    *          multi-dimensional arrays.
    * @param value1
-   *          a object of class <code>T</code>, could be <code>null</code>.
+   *          a object of class {@code T}, could be {@code null}.
    * @param value2
-   *          a object of class <code>T</code>, could be <code>null</code>.
+   *          a object of class {@code T}, could be {@code null}.
    * @param value3
-   *          a object of class <code>T</code>, could be <code>null</code>.
-   * @return the minimum of <code>value1</code>, <code>value2</code>
-   *         and <code>value3</code>. In case of ties, returns the
+   *          a object of class {@code T}, could be {@code null}.
+   * @return the minimum of {@code value1}, {@code value2}
+   *         and {@code value3}. In case of ties, returns the
    *         one with the smallest position.
    */
   public static <T> T min(T value1, T value2, T value3) {
@@ -1537,7 +1536,7 @@ public final class Selection {
   }
 
   /**
-   * Returns the minimum object in a <code>Comparable</code> array.
+   * Returns the minimum object in a {@code Comparable} array.
    *
    * Assume that null is the minimum value .
    *
@@ -1545,14 +1544,14 @@ public final class Selection {
    *          any object type. Note that it could be type of arrays or
    *          multi-dimensional arrays.
    * @param array
-   *          a array of class <code>T</code>, must not be <code>null</code> nor
+   *          a array of class {@code T}, must not be {@code null} nor
    *          empty.
    * @return the minimum object in the array. In case of ties, returns the one
    *         with the smallest position. Note that the returned value is either
-   *         <code>null</code> or a reference to one of elements in the
-   *         <code>array</code>.
+   *         {@code null} or a reference to one of elements in the
+   *         {@code array}.
    * @throws NullArgumentException
-   *           if <code>array</code> is <code>null</code> or empty.
+   *           if {@code array} is {@code null} or empty.
    */
   public static <T> T min(T ... array) {
     if ((array == null) || (array.length == 0)) {
@@ -1563,7 +1562,7 @@ public final class Selection {
       return null;
     }
     for (int i = 0; i < array.length; ++i) {
-      T element = array[i];
+      final T element = array[i];
       if (element == null) {
         return null;
       } else if (Comparison.compare(element, min) < 0) {
@@ -1574,7 +1573,7 @@ public final class Selection {
   }
 
   /**
-   * Returns the minimum object in a <code>Comparable</code> <code>Iterable</code>
+   * Returns the minimum object in a {@code Comparable} {@code Iterable}
    * object.
    *
    * Assume that null is the minimum value.
@@ -1583,20 +1582,20 @@ public final class Selection {
    *          any object type. Note that it could be type of arrays or
    *          multi-dimensional arrays.
    * @param iterable
-   *          an <code>Iterable</code> of values of class <code>T</code>, must not be
-   *          <code>null</code> nor empty.
+   *          an {@code Iterable} of values of class {@code T}, must not be
+   *          {@code null} nor empty.
    * @return the minimum object in the list.In case of ties, returns the one
    *         with the smallest position. Note that the returned value is either
-   *         <code>null</code> or a reference to one of elements in the
-   *         <code>iterable</code>.
+   *         {@code null} or a reference to one of elements in the
+   *         {@code iterable}.
    * @throws NullArgumentException
-   *           if <code>iterable</code> is <code>null</code> or empty.
+   *           if {@code iterable} is {@code null} or empty.
    */
   public static <T> T min(Iterable<T> iterable) {
     if (iterable == null) {
       throw new NullArgumentException();
     }
-    Iterator<T> iter = iterable.iterator();
+    final Iterator<T> iter = iterable.iterator();
     if (! iter.hasNext()) {
       throw new NullArgumentException();
     }
@@ -1605,7 +1604,7 @@ public final class Selection {
       return null;
     }
     while (iter.hasNext()) {
-      T element = iter.next();
+      final T element = iter.next();
       if (element == null) {
         return null;
       } else if (Comparison.compare(element, min) < 0) {
@@ -1617,15 +1616,15 @@ public final class Selection {
 
 
   /**
-   * Returns the maximum of two <code>boolean</code> values.
+   * Returns the maximum of two {@code boolean} values.
    *
-   * Assume <code>true > false</code> for <code>boolean</code> values.
+   * Assume {@code true > false} for {@code boolean} values.
    *
    * @param value1
-   *          a <code>boolean</code> value;
+   *          a {@code boolean} value;
    * @param value2
-   *          a <code>boolean</code> value;
-   * @return the maximum of <code>value1</code> and <code>value2</code>. In case
+   *          a {@code boolean} value;
+   * @return the maximum of {@code value1} and {@code value2}. In case
    *         of ties, returns the one with the largest position.
    */
   public static boolean max(boolean value1, boolean value2) {
@@ -1637,18 +1636,18 @@ public final class Selection {
   }
 
   /**
-   * Returns the maximum of three <code>boolean</code> values.
+   * Returns the maximum of three {@code boolean} values.
    *
-   * Assume <code>true > false</code> for <code>boolean</code> values.
+   * Assume {@code true > false} for {@code boolean} values.
    *
    * @param value1
-   *          a <code>boolean</code> value;
+   *          a {@code boolean} value;
    * @param value2
-   *          a <code>boolean</code> value;
+   *          a {@code boolean} value;
    * @param value3
-   *          a <code>boolean</code> value;
-   * @return the maximum of <code>value1</code>, <code>value2</code> and
-   *         <code>value3</code>. In case of ties, returns the one with the
+   *          a {@code boolean} value;
+   * @return the maximum of {@code value1}, {@code value2} and
+   *         {@code value3}. In case of ties, returns the one with the
    *         largest position.
    */
   public static boolean max(boolean value1, boolean value2, boolean value3) {
@@ -1660,23 +1659,23 @@ public final class Selection {
   }
 
   /**
-   * Returns the maximum value in a <code>boolean</code> array.
+   * Returns the maximum value in a {@code boolean} array.
    *
-   * Assume <code>true > false</code> for <code>boolean</code> values.
+   * Assume {@code true > false} for {@code boolean} values.
    *
    * @param array
-   *          a <code>boolean</code> array, must not be <code>null</code>
+   *          a {@code boolean} array, must not be {@code null}
    *          nor empty.
    * @return the maximum value in the array. In case of ties, returns the
    *         one with the largest position.
    * @throws NullArgumentException
-   *           if <code>array</code> is <code>null</code> or empty.
+   *           if {@code array} is {@code null} or empty.
    */
   public static boolean max(boolean... array) {
     if ((array == null) || (array.length == 0)) {
       throw new NullArgumentException();
     }
-    for (boolean element : array) {
+    for (final boolean element : array) {
       if (element) {
         return true;
       }
@@ -1685,18 +1684,18 @@ public final class Selection {
   }
 
   /**
-   * Returns the maximum of two <code>Boolean</code> objects.
+   * Returns the maximum of two {@code Boolean} objects.
    *
-   * Assume <code>Boolean.TRUE > Boolean.FALSE > null</code> for
-   * <code>Boolean</code> objects.
+   * Assume {@code Boolean.TRUE > Boolean.FALSE > null} for
+   * {@code Boolean} objects.
    *
    * @param value1
-   *          a <code>Boolean</code> object, could be <code>null</code>.
+   *          a {@code Boolean} object, could be {@code null}.
    * @param value2
-   *          a <code>Boolean</code> object, could be <code>null</code>.
-   * @return the maximum of <code>value1</code> and <code>value2</code>. In case
+   *          a {@code Boolean} object, could be {@code null}.
+   * @return the maximum of {@code value1} and {@code value2}. In case
    *         of ties, returns the one with the largest position. Note that the
-   *         returned value is either <code>null</code> or a reference to one of
+   *         returned value is either {@code null} or a reference to one of
    *         the arguments.
    */
   public static Boolean max(Boolean value1, Boolean value2) {
@@ -1705,8 +1704,8 @@ public final class Selection {
     } else if (value2 == null) {
       return value1;
     } else {    // value1 != null && value2 != null
-      boolean v1 = value1.booleanValue();
-      boolean v2 = value2.booleanValue();
+      final boolean v1 = value1.booleanValue();
+      final boolean v2 = value2.booleanValue();
       if (v2 || (v2 == v1)) {  // v2 >= v1
         return value2;
       } else {                 // v2 < v1
@@ -1716,21 +1715,21 @@ public final class Selection {
   }
 
   /**
-   * Returns the maximum of three <code>Boolean</code> objects.
+   * Returns the maximum of three {@code Boolean} objects.
    *
-   * Assume <code>Boolean.TRUE > Boolean.FALSE > null</code> for
-   * <code>Boolean</code> objects.
+   * Assume {@code Boolean.TRUE > Boolean.FALSE > null} for
+   * {@code Boolean} objects.
    *
    * @param value1
-   *          a <code>Boolean</code> object, could be <code>null</code>.
+   *          a {@code Boolean} object, could be {@code null}.
    * @param value2
-   *          a <code>Boolean</code> object, could be <code>null</code>.
+   *          a {@code Boolean} object, could be {@code null}.
    * @param value3
-   *          a <code>Boolean</code> object, could be <code>null</code>.
-   * @return the maximum of <code>value1</code>, <code>value2</code> and
-   *         <code>value3</code>. In case of ties, returns the one with the
+   *          a {@code Boolean} object, could be {@code null}.
+   * @return the maximum of {@code value1}, {@code value2} and
+   *         {@code value3}. In case of ties, returns the one with the
    *         largest position. Note that the returned value is either
-   *         <code>null</code> or a reference to one of the arguments.
+   *         {@code null} or a reference to one of the arguments.
    */
   public static Boolean max(Boolean value1, Boolean value2, Boolean value3) {
     if (value1 == null) {
@@ -1759,20 +1758,20 @@ public final class Selection {
   }
 
   /**
-   * Returns the maximum object in a <code>Boolean</code> array.
+   * Returns the maximum object in a {@code Boolean} array.
    *
-   * Assume that <code>Boolean.TRUE > Boolean.FALSE > null</code> for
-   * <code>Boolean</code> objects.
+   * Assume that {@code Boolean.TRUE > Boolean.FALSE > null} for
+   * {@code Boolean} objects.
    *
    * @param array
-   *          a <code>Boolean</code> array, must not be <code>null</code> nor
+   *          a {@code Boolean} array, must not be {@code null} nor
    *          empty.
    * @return the maximum object in the array. In case of ties, returns the one
    *         with the largest position. Note that the returned value is either
-   *         <code>null</code> or a reference to one of elements in the
-   *         <code>array</code>.
+   *         {@code null} or a reference to one of elements in the
+   *         {@code array}.
    * @throws NullArgumentException
-   *           if <code>array</code> is <code>null</code> or empty.
+   *           if {@code array} is {@code null} or empty.
    */
   public static Boolean max(Boolean ... array) {
     if ((array == null) || (array.length == 0)) {
@@ -1787,13 +1786,13 @@ public final class Selection {
       // all elements in array are null
       return null;
     }
-    Boolean max = array[i];
+    final Boolean max = array[i];
     if (max.booleanValue()) {
       return max;
     }
     // now max.booleanValue() == false
     for (--i; i >= 0; --i) {
-      Boolean element = array[i];
+      final Boolean element = array[i];
       if ((element != null) && element.booleanValue()) {
         return element;
       }
@@ -1802,13 +1801,13 @@ public final class Selection {
   }
 
   /**
-   * Returns the maximum of two <code>char</code> values.
+   * Returns the maximum of two {@code char} values.
    *
    * @param value1
-   *          a <code>char</code> value;
+   *          a {@code char} value;
    * @param value2
-   *          a <code>char</code> value;
-   * @return the maximum of <code>value1</code> and <code>value2</code>. In case
+   *          a {@code char} value;
+   * @return the maximum of {@code value1} and {@code value2}. In case
    *         of ties, returns the one with the largest position.
    */
   public static char max(char value1, char value2) {
@@ -1816,16 +1815,16 @@ public final class Selection {
   }
 
   /**
-   * Returns the maximum of three <code>char</code> values.
+   * Returns the maximum of three {@code char} values.
    *
    * @param value1
-   *          a <code>char</code> value;
+   *          a {@code char} value;
    * @param value2
-   *          a <code>char</code> value;
+   *          a {@code char} value;
    * @param value3
-   *          a <code>char</code> value;
-   * @return the maximum of <code>value1</code>, <code>value2</code> and
-   *         <code>value3</code>. In case of ties, returns the one with the
+   *          a {@code char} value;
+   * @return the maximum of {@code value1}, {@code value2} and
+   *         {@code value3}. In case of ties, returns the one with the
    *         largest position.
    */
   public static char max(char value1, char value2, char value3) {
@@ -1843,15 +1842,15 @@ public final class Selection {
   }
 
   /**
-   * Returns the maximum value in a <code>char</code> array.
+   * Returns the maximum value in a {@code char} array.
    *
    * @param array
-   *          a <code>char</code> array, must not be <code>null</code>
+   *          a {@code char} array, must not be {@code null}
    *          nor empty.
    * @return the maximum value in the array. In case of ties, returns the
    *         one with the largest position.
    * @throws NullArgumentException
-   *           if <code>array</code> is <code>null</code> or empty.
+   *           if {@code array} is {@code null} or empty.
    */
   public static char max(char ... array) {
     if ((array == null) || (array.length == 0)) {
@@ -1860,7 +1859,7 @@ public final class Selection {
     int i = array.length - 1;
     char max = array[i];
     for (--i; i >= 0; --i) {
-      char element = array[i];
+      final char element = array[i];
       if (element > max) {
         max = element;
       }
@@ -1870,17 +1869,17 @@ public final class Selection {
 
 
   /**
-   * Returns the maximum of two <code>Character</code> objects.
+   * Returns the maximum of two {@code Character} objects.
    *
-   * Assume that null is the minimum value of <code>Character</code> objects.
+   * Assume that null is the minimum value of {@code Character} objects.
    *
    * @param value1
-   *          a <code>Character</code> object, could be <code>null</code>.
+   *          a {@code Character} object, could be {@code null}.
    * @param value2
-   *          a <code>Character</code> object, could be <code>null</code>.
-   * @return the maximum of <code>value1</code> and <code>value2</code>. In case
+   *          a {@code Character} object, could be {@code null}.
+   * @return the maximum of {@code value1} and {@code value2}. In case
    *         of ties, returns the one with the largest position. Note that the
-   *         returned value is either <code>null</code> or a reference to one of
+   *         returned value is either {@code null} or a reference to one of
    *         the arguments.
    */
   public static Character max(Character value1, Character value2) {
@@ -1889,27 +1888,27 @@ public final class Selection {
     } else if (value2 == null) {
       return value1;
     } else {
-      char v1 = value1.charValue();
-      char v2 = value2.charValue();
+      final char v1 = value1.charValue();
+      final char v2 = value2.charValue();
       return (v1 <= v2 ? value2 : value1);
     }
   }
 
   /**
-   * Returns the maximum of three <code>Character</code> objects.
+   * Returns the maximum of three {@code Character} objects.
    *
-   * Assume that null is the minimum value of <code>Character</code> objects.
+   * Assume that null is the minimum value of {@code Character} objects.
    *
    * @param value1
-   *          a <code>Character</code> object, could be <code>null</code>.
+   *          a {@code Character} object, could be {@code null}.
    * @param value2
-   *          a <code>Character</code> object, could be <code>null</code>.
+   *          a {@code Character} object, could be {@code null}.
    * @param value3
-   *          a <code>Character</code> object, could be <code>null</code>.
-   * @return the maximum of <code>value1</code>, <code>value2</code> and
-   *         <code>value3</code>. In case of ties, returns the one with the
+   *          a {@code Character} object, could be {@code null}.
+   * @return the maximum of {@code value1}, {@code value2} and
+   *         {@code value3}. In case of ties, returns the one with the
    *         largest position. Note that the returned value is either
-   *         <code>null</code> or a reference to one of the arguments.
+   *         {@code null} or a reference to one of the arguments.
    */
   public static Character max(Character value1, Character value2, Character value3) {
     if (value1 == null) {
@@ -1919,9 +1918,9 @@ public final class Selection {
     } else if (value3 == null) {
       return max(value1, value2);
     } else {
-      char v1 = value1.charValue();
-      char v2 = value2.charValue();
-      char v3 = value3.charValue();
+      final char v1 = value1.charValue();
+      final char v2 = value2.charValue();
+      final char v3 = value3.charValue();
       if (v3 >= v2) {
         if (v3 >= v1) {
           return value3;
@@ -1937,19 +1936,19 @@ public final class Selection {
   }
 
   /**
-   * Returns the maximum object in a <code>Character</code> array.
+   * Returns the maximum object in a {@code Character} array.
    *
-   * Assume that null is the minimum value of <code>Character</code> objects.
+   * Assume that null is the minimum value of {@code Character} objects.
    *
    * @param array
-   *          a <code>Character</code> array, must not be <code>null</code> nor
+   *          a {@code Character} array, must not be {@code null} nor
    *          empty.
    * @return the maximum object in the array. In case of ties, returns the one
    *         with the largest position. Note that the returned value is either
-   *         <code>null</code> or a reference to one of elements in the
-   *         <code>array</code>.
+   *         {@code null} or a reference to one of elements in the
+   *         {@code array}.
    * @throws NullArgumentException
-   *           if <code>array</code> is <code>null</code> or empty.
+   *           if {@code array} is {@code null} or empty.
    */
   public static Character max(Character ... array) {
     if ((array == null) || (array.length == 0)) {
@@ -1968,9 +1967,9 @@ public final class Selection {
     char maxValue = max.charValue();
     // test the rest elements
     for (--i; i >= 0; --i) {
-      Character element = array[i];
+      final Character element = array[i];
       if (element != null) {
-        char value = element.charValue();
+        final char value = element.charValue();
         if (value > maxValue) {
           maxValue = value;
           max = element;
@@ -1981,13 +1980,13 @@ public final class Selection {
   }
 
   /**
-   * Returns the maximum of two <code>byte</code> values.
+   * Returns the maximum of two {@code byte} values.
    *
    * @param value1
-   *          a <code>byte</code> value;
+   *          a {@code byte} value;
    * @param value2
-   *          a <code>byte</code> value;
-   * @return the maximum of <code>value1</code> and <code>value2</code>. In case
+   *          a {@code byte} value;
+   * @return the maximum of {@code value1} and {@code value2}. In case
    *         of ties, returns the one with the largest position.
    */
   public static byte max(byte value1, byte value2) {
@@ -1995,16 +1994,16 @@ public final class Selection {
   }
 
   /**
-   * Returns the maximum of three <code>byte</code> values.
+   * Returns the maximum of three {@code byte} values.
    *
    * @param value1
-   *          a <code>byte</code> value;
+   *          a {@code byte} value;
    * @param value2
-   *          a <code>byte</code> value;
+   *          a {@code byte} value;
    * @param value3
-   *          a <code>byte</code> value;
-   * @return the maximum of <code>value1</code>, <code>value2</code> and
-   *         <code>value3</code>. In case of ties, returns the one with the
+   *          a {@code byte} value;
+   * @return the maximum of {@code value1}, {@code value2} and
+   *         {@code value3}. In case of ties, returns the one with the
    *         largest position.
    */
   public static byte max(byte value1, byte value2, byte value3) {
@@ -2022,15 +2021,15 @@ public final class Selection {
   }
 
   /**
-   * Returns the maximum value in a <code>byte</code> array.
+   * Returns the maximum value in a {@code byte} array.
    *
    * @param array
-   *          a <code>byte</code> array, must not be <code>null</code>
+   *          a {@code byte} array, must not be {@code null}
    *          nor empty.
    * @return the maximum value in the array. In case of ties, returns the
    *         one with the largest position.
    * @throws NullArgumentException
-   *           if <code>array</code> is <code>null</code> or empty.
+   *           if {@code array} is {@code null} or empty.
    */
   public static byte max(byte ... array) {
     if ((array == null) || (array.length == 0)) {
@@ -2039,7 +2038,7 @@ public final class Selection {
     int i = array.length - 1;
     byte max = array[i];
     for (--i; i >= 0; --i) {
-      byte element = array[i];
+      final byte element = array[i];
       if (element > max) {
         max = element;
       }
@@ -2049,17 +2048,17 @@ public final class Selection {
 
 
   /**
-   * Returns the maximum of two <code>Byte</code> objects.
+   * Returns the maximum of two {@code Byte} objects.
    *
-   * Assume that null is the maximum value of <code>Byte</code> objects.
+   * Assume that null is the maximum value of {@code Byte} objects.
    *
    * @param value1
-   *          a <code>Byte</code> object, could be <code>null</code>.
+   *          a {@code Byte} object, could be {@code null}.
    * @param value2
-   *          a <code>Byte</code> object, could be <code>null</code>.
-   * @return the maximum of <code>value1</code> and <code>value2</code>. In case
+   *          a {@code Byte} object, could be {@code null}.
+   * @return the maximum of {@code value1} and {@code value2}. In case
    *         of ties, returns the one with the largest position. Note that the
-   *         returned value is either <code>null</code> or a reference to one of
+   *         returned value is either {@code null} or a reference to one of
    *         the arguments.
    */
   public static Byte max(Byte value1, Byte value2) {
@@ -2068,27 +2067,27 @@ public final class Selection {
     } else if (value2 == null) {
       return value1;
     } else {
-      byte v1 = value1.byteValue();
-      byte v2 = value2.byteValue();
+      final byte v1 = value1.byteValue();
+      final byte v2 = value2.byteValue();
       return (v1 <= v2 ? value2 : value1);
     }
   }
 
   /**
-   * Returns the maximum of three <code>Byte</code> objects.
+   * Returns the maximum of three {@code Byte} objects.
    *
-   * Assume that null is the maximum value of <code>Byte</code> objects.
+   * Assume that null is the maximum value of {@code Byte} objects.
    *
    * @param value1
-   *          a <code>Byte</code> object, could be <code>null</code>.
+   *          a {@code Byte} object, could be {@code null}.
    * @param value2
-   *          a <code>Byte</code> object, could be <code>null</code>.
+   *          a {@code Byte} object, could be {@code null}.
    * @param value3
-   *          a <code>Byte</code> object;
-   * @return the maximum of <code>value1</code>, <code>value2</code> and
-   *         <code>value3</code>. In case of ties, returns the one with the
+   *          a {@code Byte} object;
+   * @return the maximum of {@code value1}, {@code value2} and
+   *         {@code value3}. In case of ties, returns the one with the
    *         largest position. Note that the returned value is either
-   *         <code>null</code> or a reference to one of the arguments.
+   *         {@code null} or a reference to one of the arguments.
    */
   public static Byte max(Byte value1, Byte value2, Byte value3) {
     if (value1 == null) {
@@ -2098,9 +2097,9 @@ public final class Selection {
     } else if (value3 == null) {
       return max(value1, value2);
     } else {
-      byte v1 = value1.byteValue();
-      byte v2 = value2.byteValue();
-      byte v3 = value3.byteValue();
+      final byte v1 = value1.byteValue();
+      final byte v2 = value2.byteValue();
+      final byte v3 = value3.byteValue();
       if (v3 >= v2) {
         if (v3 >= v1) {
           return value3;
@@ -2116,19 +2115,19 @@ public final class Selection {
   }
 
   /**
-   * Returns the maximum object in a <code>Byte</code> array.
+   * Returns the maximum object in a {@code Byte} array.
    *
-   * Assume that null is the maximum value of <code>Byte</code> objects.
+   * Assume that null is the maximum value of {@code Byte} objects.
    *
    * @param array
-   *          a <code>Byte</code> array, must not be <code>null</code> nor
+   *          a {@code Byte} array, must not be {@code null} nor
    *          empty.
    * @return the maximum object in the array. In case of ties, returns the one
    *         with the largest position. Note that the returned value is either
-   *         <code>null</code> or a reference to one of elements in the
-   *         <code>array</code>.
+   *         {@code null} or a reference to one of elements in the
+   *         {@code array}.
    * @throws NullArgumentException
-   *           if <code>array</code> is <code>null</code> or empty.
+   *           if {@code array} is {@code null} or empty.
    */
   public static Byte max(Byte ... array) {
     if ((array == null) || (array.length == 0)) {
@@ -2147,9 +2146,9 @@ public final class Selection {
     byte maxValue = max.byteValue();
     // test the rest elements
     for (--i; i >= 0; --i) {
-      Byte element = array[i];
+      final Byte element = array[i];
       if (element != null) {
-        byte value = element.byteValue();
+        final byte value = element.byteValue();
         if (value > maxValue) {
           maxValue = value;
           max = element;
@@ -2160,13 +2159,13 @@ public final class Selection {
   }
 
   /**
-   * Returns the maximum of two <code>short</code> values.
+   * Returns the maximum of two {@code short} values.
    *
    * @param value1
-   *          a <code>short</code> value;
+   *          a {@code short} value;
    * @param value2
-   *          a <code>short</code> value;
-   * @return the maximum of <code>value1</code> and <code>value2</code>. In case
+   *          a {@code short} value;
+   * @return the maximum of {@code value1} and {@code value2}. In case
    *         of ties, returns the one with the largest position.
    */
   public static short max(short value1, short value2) {
@@ -2174,16 +2173,16 @@ public final class Selection {
   }
 
   /**
-   * Returns the maximum of three <code>short</code> values.
+   * Returns the maximum of three {@code short} values.
    *
    * @param value1
-   *          a <code>short</code> value;
+   *          a {@code short} value;
    * @param value2
-   *          a <code>short</code> value;
+   *          a {@code short} value;
    * @param value3
-   *          a <code>short</code> value;
-   * @return the maximum of <code>value1</code>, <code>value2</code> and
-   *         <code>value3</code>. In case of ties, returns the one with the
+   *          a {@code short} value;
+   * @return the maximum of {@code value1}, {@code value2} and
+   *         {@code value3}. In case of ties, returns the one with the
    *         largest position.
    */
   public static short max(short value1, short value2, short value3) {
@@ -2201,15 +2200,15 @@ public final class Selection {
   }
 
   /**
-   * Returns the maximum value in a <code>short</code> array.
+   * Returns the maximum value in a {@code short} array.
    *
    * @param array
-   *          a <code>short</code> array, must not be <code>null</code>
+   *          a {@code short} array, must not be {@code null}
    *          nor empty.
    * @return the maximum value in the array. In case of ties, returns the
    *         one with the largest position.
    * @throws NullArgumentException
-   *           if <code>array</code> is <code>null</code> or empty.
+   *           if {@code array} is {@code null} or empty.
    */
   public static short max(short ... array) {
     if ((array == null) || (array.length == 0)) {
@@ -2218,7 +2217,7 @@ public final class Selection {
     int i = array.length - 1;
     short max = array[i];
     for (--i; i >= 0; --i) {
-      short element = array[i];
+      final short element = array[i];
       if (element > max) {
         max = element;
       }
@@ -2228,17 +2227,17 @@ public final class Selection {
 
 
   /**
-   * Returns the maximum of two <code>Short</code> objects.
+   * Returns the maximum of two {@code Short} objects.
    *
-   * Assume that null is the maximum value of <code>Short</code> objects.
+   * Assume that null is the maximum value of {@code Short} objects.
    *
    * @param value1
-   *          a <code>Short</code> object, could be <code>null</code>.
+   *          a {@code Short} object, could be {@code null}.
    * @param value2
-   *          a <code>Short</code> object, could be <code>null</code>.
-   * @return the maximum of <code>value1</code> and <code>value2</code>. In case
+   *          a {@code Short} object, could be {@code null}.
+   * @return the maximum of {@code value1} and {@code value2}. In case
    *         of ties, returns the one with the largest position. Note that the
-   *         returned value is either <code>null</code> or a reference to one of
+   *         returned value is either {@code null} or a reference to one of
    *         the arguments.
    */
   public static Short max(Short value1, Short value2) {
@@ -2247,27 +2246,27 @@ public final class Selection {
     } else if (value2 == null) {
       return value1;
     } else {
-      short v1 = value1.shortValue();
-      short v2 = value2.shortValue();
+      final short v1 = value1.shortValue();
+      final short v2 = value2.shortValue();
       return (v1 <= v2 ? value2 : value1);
     }
   }
 
   /**
-   * Returns the maximum of three <code>Short</code> objects.
+   * Returns the maximum of three {@code Short} objects.
    *
-   * Assume that null is the maximum value of <code>Short</code> objects.
+   * Assume that null is the maximum value of {@code Short} objects.
    *
    * @param value1
-   *          a <code>Short</code> object, could be <code>null</code>.
+   *          a {@code Short} object, could be {@code null}.
    * @param value2
-   *          a <code>Short</code> object, could be <code>null</code>.
+   *          a {@code Short} object, could be {@code null}.
    * @param value3
-   *          a <code>Short</code> object, could be <code>null</code>.
-   * @return the maximum of <code>value1</code>, <code>value2</code> and
-   *         <code>value3</code>. In case of ties, returns the one with the
+   *          a {@code Short} object, could be {@code null}.
+   * @return the maximum of {@code value1}, {@code value2} and
+   *         {@code value3}. In case of ties, returns the one with the
    *         largest position. Note that the returned value is either
-   *         <code>null</code> or a reference to one of the arguments.
+   *         {@code null} or a reference to one of the arguments.
    */
   public static Short max(Short value1, Short value2, Short value3) {
     if (value1 == null) {
@@ -2277,9 +2276,9 @@ public final class Selection {
     } else if (value3 == null) {
       return max(value1, value2);
     } else {
-      short v1 = value1.shortValue();
-      short v2 = value2.shortValue();
-      short v3 = value3.shortValue();
+      final short v1 = value1.shortValue();
+      final short v2 = value2.shortValue();
+      final short v3 = value3.shortValue();
       if (v3 >= v2) {
         if (v3 >= v1) {
           return value3;
@@ -2295,19 +2294,19 @@ public final class Selection {
   }
 
   /**
-   * Returns the maximum object in a <code>Short</code> array.
+   * Returns the maximum object in a {@code Short} array.
    *
-   * Assume that null is the maximum value of <code>Short</code> objects.
+   * Assume that null is the maximum value of {@code Short} objects.
    *
    * @param array
-   *          a <code>Short</code> array, must not be <code>null</code> nor
+   *          a {@code Short} array, must not be {@code null} nor
    *          empty.
    * @return the maximum object in the array. In case of ties, returns the one
    *         with the largest position. Note that the returned value is either
-   *         <code>null</code> or a reference to one of elements in the
-   *         <code>array</code>.
+   *         {@code null} or a reference to one of elements in the
+   *         {@code array}.
    * @throws NullArgumentException
-   *           if <code>array</code> is <code>null</code> or empty.
+   *           if {@code array} is {@code null} or empty.
    */
   public static Short max(Short ... array) {
     if ((array == null) || (array.length == 0)) {
@@ -2326,9 +2325,9 @@ public final class Selection {
     short maxValue = max.shortValue();
     // test the rest elements
     for (--i; i >= 0; --i) {
-      Short element = array[i];
+      final Short element = array[i];
       if (element != null) {
-        short value = element.shortValue();
+        final short value = element.shortValue();
         if (value > maxValue) {
           maxValue = value;
           max = element;
@@ -2339,13 +2338,13 @@ public final class Selection {
   }
 
   /**
-   * Returns the maximum of two <code>int</code> values.
+   * Returns the maximum of two {@code int} values.
    *
    * @param value1
-   *          a <code>int</code> value;
+   *          a {@code int} value;
    * @param value2
-   *          a <code>int</code> value;
-   * @return the maximum of <code>value1</code> and <code>value2</code>. In case
+   *          a {@code int} value;
+   * @return the maximum of {@code value1} and {@code value2}. In case
    *         of ties, returns the one with the largest position.
    */
   public static int max(int value1, int value2) {
@@ -2353,16 +2352,16 @@ public final class Selection {
   }
 
   /**
-   * Returns the maximum of three <code>int</code> values.
+   * Returns the maximum of three {@code int} values.
    *
    * @param value1
-   *          a <code>int</code> value;
+   *          a {@code int} value;
    * @param value2
-   *          a <code>int</code> value;
+   *          a {@code int} value;
    * @param value3
-   *          a <code>int</code> value;
-   * @return the maximum of <code>value1</code>, <code>value2</code> and
-   *         <code>value3</code>. In case of ties, returns the one with the
+   *          a {@code int} value;
+   * @return the maximum of {@code value1}, {@code value2} and
+   *         {@code value3}. In case of ties, returns the one with the
    *         largest position.
    */
   public static int max(int value1, int value2, int value3) {
@@ -2380,15 +2379,15 @@ public final class Selection {
   }
 
   /**
-   * Returns the maximum value in a <code>int</code> array.
+   * Returns the maximum value in a {@code int} array.
    *
    * @param array
-   *          a <code>int</code> array, must not be <code>null</code>
+   *          a {@code int} array, must not be {@code null}
    *          nor empty.
    * @return the maximum value in the array. In case of ties, returns the
    *         one with the largest position.
    * @throws NullArgumentException
-   *           if <code>array</code> is <code>null</code> or empty.
+   *           if {@code array} is {@code null} or empty.
    */
   public static int max(int ... array) {
     if ((array == null) || (array.length == 0)) {
@@ -2397,7 +2396,7 @@ public final class Selection {
     int i = array.length - 1;
     int max = array[i];
     for (--i; i >= 0; --i) {
-      int element = array[i];
+      final int element = array[i];
       if (element > max) {
         max = element;
       }
@@ -2407,17 +2406,17 @@ public final class Selection {
 
 
   /**
-   * Returns the maximum of two <code>Integer</code> objects.
+   * Returns the maximum of two {@code Integer} objects.
    *
-   * Assume that null is the maximum value of <code>Integer</code> objects.
+   * Assume that null is the maximum value of {@code Integer} objects.
    *
    * @param value1
-   *          a <code>Integer</code> object, could be <code>null</code>.
+   *          a {@code Integer} object, could be {@code null}.
    * @param value2
-   *          a <code>Integer</code> object, could be <code>null</code>.
-   * @return the maximum of <code>value1</code> and <code>value2</code>. In case
+   *          a {@code Integer} object, could be {@code null}.
+   * @return the maximum of {@code value1} and {@code value2}. In case
    *         of ties, returns the one with the largest position. Note that the
-   *         returned value is either <code>null</code> or a reference to one of
+   *         returned value is either {@code null} or a reference to one of
    *         the arguments.
    */
   public static Integer max(Integer value1, Integer value2) {
@@ -2426,27 +2425,27 @@ public final class Selection {
     } else if (value2 == null) {
       return value1;
     } else {
-      int v1 = value1.intValue();
-      int v2 = value2.intValue();
+      final int v1 = value1.intValue();
+      final int v2 = value2.intValue();
       return (v1 <= v2 ? value2 : value1);
     }
   }
 
   /**
-   * Returns the maximum of three <code>Integer</code> objects.
+   * Returns the maximum of three {@code Integer} objects.
    *
-   * Assume that null is the maximum value of <code>Integer</code> objects.
+   * Assume that null is the maximum value of {@code Integer} objects.
    *
    * @param value1
-   *          a <code>Integer</code> object, could be <code>null</code>.
+   *          a {@code Integer} object, could be {@code null}.
    * @param value2
-   *          a <code>Integer</code> object, could be <code>null</code>.
+   *          a {@code Integer} object, could be {@code null}.
    * @param value3
-   *          a <code>Integer</code> object, could be <code>null</code>.
-   * @return the maximum of <code>value1</code>, <code>value2</code> and
-   *         <code>value3</code>. In case of ties, returns the one with the
+   *          a {@code Integer} object, could be {@code null}.
+   * @return the maximum of {@code value1}, {@code value2} and
+   *         {@code value3}. In case of ties, returns the one with the
    *         largest position. Note that the returned value is either
-   *         <code>null</code> or a reference to one of the arguments.
+   *         {@code null} or a reference to one of the arguments.
    */
   public static Integer max(Integer value1, Integer value2, Integer value3) {
     if (value1 == null) {
@@ -2456,9 +2455,9 @@ public final class Selection {
     } else if (value3 == null) {
       return max(value1, value2);
     } else {
-      int v1 = value1.intValue();
-      int v2 = value2.intValue();
-      int v3 = value3.intValue();
+      final int v1 = value1.intValue();
+      final int v2 = value2.intValue();
+      final int v3 = value3.intValue();
       if (v3 >= v2) {
         if (v3 >= v1) {
           return value3;
@@ -2474,19 +2473,19 @@ public final class Selection {
   }
 
   /**
-   * Returns the maximum object in a <code>Integer</code> array.
+   * Returns the maximum object in a {@code Integer} array.
    *
-   * Assume that null is the maximum value of <code>Integer</code> objects.
+   * Assume that null is the maximum value of {@code Integer} objects.
    *
    * @param array
-   *          a <code>Integer</code> array, must not be <code>null</code> nor
+   *          a {@code Integer} array, must not be {@code null} nor
    *          empty.
    * @return the maximum object in the array. In case of ties, returns the one
    *         with the largest position. Note that the returned value is either
-   *         <code>null</code> or a reference to one of elements in the
-   *         <code>array</code>.
+   *         {@code null} or a reference to one of elements in the
+   *         {@code array}.
    * @throws NullArgumentException
-   *           if <code>array</code> is <code>null</code> or empty.
+   *           if {@code array} is {@code null} or empty.
    */
   public static Integer max(Integer ... array) {
     if ((array == null) || (array.length == 0)) {
@@ -2505,9 +2504,9 @@ public final class Selection {
     int maxValue = max.intValue();
     // test the rest elements
     for (--i; i >= 0; --i) {
-      Integer element = array[i];
+      final Integer element = array[i];
       if (element != null) {
-        int value = element.intValue();
+        final int value = element.intValue();
         if (value > maxValue) {
           maxValue = value;
           max = element;
@@ -2518,13 +2517,13 @@ public final class Selection {
   }
 
   /**
-   * Returns the maximum of two <code>long</code> values.
+   * Returns the maximum of two {@code long} values.
    *
    * @param value1
-   *          a <code>long</code> value;
+   *          a {@code long} value;
    * @param value2
-   *          a <code>long</code> value;
-   * @return the maximum of <code>value1</code> and <code>value2</code>. In case
+   *          a {@code long} value;
+   * @return the maximum of {@code value1} and {@code value2}. In case
    *         of ties, returns the one with the largest position.
    */
   public static long max(long value1, long value2) {
@@ -2532,16 +2531,16 @@ public final class Selection {
   }
 
   /**
-   * Returns the maximum of three <code>long</code> values.
+   * Returns the maximum of three {@code long} values.
    *
    * @param value1
-   *          a <code>long</code> value;
+   *          a {@code long} value;
    * @param value2
-   *          a <code>long</code> value;
+   *          a {@code long} value;
    * @param value3
-   *          a <code>long</code> value;
-   * @return the maximum of <code>value1</code>, <code>value2</code> and
-   *         <code>value3</code>. In case of ties, returns the one with the
+   *          a {@code long} value;
+   * @return the maximum of {@code value1}, {@code value2} and
+   *         {@code value3}. In case of ties, returns the one with the
    *         largest position.
    */
   public static long max(long value1, long value2, long value3) {
@@ -2559,15 +2558,15 @@ public final class Selection {
   }
 
   /**
-   * Returns the maximum value in a <code>long</code> array.
+   * Returns the maximum value in a {@code long} array.
    *
    * @param array
-   *          a <code>long</code> array, must not be <code>null</code> nor
+   *          a {@code long} array, must not be {@code null} nor
    *          empty.
    * @return the maximum value in the array. In case of ties, returns the one
    *         with the largest position.
    * @throws NullArgumentException
-   *           if <code>array</code> is <code>null</code> or empty.
+   *           if {@code array} is {@code null} or empty.
    */
   public static long max(long ... array) {
     if ((array == null) || (array.length == 0)) {
@@ -2576,7 +2575,7 @@ public final class Selection {
     int i = array.length - 1;
     long max = array[i];
     for (--i; i >= 0; --i) {
-      long element = array[i];
+      final long element = array[i];
       if (element > max) {
         max = element;
       }
@@ -2586,17 +2585,17 @@ public final class Selection {
 
 
   /**
-   * Returns the maximum of two <code>Long</code> objects.
+   * Returns the maximum of two {@code Long} objects.
    *
-   * Assume that null is the maximum value of <code>Long</code> objects.
+   * Assume that null is the maximum value of {@code Long} objects.
    *
    * @param value1
-   *          a <code>Long</code> object, could be <code>null</code>.
+   *          a {@code Long} object, could be {@code null}.
    * @param value2
-   *          a <code>Long</code> object, could be <code>null</code>.
-   * @return the maximum of <code>value1</code> and <code>value2</code>. In case
+   *          a {@code Long} object, could be {@code null}.
+   * @return the maximum of {@code value1} and {@code value2}. In case
    *         of ties, returns the one with the largest position. Note that the
-   *         returned value is either <code>null</code> or a reference to one of
+   *         returned value is either {@code null} or a reference to one of
    *         the arguments.
    */
   public static Long max(Long value1, Long value2) {
@@ -2605,27 +2604,27 @@ public final class Selection {
     } else if (value2 == null) {
       return value1;
     } else {
-      long v1 = value1.longValue();
-      long v2 = value2.longValue();
+      final long v1 = value1.longValue();
+      final long v2 = value2.longValue();
       return (v1 <= v2 ? value2 : value1);
     }
   }
 
   /**
-   * Returns the maximum of three <code>Long</code> objects.
+   * Returns the maximum of three {@code Long} objects.
    *
-   * Assume that null is the maximum value of <code>Long</code> objects.
+   * Assume that null is the maximum value of {@code Long} objects.
    *
    * @param value1
-   *          a <code>Long</code> object, could be <code>null</code>.
+   *          a {@code Long} object, could be {@code null}.
    * @param value2
-   *          a <code>Long</code> object, could be <code>null</code>.
+   *          a {@code Long} object, could be {@code null}.
    * @param value3
-   *          a <code>Long</code> object, could be <code>null</code>.
-   * @return the maximum of <code>value1</code>, <code>value2</code> and
-   *         <code>value3</code>. In case of ties, returns the one with the
+   *          a {@code Long} object, could be {@code null}.
+   * @return the maximum of {@code value1}, {@code value2} and
+   *         {@code value3}. In case of ties, returns the one with the
    *         largest position. Note that the returned value is either
-   *         <code>null</code> or a reference to one of the arguments.
+   *         {@code null} or a reference to one of the arguments.
    */
   public static Long max(Long value1, Long value2, Long value3) {
     if (value1 == null) {
@@ -2635,9 +2634,9 @@ public final class Selection {
     } else if (value3 == null) {
       return max(value1, value2);
     } else {
-      long v1 = value1.longValue();
-      long v2 = value2.longValue();
-      long v3 = value3.longValue();
+      final long v1 = value1.longValue();
+      final long v2 = value2.longValue();
+      final long v3 = value3.longValue();
       if (v3 >= v2) {
         if (v3 >= v1) {
           return value3;
@@ -2653,19 +2652,19 @@ public final class Selection {
   }
 
   /**
-   * Returns the maximum object in a <code>Long</code> array.
+   * Returns the maximum object in a {@code Long} array.
    *
-   * Assume that null is the maximum value of <code>Long</code> objects.
+   * Assume that null is the maximum value of {@code Long} objects.
    *
    * @param array
-   *          a <code>Long</code> array, must not be <code>null</code> nor
+   *          a {@code Long} array, must not be {@code null} nor
    *          empty.
    * @return the maximum object in the array. In case of ties, returns the one
    *         with the largest position. Note that the returned value is either
-   *         <code>null</code> or a reference to one of elements in the
-   *         <code>array</code>.
+   *         {@code null} or a reference to one of elements in the
+   *         {@code array}.
    * @throws NullArgumentException
-   *           if <code>array</code> is <code>null</code> or empty.
+   *           if {@code array} is {@code null} or empty.
    */
   public static Long max(Long ... array) {
     if ((array == null) || (array.length == 0)) {
@@ -2684,9 +2683,9 @@ public final class Selection {
     long maxValue = max.longValue();
     // test the rest elements
     for (--i; i >= 0; --i) {
-      Long element = array[i];
+      final Long element = array[i];
       if (element != null) {
-        long value = element.longValue();
+        final long value = element.longValue();
         if (value > maxValue) {
           maxValue = value;
           max = element;
@@ -2697,13 +2696,13 @@ public final class Selection {
   }
 
   /**
-   * Returns the maximum of two <code>float</code> values.
+   * Returns the maximum of two {@code float} values.
    *
    * @param value1
-   *          a <code>float</code> value;
+   *          a {@code float} value;
    * @param value2
-   *          a <code>float</code> value;
-   * @return the maximum of <code>value1</code> and <code>value2</code>. In case
+   *          a {@code float} value;
+   * @return the maximum of {@code value1} and {@code value2}. In case
    *         of ties, returns the one with the largest position.
    */
   public static float max(float value1, float value2) {
@@ -2715,16 +2714,16 @@ public final class Selection {
   }
 
   /**
-   * Returns the maximum of three <code>float</code> values.
+   * Returns the maximum of three {@code float} values.
    *
    * @param value1
-   *          a <code>float</code> value;
+   *          a {@code float} value;
    * @param value2
-   *          a <code>float</code> value;
+   *          a {@code float} value;
    * @param value3
-   *          a <code>float</code> value;
-   * @return the maximum of <code>value1</code>, <code>value2</code> and
-   *         <code>value3</code>. In case of ties, returns the one with the
+   *          a {@code float} value;
+   * @return the maximum of {@code value1}, {@code value2} and
+   *         {@code value3}. In case of ties, returns the one with the
    *         largest position.
    */
   public static float max(float value1, float value2, float value3) {
@@ -2742,15 +2741,15 @@ public final class Selection {
   }
 
   /**
-   * Returns the maximum value in a <code>float</code> array.
+   * Returns the maximum value in a {@code float} array.
    *
    * @param array
-   *          a <code>float</code> array, must not be <code>null</code> nor
+   *          a {@code float} array, must not be {@code null} nor
    *          empty.
    * @return the maximum value in the array. In case of ties, returns the one
    *         with the largest position.
    * @throws NullArgumentException
-   *           if <code>array</code> is <code>null</code> or empty.
+   *           if {@code array} is {@code null} or empty.
    */
   public static float max(float ... array) {
     if ((array == null) || (array.length == 0)) {
@@ -2759,7 +2758,7 @@ public final class Selection {
     int i = array.length - 1;
     float max = array[i];
     for (--i; i >= 0; --i) {
-      float element = array[i];
+      final float element = array[i];
       if (Comparison.compare(element, max) > 0) {
         max = element;
       }
@@ -2769,17 +2768,17 @@ public final class Selection {
 
 
   /**
-   * Returns the maximum of two <code>Float</code> objects.
+   * Returns the maximum of two {@code Float} objects.
    *
-   * Assume that null is the maximum value of <code>Float</code> objects.
+   * Assume that null is the maximum value of {@code Float} objects.
    *
    * @param value1
-   *          a <code>Float</code> object, could be <code>null</code>.
+   *          a {@code Float} object, could be {@code null}.
    * @param value2
-   *          a <code>Float</code> object, could be <code>null</code>.
-   * @return the maximum of <code>value1</code> and <code>value2</code>. In case
+   *          a {@code Float} object, could be {@code null}.
+   * @return the maximum of {@code value1} and {@code value2}. In case
    *         of ties, returns the one with the largest position. Note that the
-   *         returned value is either <code>null</code> or a reference to one of
+   *         returned value is either {@code null} or a reference to one of
    *         the arguments.
    */
   public static Float max(Float value1, Float value2) {
@@ -2788,27 +2787,27 @@ public final class Selection {
     } else if (value2 == null) {
       return value1;
     } else {
-      float v1 = value1.floatValue();
-      float v2 = value2.floatValue();
+      final float v1 = value1.floatValue();
+      final float v2 = value2.floatValue();
       return (Comparison.compare(v1, v2) <= 0 ? value2 : value1);
     }
   }
 
   /**
-   * Returns the maximum of three <code>Float</code> objects.
+   * Returns the maximum of three {@code Float} objects.
    *
-   * Assume that null is the maximum value of <code>Float</code> objects.
+   * Assume that null is the maximum value of {@code Float} objects.
    *
    * @param value1
-   *          a <code>Float</code> object, could be <code>null</code>.
+   *          a {@code Float} object, could be {@code null}.
    * @param value2
-   *          a <code>Float</code> object, could be <code>null</code>.
+   *          a {@code Float} object, could be {@code null}.
    * @param value3
-   *          a <code>Float</code> object, could be <code>null</code>.
-   * @return the maximum of <code>value1</code>, <code>value2</code> and
-   *         <code>value3</code>. In case of ties, returns the one with the
+   *          a {@code Float} object, could be {@code null}.
+   * @return the maximum of {@code value1}, {@code value2} and
+   *         {@code value3}. In case of ties, returns the one with the
    *         largest position. Note that the returned value is either
-   *         <code>null</code> or a reference to one of the arguments.
+   *         {@code null} or a reference to one of the arguments.
    */
   public static Float max(Float value1, Float value2, Float value3) {
     if (value1 == null) {
@@ -2818,9 +2817,9 @@ public final class Selection {
     } else if (value3 == null) {
       return max(value1, value2);
     } else {
-      float v1 = value1.floatValue();
-      float v2 = value2.floatValue();
-      float v3 = value3.floatValue();
+      final float v1 = value1.floatValue();
+      final float v2 = value2.floatValue();
+      final float v3 = value3.floatValue();
       if (Comparison.compare(v3, v2) >= 0) {
         if (Comparison.compare(v3, v1) >= 0) {
           return value3;
@@ -2836,19 +2835,19 @@ public final class Selection {
   }
 
   /**
-   * Returns the maximum object in a <code>Float</code> array.
+   * Returns the maximum object in a {@code Float} array.
    *
-   * Assume that null is the maximum value of <code>Float</code> objects.
+   * Assume that null is the maximum value of {@code Float} objects.
    *
    * @param array
-   *          a <code>Float</code> array, must not be <code>null</code> nor
+   *          a {@code Float} array, must not be {@code null} nor
    *          empty.
    * @return the maximum object in the array. In case of ties, returns the one
    *         with the largest position. Note that the returned value is either
-   *         <code>null</code> or a reference to one of elements in the
-   *         <code>array</code>.
+   *         {@code null} or a reference to one of elements in the
+   *         {@code array}.
    * @throws NullArgumentException
-   *           if <code>array</code> is <code>null</code> or empty.
+   *           if {@code array} is {@code null} or empty.
    */
   public static Float max(Float ... array) {
     if ((array == null) || (array.length == 0)) {
@@ -2867,9 +2866,9 @@ public final class Selection {
     float maxValue = max.floatValue();
     // test the rest elements
     for (--i; i >= 0; --i) {
-      Float element = array[i];
+      final Float element = array[i];
       if (element != null) {
-        float value = element.floatValue();
+        final float value = element.floatValue();
         if (Comparison.compare(value, maxValue) > 0) {
           maxValue = value;
           max = element;
@@ -2880,13 +2879,13 @@ public final class Selection {
   }
 
   /**
-   * Returns the maximum of two <code>double</code> values.
+   * Returns the maximum of two {@code double} values.
    *
    * @param value1
-   *          a <code>double</code> value;
+   *          a {@code double} value;
    * @param value2
-   *          a <code>double</code> value;
-   * @return the maximum of <code>value1</code> and <code>value2</code>. In case
+   *          a {@code double} value;
+   * @return the maximum of {@code value1} and {@code value2}. In case
    *         of ties, returns the one with the largest position.
    */
   public static double max(double value1, double value2) {
@@ -2898,16 +2897,16 @@ public final class Selection {
   }
 
   /**
-   * Returns the maximum of three <code>double</code> values.
+   * Returns the maximum of three {@code double} values.
    *
    * @param value1
-   *          a <code>double</code> value;
+   *          a {@code double} value;
    * @param value2
-   *          a <code>double</code> value;
+   *          a {@code double} value;
    * @param value3
-   *          a <code>double</code> value;
-   * @return the maximum of <code>value1</code>, <code>value2</code> and
-   *         <code>value3</code>. In case of ties, returns the one with the
+   *          a {@code double} value;
+   * @return the maximum of {@code value1}, {@code value2} and
+   *         {@code value3}. In case of ties, returns the one with the
    *         largest position.
    */
   public static double max(double value1, double value2, double value3) {
@@ -2925,15 +2924,15 @@ public final class Selection {
   }
 
   /**
-   * Returns the maximum value in a <code>double</code> array.
+   * Returns the maximum value in a {@code double} array.
    *
    * @param array
-   *          a <code>double</code> array, must not be <code>null</code> nor
+   *          a {@code double} array, must not be {@code null} nor
    *          empty.
    * @return the maximum value in the array. In case of ties, returns the one
    *         with the largest position.
    * @throws NullArgumentException
-   *           if <code>array</code> is <code>null</code> or empty.
+   *           if {@code array} is {@code null} or empty.
    */
   public static double max(double ... array) {
     if ((array == null) || (array.length == 0)) {
@@ -2942,7 +2941,7 @@ public final class Selection {
     int i = array.length - 1;
     double max = array[i];
     for (--i; i >= 0; --i) {
-      double element = array[i];
+      final double element = array[i];
       if (Comparison.compare(element, max) > 0) {
         max = element;
       }
@@ -2952,17 +2951,17 @@ public final class Selection {
 
 
   /**
-   * Returns the maximum of two <code>Double</code> objects.
+   * Returns the maximum of two {@code Double} objects.
    *
-   * Assume that null is the maximum value of <code>Double</code> objects.
+   * Assume that null is the maximum value of {@code Double} objects.
    *
    * @param value1
-   *          a <code>Double</code> object, could be <code>null</code>.
+   *          a {@code Double} object, could be {@code null}.
    * @param value2
-   *          a <code>Double</code> object, could be <code>null</code>.
-   * @return the maximum of <code>value1</code> and <code>value2</code>. In case
+   *          a {@code Double} object, could be {@code null}.
+   * @return the maximum of {@code value1} and {@code value2}. In case
    *         of ties, returns the one with the largest position. Note that the
-   *         returned value is either <code>null</code> or a reference to one of
+   *         returned value is either {@code null} or a reference to one of
    *         the arguments.
    */
   public static Double max(Double value1, Double value2) {
@@ -2971,27 +2970,27 @@ public final class Selection {
     } else if (value2 == null) {
       return value1;
     } else {
-      double v1 = value1.doubleValue();
-      double v2 = value2.doubleValue();
+      final double v1 = value1.doubleValue();
+      final double v2 = value2.doubleValue();
       return (Comparison.compare(v1, v2) <= 0 ? value2 : value1);
     }
   }
 
   /**
-   * Returns the maximum of three <code>Double</code> objects.
+   * Returns the maximum of three {@code Double} objects.
    *
-   * Assume that null is the maximum value of <code>Double</code> objects.
+   * Assume that null is the maximum value of {@code Double} objects.
    *
    * @param value1
-   *          a <code>Double</code> object, could be <code>null</code>.
+   *          a {@code Double} object, could be {@code null}.
    * @param value2
-   *          a <code>Double</code> object, could be <code>null</code>.
+   *          a {@code Double} object, could be {@code null}.
    * @param value3
-   *          a <code>Double</code> object, could be <code>null</code>.
-   * @return the maximum of <code>value1</code>, <code>value2</code> and
-   *         <code>value3</code>. In case of ties, returns the one with the
+   *          a {@code Double} object, could be {@code null}.
+   * @return the maximum of {@code value1}, {@code value2} and
+   *         {@code value3}. In case of ties, returns the one with the
    *         largest position. Note that the returned value is either
-   *         <code>null</code> or a reference to one of the arguments.
+   *         {@code null} or a reference to one of the arguments.
    */
   public static Double max(Double value1, Double value2, Double value3) {
     if (value1 == null) {
@@ -3001,9 +3000,9 @@ public final class Selection {
     } else if (value3 == null) {
       return max(value1, value2);
     } else {
-      double v1 = value1.doubleValue();
-      double v2 = value2.doubleValue();
-      double v3 = value3.doubleValue();
+      final double v1 = value1.doubleValue();
+      final double v2 = value2.doubleValue();
+      final double v3 = value3.doubleValue();
       if (Comparison.compare(v3, v2) >= 0) {
         if (Comparison.compare(v3, v1) >= 0) {
           return value3;
@@ -3019,19 +3018,19 @@ public final class Selection {
   }
 
   /**
-   * Returns the maximum object in a <code>Double</code> array.
+   * Returns the maximum object in a {@code Double} array.
    *
-   * Assume that null is the maximum value of <code>Double</code> objects.
+   * Assume that null is the maximum value of {@code Double} objects.
    *
    * @param array
-   *          a <code>Double</code> array, must not be <code>null</code> nor
+   *          a {@code Double} array, must not be {@code null} nor
    *          empty.
    * @return the maximum object in the array. In case of ties, returns the one
    *         with the largest position. Note that the returned value is either
-   *         <code>null</code> or a reference to one of elements in the
-   *         <code>array</code>.
+   *         {@code null} or a reference to one of elements in the
+   *         {@code array}.
    * @throws NullArgumentException
-   *           if <code>array</code> is <code>null</code> or empty.
+   *           if {@code array} is {@code null} or empty.
    */
   public static Double max(Double ... array) {
     if ((array == null) || (array.length == 0)) {
@@ -3050,9 +3049,9 @@ public final class Selection {
     double maxValue = max.doubleValue();
     // test the rest elements
     for (--i; i >= 0; --i) {
-      Double element = array[i];
+      final Double element = array[i];
       if (element != null) {
-        double value = element.doubleValue();
+        final double value = element.doubleValue();
         if (Comparison.compare(value, maxValue) > 0) {
           maxValue = value;
           max = element;
@@ -3063,16 +3062,16 @@ public final class Selection {
   }
 
   /**
-   * Returns the maximum of two <code>String</code> objects.
+   * Returns the maximum of two {@code String} objects.
    *
-   * Assume that <code>null</code> is the maximum value of
-   * <code>String</code> objects.
+   * Assume that {@code null} is the maximum value of
+   * {@code String} objects.
    *
    * @param value1
-   *          a <code>String</code> object, could be <code>null</code>.
+   *          a {@code String} object, could be {@code null}.
    * @param value2
-   *          a <code>String</code> object, could be <code>null</code>.
-   * @return the maximum of <code>value1</code> and <code>value2</code>. In case
+   *          a {@code String} object, could be {@code null}.
+   * @return the maximum of {@code value1} and {@code value2}. In case
    *         of ties, returns the one with the largest position.
    */
   public static String max(String value1, String value2) {
@@ -3088,19 +3087,19 @@ public final class Selection {
   }
 
   /**
-   * Returns the maximum of three <code>String</code> objects.
+   * Returns the maximum of three {@code String} objects.
    *
-   * Assume that <code>null</code> is the maximum value of
-   *  <code>String</code> objects.
+   * Assume that {@code null} is the maximum value of
+   *  {@code String} objects.
    *
    * @param value1
-   *          a <code>String</code> object, could be <code>null</code>.
+   *          a {@code String} object, could be {@code null}.
    * @param value2
-   *          a <code>String</code> object, could be <code>null</code>.
+   *          a {@code String} object, could be {@code null}.
    * @param value3
-   *          a <code>String</code> object, could be <code>null</code>.
-   * @return the maximum of <code>value1</code>, <code>value2</code>
-   *         and <code>value3</code>. In case of ties, returns the
+   *          a {@code String} object, could be {@code null}.
+   * @return the maximum of {@code value1}, {@code value2}
+   *         and {@code value3}. In case of ties, returns the
    *         one with the largest position.
    */
   public static String max(String value1, String value2, String value3) {
@@ -3126,19 +3125,19 @@ public final class Selection {
   }
 
   /**
-   * Returns the maximum object in a <code>String</code> array.
+   * Returns the maximum object in a {@code String} array.
    *
-   * Assume that null is the maximum value of <code>String</code> objects.
+   * Assume that null is the maximum value of {@code String} objects.
    *
    * @param array
-   *          a <code>String</code> array, must not be <code>null</code> nor
+   *          a {@code String} array, must not be {@code null} nor
    *          empty.
    * @return the maximum object in the array. In case of ties, returns the one
    *         with the largest position. Note that the returned value is either
-   *         <code>null</code> or a reference to one of elements in the
-   *         <code>array</code>.
+   *         {@code null} or a reference to one of elements in the
+   *         {@code array}.
    * @throws NullArgumentException
-   *           if <code>array</code> is <code>null</code> or empty.
+   *           if {@code array} is {@code null} or empty.
    */
   public static String max(String ... array) {
     if ((array == null) || (array.length == 0)) {
@@ -3156,7 +3155,7 @@ public final class Selection {
     String max = array[i];
     // test the rest elements
     for (--i; i >= 0; --i) {
-      String element = array[i];
+      final String element = array[i];
       if (element != null) {
         if (element.compareTo(max) > 0) {
           max = element;
@@ -3168,18 +3167,18 @@ public final class Selection {
 
 
   /**
-   * Returns the maximum of two <code>Comparable</code> objects.
+   * Returns the maximum of two {@code Comparable} objects.
    *
-   * Assume that <code>null</code> is the maximum value.
+   * Assume that {@code null} is the maximum value.
    *
    * @param T
    *          any object type. Note that it could be type of arrays or
    *          multi-dimensional arrays.
    * @param value1
-   *          an object of class <code>T</code>, could be <code>null</code>.
+   *          an object of class {@code T}, could be {@code null}.
    * @param value2
-   *          an object of class <code>T</code>, could be <code>null</code>.
-   * @return the maximum of <code>value1</code> and <code>value2</code>. In case
+   *          an object of class {@code T}, could be {@code null}.
+   * @return the maximum of {@code value1} and {@code value2}. In case
    *         of ties, returns the one with the largest position.
    */
   public static <T> T max(T value1, T value2) {
@@ -3191,21 +3190,21 @@ public final class Selection {
   }
 
   /**
-   * Returns the maximum of three <code>Comparable</code> objects.
+   * Returns the maximum of three {@code Comparable} objects.
    *
-   * Assume that <code>null</code> is the maximum value.
+   * Assume that {@code null} is the maximum value.
    *
    * @param T
    *          any object type. Note that it could be type of arrays or
    *          multi-dimensional arrays.
    * @param value1
-   *          a object of class <code>T</code>, could be <code>null</code>.
+   *          a object of class {@code T}, could be {@code null}.
    * @param value2
-   *          a object of class <code>T</code>, could be <code>null</code>.
+   *          a object of class {@code T}, could be {@code null}.
    * @param value3
-   *          a object of class <code>T</code>, could be <code>null</code>.
-   * @return the maximum of <code>value1</code>, <code>value2</code>
-   *         and <code>value3</code>. In case of ties, returns the
+   *          a object of class {@code T}, could be {@code null}.
+   * @return the maximum of {@code value1}, {@code value2}
+   *         and {@code value3}. In case of ties, returns the
    *         one with the largest position.
    */
   public static <T> T max(T value1, T value2, T value3) {
@@ -3223,7 +3222,7 @@ public final class Selection {
   }
 
   /**
-   * Returns the maximum object in a <code>Comparable</code> array.
+   * Returns the maximum object in a {@code Comparable} array.
    *
    * Assume that null is the maximum value .
    *
@@ -3231,14 +3230,14 @@ public final class Selection {
    *          any object type. Note that it could be type of arrays or
    *          multi-dimensional arrays.
    * @param array
-   *          a array of class <code>T</code>, must not be <code>null</code> nor
+   *          a array of class {@code T}, must not be {@code null} nor
    *          empty.
    * @return the maximum object in the array. In case of ties, returns the one
    *         with the largest position. Note that the returned value is either
-   *         <code>null</code> or a reference to one of elements in the
-   *         <code>array</code>.
+   *         {@code null} or a reference to one of elements in the
+   *         {@code array}.
    * @throws NullArgumentException
-   *           if <code>array</code> is <code>null</code> or empty.
+   *           if {@code array} is {@code null} or empty.
    */
   public static <T> T max(T ... array) {
     if ((array == null) || (array.length == 0)) {
@@ -3256,7 +3255,7 @@ public final class Selection {
     T max = array[i];
     // test the rest elements
     for (--i; i >= 0; --i) {
-      T element = array[i];
+      final T element = array[i];
       if (element != null) {
         if (Comparison.compare(element, max) > 0) {
           max = element;
@@ -3267,7 +3266,7 @@ public final class Selection {
   }
 
   /**
-   * Returns the maximum object in a <code>Comparable</code> <code>Iterable</code>
+   * Returns the maximum object in a {@code Comparable} {@code Iterable}
    * object.
    *
    * Assume that null is the maximum value.
@@ -3276,20 +3275,20 @@ public final class Selection {
    *          any object type. Note that it could be type of arrays or
    *          multi-dimensional arrays.
    * @param iterable
-   *          an <code>Iterable</code> of values of class <code>T</code>, must not be
-   *          <code>null</code> nor empty.
+   *          an {@code Iterable} of values of class {@code T}, must not be
+   *          {@code null} nor empty.
    * @return the maximum object in the list.In case of ties, returns the one
    *         with the largest position. Note that the returned value is either
-   *         <code>null</code> or a reference to one of elements in the
-   *         <code>iterable</code>.
+   *         {@code null} or a reference to one of elements in the
+   *         {@code iterable}.
    * @throws NullArgumentException
-   *           if <code>iterable</code> is <code>null</code> or empty.
+   *           if {@code iterable} is {@code null} or empty.
    */
   public static <T> T max(Iterable<T> iterable) {
     if (iterable == null) {
       throw new NullArgumentException();
     }
-    Iterator<T> iter = iterable.iterator();
+    final Iterator<T> iter = iterable.iterator();
     if (! iter.hasNext()) {
       throw new NullArgumentException();
     }
@@ -3303,7 +3302,7 @@ public final class Selection {
       return null;
     }
     while (iter.hasNext()) {
-      T element = iter.next();
+      final T element = iter.next();
       if (element != null) {
         if (Comparison.compare(element, max) > 0) {
           max = element;

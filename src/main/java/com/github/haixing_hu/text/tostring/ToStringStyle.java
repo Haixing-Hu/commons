@@ -36,9 +36,9 @@ import com.github.haixing_hu.lang.SystemUtils;
 import com.github.haixing_hu.util.config.Config;
 
 /**
- * Controls <code>String</code> formatting for {@link ToStringBuilder}.
+ * Controls {@code String} formatting for {@link ToStringBuilder}.
  * <p>
- * These classes are intended to be used as <code>Singletons</code>. There is no
+ * These classes are intended to be used as {@code Singletons}. There is no
  * need to instantiate a new style each time. A program will generally use one
  * of the predefined constants on this class. Alternatively, the
  * {@link StandardToStringStyle} class can be used to set the individual
@@ -46,8 +46,8 @@ import com.github.haixing_hu.util.config.Config;
  * </p>
  * <p>
  * If required, a subclass can override as many or as few of the methods as it
- * requires. Each object type (from <code>boolean</code> to <code>long</code> to
- * <code>Object</code> to <code>int[]</code>) has its own methods to output it.
+ * requires. Each object type (from {@code boolean} to {@code long} to
+ * {@code Object} to {@code int[]}) has its own methods to output it.
  * Most have two versions, detail and summary.
  * </p>
  * <p>
@@ -148,9 +148,9 @@ public class ToStringStyle implements Serializable {
    * System.out.println(a.toString());
    * </pre>
    * <p>
-   * Note that the <code>a.toString()</code> will call <code>a.obj.toString()</code>,
-   * that is, <code>b.toString()</code> , and <code>b.toString()</code> will call
-   * <code>b.obj.toString()</code> , that is, <code>a.toString()</code> , then a
+   * Note that the {@code a.toString()} will call {@code a.obj.toString()},
+   * that is, {@code b.toString()} , and {@code b.toString()} will call
+   * {@code b.obj.toString()} , that is, {@code a.toString()} , then a
    * infinity loop occurs. In order to prevent this situation, we have to remember
    * all the object currently calling the ToStringBuildermethods in the current thread.
    * </p>
@@ -193,37 +193,37 @@ public class ToStringStyle implements Serializable {
   }
 
   /**
-   * Whether to use the field names, the default is <code>true</code>.
+   * Whether to use the field names, the default is {@code true}.
    */
   private boolean useFieldNames = true;
 
   /**
-   * Whether to use the class name, the default is <code>true</code>.
+   * Whether to use the class name, the default is {@code true}.
    */
   private boolean useClassName = true;
 
   /**
-   * Whether to use short class names, the default is <code>false</code>.
+   * Whether to use short class names, the default is {@code false}.
    */
   private boolean useShortClassName = false;
 
   /**
-   * Whether to use the identity hash code, the default is <code>true</code>.
+   * Whether to use the identity hash code, the default is {@code true}.
    */
   private boolean useIdentityHashCode = true;
 
   /**
-   * The content start <code>'['</code>.
+   * The content start {@code '['}.
    */
   private String contentStart = "[";
 
   /**
-   * The content end <code>']'</code>.
+   * The content end {@code ']'}.
    */
   private String contentEnd = "]";
 
   /**
-   * The field name value separator <code>'='</code>.
+   * The field name value separator {@code '='}.
    */
   private String fieldNameValueSeparator = "=";
 
@@ -238,17 +238,17 @@ public class ToStringStyle implements Serializable {
   private boolean fieldSeparatorAtEnd = false;
 
   /**
-   * The field separator <code>','</code>.
+   * The field separator {@code ','}.
    */
   private String fieldSeparator = ",";
 
   /**
-   * The array start <code>'{'</code>.
+   * The array start {@code '{'}.
    */
   private String arrayStart = "{";
 
   /**
-   * The array separator <code>','</code>.
+   * The array separator {@code ','}.
    */
   private String arraySeparator = ",";
 
@@ -258,18 +258,18 @@ public class ToStringStyle implements Serializable {
   private boolean arrayContentDetail = true;
 
   /**
-   * The array end <code>'}'</code>.
+   * The array end {@code '}'}.
    */
   private String arrayEnd = "}";
 
   /**
-   * The value to use when fullDetail is <code>null</code>, the default value is
-   * <code>true</code>.
+   * The value to use when fullDetail is {@code null}, the default value is
+   * {@code true}.
    */
   private boolean defaultFullDetail = true;
 
   /**
-   * The <code>null</code> text <code>'&lt;null&gt;'</code>.
+   * The {@code null} text {@code '&lt;null&gt;'}.
    */
   private String nullText = "<null>";
 
@@ -279,17 +279,17 @@ public class ToStringStyle implements Serializable {
   private String sizeStartText = "<size=";
 
   /**
-   * The summary size text start <code>'&gt;'</code>.
+   * The summary size text start {@code '&gt;'}.
    */
   private String sizeEndText = ">";
 
   /**
-   * The summary object text start <code>'&lt;'</code>.
+   * The summary object text start {@code '&lt;'}.
    */
   private String summaryObjectStartText = "<";
 
   /**
-   * The summary object text start <code>'&gt;'</code>.
+   * The summary object text start {@code '&gt;'}.
    */
   private String summaryObjectEndText = ">";
 
@@ -299,14 +299,14 @@ public class ToStringStyle implements Serializable {
   protected ToStringStyle() {}
 
   /**
-   * Append to the <code>toString</code> the superclass toString. NOTE: It
+   * Append to the {@code toString} the superclass toString. NOTE: It
    * assumes that the toString has been created from the same ToStringStyle. A
-   * <code>null</code> <code>superToString</code> is ignored.
+   * {@code null} {@code superToString} is ignored.
    *
    * @param builder
-   *          the <code>StringBuilder</code> to populate
+   *          the {@code StringBuilder} to populate
    * @param superToString
-   *          the <code>super.toString()</code>
+   *          the {@code super.toString()}
    */
   public void appendSuper(final StringBuilder builder,
       final String superToString) {
@@ -326,16 +326,16 @@ public class ToStringStyle implements Serializable {
   }
 
   /**
-   * Append to the <code>toString</code> another toString. NOTE: It assumes that
+   * Append to the {@code toString} another toString. NOTE: It assumes that
    * the toString has been created from the same ToStringStyle. A
-   * <code>null</code> <code>toString</code> is ignored.
+   * {@code null} {@code toString} is ignored.
    *
    * @param builder
-   *          the <code>StringBuilder</code> to populate
+   *          the {@code StringBuilder} to populate
    * @param fieldName
    *          the field name.
    * @param toString
-   *          the additional <code>toString</code>
+   *          the additional {@code toString}
    */
   public void appendToString(final StringBuilder builder,
       final String fieldName, final String toString) {
@@ -365,12 +365,12 @@ public class ToStringStyle implements Serializable {
   }
 
   /**
-   * Append to the <code>toString</code> the start of data indicator.
+   * Append to the {@code toString} the start of data indicator.
    *
    * @param builder
-   *          the <code>StringBuilder</code> to populate
+   *          the {@code StringBuilder} to populate
    * @param object
-   *          the <code>Object</code> to build a <code>toString</code> for
+   *          the {@code Object} to build a {@code toString} for
    */
   public void appendStart(final StringBuilder builder, final Object object) {
     if (object != null) {
@@ -385,12 +385,12 @@ public class ToStringStyle implements Serializable {
   }
 
   /**
-   * Append to the <code>toString</code> the end of data indicator.
+   * Append to the {@code toString} the end of data indicator.
    *
    * @param builder
-   *          the <code>StringBuilder</code> to populate
+   *          the {@code StringBuilder} to populate
    * @param object
-   *          the <code>Object</code> to build a <code>toString</code> for.
+   *          the {@code Object} to build a {@code toString} for.
    */
   public void appendEnd(final StringBuilder builder, final Object object) {
     if (fieldSeparatorAtEnd == false) {
@@ -404,7 +404,7 @@ public class ToStringStyle implements Serializable {
    * Remove the last field separator from the buffer.
    *
    * @param builder
-   *          the <code>StringBuilder</code> to populate
+   *          the {@code StringBuilder} to populate
    */
   protected void removeLastFieldSeparator(final StringBuilder builder) {
     final int len = builder.length();
@@ -424,18 +424,18 @@ public class ToStringStyle implements Serializable {
   }
 
   /**
-   * Append to the <code>toString</code> an <code>Object</code> value, printing
-   * the full <code>toString</code> of the <code>Object</code> passed in.
+   * Append to the {@code toString} an {@code Object} value, printing
+   * the full {@code toString} of the {@code Object} passed in.
    *
    * @param builder
-   *          the <code>StringBuilder</code> to populate
+   *          the {@code StringBuilder} to populate
    * @param fieldName
    *          the field name
    * @param value
-   *          the value to add to the <code>toString</code>
+   *          the value to add to the {@code toString}
    * @param fullDetail
-   *          <code>true</code> for detail, <code>false</code> for summary info,
-   *          <code>null</code> for style decides
+   *          {@code true} for detail, {@code false} for summary info,
+   *          {@code null} for style decides
    */
   public void append(final StringBuilder builder, final String fieldName,
       final Object value, final Boolean fullDetail) {
@@ -449,20 +449,20 @@ public class ToStringStyle implements Serializable {
   }
 
   /**
-   * Append to the <code>toString</code> an <code>Object</code>, correctly
+   * Append to the {@code toString} an {@code Object}, correctly
    * interpreting its type. This method performs the main lookup by Class type
-   * to correctly route arrays, <code>Collections</code>, <code>Maps</code> and
-   * <code>Objects</code> to the appropriate method. Either detail or summary
+   * to correctly route arrays, {@code Collections}, {@code Maps} and
+   * {@code Objects} to the appropriate method. Either detail or summary
    * views can be specified. If a cycle is detected, an object will be appended
-   * with the <code>Object.toString()</code> format.
+   * with the {@code Object.toString()} format.
    *
    * @param builder
-   *          the <code>StringBuilder</code> to populate
+   *          the {@code StringBuilder} to populate
    * @param fieldName
    *          the field name, typically not used as already appended
    * @param value
-   *          the value to add to the <code>toString</code>, not
-   *          <code>null</code>
+   *          the value to add to the {@code toString}, not
+   *          {@code null}
    * @param detail
    *          output detail or not
    */
@@ -563,17 +563,17 @@ public class ToStringStyle implements Serializable {
   }
 
   /**
-   * Append to the <code>toString</code> an <code>Object</code> value that has
+   * Append to the {@code toString} an {@code Object} value that has
    * been detected to participate in a cycle. This implementation will print the
    * standard string value of the value.
    *
    * @param builder
-   *          the <code>StringBuilder</code> to populate
+   *          the {@code StringBuilder} to populate
    * @param fieldName
    *          the field name, typically not used as already appended
    * @param value
-   *          the value to add to the <code>toString</code>, not
-   *          <code>null</code>
+   *          the value to add to the {@code toString}, not
+   *          {@code null}
    */
   protected void appendCyclicObject(final StringBuilder builder,
       final String fieldName, final Object value) {
@@ -581,16 +581,16 @@ public class ToStringStyle implements Serializable {
   }
 
   /**
-   * Append to the <code>toString</code> an <code>Object</code> value, printing
-   * the full detail of the <code>Object</code>.
+   * Append to the {@code toString} an {@code Object} value, printing
+   * the full detail of the {@code Object}.
    *
    * @param builder
-   *          the <code>StringBuilder</code> to populate
+   *          the {@code StringBuilder} to populate
    * @param fieldName
    *          the field name, typically not used as already appended
    * @param value
-   *          the value to add to the <code>toString</code>, not
-   *          <code>null</code>
+   *          the value to add to the {@code toString}, not
+   *          {@code null}
    */
   protected void appendDetail(final StringBuilder builder,
       final String fieldName, final Object value) {
@@ -605,15 +605,15 @@ public class ToStringStyle implements Serializable {
   }
 
   /**
-   * Append to the <code>toString</code> a <code>Collection</code>.
+   * Append to the {@code toString} a {@code Collection}.
    *
    * @param builder
-   *          the <code>StringBuilder</code> to populate
+   *          the {@code StringBuilder} to populate
    * @param fieldName
    *          the field name, typically not used as already appended
    * @param coll
-   *          the <code>Collection</code> to add to the <code>toString</code>,
-   *          not <code>null</code>
+   *          the {@code Collection} to add to the {@code toString},
+   *          not {@code null}
    */
   protected void appendDetail(final StringBuilder builder,
       final String fieldName, final Collection<?> coll) {
@@ -621,15 +621,15 @@ public class ToStringStyle implements Serializable {
   }
 
   /**
-   * Append to the <code>toString</code> a <code>Map<code>.
+   * Append to the {@code toString} a <code>Map<code>.
    *
    * @param builder
-   *          the <code>StringBuilder</code> to populate
+   *          the {@code StringBuilder} to populate
    * @param fieldName
    *          the field name, typically not used as already appended
    * @param map
-   *          the <code>Map</code> to add to the <code>toString</code>, not
-   *          <code>null</code>
+   *          the {@code Map} to add to the {@code toString}, not
+   *          {@code null}
    */
   protected void appendDetail(final StringBuilder builder,
       final String fieldName, final Map<?, ?> map) {
@@ -637,16 +637,16 @@ public class ToStringStyle implements Serializable {
   }
 
   /**
-   * Append to the <code>toString</code> an <code>Object</code> value, printing
-   * a summary of the <code>Object</code>.
+   * Append to the {@code toString} an {@code Object} value, printing
+   * a summary of the {@code Object}.
    *
    * @param builder
-   *          the <code>StringBuilder</code> to populate
+   *          the {@code StringBuilder} to populate
    * @param fieldName
    *          the field name, typically not used as already appended
    * @param value
-   *          the value to add to the <code>toString</code>, not
-   *          <code>null</code>
+   *          the value to add to the {@code toString}, not
+   *          {@code null}
    */
   protected void appendSummary(final StringBuilder builder,
       final String fieldName, final Object value) {
@@ -656,14 +656,14 @@ public class ToStringStyle implements Serializable {
   }
 
   /**
-   * Append to the <code>toString</code> a <code>long</code> value.
+   * Append to the {@code toString} a {@code long} value.
    *
    * @param builder
-   *          the <code>StringBuilder</code> to populate
+   *          the {@code StringBuilder} to populate
    * @param fieldName
    *          the field name
    * @param value
-   *          the value to add to the <code>toString</code>
+   *          the value to add to the {@code toString}
    */
   public void append(final StringBuilder builder, final String fieldName,
       final long value) {
@@ -673,14 +673,14 @@ public class ToStringStyle implements Serializable {
   }
 
   /**
-   * Append to the <code>toString</code> a <code>long</code> value.
+   * Append to the {@code toString} a {@code long} value.
    *
    * @param builder
-   *          the <code>StringBuilder</code> to populate
+   *          the {@code StringBuilder} to populate
    * @param fieldName
    *          the field name, typically not used as already appended
    * @param value
-   *          the value to add to the <code>toString</code>
+   *          the value to add to the {@code toString}
    */
   protected void appendDetail(final StringBuilder builder,
       final String fieldName, final long value) {
@@ -688,14 +688,14 @@ public class ToStringStyle implements Serializable {
   }
 
   /**
-   * Append to the <code>toString</code> an <code>int</code> value.
+   * Append to the {@code toString} an {@code int} value.
    *
    * @param builder
-   *          the <code>StringBuilder</code> to populate
+   *          the {@code StringBuilder} to populate
    * @param fieldName
    *          the field name
    * @param value
-   *          the value to add to the <code>toString</code>
+   *          the value to add to the {@code toString}
    */
   public void append(final StringBuilder builder, final String fieldName,
       final int value) {
@@ -705,14 +705,14 @@ public class ToStringStyle implements Serializable {
   }
 
   /**
-   * Append to the <code>toString</code> an <code>int</code> value.
+   * Append to the {@code toString} an {@code int} value.
    *
    * @param builder
-   *          the <code>StringBuilder</code> to populate
+   *          the {@code StringBuilder} to populate
    * @param fieldName
    *          the field name, typically not used as already appended
    * @param value
-   *          the value to add to the <code>toString</code>
+   *          the value to add to the {@code toString}
    */
   protected void appendDetail(final StringBuilder builder,
       final String fieldName, final int value) {
@@ -720,14 +720,14 @@ public class ToStringStyle implements Serializable {
   }
 
   /**
-   * Append to the <code>toString</code> a <code>short</code> value.
+   * Append to the {@code toString} a {@code short} value.
    *
    * @param builder
-   *          the <code>StringBuilder</code> to populate
+   *          the {@code StringBuilder} to populate
    * @param fieldName
    *          the field name
    * @param value
-   *          the value to add to the <code>toString</code>
+   *          the value to add to the {@code toString}
    */
   public void append(final StringBuilder builder, final String fieldName,
       final short value) {
@@ -737,14 +737,14 @@ public class ToStringStyle implements Serializable {
   }
 
   /**
-   * Append to the <code>toString</code> a <code>short</code> value.
+   * Append to the {@code toString} a {@code short} value.
    *
    * @param builder
-   *          the <code>StringBuilder</code> to populate
+   *          the {@code StringBuilder} to populate
    * @param fieldName
    *          the field name, typically not used as already appended
    * @param value
-   *          the value to add to the <code>toString</code>
+   *          the value to add to the {@code toString}
    */
   protected void appendDetail(final StringBuilder builder,
       final String fieldName, final short value) {
@@ -754,14 +754,14 @@ public class ToStringStyle implements Serializable {
   // ----------------------------------------------------------------------------
 
   /**
-   * Append to the <code>toString</code> a <code>byte</code> value.
+   * Append to the {@code toString} a {@code byte} value.
    *
    * @param builder
-   *          the <code>StringBuilder</code> to populate
+   *          the {@code StringBuilder} to populate
    * @param fieldName
    *          the field name
    * @param value
-   *          the value to add to the <code>toString</code>
+   *          the value to add to the {@code toString}
    */
   public void append(final StringBuilder builder, final String fieldName,
       final byte value) {
@@ -771,14 +771,14 @@ public class ToStringStyle implements Serializable {
   }
 
   /**
-   * Append to the <code>toString</code> a <code>byte</code> value.
+   * Append to the {@code toString} a {@code byte} value.
    *
    * @param builder
-   *          the <code>StringBuilder</code> to populate
+   *          the {@code StringBuilder} to populate
    * @param fieldName
    *          the field name, typically not used as already appended
    * @param value
-   *          the value to add to the <code>toString</code>
+   *          the value to add to the {@code toString}
    */
   protected void appendDetail(final StringBuilder builder,
       final String fieldName, final byte value) {
@@ -786,14 +786,14 @@ public class ToStringStyle implements Serializable {
   }
 
   /**
-   * Append to the <code>toString</code> a <code>char</code> value.
+   * Append to the {@code toString} a {@code char} value.
    *
    * @param builder
-   *          the <code>StringBuilder</code> to populate
+   *          the {@code StringBuilder} to populate
    * @param fieldName
    *          the field name
    * @param value
-   *          the value to add to the <code>toString</code>
+   *          the value to add to the {@code toString}
    */
   public void append(final StringBuilder builder, final String fieldName,
       final char value) {
@@ -803,14 +803,14 @@ public class ToStringStyle implements Serializable {
   }
 
   /**
-   * Append to the <code>toString</code> a <code>char</code> value.
+   * Append to the {@code toString} a {@code char} value.
    *
    * @param builder
-   *          the <code>StringBuilder</code> to populate
+   *          the {@code StringBuilder} to populate
    * @param fieldName
    *          the field name, typically not used as already appended
    * @param value
-   *          the value to add to the <code>toString</code>
+   *          the value to add to the {@code toString}
    */
   protected void appendDetail(final StringBuilder builder,
       final String fieldName, final char value) {
@@ -818,14 +818,14 @@ public class ToStringStyle implements Serializable {
   }
 
   /**
-   * Append to the <code>toString</code> a <code>double</code> value.
+   * Append to the {@code toString} a {@code double} value.
    *
    * @param builder
-   *          the <code>StringBuilder</code> to populate
+   *          the {@code StringBuilder} to populate
    * @param fieldName
    *          the field name
    * @param value
-   *          the value to add to the <code>toString</code>
+   *          the value to add to the {@code toString}
    */
   public void append(final StringBuilder builder, final String fieldName,
       final double value) {
@@ -835,14 +835,14 @@ public class ToStringStyle implements Serializable {
   }
 
   /**
-   * Append to the <code>toString</code> a <code>double</code> value.
+   * Append to the {@code toString} a {@code double} value.
    *
    * @param builder
-   *          the <code>StringBuilder</code> to populate
+   *          the {@code StringBuilder} to populate
    * @param fieldName
    *          the field name, typically not used as already appended
    * @param value
-   *          the value to add to the <code>toString</code>
+   *          the value to add to the {@code toString}
    */
   protected void appendDetail(final StringBuilder builder,
       final String fieldName, final double value) {
@@ -850,14 +850,14 @@ public class ToStringStyle implements Serializable {
   }
 
   /**
-   * Append to the <code>toString</code> a <code>float</code> value.
+   * Append to the {@code toString} a {@code float} value.
    *
    * @param builder
-   *          the <code>StringBuilder</code> to populate
+   *          the {@code StringBuilder} to populate
    * @param fieldName
    *          the field name
    * @param value
-   *          the value to add to the <code>toString</code>
+   *          the value to add to the {@code toString}
    */
   public void append(final StringBuilder builder, final String fieldName,
       final float value) {
@@ -867,14 +867,14 @@ public class ToStringStyle implements Serializable {
   }
 
   /**
-   * Append to the <code>toString</code> a <code>float</code> value.
+   * Append to the {@code toString} a {@code float} value.
    *
    * @param builder
-   *          the <code>StringBuilder</code> to populate
+   *          the {@code StringBuilder} to populate
    * @param fieldName
    *          the field name, typically not used as already appended
    * @param value
-   *          the value to add to the <code>toString</code>
+   *          the value to add to the {@code toString}
    */
   protected void appendDetail(final StringBuilder builder,
       final String fieldName, final float value) {
@@ -882,14 +882,14 @@ public class ToStringStyle implements Serializable {
   }
 
   /**
-   * Append to the <code>toString</code> a <code>boolean</code> value.
+   * Append to the {@code toString} a {@code boolean} value.
    *
    * @param builder
-   *          the <code>StringBuilder</code> to populate
+   *          the {@code StringBuilder} to populate
    * @param fieldName
    *          the field name
    * @param value
-   *          the value to add to the <code>toString</code>
+   *          the value to add to the {@code toString}
    */
   public void append(final StringBuilder builder, final String fieldName,
       final boolean value) {
@@ -899,14 +899,14 @@ public class ToStringStyle implements Serializable {
   }
 
   /**
-   * Append to the <code>toString</code> a <code>boolean</code> value.
+   * Append to the {@code toString} a {@code boolean} value.
    *
    * @param builder
-   *          the <code>StringBuilder</code> to populate
+   *          the {@code StringBuilder} to populate
    * @param fieldName
    *          the field name, typically not used as already appended
    * @param value
-   *          the value to add to the <code>toString</code>
+   *          the value to add to the {@code toString}
    */
   protected void appendDetail(final StringBuilder builder,
       final String fieldName, final boolean value) {
@@ -914,17 +914,17 @@ public class ToStringStyle implements Serializable {
   }
 
   /**
-   * Append to the <code>toString</code> an <code>Object</code> array.
+   * Append to the {@code toString} an {@code Object} array.
    *
    * @param builder
-   *          the <code>StringBuilder</code> to populate
+   *          the {@code StringBuilder} to populate
    * @param fieldName
    *          the field name
    * @param array
    *          the array to add to the toString
    * @param fullDetail
-   *          <code>true</code> for detail, <code>false</code> for summary info,
-   *          <code>null</code> for style decides
+   *          {@code true} for detail, {@code false} for summary info,
+   *          {@code null} for style decides
    */
   public void append(final StringBuilder builder, final String fieldName,
       final Object[] array, final Boolean fullDetail) {
@@ -940,16 +940,16 @@ public class ToStringStyle implements Serializable {
   }
 
   /**
-   * Append to the <code>toString</code> the detail of an <code>Object</code>
+   * Append to the {@code toString} the detail of an {@code Object}
    * array.
    *
    * @param builder
-   *          the <code>StringBuilder</code> to populate
+   *          the {@code StringBuilder} to populate
    * @param fieldName
    *          the field name, typically not used as already appended
    * @param array
-   *          the array to add to the <code>toString</code>, not
-   *          <code>null</code>
+   *          the array to add to the {@code toString}, not
+   *          {@code null}
    */
   protected void appendDetail(final StringBuilder builder,
       final String fieldName, final Object[] array) {
@@ -969,15 +969,15 @@ public class ToStringStyle implements Serializable {
   }
 
   /**
-   * Append to the <code>toString</code> the detail of an array type.
+   * Append to the {@code toString} the detail of an array type.
    *
    * @param builder
-   *          the <code>StringBuilder</code> to populate
+   *          the {@code StringBuilder} to populate
    * @param fieldName
    *          the field name, typically not used as already appended
    * @param array
-   *          the array to add to the <code>toString</code>, not
-   *          <code>null</code>
+   *          the array to add to the {@code toString}, not
+   *          {@code null}
    * @since 2.0
    */
   protected void reflectionAppendArrayDetail(final StringBuilder builder,
@@ -999,16 +999,16 @@ public class ToStringStyle implements Serializable {
   }
 
   /**
-   * Append to the <code>toString</code> a summary of an <code>Object</code>
+   * Append to the {@code toString} a summary of an {@code Object}
    * array.
    *
    * @param builder
-   *          the <code>StringBuilder</code> to populate
+   *          the {@code StringBuilder} to populate
    * @param fieldName
    *          the field name, typically not used as already appended
    * @param array
-   *          the array to add to the <code>toString</code>, not
-   *          <code>null</code>
+   *          the array to add to the {@code toString}, not
+   *          {@code null}
    */
   protected void appendSummary(final StringBuilder builder,
       final String fieldName, final Object[] array) {
@@ -1016,17 +1016,17 @@ public class ToStringStyle implements Serializable {
   }
 
   /**
-   * Append to the <code>toString</code> a <code>long</code> array.
+   * Append to the {@code toString} a {@code long} array.
    *
    * @param builder
-   *          the <code>StringBuilder</code> to populate
+   *          the {@code StringBuilder} to populate
    * @param fieldName
    *          the field name
    * @param array
-   *          the array to add to the <code>toString</code>
+   *          the array to add to the {@code toString}
    * @param fullDetail
-   *          <code>true</code> for detail, <code>false</code> for summary info,
-   *          <code>null</code> for style decides
+   *          {@code true} for detail, {@code false} for summary info,
+   *          {@code null} for style decides
    */
   public void append(final StringBuilder builder, final String fieldName,
       final long[] array, final Boolean fullDetail) {
@@ -1042,16 +1042,16 @@ public class ToStringStyle implements Serializable {
   }
 
   /**
-   * Append to the <code>toString</code> the detail of a <code>long</code>
+   * Append to the {@code toString} the detail of a {@code long}
    * array.
    *
    * @param builder
-   *          the <code>StringBuilder</code> to populate
+   *          the {@code StringBuilder} to populate
    * @param fieldName
    *          the field name, typically not used as already appended
    * @param array
-   *          the array to add to the <code>toString</code>, not
-   *          <code>null</code>
+   *          the array to add to the {@code toString}, not
+   *          {@code null}
    */
   protected void appendDetail(final StringBuilder builder,
       final String fieldName, final long[] array) {
@@ -1066,15 +1066,15 @@ public class ToStringStyle implements Serializable {
   }
 
   /**
-   * Append to the <code>toString</code> a summary of a <code>long</code> array.
+   * Append to the {@code toString} a summary of a {@code long} array.
    *
    * @param builder
-   *          the <code>StringBuilder</code> to populate
+   *          the {@code StringBuilder} to populate
    * @param fieldName
    *          the field name, typically not used as already appended
    * @param array
-   *          the array to add to the <code>toString</code>, not
-   *          <code>null</code>
+   *          the array to add to the {@code toString}, not
+   *          {@code null}
    */
   protected void appendSummary(final StringBuilder builder,
       final String fieldName, final long[] array) {
@@ -1082,17 +1082,17 @@ public class ToStringStyle implements Serializable {
   }
 
   /**
-   * Append to the <code>toString</code> an <code>int</code> array.
+   * Append to the {@code toString} an {@code int} array.
    *
    * @param builder
-   *          the <code>StringBuilder</code> to populate
+   *          the {@code StringBuilder} to populate
    * @param fieldName
    *          the field name
    * @param array
-   *          the array to add to the <code>toString</code>
+   *          the array to add to the {@code toString}
    * @param fullDetail
-   *          <code>true</code> for detail, <code>false</code> for summary info,
-   *          <code>null</code> for style decides
+   *          {@code true} for detail, {@code false} for summary info,
+   *          {@code null} for style decides
    */
   public void append(final StringBuilder builder, final String fieldName,
       final int[] array, final Boolean fullDetail) {
@@ -1108,16 +1108,16 @@ public class ToStringStyle implements Serializable {
   }
 
   /**
-   * Append to the <code>toString</code> the detail of an <code>int</code>
+   * Append to the {@code toString} the detail of an {@code int}
    * array.
    *
    * @param builder
-   *          the <code>StringBuilder</code> to populate
+   *          the {@code StringBuilder} to populate
    * @param fieldName
    *          the field name, typically not used as already appended
    * @param array
-   *          the array to add to the <code>toString</code>, not
-   *          <code>null</code>
+   *          the array to add to the {@code toString}, not
+   *          {@code null}
    */
   protected void appendDetail(final StringBuilder builder,
       final String fieldName, final int[] array) {
@@ -1132,15 +1132,15 @@ public class ToStringStyle implements Serializable {
   }
 
   /**
-   * Append to the <code>toString</code> a summary of an <code>int</code> array.
+   * Append to the {@code toString} a summary of an {@code int} array.
    *
    * @param builder
-   *          the <code>StringBuilder</code> to populate
+   *          the {@code StringBuilder} to populate
    * @param fieldName
    *          the field name, typically not used as already appended
    * @param array
-   *          the array to add to the <code>toString</code>, not
-   *          <code>null</code>
+   *          the array to add to the {@code toString}, not
+   *          {@code null}
    */
   protected void appendSummary(final StringBuilder builder,
       final String fieldName, final int[] array) {
@@ -1148,17 +1148,17 @@ public class ToStringStyle implements Serializable {
   }
 
   /**
-   * Append to the <code>toString</code> a <code>short</code> array.
+   * Append to the {@code toString} a {@code short} array.
    *
    * @param builder
-   *          the <code>StringBuilder</code> to populate
+   *          the {@code StringBuilder} to populate
    * @param fieldName
    *          the field name
    * @param array
-   *          the array to add to the <code>toString</code>
+   *          the array to add to the {@code toString}
    * @param fullDetail
-   *          <code>true</code> for detail, <code>false</code> for summary info,
-   *          <code>null</code> for style decides
+   *          {@code true} for detail, {@code false} for summary info,
+   *          {@code null} for style decides
    */
   public void append(final StringBuilder builder, final String fieldName,
       final short[] array, final Boolean fullDetail) {
@@ -1174,16 +1174,16 @@ public class ToStringStyle implements Serializable {
   }
 
   /**
-   * Append to the <code>toString</code> the detail of a <code>short</code>
+   * Append to the {@code toString} the detail of a {@code short}
    * array.
    *
    * @param builder
-   *          the <code>StringBuilder</code> to populate
+   *          the {@code StringBuilder} to populate
    * @param fieldName
    *          the field name, typically not used as already appended
    * @param array
-   *          the array to add to the <code>toString</code>, not
-   *          <code>null</code>
+   *          the array to add to the {@code toString}, not
+   *          {@code null}
    */
   protected void appendDetail(final StringBuilder builder,
       final String fieldName, final short[] array) {
@@ -1198,16 +1198,16 @@ public class ToStringStyle implements Serializable {
   }
 
   /**
-   * Append to the <code>toString</code> a summary of a <code>short</code>
+   * Append to the {@code toString} a summary of a {@code short}
    * array.
    *
    * @param builder
-   *          the <code>StringBuilder</code> to populate
+   *          the {@code StringBuilder} to populate
    * @param fieldName
    *          the field name, typically not used as already appended
    * @param array
-   *          the array to add to the <code>toString</code>, not
-   *          <code>null</code>
+   *          the array to add to the {@code toString}, not
+   *          {@code null}
    */
   protected void appendSummary(final StringBuilder builder,
       final String fieldName, final short[] array) {
@@ -1215,17 +1215,17 @@ public class ToStringStyle implements Serializable {
   }
 
   /**
-   * Append to the <code>toString</code> a <code>byte</code> array.
+   * Append to the {@code toString} a {@code byte} array.
    *
    * @param builder
-   *          the <code>StringBuilder</code> to populate
+   *          the {@code StringBuilder} to populate
    * @param fieldName
    *          the field name
    * @param array
-   *          the array to add to the <code>toString</code>
+   *          the array to add to the {@code toString}
    * @param fullDetail
-   *          <code>true</code> for detail, <code>false</code> for summary info,
-   *          <code>null</code> for style decides
+   *          {@code true} for detail, {@code false} for summary info,
+   *          {@code null} for style decides
    */
   public void append(final StringBuilder builder, final String fieldName,
       final byte[] array, final Boolean fullDetail) {
@@ -1241,16 +1241,16 @@ public class ToStringStyle implements Serializable {
   }
 
   /**
-   * Append to the <code>toString</code> the detail of a <code>byte</code>
+   * Append to the {@code toString} the detail of a {@code byte}
    * array.
    *
    * @param builder
-   *          the <code>StringBuilder</code> to populate
+   *          the {@code StringBuilder} to populate
    * @param fieldName
    *          the field name, typically not used as already appended
    * @param array
-   *          the array to add to the <code>toString</code>, not
-   *          <code>null</code>
+   *          the array to add to the {@code toString}, not
+   *          {@code null}
    */
   protected void appendDetail(final StringBuilder builder,
       final String fieldName, final byte[] array) {
@@ -1265,15 +1265,15 @@ public class ToStringStyle implements Serializable {
   }
 
   /**
-   * Append to the <code>toString</code> a summary of a <code>byte</code> array.
+   * Append to the {@code toString} a summary of a {@code byte} array.
    *
    * @param builder
-   *          the <code>StringBuilder</code> to populate
+   *          the {@code StringBuilder} to populate
    * @param fieldName
    *          the field name, typically not used as already appended
    * @param array
-   *          the array to add to the <code>toString</code>, not
-   *          <code>null</code>
+   *          the array to add to the {@code toString}, not
+   *          {@code null}
    */
   protected void appendSummary(final StringBuilder builder,
       final String fieldName, final byte[] array) {
@@ -1281,17 +1281,17 @@ public class ToStringStyle implements Serializable {
   }
 
   /**
-   * Append to the <code>toString</code> a <code>char</code> array.
+   * Append to the {@code toString} a {@code char} array.
    *
    * @param builder
-   *          the <code>StringBuilder</code> to populate
+   *          the {@code StringBuilder} to populate
    * @param fieldName
    *          the field name
    * @param array
-   *          the array to add to the <code>toString</code>
+   *          the array to add to the {@code toString}
    * @param fullDetail
-   *          <code>true</code> for detail, <code>false</code> for summary info,
-   *          <code>null</code> for style decides
+   *          {@code true} for detail, {@code false} for summary info,
+   *          {@code null} for style decides
    */
   public void append(final StringBuilder builder, final String fieldName,
       final char[] array, final Boolean fullDetail) {
@@ -1307,16 +1307,16 @@ public class ToStringStyle implements Serializable {
   }
 
   /**
-   * Append to the <code>toString</code> the detail of a <code>char</code>
+   * Append to the {@code toString} the detail of a {@code char}
    * array.
    *
    * @param builder
-   *          the <code>StringBuilder</code> to populate
+   *          the {@code StringBuilder} to populate
    * @param fieldName
    *          the field name, typically not used as already appended
    * @param array
-   *          the array to add to the <code>toString</code>, not
-   *          <code>null</code>
+   *          the array to add to the {@code toString}, not
+   *          {@code null}
    */
   protected void appendDetail(final StringBuilder builder,
       final String fieldName, final char[] array) {
@@ -1331,15 +1331,15 @@ public class ToStringStyle implements Serializable {
   }
 
   /**
-   * Append to the <code>toString</code> a summary of a <code>char</code> array.
+   * Append to the {@code toString} a summary of a {@code char} array.
    *
    * @param builder
-   *          the <code>StringBuilder</code> to populate
+   *          the {@code StringBuilder} to populate
    * @param fieldName
    *          the field name, typically not used as already appended
    * @param array
-   *          the array to add to the <code>toString</code>, not
-   *          <code>null</code>
+   *          the array to add to the {@code toString}, not
+   *          {@code null}
    */
   protected void appendSummary(final StringBuilder builder,
       final String fieldName, final char[] array) {
@@ -1347,17 +1347,17 @@ public class ToStringStyle implements Serializable {
   }
 
   /**
-   * Append to the <code>toString</code> a <code>double</code> array.
+   * Append to the {@code toString} a {@code double} array.
    *
    * @param builder
-   *          the <code>StringBuilder</code> to populate
+   *          the {@code StringBuilder} to populate
    * @param fieldName
    *          the field name
    * @param array
    *          the array to add to the toString
    * @param fullDetail
-   *          <code>true</code> for detail, <code>false</code> for summary info,
-   *          <code>null</code> for style decides
+   *          {@code true} for detail, {@code false} for summary info,
+   *          {@code null} for style decides
    */
   public void append(final StringBuilder builder, final String fieldName,
       final double[] array, final Boolean fullDetail) {
@@ -1373,16 +1373,16 @@ public class ToStringStyle implements Serializable {
   }
 
   /**
-   * Append to the <code>toString</code> the detail of a <code>double</code>
+   * Append to the {@code toString} the detail of a {@code double}
    * array.
    *
    * @param builder
-   *          the <code>StringBuilder</code> to populate
+   *          the {@code StringBuilder} to populate
    * @param fieldName
    *          the field name, typically not used as already appended
    * @param array
-   *          the array to add to the <code>toString</code>, not
-   *          <code>null</code>
+   *          the array to add to the {@code toString}, not
+   *          {@code null}
    */
   protected void appendDetail(final StringBuilder builder,
       final String fieldName, final double[] array) {
@@ -1397,16 +1397,16 @@ public class ToStringStyle implements Serializable {
   }
 
   /**
-   * Append to the <code>toString</code> a summary of a <code>double</code>
+   * Append to the {@code toString} a summary of a {@code double}
    * array.
    *
    * @param builder
-   *          the <code>StringBuilder</code> to populate
+   *          the {@code StringBuilder} to populate
    * @param fieldName
    *          the field name, typically not used as already appended
    * @param array
-   *          the array to add to the <code>toString</code>, not
-   *          <code>null</code>
+   *          the array to add to the {@code toString}, not
+   *          {@code null}
    */
   protected void appendSummary(final StringBuilder builder,
       final String fieldName, final double[] array) {
@@ -1414,17 +1414,17 @@ public class ToStringStyle implements Serializable {
   }
 
   /**
-   * Append to the <code>toString</code> a <code>float</code> array.
+   * Append to the {@code toString} a {@code float} array.
    *
    * @param builder
-   *          the <code>StringBuilder</code> to populate
+   *          the {@code StringBuilder} to populate
    * @param fieldName
    *          the field name
    * @param array
    *          the array to add to the toString
    * @param fullDetail
-   *          <code>true</code> for detail, <code>false</code> for summary info,
-   *          <code>null</code> for style decides
+   *          {@code true} for detail, {@code false} for summary info,
+   *          {@code null} for style decides
    */
   public void append(final StringBuilder builder, final String fieldName,
       final float[] array, final Boolean fullDetail) {
@@ -1440,16 +1440,16 @@ public class ToStringStyle implements Serializable {
   }
 
   /**
-   * Append to the <code>toString</code> the detail of a <code>float</code>
+   * Append to the {@code toString} the detail of a {@code float}
    * array.
    *
    * @param builder
-   *          the <code>StringBuilder</code> to populate
+   *          the {@code StringBuilder} to populate
    * @param fieldName
    *          the field name, typically not used as already appended
    * @param array
-   *          the array to add to the <code>toString</code>, not
-   *          <code>null</code>
+   *          the array to add to the {@code toString}, not
+   *          {@code null}
    */
   protected void appendDetail(final StringBuilder builder,
       final String fieldName, final float[] array) {
@@ -1464,16 +1464,16 @@ public class ToStringStyle implements Serializable {
   }
 
   /**
-   * Append to the <code>toString</code> a summary of a <code>float</code>
+   * Append to the {@code toString} a summary of a {@code float}
    * array.
    *
    * @param builder
-   *          the <code>StringBuilder</code> to populate
+   *          the {@code StringBuilder} to populate
    * @param fieldName
    *          the field name, typically not used as already appended
    * @param array
-   *          the array to add to the <code>toString</code>, not
-   *          <code>null</code>
+   *          the array to add to the {@code toString}, not
+   *          {@code null}
    */
   protected void appendSummary(final StringBuilder builder,
       final String fieldName, final float[] array) {
@@ -1481,17 +1481,17 @@ public class ToStringStyle implements Serializable {
   }
 
   /**
-   * Append to the <code>toString</code> a <code>boolean</code> array.
+   * Append to the {@code toString} a {@code boolean} array.
    *
    * @param builder
-   *          the <code>StringBuilder</code> to populate
+   *          the {@code StringBuilder} to populate
    * @param fieldName
    *          the field name
    * @param array
    *          the array to add to the toString
    * @param fullDetail
-   *          <code>true</code> for detail, <code>false</code> for summary info,
-   *          <code>null</code> for style decides
+   *          {@code true} for detail, {@code false} for summary info,
+   *          {@code null} for style decides
    */
   public void append(final StringBuilder builder, final String fieldName,
       final boolean[] array, final Boolean fullDetail) {
@@ -1507,16 +1507,16 @@ public class ToStringStyle implements Serializable {
   }
 
   /**
-   * Append to the <code>toString</code> the detail of a <code>boolean</code>
+   * Append to the {@code toString} the detail of a {@code boolean}
    * array.
    *
    * @param builder
-   *          the <code>StringBuilder</code> to populate
+   *          the {@code StringBuilder} to populate
    * @param fieldName
    *          the field name, typically not used as already appended
    * @param array
-   *          the array to add to the <code>toString</code>, not
-   *          <code>null</code>
+   *          the array to add to the {@code toString}, not
+   *          {@code null}
    */
   protected void appendDetail(final StringBuilder builder,
       final String fieldName, final boolean[] array) {
@@ -1531,16 +1531,16 @@ public class ToStringStyle implements Serializable {
   }
 
   /**
-   * Append to the <code>toString</code> a summary of a <code>boolean</code>
+   * Append to the {@code toString} a summary of a {@code boolean}
    * array.
    *
    * @param builder
-   *          the <code>StringBuilder</code> to populate
+   *          the {@code StringBuilder} to populate
    * @param fieldName
    *          the field name, typically not used as already appended
    * @param array
-   *          the array to add to the <code>toString</code>, not
-   *          <code>null</code>
+   *          the array to add to the {@code toString}, not
+   *          {@code null}
    */
   protected void appendSummary(final StringBuilder builder,
       final String fieldName, final boolean[] array) {
@@ -1548,12 +1548,12 @@ public class ToStringStyle implements Serializable {
   }
 
   /**
-   * Append to the <code>toString</code> the class name.
+   * Append to the {@code toString} the class name.
    *
    * @param builder
-   *          the <code>StringBuilder</code> to populate
+   *          the {@code StringBuilder} to populate
    * @param object
-   *          the <code>Object</code> whose name to output
+   *          the {@code Object} whose name to output
    */
   protected void appendClassName(final StringBuilder builder,
       final Object object) {
@@ -1570,9 +1570,9 @@ public class ToStringStyle implements Serializable {
    * Append the {@link SystemUtils#identityHashCode(java.lang.Object)}.
    *
    * @param builder
-   *          the <code>StringBuilder</code> to populate
+   *          the {@code StringBuilder} to populate
    * @param object
-   *          the <code>Object</code> whose id to output
+   *          the {@code Object} whose id to output
    */
   protected void appendIdentityHashCode(final StringBuilder builder,
       final Object object) {
@@ -1583,31 +1583,31 @@ public class ToStringStyle implements Serializable {
   }
 
   /**
-   * Append to the <code>toString</code> the content start.
+   * Append to the {@code toString} the content start.
    *
    * @param builder
-   *          the <code>StringBuilder</code> to populate
+   *          the {@code StringBuilder} to populate
    */
   protected void appendContentStart(final StringBuilder builder) {
     builder.append(contentStart);
   }
 
   /**
-   * Append to the <code>toString</code> the content end.
+   * Append to the {@code toString} the content end.
    *
    * @param builder
-   *          the <code>StringBuilder</code> to populate
+   *          the {@code StringBuilder} to populate
    */
   protected void appendContentEnd(final StringBuilder builder) {
     builder.append(contentEnd);
   }
 
   /**
-   * Append to the <code>toString</code> an indicator for <code>null</code>. The
-   * default indicator is <code>'&lt;null&gt;'</code>.
+   * Append to the {@code toString} an indicator for {@code null}. The
+   * default indicator is {@code '&lt;null&gt;'}.
    *
    * @param builder
-   *          the <code>StringBuilder</code> to populate
+   *          the {@code StringBuilder} to populate
    * @param fieldName
    *          the field name, typically not used as already appended
    */
@@ -1617,20 +1617,20 @@ public class ToStringStyle implements Serializable {
   }
 
   /**
-   * Append to the <code>toString</code> the field separator.
+   * Append to the {@code toString} the field separator.
    *
    * @param builder
-   *          the <code>StringBuilder</code> to populate
+   *          the {@code StringBuilder} to populate
    */
   protected void appendFieldSeparator(final StringBuilder builder) {
     builder.append(fieldSeparator);
   }
 
   /**
-   * Append to the <code>toString</code> the field start.
+   * Append to the {@code toString} the field start.
    *
    * @param builder
-   *          the <code>StringBuilder</code> to populate
+   *          the {@code StringBuilder} to populate
    * @param fieldName
    *          the field name
    */
@@ -1646,7 +1646,7 @@ public class ToStringStyle implements Serializable {
    * Append to the <code>toString<code> the field end.
    *
    * @param builder
-   *          the <code>StringBuilder</code> to populate
+   *          the {@code StringBuilder} to populate
    * @param fieldName
    *          the field name, typically not used as already appended
    */
@@ -1656,13 +1656,13 @@ public class ToStringStyle implements Serializable {
   }
 
   /**
-   * Append to the <code>toString</code> a size summary. The size summary is
-   * used to summarize the contents of <code>Collections</code>,
-   * <code>Maps</code> and arrays. The output consists of a prefix, the passed
+   * Append to the {@code toString} a size summary. The size summary is
+   * used to summarize the contents of {@code Collections},
+   * {@code Maps} and arrays. The output consists of a prefix, the passed
    * in size and a suffix. The default format is <code>'&lt;size=n&gt;'<code>.
    *
    * @param builder
-   *          the <code>StringBuilder</code> to populate
+   *          the {@code StringBuilder} to populate
    * @param fieldName
    *          the field name, typically not used as already appended
    * @param size
@@ -1678,8 +1678,8 @@ public class ToStringStyle implements Serializable {
   /**
    * Is this field to be output in full detail. This method converts a detail
    * request into a detail level. The calling code may request full detail (
-   * <code>true</code>), but a subclass might ignore that and always return
-   * <code>false</code>. The calling code may pass in <code>null</code>
+   * {@code true}), but a subclass might ignore that and always return
+   * {@code false}. The calling code may pass in {@code null}
    * indicating that it doesn't care about the detail level. In this case the
    * default detail level is used.
    *
@@ -1823,7 +1823,7 @@ public class ToStringStyle implements Serializable {
   }
 
   /**
-   * Sets the array start text. <code>null</code> is accepted, but will be
+   * Sets the array start text. {@code null} is accepted, but will be
    * converted to an empty String.
    *
    * @param arrayStart
@@ -1846,7 +1846,7 @@ public class ToStringStyle implements Serializable {
   }
 
   /**
-   * Sets the array end text. <code>null</code> is accepted, but will be
+   * Sets the array end text. {@code null} is accepted, but will be
    * converted to an empty String.
    *
    * @param arrayEnd
@@ -1869,7 +1869,7 @@ public class ToStringStyle implements Serializable {
   }
 
   /**
-   * Sets the array separator text. <code>null</code> is accepted, but will be
+   * Sets the array separator text. {@code null} is accepted, but will be
    * converted to an empty String.
    *
    * @param arraySeparator
@@ -1892,7 +1892,7 @@ public class ToStringStyle implements Serializable {
   }
 
   /**
-   * Sets the content start text. <code>null</code> is accepted, but will be
+   * Sets the content start text. {@code null} is accepted, but will be
    * converted to an empty String.
    *
    * @param contentStart
@@ -1915,7 +1915,7 @@ public class ToStringStyle implements Serializable {
   }
 
   /**
-   * Sets the content end text. <code>null</code> is accepted, but will be
+   * Sets the content end text. {@code null} is accepted, but will be
    * converted to an empty String.
    *
    * @param contentEnd
@@ -1938,7 +1938,7 @@ public class ToStringStyle implements Serializable {
   }
 
   /**
-   * Sets the field name value separator text. <code>null</code> is accepted,
+   * Sets the field name value separator text. {@code null} is accepted,
    * but will be converted to an empty String.
    *
    * @param fieldNameValueSeparator
@@ -1961,7 +1961,7 @@ public class ToStringStyle implements Serializable {
   }
 
   /**
-   * Sets the field separator text. <code>null</code> is accepted, but will be
+   * Sets the field separator text. {@code null} is accepted, but will be
    * converted to an empty String.
    *
    * @param fieldSeparator
@@ -2015,7 +2015,7 @@ public class ToStringStyle implements Serializable {
   }
 
   /**
-   * Gets the text to output when <code>null</code> found.
+   * Gets the text to output when {@code null} found.
    *
    * @return the current text to output when null found
    */
@@ -2024,7 +2024,7 @@ public class ToStringStyle implements Serializable {
   }
 
   /**
-   * Sets the text to output when <code>null</code> found. <code>null</code> is
+   * Sets the text to output when {@code null} found. {@code null} is
    * accepted, but will be converted to an empty String.
    *
    * @param nullText
@@ -2038,8 +2038,8 @@ public class ToStringStyle implements Serializable {
   }
 
   /**
-   * Gets the start text to output when a <code>Collection</code>,
-   * <code>Map</code> or array size is output. This is output before the size
+   * Gets the start text to output when a {@code Collection},
+   * {@code Map} or array size is output. This is output before the size
    * value.
    *
    * @return the current start of size text
@@ -2049,9 +2049,9 @@ public class ToStringStyle implements Serializable {
   }
 
   /**
-   * Sets the start text to output when a <code>Collection</code>,
-   * <code>Map</code> or array size is output. This is output before the size
-   * value. <code>null</code> is accepted, but will be converted to an empty
+   * Sets the start text to output when a {@code Collection},
+   * {@code Map} or array size is output. This is output before the size
+   * value. {@code null} is accepted, but will be converted to an empty
    * String.
    *
    * @param sizeStartText
@@ -2065,8 +2065,8 @@ public class ToStringStyle implements Serializable {
   }
 
   /**
-   * Gets the end text to output when a <code>Collection</code>,
-   * <code>Map</code> or array size is output. This is output after the size
+   * Gets the end text to output when a {@code Collection},
+   * {@code Map} or array size is output. This is output after the size
    * value.
    *
    * @return the current end of size text
@@ -2076,9 +2076,9 @@ public class ToStringStyle implements Serializable {
   }
 
   /**
-   * Sets the end text to output when a <code>Collection</code>,
-   * <code>Map</code> or array size is output. This is output after the size
-   * value. <code>null</code> is accepted, but will be converted to an empty
+   * Sets the end text to output when a {@code Collection},
+   * {@code Map} or array size is output. This is output after the size
+   * value. {@code null} is accepted, but will be converted to an empty
    * String.
    *
    * @param sizeEndText
@@ -2092,7 +2092,7 @@ public class ToStringStyle implements Serializable {
   }
 
   /**
-   * Gets the start text to output when an <code>Object</code> is output in
+   * Gets the start text to output when an {@code Object} is output in
    * summary mode. This is output before the size value.
    *
    * @return the current start of summary text
@@ -2102,8 +2102,8 @@ public class ToStringStyle implements Serializable {
   }
 
   /**
-   * Sets the start text to output when an <code>Object</code> is output in
-   * summary mode. This is output before the size value. <code>null</code> is
+   * Sets the start text to output when an {@code Object} is output in
+   * summary mode. This is output before the size value. {@code null} is
    * accepted, but will be converted to an empty String.
    *
    * @param summaryObjectStartText
@@ -2117,7 +2117,7 @@ public class ToStringStyle implements Serializable {
   }
 
   /**
-   * Gets the end text to output when an <code>Object</code> is output in
+   * Gets the end text to output when an {@code Object} is output in
    * summary mode. This is output after the size value.
    *
    * @return the current end of summary text
@@ -2127,8 +2127,8 @@ public class ToStringStyle implements Serializable {
   }
 
   /**
-   * Sets the end text to output when an <code>Object</code> is output in
-   * summary mode. This is output after the size value. <code>null</code> is
+   * Sets the end text to output when an {@code Object} is output in
+   * summary mode. This is output after the size value. {@code null} is
    * accepted, but will be converted to an empty String.
    *
    * @param summaryObjectEndText

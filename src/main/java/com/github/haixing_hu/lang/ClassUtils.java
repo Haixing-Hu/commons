@@ -36,8 +36,8 @@ import static com.github.haixing_hu.lang.StringUtils.removeChar;
 /**
  * This class provides operations on {@link Class} objects.
  * <p>
- * This class tries to handle <code>null</code> input gracefully. An exception
- * will not be thrown for a <code>null</code> input. Each method documents its
+ * This class tries to handle {@code null} input gracefully. An exception
+ * will not be thrown for a {@code null} input. Each method documents its
  * behavior in more detail.
  * </p>
  * <p>
@@ -59,36 +59,36 @@ public final class ClassUtils {
   public static final Class<?> DEFAULT = null;
 
   /**
-   * The package separator character: <code>'&#x2e;' == {@value}</code>.
+   * The package separator character: {@code '&#x2e;' == {@value}}.
    *
    * @since 1.0.0
    */
   public static final char PACKAGE_SEPARATOR_CHAR = '.';
 
   /**
-   * The package separator String: <code>"&#x2e;"</code>.
+   * The package separator String: {@code "&#x2e;"}.
    *
    * @since 1.0.0
    */
   public static final String PACKAGE_SEPARATOR = ".";
 
   /**
-   * The inner class separator character: <code>'$' == {@value}</code>.
+   * The inner class separator character: {@code '$' == {@value}}.
    *
    * @since 1.0.0
    */
   public static final char INNER_CLASS_SEPARATOR_CHAR = '$';
 
   /**
-   * The inner class separator String: <code>"$"</code>.
+   * The inner class separator String: {@code "$"}.
    *
    * @since 1.0.0
    */
   public static final String INNER_CLASS_SEPARATOR = "$";
 
   /**
-   * Maps primitive <code>Class</code>es to their corresponding wrapper
-   * <code>Class</code>.
+   * Maps primitive {@code Class}es to their corresponding wrapper
+   * {@code Class}.
    *
    * @since 1.0.0
    */
@@ -107,7 +107,7 @@ public final class ClassUtils {
   }
 
   /**
-   * Maps wrapper <code>Class</code>es to their corresponding primitive types.
+   * Maps wrapper {@code Class}es to their corresponding primitive types.
    *
    * @since 1.0.0
    */
@@ -182,30 +182,30 @@ public final class ClassUtils {
    * <p>
    * Unlike the {@link Class#isAssignableFrom(java.lang.Class)} method, this
    * method takes into account widenings of primitive classes and
-   * <code>null</code>s.
+   * {@code null}s.
    * <p>
-   * Primitive widenings allow an int to be assigned to a <code>long</code>,
-   * <code>float</code> or <code>double</code>. This method returns the correct
+   * Primitive widenings allow an int to be assigned to a {@code long},
+   * {@code float} or {@code double}. This method returns the correct
    * result for these cases.
    * <p>
-   * <code>Null</code> may be assigned to any reference type. This method will
-   * return <code>true</code> if <code>null</code> is passed in and the toClass
+   * {@code Null} may be assigned to any reference type. This method will
+   * return {@code true} if {@code null} is passed in and the toClass
    * is non-primitive.
    * <p>
    * Specifically, this method tests whether the type represented by the
-   * specified <code>Class</code> parameter can be converted to the type
-   * represented by this <code>Class</code> object via an identity conversion
+   * specified {@code Class} parameter can be converted to the type
+   * represented by this {@code Class} object via an identity conversion
    * widening primitive or widening reference conversion. See
    * <em><a href="http://java.sun.com/docs/books/jls/">The Java Language Specification</a></em>
    * , sections 5.1.1, 5.1.2 and 5.1.4 for details.
    * </p>
    *
    * @param classArray
-   *          the array of Classes to check, may be <code>null</code>.
+   *          the array of Classes to check, may be {@code null}.
    * @param toClassArray
    *          the array of Classes to try to assign into, may be
-   *          <code>null</code>.
-   * @return <code>true</code> if assignment possible.
+   *          {@code null}.
+   * @return {@code true} if assignment possible.
    * @since 1.0.0
    */
   public static boolean isAssignable(Class<?>[] classArray,
@@ -228,23 +228,23 @@ public final class ClassUtils {
   }
 
   /**
-   * Checks if one <code>Class</code> can be assigned to a variable of another
-   * <code>Class</code>.
+   * Checks if one {@code Class} can be assigned to a variable of another
+   * {@code Class}.
    * <p>
    * Unlike the {@link Class#isAssignableFrom(java.lang.Class)} method, this
    * method takes into account widening of primitive classes and
-   * <code>null</code>s.
+   * {@code null}s.
    * <p>
    * Primitive widening allow an int to be assigned to a long, float or double.
    * This method returns the correct result for these cases.
    * <p>
-   * <code>Null</code> may be assigned to any reference type. This method will
-   * return <code>true</code> if <code>null</code> is passed in and the toClass
+   * {@code Null} may be assigned to any reference type. This method will
+   * return {@code true} if {@code null} is passed in and the toClass
    * is non-primitive.
    * <p>
    * Specifically, this method tests whether the type represented by the
-   * specified <code>cls</code> parameter can be converted to the type
-   * represented by the <code>toClass</code> parameter via an identity conversion
+   * specified {@code cls} parameter can be converted to the type
+   * represented by the {@code toClass} parameter via an identity conversion
    * widening primitive or widening reference conversion. See
    * <em><a href="http://java.sun.com/docs/books/jls/">The Java Language Specification</a></em>
    * , sections 5.1.1, 5.1.2 and 5.1.4 for details.
@@ -253,7 +253,7 @@ public final class ClassUtils {
    *          the Class to check, may be null.
    * @param toClass
    *          the Class to try to assign into, returns false if null.
-   * @return <code>true</code> if assignment possible.
+   * @return {@code true} if assignment possible.
    * @since 1.0.0
    */
   public static boolean isAssignable(Class<?> cls, Class<?> toClass) {
@@ -326,8 +326,8 @@ public final class ClassUtils {
    *
    * @param cls
    *          the class to check, may be null.
-   * @return <code>true</code> if the class is an inner or static nested class,
-   *         false if not or <code>null</code>.
+   * @return {@code true} if the class is an inner or static nested class,
+   *         false if not or {@code null}.
    * @since 1.0.0
    */
   public static boolean isInnerClass(final Class<?> cls) {
@@ -338,18 +338,18 @@ public final class ClassUtils {
   }
 
   /**
-   * Given a <code>List</code> of class names, this method converts them into
+   * Given a {@code List} of class names, this method converts them into
    * classes.
    * <p>
-   * A new <code>List</code> is returned. If the class name cannot be found,
-   * <code>null</code> is stored in the <code>List</code>. If the class name in
-   * the <code>List</code> is <code>null</code>, <code>null</code> is stored in
-   * the output <code>List</code>.
+   * A new {@code List} is returned. If the class name cannot be found,
+   * {@code null} is stored in the {@code List}. If the class name in
+   * the {@code List} is {@code null}, {@code null} is stored in
+   * the output {@code List}.
    *
    * @param classNames
    *          the classNames to change.
-   * @return a <code>List</code> of Class objects corresponding to the class
-   *         names, <code>null</code> if null input.
+   * @return a {@code List} of Class objects corresponding to the class
+   *         names, {@code null} if null input.
    * @throws ClassCastException
    *           if classNames contains a non String entry.
    * @since 1.0.0
@@ -370,18 +370,18 @@ public final class ClassUtils {
   }
 
   /**
-   * Given a <code>List</code> of <code>Class</code> objects, this method
+   * Given a {@code List} of {@code Class} objects, this method
    * converts them into class names.
    * <p>
-   * A new <code>List</code> is returned. <code>null</code> objects will be
-   * copied into the returned list as <code>null</code>.
+   * A new {@code List} is returned. {@code null} objects will be
+   * copied into the returned list as {@code null}.
    *
    * @param classes
    *          the classes to change.
-   * @return a <code>List</code> of class names corresponding to the Class
-   *         objects, <code>null</code> if null input.
+   * @return a {@code List} of class names corresponding to the Class
+   *         objects, {@code null} if null input.
    * @throws ClassCastException
-   *           if <code>classes</code> contains a non-<code>Class</code> entry.
+   *           if {@code classes} contains a non-{@code Class} entry.
    * @since 1.0.0
    */
   public static List<String> classesToNames(final List<Class<?>> classes) {
@@ -402,15 +402,15 @@ public final class ClassUtils {
   /**
    * Converts the specified wrapper class to its corresponding primitive class.
    * <p>
-   * This method is the counter part of <code>primitiveToWrapper()</code>. If
+   * This method is the counter part of {@code primitiveToWrapper()}. If
    * the passed in class is a wrapper class for a primitive type, this primitive
-   * type will be returned (e.g. <code>Integer.TYPE</code> for
-   * <code>Integer.class</code>). For other classes, or if the parameter is
+   * type will be returned (e.g. {@code Integer.TYPE} for
+   * {@code Integer.class}). For other classes, or if the parameter is
    * <b>null</b>, the return value is <b>null</b>.
    *
    * @param cls
    *          the class to convert, may be <b>null</b>.
-   * @return the corresponding primitive type if <code>cls</code> is a wrapper
+   * @return the corresponding primitive type if {@code cls} is a wrapper
    *         class, <b>null</b> otherwise.
    * @see #primitiveToWrapper(Class)
    * @since 1.0.0
@@ -425,8 +425,8 @@ public final class ClassUtils {
    *
    * @param cls
    *          the class to convert, may be null.
-   * @return the wrapper class for <code>cls</code> or <code>cls</code> if
-   *         <code>cls</code> is not a primitive. <code>null</code> if null
+   * @return the wrapper class for {@code cls} or {@code cls} if
+   *         {@code cls} is not a primitive. {@code null} if null
    *         input.
    * @since 1.0.0
    */
@@ -442,14 +442,14 @@ public final class ClassUtils {
    * Converts the specified array of wrapper Class objects to an array of its
    * corresponding primitive Class objects.
    * <p>
-   * This method invokes <code>wrapperToPrimitive()</code> for each element of
+   * This method invokes {@code wrapperToPrimitive()} for each element of
    * the passed in array.
    *
    * @param classes
    *          the class array to convert, may be null or empty
    * @return an array which contains for each given class, the primitive class
    *         or <b>null</b> if the original class is not a wrapper class.
-   *         <code>null</code> if null input. Empty array if an empty array
+   *         {@code null} if null input. Empty array if an empty array
    *         passed in.
    * @see #wrapperToPrimitive(Class)
    * @since 1.0.0
@@ -475,7 +475,7 @@ public final class ClassUtils {
    * @param classes
    *          the class array to convert, may be null or empty
    * @return an array which contains for each given class, the wrapper class or
-   *         the original class if class is not a primitive. <code>null</code>
+   *         the original class if class is not a primitive. {@code null}
    *         if null input. Empty array if an empty array passed in.
    * @since 1.0.0
    */
@@ -498,14 +498,14 @@ public final class ClassUtils {
   }
 
   /**
-   * Converts an array of <code>Object</code> in to an array of
-   * <code>Class</code> objects.
+   * Converts an array of {@code Object} in to an array of
+   * {@code Class} objects.
    * <p>
-   * This method returns <code>null</code> for a <code>null</code> input array.
+   * This method returns {@code null} for a {@code null} input array.
    *
    * @param array
-   *          an <code>Object</code> array.
-   * @return a <code>Class</code> array, <code>null</code> if null array input.
+   *          an {@code Object} array.
+   * @return a {@code Class} array, {@code null} if null array input.
    * @since 1.0.0
    */
   public static Class<?>[] toClass(final Object[] array) {
@@ -522,11 +522,11 @@ public final class ClassUtils {
   }
 
   /**
-   * Gets the class represented by <code>className</code> using the
-   * <code>classLoader</code>.
+   * Gets the class represented by {@code className} using the
+   * {@code classLoader}.
    * <p>
-   * This implementation supports names like " <code>java.lang.String[]</code>
-   * " as well as " <code>[Ljava.lang.String;</code>".
+   * This implementation supports names like " {@code java.lang.String[]}
+   * " as well as " {@code [Ljava.lang.String;}".
    *
    * @param classLoader
    *          the class loader to use to load the class
@@ -534,8 +534,8 @@ public final class ClassUtils {
    *          the class name
    * @param initialize
    *          whether the class must be initialized
-   * @return the class represented by <code>className</code> using the
-   *         <code>classLoader</code>
+   * @return the class represented by {@code className} using the
+   *         {@code classLoader}
    * @throws NullPointerException
    *           if any argument is null.
    * @throws ClassNotFoundException
@@ -559,18 +559,18 @@ public final class ClassUtils {
   }
 
   /**
-   * Gets the (initialized) class represented by <code>className</code> using
-   * the <code>classLoader</code>.
+   * Gets the (initialized) class represented by {@code className} using
+   * the {@code classLoader}.
    * <p>
-   * This implementation supports names like " <code>java.lang.String[]</code>
-   * " as well as " <code>[Ljava.lang.String;</code>".
+   * This implementation supports names like " {@code java.lang.String[]}
+   * " as well as " {@code [Ljava.lang.String;}".
    *
    * @param classLoader
    *          the class loader to use to load the class.
    * @param className
    *          the class name.
-   * @return the class represented by <code>className</code> using the
-   *         <code>classLoader</code>.
+   * @return the class represented by {@code className} using the
+   *         {@code classLoader}.
    * @throws NullPointerException
    *           if any argument is null.
    * @throws ClassNotFoundException
@@ -583,15 +583,15 @@ public final class ClassUtils {
   }
 
   /**
-   * Gets the (initialized )class represented by <code>className</code> using
+   * Gets the (initialized )class represented by {@code className} using
    * the current thread's context class loader.
    * <p>
-   * This implementation supports names like "<code>java.lang.String[]</code>
-   * " as well as " <code>[Ljava.lang.String;</code>".
+   * This implementation supports names like "{@code java.lang.String[]}
+   * " as well as " {@code [Ljava.lang.String;}".
    *
    * @param className
    *          the class name.
-   * @return the class represented by <code>className</code> using the current
+   * @return the class represented by {@code className} using the current
    *         thread's context class loader.
    * @throws NullPointerException
    *           if any argument is null.
@@ -605,17 +605,17 @@ public final class ClassUtils {
   }
 
   /**
-   * Gets the class represented by <code>className</code> using the current
+   * Gets the class represented by {@code className} using the current
    * thread's context class loader.
    * <p>
-   * This implementation supports names like " <code>java.lang.String[]</code>
-   * " as well as " <code>[Ljava.lang.String;</code>".
+   * This implementation supports names like " {@code java.lang.String[]}
+   * " as well as " {@code [Ljava.lang.String;}".
    *
    * @param className
    *          the class name.
    * @param initialize
    *          whether the class must be initialized.
-   * @return the class represented by <code>className</code> using the current
+   * @return the class represented by {@code className} using the current
    *         thread's context class loader.
    * @throws NullPointerException
    *           if any argument is null.
@@ -635,7 +635,7 @@ public final class ClassUtils {
   }
 
   /**
-   * Gets the class name minus the package name for an <code>Object</code>.
+   * Gets the class name minus the package name for an {@code Object}.
    *
    * @param object
    *          the class to get the short name for, may be null.
@@ -655,7 +655,7 @@ public final class ClassUtils {
   }
 
   /**
-   * Gets the class name minus the package name from a <code>Class</code>.
+   * Gets the class name minus the package name from a {@code Class}.
    *
    * @param cls
    *          the class to get the short name for.
@@ -696,7 +696,7 @@ public final class ClassUtils {
   }
 
   /**
-   * Gets the package name of an <code>Object</code>.
+   * Gets the package name of an {@code Object}.
    *
    * @param object
    *          the class to get the package name for, may be null.
@@ -715,10 +715,10 @@ public final class ClassUtils {
   }
 
   /**
-   * Gets the package name of a <code>Class</code>.
+   * Gets the package name of a {@code Class}.
    *
    * @param cls
-   *          the class to get the package name for, may be <code>null</code>.
+   *          the class to get the package name for, may be {@code null}.
    * @return the package name or an empty string.
    * @since 1.0.0
    */
@@ -731,7 +731,7 @@ public final class ClassUtils {
   }
 
   /**
-   * Gets the package name from a <code>String</code>.
+   * Gets the package name from a {@code String}.
    * <p>
    * The string passed in is assumed to be a class name - it is not checked.
    * <p>
@@ -739,7 +739,7 @@ public final class ClassUtils {
    *
    * @param className
    *          the className to get the package name for, may be
-   *          <code>null</code>.
+   *          {@code null}.
    * @return the package name or an empty string.
    * @since 1.0.0
    */
@@ -755,7 +755,7 @@ public final class ClassUtils {
   }
 
   /**
-   * Gets the canonical name minus the package name for an <code>Object</code>.
+   * Gets the canonical name minus the package name for an {@code Object}.
    *
    * @param object
    *          the class to get the short name for, may be null.
@@ -774,7 +774,7 @@ public final class ClassUtils {
   }
 
   /**
-   * Gets the canonical name minus the package name from a <code>Class</code>.
+   * Gets the canonical name minus the package name from a {@code Class}.
    *
    * @param cls
    *          the class to get the short name for.
@@ -804,7 +804,7 @@ public final class ClassUtils {
   }
 
   /**
-   * Gets the package name from the canonical name of an <code>Object</code>.
+   * Gets the package name from the canonical name of an {@code Object}.
    *
    * @param object
    *          the class to get the package name for, may be null.
@@ -822,10 +822,10 @@ public final class ClassUtils {
   }
 
   /**
-   * Gets the package name from the canonical name of a <code>Class</code>.
+   * Gets the package name from the canonical name of a {@code Class}.
    *
    * @param cls
-   *          the class to get the package name for, may be <code>null</code>.
+   *          the class to get the package name for, may be {@code null}.
    * @return the package name or an empty string.
    * @since 1.0.0
    */
@@ -845,7 +845,7 @@ public final class ClassUtils {
    *
    * @param canonicalName
    *          the canonical name to get the package name for, may be
-   *          <code>null</code>.
+   *          {@code null}.
    * @return the package name or an empty string.
    * @since 1.0.0
    */
@@ -854,12 +854,12 @@ public final class ClassUtils {
   }
 
   /**
-   * Gets a <code>List</code> of super-classes for the given class.
+   * Gets a {@code List} of super-classes for the given class.
    *
    * @param cls
-   *          the class to look up, may be <code>null</code>.
-   * @return the <code>List</code> of super-classes in order going up from this
-   *         one <code>null</code> if null input.
+   *          the class to look up, may be {@code null}.
+   * @return the {@code List} of super-classes in order going up from this
+   *         one {@code null} if null input.
    * @since 1.0.0
    */
   public static List<Class<?>> getAllSuperclasses(final Class<?> cls) {
@@ -876,7 +876,7 @@ public final class ClassUtils {
   }
 
   /**
-   * Gets a <code>List</code> of all interfaces implemented by the given class
+   * Gets a {@code List} of all interfaces implemented by the given class
    * and its super-classes.
    * <p>
    * The order is determined by looking through each interface in turn as
@@ -885,8 +885,8 @@ public final class ClassUtils {
    * the order is maintained.
    *
    * @param cls
-   *          the class to look up, may be <code>null</code>.
-   * @return the <code>List</code> of interfaces in order, <code>null</code> if
+   *          the class to look up, may be {@code null}.
+   * @return the {@code List} of interfaces in order, {@code null} if
    *         null input.
    * @since 1.0.0
    */
@@ -914,7 +914,7 @@ public final class ClassUtils {
   }
 
   /**
-   * Gets the desired Method much like <code>Class.getMethod</code>, however it
+   * Gets the desired Method much like {@code Class.getMethod}, however it
    * ensures that the returned Method is from a public class or interface and
    * not from an anonymous inner class. ,p This means that the Method is
    * invokable and doesn't fall foul of Java bug <a
@@ -1005,11 +1005,11 @@ public final class ClassUtils {
    * <p>
    * Example:
    * <ul>
-   * <li><code>getCanonicalName("[I") = "int[]"</code></li>
+   * <li>{@code getCanonicalName("[I") = "int[]"}</li>
    * <li>
-   * <code>getCanonicalName("[Ljava.lang.String;") = "java.lang.String[]"</code>
+   * {@code getCanonicalName("[Ljava.lang.String;") = "java.lang.String[]"}
    * </li>
-   * <li><code>getCanonicalName("java.lang.String") = "java.lang.String"</code></li>
+   * <li>{@code getCanonicalName("java.lang.String") = "java.lang.String"}</li>
    * </ul>
    *
    * @param className

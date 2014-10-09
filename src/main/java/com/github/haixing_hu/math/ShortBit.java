@@ -22,7 +22,7 @@ import javax.annotation.concurrent.ThreadSafe;
 
 
 /**
- * A class providing functions for bit manipulation of <code>short</code>.
+ * A class providing functions for bit manipulation of {@code short}.
  *
  * @author Haixing Hu
  */
@@ -72,7 +72,7 @@ public final class ShortBit {
    * @param n
    *          The amount of lowest bits to be returned. It must be in the range
    *          of [0, BITS].
-   * @return A value of type <code>short</code> whose lowest n bits are the same
+   * @return A value of type {@code short} whose lowest n bits are the same
    *         of the lowest n bits of x, and other bits are 0. If n == 0, the
    *         function returns 0. If n == BITS, the function returns x. If n < 0
    *         or n > BITS, the behaviour is undefined.
@@ -90,7 +90,7 @@ public final class ShortBit {
    * @param n
    *          The amount of lowest bits to be returned. It must be in the range
    *          of [0, BITS].
-   * @return A value of type <code>short</code> whose highest n bits are the
+   * @return A value of type {@code short} whose highest n bits are the
    *         same of the highest n bits of x, and other bits are 0. If n == 0,
    *         the function returns 0. If n == BITS, the function returns x. If n
    *         < 0 or n > BITS, the behaviour is undefined.
@@ -105,7 +105,7 @@ public final class ShortBit {
    *
    * @param x
    *          The value.
-   * @return A value of type <code>short</code> whose lower half bits are the
+   * @return A value of type {@code short} whose lower half bits are the
    *         same of the lower half bits of x, and other bits are 0. In fact,
    *         this function returns low(x, HALF_BITS).
    */
@@ -118,7 +118,7 @@ public final class ShortBit {
    *
    * @param x
    *          The value.
-   * @return A value of type <code>short</code> whose higher half bits are the
+   * @return A value of type {@code short} whose higher half bits are the
    *         same of the higher half bits of x, and other bits are 0. In fact,
    *         this function returns high(x, HALF_BITS).
    */

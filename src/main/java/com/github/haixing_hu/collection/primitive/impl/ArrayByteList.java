@@ -31,7 +31,7 @@ import com.github.haixing_hu.collection.primitive.RandomAccessByteList;
 import static com.github.haixing_hu.lang.Argument.*;
 
 /**
- * An {@link ByteList} backed by an array of <code>byte</code>s. This
+ * An {@link ByteList} backed by an array of {@code byte}s. This
  * implementation supports all optional methods.
  *
  * @author Haixing Hu
@@ -71,9 +71,9 @@ public class ArrayByteList extends RandomAccessByteList implements ByteList,
    *
    * @see ArrayByteList#addAll(org.apache.commons.collections.primitives.ByteCollection)
    * @param that
-   *          the non-<code>null</code> collection of <code>byte</code>s to add
+   *          the non-{@code null} collection of {@code byte}s to add
    * @throws NullPointerException
-   *           if <i>that</i> is <code>null</code>
+   *           if <i>that</i> is {@code null}
    */
   public ArrayByteList(final ByteCollection that) {
     this(that.size());
@@ -86,7 +86,7 @@ public class ArrayByteList extends RandomAccessByteList implements ByteList,
    * @param array
    *          the array to initialize the collection with
    * @throws NullPointerException
-   *           if the array is <code>null</code>
+   *           if the array is {@code null}
    */
   public ArrayByteList(final byte[] array) {
     this(array.length);

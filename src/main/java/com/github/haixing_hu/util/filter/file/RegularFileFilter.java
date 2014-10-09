@@ -23,7 +23,7 @@ import java.io.File;
 import javax.annotation.concurrent.Immutable;
 
 /**
- * A {@link RegularFileFilter} accepts <code>File</code>s that are regular files.
+ * A {@link RegularFileFilter} accepts {@code File}s that are regular files.
  *
  * For example, here is how to print out a list of the current directory's
  * regular files:

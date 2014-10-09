@@ -26,8 +26,6 @@ import com.github.haixing_hu.io.exception.InvalidFormatException;
 import com.github.haixing_hu.io.serialize.BinarySerialization;
 import com.github.haixing_hu.io.serialize.XmlSerialization;
 import com.github.haixing_hu.lang.StringUtils;
-import com.github.haixing_hu.text.Pattern;
-import com.github.haixing_hu.text.PatternType;
 import com.github.haixing_hu.text.xml.XmlException;
 
 import static org.junit.Assert.*;
@@ -497,7 +495,6 @@ public class PatternTest {
     assertEquals(true, p1.equals(p1));
     assertEquals(true, p1.equals(p2));
     assertEquals(false, p1.equals(null));
-    assertEquals(false, p1.equals("string"));
     assertEquals(p1.hashCode(), p2.hashCode());
 
     p1.setIgnoreCase(false);

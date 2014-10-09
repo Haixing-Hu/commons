@@ -68,7 +68,7 @@ public final class NumberFormat implements Cloneable<NumberFormat> {
 
   private NumberFormatSymbols symbols;
   private NumberFormatOptions options;
-  private final transient ParsePosition position;
+  private final transient ParsingPosition position;
   private final transient StringBuilder builder;
   private transient char[] buffer;
 
@@ -76,7 +76,7 @@ public final class NumberFormat implements Cloneable<NumberFormat> {
   public NumberFormat() {
     symbols = new NumberFormatSymbols();
     options = new NumberFormatOptions();
-    position = new ParsePosition();
+    position = new ParsingPosition();
     builder = new StringBuilder();
     buffer = ArrayUtils.EMPTY_CHAR_ARRAY;
   }
@@ -84,7 +84,7 @@ public final class NumberFormat implements Cloneable<NumberFormat> {
   public NumberFormat(final Locale locale) {
     symbols = new NumberFormatSymbols(locale);
     options = new NumberFormatOptions();
-    position = new ParsePosition();
+    position = new ParsingPosition();
     builder = new StringBuilder();
     buffer = ArrayUtils.EMPTY_CHAR_ARRAY;
   }
@@ -117,7 +117,7 @@ public final class NumberFormat implements Cloneable<NumberFormat> {
     this.options = requireNonNull("options", options);
   }
 
-  public ParsePosition getParsePosition() {
+  public ParsingPosition getParsePosition() {
     return position;
   }
 
@@ -142,12 +142,12 @@ public final class NumberFormat implements Cloneable<NumberFormat> {
   }
 
   /**
-   * Parses a <code>byte</code> value.
+   * Parses a {@code byte} value.
    *
    * @param str
    *          the text segment to be parsed. The parsing starts from the
-   *          character at the index <code>0</code> and stops at the character
-   *          before the index <code>str.length()</code>.
+   *          character at the index {@code 0} and stops at the character
+   *          before the index {@code str.length()}.
    * @return the parsed value.
    */
   public byte parseByte(final CharSequence str) {
@@ -155,12 +155,12 @@ public final class NumberFormat implements Cloneable<NumberFormat> {
   }
 
   /**
-   * Parses a <code>byte</code> value.
+   * Parses a {@code byte} value.
    *
    * @param str
    *          the text segment to be parsed. The parsing starts from the
-   *          character at the index <code>startIndex</code> and stops at the
-   *          character before the index <code>str.length()</code>.
+   *          character at the index {@code startIndex} and stops at the
+   *          character before the index {@code str.length()}.
    * @param startIndex
    *          the index where to start parsing.
    * @return the parsed value.
@@ -170,12 +170,12 @@ public final class NumberFormat implements Cloneable<NumberFormat> {
   }
 
   /**
-   * Parses a <code>byte</code> value.
+   * Parses a {@code byte} value.
    *
    * @param str
    *          the text segment to be parsed. The parsing starts from the
-   *          character at the index <code>startIndex</code> and stops at the
-   *          character before the index <code>endIndex</code>.
+   *          character at the index {@code startIndex} and stops at the
+   *          character before the index {@code endIndex}.
    * @param startIndex
    *          the index where to start parsing.
    * @param endIndex
@@ -215,12 +215,12 @@ public final class NumberFormat implements Cloneable<NumberFormat> {
   }
 
   /**
-   * Parses a <code>short</code> value.
+   * Parses a {@code short} value.
    *
    * @param str
    *          the text segment to be parsed. The parsing starts from the
-   *          character at the index <code>0</code> and stops at the character
-   *          before the index <code>str.length()</code>.
+   *          character at the index {@code 0} and stops at the character
+   *          before the index {@code str.length()}.
    * @return the parsed value.
    */
   public short parseShort(final CharSequence str) {
@@ -228,12 +228,12 @@ public final class NumberFormat implements Cloneable<NumberFormat> {
   }
 
   /**
-   * Parses a <code>short</code> value.
+   * Parses a {@code short} value.
    *
    * @param str
    *          the text segment to be parsed. The parsing starts from the
-   *          character at the index <code>startIndex</code> and stops at the
-   *          character before the index <code>str.length()</code>.
+   *          character at the index {@code startIndex} and stops at the
+   *          character before the index {@code str.length()}.
    * @param startIndex
    *          the index where to start parsing.
    * @return the parsed value.
@@ -243,12 +243,12 @@ public final class NumberFormat implements Cloneable<NumberFormat> {
   }
 
   /**
-   * Parses a <code>byte</code> value.
+   * Parses a {@code byte} value.
    *
    * @param str
    *          the text segment to be parsed. The parsing starts from the
-   *          character at the index <code>startIndex</code> and stops at the
-   *          character before the index <code>endIndex</code>.
+   *          character at the index {@code startIndex} and stops at the
+   *          character before the index {@code endIndex}.
    * @param startIndex
    *          the index where to start parsing.
    * @param endIndex
@@ -288,12 +288,12 @@ public final class NumberFormat implements Cloneable<NumberFormat> {
   }
 
   /**
-   * Parses a <code>int</code> value.
+   * Parses a {@code int} value.
    *
    * @param str
    *          the text segment to be parsed. The parsing starts from the
-   *          character at the index <code>0</code> and stops at the character
-   *          before the index <code>str.length()</code>.
+   *          character at the index {@code 0} and stops at the character
+   *          before the index {@code str.length()}.
    * @return the parsed value.
    */
   public int parseInt(final CharSequence str) {
@@ -301,12 +301,12 @@ public final class NumberFormat implements Cloneable<NumberFormat> {
   }
 
   /**
-   * Parses a <code>int</code> value.
+   * Parses a {@code int} value.
    *
    * @param str
    *          the text segment to be parsed. The parsing starts from the
-   *          character at the index <code>startIndex</code> and stops at the
-   *          character before the index <code>str.length()</code>.
+   *          character at the index {@code startIndex} and stops at the
+   *          character before the index {@code str.length()}.
    * @param startIndex
    *          the index where to start parsing.
    * @return the parsed value.
@@ -316,12 +316,12 @@ public final class NumberFormat implements Cloneable<NumberFormat> {
   }
 
   /**
-   * Parses a <code>int</code> value.
+   * Parses a {@code int} value.
    *
    * @param str
    *          the text segment to be parsed. The parsing starts from the
-   *          character at the index <code>startIndex</code> and stops at the
-   *          character before the index <code>endIndex</code>.
+   *          character at the index {@code startIndex} and stops at the
+   *          character before the index {@code endIndex}.
    * @param startIndex
    *          the index where to start parsing.
    * @param endIndex
@@ -361,12 +361,12 @@ public final class NumberFormat implements Cloneable<NumberFormat> {
   }
 
   /**
-   * Parses a <code>long</code> value.
+   * Parses a {@code long} value.
    *
    * @param str
    *          the text segment to be parsed. The parsing starts from the
-   *          character at the index <code>0</code> and stops at the character
-   *          before the index <code>str.length()</code>.
+   *          character at the index {@code 0} and stops at the character
+   *          before the index {@code str.length()}.
    * @return the parsed value.
    */
   public long parseLong(final CharSequence str) {
@@ -374,12 +374,12 @@ public final class NumberFormat implements Cloneable<NumberFormat> {
   }
 
   /**
-   * Parses a <code>byte</code> value.
+   * Parses a {@code byte} value.
    *
    * @param str
    *          the text segment to be parsed. The parsing starts from the
-   *          character at the index <code>startIndex</code> and stops at the
-   *          character before the index <code>str.length()</code>.
+   *          character at the index {@code startIndex} and stops at the
+   *          character before the index {@code str.length()}.
    * @param startIndex
    *          the index where to start parsing.
    * @return the parsed value.
@@ -389,12 +389,12 @@ public final class NumberFormat implements Cloneable<NumberFormat> {
   }
 
   /**
-   * Parses a <code>byte</code> value.
+   * Parses a {@code byte} value.
    *
    * @param str
    *          the text segment to be parsed. The parsing starts from the
-   *          character at the index <code>startIndex</code> and stops at the
-   *          character before the index <code>endIndex</code>.
+   *          character at the index {@code startIndex} and stops at the
+   *          character before the index {@code endIndex}.
    * @param startIndex
    *          the index where to start parsing.
    * @param endIndex
@@ -434,12 +434,12 @@ public final class NumberFormat implements Cloneable<NumberFormat> {
   }
 
   /**
-   * Parses a <code>float</code> value.
+   * Parses a {@code float} value.
    *
    * @param str
    *          the text segment to be parsed. The parsing starts from the
-   *          character at the index <code>0</code> and stops at the character
-   *          before the index <code>str.length()</code>.
+   *          character at the index {@code 0} and stops at the character
+   *          before the index {@code str.length()}.
    * @return the parsed value.
    */
   public float parseFloat(final CharSequence str) {
@@ -447,12 +447,12 @@ public final class NumberFormat implements Cloneable<NumberFormat> {
   }
 
   /**
-   * Parses a <code>float</code> value.
+   * Parses a {@code float} value.
    *
    * @param str
    *          the text segment to be parsed. The parsing starts from the
-   *          character at the index <code>startIndex</code> and stops at the
-   *          character before the index <code>str.length()</code>.
+   *          character at the index {@code startIndex} and stops at the
+   *          character before the index {@code str.length()}.
    * @param startIndex
    *          the index where to start parsing.
    * @return the parsed value.
@@ -462,12 +462,12 @@ public final class NumberFormat implements Cloneable<NumberFormat> {
   }
 
   /**
-   * Parses a <code>float</code> value.
+   * Parses a {@code float} value.
    *
    * @param str
    *          the text segment to be parsed. The parsing starts from the
-   *          character at the index <code>startIndex</code> and stops at the
-   *          character before the index <code>endIndex</code>.
+   *          character at the index {@code startIndex} and stops at the
+   *          character before the index {@code endIndex}.
    * @param startIndex
    *          the index where to start parsing.
    * @param endIndex
@@ -500,12 +500,12 @@ public final class NumberFormat implements Cloneable<NumberFormat> {
   }
 
   /**
-   * Parses a <code>double</code> value.
+   * Parses a {@code double} value.
    *
    * @param str
    *          the text segment to be parsed. The parsing starts from the
-   *          character at the index <code>0</code> and stops at the character
-   *          before the index <code>str.length()</code>.
+   *          character at the index {@code 0} and stops at the character
+   *          before the index {@code str.length()}.
    * @return the parsed value.
    */
   public double parseDouble(final CharSequence str) {
@@ -513,12 +513,12 @@ public final class NumberFormat implements Cloneable<NumberFormat> {
   }
 
   /**
-   * Parses a <code>double</code> value.
+   * Parses a {@code double} value.
    *
    * @param str
    *          the text segment to be parsed. The parsing starts from the
-   *          character at the index <code>startIndex</code> and stops at the
-   *          character before the index <code>str.length()</code>.
+   *          character at the index {@code startIndex} and stops at the
+   *          character before the index {@code str.length()}.
    * @param startIndex
    *          the index where to start parsing.
    * @return the parsed value.
@@ -528,12 +528,12 @@ public final class NumberFormat implements Cloneable<NumberFormat> {
   }
 
   /**
-   * Parses a <code>double</code> value.
+   * Parses a {@code double} value.
    *
    * @param str
    *          the text segment to be parsed. The parsing starts from the
-   *          character at the index <code>startIndex</code> and stops at the
-   *          character before the index <code>endIndex</code>.
+   *          character at the index {@code startIndex} and stops at the
+   *          character before the index {@code endIndex}.
    * @param startIndex
    *          the index where to start parsing.
    * @param endIndex
@@ -566,12 +566,12 @@ public final class NumberFormat implements Cloneable<NumberFormat> {
   }
 
   /**
-   * Parses a <code>BigInteger</code> value.
+   * Parses a {@code BigInteger} value.
    *
    * @param str
    *          the text segment to be parsed. The parsing starts from the
-   *          character at the index <code>0</code> and stops at the character
-   *          before the index <code>str.length()</code>.
+   *          character at the index {@code 0} and stops at the character
+   *          before the index {@code str.length()}.
    * @return the parsed value.
    */
   public BigInteger parseBigInteger(final CharSequence str) {
@@ -579,12 +579,12 @@ public final class NumberFormat implements Cloneable<NumberFormat> {
   }
 
   /**
-   * Parses a <code>BigInteger</code> value.
+   * Parses a {@code BigInteger} value.
    *
    * @param str
    *          the text segment to be parsed. The parsing starts from the
-   *          character at the index <code>startIndex</code> and stops at the
-   *          character before the index <code>str.length()</code>.
+   *          character at the index {@code startIndex} and stops at the
+   *          character before the index {@code str.length()}.
    * @param startIndex
    *          the index where to start parsing.
    * @return the parsed value.
@@ -594,12 +594,12 @@ public final class NumberFormat implements Cloneable<NumberFormat> {
   }
 
   /**
-   * Parses a <code>BigInteger</code> value.
+   * Parses a {@code BigInteger} value.
    *
    * @param str
    *          the text segment to be parsed. The parsing starts from the
-   *          character at the index <code>startIndex</code> and stops at the
-   *          character before the index <code>endIndex</code>.
+   *          character at the index {@code startIndex} and stops at the
+   *          character before the index {@code endIndex}.
    * @param startIndex
    *          the index where to start parsing.
    * @param endIndex
@@ -632,12 +632,12 @@ public final class NumberFormat implements Cloneable<NumberFormat> {
   }
 
   /**
-   * Parses a <code>BigDecimal</code> value.
+   * Parses a {@code BigDecimal} value.
    *
    * @param str
    *          the text segment to be parsed. The parsing starts from the
-   *          character at the index <code>0</code> and stops at the character
-   *          before the index <code>str.length()</code>.
+   *          character at the index {@code 0} and stops at the character
+   *          before the index {@code str.length()}.
    * @return the parsed value.
    */
   public BigDecimal parseBigDecimal(final CharSequence str) {
@@ -645,12 +645,12 @@ public final class NumberFormat implements Cloneable<NumberFormat> {
   }
 
   /**
-   * Parses a <code>BigDecimal</code> value.
+   * Parses a {@code BigDecimal} value.
    *
    * @param str
    *          the text segment to be parsed. The parsing starts from the
-   *          character at the index <code>startIndex</code> and stops at the
-   *          character before the index <code>str.length()</code>.
+   *          character at the index {@code startIndex} and stops at the
+   *          character before the index {@code str.length()}.
    * @param startIndex
    *          the index where to start parsing.
    * @return the parsed value.
@@ -660,12 +660,12 @@ public final class NumberFormat implements Cloneable<NumberFormat> {
   }
 
   /**
-   * Parses a <code>BigDecimal</code> value.
+   * Parses a {@code BigDecimal} value.
    *
    * @param str
    *          the text segment to be parsed. The parsing starts from the
-   *          character at the index <code>startIndex</code> and stops at the
-   *          character before the index <code>endIndex</code>.
+   *          character at the index {@code startIndex} and stops at the
+   *          character before the index {@code endIndex}.
    * @param startIndex
    *          the index where to start parsing.
    * @param endIndex
@@ -698,7 +698,7 @@ public final class NumberFormat implements Cloneable<NumberFormat> {
   }
 
   /**
-   * Formats a <code>byte</code> value.
+   * Formats a {@code byte} value.
    *
    * @param value
    *          the value to be formated.
@@ -711,7 +711,7 @@ public final class NumberFormat implements Cloneable<NumberFormat> {
   }
 
   /**
-   * Formats a <code>byte</code> value.
+   * Formats a {@code byte} value.
    *
    * @param value
    *          the value to be formated.
@@ -735,7 +735,7 @@ public final class NumberFormat implements Cloneable<NumberFormat> {
   }
 
   /**
-   * Formats a <code>short</code> value.
+   * Formats a {@code short} value.
    *
    * @param value
    *          the value to be formated.
@@ -748,7 +748,7 @@ public final class NumberFormat implements Cloneable<NumberFormat> {
   }
 
   /**
-   * Formats a <code>short</code> value.
+   * Formats a {@code short} value.
    *
    * @param value
    *          the value to be formated.
@@ -772,7 +772,7 @@ public final class NumberFormat implements Cloneable<NumberFormat> {
   }
 
   /**
-   * Formats a <code>int</code> value.
+   * Formats a {@code int} value.
    *
    * @param value
    *          the value to be formated.
@@ -785,7 +785,7 @@ public final class NumberFormat implements Cloneable<NumberFormat> {
   }
 
   /**
-   * Formats a <code>int</code> value.
+   * Formats a {@code int} value.
    *
    * @param value
    *          the value to be formated.
@@ -809,7 +809,7 @@ public final class NumberFormat implements Cloneable<NumberFormat> {
   }
 
   /**
-   * Formats a <code>long</code> value.
+   * Formats a {@code long} value.
    *
    * @param value
    *          the value to be formated.
@@ -822,7 +822,7 @@ public final class NumberFormat implements Cloneable<NumberFormat> {
   }
 
   /**
-   * Formats a <code>long</code> value.
+   * Formats a {@code long} value.
    *
    * @param value
    *          the value to be formated.
@@ -845,7 +845,7 @@ public final class NumberFormat implements Cloneable<NumberFormat> {
   }
 
   /**
-   * Formats a <code>float</code> value.
+   * Formats a {@code float} value.
    *
    * @param value
    *          the value to be formated.
@@ -858,7 +858,7 @@ public final class NumberFormat implements Cloneable<NumberFormat> {
   }
 
   /**
-   * Formats a <code>float</code> value.
+   * Formats a {@code float} value.
    *
    * @param value
    *          the value to be formated.
@@ -874,7 +874,7 @@ public final class NumberFormat implements Cloneable<NumberFormat> {
   }
 
   /**
-   * Formats a <code>double</code> value.
+   * Formats a {@code double} value.
    *
    * @param value
    *          the value to be formated.
@@ -887,7 +887,7 @@ public final class NumberFormat implements Cloneable<NumberFormat> {
   }
 
   /**
-   * Formats a <code>double</code> value.
+   * Formats a {@code double} value.
    *
    * @param value
    *          the value to be formated.
@@ -903,7 +903,7 @@ public final class NumberFormat implements Cloneable<NumberFormat> {
   }
 
   /**
-   * Formats a <code>BigInteger</code> value.
+   * Formats a {@code BigInteger} value.
    *
    * @param value
    *          the value to be formated.
@@ -933,7 +933,7 @@ public final class NumberFormat implements Cloneable<NumberFormat> {
   }
 
   /**
-   * Formats a <code>BigDecimal</code> value.
+   * Formats a {@code BigDecimal} value.
    *
    * @param value
    *          the value to be formated.

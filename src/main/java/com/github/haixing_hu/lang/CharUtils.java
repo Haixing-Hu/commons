@@ -29,15 +29,15 @@ import javax.annotation.concurrent.ThreadSafe;
 import com.github.haixing_hu.text.NumberFormatSymbols;
 
 /**
- * This class provides operations on <code>char</code> primitives and
+ * This class provides operations on {@code char} primitives and
  * {@link Character} objects.
  * <p>
- * This class tries to handle <code>null</code> input gracefully. An exception
- * will not be thrown for a <code>null</code> input. Each method documents its
+ * This class tries to handle {@code null} input gracefully. An exception
+ * will not be thrown for a {@code null} input. Each method documents its
  * behavior in more detail.
  * </p>
  * <p>
- * This class also handle the conversion from <code>char</code> values or
+ * This class also handle the conversion from {@code char} values or
  * {@link Character} objects to common types.
  * </p>
  *
@@ -47,7 +47,7 @@ import com.github.haixing_hu.text.NumberFormatSymbols;
 public final class CharUtils {
 
   /**
-   * The default <code>char</code> value used when necessary.
+   * The default {@code char} value used when necessary.
    */
   public static final char DEFAULT = (char) 0;
 
@@ -73,7 +73,7 @@ public final class CharUtils {
   }
 
   /**
-   * <code>\u000a</code> line feed LF ('\n').
+   * {@code \u000a} line feed LF ('\n').
    *
    * @see <a
    *      href="http://java.sun.com/docs/books/jls/third_edition/html/lexical.html#101089">JLF:
@@ -82,7 +82,7 @@ public final class CharUtils {
   public static final char         LF                = '\n';
 
   /**
-   * <code>\u000d</code> carriage return CR ('\r').
+   * {@code \u000d} carriage return CR ('\r').
    *
    * @see <a
    *      href="http://java.sun.com/docs/books/jls/third_edition/html/lexical.html#101089">JLF:
@@ -346,7 +346,7 @@ public final class CharUtils {
   }
 
   /**
-   * Converts a {@link Character} object to a <code>char</code> value.
+   * Converts a {@link Character} object to a {@code char} value.
    *
    * <pre>
    *   CharUtils.toPrimitive(null) = CharUtils.DEFAULT
@@ -356,7 +356,7 @@ public final class CharUtils {
    *
    * @param value
    *          the {@link Character} object to convert, which could be null.
-   * @return the <code>char</code> value of the {@link Character} object; or
+   * @return the {@code char} value of the {@link Character} object; or
    *         {@link #DEFAULT} if the object is null.
    */
   public static char toPrimitive(@Nullable final Character value) {
@@ -364,7 +364,7 @@ public final class CharUtils {
   }
 
   /**
-   * Converts the Character to a char handling <code>null</code>.
+   * Converts the Character to a char handling {@code null}.
    *
    * <pre>
    *   CharUtils.toPrimitive(null, 'X') = 'X'
@@ -376,7 +376,7 @@ public final class CharUtils {
    *          the {@link Character} object to convert, which could be null.
    * @param defaultValue
    *          the value to use if the {@link Character} object is null
-   * @return the <code>char</code> value of the {@link Character} object;
+   * @return the {@code char} value of the {@link Character} object;
    *         or the default value if the {@link Character} object is null.
    */
   public static char toPrimitive(@Nullable final Character value,
@@ -590,7 +590,7 @@ public final class CharUtils {
    * For ASCII 7 bit characters, this uses a cache that will return the same
    * String object each time.
    *
-   * If <code>null</code> is passed in, <code>null</code> will be returned.
+   * If {@code null} is passed in, {@code null} will be returned.
    *
    * <pre>
    *   CharUtils.toString(null) = null
@@ -613,7 +613,7 @@ public final class CharUtils {
   }
 
   /**
-   * Convert a <code>char</code> value into hex string.
+   * Convert a {@code char} value into hex string.
    *
    * @param value
    *    the value to be converted.
@@ -630,7 +630,7 @@ public final class CharUtils {
   }
 
   /**
-   * Convert a <code>char</code> value into hex string.
+   * Convert a {@code char} value into hex string.
    *
    * @param value
    *          the value to be converted.
@@ -643,16 +643,16 @@ public final class CharUtils {
   }
 
   public static Date toDate(final char value) {
-    return new Date(value);
+    return new Date(value * 1L);
   }
 
   public static Date toDate(@Nullable final Character value) {
-    return (value == null ? null : new Date(value.charValue()));
+    return (value == null ? null : new Date(value.charValue() * 1L));
   }
 
   public static Date toDate(@Nullable final Character value,
       @Nullable final Date defaultValue) {
-    return (value == null ? defaultValue : new Date(value.charValue()));
+    return (value == null ? defaultValue : new Date(value.charValue() * 1L));
   }
 
   public static byte[] toByteArray(final char value) {
@@ -784,7 +784,7 @@ public final class CharUtils {
    *
    * This format is the Java source code format.
    *
-   * If <code>null</code> is passed in, <code>null</code> will be returned.
+   * If {@code null} is passed in, {@code null} will be returned.
    *
    * <pre>
    *   CharUtils.toUnicodeEscape(null) = null
@@ -811,7 +811,7 @@ public final class CharUtils {
    *
    * This format is the Java source code format.
    *
-   * If <code>null</code> is passed in, <code>null</code> will be returned.
+   * If {@code null} is passed in, {@code null} will be returned.
    *
    * <pre>
    *   CharUtils.toUnicodeEscape(null) = null

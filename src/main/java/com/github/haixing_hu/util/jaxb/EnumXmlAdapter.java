@@ -54,7 +54,7 @@ import javax.xml.bind.annotation.adapters.XmlAdapter;
  * </code>
  * Then we should use a
  * <a href="http://www.onjava.com/pub/a/onjava/2004/04/21/declarative.html?page=3">
- * package level annotation</a> in the <code>package-info.java</code> as follows:
+ * package level annotation</a> in the {@code package-info.java} as follows:
  * <code>
  * <pre>
  *  &#64;XmlJavaTypeAdapters({
@@ -66,7 +66,7 @@ import javax.xml.bind.annotation.adapters.XmlAdapter;
  * </pre>
  * </code>
  * This will make the JAXB automatically converts the names of enumerators in
- * the <code>MyEnum</code> enumeration class as follows:
+ * the {@code MyEnum} enumeration class as follows:
  * <code>
  * <pre>
  *  FIRST <==> "first"

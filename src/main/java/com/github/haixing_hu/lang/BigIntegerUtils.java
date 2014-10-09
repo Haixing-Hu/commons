@@ -27,8 +27,8 @@ import javax.annotation.Nullable;
 /**
  * This class provides operations on {@link BigInteger} objects.
  * <p>
- * This class tries to handle <code>null</code> input gracefully. An exception
- * will not be thrown for a <code>null</code> input. Each method documents its
+ * This class tries to handle {@code null} input gracefully. An exception
+ * will not be thrown for a {@code null} input. Each method documents its
  * behavior in more detail.
  * </p>
  * <p>

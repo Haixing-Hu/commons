@@ -29,7 +29,6 @@ import java.util.NoSuchElementException;
 
 import org.junit.Test;
 
-import com.github.haixing_hu.collection.ArrayLinkedList;
 import com.github.haixing_hu.lang.ArrayUtils;
 import com.github.haixing_hu.util.expand.DoubleExpansionPolicy;
 import com.github.haixing_hu.util.expand.ExpansionPolicy;
@@ -139,8 +138,7 @@ public class ArrayLinkedListTest {
     assertSame(JustFitExpansionPolicy.INSTANCE, list.getExpansionPolicy());
 
     try {
-      final ExpansionPolicy policy = null;
-      list = new ArrayLinkedList<Integer>(policy);
+      list = new ArrayLinkedList<Integer>((ExpansionPolicy) null);
       fail("should throw NullPointerException");
     } catch (final NullPointerException e) {
       // pass
@@ -152,7 +150,7 @@ public class ArrayLinkedListTest {
    */
   @Test
   public void testArrayLinkedListCollectionOfE() {
-    List<Integer> col = new LinkedList<Integer>();
+    final List<Integer> col = new LinkedList<Integer>();
 
     ArrayLinkedList<Integer> list = new ArrayLinkedList<Integer>(col);
     assertEquals(0, list.size());
@@ -170,8 +168,7 @@ public class ArrayLinkedListTest {
     assertEquals(col, list);
 
     try {
-      col = null;
-      list = new ArrayLinkedList<Integer>(col);
+      list = new ArrayLinkedList<Integer>((List<Integer>) null);
       fail("should throw NullPointerException");
     } catch (final NullPointerException e) {
       // pass

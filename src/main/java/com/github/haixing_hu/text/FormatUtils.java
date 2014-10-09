@@ -269,6 +269,7 @@ public final class FormatUtils {
           // larger than the rightPadding by 1.
           leftPadding = (padding + 1) / 2;
           rightPadding = padding - leftPadding;
+          break;
         case ALIGN_RIGHT:
         default:
           leftPadding = padding;

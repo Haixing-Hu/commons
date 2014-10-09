@@ -12,20 +12,11 @@ import java.util.Date;
 
 import org.junit.Test;
 
-import com.github.haixing_hu.lang.BooleanUtils;
-import com.github.haixing_hu.lang.ByteUtils;
-import com.github.haixing_hu.lang.CharUtils;
-import com.github.haixing_hu.lang.DoubleUtils;
-import com.github.haixing_hu.lang.FloatUtils;
-import com.github.haixing_hu.lang.IntUtils;
-import com.github.haixing_hu.lang.LongUtils;
-import com.github.haixing_hu.lang.ShortUtils;
-
 import static org.junit.Assert.*;
 
 /**
  * Unit test of the {@link ByteUtils} class.
- * 
+ *
  * @author Hongming Ji
  */
 public class ByteUtilsTest {
@@ -340,7 +331,7 @@ public class ByteUtilsTest {
   @Test
   public void testToLong_byte() {
     for (int i = Byte.MIN_VALUE; i <= Byte.MAX_VALUE; ++i) {
-      assertEquals((long) i, ByteUtils.toLong((byte) i));
+      assertEquals(i, ByteUtils.toLong((byte) i));
     }
   }
 
@@ -350,20 +341,20 @@ public class ByteUtilsTest {
 
     for (int i = Byte.MIN_VALUE; i <= Byte.MAX_VALUE; ++i) {
       final Byte x = (byte) i;
-      assertEquals((long) i, ByteUtils.toLong(x));
+      assertEquals(i, ByteUtils.toLong(x));
     }
   }
 
   @Test
   public void testToLong_Byte_Long() {
     for (int i = Byte.MIN_VALUE; i <= Byte.MAX_VALUE; ++i) {
-      assertEquals((long) i, ByteUtils.toLong(null, (long) i));
+      assertEquals(i, ByteUtils.toLong(null, i));
     }
 
     for (int i = Byte.MIN_VALUE; i <= Byte.MAX_VALUE; ++i) {
       final Byte x = (byte) i;
       for (int j = Byte.MIN_VALUE; j <= Byte.MAX_VALUE; ++j) {
-        assertEquals((long) i, ByteUtils.toLong(x, (long) j));
+        assertEquals(i, ByteUtils.toLong(x, j));
       }
     }
   }
@@ -408,7 +399,7 @@ public class ByteUtilsTest {
   @Test
   public void testToFloat_byte() {
     for (int i = Byte.MIN_VALUE; i <= Byte.MAX_VALUE; ++i) {
-      assertEquals((float) i, ByteUtils.toFloat((byte) i), FloatUtils.EPSILON);
+      assertEquals(i, ByteUtils.toFloat((byte) i), FloatUtils.EPSILON);
     }
   }
 
@@ -418,20 +409,20 @@ public class ByteUtilsTest {
 
     for (int i = Byte.MIN_VALUE; i <= Byte.MAX_VALUE; ++i) {
       final Byte x = (byte) i;
-      assertEquals((float) i, ByteUtils.toFloat(x), FloatUtils.EPSILON);
+      assertEquals(i, ByteUtils.toFloat(x), FloatUtils.EPSILON);
     }
   }
 
   @Test
   public void testToFloat_Byte_float() {
     for (int i = Byte.MIN_VALUE; i <= Byte.MAX_VALUE; ++i) {
-      assertEquals((float) i, ByteUtils.toFloat(null, (float) i), FloatUtils.EPSILON);
+      assertEquals(i, ByteUtils.toFloat(null, i), FloatUtils.EPSILON);
     }
 
     for (int i = Byte.MIN_VALUE; i <= Byte.MAX_VALUE; ++i) {
       final Byte x = (byte) i;
       for (int j = Byte.MIN_VALUE; j <= Byte.MAX_VALUE; ++j) {
-        assertEquals((float) i, ByteUtils.toFloat(x, (float) j), FloatUtils.EPSILON);
+        assertEquals(i, ByteUtils.toFloat(x, j), FloatUtils.EPSILON);
       }
     }
   }
@@ -478,7 +469,7 @@ public class ByteUtilsTest {
   @Test
   public void testToDouble_byte() {
     for (int i = Byte.MIN_VALUE; i <= Byte.MAX_VALUE; ++i) {
-      assertEquals((double) i, ByteUtils.toDouble((byte) i), DoubleUtils.EPSILON);
+      assertEquals(i, ByteUtils.toDouble((byte) i), DoubleUtils.EPSILON);
     }
   }
 
@@ -488,20 +479,20 @@ public class ByteUtilsTest {
 
     for (int i = Byte.MIN_VALUE; i <= Byte.MAX_VALUE; ++i) {
       final Byte x = (byte) i;
-      assertEquals((double) i, ByteUtils.toDouble(x), DoubleUtils.EPSILON);
+      assertEquals(i, ByteUtils.toDouble(x), DoubleUtils.EPSILON);
     }
   }
 
   @Test
   public void testToDouble_Byte_double() {
     for (int i = Byte.MIN_VALUE; i <= Byte.MAX_VALUE; ++i) {
-      assertEquals((double) i, ByteUtils.toDouble(null, (double) i), DoubleUtils.EPSILON);
+      assertEquals(i, ByteUtils.toDouble(null, i), DoubleUtils.EPSILON);
     }
 
     for (int i = Byte.MIN_VALUE; i <= Byte.MAX_VALUE; ++i) {
       final Byte x = (byte) i;
       for (int j = Byte.MIN_VALUE; j <= Byte.MAX_VALUE; ++j) {
-        assertEquals((double) i, ByteUtils.toDouble(x, (double) j), DoubleUtils.EPSILON);
+        assertEquals(i, ByteUtils.toDouble(x, j), DoubleUtils.EPSILON);
       }
     }
   }
@@ -586,37 +577,37 @@ public class ByteUtilsTest {
 
   @Test
   public void testToHexString_byte_StringBuilder() {
-    StringBuilder builder = new StringBuilder();
-    
+    final StringBuilder builder = new StringBuilder();
+
     builder.setLength(0);
     ByteUtils.toHexString((byte)0x00, builder);
     assertEquals("0x00", builder.toString());
-    
+
     builder.setLength(0);
     ByteUtils.toHexString((byte)0x01, builder);
     assertEquals("0x01", builder.toString());
-    
+
     builder.setLength(0);
     ByteUtils.toHexString((byte)0x0A, builder);
     assertEquals("0x0A", builder.toString());
-    
+
     builder.setLength(0);
     ByteUtils.toHexString((byte)0x0F, builder);
     assertEquals("0x0F", builder.toString());
-    
+
     builder.setLength(0);
     ByteUtils.toHexString((byte)0x10, builder);
     assertEquals("0x10", builder.toString());
-    
+
     builder.setLength(0);
-    byte value = (byte) 0xAB;
+    final byte value = (byte) 0xAB;
     ByteUtils.toHexString(value, builder);
     assertEquals("0xAB", builder.toString());
-    
+
     builder.setLength(0);
     ByteUtils.toHexString((byte)0x7F, builder);
     assertEquals("0x7F", builder.toString());
-    
+
     builder.setLength(0);
     ByteUtils.toHexString((byte)0xFF, builder);
     assertEquals("0xFF", builder.toString());
@@ -631,13 +622,13 @@ public class ByteUtilsTest {
     assertEquals("0x10", ByteUtils.toHexString((byte)0x10));
     assertEquals("0xAB", ByteUtils.toHexString((byte)0xAB));
     assertEquals("0x7F", ByteUtils.toHexString((byte)0x7F));
-    assertEquals("0xFF", ByteUtils.toHexString((byte)0xFF));   
+    assertEquals("0xFF", ByteUtils.toHexString((byte)0xFF));
   }
 
   @Test
   public void testToDate_byte() {
     assertEquals(new Date(0), ByteUtils.toDate((byte)0));
-    for ( int i = Byte.MIN_VALUE; i <= Byte.MAX_VALUE; ++i) {
+    for (long i = Byte.MIN_VALUE; i <= Byte.MAX_VALUE; ++i) {
       assertEquals(new Date(i), ByteUtils.toDate((byte) i));
     }
   }
@@ -645,7 +636,7 @@ public class ByteUtilsTest {
   @Test
   public void testToDate_Byte() {
     assertEquals(null, ByteUtils.toDate(null));
-    for ( int i = Byte.MIN_VALUE; i <= Byte.MAX_VALUE; ++i) {
+    for (long i = Byte.MIN_VALUE; i <= Byte.MAX_VALUE; ++i) {
       final Byte x = (byte) i;
       assertEquals(new Date(i), ByteUtils.toDate(x));
     }
@@ -654,17 +645,17 @@ public class ByteUtilsTest {
   @Test
   public void testToDate_Byte_Date() {
     assertEquals(null, ByteUtils.toDate(null, null));
-    
-    for ( int i = Byte.MIN_VALUE; i <= Byte.MAX_VALUE; ++i) {
+
+    for (long i = Byte.MIN_VALUE; i <= Byte.MAX_VALUE; ++i) {
       final Date x = new Date(i);
       assertEquals(x, ByteUtils.toDate(null, x));
     }
-    
-    for ( int i = Byte.MIN_VALUE; i <= Byte.MAX_VALUE; ++i) {
+
+    for (long i = Byte.MIN_VALUE; i <= Byte.MAX_VALUE; ++i) {
       final Date x = new Date(i);
       final Byte y = (byte) i;
       assertEquals(x, ByteUtils.toDate(y, null));
-      for ( int j = Byte.MIN_VALUE; j <= Byte.MAX_VALUE; ++j) {
+      for (long j = Byte.MIN_VALUE; j <= Byte.MAX_VALUE; ++j) {
         final Date z = new Date (j);
         assertEquals(x, ByteUtils.toDate(y, z));
       }
@@ -674,7 +665,7 @@ public class ByteUtilsTest {
   @Test
   public void testToByteArray_byte() {
     for ( int i = Byte.MIN_VALUE; i <= Byte.MAX_VALUE; ++i) {
-      final byte[] x = {(byte) i};      
+      final byte[] x = {(byte) i};
       assertArrayEquals(x, ByteUtils.toByteArray((byte) i));
     }
   }
@@ -692,12 +683,12 @@ public class ByteUtilsTest {
   @Test
   public void testToByteArray_Byte_byteArray() {
     assertArrayEquals(null, ByteUtils.toByteArray(null, null));
-    
+
     for ( int i = Byte.MIN_VALUE; i <= Byte.MAX_VALUE; ++i) {
       final byte[] x = {(byte) i};
       assertArrayEquals(x, ByteUtils.toByteArray(null, x));
     }
-    
+
     for ( int i = Byte.MIN_VALUE; i <= Byte.MAX_VALUE; ++i) {
       final Byte x = (byte) i;
       final byte[] y = {(byte) i};
@@ -719,7 +710,7 @@ public class ByteUtilsTest {
   @Test
   public void testToClass_Byte() {
     assertEquals(null, ByteUtils.toClass(null));
-    
+
     for ( int i = Byte.MIN_VALUE; i <= Byte.MAX_VALUE; ++i) {
       final Byte x = (byte) i;
       assertSame(Byte.class, ByteUtils.toClass(x));
@@ -729,9 +720,9 @@ public class ByteUtilsTest {
   @Test
   public void testToClass_Byte_ClassOfQ() {
     assertSame(null, ByteUtils.toClass(null, null));
-    
+
     assertSame(Byte.class, ByteUtils.toClass(null, Byte.class));
-    
+
     for ( int i = Byte.MIN_VALUE; i <= Byte.MAX_VALUE; ++i) {
       final Byte x = (byte) i;
       assertSame(Byte.class, ByteUtils.toClass(x, null));
@@ -749,7 +740,7 @@ public class ByteUtilsTest {
   @Test
   public void testToBigInteger_Byte() {
     assertEquals(null, ByteUtils.toBigInteger(null));
-    
+
     for ( int i = Byte.MIN_VALUE; i <= Byte.MAX_VALUE; ++i) {
       final Byte x = (byte) i;
       assertEquals(BigInteger.valueOf(i), ByteUtils.toBigInteger(x));
@@ -759,12 +750,12 @@ public class ByteUtilsTest {
   @Test
   public void testToBigInteger_Byte_BigInteger() {
     assertEquals(null, ByteUtils.toBigInteger(null, null));
-    
+
     for ( int i = Byte.MIN_VALUE; i <= Byte.MAX_VALUE; ++i) {
       final BigInteger x = BigInteger.valueOf(i);
       assertEquals(x, ByteUtils.toBigInteger(null, x));
     }
-    
+
     for ( int i = Byte.MIN_VALUE; i <= Byte.MAX_VALUE; ++i) {
       final Byte x = (byte) i;
       final BigInteger y = BigInteger.valueOf(i);
@@ -786,7 +777,7 @@ public class ByteUtilsTest {
   @Test
   public void testToBigDecimal_Byte() {
     assertEquals(null, ByteUtils.toBigDecimal(null));
-    
+
     for ( int i = Byte.MIN_VALUE; i <= Byte.MAX_VALUE; ++i) {
       final Byte x = (byte) i;
       assertEquals(BigDecimal.valueOf(i), ByteUtils.toBigDecimal(x));
@@ -796,11 +787,11 @@ public class ByteUtilsTest {
   @Test
   public void testToBigDecimal_Byte_BigDecimal() {
     assertEquals(null, ByteUtils.toBigDecimal(null, null));
-    
+
     for ( int i = Byte.MIN_VALUE; i <= Byte.MAX_VALUE; ++i) {
       assertEquals(BigDecimal.valueOf(i), ByteUtils.toBigDecimal(null, BigDecimal.valueOf(i)));
     }
-    
+
     for ( int i = Byte.MIN_VALUE; i <= Byte.MAX_VALUE; ++i) {
       final Byte x = (byte) i;
       assertEquals(BigDecimal.valueOf(i), ByteUtils.toBigDecimal(x, null));

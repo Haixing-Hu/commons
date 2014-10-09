@@ -18,7 +18,6 @@
 
 package com.github.haixing_hu.net;
 
-import java.io.Serializable;
 import java.lang.reflect.Array;
 
 import com.github.haixing_hu.text.Pattern;
@@ -30,9 +29,7 @@ import com.github.haixing_hu.text.PatternMap;
  *
  * @author Haixing Hu
  */
-public class UrlPatternMap<VALUE> implements Serializable {
-
-  private static final long serialVersionUID = 101752948782512000L;
+public class UrlPatternMap<VALUE> {
 
   private final PatternMap<VALUE>[] maps;
   private int size;

@@ -45,7 +45,7 @@ import com.github.haixing_hu.io.exception.FileCanNotDeleteException;
 import com.github.haixing_hu.io.exception.FileCanNotWriteException;
 import com.github.haixing_hu.io.exception.FileIsDirectoryException;
 import com.github.haixing_hu.io.exception.FileIsNotDirectoryException;
-import com.github.haixing_hu.io.exception.FileNotFoundException;
+import com.github.haixing_hu.io.exception.FileNotExistException;
 import com.github.haixing_hu.lang.SystemUtils;
 import com.github.haixing_hu.util.filter.file.DirectoryFileFilter;
 import com.github.haixing_hu.util.filter.file.RegularFileFilter;
@@ -174,9 +174,9 @@ public final class FileUtils {
    * files).
    *
    * @param dir
-   *          directory to inspect, must not be <code>null</code>
+   *          directory to inspect, must not be {@code null}
    * @return size of directory in bytes, 0 if directory is security restricted
-   * @throws FileNotFoundException
+   * @throws FileNotExistException
    *           if the directory does not exist.
    */
   public static long getSizeOfDirectory(final File dir) throws IOException {
@@ -216,7 +216,7 @@ public final class FileUtils {
    * be created.
    *
    * @param file
-   *          the file to open for output, must not be <code>null</code>
+   *          the file to open for output, must not be {@code null}
    * @return a new {@link FileOutputStream} for the specified file
    * @throws IOException
    *           if the file object is a directory
@@ -516,7 +516,7 @@ public final class FileUtils {
    *          a bitwise combination of the constants defined in the
    *          {@link OperationOption} class.
    * @return true if the copying succeed; false otherwise.
-   * @throws FileNotFoundException
+   * @throws FileNotExistException
    *           if the srcFile does not exist.
    * @throws IOException
    *           if an IO error occurs during copying
@@ -527,7 +527,7 @@ public final class FileUtils {
   public static boolean copyFile(final File srcFile, final File destFile, final int options)
       throws IOException {
     if (! srcFile.exists()) {
-      throw new FileNotFoundException(srcFile.getAbsolutePath());
+      throw new FileNotExistException(srcFile.getAbsolutePath());
     }
     if (srcFile.isDirectory()) {
       throw new FileIsDirectoryException(srcFile.getAbsolutePath());
@@ -596,14 +596,14 @@ public final class FileUtils {
    * then this method will overwrite it.
    *
    * @param srcFile
-   *          an existing file to copy, must not be <code>null</code>
+   *          an existing file to copy, must not be {@code null}
    * @param destDir
-   *          the directory to place the copy in, must not be <code>null</code>
+   *          the directory to place the copy in, must not be {@code null}
    * @param optoins
    *          a bitwise combination of the constants defined in the
    *          {@link OperationOption} class.
    * @return true if the copying succeed; false otherwise.
-   * @throws FileNotFoundException
+   * @throws FileNotExistException
    *           if the srcFile does not exist.
    * @throws IOException
    *           if an IO error occurs during copying
@@ -654,16 +654,16 @@ public final class FileUtils {
    * </pre>
    *
    * @param srcDir
-   *          an existing directory to copy, must not be <code>null</code>
+   *          an existing directory to copy, must not be {@code null}
    * @param destDir
-   *          the new directory, must not be <code>null</code>
+   *          the new directory, must not be {@code null}
    * @param filter
    *          the filter to apply, null means copy all directories and files
    * @param optoins
    *          a bitwise combination of the constants defined in the
    *          {@link OperationOption} class.
    * @return the number of files or directories copied.
-   * @throws FileNotFoundException
+   * @throws FileNotExistException
    *           if the srcDir does not exist.
    * @throws IOException
    *           if an IO error occurs during copying
@@ -831,7 +831,7 @@ public final class FileUtils {
    *
    * @param dir
    *          directory to clean
-   * @throws FileNotFoundException
+   * @throws FileNotExistException
    *          if dir does not exist
    * @throws IOException
    *           in case cleaning is unsuccessful
@@ -937,7 +937,7 @@ public final class FileUtils {
 
   /**
    * Computes the checksum of a file using the specified checksum object.
-   * Multiple files may be checked using one <code>Checksum</code> instance if
+   * Multiple files may be checked using one {@code Checksum} instance if
    * desired simply by reusing the same checksum object. For example:
    *
    * <pre>
@@ -945,12 +945,12 @@ public final class FileUtils {
    * </pre>
    *
    * @param file
-   *          the file to checksum, must not be <code>null</code>
+   *          the file to checksum, must not be {@code null}
    * @param checksum
-   *          the checksum object to be used, must not be <code>null</code>
+   *          the checksum object to be used, must not be {@code null}
    * @return the checksum specified, updated with the content of the file
    * @throws NullPointerException
-   *           if the file or checksum is <code>null</code>
+   *           if the file or checksum is {@code null}
    * @throws IllegalArgumentException
    *           if the file is a directory
    * @throws IOException

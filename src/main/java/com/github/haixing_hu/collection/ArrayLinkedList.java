@@ -66,7 +66,9 @@ public class ArrayLinkedList<E> extends AbstractSequentialList<E> implements Deq
    *
    * @author Haixing Hu
    */
-  protected static class Node {
+  protected static class Node implements Serializable {
+    private static final long serialVersionUID = 5992909288570428948L;
+
     Object element = null;
     int previous = -1;
     int next = -1;
@@ -915,7 +917,7 @@ public class ArrayLinkedList<E> extends AbstractSequentialList<E> implements Deq
    * </p>
    * @param index
    *          the index of the node to be get. It must be in the range of
-   *          <code>[0, size]</code>.
+   *          {@code [0, size]}.
    * @return the position of the node at the specified index in the list.
    */
   protected final int getNodeAtIndex(final int index) {
@@ -948,7 +950,7 @@ public class ArrayLinkedList<E> extends AbstractSequentialList<E> implements Deq
    *          this function will returns -1.
    * @param stopPos
    *          the position of the node next to the node where the search ends.
-   *          If it is the same as <code>startPos</code>, the whole list will be
+   *          If it is the same as {@code startPos}, the whole list will be
    *          searched, since the list is a cycle. If the list is empty before
    *          calling this function, this argument must be -1, and this function
    *          will returns -1.
@@ -993,7 +995,7 @@ public class ArrayLinkedList<E> extends AbstractSequentialList<E> implements Deq
    *          this function will returns -1.
    * @param stopPos
    *          the position of the node previous to the node where the search
-   *          ends. If it is the same as <code>startPos</code>, the whole list
+   *          ends. If it is the same as {@code startPos}, the whole list
    *          will be searched, since the list is a cycle. If the list is empty
    *          before calling this function, this argument must be -1, and this
    *          function will returns -1.

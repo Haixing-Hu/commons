@@ -164,7 +164,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void setFinal(final String name, final boolean isFinal) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -172,7 +172,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void setType(final String name, final Type type) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -180,7 +180,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void setDescription(final String name, final String description) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -188,7 +188,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void setBoolean(final String name, final boolean value) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -196,7 +196,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void setBooleans(final String name, final boolean... values) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -204,7 +204,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void setBooleans(final String name, final BooleanCollection values) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -212,7 +212,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void addBoolean(final String name, final boolean value) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -220,7 +220,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void addBooleans(final String name, final boolean... values) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -228,7 +228,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void addBooleans(final String name, final BooleanCollection values) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -236,7 +236,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void setChar(final String name, final char value) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -244,7 +244,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void setChars(final String name, final char... values) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -252,7 +252,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void setChars(final String name, final CharCollection values) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -260,7 +260,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void addChar(final String name, final char value) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -268,7 +268,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void addChars(final String name, final char... values) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -276,7 +276,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void addChars(final String name, final CharCollection values) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -284,7 +284,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void setByte(final String name, final byte value) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -292,7 +292,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void setBytes(final String name, final byte... values) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -300,7 +300,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void setBytes(final String name, final ByteCollection values) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -308,7 +308,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void addByte(final String name, final byte value) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -316,7 +316,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void addBytes(final String name, final byte... values) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -324,7 +324,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void addBytes(final String name, final ByteCollection values) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -332,7 +332,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void setShort(final String name, final short value) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -340,7 +340,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void setShorts(final String name, final short... values) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -348,7 +348,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void setShorts(final String name, final ShortCollection values) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -356,7 +356,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void addShort(final String name, final short value) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -364,7 +364,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void addShorts(final String name, final short... values) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -372,7 +372,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void addShorts(final String name, final ShortCollection values) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -380,7 +380,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void setInt(final String name, final int value) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -388,7 +388,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void setInts(final String name, final int... values) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -396,7 +396,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void setInts(final String name, final IntCollection values) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -404,7 +404,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void addInt(final String name, final int value) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -412,7 +412,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void addInts(final String name, final int... values) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -420,7 +420,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void addInts(final String name, final IntCollection values) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -428,7 +428,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void setLong(final String name, final long value) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -436,7 +436,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void setLongs(final String name, final long... values) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -444,7 +444,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void setLongs(final String name, final LongCollection values) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -452,7 +452,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void addLong(final String name, final long value) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -460,7 +460,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void addLongs(final String name, final long... values) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -468,7 +468,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void addLongs(final String name, final LongCollection values) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -476,7 +476,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void setFloat(final String name, final float value) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -484,7 +484,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void setFloats(final String name, final float... values) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -492,7 +492,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void setFloats(final String name, final FloatCollection values) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -500,7 +500,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void addFloat(final String name, final float value) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -508,7 +508,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void addFloats(final String name, final float... values) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -516,7 +516,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void addFloats(final String name, final FloatCollection values) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -524,7 +524,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void setDouble(final String name, final double value) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -532,7 +532,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void setDoubles(final String name, final double... values) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -540,7 +540,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void setDoubles(final String name, final DoubleCollection values) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -548,7 +548,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void addDouble(final String name, final double value) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -556,7 +556,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void addDoubles(final String name, final double... values) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -564,7 +564,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void addDoubles(final String name, final DoubleCollection values) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -572,7 +572,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void setString(final String name, final String value) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -580,7 +580,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void setStrings(final String name, final String... values) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -588,7 +588,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void setStrings(final String name, final Collection<String> values) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -596,7 +596,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void addString(final String name, final String value) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -604,7 +604,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void addStrings(final String name, final String... values) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -612,7 +612,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void addStrings(final String name, final Collection<String> values) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -620,7 +620,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void setDate(final String name, final Date value) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -628,7 +628,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void setDates(final String name, final Date... values) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -636,7 +636,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void setDates(final String name, final Collection<Date> values) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -644,7 +644,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void addDate(final String name, final Date value) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -652,7 +652,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void addDates(final String name, final Date... values) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -660,7 +660,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void addDates(final String name, final Collection<Date> values) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -668,7 +668,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void setBigInteger(final String name, final BigInteger value) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -676,7 +676,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void setBigIntegers(final String name, final BigInteger... values) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -685,7 +685,7 @@ public class DefaultConfig extends AbstractConfig {
 
   public void setBigIntegers(final String name,
       final Collection<BigInteger> values) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -693,7 +693,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void addBigInteger(final String name, final BigInteger value) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -701,7 +701,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void addBigIntegers(final String name, final BigInteger... values) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -710,7 +710,7 @@ public class DefaultConfig extends AbstractConfig {
 
   public void addBigIntegers(final String name,
       final Collection<BigInteger> values) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -718,7 +718,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void setBigDecimal(final String name, final BigDecimal value) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -726,7 +726,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void setBigDecimals(final String name, final BigDecimal... values) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -735,7 +735,7 @@ public class DefaultConfig extends AbstractConfig {
 
   public void setBigDecimals(final String name,
       final Collection<BigDecimal> values) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -743,7 +743,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void addBigDecimal(final String name, final BigDecimal value) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -751,7 +751,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void addBigDecimals(final String name, final BigDecimal... values) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -760,7 +760,7 @@ public class DefaultConfig extends AbstractConfig {
 
   public void addBigDecimals(final String name,
       final Collection<BigDecimal> values) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -768,7 +768,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void setByteArray(final String name, final byte[] value) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -776,7 +776,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void setByteArrays(final String name, final byte[]... values) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -784,7 +784,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void setByteArrays(final String name, final Collection<byte[]> values) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -792,7 +792,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void addByteArray(final String name, final byte[] value) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -800,7 +800,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void addByteArrays(final String name, final byte[]... values) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -808,7 +808,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void addByteArrays(final String name, final Collection<byte[]> values) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -816,7 +816,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void setClass(final String name, final Class<?> value) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -824,7 +824,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void setClasses(final String name, final Class<?>... values) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -832,7 +832,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void setClasses(final String name, final Collection<Class<?>> values) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -840,7 +840,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void addClass(final String name, final Class<?> value) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -848,7 +848,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void addClasses(final String name, final Class<?>... values) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -856,7 +856,7 @@ public class DefaultConfig extends AbstractConfig {
   }
 
   public void addClasses(final String name, final Collection<Class<?>> values) {
-    DefaultProperty prop = this.get(name);
+    DefaultProperty prop = get(name);
     if (prop == null) {
       prop = this.add(name);
     }
@@ -883,7 +883,7 @@ public class DefaultConfig extends AbstractConfig {
           if (! name.startsWith(prefix)) {
             continue;
           }
-          if (this.contains(name)) {
+          if (contains(name)) {
             LOGGER.trace("Skip the existing property '{}'.", name);
           } else {
             LOGGER.trace("Adding a new property '{}'.", name);
@@ -898,7 +898,7 @@ public class DefaultConfig extends AbstractConfig {
           if (! name.startsWith(prefix)) {
             continue;
           }
-          DefaultProperty thisProp = this.get(name);
+          DefaultProperty thisProp = get(name);
           if (thisProp == null) {
             LOGGER.trace("Adding a new property '{}'.", name);
             thisProp = this.add(name);
@@ -923,7 +923,7 @@ public class DefaultConfig extends AbstractConfig {
           if (! name.startsWith(prefix)) {
             continue;
           }
-          DefaultProperty thisProp = this.get(name);
+          DefaultProperty thisProp = get(name);
           if (thisProp == null) {
             LOGGER.trace("Adding a new property '{}'.", name);
             thisProp = this.add(name);
@@ -944,7 +944,7 @@ public class DefaultConfig extends AbstractConfig {
     LOGGER.trace("Start Assignment with another configuration ...");
     if (this != config) {
       LOGGER.trace("Removing all properties ... ");
-      this.removeAll();
+      removeAll();
       for (final Property thatProp : config.getProperties()) {
         final String name = thatProp.getName();
         LOGGER.trace("Adding a new property '{}'.", name);
@@ -959,7 +959,7 @@ public class DefaultConfig extends AbstractConfig {
     LOGGER.trace("Start Assignment with another configuration ...");
     if (this != config) {
       LOGGER.trace("Removing all properties ... ");
-      this.removeAll();
+      removeAll();
       for (final Property thatProp : config.getProperties()) {
         final String name = thatProp.getName();
         if (name.startsWith(prefix)) {
@@ -970,10 +970,10 @@ public class DefaultConfig extends AbstractConfig {
       }
     } else {
       // this == config, just remove all properties not starting with prefix
-      for (final String name : this.getNames()) {
+      for (final String name : getNames()) {
         if (! name.startsWith(prefix)) {
           LOGGER.trace("Removing the property '{}'.", name);
-          this.remove(name);
+          remove(name);
         }
       }
     }
@@ -1018,11 +1018,12 @@ public class DefaultConfig extends AbstractConfig {
 
   @Override
   public Config clone() {
-    final DefaultConfig cloned = new DefaultConfig();
+    final DefaultConfig result = (DefaultConfig) super.clone();
+    result.properties = new HashMap<String, DefaultProperty>();
     for (final DefaultProperty prop : properties.values()) {
-      cloned.properties.put(prop.getName(), prop.clone());
+      result.properties.put(prop.getName(), prop.clone());
     }
-    return cloned;
+    return result;
   }
 
   @Override

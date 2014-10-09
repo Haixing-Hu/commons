@@ -60,7 +60,7 @@ public final class DateFormatSymbols implements Cloneable<DateFormatSymbols> {
 
   /**
    * Era strings. For example: "AD" and "BC".  An array of 2 strings,
-   * indexed by <code>Calendar.BC</code> and <code>Calendar.AD</code>.
+   * indexed by {@code Calendar.BC} and {@code Calendar.AD}.
    * @serial
    */
   private String eras[] = null;
@@ -68,7 +68,7 @@ public final class DateFormatSymbols implements Cloneable<DateFormatSymbols> {
   /**
    * Month strings. For example: "January", "February", etc.  An array
    * of 13 strings (some calendars have 13 months), indexed by
-   * <code>Calendar.JANUARY</code>, <code>Calendar.FEBRUARY</code>, etc.
+   * {@code Calendar.JANUARY}, {@code Calendar.FEBRUARY}, etc.
    * @serial
    */
   private String months[] = null;
@@ -76,7 +76,7 @@ public final class DateFormatSymbols implements Cloneable<DateFormatSymbols> {
   /**
    * Short month strings. For example: "Jan", "Feb", etc.  An array of
    * 13 strings (some calendars have 13 months), indexed by
-   * <code>Calendar.JANUARY</code>, <code>Calendar.FEBRUARY</code>, etc.
+   * {@code Calendar.JANUARY}, {@code Calendar.FEBRUARY}, etc.
 
    * @serial
    */
@@ -84,26 +84,26 @@ public final class DateFormatSymbols implements Cloneable<DateFormatSymbols> {
 
   /**
    * Weekday strings. For example: "Sunday", "Monday", etc.  An array
-   * of 8 strings, indexed by <code>Calendar.SUNDAY</code>,
-   * <code>Calendar.MONDAY</code>, etc.
-   * The element <code>weekdays[0]</code> is ignored.
+   * of 8 strings, indexed by {@code Calendar.SUNDAY},
+   * {@code Calendar.MONDAY}, etc.
+   * The element {@code weekdays[0]} is ignored.
    * @serial
    */
   private String weekdays[] = null;
 
   /**
    * Short weekday strings. For example: "Sun", "Mon", etc.  An array
-   * of 8 strings, indexed by <code>Calendar.SUNDAY</code>,
-   * <code>Calendar.MONDAY</code>, etc.
-   * The element <code>shortWeekdays[0]</code> is ignored.
+   * of 8 strings, indexed by {@code Calendar.SUNDAY},
+   * {@code Calendar.MONDAY}, etc.
+   * The element {@code shortWeekdays[0]} is ignored.
    * @serial
    */
   private String shortWeekdays[] = null;
 
   /**
    * AM and PM strings. For example: "AM" and "PM".  An array of
-   * 2 strings, indexed by <code>Calendar.AM</code> and
-   * <code>Calendar.PM</code>.
+   * 2 strings, indexed by {@code Calendar.AM} and
+   * {@code Calendar.PM}.
    * @serial
    */
   private String ampms[] = null;
@@ -112,18 +112,18 @@ public final class DateFormatSymbols implements Cloneable<DateFormatSymbols> {
    * Localized names of time zones in this locale.  This is a
    * two-dimensional array of strings of size <em>n</em> by <em>m</em>,
    * where <em>m</em> is at least 5.  Each of the <em>n</em> rows is an
-   * entry containing the localized names for a single <code>TimeZone</code>.
-   * Each such row contains (with <code>i</code> ranging from
+   * entry containing the localized names for a single {@code TimeZone}.
+   * Each such row contains (with {@code i} ranging from
    * 0..<em>n</em>-1):
    * <ul>
-   * <li><code>zoneStrings[i][0]</code> - time zone ID</li>
-   * <li><code>zoneStrings[i][1]</code> - long name of zone in standard
+   * <li>{@code zoneStrings[i][0]} - time zone ID</li>
+   * <li>{@code zoneStrings[i][1]} - long name of zone in standard
    * time</li>
-   * <li><code>zoneStrings[i][2]</code> - short name of zone in
+   * <li>{@code zoneStrings[i][2]} - short name of zone in
    * standard time</li>
-   * <li><code>zoneStrings[i][3]</code> - long name of zone in daylight
+   * <li>{@code zoneStrings[i][3]} - long name of zone in daylight
    * saving time</li>
-   * <li><code>zoneStrings[i][4]</code> - short name of zone in daylight
+   * <li>{@code zoneStrings[i][4]} - short name of zone in daylight
    * saving time</li>
    * </ul>
    * The zone ID is <em>not</em> localized; it's one of the valid IDs of
@@ -140,8 +140,8 @@ public final class DateFormatSymbols implements Cloneable<DateFormatSymbols> {
    * wish to use 'u' rather than 'y' to represent years in its date format
    * pattern strings.
    * This string must be exactly 18 characters long, with the index of
-   * the characters described by <code>DateFormat.ERA_FIELD</code>,
-   * <code>DateFormat.YEAR_FIELD</code>, etc.  Thus, if the string were
+   * the characters described by {@code DateFormat.ERA_FIELD},
+   * {@code DateFormat.YEAR_FIELD}, etc.  Thus, if the string were
    * "Xz...", then localized patterns would use 'X' for era and 'z' for year.
    * @serial
    */

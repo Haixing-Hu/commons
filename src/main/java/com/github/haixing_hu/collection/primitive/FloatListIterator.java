@@ -19,7 +19,7 @@
 package com.github.haixing_hu.collection.primitive;
 
 /**
- * A bi-directional iterator over <code>float</code> values.
+ * A bi-directional iterator over {@code float} values.
  *
  * @author Haixing Hu
  */
@@ -48,22 +48,22 @@ public interface FloatListIterator extends FloatIterator {
   void add(float element);
 
   /**
-   * Returns <code>true</code> iff I have more elements when traversed in the
-   * forward direction. (In other words, returns <code>true</code> iff a call to
+   * Returns {@code true} iff I have more elements when traversed in the
+   * forward direction. (In other words, returns {@code true} iff a call to
    * {@link #next} will return an element rather than throwing an exception.
    *
-   * @return <code>true</code> iff I have more elements when traversed in the
+   * @return {@code true} iff I have more elements when traversed in the
    *         forward direction
    */
   @Override
   boolean hasNext();
 
   /**
-   * Returns <code>true</code> iff I have more elements when traversed in the
-   * reverse direction. (In other words, returns <code>true</code> iff a call to
+   * Returns {@code true} iff I have more elements when traversed in the
+   * reverse direction. (In other words, returns {@code true} iff a call to
    * {@link #previous} will return an element rather than throwing an exception.
    *
-   * @return <code>true</code> iff I have more elements when traversed in the
+   * @return {@code true} iff I have more elements when traversed in the
    *         reverse direction
    */
   boolean hasPrevious();
@@ -98,7 +98,7 @@ public interface FloatListIterator extends FloatIterator {
 
   /**
    * Returns the current of the element that would be returned by a subsequent
-   * call to {@link #previous}, or <code>-1</code> if I have no previous
+   * call to {@link #previous}, or {@code -1} if I have no previous
    * element.
    *
    * @return the current of the previous element in me

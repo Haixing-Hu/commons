@@ -111,7 +111,7 @@ public class FieldUtils {
   /**
    * Gets a field with a specified name on a class.
    * <p>
-   * NOTE: if the <code>options</code> argument contains {@link Option#ANCESTOR}
+   * NOTE: if the {@code options} argument contains {@link Option#ANCESTOR}
    * , and there is more than one field with the specified name declared in the
    * specified class or its ancestor class or its ancestor interfaces, the
    * function will try to return the field with the shallower depth; if there
@@ -126,7 +126,7 @@ public class FieldUtils {
    *          {@link Option#DEFAULT}.
    * @param name
    *          The name of the field to be get.
-   * @return the specified field, or <code>null</code> if no such field.
+   * @return the specified field, or {@code null} if no such field.
    * @throws ReflectionException
    *           if any error occurred.
    */
@@ -161,7 +161,7 @@ public class FieldUtils {
    * <p>
    * The value is automatically wrapped in an object if it has a primitive type.
    * <p>
-   * NOTE: if the <code>options</code> argument contains {@link Option#ANCESTOR}
+   * NOTE: if the {@code options} argument contains {@link Option#ANCESTOR}
    * , and there is more than one field with the specified name declared in the
    * specified class or its ancestor class or its ancestor interfaces, the
    * function will try to read the field with the shallower depth; if there are
@@ -178,7 +178,7 @@ public class FieldUtils {
    *          The name of the field.
    * @param object
    *          The object of the specified class. If the field whose value is to
-   *          be get is a static field, this argument may be <code>null</code>.
+   *          be get is a static field, this argument may be {@code null}.
    * @return the value of the specified field.
    * @throws ReflectionException
    *           if any error occurred.
@@ -204,7 +204,7 @@ public class FieldUtils {
    * The new value is automatically unwrapped if the underlying field has a
    * primitive type.
    * <p>
-   * NOTE: if the <code>options</code> argument contains {@link Option#ANCESTOR}
+   * NOTE: if the {@code options} argument contains {@link Option#ANCESTOR}
    * , and there is more than one field with the specified name declared in the
    * specified class or its ancestor class or its ancestor interfaces, the
    * function will try to write the field with the shallower depth; if there are

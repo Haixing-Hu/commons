@@ -96,8 +96,8 @@ public class BasicMultiValues implements MultiValues, Serializable {
 
   public BasicMultiValues(final Type type) {
     this.type = requireNonNull("type", type);
-    this.count = 0;
-    this.valueOrValues = null;
+    count = 0;
+    valueOrValues = null;
   }
 
   public BasicMultiValues(final boolean value) {
@@ -179,8 +179,8 @@ public class BasicMultiValues implements MultiValues, Serializable {
   public void setType(final Type type) {
     if (this.type != type) {
       this.type = requireNonNull("type", type);
-      this.count = 0;
-      this.valueOrValues = null;
+      count = 0;
+      valueOrValues = null;
     }
   }
 
@@ -209,7 +209,7 @@ public class BasicMultiValues implements MultiValues, Serializable {
     final int count = other.getCount();
     if (count == 0) {
       this.type = type;
-      this.valueOrValues = null;
+      valueOrValues = null;
       this.count = 0;
     } else if (count == 1) {
       assignSingleValue(type, other);
@@ -223,64 +223,64 @@ public class BasicMultiValues implements MultiValues, Serializable {
       case BOOLEAN: {
         final boolean value = other.getBooleanValue();
         this.type = Type.BOOLEAN;
-        this.valueOrValues = Boolean.valueOf(value);
-        this.count = 1;
+        valueOrValues = Boolean.valueOf(value);
+        count = 1;
         return;
       }
       case CHAR: {
         final char value = other.getCharValue();
         this.type = Type.CHAR;
-        this.valueOrValues = Character.valueOf(value);
-        this.count = 1;
+        valueOrValues = Character.valueOf(value);
+        count = 1;
         return;
       }
       case BYTE: {
         final byte value = other.getByteValue();
         this.type = Type.BYTE;
-        this.valueOrValues = Byte.valueOf(value);
-        this.count = 1;
+        valueOrValues = Byte.valueOf(value);
+        count = 1;
         return;
       }
       case SHORT: {
         final short value = other.getShortValue();
         this.type = Type.SHORT;
-        this.valueOrValues = Short.valueOf(value);
-        this.count = 1;
+        valueOrValues = Short.valueOf(value);
+        count = 1;
         return;
       }
       case INT: {
         final int value = other.getIntValue();
         this.type = Type.INT;
-        this.valueOrValues = Integer.valueOf(value);
-        this.count = 1;
+        valueOrValues = Integer.valueOf(value);
+        count = 1;
         return;
       }
       case LONG: {
         final long value = other.getLongValue();
         this.type = Type.LONG;
-        this.valueOrValues = Long.valueOf(value);
-        this.count = 1;
+        valueOrValues = Long.valueOf(value);
+        count = 1;
         return;
       }
       case FLOAT: {
         final float value = other.getFloatValue();
         this.type = Type.FLOAT;
-        this.valueOrValues = Float.valueOf(value);
-        this.count = 1;
+        valueOrValues = Float.valueOf(value);
+        count = 1;
         return;
       }
       case DOUBLE: {
         final double value = other.getDoubleValue();
         this.type = Type.DOUBLE;
-        this.valueOrValues = Double.valueOf(value);
-        this.count = 1;
+        valueOrValues = Double.valueOf(value);
+        count = 1;
         return;
       }
       case STRING: {
         final String value = other.getStringValue();
         this.type = Type.STRING;
-        this.valueOrValues = value;
-        this.count = 1;
+        valueOrValues = value;
+        count = 1;
         return;
       }
       case DATE: {
@@ -288,8 +288,8 @@ public class BasicMultiValues implements MultiValues, Serializable {
         // don't need to clone the value, since it is already the cloned
         // copy of the object in other.
         this.type = Type.DATE;
-        this.valueOrValues = value;
-        this.count = 1;
+        valueOrValues = value;
+        count = 1;
         return;
       }
       case BYTE_ARRAY: {
@@ -297,29 +297,29 @@ public class BasicMultiValues implements MultiValues, Serializable {
         // don't need to clone the value, since it is already the cloned
         // copy of the object in other.
         this.type = Type.BYTE_ARRAY;
-        this.valueOrValues = value;
-        this.count = 1;
+        valueOrValues = value;
+        count = 1;
         return;
       }
       case CLASS: {
         final Class<?> value = other.getClassValue();
         this.type = Type.CLASS;
-        this.valueOrValues = value;
-        this.count = 1;
+        valueOrValues = value;
+        count = 1;
         return;
       }
       case BIG_INTEGER: {
         final BigInteger value = other.getBigIntegerValue();
         this.type = Type.BIG_INTEGER;
-        this.valueOrValues = value;
-        this.count = 1;
+        valueOrValues = value;
+        count = 1;
         return;
       }
       case BIG_DECIMAL: {
         final BigDecimal value = other.getBigDecimalValue();
         this.type = Type.BIG_DECIMAL;
-        this.valueOrValues = value;
-        this.count = 1;
+        valueOrValues = value;
+        count = 1;
         return;
       }
       default:
@@ -429,76 +429,76 @@ public class BasicMultiValues implements MultiValues, Serializable {
     switch (type) {
       case BOOLEAN: {
         final boolean other_value = other.getBooleanValue();
-        this.doAddBooleanValue(other_value);
+        doAddBooleanValue(other_value);
         return;
       }
       case CHAR: {
         final char other_value = other.getCharValue();
-        this.doAddCharValue(other_value);
+        doAddCharValue(other_value);
         return;
       }
       case BYTE: {
         final byte other_value = other.getByteValue();
-        this.doAddByteValue(other_value);
+        doAddByteValue(other_value);
         return;
       }
       case SHORT: {
         final short other_value = other.getShortValue();
-        this.doAddShortValue(other_value);
+        doAddShortValue(other_value);
         return;
       }
       case INT: {
         final int other_value = other.getIntValue();
-        this.doAddIntValue(other_value);
+        doAddIntValue(other_value);
         return;
       }
       case LONG: {
         final long other_value = other.getLongValue();
-        this.doAddLongValue(other_value);
+        doAddLongValue(other_value);
         return;
       }
       case FLOAT: {
         final float other_value = other.getFloatValue();
-        this.doAddFloatValue(other_value);
+        doAddFloatValue(other_value);
         return;
       }
       case DOUBLE: {
         final double other_value = other.getDoubleValue();
-        this.doAddDoubleValue(other_value);
+        doAddDoubleValue(other_value);
         return;
       }
       case STRING: {
         final String other_value = other.getStringValue();
-        this.doAddStringValue(other_value);
+        doAddStringValue(other_value);
         return;
       }
       case DATE: {
         final Date other_value = other.getDateValue();
         // don't need to clone the value, since it is already the cloned
         // copy of the object in other.
-        this.doAddDateValue(false, other_value);
+        doAddDateValue(false, other_value);
         return;
       }
       case BYTE_ARRAY: {
         final byte[] other_value = other.getByteArrayValue();
         // don't need to clone the value, since it is already the cloned
         // copy of the object in other.
-        this.doAddByteArrayValue(false, other_value);
+        doAddByteArrayValue(false, other_value);
         return;
       }
       case CLASS: {
         final Class<?> other_value = other.getClassValue();
-        this.doAddClassValue(other_value);
+        doAddClassValue(other_value);
         return;
       }
       case BIG_INTEGER: {
         final BigInteger other_value = other.getBigIntegerValue();
-        this.doAddBigIntegerValue(other_value);
+        doAddBigIntegerValue(other_value);
         return;
       }
       case BIG_DECIMAL: {
         final BigDecimal other_value = other.getBigDecimalValue();
-        this.doAddBigDecimalValue(other_value);
+        doAddBigDecimalValue(other_value);
         return;
       }
       default:
@@ -594,17 +594,17 @@ public class BasicMultiValues implements MultiValues, Serializable {
     try {
       if (n == 0) {
         this.type = type;
-        this.count = 1;
+        count = 1;
       } else if (n == 1) {
         final Object value = TypeUtils.readObject(type, in);
         this.type = type;
-        this.valueOrValues = value;
-        this.count = 1;
+        valueOrValues = value;
+        count = 1;
       } else if (n > 1) {
         final Object values = TypeUtils.readList(type, n, in);
         this.type = type;
-        this.valueOrValues = values;
-        this.count = n;
+        valueOrValues = values;
+        count = n;
       }
     } catch (final UnsupportedTypeException e) {
       throw new InvalidFormatException(e);
@@ -630,20 +630,20 @@ public class BasicMultiValues implements MultiValues, Serializable {
     final List<Element> children = DomUtils.getChildren(parent, tagName, null);
     if ((children == null) || children.isEmpty()) {
       this.type = type;
-      this.valueOrValues = null;
-      this.count = 0;
+      valueOrValues = null;
+      count = 0;
     } else if (children.size() == 1) {
       final Element node = children.iterator().next();
       final Object value = TypeUtils.fromXmlNode(type, node, prevSpaceAttr);
       this.type = type;
-      this.valueOrValues = value;
-      this.count = 1;
+      valueOrValues = value;
+      count = 1;
     } else { // children.size() > 1
       final Object values = TypeUtils.fromXmlNodes(type, children,
           prevSpaceAttr);
       this.type = type;
-      this.valueOrValues = values;
-      this.count = children.size();
+      valueOrValues = values;
+      count = children.size();
     }
   }
 
@@ -1241,10 +1241,10 @@ public class BasicMultiValues implements MultiValues, Serializable {
     if (count == 0) {
       throw new NoSuchElementException();
     } else if (count == 1) {
-      final Short value = (Short) this.valueOrValues;
+      final Short value = (Short) valueOrValues;
       return value;
     } else {
-      final ShortList values = (ShortList) this.valueOrValues;
+      final ShortList values = (ShortList) valueOrValues;
       final short value = values.iterator().next();
       return value;
     }
@@ -3739,7 +3739,7 @@ public class BasicMultiValues implements MultiValues, Serializable {
       final String[] result = { value };
       return result;
     } else { // count > 1
-      final Object list = this.valueOrValues;
+      final Object list = valueOrValues;
       return TypeUtils.collectionAsStrings(type, list);
     }
   }
@@ -3871,9 +3871,13 @@ public class BasicMultiValues implements MultiValues, Serializable {
 
   @Override
   public BasicMultiValues clone() {
-    final BasicMultiValues result = new BasicMultiValues();
-    result.assignValues(this);
-    return result;
+    try {
+      final BasicMultiValues result = (BasicMultiValues) super.clone();
+      result.assignValues(this);
+      return result;
+    } catch (final CloneNotSupportedException e) {
+      throw new UnsupportedOperationException(e);
+    }
   }
 
   @Override

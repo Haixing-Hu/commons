@@ -21,8 +21,8 @@ package com.github.haixing_hu.util.filter.string;
 import com.github.haixing_hu.util.filter.ChainedFilter;
 
 /**
- * A <code>ChainedStringFilter</code> object is a instance of <code>StringFilter</code>
- * consists of a list of <code>StringFilter</code> objects.
+ * A {@code ChainedStringFilter} object is a instance of {@code StringFilter}
+ * consists of a list of {@code StringFilter} objects.
  *
  * A string is accepted by a ChainedStringFilter object if and only if it is accepted
  * by all filters in the chain of the ChainedStringFilter object.

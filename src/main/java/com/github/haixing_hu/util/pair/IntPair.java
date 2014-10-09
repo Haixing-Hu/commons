@@ -27,7 +27,7 @@ import com.github.haixing_hu.lang.Hash;
 import com.github.haixing_hu.text.tostring.ToStringBuilder;
 
 /**
- * his class is used to represent a pair of <code>int</code> values.
+ * his class is used to represent a pair of {@code int} values.
  *
  * @author Haixing Hu
  */

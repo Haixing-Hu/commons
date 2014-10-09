@@ -30,42 +30,42 @@ import javax.annotation.Nullable;
 public final class Size {
 
   /**
-   * The size in bytes of a <code>boolean</code> variable in this JVM.
+   * The size in bytes of a {@code boolean} variable in this JVM.
    */
   public static final long BOOL   = 1L;
 
   /**
-   * The size in bytes of a <code>char</code> variable in this JVM.
+   * The size in bytes of a {@code char} variable in this JVM.
    */
   public static final long CHAR      = 2L;
 
   /**
-   * The size in bytes of a <code>byte</code> variable in this JVM.
+   * The size in bytes of a {@code byte} variable in this JVM.
    */
   public static final long BYTE      = 1L;
 
   /**
-   * The size in bytes of a <code>short</code> variable in this JVM.
+   * The size in bytes of a {@code short} variable in this JVM.
    */
   public static final long SHORT     = 2L;
 
   /**
-   * The size in bytes of a <code>int</code> variable in this JVM.
+   * The size in bytes of a {@code int} variable in this JVM.
    */
   public static final long INT       = 4L;
 
   /**
-   * The size in bytes of a <code>long</code> variable in this JVM.
+   * The size in bytes of a {@code long} variable in this JVM.
    */
   public static final long LONG      = 8L;
 
   /**
-   * The size in bytes of a <code>float</code> variable in this JVM.
+   * The size in bytes of a {@code float} variable in this JVM.
    */
   public static final long FLOAT     = 4L;
 
   /**
-   * The size in bytes of a <code>double</code> variable in this JVM.
+   * The size in bytes of a {@code double} variable in this JVM.
    */
   public static final long DOUBLE    = 8L;
 
@@ -75,7 +75,7 @@ public final class Size {
   public static final long REFERENCE = (SystemUtils.IS_JAVA_64BIT ? 8L : 4L);
 
   /**
-   * The size in bytes of a <code>Date</code> variable in this JVM.
+   * The size in bytes of a {@code Date} variable in this JVM.
    */
   public static final long DATE      = 8L;
 
@@ -90,12 +90,12 @@ public final class Size {
   public static final long LINKED_LIST = REFERENCE + 2 * INT + LINKED_LIST_ENTRY;
 
   /**
-   * Gets the size in bytes of a <code>String</code> object.
+   * Gets the size in bytes of a {@code String} object.
    *
    * @param str
-   *          a reference to a <code>String</code> object, which could be null.
-   * @return the size in bytes of the specified <code>String</code> object; or 0
-   *         if the reference is <code>null</code>.
+   *          a reference to a {@code String} object, which could be null.
+   * @return the size in bytes of the specified {@code String} object; or 0
+   *         if the reference is {@code null}.
    */
   public static long of(@Nullable final String str) {
     return (str == null ? 0 : str.length() * CHAR);

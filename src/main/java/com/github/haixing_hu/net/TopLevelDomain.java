@@ -27,8 +27,8 @@ import com.github.haixing_hu.text.tostring.ToStringBuilder;
 /**
  * A top-level domain (TLD) is the last part of an Internet domain name; that
  * is, the letters which follow the final dot of any domain name. For example,
- * in the domain name <code>www.website.com</code>, the top-level domain is
- * <code>com</code>.
+ * in the domain name {@code www.website.com}, the top-level domain is
+ * {@code com}.
  *
  * @author Haixing Hu
  * @see http://www.iana.org/

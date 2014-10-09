@@ -59,7 +59,7 @@ public class StackConfig extends AbstractConfig {
    * @param config
    *    the {@link Config} to be pushed into the stack.
    * @throws NullPointerException
-   *    if the <code>config</code> is null.
+   *    if the {@code config} is null.
    */
   public void push(final Config config) {
     configs.push(requireNonNull("config", config));
@@ -158,8 +158,8 @@ public class StackConfig extends AbstractConfig {
 
   @Override
   public StackConfig clone() {
-    final StackConfig result = new StackConfig();
-    for (final Config config : this.configs) {
+    final StackConfig result = (StackConfig) super.clone();
+    for (final Config config : configs) {
       result.configs.add(config);
     }
     return result;

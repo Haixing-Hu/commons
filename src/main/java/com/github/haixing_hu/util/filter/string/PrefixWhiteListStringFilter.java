@@ -24,9 +24,9 @@ import javax.annotation.concurrent.NotThreadSafe;
  * A string filter with a prefix white list.
  *
  * Given a string, if it has a prefix in the white list of a
- * <code>PrefixWhiteListStringFilter</code> object, it is accepted by the
- * <code>PrefixWhiteListStringFilter</code> object; otherwise, it is rejected by
- * the <code>PrefixWhiteListStringFilter</code> object.
+ * {@code PrefixWhiteListStringFilter} object, it is accepted by the
+ * {@code PrefixWhiteListStringFilter} object; otherwise, it is rejected by
+ * the {@code PrefixWhiteListStringFilter} object.
  *
  * @author Haixing Hu
  */

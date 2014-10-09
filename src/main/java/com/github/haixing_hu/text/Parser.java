@@ -31,8 +31,8 @@ public interface Parser<INPUT, OUTPUT> {
    * @param input
    *          the input object to be parsed.
    * @return the output object as the parsing result.
-   * @throws ParseException
+   * @throws ParsingException
    *           if any error occurs.
    */
-  public OUTPUT parse(INPUT input) throws ParseException ;
+  public OUTPUT parse(INPUT input) throws ParsingException ;
 }

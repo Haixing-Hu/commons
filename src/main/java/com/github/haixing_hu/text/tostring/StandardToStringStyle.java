@@ -21,7 +21,7 @@ package com.github.haixing_hu.text.tostring;
 import javax.annotation.concurrent.NotThreadSafe;
 
 /**
- * Works with {@link ToStringBuilder} to create a <code>toString</code>.
+ * Works with {@link ToStringBuilder} to create a {@code toString}.
  *
  * @author Haixing Hu
  */

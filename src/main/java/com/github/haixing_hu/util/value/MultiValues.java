@@ -52,20 +52,20 @@ import com.github.haixing_hu.text.xml.XmlException;
  * <p>
  * Currently the {@link MultiValues} interface support the following types:
  * <ul>
- * <li><code>boolean</code></li>
- * <li><code>char</code></li>
- * <li><code>byte</code></li>
- * <li><code>short</code></li>
- * <li><code>int</code></li>
- * <li><code>long</code></li>
- * <li><code>float</code></li>
- * <li><code>double</code></li>
+ * <li>{@code boolean}</li>
+ * <li>{@code char}</li>
+ * <li>{@code byte}</li>
+ * <li>{@code short}</li>
+ * <li>{@code int}</li>
+ * <li>{@code long}</li>
+ * <li>{@code float}</li>
+ * <li>{@code double}</li>
  * <li>{@link String}</li>
- * <li><code>java.util.Date</code></li>
- * <li><code>java.math.BigDecimal</code></li>
- * <li><code>java.math.BigInteger</code></li>
- * <li><code>byte[]</code></li>
- * <li><code>Class</code></li>
+ * <li>{@code java.util.Date}</li>
+ * <li>{@code java.math.BigDecimal}</li>
+ * <li>{@code java.math.BigInteger}</li>
+ * <li>{@code byte[]}</li>
+ * <li>{@code Class}</li>
  * </ul>
  *
  * @author Haixing Hu
@@ -203,9 +203,9 @@ public interface MultiValues extends Cloneable<MultiValues> {
       @Nullable String prevSpaceAttr) throws XmlException;
 
   /**
-   * Gets the first value of this object as a <code>boolean</code> value.
+   * Gets the first value of this object as a {@code boolean} value.
    *
-   * @return the first value of this object as a <code>boolean</code> value.
+   * @return the first value of this object as a {@code boolean} value.
    * @throws TypeMismatchException
    *           if the type of this object is not {@link Type#BOOLEAN}.
    * @throws NoSuchElementException
@@ -215,7 +215,7 @@ public interface MultiValues extends Cloneable<MultiValues> {
       NoSuchElementException;
 
   /**
-   * Sets a single <code>boolean</code> value to this object.
+   * Sets a single {@code boolean} value to this object.
    * <p>
    * After calling this function, the type of this object is set to
    * {@link Type#BOOLEAN}, all previous values of this object is cleared, and
@@ -223,14 +223,14 @@ public interface MultiValues extends Cloneable<MultiValues> {
    * </p>
    *
    * @param value
-   *          the new <code>boolean</code> value to be set to this object.
+   *          the new {@code boolean} value to be set to this object.
    */
   public void setBooleanValue(boolean value);
 
   /**
-   * Gets the values of this object as a <code>boolean</code> value.
+   * Gets the values of this object as a {@code boolean} value.
    *
-   * @return the values of this object as a <code>boolean</code> array; or an
+   * @return the values of this object as a {@code boolean} array; or an
    *         empty array if this object has no value.
    * @throws TypeMismatchException
    *           if the type of this object is not {@link Type#BOOLEAN}.
@@ -238,7 +238,7 @@ public interface MultiValues extends Cloneable<MultiValues> {
   public boolean[] getBooleanValues() throws TypeMismatchException;
 
   /**
-   * Sets <code>boolean</code> values to this object.
+   * Sets {@code boolean} values to this object.
    * <p>
    * After calling this function, the type of this object is set to
    * {@link Type#BOOLEAN}, all previous values of this object is cleared, and
@@ -246,13 +246,13 @@ public interface MultiValues extends Cloneable<MultiValues> {
    * </p>
    *
    * @param values
-   *          the array of new <code>boolean</code> values to be set to this
+   *          the array of new {@code boolean} values to be set to this
    *          object.
    */
   public void setBooleanValues(boolean... values);
 
   /**
-   * Sets <code>boolean</code> values to this object.
+   * Sets {@code boolean} values to this object.
    * <p>
    * After calling this function, the type of this object is set to
    * {@link Type#BOOLEAN}, all previous values of this object is cleared, and
@@ -260,51 +260,51 @@ public interface MultiValues extends Cloneable<MultiValues> {
    * </p>
    *
    * @param values
-   *          the collection of new <code>boolean</code> values to be set to
+   *          the collection of new {@code boolean} values to be set to
    *          this object.
    */
   public void setBooleanValues(BooleanCollection values);
 
   /**
-   * Adds a <code>boolean</code> value to this object.
+   * Adds a {@code boolean} value to this object.
    * <p>
    * If the type of this object is not {@link Type#BOOLEAN}, an
    * {@link TypeMismatchException} will be thrown; otherwise, the specified
-   * <code>boolean</code> value will be add to this object.
+   * {@code boolean} value will be add to this object.
    * </p>
    *
    * @param value
-   *          the <code>boolean</code> value to be add to this object.
+   *          the {@code boolean} value to be add to this object.
    * @throws TypeMismatchException
    *           if the type of this object is not {@link Type#BOOLEAN}.
    */
   public void addBooleanValue(boolean value) throws TypeMismatchException;
 
   /**
-   * Adds <code>boolean</code> values to this object.
+   * Adds {@code boolean} values to this object.
    * <p>
    * If the type of this object is not {@link Type#BOOLEAN}, an
    * {@link TypeMismatchException} will be thrown; otherwise, the specified
-   * <code>boolean</code> values will be add to this object.
+   * {@code boolean} values will be add to this object.
    * </p>
    *
    * @param values
-   *          the array of <code>boolean</code> values to be add to this object.
+   *          the array of {@code boolean} values to be add to this object.
    * @throws TypeMismatchException
    *           if the type of this object is not {@link Type#BOOLEAN}.
    */
   public void addBooleanValues(boolean... values) throws TypeMismatchException;
 
   /**
-   * Adds <code>boolean</code> values to this object.
+   * Adds {@code boolean} values to this object.
    * <p>
    * If the type of this object is not {@link Type#BOOLEAN}, an
    * {@link TypeMismatchException} will be thrown; otherwise, the specified
-   * <code>boolean</code> values will be add to this object.
+   * {@code boolean} values will be add to this object.
    * </p>
    *
    * @param values
-   *          the colleciton of <code>boolean</code> values to be add to this
+   *          the colleciton of {@code boolean} values to be add to this
    *          object.
    * @throws TypeMismatchException
    *           if the type of this object is not {@link Type#BOOLEAN}.
@@ -313,9 +313,9 @@ public interface MultiValues extends Cloneable<MultiValues> {
       throws TypeMismatchException;
 
   /**
-   * Gets the first value of this object as a <code>char</code> value.
+   * Gets the first value of this object as a {@code char} value.
    *
-   * @return the first value of this object as a <code>char</code> value.
+   * @return the first value of this object as a {@code char} value.
    * @throws TypeMismatchException
    *           if the type of this object is not {@link Type#CHAR}.
    * @throws NoSuchElementException
@@ -325,7 +325,7 @@ public interface MultiValues extends Cloneable<MultiValues> {
       NoSuchElementException;
 
   /**
-   * Sets a single <code>char</code> value to this object.
+   * Sets a single {@code char} value to this object.
    * <p>
    * After calling this function, the type of this object is set to
    * {@link Type#CHAR}, all previous values of this object is cleared, and the
@@ -333,14 +333,14 @@ public interface MultiValues extends Cloneable<MultiValues> {
    * </p>
    *
    * @param value
-   *          the new <code>char</code> value to be set to this object.
+   *          the new {@code char} value to be set to this object.
    */
   public void setCharValue(char value);
 
   /**
-   * Gets the values of this object as a <code>char</code> value.
+   * Gets the values of this object as a {@code char} value.
    *
-   * @return the values of this object as a <code>char</code> array; or an empty
+   * @return the values of this object as a {@code char} array; or an empty
    *         array if this object has no value.
    * @throws TypeMismatchException
    *           if the type of this object is not {@link Type#CHAR}.
@@ -348,7 +348,7 @@ public interface MultiValues extends Cloneable<MultiValues> {
   public char[] getCharValues() throws TypeMismatchException;
 
   /**
-   * Sets <code>char</code> values to this object.
+   * Sets {@code char} values to this object.
    * <p>
    * After calling this function, the type of this object is set to
    * {@link Type#CHAR}, all previous values of this object is cleared, and the
@@ -356,13 +356,13 @@ public interface MultiValues extends Cloneable<MultiValues> {
    * </p>
    *
    * @param values
-   *          the array of new <code>char</code> values to be set to this
+   *          the array of new {@code char} values to be set to this
    *          object.
    */
   public void setCharValues(char... values);
 
   /**
-   * Sets <code>char</code> values to this object.
+   * Sets {@code char} values to this object.
    * <p>
    * After calling this function, the type of this object is set to
    * {@link Type#CHAR}, all previous values of this object is cleared, and the
@@ -370,21 +370,21 @@ public interface MultiValues extends Cloneable<MultiValues> {
    * </p>
    *
    * @param values
-   *          the collection of new <code>char</code> values to be set to this
+   *          the collection of new {@code char} values to be set to this
    *          object.
    */
   public void setCharValues(CharCollection values);
 
   /**
-   * Adds a <code>char</code> value to this object.
+   * Adds a {@code char} value to this object.
    * <p>
    * If the type of this object is not {@link Type#CHAR}, an
    * {@link TypeMismatchException} will be thrown; otherwise, the specified
-   * <code>char</code> value will be add to this object.
+   * {@code char} value will be add to this object.
    * </p>
    *
    * @param value
-   *          the <code>char</code> value to be add to this object.
+   *          the {@code char} value to be add to this object.
    * @throws TypeMismatchException
    *           if the type of this object is not {@link Type#CHAR} and there is
    *           old value in this object.
@@ -392,15 +392,15 @@ public interface MultiValues extends Cloneable<MultiValues> {
   public void addCharValue(char value) throws TypeMismatchException;
 
   /**
-   * Adds <code>char</code> values to this object.
+   * Adds {@code char} values to this object.
    * <p>
    * If the type of this object is not {@link Type#CHAR}, an
    * {@link TypeMismatchException} will be thrown; otherwise, the specified
-   * <code>char</code> values will be add to this object.
+   * {@code char} values will be add to this object.
    * </p>
    *
    * @param values
-   *          the array of <code>char</code> values to be add to this object.
+   *          the array of {@code char} values to be add to this object.
    * @throws TypeMismatchException
    *           if the type of this object is not {@link Type#CHAR} and there is
    *           old value in this object.
@@ -408,15 +408,15 @@ public interface MultiValues extends Cloneable<MultiValues> {
   public void addCharValues(char... values) throws TypeMismatchException;
 
   /**
-   * Adds <code>char</code> values to this object.
+   * Adds {@code char} values to this object.
    * <p>
    * If the type of this object is not {@link Type#CHAR}, an
    * {@link TypeMismatchException} will be thrown; otherwise, the specified
-   * <code>char</code> values will be add to this object.
+   * {@code char} values will be add to this object.
    * </p>
    *
    * @param values
-   *          the collection of <code>char</code> values to be add to this
+   *          the collection of {@code char} values to be add to this
    *          object.
    * @throws TypeMismatchException
    *           if the type of this object is not {@link Type#CHAR} and there is
@@ -425,9 +425,9 @@ public interface MultiValues extends Cloneable<MultiValues> {
   public void addCharValues(CharCollection values) throws TypeMismatchException;
 
   /**
-   * Gets the first value of this object as a <code>byte</code> value.
+   * Gets the first value of this object as a {@code byte} value.
    *
-   * @return the first value of this object as a <code>byte</code> value.
+   * @return the first value of this object as a {@code byte} value.
    * @throws TypeMismatchException
    *           if the type of this object is not {@link Type#BYTE}.
    * @throws NoSuchElementException
@@ -437,7 +437,7 @@ public interface MultiValues extends Cloneable<MultiValues> {
       NoSuchElementException;
 
   /**
-   * Sets a single <code>byte</code> value to this object.
+   * Sets a single {@code byte} value to this object.
    * <p>
    * After calling this function, the type of this object is set to
    * {@link Type#BYTE}, all previous values of this object is cleared, and the
@@ -445,14 +445,14 @@ public interface MultiValues extends Cloneable<MultiValues> {
    * </p>
    *
    * @param value
-   *          the new <code>byte</code> value to be set to this object.
+   *          the new {@code byte} value to be set to this object.
    */
   public void setByteValue(byte value);
 
   /**
-   * Gets the values of this object as a <code>byte</code> value.
+   * Gets the values of this object as a {@code byte} value.
    *
-   * @return the values of this object as a <code>byte</code> array; or an empty
+   * @return the values of this object as a {@code byte} array; or an empty
    *         array if this object has no value.
    * @throws TypeMismatchException
    *           if the type of this object is not {@link Type#BYTE}.
@@ -460,7 +460,7 @@ public interface MultiValues extends Cloneable<MultiValues> {
   public byte[] getByteValues() throws TypeMismatchException;
 
   /**
-   * Sets <code>byte</code> values to this object.
+   * Sets {@code byte} values to this object.
    * <p>
    * After calling this function, the type of this object is set to
    * {@link Type#BYTE}, all previous values of this object is cleared, and the
@@ -468,13 +468,13 @@ public interface MultiValues extends Cloneable<MultiValues> {
    * </p>
    *
    * @param values
-   *          the array of new <code>byte</code> values to be set to this
+   *          the array of new {@code byte} values to be set to this
    *          object.
    */
   public void setByteValues(byte... values);
 
   /**
-   * Sets <code>byte</code> values to this object.
+   * Sets {@code byte} values to this object.
    * <p>
    * After calling this function, the type of this object is set to
    * {@link Type#BYTE}, all previous values of this object is cleared, and the
@@ -482,21 +482,21 @@ public interface MultiValues extends Cloneable<MultiValues> {
    * </p>
    *
    * @param values
-   *          the collection of new <code>byte</code> values to be set to this
+   *          the collection of new {@code byte} values to be set to this
    *          object.
    */
   public void setByteValues(ByteCollection values);
 
   /**
-   * Adds a <code>byte</code> value to this object.
+   * Adds a {@code byte} value to this object.
    * <p>
    * If the type of this object is not {@link Type#BYTE}, an
    * {@link TypeMismatchException} will be thrown; otherwise, the specified
-   * <code>byte</code> value will be add to this object.
+   * {@code byte} value will be add to this object.
    * </p>
    *
    * @param value
-   *          the <code>byte</code> value to be add to this object.
+   *          the {@code byte} value to be add to this object.
    * @throws TypeMismatchException
    *           if the type of this object is not {@link Type#BYTE} and there is
    *           old value in this object.
@@ -504,15 +504,15 @@ public interface MultiValues extends Cloneable<MultiValues> {
   public void addByteValue(byte value) throws TypeMismatchException;
 
   /**
-   * Adds <code>byte</code> values to this object.
+   * Adds {@code byte} values to this object.
    * <p>
    * If the type of this object is not {@link Type#BYTE}, an
    * {@link TypeMismatchException} will be thrown; otherwise, the specified
-   * <code>byte</code> values will be add to this object.
+   * {@code byte} values will be add to this object.
    * </p>
    *
    * @param values
-   *          the array of <code>byte</code> values to be add to this object.
+   *          the array of {@code byte} values to be add to this object.
    * @throws TypeMismatchException
    *           if the type of this object is not {@link Type#BYTE} and there is
    *           old value in this object.
@@ -520,15 +520,15 @@ public interface MultiValues extends Cloneable<MultiValues> {
   public void addByteValues(byte... values) throws TypeMismatchException;
 
   /**
-   * Adds <code>byte</code> values to this object.
+   * Adds {@code byte} values to this object.
    * <p>
    * If the type of this object is not {@link Type#BYTE}, an
    * {@link TypeMismatchException} will be thrown; otherwise, the specified
-   * <code>byte</code> values will be add to this object.
+   * {@code byte} values will be add to this object.
    * </p>
    *
    * @param values
-   *          the collection of <code>byte</code> values to be add to this
+   *          the collection of {@code byte} values to be add to this
    *          object.
    * @throws TypeMismatchException
    *           if the type of this object is not {@link Type#BYTE} and there is
@@ -537,9 +537,9 @@ public interface MultiValues extends Cloneable<MultiValues> {
   public void addByteValues(ByteCollection values) throws TypeMismatchException;
 
   /**
-   * Gets the first value of this object as a <code>short</code> value.
+   * Gets the first value of this object as a {@code short} value.
    *
-   * @return the first value of this object as a <code>short</code> value.
+   * @return the first value of this object as a {@code short} value.
    * @throws TypeMismatchException
    *           if the type of this object is not {@link Type#SHORT}.
    * @throws NoSuchElementException
@@ -549,7 +549,7 @@ public interface MultiValues extends Cloneable<MultiValues> {
       NoSuchElementException;
 
   /**
-   * Sets a single <code>short</code> value to this object.
+   * Sets a single {@code short} value to this object.
    * <p>
    * After calling this function, the type of this object is set to
    * {@link Type#SHORT}, all previous values of this object is cleared, and the
@@ -557,14 +557,14 @@ public interface MultiValues extends Cloneable<MultiValues> {
    * </p>
    *
    * @param value
-   *          the new <code>short</code> value to be set to this object.
+   *          the new {@code short} value to be set to this object.
    */
   public void setShortValue(short value);
 
   /**
-   * Gets the values of this object as a <code>short</code> value.
+   * Gets the values of this object as a {@code short} value.
    *
-   * @return the values of this object as a <code>short</code> array; or an
+   * @return the values of this object as a {@code short} array; or an
    *         empty array if this object has no value.
    * @throws TypeMismatchException
    *           if the type of this object is not {@link Type#SHORT}.
@@ -572,7 +572,7 @@ public interface MultiValues extends Cloneable<MultiValues> {
   public short[] getShortValues() throws TypeMismatchException;
 
   /**
-   * Sets <code>short</code> values to this object.
+   * Sets {@code short} values to this object.
    * <p>
    * After calling this function, the type of this object is set to
    * {@link Type#SHORT}, all previous values of this object is cleared, and the
@@ -580,13 +580,13 @@ public interface MultiValues extends Cloneable<MultiValues> {
    * </p>
    *
    * @param values
-   *          the array of new <code>short</code> values to be set to this
+   *          the array of new {@code short} values to be set to this
    *          object.
    */
   public void setShortValues(short... values);
 
   /**
-   * Sets <code>short</code> values to this object.
+   * Sets {@code short} values to this object.
    * <p>
    * After calling this function, the type of this object is set to
    * {@link Type#SHORT}, all previous values of this object is cleared, and the
@@ -594,21 +594,21 @@ public interface MultiValues extends Cloneable<MultiValues> {
    * </p>
    *
    * @param values
-   *          the collection of new <code>short</code> values to be set to this
+   *          the collection of new {@code short} values to be set to this
    *          object.
    */
   public void setShortValues(ShortCollection values);
 
   /**
-   * Adds a <code>short</code> value to this object.
+   * Adds a {@code short} value to this object.
    * <p>
    * If the type of this object is not {@link Type#SHORT}, an
    * {@link TypeMismatchException} will be thrown; otherwise, the specified
-   * <code>short</code> value will be add to this object.
+   * {@code short} value will be add to this object.
    * </p>
    *
    * @param value
-   *          the <code>short</code> value to be add to this object.
+   *          the {@code short} value to be add to this object.
    * @throws TypeMismatchException
    *           if the type of this object is not {@link Type#SHORT} and there is
    *           old value in this object.
@@ -616,15 +616,15 @@ public interface MultiValues extends Cloneable<MultiValues> {
   public void addShortValue(short value) throws TypeMismatchException;
 
   /**
-   * Adds <code>short</code> values to this object.
+   * Adds {@code short} values to this object.
    * <p>
    * If the type of this object is not {@link Type#SHORT}, an
    * {@link TypeMismatchException} will be thrown; otherwise, the specified
-   * <code>short</code> values will be add to this object.
+   * {@code short} values will be add to this object.
    * </p>
    *
    * @param values
-   *          the array of <code>short</code> values to be add to this object.
+   *          the array of {@code short} values to be add to this object.
    * @throws TypeMismatchException
    *           if the type of this object is not {@link Type#SHORT} and there is
    *           old value in this object.
@@ -632,15 +632,15 @@ public interface MultiValues extends Cloneable<MultiValues> {
   public void addShortValues(short... values) throws TypeMismatchException;
 
   /**
-   * Adds <code>short</code> values to this object.
+   * Adds {@code short} values to this object.
    * <p>
    * If the type of this object is not {@link Type#SHORT}, an
    * {@link TypeMismatchException} will be thrown; otherwise, the specified
-   * <code>short</code> values will be add to this object.
+   * {@code short} values will be add to this object.
    * </p>
    *
    * @param values
-   *          the collection of <code>short</code> values to be add to this
+   *          the collection of {@code short} values to be add to this
    *          object.
    * @throws TypeMismatchException
    *           if the type of this object is not {@link Type#SHORT} and there is
@@ -650,9 +650,9 @@ public interface MultiValues extends Cloneable<MultiValues> {
       throws TypeMismatchException;
 
   /**
-   * Gets the first value of this object as a <code>int</code> value.
+   * Gets the first value of this object as a {@code int} value.
    *
-   * @return the first value of this object as a <code>int</code> value.
+   * @return the first value of this object as a {@code int} value.
    * @throws TypeMismatchException
    *           if the type of this object is not {@link Type#INT}.
    * @throws NoSuchElementException
@@ -661,7 +661,7 @@ public interface MultiValues extends Cloneable<MultiValues> {
   public int getIntValue() throws TypeMismatchException, NoSuchElementException;
 
   /**
-   * Sets a single <code>int</code> value to this object.
+   * Sets a single {@code int} value to this object.
    * <p>
    * After calling this function, the type of this object is set to
    * {@link Type#INT}, all previous values of this object is cleared, and the
@@ -669,14 +669,14 @@ public interface MultiValues extends Cloneable<MultiValues> {
    * </p>
    *
    * @param value
-   *          the new <code>int</code> value to be set to this object.
+   *          the new {@code int} value to be set to this object.
    */
   public void setIntValue(int value);
 
   /**
-   * Gets the values of this object as a <code>int</code> value.
+   * Gets the values of this object as a {@code int} value.
    *
-   * @return the values of this object as a <code>int</code> array; or an empty
+   * @return the values of this object as a {@code int} array; or an empty
    *         array if this object has no value.
    * @throws TypeMismatchException
    *           if the type of this object is not {@link Type#INT}.
@@ -684,7 +684,7 @@ public interface MultiValues extends Cloneable<MultiValues> {
   public int[] getIntValues() throws TypeMismatchException;
 
   /**
-   * Sets <code>int</code> values to this object.
+   * Sets {@code int} values to this object.
    * <p>
    * After calling this function, the type of this object is set to
    * {@link Type#INT}, all previous values of this object is cleared, and the
@@ -692,12 +692,12 @@ public interface MultiValues extends Cloneable<MultiValues> {
    * </p>
    *
    * @param values
-   *          the array of new <code>int</code> values to be set to this object.
+   *          the array of new {@code int} values to be set to this object.
    */
   public void setIntValues(int... values);
 
   /**
-   * Sets <code>int</code> values to this object.
+   * Sets {@code int} values to this object.
    * <p>
    * After calling this function, the type of this object is set to
    * {@link Type#INT}, all previous values of this object is cleared, and the
@@ -705,21 +705,21 @@ public interface MultiValues extends Cloneable<MultiValues> {
    * </p>
    *
    * @param values
-   *          the collection of new <code>int</code> values to be set to this
+   *          the collection of new {@code int} values to be set to this
    *          object.
    */
   public void setIntValues(IntCollection values);
 
   /**
-   * Adds a <code>int</code> value to this object.
+   * Adds a {@code int} value to this object.
    * <p>
    * If the type of this object is not {@link Type#INT}, an
    * {@link TypeMismatchException} will be thrown; otherwise, the specified
-   * <code>int</code> value will be add to this object.
+   * {@code int} value will be add to this object.
    * </p>
    *
    * @param value
-   *          the <code>int</code> value to be add to this object.
+   *          the {@code int} value to be add to this object.
    * @throws TypeMismatchException
    *           if the type of this object is not {@link Type#INT} and there is
    *           old value in this object.
@@ -727,15 +727,15 @@ public interface MultiValues extends Cloneable<MultiValues> {
   public void addIntValue(int value) throws TypeMismatchException;
 
   /**
-   * Adds <code>int</code> values to this object.
+   * Adds {@code int} values to this object.
    * <p>
    * If the type of this object is not {@link Type#INT}, an
    * {@link TypeMismatchException} will be thrown; otherwise, the specified
-   * <code>int</code> values will be add to this object.
+   * {@code int} values will be add to this object.
    * </p>
    *
    * @param values
-   *          the array of <code>int</code> values to be add to this object.
+   *          the array of {@code int} values to be add to this object.
    * @throws TypeMismatchException
    *           if the type of this object is not {@link Type#INT} and there is
    *           old value in this object.
@@ -743,15 +743,15 @@ public interface MultiValues extends Cloneable<MultiValues> {
   public void addIntValues(int... values) throws TypeMismatchException;
 
   /**
-   * Adds <code>int</code> values to this object.
+   * Adds {@code int} values to this object.
    * <p>
    * If the type of this object is not {@link Type#INT}, an
    * {@link TypeMismatchException} will be thrown; otherwise, the specified
-   * <code>int</code> values will be add to this object.
+   * {@code int} values will be add to this object.
    * </p>
    *
    * @param values
-   *          the collection of <code>int</code> values to be add to this
+   *          the collection of {@code int} values to be add to this
    *          object.
    * @throws TypeMismatchException
    *           if the type of this object is not {@link Type#INT} and there is
@@ -760,9 +760,9 @@ public interface MultiValues extends Cloneable<MultiValues> {
   public void addIntValues(IntCollection values) throws TypeMismatchException;
 
   /**
-   * Gets the first value of this object as a <code>long</code> value.
+   * Gets the first value of this object as a {@code long} value.
    *
-   * @return the first value of this object as a <code>long</code> value.
+   * @return the first value of this object as a {@code long} value.
    * @throws TypeMismatchException
    *           if the type of this object is not {@link Type#LONG}.
    * @throws NoSuchElementException
@@ -772,7 +772,7 @@ public interface MultiValues extends Cloneable<MultiValues> {
       NoSuchElementException;
 
   /**
-   * Sets a single <code>long</code> value to this object.
+   * Sets a single {@code long} value to this object.
    * <p>
    * After calling this function, the type of this object is set to
    * {@link Type#LONG}, all previous values of this object is cleared, and the
@@ -780,14 +780,14 @@ public interface MultiValues extends Cloneable<MultiValues> {
    * </p>
    *
    * @param value
-   *          the new <code>long</code> value to be set to this object.
+   *          the new {@code long} value to be set to this object.
    */
   public void setLongValue(long value);
 
   /**
-   * Gets the values of this object as a <code>long</code> value.
+   * Gets the values of this object as a {@code long} value.
    *
-   * @return the values of this object as a <code>long</code> array; or an empty
+   * @return the values of this object as a {@code long} array; or an empty
    *         array if this object has no value.
    * @throws TypeMismatchException
    *           if the type of this object is not {@link Type#LONG}.
@@ -795,7 +795,7 @@ public interface MultiValues extends Cloneable<MultiValues> {
   public long[] getLongValues() throws TypeMismatchException;
 
   /**
-   * Sets <code>long</code> values to this object.
+   * Sets {@code long} values to this object.
    * <p>
    * After calling this function, the type of this object is set to
    * {@link Type#LONG}, all previous values of this object is cleared, and the
@@ -803,13 +803,13 @@ public interface MultiValues extends Cloneable<MultiValues> {
    * </p>
    *
    * @param values
-   *          the array of new <code>long</code> values to be set to this
+   *          the array of new {@code long} values to be set to this
    *          object.
    */
   public void setLongValues(long... values);
 
   /**
-   * Sets <code>long</code> values to this object.
+   * Sets {@code long} values to this object.
    * <p>
    * After calling this function, the type of this object is set to
    * {@link Type#LONG}, all previous values of this object is cleared, and the
@@ -817,21 +817,21 @@ public interface MultiValues extends Cloneable<MultiValues> {
    * </p>
    *
    * @param values
-   *          the collection of new <code>long</code> values to be set to this
+   *          the collection of new {@code long} values to be set to this
    *          object.
    */
   public void setLongValues(LongCollection values);
 
   /**
-   * Adds a <code>long</code> value to this object.
+   * Adds a {@code long} value to this object.
    * <p>
    * If the type of this object is not {@link Type#LONG}, an
    * {@link TypeMismatchException} will be thrown; otherwise, the specified
-   * <code>long</code> value will be add to this object.
+   * {@code long} value will be add to this object.
    * </p>
    *
    * @param value
-   *          the <code>long</code> value to be add to this object.
+   *          the {@code long} value to be add to this object.
    * @throws TypeMismatchException
    *           if the type of this object is not {@link Type#LONG} and there is
    *           old value in this object.
@@ -839,15 +839,15 @@ public interface MultiValues extends Cloneable<MultiValues> {
   public void addLongValue(long value) throws TypeMismatchException;
 
   /**
-   * Adds <code>long</code> values to this object.
+   * Adds {@code long} values to this object.
    * <p>
    * If the type of this object is not {@link Type#LONG}, an
    * {@link TypeMismatchException} will be thrown; otherwise, the specified
-   * <code>long</code> values will be add to this object.
+   * {@code long} values will be add to this object.
    * </p>
    *
    * @param values
-   *          the array of <code>long</code> values to be add to this object.
+   *          the array of {@code long} values to be add to this object.
    * @throws TypeMismatchException
    *           if the type of this object is not {@link Type#LONG} and there is
    *           old value in this object.
@@ -855,15 +855,15 @@ public interface MultiValues extends Cloneable<MultiValues> {
   public void addLongValues(long... values) throws TypeMismatchException;
 
   /**
-   * Adds <code>long</code> values to this object.
+   * Adds {@code long} values to this object.
    * <p>
    * If the type of this object is not {@link Type#LONG}, an
    * {@link TypeMismatchException} will be thrown; otherwise, the specified
-   * <code>long</code> values will be add to this object.
+   * {@code long} values will be add to this object.
    * </p>
    *
    * @param values
-   *          the collection of <code>long</code> values to be add to this
+   *          the collection of {@code long} values to be add to this
    *          object.
    * @throws TypeMismatchException
    *           if the type of this object is not {@link Type#LONG} and there is
@@ -872,9 +872,9 @@ public interface MultiValues extends Cloneable<MultiValues> {
   public void addLongValues(LongCollection values) throws TypeMismatchException;
 
   /**
-   * Gets the first value of this object as a <code>float</code> value.
+   * Gets the first value of this object as a {@code float} value.
    *
-   * @return the first value of this object as a <code>float</code> value.
+   * @return the first value of this object as a {@code float} value.
    * @throws TypeMismatchException
    *           if the type of this object is not {@link Type#FLOAT}.
    * @throws NoSuchElementException
@@ -884,7 +884,7 @@ public interface MultiValues extends Cloneable<MultiValues> {
       NoSuchElementException;
 
   /**
-   * Sets a single <code>float</code> value to this object.
+   * Sets a single {@code float} value to this object.
    * <p>
    * After calling this function, the type of this object is set to
    * {@link Type#FLOAT}, all previous values of this object is cleared, and the
@@ -892,14 +892,14 @@ public interface MultiValues extends Cloneable<MultiValues> {
    * </p>
    *
    * @param value
-   *          the new <code>float</code> value to be set to this object.
+   *          the new {@code float} value to be set to this object.
    */
   public void setFloatValue(float value);
 
   /**
-   * Gets the values of this object as a <code>float</code> value.
+   * Gets the values of this object as a {@code float} value.
    *
-   * @return the values of this object as a <code>float</code> array; or an
+   * @return the values of this object as a {@code float} array; or an
    *         empty array if this object has no value.
    * @throws TypeMismatchException
    *           if the type of this object is not {@link Type#FLOAT}.
@@ -907,7 +907,7 @@ public interface MultiValues extends Cloneable<MultiValues> {
   public float[] getFloatValues() throws TypeMismatchException;
 
   /**
-   * Sets <code>float</code> values to this object.
+   * Sets {@code float} values to this object.
    * <p>
    * After calling this function, the type of this object is set to
    * {@link Type#FLOAT}, all previous values of this object is cleared, and the
@@ -915,13 +915,13 @@ public interface MultiValues extends Cloneable<MultiValues> {
    * </p>
    *
    * @param values
-   *          the array of new <code>float</code> values to be set to this
+   *          the array of new {@code float} values to be set to this
    *          object.
    */
   public void setFloatValues(float... values);
 
   /**
-   * Sets <code>float</code> values to this object.
+   * Sets {@code float} values to this object.
    * <p>
    * After calling this function, the type of this object is set to
    * {@link Type#FLOAT}, all previous values of this object is cleared, and the
@@ -929,40 +929,40 @@ public interface MultiValues extends Cloneable<MultiValues> {
    * </p>
    *
    * @param values
-   *          the collection of new <code>float</code> values to be set to this
+   *          the collection of new {@code float} values to be set to this
    *          object.
    */
   public void setFloatValues(FloatCollection values);
 
   /**
-   * Adds a <code>float</code> value to this object.
+   * Adds a {@code float} value to this object.
    * <p>
    * If the type of this object is not {@link Type#FLOAT}, an
    * {@link TypeMismatchException} will be thrown; otherwise, the specified
-   * <code>float</code> value will be add to this object.
+   * {@code float} value will be add to this object.
    * </p>
    *
    * @param value
-   *          the <code>float</code> value to be add to this object.
+   *          the {@code float} value to be add to this object.
    * @throws TypeMismatchException
    *           if the type of this object is not {@link Type#FLOAT} and there is
    *           old value in this object.
    * @throws NullPrimitiveTypeObjectException
-   *           if any <code>Boolean</code> object in the <code>values</code>
+   *           if any {@code Boolean} object in the {@code values}
    *           collection is null.
    */
   public void addFloatValue(float value) throws TypeMismatchException;
 
   /**
-   * Adds <code>float</code> values to this object.
+   * Adds {@code float} values to this object.
    * <p>
    * If the type of this object is not {@link Type#FLOAT}, an
    * {@link TypeMismatchException} will be thrown; otherwise, the specified
-   * <code>float</code> values will be add to this object.
+   * {@code float} values will be add to this object.
    * </p>
    *
    * @param values
-   *          the array of <code>float</code> values to be add to this object.
+   *          the array of {@code float} values to be add to this object.
    * @throws TypeMismatchException
    *           if the type of this object is not {@link Type#FLOAT} and there is
    *           old value in this object.
@@ -970,15 +970,15 @@ public interface MultiValues extends Cloneable<MultiValues> {
   public void addFloatValues(float... values) throws TypeMismatchException;
 
   /**
-   * Adds <code>float</code> values to this object.
+   * Adds {@code float} values to this object.
    * <p>
    * If the type of this object is not {@link Type#FLOAT}, an
    * {@link TypeMismatchException} will be thrown; otherwise, the specified
-   * <code>float</code> values will be add to this object.
+   * {@code float} values will be add to this object.
    * </p>
    *
    * @param values
-   *          the collection of <code>float</code> values to be add to this
+   *          the collection of {@code float} values to be add to this
    *          object.
    * @throws TypeMismatchException
    *           if the type of this object is not {@link Type#FLOAT} and there is
@@ -988,9 +988,9 @@ public interface MultiValues extends Cloneable<MultiValues> {
       throws TypeMismatchException;
 
   /**
-   * Gets the first value of this object as a <code>double</code> value.
+   * Gets the first value of this object as a {@code double} value.
    *
-   * @return the first value of this object as a <code>double</code> value.
+   * @return the first value of this object as a {@code double} value.
    * @throws TypeMismatchException
    *           if the type of this object is not {@link Type#DOUBLE}.
    * @throws NoSuchElementException
@@ -1000,7 +1000,7 @@ public interface MultiValues extends Cloneable<MultiValues> {
       NoSuchElementException;
 
   /**
-   * Sets a single <code>double</code> value to this object.
+   * Sets a single {@code double} value to this object.
    * <p>
    * After calling this function, the type of this object is set to
    * {@link Type#DOUBLE}, all previous values of this object is cleared, and the
@@ -1008,14 +1008,14 @@ public interface MultiValues extends Cloneable<MultiValues> {
    * </p>
    *
    * @param value
-   *          the new <code>double</code> value to be set to this object.
+   *          the new {@code double} value to be set to this object.
    */
   public void setDoubleValue(double value);
 
   /**
-   * Gets the values of this object as a <code>double</code> value.
+   * Gets the values of this object as a {@code double} value.
    *
-   * @return the values of this object as a <code>double</code> array; or an
+   * @return the values of this object as a {@code double} array; or an
    *         empty array if this object has no value.
    * @throws TypeMismatchException
    *           if the type of this object is not {@link Type#DOUBLE}.
@@ -1023,7 +1023,7 @@ public interface MultiValues extends Cloneable<MultiValues> {
   public double[] getDoubleValues() throws TypeMismatchException;
 
   /**
-   * Sets <code>double</code> values to this object.
+   * Sets {@code double} values to this object.
    * <p>
    * After calling this function, the type of this object is set to
    * {@link Type#DOUBLE}, all previous values of this object is cleared, and the
@@ -1031,13 +1031,13 @@ public interface MultiValues extends Cloneable<MultiValues> {
    * </p>
    *
    * @param values
-   *          the array of new <code>double</code> values to be set to this
+   *          the array of new {@code double} values to be set to this
    *          object.
    */
   public void setDoubleValues(double... values);
 
   /**
-   * Sets <code>double</code> values to this object.
+   * Sets {@code double} values to this object.
    * <p>
    * After calling this function, the type of this object is set to
    * {@link Type#DOUBLE}, all previous values of this object is cleared, and the
@@ -1045,21 +1045,21 @@ public interface MultiValues extends Cloneable<MultiValues> {
    * </p>
    *
    * @param values
-   *          the collection of new <code>double</code> values to be set to this
+   *          the collection of new {@code double} values to be set to this
    *          object.
    */
   public void setDoubleValues(DoubleCollection values);
 
   /**
-   * Adds a <code>double</code> value to this object.
+   * Adds a {@code double} value to this object.
    * <p>
    * If the type of this object is not {@link Type#DOUBLE}, an
    * {@link TypeMismatchException} will be thrown; otherwise, the specified
-   * <code>double</code> value will be add to this object.
+   * {@code double} value will be add to this object.
    * </p>
    *
    * @param value
-   *          the <code>double</code> value to be add to this object.
+   *          the {@code double} value to be add to this object.
    * @throws TypeMismatchException
    *           if the type of this object is not {@link Type#DOUBLE} and there
    *           is old value in this object.
@@ -1067,15 +1067,15 @@ public interface MultiValues extends Cloneable<MultiValues> {
   public void addDoubleValue(double value) throws TypeMismatchException;
 
   /**
-   * Adds <code>double</code> values to this object.
+   * Adds {@code double} values to this object.
    * <p>
    * If the type of this object is not {@link Type#DOUBLE}, an
    * {@link TypeMismatchException} will be thrown; otherwise, the specified
-   * <code>double</code> values will be add to this object.
+   * {@code double} values will be add to this object.
    * </p>
    *
    * @param values
-   *          the array of <code>double</code> values to be add to this object.
+   *          the array of {@code double} values to be add to this object.
    * @throws TypeMismatchException
    *           if the type of this object is not {@link Type#DOUBLE} and there
    *           is old value in this object.
@@ -1083,15 +1083,15 @@ public interface MultiValues extends Cloneable<MultiValues> {
   public void addDoubleValues(double... values) throws TypeMismatchException;
 
   /**
-   * Adds <code>double</code> values to this object.
+   * Adds {@code double} values to this object.
    * <p>
    * If the type of this object is not {@link Type#DOUBLE}, an
    * {@link TypeMismatchException} will be thrown; otherwise, the specified
-   * <code>double</code> values will be add to this object.
+   * {@code double} values will be add to this object.
    * </p>
    *
    * @param values
-   *          the collection of <code>double</code> values to be add to this
+   *          the collection of {@code double} values to be add to this
    *          object.
    * @throws TypeMismatchException
    *           if the type of this object is not {@link Type#DOUBLE} and there
@@ -1585,11 +1585,11 @@ public interface MultiValues extends Cloneable<MultiValues> {
       throws TypeMismatchException;
 
   /**
-   * Gets the first value of this object as a <code>byte[]</code> value.
+   * Gets the first value of this object as a {@code byte[]} value.
    *
-   * @return the first value of this object as a <code>byte[]</code> value,
+   * @return the first value of this object as a {@code byte[]} value,
    *         which may be null. Note that the returned object is the cloned copy
-   *         of the first <code>byte[]</code> object stored in this object.
+   *         of the first {@code byte[]} object stored in this object.
    * @throws TypeMismatchException
    *           if the type of this object is not {@link Type#BYTE_ARRAY}.
    * @throws NoSuchElementException
@@ -1599,7 +1599,7 @@ public interface MultiValues extends Cloneable<MultiValues> {
       NoSuchElementException;
 
   /**
-   * Sets a single <code>byte[]</code> value to this object.
+   * Sets a single {@code byte[]} value to this object.
    * <p>
    * After calling this function, the type of this object is set to
    * {@link Type#BYTE_ARRAY}, all previous values of this object is cleared, and
@@ -1607,26 +1607,26 @@ public interface MultiValues extends Cloneable<MultiValues> {
    * </p>
    *
    * @param value
-   *          the new <code>byte[]</code> value to be set to this object, which
+   *          the new {@code byte[]} value to be set to this object, which
    *          may be null. Note that the cloned copy of this object will be
    *          stored in this object.
    */
   public void setByteArrayValue(@Nullable byte[] value);
 
   /**
-   * Gets the values of this object as a <code>byte[]</code> value.
+   * Gets the values of this object as a {@code byte[]} value.
    *
-   * @return the values of this object as a <code>byte[]</code> array, whose
+   * @return the values of this object as a {@code byte[]} array, whose
    *         elements may be null; or an empty array if this object has no
    *         value. Note that the objects in returned array is the cloned copies
-   *         of the <code>byte[]</code> objects stored in this object.
+   *         of the {@code byte[]} objects stored in this object.
    * @throws TypeMismatchException
    *           if the type of this object is not {@link Type#BYTE_ARRAY}.
    */
   public byte[][] getByteArrayValues() throws TypeMismatchException;
 
   /**
-   * Sets <code>byte[]</code> values to this object.
+   * Sets {@code byte[]} values to this object.
    * <p>
    * After calling this function, the type of this object is set to
    * {@link Type#BYTE_ARRAY}, all previous values of this object is cleared, and
@@ -1634,14 +1634,14 @@ public interface MultiValues extends Cloneable<MultiValues> {
    * </p>
    *
    * @param values
-   *          the array of new <code>byte[]</code> values to be set to this
+   *          the array of new {@code byte[]} values to be set to this
    *          object, whose elements may be null. Note that the cloned copy of
    *          this array will be stored in this object.
    */
   public void setByteArrayValues(byte[]... values);
 
   /**
-   * Sets <code>byte[]</code> values to this object.
+   * Sets {@code byte[]} values to this object.
    * <p>
    * After calling this function, the type of this object is set to
    * {@link Type#BYTE_ARRAY}, all previous values of this object is cleared, and
@@ -1649,22 +1649,22 @@ public interface MultiValues extends Cloneable<MultiValues> {
    * </p>
    *
    * @param values
-   *          the collection of new <code>byte[]</code> values to be set to this
+   *          the collection of new {@code byte[]} values to be set to this
    *          object, whose elements may be null. Note that the cloned copy of
    *          this collection will be stored in this object.
    */
   public void setByteArrayValues(Collection<byte[]> values);
 
   /**
-   * Adds a <code>byte[]</code> value to this object.
+   * Adds a {@code byte[]} value to this object.
    * <p>
    * If the type of this object is not {@link Type#BYTE_ARRAY}, an
    * {@link TypeMismatchException} will be thrown; otherwise, the specified
-   * <code>byte[]</code> value will be add to this object.
+   * {@code byte[]} value will be add to this object.
    * </p>
    *
    * @param value
-   *          the <code>byte[]</code> value to be add to this object, which may
+   *          the {@code byte[]} value to be add to this object, which may
    *          be null. Note that the cloned copy of this object will be stored
    *          in this object.
    * @throws TypeMismatchException
@@ -1675,15 +1675,15 @@ public interface MultiValues extends Cloneable<MultiValues> {
       throws TypeMismatchException;
 
   /**
-   * Adds <code>byte[]</code> values to this object.
+   * Adds {@code byte[]} values to this object.
    * <p>
    * If the type of this object is not {@link Type#BYTE_ARRAY}, an
    * {@link TypeMismatchException} will be thrown; otherwise, the specified
-   * <code>byte[]</code> values will be add to this object.
+   * {@code byte[]} values will be add to this object.
    * </p>
    *
    * @param values
-   *          the array of <code>byte[]</code> values to be add to this object,
+   *          the array of {@code byte[]} values to be add to this object,
    *          whose elements may be null. Note that the cloned copy of this
    *          array will be stored in this object.
    * @throws TypeMismatchException
@@ -1693,15 +1693,15 @@ public interface MultiValues extends Cloneable<MultiValues> {
   public void addByteArrayValues(byte[]... values) throws TypeMismatchException;
 
   /**
-   * Adds <code>byte[]</code> values to this object.
+   * Adds {@code byte[]} values to this object.
    * <p>
    * If the type of this object is not {@link Type#BYTE_ARRAY}, an
    * {@link TypeMismatchException} will be thrown; otherwise, the specified
-   * <code>byte[]</code> values will be add to this object.
+   * {@code byte[]} values will be add to this object.
    * </p>
    *
    * @param values
-   *          the collection of <code>byte[]</code> values to be add to this
+   *          the collection of {@code byte[]} values to be add to this
    *          object, whose elements may be null. Note that the cloned copy of
    *          this collection will be stored in this object.
    * @throws TypeMismatchException
@@ -1712,9 +1712,9 @@ public interface MultiValues extends Cloneable<MultiValues> {
       throws TypeMismatchException;
 
   /**
-   * Gets the first value of this object as a <code>Class</code> value.
+   * Gets the first value of this object as a {@code Class} value.
    *
-   * @return the first value of this object as a <code>Class</code> value, which
+   * @return the first value of this object as a {@code Class} value, which
    *         may be null.
    * @throws TypeMismatchException
    *           if the type of this object is not {@link Type#CLASS}.
@@ -1725,7 +1725,7 @@ public interface MultiValues extends Cloneable<MultiValues> {
       NoSuchElementException;
 
   /**
-   * Sets a single <code>Class</code> value to this object.
+   * Sets a single {@code Class} value to this object.
    * <p>
    * After calling this function, the type of this object is set to
    * {@link Type#CLASS}, all previous values of this object is cleared, and the
@@ -1733,15 +1733,15 @@ public interface MultiValues extends Cloneable<MultiValues> {
    * </p>
    *
    * @param value
-   *          the new <code>Class</code> value to be set to this object, which
+   *          the new {@code Class} value to be set to this object, which
    *          may be null.
    */
   public void setClassValue(@Nullable Class<?> value);
 
   /**
-   * Gets the values of this object as a <code>Class</code> value.
+   * Gets the values of this object as a {@code Class} value.
    *
-   * @return the values of this object as a <code>Class</code> array, whose
+   * @return the values of this object as a {@code Class} array, whose
    *         elements may be null; or an empty array if this object has no
    *         value.
    * @throws TypeMismatchException
@@ -1750,7 +1750,7 @@ public interface MultiValues extends Cloneable<MultiValues> {
   public Class<?>[] getClassValues() throws TypeMismatchException;
 
   /**
-   * Sets <code>Class</code> values to this object.
+   * Sets {@code Class} values to this object.
    * <p>
    * After calling this function, the type of this object is set to
    * {@link Type#CLASS}, all previous values of this object is cleared, and the
@@ -1758,13 +1758,13 @@ public interface MultiValues extends Cloneable<MultiValues> {
    * </p>
    *
    * @param values
-   *          the array of new <code>Class</code> values to be set to this
+   *          the array of new {@code Class} values to be set to this
    *          object, whose elements may be null.
    */
   public void setClassValues(Class<?>... values);
 
   /**
-   * Sets <code>Class</code> values to this object.
+   * Sets {@code Class} values to this object.
    * <p>
    * After calling this function, the type of this object is set to
    * {@link Type#CLASS}, all previous values of this object is cleared, and the
@@ -1772,21 +1772,21 @@ public interface MultiValues extends Cloneable<MultiValues> {
    * </p>
    *
    * @param values
-   *          the collection of new <code>Class</code> values to be set to this
+   *          the collection of new {@code Class} values to be set to this
    *          object, whose elements may be null.
    */
   public void setClassValues(Collection<Class<?>> values);
 
   /**
-   * Adds a <code>Class</code> value to this object.
+   * Adds a {@code Class} value to this object.
    * <p>
    * If the type of this object is not {@link Type#CLASS}, an
    * {@link TypeMismatchException} will be thrown; otherwise, the specified
-   * <code>Class</code> value will be add to this object.
+   * {@code Class} value will be add to this object.
    * </p>
    *
    * @param value
-   *          the <code>Class</code> value to be add to this object, which may
+   *          the {@code Class} value to be add to this object, which may
    *          be null.
    * @throws TypeMismatchException
    *           if the type of this object is not {@link Type#CLASS} and there is
@@ -1796,15 +1796,15 @@ public interface MultiValues extends Cloneable<MultiValues> {
       throws TypeMismatchException;
 
   /**
-   * Adds <code>Class</code> values to this object.
+   * Adds {@code Class} values to this object.
    * <p>
    * If the type of this object is not {@link Type#CLASS}, an
    * {@link TypeMismatchException} will be thrown; otherwise, the specified
-   * <code>Class</code> values will be add to this object.
+   * {@code Class} values will be add to this object.
    * </p>
    *
    * @param values
-   *          the array of <code>Class</code> values to be add to this object,
+   *          the array of {@code Class} values to be add to this object,
    *          whose elements may be null.
    * @throws TypeMismatchException
    *           if the type of this object is not {@link Type#CLASS} and there is
@@ -1813,15 +1813,15 @@ public interface MultiValues extends Cloneable<MultiValues> {
   public void addClassValues(Class<?>... values) throws TypeMismatchException;
 
   /**
-   * Adds <code>Class</code> values to this object.
+   * Adds {@code Class} values to this object.
    * <p>
    * If the type of this object is not {@link Type#CLASS}, an
    * {@link TypeMismatchException} will be thrown; otherwise, the specified
-   * <code>Class</code> values will be add to this object.
+   * {@code Class} values will be add to this object.
    * </p>
    *
    * @param values
-   *          the collection of <code>Class</code> values to be add to this
+   *          the collection of {@code Class} values to be add to this
    *          object, whose elements may be null.
    * @throws TypeMismatchException
    *           if the type of this object is not {@link Type#CLASS} and there is
@@ -1831,15 +1831,15 @@ public interface MultiValues extends Cloneable<MultiValues> {
       throws TypeMismatchException;
 
   /**
-   * Gets the first value of this object as a <code>boolean</code> value.
+   * Gets the first value of this object as a {@code boolean} value.
    * <p>
    * If the type of this object is not {@link Type#BOOLEAN}, the value will be
-   * converted into a <code>boolean</code> value.
+   * converted into a {@code boolean} value.
    *
-   * @return the first value of this object as a <code>boolean</code> value.
+   * @return the first value of this object as a {@code boolean} value.
    * @throws TypeConvertException
    *           if the first value of this object can not be converted into a
-   *           <code>boolean</code> value.
+   *           {@code boolean} value.
    * @throws NoSuchElementException
    *           if this object has no value.
    */
@@ -1847,30 +1847,30 @@ public interface MultiValues extends Cloneable<MultiValues> {
       NoSuchElementException;
 
   /**
-   * Gets the values of this object as a <code>boolean</code> values.
+   * Gets the values of this object as a {@code boolean} values.
    * <p>
    * If the type of this object is not {@link Type#BOOLEAN}, the values will be
-   * converted into <code>boolean</code> values.
+   * converted into {@code boolean} values.
    *
-   * @return the values of this object as a <code>boolean</code> values.
+   * @return the values of this object as a {@code boolean} values.
    * @throws TypeConvertException
    *           if the values of this object can not be converted into a
-   *           <code>boolean</code> value.
+   *           {@code boolean} value.
    * @throws NoSuchElementException
    *           if this object has no value.
    */
   public boolean[] getValuesAsBoolean() throws TypeConvertException;
 
   /**
-   * Gets the first value of this object as a <code>char</code> value.
+   * Gets the first value of this object as a {@code char} value.
    * <p>
    * If the type of this object is not {@link Type#CHAR}, the value will be
-   * converted into a <code>char</code> value.
+   * converted into a {@code char} value.
    *
-   * @return the first value of this object as a <code>char</code> value.
+   * @return the first value of this object as a {@code char} value.
    * @throws TypeConvertException
    *           if the first value of this object can not be converted into a
-   *           <code>char</code> value.
+   *           {@code char} value.
    * @throws NoSuchElementException
    *           if this object has no value.
    */
@@ -1878,30 +1878,30 @@ public interface MultiValues extends Cloneable<MultiValues> {
       NoSuchElementException;
 
   /**
-   * Gets the values of this object as a <code>char</code> values.
+   * Gets the values of this object as a {@code char} values.
    * <p>
    * If the type of this object is not {@link Type#CHAR}, the values will be
-   * converted into <code>char</code> values.
+   * converted into {@code char} values.
    *
-   * @return the values of this object as a <code>char</code> values.
+   * @return the values of this object as a {@code char} values.
    * @throws TypeConvertException
    *           if the values of this object can not be converted into a
-   *           <code>char</code> value.
+   *           {@code char} value.
    * @throws NoSuchElementException
    *           if this object has no value.
    */
   public char[] getValuesAsChar() throws TypeConvertException;
 
   /**
-   * Gets the first value of this object as a <code>byte</code> value.
+   * Gets the first value of this object as a {@code byte} value.
    * <p>
    * If the type of this object is not {@link Type#BYTE}, the value will be
-   * converted into a <code>byte</code> value.
+   * converted into a {@code byte} value.
    *
-   * @return the first value of this object as a <code>boolean</code> value.
+   * @return the first value of this object as a {@code boolean} value.
    * @throws TypeConvertException
    *           if the first value of this object can not be converted into a
-   *           <code>byte</code> value.
+   *           {@code byte} value.
    * @throws NoSuchElementException
    *           if this object has no value.
    */
@@ -1909,30 +1909,30 @@ public interface MultiValues extends Cloneable<MultiValues> {
       NoSuchElementException;
 
   /**
-   * Gets the values of this object as a <code>byte</code> values.
+   * Gets the values of this object as a {@code byte} values.
    * <p>
    * If the type of this object is not {@link Type#BYTE}, the values will be
-   * converted into <code>byte</code> values.
+   * converted into {@code byte} values.
    *
-   * @return the values of this object as a <code>byte</code> values.
+   * @return the values of this object as a {@code byte} values.
    * @throws TypeConvertException
    *           if the values of this object can not be converted into a
-   *           <code>byte</code> value.
+   *           {@code byte} value.
    * @throws NoSuchElementException
    *           if this object has no value.
    */
   public byte[] getValuesAsByte() throws TypeConvertException;
 
   /**
-   * Gets the first value of this object as a <code>short</code> value.
+   * Gets the first value of this object as a {@code short} value.
    * <p>
    * If the type of this object is not {@link Type#SHORT}, the value will be
-   * converted into a <code>short</code> value.
+   * converted into a {@code short} value.
    *
-   * @return the first value of this object as a <code>boolean</code> value.
+   * @return the first value of this object as a {@code boolean} value.
    * @throws TypeConvertException
    *           if the first value of this object can not be converted into a
-   *           <code>short</code> value.
+   *           {@code short} value.
    * @throws NoSuchElementException
    *           if this object has no value.
    */
@@ -1940,30 +1940,30 @@ public interface MultiValues extends Cloneable<MultiValues> {
       NoSuchElementException;
 
   /**
-   * Gets the values of this object as a <code>short</code> values.
+   * Gets the values of this object as a {@code short} values.
    * <p>
    * If the type of this object is not {@link Type#SHORT}, the values will be
-   * converted into <code>short</code> values.
+   * converted into {@code short} values.
    *
-   * @return the values of this object as a <code>short</code> values.
+   * @return the values of this object as a {@code short} values.
    * @throws TypeConvertException
    *           if the values of this object can not be converted into a
-   *           <code>short</code> value.
+   *           {@code short} value.
    * @throws NoSuchElementException
    *           if this object has no value.
    */
   public short[] getValuesAsShort() throws TypeConvertException;
 
   /**
-   * Gets the first value of this object as a <code>int</code> value.
+   * Gets the first value of this object as a {@code int} value.
    * <p>
    * If the type of this object is not {@link Type#INT}, the value will be
-   * converted into a <code>int</code> value.
+   * converted into a {@code int} value.
    *
-   * @return the first value of this object as a <code>int</code> value.
+   * @return the first value of this object as a {@code int} value.
    * @throws TypeConvertException
    *           if the first value of this object can not be converted into a
-   *           <code>int</code> value.
+   *           {@code int} value.
    * @throws NoSuchElementException
    *           if this object has no value.
    */
@@ -1971,30 +1971,30 @@ public interface MultiValues extends Cloneable<MultiValues> {
       NoSuchElementException;
 
   /**
-   * Gets the values of this object as a <code>int</code> values.
+   * Gets the values of this object as a {@code int} values.
    * <p>
    * If the type of this object is not {@link Type#INT}, the values will be
-   * converted into <code>int</code> values.
+   * converted into {@code int} values.
    *
-   * @return the values of this object as a <code>int</code> values.
+   * @return the values of this object as a {@code int} values.
    * @throws TypeConvertException
    *           if the values of this object can not be converted into a
-   *           <code>int</code> value.
+   *           {@code int} value.
    * @throws NoSuchElementException
    *           if this object has no value.
    */
   public int[] getValuesAsInt() throws TypeConvertException;
 
   /**
-   * Gets the first value of this object as a <code>long</code> value.
+   * Gets the first value of this object as a {@code long} value.
    * <p>
    * If the type of this object is not {@link Type#LONG}, the value will be
-   * converted into a <code>long</code> value.
+   * converted into a {@code long} value.
    *
-   * @return the first value of this object as a <code>long</code> value.
+   * @return the first value of this object as a {@code long} value.
    * @throws TypeConvertException
    *           if the first value of this object can not be converted into a
-   *           <code>long</code> value.
+   *           {@code long} value.
    * @throws NoSuchElementException
    *           if this object has no value.
    */
@@ -2002,30 +2002,30 @@ public interface MultiValues extends Cloneable<MultiValues> {
       NoSuchElementException;
 
   /**
-   * Gets the values of this object as a <code>long</code> values.
+   * Gets the values of this object as a {@code long} values.
    * <p>
    * If the type of this object is not {@link Type#LONG}, the values will be
-   * converted into <code>char</code> values.
+   * converted into {@code char} values.
    *
-   * @return the values of this object as a <code>long</code> values.
+   * @return the values of this object as a {@code long} values.
    * @throws TypeConvertException
    *           if the values of this object can not be converted into a
-   *           <code>long</code> value.
+   *           {@code long} value.
    * @throws NoSuchElementException
    *           if this object has no value.
    */
   public long[] getValuesAsLong() throws TypeConvertException;
 
   /**
-   * Gets the first value of this object as a <code>float</code> value.
+   * Gets the first value of this object as a {@code float} value.
    * <p>
    * If the type of this object is not {@link Type#FLOAT}, the value will be
-   * converted into a <code>float</code> value.
+   * converted into a {@code float} value.
    *
-   * @return the first value of this object as a <code>float</code> value.
+   * @return the first value of this object as a {@code float} value.
    * @throws TypeConvertException
    *           if the first value of this object can not be converted into a
-   *           <code>float</code> value.
+   *           {@code float} value.
    * @throws NoSuchElementException
    *           if this object has no value.
    */
@@ -2033,30 +2033,30 @@ public interface MultiValues extends Cloneable<MultiValues> {
       NoSuchElementException;
 
   /**
-   * Gets the values of this object as a <code>float</code> values.
+   * Gets the values of this object as a {@code float} values.
    * <p>
    * If the type of this object is not {@link Type#FLOAT}, the values will be
-   * converted into <code>float</code> values.
+   * converted into {@code float} values.
    *
-   * @return the values of this object as a <code>float</code> values.
+   * @return the values of this object as a {@code float} values.
    * @throws TypeConvertException
    *           if the values of this object can not be converted into a
-   *           <code>float</code> value.
+   *           {@code float} value.
    * @throws NoSuchElementException
    *           if this object has no value.
    */
   public float[] getValuesAsFloat() throws TypeConvertException;
 
   /**
-   * Gets the first value of this object as a <code>double</code> value.
+   * Gets the first value of this object as a {@code double} value.
    * <p>
    * If the type of this object is not {@link Type#DOUBLE}, the value will be
-   * converted into a <code>boolean</code> value.
+   * converted into a {@code boolean} value.
    *
-   * @return the first value of this object as a <code>double</code> value.
+   * @return the first value of this object as a {@code double} value.
    * @throws TypeConvertException
    *           if the first value of this object can not be converted into a
-   *           <code>double</code> value.
+   *           {@code double} value.
    * @throws NoSuchElementException
    *           if this object has no value.
    */
@@ -2064,15 +2064,15 @@ public interface MultiValues extends Cloneable<MultiValues> {
       NoSuchElementException;
 
   /**
-   * Gets the values of this object as a <code>double</code> values.
+   * Gets the values of this object as a {@code double} values.
    * <p>
    * If the type of this object is not {@link Type#DOUBLE}, the values will be
-   * converted into <code>double</code> values.
+   * converted into {@code double} values.
    *
-   * @return the values of this object as a <code>double</code> values.
+   * @return the values of this object as a {@code double} values.
    * @throws TypeConvertException
    *           if the values of this object can not be converted into a
-   *           <code>double</code> value.
+   *           {@code double} value.
    * @throws NoSuchElementException
    *           if this object has no value.
    */
@@ -2141,15 +2141,15 @@ public interface MultiValues extends Cloneable<MultiValues> {
   public Date[] getValuesAsDate() throws TypeConvertException;
 
   /**
-   * Gets the first value of this object as a <code>byte[]</code> value.
+   * Gets the first value of this object as a {@code byte[]} value.
    * <p>
    * If the type of this object is not {@link Type#BYTE_ARRAY}, the value will
-   * be converted into a <code>byte[]</code> value.
+   * be converted into a {@code byte[]} value.
    *
-   * @return the first value of this object as a <code>boolean</code> value.
+   * @return the first value of this object as a {@code boolean} value.
    * @throws TypeConvertException
    *           if the first value of this object can not be converted into a
-   *           <code>byte[]</code> value.
+   *           {@code byte[]} value.
    * @throws NoSuchElementException
    *           if this object has no value.
    */
@@ -2157,30 +2157,30 @@ public interface MultiValues extends Cloneable<MultiValues> {
       NoSuchElementException;
 
   /**
-   * Gets the values of this object as a <code>byte[]</code> values.
+   * Gets the values of this object as a {@code byte[]} values.
    * <p>
    * If the type of this object is not {@link Type#BYTE_ARRAY}, the values will
-   * be converted into <code>byte[]</code> values.
+   * be converted into {@code byte[]} values.
    *
-   * @return the values of this object as a <code>byte[]</code> values.
+   * @return the values of this object as a {@code byte[]} values.
    * @throws TypeConvertException
    *           if the values of this object can not be converted into a
-   *           <code>byte[]</code> value.
+   *           {@code byte[]} value.
    * @throws NoSuchElementException
    *           if this object has no value.
    */
   public byte[][] getValuesAsByteArray() throws TypeConvertException;
 
   /**
-   * Gets the first value of this object as a <code>Class</code> value.
+   * Gets the first value of this object as a {@code Class} value.
    * <p>
    * If the type of this object is not {@link Type#CLASS}, the value will be
-   * converted into a <code>boolean</code> value.
+   * converted into a {@code boolean} value.
    *
-   * @return the first value of this object as a <code>Class</code> value.
+   * @return the first value of this object as a {@code Class} value.
    * @throws TypeConvertException
    *           if the first value of this object can not be converted into a
-   *           <code>Class</code> value.
+   *           {@code Class} value.
    * @throws NoSuchElementException
    *           if this object has no value.
    */
@@ -2188,15 +2188,15 @@ public interface MultiValues extends Cloneable<MultiValues> {
       NoSuchElementException;
 
   /**
-   * Gets the values of this object as a <code>Class</code> values.
+   * Gets the values of this object as a {@code Class} values.
    * <p>
    * If the type of this object is not {@link Type#CLASS}, the values will be
-   * converted into <code>Class</code> values.
+   * converted into {@code Class} values.
    *
-   * @return the values of this object as a <code>Class</code> values.
+   * @return the values of this object as a {@code Class} values.
    * @throws TypeConvertException
    *           if the values of this object can not be converted into a
-   *           <code>Class</code> value.
+   *           {@code Class} value.
    * @throws NoSuchElementException
    *           if this object has no value.
    */
@@ -2206,7 +2206,7 @@ public interface MultiValues extends Cloneable<MultiValues> {
    * Gets the first value of this object as a {@link BigInteger} value.
    * <p>
    * If the type of this object is not {@link Type#BIG_INTEGER}, the value will
-   * be converted into a <code>boolean</code> value.
+   * be converted into a {@code boolean} value.
    *
    * @return the first value of this object as a {@link BigInteger} value.
    * @throws TypeConvertException
@@ -2224,7 +2224,7 @@ public interface MultiValues extends Cloneable<MultiValues> {
    * If the type of this object is not {@link Type#BIG_INTEGER}, the values will
    * be converted into {@link BigInteger} values.
    *
-   * @return the values of this object as a <code>char</code> values.
+   * @return the values of this object as a {@code char} values.
    * @throws TypeConvertException
    *           if the values of this object can not be converted into a
    *           {@link BigInteger} value.
@@ -2237,7 +2237,7 @@ public interface MultiValues extends Cloneable<MultiValues> {
    * Gets the first value of this object as a {@link BigDecimal} value.
    * <p>
    * If the type of this object is not {@link Type#BIG_DECIMAL}, the value will
-   * be converted into a <code>boolean</code> value.
+   * be converted into a {@code boolean} value.
    *
    * @return the first value of this object as a {@link BigDecimal} value.
    * @throws TypeConvertException

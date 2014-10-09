@@ -35,20 +35,20 @@ import com.github.haixing_hu.util.value.NamedMultiValues;
  * </ul>
  * Currently the {@link Property} objects support the following types:
  * <ul>
- * <li><code>boolean</code></li>
- * <li><code>char</code></li>
- * <li><code>byte</code></li>
- * <li><code>short</code></li>
- * <li><code>int</code></li>
- * <li><code>long</code></li>
- * <li><code>float</code></li>
- * <li><code>double</code></li>
- * <li><code>String</code></li>
- * <li><code>java.util.Date</code></li>
- * <li><code>java.math.BigDecimal</code></li>
- * <li><code>java.math.BigInteger</code></li>
- * <li><code>byte[]</code></li>
- * <li><code>Class</code></li>
+ * <li>{@code boolean}</li>
+ * <li>{@code char}</li>
+ * <li>{@code byte}</li>
+ * <li>{@code short}</li>
+ * <li>{@code int}</li>
+ * <li>{@code long}</li>
+ * <li>{@code float}</li>
+ * <li>{@code double}</li>
+ * <li>{@code String}</li>
+ * <li>{@code java.util.Date}</li>
+ * <li>{@code java.math.BigDecimal}</li>
+ * <li>{@code java.math.BigInteger}</li>
+ * <li>{@code byte[]}</li>
+ * <li>{@code Class}</li>
  * </ul>
  *
  * @author Haixing Hu

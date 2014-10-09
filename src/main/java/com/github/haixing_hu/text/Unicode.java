@@ -62,9 +62,9 @@ public final class Unicode {
    * More precisely, a 32-bit unsigned integer ch is a high surrogate code point
    * value if and only if
    *
-   * <code>
+   * {@code 
    *      (ch & HIGH_SURROGATE_MASK) == HIGH_SURROGATE_MIN
-   *  </code>
+   *  }
    */
   public static final int HIGH_SURROGATE_MASK        = 0xFFFFFC00;
 
@@ -85,9 +85,9 @@ public final class Unicode {
    * More precisely, a 32-bit unsigned integer ch is a low surrogate code point
    * value if and only if
    *
-   * <code>
+   * {@code 
    *      (ch & LOW_SURROGATE_MASK) == LOW_SURROGATE_MIN
-   *  </code>
+   *  }
    */
   public static final int LOW_SURROGATE_MASK         = 0xFFFFFC00;
 
@@ -103,9 +103,9 @@ public final class Unicode {
    * More precisely, a 32-bit unsigned integer ch is a surrogate code point
    * value if and only if
    *
-   * <code>
+   * {@code 
    *      (ch & SURROGATE_MASK) == SURROGATE_MIN
-   *  </code>
+   *  }
    */
   public static final int SURROGATE_MASK             = 0xFFFFF800;
 
@@ -134,16 +134,16 @@ public final class Unicode {
    * More precisely, the formula to calculate the high surrogate when
    * decomposing a supplementary code point is:
    *
-   * <code>
+   * {@code 
    *      high = (codePoint >> HIGH_SURROGATE_SHIFT) + SURROGATE_DECOMPOSE_OFFSET;
-   *  </code>
+   *  }
    *
    * which is equivalent to
    *
-   * <code>
+   * {@code 
    *      high = ((codePoint - SUPPLEMENTARY_MIN) >> HIGH_SURROGATE_SHIFT)
    *           + HIGH_SURROGATE_MIN;
-   *  </code>
+   *  }
    *
    */
   public static final int SURROGATE_DECOMPOSE_OFFSET =
@@ -156,16 +156,16 @@ public final class Unicode {
    * More precisely, the formula to calculate the low surrogate when decomposing
    * a supplementary code point is:
    *
-   * <code>
+   * {@code 
    *      low = (codePoint & SURROGATE_DECOMPOSE_MASK) | LOW_SURROGATE_MIN;
-   *  </code>
+   *  }
    *
    * which is equivalent to
    *
-   * <code>
+   * {@code 
    *      low = ((codePoint - SUPPLEMENTARY_MIN) & SURROGATE_DECOMPOSE_MASK)
    *           + LOW_SURROGATE_MIN;
-   *  </code>
+   *  }
    *
    */
   public static final int SURROGATE_DECOMPOSE_MASK   =

@@ -42,10 +42,10 @@ import org.slf4j.LoggerFactory;
 import static com.github.haixing_hu.CommonsMessages.CREATE_INSTANCE_FAILED;
 
 /**
- * This class provides helper functions for <code>java.lang.System</code>.
+ * This class provides helper functions for {@code java.lang.System}.
  *
  * If a system property cannot be read due to security restrictions, the
- * corresponding field in this class will be set to <code>null</code> and a
+ * corresponding field in this class will be set to {@code null} and a
  * message will be written to the log.
  *
  * @author Haixing Hu
@@ -225,7 +225,7 @@ public final class SystemUtils {
 
   /**
    * The System property key for the user's language code, such as
-   * <code>"en"</code>.
+   * {@code "en"}.
    */
   public static final String USER_LANGUAGE_KEY = "user.language";
 
@@ -236,7 +236,7 @@ public final class SystemUtils {
 
   /**
    * The System property key for the user's time zone. For example:
-   * <code>"America/Los_Angeles"</code>.
+   * {@code "America/Los_Angeles"}.
    */
   public static final String USER_TIMEZONE_KEY = "user.timezone";
 
@@ -267,7 +267,7 @@ public final class SystemUtils {
 
   /**
    * The System property key for the AWT headless property. The value of this
-   * property is the String <code>"true"</code> or <code>"false"</code>.
+   * property is the String {@code "true"} or {@code "false"}.
    *
    * @see #isJavaAwtHeadless()
    */
@@ -299,36 +299,36 @@ public final class SystemUtils {
   public static final String JAVA_VERSION = getProperty(JAVA_VERSION_KEY);
 
   /**
-   * Gets the Java version as a <code>String</code> trimming leading letters.
+   * Gets the Java version as a {@code String} trimming leading letters.
    *
-   * The field will return <code>null</code> if {@link #JAVA_VERSION} is
-   * <code>null</code>.
+   * The field will return {@code null} if {@link #JAVA_VERSION} is
+   * {@code null}.
    */
   public static final String JAVA_VERSION_TRIMMED = getJavaVersionTrimmed();
 
   /**
-   * Gets the Java version as a <code>float</code>.
+   * Gets the Java version as a {@code float}.
    *
    * Example return values:
    * <ul>
-   * <li><code>1.2f</code> for JDK 1.2
-   * <li><code>1.31f</code> for JDK 1.3.1
+   * <li>{@code 1.2f} for JDK 1.2
+   * <li>{@code 1.31f} for JDK 1.3.1
    * </ul>
    *
-   * The field will return zero if {@link #JAVA_VERSION} is <code>null</code>.
+   * The field will return zero if {@link #JAVA_VERSION} is {@code null}.
    */
   public static final float JAVA_VERSION_FLOAT = getJavaVersionAsFloat();
 
   /**
-   * Gets the Java version as an <code>int</code>.
+   * Gets the Java version as an {@code int}.
    *
    * Example return values:
    * <ul>
-   * <li><code>120</code> for JDK 1.2
-   * <li><code>131</code> for JDK 1.3.1
+   * <li>{@code 120} for JDK 1.2
+   * <li>{@code 131} for JDK 1.3.1
    * </ul>
    *
-   * The field will return zero if {@link #JAVA_VERSION} is <code>null</code>.
+   * The field will return zero if {@link #JAVA_VERSION} is {@code null}.
    */
   public static final int JAVA_VERSION_INT = getJavaVersionAsInt();
 
@@ -381,7 +381,7 @@ public final class SystemUtils {
   public static final String USER_DIR = getProperty(USER_DIR_KEY);
 
   /**
-   * The user's language code, such as <code>"en"</code>.
+   * The user's language code, such as {@code "en"}.
    */
   public static final String USER_LANGUAGE = getProperty(USER_LANGUAGE_KEY);
 
@@ -391,68 +391,68 @@ public final class SystemUtils {
   public static final String USER_NAME = getProperty(USER_NAME_KEY);
 
   /**
-   * The user's time zone. For example: <code>"America/Los_Angeles"</code>.
+   * The user's time zone. For example: {@code "America/Los_Angeles"}.
    */
   public static final String USER_TIMEZONE = getProperty(USER_TIMEZONE_KEY);
 
   /**
-   * Is <code>true</code> if this is Java version 1.1 (also 1.1.x versions).
+   * Is {@code true} if this is Java version 1.1 (also 1.1.x versions).
    *
-   * The field will return <code>false</code> if {@link #JAVA_VERSION} is
-   * <code>null</code>.
+   * The field will return {@code false} if {@link #JAVA_VERSION} is
+   * {@code null}.
    */
   public static final boolean IS_JAVA_1_1 = getJavaVersionMatches("1.1");
 
   /**
-   * Is <code>true</code> if this is Java version 1.2 (also 1.2.x versions).
+   * Is {@code true} if this is Java version 1.2 (also 1.2.x versions).
    *
-   * The field will return <code>false</code> if {@link #JAVA_VERSION} is
-   * <code>null</code>.
+   * The field will return {@code false} if {@link #JAVA_VERSION} is
+   * {@code null}.
    */
   public static final boolean IS_JAVA_1_2 = getJavaVersionMatches("1.2");
 
   /**
-   * Is <code>true</code> if this is Java version 1.3 (also 1.3.x versions).
+   * Is {@code true} if this is Java version 1.3 (also 1.3.x versions).
    *
-   * The field will return <code>false</code> if {@link #JAVA_VERSION} is
-   * <code>null</code>.
+   * The field will return {@code false} if {@link #JAVA_VERSION} is
+   * {@code null}.
    */
   public static final boolean IS_JAVA_1_3 = getJavaVersionMatches("1.3");
 
   /**
-   * Is <code>true</code> if this is Java version 1.4 (also 1.4.x versions).
+   * Is {@code true} if this is Java version 1.4 (also 1.4.x versions).
    *
-   * The field will return <code>false</code> if {@link #JAVA_VERSION} is
-   * <code>null</code>.
+   * The field will return {@code false} if {@link #JAVA_VERSION} is
+   * {@code null}.
    */
   public static final boolean IS_JAVA_1_4 = getJavaVersionMatches("1.4");
 
   /**
-   * Is <code>true</code> if this is Java version 1.5 (also 1.5.x versions).
+   * Is {@code true} if this is Java version 1.5 (also 1.5.x versions).
    *
-   * The field will return <code>false</code> if {@link #JAVA_VERSION} is
-   * <code>null</code>.
+   * The field will return {@code false} if {@link #JAVA_VERSION} is
+   * {@code null}.
    */
   public static final boolean IS_JAVA_1_5 = getJavaVersionMatches("1.5");
 
   /**
-   * Is <code>true</code> if this is Java version 1.6 (also 1.6.x versions).
+   * Is {@code true} if this is Java version 1.6 (also 1.6.x versions).
    *
-   * The field will return <code>false</code> if {@link #JAVA_VERSION} is
-   * <code>null</code>.
+   * The field will return {@code false} if {@link #JAVA_VERSION} is
+   * {@code null}.
    */
   public static final boolean IS_JAVA_1_6 = getJavaVersionMatches("1.6");
 
   /**
-   * Is <code>true</code> if this is Java version 1.7 (also 1.7.x versions).
+   * Is {@code true} if this is Java version 1.7 (also 1.7.x versions).
    *
-   * The field will return <code>false</code> if {@link #JAVA_VERSION} is
-   * <code>null</code>.
+   * The field will return {@code false} if {@link #JAVA_VERSION} is
+   * {@code null}.
    */
   public static final boolean IS_JAVA_1_7 = getJavaVersionMatches("1.7");
 
   /**
-   * Is <code>true</code> if the current JRE is 64-bit.
+   * Is {@code true} if the current JRE is 64-bit.
    *
    * FIXME: this logic may not be correct.
    */
@@ -471,99 +471,99 @@ public final class SystemUtils {
   }
 
   /**
-   * Is <code>true</code> if the current JRE is 32-bit.
+   * Is {@code true} if the current JRE is 32-bit.
    */
   public static final boolean IS_JAVA_32BIT = (! IS_JAVA_64BIT);
 
   /**
-   * Is <code>true</code> if this is AIX.
+   * Is {@code true} if this is AIX.
    *
-   * The field will return <code>false</code> if <code>OS_NAME</code> is
-   * <code>null</code>.
+   * The field will return {@code false} if {@code OS_NAME} is
+   * {@code null}.
    */
   public static final boolean IS_OS_AIX = getOSMatches("AIX");
 
   /**
-   * Is <code>true</code> if this is HP-UX.
+   * Is {@code true} if this is HP-UX.
    *
-   * The field will return <code>false</code> if <code>OS_NAME</code> is
-   * <code>null</code>.
+   * The field will return {@code false} if {@code OS_NAME} is
+   * {@code null}.
    */
   public static final boolean IS_OS_HP_UX = getOSMatches("HP-UX");
 
   /**
-   * Is <code>true</code> if this is Irix.
+   * Is {@code true} if this is Irix.
    *
-   * The field will return <code>false</code> if <code>OS_NAME</code> is
-   * <code>null</code>.
+   * The field will return {@code false} if {@code OS_NAME} is
+   * {@code null}.
    */
   public static final boolean IS_OS_IRIX = getOSMatches("Irix");
 
   /**
-   * Is <code>true</code> if this is Linux.
+   * Is {@code true} if this is Linux.
    *
-   * The field will return <code>false</code> if <code>OS_NAME</code> is
-   * <code>null</code>.
+   * The field will return {@code false} if {@code OS_NAME} is
+   * {@code null}.
    */
   public static final boolean IS_OS_LINUX = getOSMatches("Linux")
       || getOSMatches("LINUX");
 
   /**
-   * Is <code>true</code> if this is Mac.
+   * Is {@code true} if this is Mac.
    *
-   * The field will return <code>false</code> if <code>OS_NAME</code> is
-   * <code>null</code>.
+   * The field will return {@code false} if {@code OS_NAME} is
+   * {@code null}.
    *
    * @since 2.0
    */
   public static final boolean IS_OS_MAC = getOSMatches("Mac");
 
   /**
-   * Is <code>true</code> if this is Mac.
+   * Is {@code true} if this is Mac.
    *
-   * The field will return <code>false</code> if <code>OS_NAME</code> is
-   * <code>null</code>.
+   * The field will return {@code false} if {@code OS_NAME} is
+   * {@code null}.
    *
    * @since 2.0
    */
   public static final boolean IS_OS_MAC_OSX = getOSMatches("Mac OS X");
 
   /**
-   * Is <code>true</code> if this is OS/2.
+   * Is {@code true} if this is OS/2.
    *
-   * The field will return <code>false</code> if <code>OS_NAME</code> is
-   * <code>null</code>.
+   * The field will return {@code false} if {@code OS_NAME} is
+   * {@code null}.
    *
    * @since 2.0
    */
   public static final boolean IS_OS_OS2 = getOSMatches("OS/2");
 
   /**
-   * Is <code>true</code> if this is Solaris.
+   * Is {@code true} if this is Solaris.
    *
-   * The field will return <code>false</code> if <code>OS_NAME</code> is
-   * <code>null</code>.
+   * The field will return {@code false} if {@code OS_NAME} is
+   * {@code null}.
    *
    * @since 2.0
    */
   public static final boolean IS_OS_SOLARIS = getOSMatches("Solaris");
 
   /**
-   * Is <code>true</code> if this is SunOS.
+   * Is {@code true} if this is SunOS.
    *
-   * The field will return <code>false</code> if <code>OS_NAME</code> is
-   * <code>null</code>.
+   * The field will return {@code false} if {@code OS_NAME} is
+   * {@code null}.
    *
    * @since 2.0
    */
   public static final boolean IS_OS_SUN_OS = getOSMatches("SunOS");
 
   /**
-   * Is <code>true</code> if this is a POSIX compilant system, as in any of AIX,
+   * Is {@code true} if this is a POSIX compilant system, as in any of AIX,
    * HP-UX, Irix, Linux, MacOSX, Solaris or SUN OS.
    *
-   * The field will return <code>false</code> if <code>OS_NAME</code> is
-   * <code>null</code>.
+   * The field will return {@code false} if {@code OS_NAME} is
+   * {@code null}.
    *
    * @since 2.1
    */
@@ -572,20 +572,20 @@ public final class SystemUtils {
       || IS_OS_SUN_OS;
 
   /**
-   * Is <code>true</code> if this is Windows.
+   * Is {@code true} if this is Windows.
    *
-   * The field will return <code>false</code> if <code>OS_NAME</code> is
-   * <code>null</code>.
+   * The field will return {@code false} if {@code OS_NAME} is
+   * {@code null}.
    *
    * @since 2.0
    */
   public static final boolean IS_OS_WINDOWS = getOSMatches(OS_NAME_WINDOWS_PREFIX);
 
   /**
-   * Is <code>true</code> if this is Windows 2000.
+   * Is {@code true} if this is Windows 2000.
    *
-   * The field will return <code>false</code> if <code>OS_NAME</code> is
-   * <code>null</code>.
+   * The field will return {@code false} if {@code OS_NAME} is
+   * {@code null}.
    *
    * @since 2.0
    */
@@ -593,10 +593,10 @@ public final class SystemUtils {
       OS_NAME_WINDOWS_PREFIX, "5.0");
 
   /**
-   * Is <code>true</code> if this is Windows 95.
+   * Is {@code true} if this is Windows 95.
    *
-   * The field will return <code>false</code> if <code>OS_NAME</code> is
-   * <code>null</code>.
+   * The field will return {@code false} if {@code OS_NAME} is
+   * {@code null}.
    *
    * @since 2.0
    */
@@ -605,10 +605,10 @@ public final class SystemUtils {
   // JDK 1.2 running on Windows98 returns 'Windows 95', hence the above
 
   /**
-   * Is <code>true</code> if this is Windows 98.
+   * Is {@code true} if this is Windows 98.
    *
-   * The field will return <code>false</code> if <code>OS_NAME</code> is
-   * <code>null</code>.
+   * The field will return {@code false} if {@code OS_NAME} is
+   * {@code null}.
    *
    * @since 2.0
    */
@@ -616,48 +616,48 @@ public final class SystemUtils {
       OS_NAME_WINDOWS_PREFIX + " 9", "4.1");
 
   /**
-   * Is <code>true</code> if this is Windows ME.
+   * Is {@code true} if this is Windows ME.
    *
-   * The field will return <code>false</code> if <code>OS_NAME</code> is
-   * <code>null</code>.
+   * The field will return {@code false} if {@code OS_NAME} is
+   * {@code null}.
    */
   public static final boolean IS_OS_WINDOWS_ME = getOSMatches(
       OS_NAME_WINDOWS_PREFIX, "4.9");
 
   /**
-   * Is <code>true</code> if this is Windows NT.
+   * Is {@code true} if this is Windows NT.
    *
-   * The field will return <code>false</code> if <code>OS_NAME</code> is
-   * <code>null</code>.
+   * The field will return {@code false} if {@code OS_NAME} is
+   * {@code null}.
    */
   public static final boolean IS_OS_WINDOWS_NT = getOSMatches(OS_NAME_WINDOWS_PREFIX
       + " NT");
 
   /**
-   * Is <code>true</code> if this is Windows XP.
+   * Is {@code true} if this is Windows XP.
    *
-   * The field will return <code>false</code> if <code>OS_NAME</code> is
-   * <code>null</code>.
+   * The field will return {@code false} if {@code OS_NAME} is
+   * {@code null}.
    */
   public static final boolean IS_OS_WINDOWS_XP = getOSMatches(
       OS_NAME_WINDOWS_PREFIX, "5.1");
 
   /**
-   * Is <code>true</code> if this is Windows Vista.
+   * Is {@code true} if this is Windows Vista.
    *
-   * The field will return <code>false</code> if <code>OS_NAME</code> is
-   * <code>null</code>.
+   * The field will return {@code false} if {@code OS_NAME} is
+   * {@code null}.
    */
   public static final boolean IS_OS_WINDOWS_VISTA = getOSMatches(
       OS_NAME_WINDOWS_PREFIX, "6.0");
 
   /**
-   * The native <code>ByteOrder</code> of this system.
+   * The native {@code ByteOrder} of this system.
    */
   public static final ByteOrder BYTE_ORDER = ByteOrder.nativeOrder();
 
   /**
-   * <code>true</code>, if this platform supports unmapping mmapped files.
+   * {@code true}, if this platform supports unmapping mmapped files.
    */
   public static final boolean UNMAP_MMAP_SUPPORTED;
   static {
@@ -682,16 +682,16 @@ public final class SystemUtils {
   }
 
   /**
-   * Gets the Java version number as a <code>float</code>.
+   * Gets the Java version number as a {@code float}.
    *
    * Example return values:
    * <ul>
-   * <li><code>1.2f</code> for JDK 1.2
-   * <li><code>1.31f</code> for JDK 1.3.1
+   * <li>{@code 1.2f} for JDK 1.2
+   * <li>{@code 1.31f} for JDK 1.3.1
    * </ul>
    *
    * Patch releases are not reported. Zero is returned if
-   * {@link #JAVA_VERSION_TRIMMED} is <code>null</code>.
+   * {@link #JAVA_VERSION_TRIMMED} is {@code null}.
    *
    * @return the version, for example 1.31f for JDK 1.3.1
    */
@@ -711,16 +711,16 @@ public final class SystemUtils {
   }
 
   /**
-   * Gets the Java version number as an <code>int</code>.
+   * Gets the Java version number as an {@code int}.
    *
    * Example return values:
    * <ul>
-   * <li><code>120</code> for JDK 1.2
-   * <li><code>131</code> for JDK 1.3.1
+   * <li>{@code 120} for JDK 1.2
+   * <li>{@code 131} for JDK 1.3.1
    * </ul>
    *
    * Patch releases are not reported. Zero is returned if
-   * {@link #JAVA_VERSION_TRIMMED} is <code>null</code>.
+   * {@link #JAVA_VERSION_TRIMMED} is {@code null}.
    *
    * @return the version, for example 131 for JDK 1.3.1
    */
@@ -806,14 +806,14 @@ public final class SystemUtils {
   }
 
   /**
-   * Gets a System property, defaulting to <code>null</code> if the property
-   * cannot be read. If a <code>SecurityException</code> is caught, the return
-   * value is <code>null</code> and a message is written to
-   * <code>System.err</code>.
+   * Gets a System property, defaulting to {@code null} if the property
+   * cannot be read. If a {@code SecurityException} is caught, the return
+   * value is {@code null} and a message is written to
+   * {@code System.err}.
    *
    * @param property
    *          the system property name
-   * @return the system property value or <code>null</code> if no such property
+   * @return the system property value or {@code null} if no such property
    *         or a security problem occurs.
    */
   public static String getProperty(final String property) {
@@ -831,13 +831,13 @@ public final class SystemUtils {
    *
    * Example input:
    * <ul>
-   * <li><code>1.2f</code> to test for JDK 1.2</li>
-   * <li><code>1.31f</code> to test for JDK 1.3.1</li>
+   * <li>{@code 1.2f} to test for JDK 1.2</li>
+   * <li>{@code 1.31f} to test for JDK 1.3.1</li>
    * </ul>
    *
    * @param requiredVersion
    *          the required version, for example 1.31f
-   * @return <code>true</code> if the actual version is equal or greater than
+   * @return {@code true} if the actual version is equal or greater than
    *         the required version
    */
   public static boolean isJavaVersionAtLeast(final float requiredVersion) {
@@ -850,13 +850,13 @@ public final class SystemUtils {
    * Example input:
    *
    * <ul>
-   * <li><code>120</code> to test for JDK 1.2 or greater</li>
-   * <li><code>131</code> to test for JDK 1.3.1 or greater</li>
+   * <li>{@code 120} to test for JDK 1.2 or greater</li>
+   * <li>{@code 131} to test for JDK 1.3.1 or greater</li>
    * </ul>
    *
    * @param requiredVersion
    *          the required version, for example 131
-   * @return <code>true</code> if the actual version is equal or greater than
+   * @return {@code true} if the actual version is equal or greater than
    *         the required version
    */
   public static boolean isJavaVersionAtLeast(final int requiredVersion) {

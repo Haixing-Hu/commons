@@ -44,20 +44,20 @@ public class SystemUtilsTest {
 
   /**
    * <p>
-   * Gets the Java version number as a <code>float</code>.
+   * Gets the Java version number as a {@code float}.
    * </p>
    *
    * <p>
    * Example return values:
    * </p>
    * <ul>
-   * <li><code>1.2f</code> for JDK 1.2
-   * <li><code>1.31f</code> for JDK 1.3.1
+   * <li>{@code 1.2f} for JDK 1.2
+   * <li>{@code 1.31f} for JDK 1.3.1
    * </ul>
    *
    * <p>
    * Patch releases are not reported. Zero is returned if
-   * {@link #JAVA_VERSION_TRIMMED} is <code>null</code>.
+   * {@link #JAVA_VERSION_TRIMMED} is {@code null}.
    * </p>
    *
    * @return the version, for example 1.31f for JDK 1.3.1
@@ -79,20 +79,20 @@ public class SystemUtilsTest {
 
   /**
    * <p>
-   * Gets the Java version number as an <code>int</code>.
+   * Gets the Java version number as an {@code int}.
    * </p>
    *
    * <p>
    * Example return values:
    * </p>
    * <ul>
-   * <li><code>120</code> for JDK 1.2
-   * <li><code>131</code> for JDK 1.3.1
+   * <li>{@code 120} for JDK 1.2
+   * <li>{@code 131} for JDK 1.3.1
    * </ul>
    *
    * <p>
    * Patch releases are not reported. Zero is returned if
-   * {@link #JAVA_VERSION_TRIMMED} is <code>null</code>.
+   * {@link #JAVA_VERSION_TRIMMED} is {@code null}.
    * </p>
    *
    * @return the version, for example 131 for JDK 1.3.1

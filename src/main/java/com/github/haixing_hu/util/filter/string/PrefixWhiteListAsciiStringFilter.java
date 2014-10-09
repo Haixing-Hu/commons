@@ -23,9 +23,9 @@ package com.github.haixing_hu.util.filter.string;
  * A ASCII string filter with a prefix white list.
  *
  * Given a string, if it is an ASCII string and has a prefix in the white list
- * of a <code>PrefixWhiteListAsciiStringFilter</code> object, it is accepted by
- * the <code>PrefixWhiteListAsciiStringFilter</code> object; otherwise, it is
- * rejected by the <code>PrefixWhiteListAsciiStringFilter</code> object.
+ * of a {@code PrefixWhiteListAsciiStringFilter} object, it is accepted by
+ * the {@code PrefixWhiteListAsciiStringFilter} object; otherwise, it is
+ * rejected by the {@code PrefixWhiteListAsciiStringFilter} object.
  *
  * @author Haixing Hu
  */

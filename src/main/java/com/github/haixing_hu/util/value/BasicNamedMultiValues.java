@@ -43,7 +43,7 @@ public class BasicNamedMultiValues extends BasicMultiValues
 
   public BasicNamedMultiValues() {
     super();
-    this.name = StringUtils.EMPTY;
+    name = StringUtils.EMPTY;
   }
 
   public BasicNamedMultiValues(final String name) {
@@ -138,9 +138,8 @@ public class BasicNamedMultiValues extends BasicMultiValues
 
   @Override
   public BasicNamedMultiValues clone() {
-    final BasicNamedMultiValues result = new BasicNamedMultiValues();
-    result.name = this.name;
-    result.assignValues(this);
+    final BasicNamedMultiValues result = (BasicNamedMultiValues) super.clone();
+    result.name = name;
     return result;
   }
 

@@ -31,7 +31,7 @@ import com.github.haixing_hu.collection.primitive.ShortList;
 import static com.github.haixing_hu.lang.Argument.*;
 
 /**
- * An {@link ShortList} backed by an array of <code>short</code>s. This
+ * An {@link ShortList} backed by an array of {@code short}s. This
  * implementation supports all optional methods.
  *
  * @author Haixing Hu
@@ -71,9 +71,9 @@ public class ArrayShortList extends RandomAccessShortList implements ShortList,
    *
    * @see ArrayShortList#addAll(org.apache.commons.collections.primitives.ShortCollection)
    * @param that
-   *          the non-<code>null</code> collection of <code>short</code>s to add
+   *          the non-{@code null} collection of {@code short}s to add
    * @throws NullPointerException
-   *           if <i>that</i> is <code>null</code>
+   *           if <i>that</i> is {@code null}
    */
   public ArrayShortList(final ShortCollection that) {
     this(that.size());
@@ -86,7 +86,7 @@ public class ArrayShortList extends RandomAccessShortList implements ShortList,
    * @param array
    *          the array to initialize the collection with
    * @throws NullPointerException
-   *           if the array is <code>null</code>
+   *           if the array is {@code null}
    */
   public ArrayShortList(final short[] array) {
     this(array.length);

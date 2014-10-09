@@ -23,9 +23,9 @@ package com.github.haixing_hu.util.filter.string;
  * A ASCII string filter with a prefix black list.
  *
  * Given a string, if it is an ASCII string and has a prefix in the black list
- * of a <code>PrefixBlackListAsciiStringFilter</code> object, it is rejected by
- * the <code>PrefixBlackListAsciiStringFilter</code> object; otherwise, it is
- * accepted by the <code>PrefixBlackListAsciiStringFilter</code> object.
+ * of a {@code PrefixBlackListAsciiStringFilter} object, it is rejected by
+ * the {@code PrefixBlackListAsciiStringFilter} object; otherwise, it is
+ * accepted by the {@code PrefixBlackListAsciiStringFilter} object.
  *
  * @author Haixing Hu
  */

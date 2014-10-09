@@ -35,13 +35,13 @@ public final class BooleanFormat implements Cloneable<BooleanFormat> {
 
   private BooleanFormatSymbols symbols;
   private BooleanFormatOptions options;
-  private final transient ParsePosition position;
+  private final transient ParsingPosition position;
   private final transient StringBuilder builder;
 
   public BooleanFormat() {
     symbols = new BooleanFormatSymbols();
     options = new BooleanFormatOptions();
-    position = new ParsePosition();
+    position = new ParsingPosition();
     builder = new StringBuilder();
   }
 
@@ -67,7 +67,7 @@ public final class BooleanFormat implements Cloneable<BooleanFormat> {
     this.options = requireNonNull("options", options);
   }
 
-  public ParsePosition getParsePosition() {
+  public ParsingPosition getParsePosition() {
     return position;
   }
 
@@ -92,12 +92,12 @@ public final class BooleanFormat implements Cloneable<BooleanFormat> {
   }
 
   /**
-   * Parses a <code>boolean</code> value.
+   * Parses a {@code boolean} value.
    *
    * @param str
    *          the text segment to be parsed. The parsing starts from the
-   *          character at the index <code>0</code> and stops at the character
-   *          before the index <code>str.length()</code>.
+   *          character at the index {@code 0} and stops at the character
+   *          before the index {@code str.length()}.
    * @return the parsed value.
    */
   public boolean parse(final CharSequence str) {
@@ -105,12 +105,12 @@ public final class BooleanFormat implements Cloneable<BooleanFormat> {
   }
 
   /**
-   * Parses a <code>boolean</code> value.
+   * Parses a {@code boolean} value.
    *
    * @param str
    *          the text segment to be parsed. The parsing starts from the
-   *          character at the index <code>startIndex</code> and stops at the
-   *          character before the index <code>str.length()</code>.
+   *          character at the index {@code startIndex} and stops at the
+   *          character before the index {@code str.length()}.
    * @param startIndex
    *          the index where to start parsing.
    * @return the parsed value.
@@ -120,12 +120,12 @@ public final class BooleanFormat implements Cloneable<BooleanFormat> {
   }
 
   /**
-   * Parses a <code>boolean</code> value.
+   * Parses a {@code boolean} value.
    *
    * @param str
    *          the text segment to be parsed. The parsing starts from the
-   *          character at the index <code>startIndex</code> and stops at the
-   *          character before the index <code>endIndex</code>.
+   *          character at the index {@code startIndex} and stops at the
+   *          character before the index {@code endIndex}.
    * @param startIndex
    *          the index where to start parsing.
    * @param endIndex
@@ -179,7 +179,7 @@ public final class BooleanFormat implements Cloneable<BooleanFormat> {
 
 
   /**
-   * Formats a <code>boolean</code> value.
+   * Formats a {@code boolean} value.
    *
    * @param value
    *          the value to be formated.
@@ -192,7 +192,7 @@ public final class BooleanFormat implements Cloneable<BooleanFormat> {
   }
 
   /**
-   * Formats a <code>boolean</code> value.
+   * Formats a {@code boolean} value.
    *
    * @param value
    *          the value to be formated.

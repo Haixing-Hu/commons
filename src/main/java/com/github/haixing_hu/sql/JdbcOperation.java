@@ -14,7 +14,7 @@ import java.sql.Connection;
  * @param <R>
  *          the type of returned value. If the operation has no return value,
  *          set this type parameter to {@link Void} and returns
- *          <code>null</code> in the {@link #perform(Connection)} function.
+ *          {@code null} in the {@link #perform(Connection)} function.
  * @author Haixing Hu
  */
 public interface JdbcOperation<R> {

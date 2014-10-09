@@ -151,7 +151,7 @@ public final class ByteArrayUtils {
         case 1:
           return (short) (value[0] << 8);
         default:
-          return (short) ((value[0] << 8) | value[1]);
+          return (short) ((value[0] << 8) | (value[1] & 0xFF));
       }
     } else if (byteOrder == ByteOrder.LITTLE_ENDIAN) {
       switch (value.length) {
@@ -160,7 +160,7 @@ public final class ByteArrayUtils {
         case 1:
           return value[0];
         default:
-          return (short) ((value[1] << 8) | value[0]);
+          return (short) ((value[1] << 8) | (value[0] & 0xFF));
       }
     } else {
       throw new UnsupportedByteOrderException(byteOrder);
@@ -233,16 +233,16 @@ public final class ByteArrayUtils {
           return value[0];
         case 2:
           return (value[1] << 8)
-               | value[0];
+               | (value[0] & 0xFF);
         case 3:
           return (value[2] << 16)
                | (value[1] << 8)
-               | value[0];
+               | (value[0] & 0xFF);
         default:
           return (value[3] << 24)
                | (value[2] << 16)
                | (value[1] << 8)
-               | value[0];
+               | (value[0] & 0xFF);
       }
     } else {
       throw new UnsupportedByteOrderException(byteOrder);
@@ -489,7 +489,7 @@ public final class ByteArrayUtils {
   }
 
   public static Double toDoubleObject(@Nullable final byte[] value,
-      @Nullable final Character defaultValue) {
+      @Nullable final Double defaultValue) {
     return (value == null ? defaultValue : Double.valueOf(toDouble(value)));
   }
 

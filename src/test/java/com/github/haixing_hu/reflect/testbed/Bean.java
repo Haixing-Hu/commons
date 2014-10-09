@@ -48,7 +48,7 @@ public class Bean implements Serializable {
 
   /**
    * The set of property names we expect to have returned when calling
-   * <code>getPropertyDescriptors()</code>.  You should update this list
+   * {@code getPropertyDescriptors()}.  You should update this list
    * when new properties are added to TestBean.
    */
   public final static String[] PROPERTIES = {
@@ -150,7 +150,7 @@ public class Bean implements Serializable {
   /**
    * A read-only String property.
    */
-  private String readOnlyProperty = "Read Only String Property";
+  private final String readOnlyProperty = "Read Only String Property";
 
   /**
    * A write-only String property.
@@ -166,7 +166,7 @@ public class Bean implements Serializable {
   /**
    * An integer array property accessed as an indexed property.
    */
-  private int intIndexed[] = { 0, 10, 20, 30, 40 };
+  private final int intIndexed[] = { 0, 10, 20, 30, 40 };
 
   /**
    * A {@link java.util.Date} array property.
@@ -183,7 +183,7 @@ public class Bean implements Serializable {
   /**
    * A String array property accessed as an indexed property.
    */
-  private String[] stringIndexed = {
+  private final String[] stringIndexed = {
       "String 0", "String 1", "StriinvalidBooleanng 2", "String 3", "String 4"
   };
 
@@ -241,7 +241,7 @@ public class Bean implements Serializable {
   /**
    * Another nested reference to a bean containing mapped properties
    */
-  private MappedTestBean mappedNested = null;
+  private transient MappedTestBean mappedNested = null;
 
   /**
    * An invalid property that has two boolean getters (getInvalidBoolean and
@@ -342,7 +342,7 @@ public class Bean implements Serializable {
   }
 
   public byte getByteProperty() {
-    return this.byteProperty;
+    return byteProperty;
   }
 
   public void setByteProperty(byte byteProperty) {
@@ -350,7 +350,7 @@ public class Bean implements Serializable {
   }
 
   public short getShortProperty() {
-    return this.shortProperty;
+    return shortProperty;
   }
 
   public void setShortProperty(short shortProperty) {
@@ -358,7 +358,7 @@ public class Bean implements Serializable {
   }
 
   public int getIntProperty() {
-    return this.intProperty;
+    return intProperty;
   }
 
   public void setIntProperty(int intProperty) {
@@ -366,7 +366,7 @@ public class Bean implements Serializable {
   }
 
   public long getLongProperty() {
-    return this.longProperty;
+    return longProperty;
   }
 
   public void setLongProperty(long longProperty) {
@@ -374,7 +374,7 @@ public class Bean implements Serializable {
   }
 
   public float getFloatProperty() {
-    return this.floatProperty;
+    return floatProperty;
   }
 
   public void setFloatProperty(float floatProperty) {
@@ -382,7 +382,7 @@ public class Bean implements Serializable {
   }
 
   public double getDoubleProperty() {
-    return this.doubleProperty;
+    return doubleProperty;
   }
 
   public void setDoubleProperty(double doubleProperty) {
@@ -390,7 +390,7 @@ public class Bean implements Serializable {
   }
 
   public String getStringProperty() {
-    return this.stringProperty;
+    return stringProperty;
   }
 
   public void setStringProperty(String stringProperty) {
@@ -406,7 +406,7 @@ public class Bean implements Serializable {
   }
 
   public String getNullProperty() {
-    return this.nullProperty;
+    return nullProperty;
   }
 
   public void setNullProperty(String nullProperty) {
@@ -414,7 +414,7 @@ public class Bean implements Serializable {
   }
 
   public String getReadOnlyProperty() {
-    return this.readOnlyProperty;
+    return readOnlyProperty;
   }
 
   public void setWriteOnlyProperty(String writeOnlyProperty) {
@@ -422,7 +422,7 @@ public class Bean implements Serializable {
   }
 
   public int[] getIntArray() {
-    return this.intArray;
+    return intArray;
   }
 
   public void setIntArray(int[] intArray) {
@@ -446,7 +446,7 @@ public class Bean implements Serializable {
   }
 
   public String[] getStringArray() {
-    return this.stringArray;
+    return stringArray;
   }
 
   public void setStringArray(String[] stringArray) {
@@ -462,15 +462,15 @@ public class Bean implements Serializable {
   }
 
   public String[] getDupProperty() {
-    return this.dupProperty;
+    return dupProperty;
   }
 
   public String getDupProperty(int index) {
-    return (this.dupProperty[index]);
+    return (dupProperty[index]);
   }
 
   public void setDupProperty(int index, String value) {
-    this.dupProperty[index] = value;
+    dupProperty[index] = value;
   }
 
   public void setDupProperty(String[] dupProperty) {
@@ -552,7 +552,7 @@ public class Bean implements Serializable {
       mappedIntProperty.put("One", new Integer(1));
       mappedIntProperty.put("Two", new Integer(2));
     }
-    Integer x = mappedIntProperty.get(key);
+    final Integer x = mappedIntProperty.get(key);
     return ((x == null) ? 0 : x.intValue());
   }
 
@@ -583,11 +583,11 @@ public class Bean implements Serializable {
   }
 
   public boolean getInvalidBoolean() {
-    return this.invalidBoolean;
+    return invalidBoolean;
   }
 
   public boolean isInvalidBoolean() {
-    return this.invalidBoolean;
+    return invalidBoolean;
   }
 
   public void setInvalidBoolean(String invalidBoolean) {

@@ -31,7 +31,7 @@ import com.github.haixing_hu.collection.primitive.RandomAccessLongList;
 import static com.github.haixing_hu.lang.Argument.*;
 
 /**
- * An {@link LongList} backed by an array of <code>long</code>s. This
+ * An {@link LongList} backed by an array of {@code long}s. This
  * implementation supports all optional methods.
  *
  * @author Haixing Hu
@@ -71,9 +71,9 @@ public class ArrayLongList extends RandomAccessLongList implements LongList,
    *
    * @see ArrayLongList#addAll(org.apache.commons.collections.primitives.LongCollection)
    * @param that
-   *          the non-<code>null</code> collection of <code>long</code>s to add
+   *          the non-{@code null} collection of {@code long}s to add
    * @throws NullPointerException
-   *           if <i>that</i> is <code>null</code>
+   *           if <i>that</i> is {@code null}
    */
   public ArrayLongList(final LongCollection that) {
     this(that.size());
@@ -86,7 +86,7 @@ public class ArrayLongList extends RandomAccessLongList implements LongList,
    * @param array
    *          the array to initialize the collection with
    * @throws NullPointerException
-   *           if the array is <code>null</code>
+   *           if the array is {@code null}
    */
   public ArrayLongList(final long[] array) {
     this(array.length);

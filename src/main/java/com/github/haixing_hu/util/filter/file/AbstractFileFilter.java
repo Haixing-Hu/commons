@@ -36,7 +36,7 @@ public abstract class AbstractFileFilter extends AbstractFilter<File>
    *
    * @param pathname
    *          The abstract pathname to be tested
-   * @return <code>true</code> if and only if <code>pathname</code> should be
+   * @return {@code true} if and only if {@code pathname} should be
    *         included
    */
   @Override
@@ -49,8 +49,8 @@ public abstract class AbstractFileFilter extends AbstractFilter<File>
    *          the directory in which the file was found.
    * @param name
    *          the name of the file.
-   * @return <code>true</code> if and only if the name should be included in the
-   *         file list; <code>false</code> otherwise.
+   * @return {@code true} if and only if the name should be included in the
+   *         file list; {@code false} otherwise.
    */
   @Override
   public abstract boolean accept(File dir, String name);

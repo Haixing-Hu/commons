@@ -42,20 +42,20 @@ import com.github.haixing_hu.text.xml.XmlException;
  * <p>
  * Currently the {@link Value} interface support the following types:
  * <ul>
- * <li><code>boolean</code></li>
- * <li><code>char</code></li>
- * <li><code>byte</code></li>
- * <li><code>short</code></li>
- * <li><code>int</code></li>
- * <li><code>long</code></li>
- * <li><code>float</code></li>
- * <li><code>double</code></li>
- * <li><code>String</code></li>
- * <li><code>java.util.Date</code></li>
- * <li><code>java.math.BigDecimal</code></li>
- * <li><code>java.math.BigInteger</code></li>
- * <li><code>byte[]</code></li>
- * <li><code>Class</code></li>
+ * <li>{@code boolean}</li>
+ * <li>{@code char}</li>
+ * <li>{@code byte}</li>
+ * <li>{@code short}</li>
+ * <li>{@code int}</li>
+ * <li>{@code long}</li>
+ * <li>{@code float}</li>
+ * <li>{@code double}</li>
+ * <li>{@code String}</li>
+ * <li>{@code java.util.Date}</li>
+ * <li>{@code java.math.BigDecimal}</li>
+ * <li>{@code java.math.BigInteger}</li>
+ * <li>{@code byte[]}</li>
+ * <li>{@code Class}</li>
  * </ul>
  *
  * @author Haixing Hu
@@ -167,9 +167,9 @@ public interface Value extends Cloneable<Value> {
       String tagName, @Nullable String prevSpaceAttr) throws XmlException;
 
   /**
-   * Gets the <code>boolean</code> value of this object.
+   * Gets the {@code boolean} value of this object.
    *
-   * @return the <code>boolean</code> value of this object.
+   * @return the {@code boolean} value of this object.
    * @throws TypeMismatchException
    *           if the type of this object is not {@link Type#BOOLEAN}.
    * @throws NoSuchElementException
@@ -179,7 +179,7 @@ public interface Value extends Cloneable<Value> {
       NoSuchElementException;
 
   /**
-   * Sets a <code>boolean</code> value to this object.
+   * Sets a {@code boolean} value to this object.
    * <p>
    * After calling this function, the type of this object is set to
    * {@link Type#BOOLEAN}, all previous value of this object is cleared, and the
@@ -187,14 +187,14 @@ public interface Value extends Cloneable<Value> {
    * </p>
    *
    * @param value
-   *          the new <code>boolean</code> value to be set to this object.
+   *          the new {@code boolean} value to be set to this object.
    */
   public void setBooleanValue(boolean value);
 
   /**
-   * Gets the <code>char</code> value of this object.
+   * Gets the {@code char} value of this object.
    *
-   * @return the <code>char</code> value of this object.
+   * @return the {@code char} value of this object.
    * @throws TypeMismatchException
    *           if the type of this object is not {@link Type#CHAR}.
    * @throws NoSuchElementException
@@ -204,7 +204,7 @@ public interface Value extends Cloneable<Value> {
       NoSuchElementException;
 
   /**
-   * Sets a <code>char</code> value to this object.
+   * Sets a {@code char} value to this object.
    * <p>
    * After calling this function, the type of this object is set to
    * {@link Type#CHAR}, all previous value of this object is cleared, and the
@@ -212,14 +212,14 @@ public interface Value extends Cloneable<Value> {
    * </p>
    *
    * @param value
-   *          the new <code>char</code> value to be set to this object.
+   *          the new {@code char} value to be set to this object.
    */
   public void setCharValue(char value);
 
   /**
-   * the <code>byte</code> value of this object.
+   * the {@code byte} value of this object.
    *
-   * @return the <code>byte</code> value of this object.
+   * @return the {@code byte} value of this object.
    * @throws TypeMismatchException
    *           if the type of this object is not {@link Type#BYTE}.
    * @throws NoSuchElementException
@@ -229,7 +229,7 @@ public interface Value extends Cloneable<Value> {
       NoSuchElementException;
 
   /**
-   * Sets a <code>byte</code> value to this object.
+   * Sets a {@code byte} value to this object.
    * <p>
    * After calling this function, the type of this object is set to
    * {@link Type#BYTE}, all previous value of this object is cleared, and the
@@ -237,14 +237,14 @@ public interface Value extends Cloneable<Value> {
    * </p>
    *
    * @param value
-   *          the new <code>byte</code> value to be set to this object.
+   *          the new {@code byte} value to be set to this object.
    */
   public void setByteValue(byte value);
 
   /**
-   * the <code>short</code> value of this object.
+   * the {@code short} value of this object.
    *
-   * @return the <code>short</code> value of this object.
+   * @return the {@code short} value of this object.
    * @throws TypeMismatchException
    *           if the type of this object is not {@link Type#SHORT}.
    * @throws NoSuchElementException
@@ -254,7 +254,7 @@ public interface Value extends Cloneable<Value> {
       NoSuchElementException;
 
   /**
-   * Sets a <code>short</code> value to this object.
+   * Sets a {@code short} value to this object.
    * <p>
    * After calling this function, the type of this object is set to
    * {@link Type#SHORT}, all previous value of this object is cleared, and the
@@ -262,14 +262,14 @@ public interface Value extends Cloneable<Value> {
    * </p>
    *
    * @param value
-   *          the new <code>short</code> value to be set to this object.
+   *          the new {@code short} value to be set to this object.
    */
   public void setShortValue(short value);
 
   /**
-   * the <code>int</code> value of this object.
+   * the {@code int} value of this object.
    *
-   * @return the <code>int</code> value of this object.
+   * @return the {@code int} value of this object.
    * @throws TypeMismatchException
    *           if the type of this object is not {@link Type#INT}.
    * @throws NoSuchElementException
@@ -278,7 +278,7 @@ public interface Value extends Cloneable<Value> {
   public int getIntValue() throws TypeMismatchException, NoSuchElementException;
 
   /**
-   * Sets a <code>int</code> value to this object.
+   * Sets a {@code int} value to this object.
    * <p>
    * After calling this function, the type of this object is set to
    * {@link Type#INT}, all previous value of this object is cleared, and the new
@@ -286,14 +286,14 @@ public interface Value extends Cloneable<Value> {
    * </p>
    *
    * @param value
-   *          the new <code>int</code> value to be set to this object.
+   *          the new {@code int} value to be set to this object.
    */
   public void setIntValue(int value);
 
   /**
-   * the <code>long</code> value of this object.
+   * the {@code long} value of this object.
    *
-   * @return the <code>long</code> value of this object.
+   * @return the {@code long} value of this object.
    * @throws TypeMismatchException
    *           if the type of this object is not {@link Type#LONG}.
    * @throws NoSuchElementException
@@ -303,7 +303,7 @@ public interface Value extends Cloneable<Value> {
       NoSuchElementException;
 
   /**
-   * Sets a <code>long</code> value to this object.
+   * Sets a {@code long} value to this object.
    * <p>
    * After calling this function, the type of this object is set to
    * {@link Type#LONG}, all previous value of this object is cleared, and the
@@ -311,14 +311,14 @@ public interface Value extends Cloneable<Value> {
    * </p>
    *
    * @param value
-   *          the new <code>long</code> value to be set to this object.
+   *          the new {@code long} value to be set to this object.
    */
   public void setLongValue(long value);
 
   /**
-   * the <code>float</code> value of this object.
+   * the {@code float} value of this object.
    *
-   * @return the <code>float</code> value of this object.
+   * @return the {@code float} value of this object.
    * @throws TypeMismatchException
    *           if the type of this object is not {@link Type#FLOAT}.
    * @throws NoSuchElementException
@@ -328,7 +328,7 @@ public interface Value extends Cloneable<Value> {
       NoSuchElementException;
 
   /**
-   * Sets a <code>float</code> value to this object.
+   * Sets a {@code float} value to this object.
    * <p>
    * After calling this function, the type of this object is set to
    * {@link Type#FLOAT}, all previous value of this object is cleared, and the
@@ -336,14 +336,14 @@ public interface Value extends Cloneable<Value> {
    * </p>
    *
    * @param value
-   *          the new <code>float</code> value to be set to this object.
+   *          the new {@code float} value to be set to this object.
    */
   public void setFloatValue(float value);
 
   /**
-   * the <code>double</code> value of this object.
+   * the {@code double} value of this object.
    *
-   * @return the <code>double</code> value of this object.
+   * @return the {@code double} value of this object.
    * @throws TypeMismatchException
    *           if the type of this object is not {@link Type#DOUBLE}.
    * @throws NoSuchElementException
@@ -353,7 +353,7 @@ public interface Value extends Cloneable<Value> {
       NoSuchElementException;
 
   /**
-   * Sets a <code>double</code> value to this object.
+   * Sets a {@code double} value to this object.
    * <p>
    * After calling this function, the type of this object is set to
    * {@link Type#DOUBLE}, all previous value of this object is cleared, and the
@@ -361,14 +361,14 @@ public interface Value extends Cloneable<Value> {
    * </p>
    *
    * @param value
-   *          the new <code>double</code> value to be set to this object.
+   *          the new {@code double} value to be set to this object.
    */
   public void setDoubleValue(double value);
 
   /**
-   * the <code>String</code> value of this object.
+   * the {@code String} value of this object.
    *
-   * @return the <code>String</code> value of this object, which may be null.
+   * @return the {@code String} value of this object, which may be null.
    * @throws TypeMismatchException
    *           if the type of this object is not {@link Type#STRING}.
    * @throws NoSuchElementException
@@ -473,11 +473,11 @@ public interface Value extends Cloneable<Value> {
   public void setBigDecimalValue(@Nullable BigDecimal value);
 
   /**
-   * Gets the <code>byte[]</code> value of this object.
+   * Gets the {@code byte[]} value of this object.
    *
-   * @return the <code>byte[]</code> value of this object, which may be null.
+   * @return the {@code byte[]} value of this object, which may be null.
    *         Note that the returned object is the cloned copy of the
-   *         <code>byte[]</code> object stored in this object.
+   *         {@code byte[]} object stored in this object.
    * @throws TypeMismatchException
    *           if the type of this object is not {@link Type#BYTE_ARRAY}.
    * @throws NoSuchElementException
@@ -487,7 +487,7 @@ public interface Value extends Cloneable<Value> {
       NoSuchElementException;
 
   /**
-   * Sets a <code>byte[]</code> value to this object.
+   * Sets a {@code byte[]} value to this object.
    * <p>
    * After calling this function, the type of this object is set to
    * {@link Type#BYTE_ARRAY}, all previous value of this object is cleared, and
@@ -495,16 +495,16 @@ public interface Value extends Cloneable<Value> {
    * </p>
    *
    * @param value
-   *          the new <code>byte[]</code> value to be set to this object, which
+   *          the new {@code byte[]} value to be set to this object, which
    *          may be null. Note that the cloned copy of this object will be
    *          stored in this object.
    */
   public void setByteArrayValue(@Nullable byte[] value);
 
   /**
-   * Gets the value of this object as a <code>Class</code> value.
+   * Gets the value of this object as a {@code Class} value.
    *
-   * @return the value of this object as a <code>Class</code> value, which may
+   * @return the value of this object as a {@code Class} value, which may
    *         be null.
    * @throws TypeMismatchException
    *           if the type of this object is not {@link Type#CLASS}.
@@ -515,7 +515,7 @@ public interface Value extends Cloneable<Value> {
       NoSuchElementException;
 
   /**
-   * Sets a single <code>Class</code> value to this object.
+   * Sets a single {@code Class} value to this object.
    * <p>
    * After calling this function, the type of this object is set to
    * {@link Type#CLASS}, all previous value of this object is cleared, and the
@@ -523,21 +523,21 @@ public interface Value extends Cloneable<Value> {
    * </p>
    *
    * @param value
-   *          the new <code>Class</code> value to be set to this object, which
+   *          the new {@code Class} value to be set to this object, which
    *          may be null.
    */
   public void setClassValue(@Nullable Class<?> value);
 
   /**
-   * Gets the value of this object as a <code>boolean</code> value.
+   * Gets the value of this object as a {@code boolean} value.
    * <p>
    * If the type of this object is not {@link Type#BOOLEAN}, the value will be
-   * converted into a <code>boolean</code> value.
+   * converted into a {@code boolean} value.
    *
-   * @return the value of this object as a <code>boolean</code> value.
+   * @return the value of this object as a {@code boolean} value.
    * @throws TypeConvertException
    *           if the value of this object can not be converted into a
-   *           <code>boolean</code> value.
+   *           {@code boolean} value.
    * @throws NoSuchElementException
    *           if this object has no value.
    */
@@ -545,15 +545,15 @@ public interface Value extends Cloneable<Value> {
       NoSuchElementException;
 
   /**
-   * Gets the value of this object as a <code>char</code> value.
+   * Gets the value of this object as a {@code char} value.
    * <p>
    * If the type of this object is not {@link Type#CHAR}, the value will be
-   * converted into a <code>char</code> value.
+   * converted into a {@code char} value.
    *
-   * @return the value of this object as a <code>char</code> value.
+   * @return the value of this object as a {@code char} value.
    * @throws TypeConvertException
    *           if the value of this object can not be converted into a
-   *           <code>char</code> value.
+   *           {@code char} value.
    * @throws NoSuchElementException
    *           if this object has no value.
    */
@@ -561,15 +561,15 @@ public interface Value extends Cloneable<Value> {
       NoSuchElementException;
 
   /**
-   * Gets the value of this object as a <code>byte</code> value.
+   * Gets the value of this object as a {@code byte} value.
    * <p>
    * If the type of this object is not {@link Type#BYTE}, the value will be
-   * converted into a <code>byte</code> value.
+   * converted into a {@code byte} value.
    *
-   * @return the value of this object as a <code>boolean</code> value.
+   * @return the value of this object as a {@code boolean} value.
    * @throws TypeConvertException
    *           if the value of this object can not be converted into a
-   *           <code>byte</code> value.
+   *           {@code byte} value.
    * @throws NoSuchElementException
    *           if this object has no value.
    */
@@ -577,15 +577,15 @@ public interface Value extends Cloneable<Value> {
       NoSuchElementException;
 
   /**
-   * Gets the value of this object as a <code>short</code> value.
+   * Gets the value of this object as a {@code short} value.
    * <p>
    * If the type of this object is not {@link Type#SHORT}, the value will be
-   * converted into a <code>short</code> value.
+   * converted into a {@code short} value.
    *
-   * @return the value of this object as a <code>boolean</code> value.
+   * @return the value of this object as a {@code boolean} value.
    * @throws TypeConvertException
    *           if the value of this object can not be converted into a
-   *           <code>short</code> value.
+   *           {@code short} value.
    * @throws NoSuchElementException
    *           if this object has no value.
    */
@@ -593,15 +593,15 @@ public interface Value extends Cloneable<Value> {
       NoSuchElementException;
 
   /**
-   * Gets the value of this object as a <code>int</code> value.
+   * Gets the value of this object as a {@code int} value.
    * <p>
    * If the type of this object is not {@link Type#INT}, the value will be
-   * converted into a <code>int</code> value.
+   * converted into a {@code int} value.
    *
-   * @return the value of this object as a <code>int</code> value.
+   * @return the value of this object as a {@code int} value.
    * @throws TypeConvertException
    *           if the value of this object can not be converted into a
-   *           <code>int</code> value.
+   *           {@code int} value.
    * @throws NoSuchElementException
    *           if this object has no value.
    */
@@ -609,15 +609,15 @@ public interface Value extends Cloneable<Value> {
       NoSuchElementException;
 
   /**
-   * Gets the value of this object as a <code>long</code> value.
+   * Gets the value of this object as a {@code long} value.
    * <p>
    * If the type of this object is not {@link Type#LONG}, the value will be
-   * converted into a <code>long</code> value.
+   * converted into a {@code long} value.
    *
-   * @return the value of this object as a <code>long</code> value.
+   * @return the value of this object as a {@code long} value.
    * @throws TypeConvertException
    *           if the value of this object can not be converted into a
-   *           <code>long</code> value.
+   *           {@code long} value.
    * @throws NoSuchElementException
    *           if this object has no value.
    */
@@ -625,15 +625,15 @@ public interface Value extends Cloneable<Value> {
       NoSuchElementException;
 
   /**
-   * Gets the value of this object as a <code>float</code> value.
+   * Gets the value of this object as a {@code float} value.
    * <p>
    * If the type of this object is not {@link Type#FLOAT}, the value will be
-   * converted into a <code>float</code> value.
+   * converted into a {@code float} value.
    *
-   * @return the value of this object as a <code>float</code> value.
+   * @return the value of this object as a {@code float} value.
    * @throws TypeConvertException
    *           if the value of this object can not be converted into a
-   *           <code>float</code> value.
+   *           {@code float} value.
    * @throws NoSuchElementException
    *           if this object has no value.
    */
@@ -641,15 +641,15 @@ public interface Value extends Cloneable<Value> {
       NoSuchElementException;
 
   /**
-   * Gets the value of this object as a <code>double</code> value.
+   * Gets the value of this object as a {@code double} value.
    * <p>
    * If the type of this object is not {@link Type#DOUBLE}, the value will be
-   * converted into a <code>boolean</code> value.
+   * converted into a {@code boolean} value.
    *
-   * @return the value of this object as a <code>double</code> value.
+   * @return the value of this object as a {@code double} value.
    * @throws TypeConvertException
    *           if the value of this object can not be converted into a
-   *           <code>double</code> value.
+   *           {@code double} value.
    * @throws NoSuchElementException
    *           if this object has no value.
    */
@@ -657,15 +657,15 @@ public interface Value extends Cloneable<Value> {
       NoSuchElementException;
 
   /**
-   * Gets the value of this object as a <code>String</code> value.
+   * Gets the value of this object as a {@code String} value.
    * <p>
    * If the type of this object is not {@link Type#STRING}, the value will be
-   * converted into a <code>String</code> value.
+   * converted into a {@code String} value.
    *
-   * @return the value of this object as a <code>String</code> value.
+   * @return the value of this object as a {@code String} value.
    * @throws TypeConvertException
    *           if the value of this object can not be converted into a
-   *           <code>String</code> value.
+   *           {@code String} value.
    * @throws NoSuchElementException
    *           if this object has no value.
    */
@@ -689,15 +689,15 @@ public interface Value extends Cloneable<Value> {
       NoSuchElementException;
 
   /**
-   * Gets the value of this object as a <code>byte[]</code> value.
+   * Gets the value of this object as a {@code byte[]} value.
    * <p>
    * If the type of this object is not {@link Type#BYTE_ARRAY}, the value will
-   * be converted into a <code>byte[]</code> value.
+   * be converted into a {@code byte[]} value.
    *
-   * @return the value of this object as a <code>boolean</code> value.
+   * @return the value of this object as a {@code boolean} value.
    * @throws TypeConvertException
    *           if the value of this object can not be converted into a
-   *           <code>byte[]</code> value.
+   *           {@code byte[]} value.
    * @throws NoSuchElementException
    *           if this object has no value.
    */
@@ -705,15 +705,15 @@ public interface Value extends Cloneable<Value> {
       NoSuchElementException;
 
   /**
-   * Gets the value of this object as a <code>Class</code> value.
+   * Gets the value of this object as a {@code Class} value.
    * <p>
    * If the type of this object is not {@link Type#CLASS}, the value will be
-   * converted into a <code>boolean</code> value.
+   * converted into a {@code boolean} value.
    *
-   * @return the value of this object as a <code>Class</code> value.
+   * @return the value of this object as a {@code Class} value.
    * @throws TypeConvertException
    *           if the value of this object can not be converted into a
-   *           <code>Class</code> value.
+   *           {@code Class} value.
    * @throws NoSuchElementException
    *           if this object has no value.
    */
@@ -724,7 +724,7 @@ public interface Value extends Cloneable<Value> {
    * Gets the value of this object as a {@link BigInteger} value.
    * <p>
    * If the type of this object is not {@link Type#BIG_INTEGER}, the value will
-   * be converted into a <code>boolean</code> value.
+   * be converted into a {@code boolean} value.
    *
    * @return the value of this object as a {@link BigInteger} value.
    * @throws TypeConvertException
@@ -740,7 +740,7 @@ public interface Value extends Cloneable<Value> {
    * Gets the value of this object as a {@link BigDecimal} value.
    * <p>
    * If the type of this object is not {@link Type#BIG_DECIMAL}, the value will
-   * be converted into a <code>boolean</code> value.
+   * be converted into a {@code boolean} value.
    *
    * @return the value of this object as a {@link BigDecimal} value.
    * @throws TypeConvertException

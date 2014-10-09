@@ -26,15 +26,15 @@ import java.util.Date;
 import javax.annotation.Nullable;
 
 /**
- * This class provides operations on <code>float</code> primitives and
+ * This class provides operations on {@code float} primitives and
  * {@link Float} objects.
  * <p>
- * This class tries to handle <code>null</code> input gracefully. An exception
- * will not be thrown for a <code>null</code> input. Each method documents its
+ * This class tries to handle {@code null} input gracefully. An exception
+ * will not be thrown for a {@code null} input. Each method documents its
  * behavior in more detail.
  * </p>
  * <p>
- * This class also handle the conversion from <code>float</code> values or
+ * This class also handle the conversion from {@code float} values or
  * {@link Float} objects to common types.
  * </p>
  *
@@ -43,12 +43,12 @@ import javax.annotation.Nullable;
 public class FloatUtils {
 
   /**
-   * The default <code>float</code> value used when necessary.
+   * The default {@code float} value used when necessary.
    */
   public static final float DEFAULT = 0.0f;
 
   /**
-   * The default epsilon for <code>float</code> values.
+   * The default epsilon for {@code float} values.
    */
   public static final float EPSILON = 0.0001f;
 

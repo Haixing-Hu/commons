@@ -25,7 +25,7 @@ import com.github.haixing_hu.lang.IntUtils;
 import com.github.haixing_hu.lang.LongUtils;
 import com.github.haixing_hu.lang.ShortUtils;
 import com.github.haixing_hu.text.FormatFlag;
-import com.github.haixing_hu.text.ParsePosition;
+import com.github.haixing_hu.text.ParsingPosition;
 import com.github.haixing_hu.text.ParseUtils;
 
 import static org.junit.Assert.assertEquals;
@@ -41,7 +41,7 @@ public class ParseUtilsTest {
 
   @Test
   public final void testSkipBlanks() {
-    final ParsePosition pos = new ParsePosition();
+    final ParsingPosition pos = new ParsingPosition();
     String str = null;
     // it should deal with the empty string (but not null string)
     str = "";
@@ -94,7 +94,7 @@ public class ParseUtilsTest {
 
   @Test
   public final void testSkipNonBlanks() {
-    final ParsePosition pos = new ParsePosition();
+    final ParsingPosition pos = new ParsingPosition();
     String str = null;
 
     // it should deal with the empty string (but not null string)
@@ -164,7 +164,7 @@ public class ParseUtilsTest {
 
   @Test
   public final void testGetSign() {
-    final ParsePosition pos = new ParsePosition();
+    final ParsingPosition pos = new ParsingPosition();
     String str = null;
     int sign = 0;
 
@@ -227,7 +227,7 @@ public class ParseUtilsTest {
 
   @Test
   public final void testGetRadix() {
-    final ParsePosition pos = new ParsePosition();
+    final ParsingPosition pos = new ParsingPosition();
     String str = null;
     int flags = 0;
     int radix = 0;
@@ -388,7 +388,7 @@ public class ParseUtilsTest {
 
   @Test
   public final void testGetSpecialRadixInt() {
-    final ParsePosition pos = new ParsePosition();
+    final ParsingPosition pos = new ParsingPosition();
     String str = null;
     int value = 0;
 
@@ -1124,7 +1124,7 @@ public class ParseUtilsTest {
 
   @Test
   public final void testGetSpecialRadixLong() {
-    final ParsePosition pos = new ParsePosition();
+    final ParsingPosition pos = new ParsingPosition();
     String str = null;
     long value = 0;
 
@@ -1482,7 +1482,7 @@ public class ParseUtilsTest {
 
   @Test
   public final void testGetDecimalInt() {
-    final ParsePosition pos = new ParsePosition();
+    final ParsingPosition pos = new ParsingPosition();
     String str = null;
     int value = 0;
 
@@ -1978,7 +1978,7 @@ public class ParseUtilsTest {
 
   @Test
   public final void testGetDecimalLong() {
-    final ParsePosition pos = new ParsePosition();
+    final ParsingPosition pos = new ParsingPosition();
     String str = null;
     long value = 0;
 
@@ -2222,7 +2222,7 @@ public class ParseUtilsTest {
 /*
   @Test
   public final void testParseInt() {
-    final ParsePosition pos = new ParsePosition();
+    final ParsingPosition pos = new ParsingPosition();
     final ParseOptions options = new ParseOptions();
     final FormatSymbols symbols = new FormatSymbols();
     int value = 0;

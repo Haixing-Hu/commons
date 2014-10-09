@@ -28,7 +28,7 @@ import com.github.haixing_hu.io.exception.AlreadyClosedException;
 
 /**
  * A {@link SeekableInputStream} which reads data from a file using the
- * <code>java.nio</code> APIs.
+ * {@code java.nio} APIs.
  *
  * @author Haixing Hu
  */

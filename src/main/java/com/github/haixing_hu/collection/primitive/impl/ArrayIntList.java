@@ -30,7 +30,7 @@ import com.github.haixing_hu.collection.primitive.RandomAccessIntList;
 
 import static com.github.haixing_hu.lang.Argument.*;
 /**
- * An {@link IntList} backed by an array of <code>int</code>s. This
+ * An {@link IntList} backed by an array of {@code int}s. This
  * implementation supports all optional methods.
  *
  * @author Haixing Hu
@@ -70,9 +70,9 @@ public class ArrayIntList extends RandomAccessIntList implements IntList,
    *
    * @see ArrayIntList#addAll(org.apache.commons.collections.primitives.IntCollection)
    * @param that
-   *          the non-<code>null</code> collection of <code>int</code>s to add
+   *          the non-{@code null} collection of {@code int}s to add
    * @throws NullPointerException
-   *           if <i>that</i> is <code>null</code>
+   *           if <i>that</i> is {@code null}
    */
   public ArrayIntList(final IntCollection that) {
     this(that.size());
@@ -85,7 +85,7 @@ public class ArrayIntList extends RandomAccessIntList implements IntList,
    * @param array
    *          the array to initialize the collection with
    * @throws NullPointerException
-   *           if the array is <code>null</code>
+   *           if the array is {@code null}
    */
   public ArrayIntList(final int[] array) {
     this(array.length);

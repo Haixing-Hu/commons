@@ -23,20 +23,20 @@ import com.github.haixing_hu.CommonsMessages;
 /**
  * Thrown to indicate that a file is not found.
  *
- * This class extends the <code>java.io.FileNotFoundException</code>, except
+ * This class extends the {@code java.io.FileNotFoundException}, except
  * that it could be constructed with a optional filename.
  *
  * @author Haixing Hu
  */
-public class FileNotFoundException extends java.io.FileNotFoundException {
+public class FileNotExistException extends java.io.FileNotFoundException {
 
   private static final long serialVersionUID = -4901933132912456682L;
 
-  public FileNotFoundException() {
+  public FileNotExistException() {
     super(CommonsMessages.FILE_NOT_FOUND);
   }
 
-  public FileNotFoundException(final String filepath) {
+  public FileNotExistException(final String filepath) {
     super(CommonsMessages.FILE_NOT_FOUND + " (" + filepath + ")");
   }
 }

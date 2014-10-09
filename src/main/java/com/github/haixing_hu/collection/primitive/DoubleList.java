@@ -19,14 +19,14 @@
 package com.github.haixing_hu.collection.primitive;
 
 /**
- * An ordered collection of <code>double</code> values.
+ * An ordered collection of {@code double} values.
  *
  * @author Haixing Hu
  */
 public interface DoubleList extends DoubleCollection {
   /**
    * Appends the specified element to the end of me (optional operation).
-   * Returns <code>true</code> iff I changed as a result of this call.
+   * Returns {@code true} iff I changed as a result of this call.
    * <p/>
    * If a collection refuses to add the specified element for any reason other
    * than that it already contains the element, it <i>must</i> throw an
@@ -36,7 +36,7 @@ public interface DoubleList extends DoubleCollection {
    *
    * @param element
    *          the value whose presence within me is to be ensured
-   * @return <code>true</code> iff I changed as a result of this call
+   * @return {@code true} iff I changed as a result of this call
    * @throws UnsupportedOperationException
    *           when this operation is not supported
    * @throws IllegalArgumentException
@@ -78,7 +78,7 @@ public interface DoubleList extends DoubleCollection {
    *          collection
    * @param collection
    *          the {@link DoubleCollection DoubleCollection} of elements to add
-   * @return <code>true</code> iff I changed as a result of this call
+   * @return {@code true} iff I changed as a result of this call
    * @throws UnsupportedOperationException
    *           when this operation is not supported
    * @throws IndexOutOfBoundsException
@@ -87,18 +87,18 @@ public interface DoubleList extends DoubleCollection {
   boolean addAll(int index, DoubleCollection collection);
 
   /**
-   * Returns <code>true</code> iff <i>that</i> is an <code>DoubleList</code>
+   * Returns {@code true} iff <i>that</i> is an {@code DoubleList}
    * that contains the same elements in the same order as me. In other words,
-   * returns <code>true</code> iff <i>that</i> is a <code>DoubleList</code> that
+   * returns {@code true} iff <i>that</i> is a {@code DoubleList} that
    * has the same {@link #size() size} as me, and for which the elements
    * returned by its {@link DoubleList#iterator iterator} are equal (
-   * <code>==</code>) to the corresponding elements within me. (This contract
+   * {@code ==}) to the corresponding elements within me. (This contract
    * ensures that this method works properly across different implementations of
-   * the <code>DoubleList</code> interface.)
+   * the {@code DoubleList} interface.)
    *
    * @param that
    *          the object to compare to me
-   * @return <code>true</code> iff <i>that</i> is an <code>DoubleList</code>
+   * @return {@code true} iff <i>that</i> is an {@code DoubleList}
    *         that contains the same elements in the same order as me
    */
   @Override
@@ -118,7 +118,7 @@ public interface DoubleList extends DoubleCollection {
   /**
    * Returns my hash code.
    * <p />
-   * The hash code of an <code>DoubleList</code> is defined to be the result of
+   * The hash code of an {@code DoubleList} is defined to be the result of
    * the following calculation:
    *
    * <pre>
@@ -140,12 +140,12 @@ public interface DoubleList extends DoubleCollection {
 
   /**
    * Returns the current of the first occurrence of the specified element within
-   * me, or <code>-1</code> if I do not contain the element.
+   * me, or {@code -1} if I do not contain the element.
    *
    * @param element
    *          the element to search for
    * @return the smallest current of an element matching the specified value, or
-   *         <code>-1</code> if no such matching element can be found
+   *         {@code -1} if no such matching element can be found
    */
   int indexOf(double element);
 
@@ -165,7 +165,7 @@ public interface DoubleList extends DoubleCollection {
    * @param element
    *          the element to search for
    * @return the largest current of an element matching the specified value, or
-   *         <code>-1</code> if no such matching element can be found
+   *         {@code -1} if no such matching element can be found
    */
   int lastIndexOf(double element);
 
@@ -222,7 +222,7 @@ public interface DoubleList extends DoubleCollection {
   /**
    * Returns a view of the elements within me between the specified
    * <i>fromIndex</i>, inclusive, and <i>toIndex</i>, exclusive. The returned
-   * <code>DoubleList</code> is backed by me, so that any changes in the
+   * {@code DoubleList} is backed by me, so that any changes in the
    * returned list are reflected in me, and vice-versa. The returned list
    * supports all of the optional operations that I support.
    * <p/>

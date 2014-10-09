@@ -28,15 +28,15 @@ import javax.annotation.Nullable;
 import com.github.haixing_hu.text.NumberFormatSymbols;
 
 /**
- * This class provides operations on <code>int</code> primitives and
+ * This class provides operations on {@code int} primitives and
  * {@link Integer} objects.
  * <p>
- * This class tries to handle <code>null</code> input gracefully. An exception
- * will not be thrown for a <code>null</code> input. Each method documents its
+ * This class tries to handle {@code null} input gracefully. An exception
+ * will not be thrown for a {@code null} input. Each method documents its
  * behavior in more detail.
  * </p>
  * <p>
- * This class also handle the conversion from <code>int</code> values or
+ * This class also handle the conversion from {@code int} values or
  * {@link Integer} objects to common types.
  * </p>
  *
@@ -45,7 +45,7 @@ import com.github.haixing_hu.text.NumberFormatSymbols;
 public class IntUtils {
 
   /**
-   * The default <code>int</code> value used when necessary.
+   * The default {@code int} value used when necessary.
    */
   public static final int DEFAULT = 0;
 
@@ -258,7 +258,7 @@ public class IntUtils {
   }
 
   /**
-   * Convert a <code>int</code> value into hex string.
+   * Convert a {@code int} value into hex string.
    *
    * @param value
    *    the value to be converted.
@@ -279,7 +279,7 @@ public class IntUtils {
   }
 
   /**
-   * Convert a <code>int</code> value into hex string.
+   * Convert a {@code int} value into hex string.
    *
    * @param value
    *          the value to be converted.
@@ -292,7 +292,7 @@ public class IntUtils {
   }
 
   public static Date toDate(final int value) {
-    return new Date(value);
+    return new Date(value * 1L);
   }
 
   public static Date toDate(@Nullable final Integer value) {

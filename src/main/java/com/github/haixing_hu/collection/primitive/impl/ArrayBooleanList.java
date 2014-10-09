@@ -31,7 +31,7 @@ import com.github.haixing_hu.collection.primitive.RandomAccessBooleanList;
 import static com.github.haixing_hu.lang.Argument.*;
 
 /**
- * An {@link BooleanList} backed by an array of <code>boolean</code>s. This
+ * An {@link BooleanList} backed by an array of {@code boolean}s. This
  * implementation supports all optional methods.
  *
  * @author Haixing Hu
@@ -71,10 +71,10 @@ public class ArrayBooleanList extends RandomAccessBooleanList implements
    *
    * @see ArrayBooleanList#addAll(BooleanCollection)
    * @param that
-   *          the non-<code>null</code> collection of <code>boolean</code>s to
+   *          the non-{@code null} collection of {@code boolean}s to
    *          add
    * @throws NullPointerException
-   *           if <i>that</i> is <code>null</code>
+   *           if <i>that</i> is {@code null}
    */
   public ArrayBooleanList(final BooleanCollection that) {
     this(that.size());
@@ -87,7 +87,7 @@ public class ArrayBooleanList extends RandomAccessBooleanList implements
    * @param array
    *          the array to initialize the collection with
    * @throws NullPointerException
-   *           if the array is <code>null</code>
+   *           if the array is {@code null}
    */
   public ArrayBooleanList(final boolean[] array) {
     this(array.length);

@@ -148,7 +148,7 @@ public final class Utf16 {
    * @throws IndexOutOfBoundsException
    *           if startIndex < 0 or pos.getIndex() < startIndex.
    */
-  public static int setToStart(final ParsePosition pos, final char[] buffer,
+  public static int setToStart(final ParsingPosition pos, final char[] buffer,
       final int startIndex) {
     int index = pos.getIndex();
     if ((startIndex < 0) || (index < startIndex)) {
@@ -204,7 +204,7 @@ public final class Utf16 {
    * @throws IndexOutOfBoundsException
    *           if startIndex < 0 or pos.getIndex() < startIndex.
    */
-  public static int setToStart(final ParsePosition pos, final CharSequence str,
+  public static int setToStart(final ParsingPosition pos, final CharSequence str,
       final int startIndex) {
     int index = pos.getIndex();
     if ((startIndex < 0) || (index < startIndex)) {
@@ -262,7 +262,7 @@ public final class Utf16 {
    *           if pos.getIndex() == endIndex, the function does nothing and returns
    *           0.
    */
-  public static int setToTerminal(final ParsePosition pos, final char[] buffer,
+  public static int setToTerminal(final ParsingPosition pos, final char[] buffer,
       final int endIndex) {
     int index = pos.getIndex();
     if ((endIndex > buffer.length) || (index > endIndex)) {
@@ -322,7 +322,7 @@ public final class Utf16 {
    *           if pos.getIndex() == endIndex, the function does nothing and returns
    *           0.
    */
-  public static int setToTerminal(final ParsePosition pos,
+  public static int setToTerminal(final ParsingPosition pos,
       final CharSequence str, final int endIndex) {
     int index = pos.getIndex();
     if ((endIndex > str.length()) || (index > endIndex)) {
@@ -387,7 +387,7 @@ public final class Utf16 {
    *           if pos.getIndex() == endIndex, the function does nothing and returns
    *           0.
    */
-  public static int forward(final ParsePosition pos, final char[] buffer,
+  public static int forward(final ParsingPosition pos, final char[] buffer,
       final int endIndex) {
     int index = pos.getIndex();
     if ((endIndex > buffer.length) || (index > endIndex)) {
@@ -457,7 +457,7 @@ public final class Utf16 {
    *           if pos.getIndex() == endIndex, the function does nothing and returns
    *           0.
    */
-  public static int forward(final ParsePosition pos, final CharSequence str,
+  public static int forward(final ParsingPosition pos, final CharSequence str,
       final int endIndex) {
     int index = pos.getIndex();
     if ((endIndex > str.length()) || (index > endIndex)) {
@@ -528,7 +528,7 @@ public final class Utf16 {
    *           pos.getIndex() == startIndex, the function does nothing and returns
    *           0.
    */
-  public static int backward(final ParsePosition pos, final char[] buffer,
+  public static int backward(final ParsingPosition pos, final char[] buffer,
       final int startIndex) {
     int index = pos.getIndex();
     if ((startIndex < 0) || (index < startIndex)) {
@@ -600,7 +600,7 @@ public final class Utf16 {
    *           pos.getIndex() == startIndex, the function does nothing and returns
    *           0.
    */
-  public static int backward(final ParsePosition pos, final CharSequence str,
+  public static int backward(final ParsingPosition pos, final CharSequence str,
       final int startIndex) {
     int index = pos.getIndex();
     if ((startIndex < 0) || (index < startIndex)) {
@@ -667,7 +667,7 @@ public final class Utf16 {
    *           if pos.getIndex() == endIndex, the function does nothing and returns
    *           0.
    */
-  public static int getNext(final ParsePosition pos, final char[] buffer,
+  public static int getNext(final ParsingPosition pos, final char[] buffer,
       final int endIndex) {
     int index = pos.getIndex();
     if ((endIndex > buffer.length) || (index > endIndex)) {
@@ -736,7 +736,7 @@ public final class Utf16 {
    *           if pos.getIndex() == endIndex, the function does nothing and returns
    *           0.
    */
-  public static int getNext(final ParsePosition pos, final CharSequence str,
+  public static int getNext(final ParsingPosition pos, final CharSequence str,
       final int endIndex) {
     int index = pos.getIndex();
     if ((endIndex > str.length()) || (index > endIndex)) {
@@ -808,7 +808,7 @@ public final class Utf16 {
    *           pos.getIndex() == startIndex, the function does nothing and returns
    *           0.
    */
-  public static int getPrevious(final ParsePosition pos, final char[] buffer,
+  public static int getPrevious(final ParsingPosition pos, final char[] buffer,
       final int startIndex) {
     int index = pos.getIndex();
     if ((startIndex < 0) || (index < startIndex)) {
@@ -879,7 +879,7 @@ public final class Utf16 {
    *           pos.getIndex() == startIndex, the function does nothing and returns
    *           0.
    */
-  public static int getPrevious(final ParsePosition pos,
+  public static int getPrevious(final ParsingPosition pos,
       final CharSequence str, final int startIndex) {
     int index = pos.getIndex();
     if ((startIndex < 0) || (index < startIndex)) {

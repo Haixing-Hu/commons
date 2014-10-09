@@ -47,7 +47,7 @@ public interface BinarySerializer {
    *          Indicates whether to allowed the returned object to be null.
    * @return The object deserialized from the binary input stream, or null if
    *         the object stored in the binary input stream is null and the
-   *         argument <code>allowNull</code> is true.
+   *         argument {@code allowNull} is true.
    * @throws IOException
    *           If any I/O error occurred.
    */

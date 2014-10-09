@@ -12,23 +12,13 @@ import java.util.Date;
 
 import org.junit.Test;
 
-import com.github.haixing_hu.lang.BooleanUtils;
-import com.github.haixing_hu.lang.ByteUtils;
-import com.github.haixing_hu.lang.CharUtils;
-import com.github.haixing_hu.lang.DoubleUtils;
-import com.github.haixing_hu.lang.FloatUtils;
-import com.github.haixing_hu.lang.IntUtils;
-import com.github.haixing_hu.lang.LongUtils;
-import com.github.haixing_hu.lang.ShortUtils;
-import com.github.haixing_hu.lang.UnsupportedByteOrderException;
-
 import static org.junit.Assert.*;
 
 /**
  * @author Hongming Ji
  */
 public class ShortUtilsTest {
-  
+
   private static final short[] AREA = {Short.MIN_VALUE, Short.MIN_VALUE/2, (short) -1,(short) 0,
                                        (short) 1, Short.MAX_VALUE/2, Short.MAX_VALUE};
 
@@ -52,7 +42,7 @@ public class ShortUtilsTest {
     for ( int i = 0; i < AREA.length; ++i) {
       assertEquals(AREA[i], ShortUtils.toPrimitive(null, AREA[i]));
     }
-    
+
     for ( int i = 0; i < AREA.length; ++i) {
       final Short x = AREA[i];
       for ( int j = 0; j < AREA.length; ++j) {
@@ -77,7 +67,7 @@ public class ShortUtilsTest {
   @Test
   public void testToBoolean_Short() {
     assertEquals(BooleanUtils.DEFAULT, ShortUtils.toBoolean(null));
-    
+
     for ( int i = 0; i < AREA.length; ++i) {
       final Short x = AREA[i];
       assertEquals( AREA[i] != 0, ShortUtils.toBoolean(x));
@@ -91,7 +81,7 @@ public class ShortUtilsTest {
   public void testToBoolean_Short_boolean() {
     assertEquals(true, ShortUtils.toBoolean(null, true));
     assertEquals(false, ShortUtils.toBoolean(null, false));
-    
+
     for ( int i = 0; i < AREA.length; ++i) {
       final Short x = AREA[i];
       assertEquals( AREA[i] != 0, ShortUtils.toBoolean(x, true));
@@ -116,7 +106,7 @@ public class ShortUtilsTest {
   @Test
   public void testToBooleanObject_Short() {
     assertEquals(null, ShortUtils.toBooleanObject(null));
-    
+
     for ( int i = 0; i < AREA.length; ++i) {
       final Short x = AREA[i];
       final Boolean y = (AREA[i] != 0);
@@ -130,7 +120,7 @@ public class ShortUtilsTest {
   @Test
   public void testToBooleanObject_Short_Boolean() {
     assertEquals(null, ShortUtils.toBooleanObject(null, null));
-    
+
     final Boolean xa = true;
     final Boolean xb = false;
     assertEquals(true, ShortUtils.toBooleanObject(null, xa));
@@ -158,7 +148,7 @@ public class ShortUtilsTest {
   @Test
   public void testToChar_Short() {
     assertEquals(CharUtils.DEFAULT, ShortUtils.toChar(null));
-    
+
     for ( int i = 0; i < AREA.length; ++i) {
       final Short x = AREA[i];
       assertEquals((char) AREA[i], ShortUtils.toChar(x));
@@ -173,7 +163,7 @@ public class ShortUtilsTest {
     for ( int i = 0; i < AREA.length; ++i) {
       assertEquals((char) AREA[i], ShortUtils.toChar(null, (char) AREA[i]));
     }
-    
+
     for ( int i = 0; i < AREA.length; ++i) {
       final Short x = AREA[i];
       for ( int j = 0; j < AREA.length; ++j) {
@@ -199,7 +189,7 @@ public class ShortUtilsTest {
   @Test
   public void testToCharObject_Short() {
     assertEquals(null, ShortUtils.toCharObject(null));
-    
+
     for ( int i = 0; i < AREA.length; ++i) {
       final Short x = AREA[i];
       final Character y = (char) AREA[i];
@@ -212,16 +202,16 @@ public class ShortUtilsTest {
    */
   @Test
   public void testToCharObject_Short_Character() {
-    final int[] a = {Integer.MIN_VALUE, Integer.MIN_VALUE/2, (int) -1, (int) 0, (int) 1,
+    final int[] a = {Integer.MIN_VALUE, Integer.MIN_VALUE/2, -1, 0, 1,
                    Integer.MAX_VALUE/2, Integer.MAX_VALUE};
-    
+
     assertEquals(null, ShortUtils.toCharObject(null, null));
-    
+
     for ( int i = 0; i < a.length; ++i) {
       final Character x = (char) a[i];
       assertEquals(x, ShortUtils.toCharObject(null, x));
     }
-    
+
     for ( int i = 0; i < AREA.length; ++i) {
       final Character x = (char) AREA[i];
       final Short y = (short) AREA[i];
@@ -249,7 +239,7 @@ public class ShortUtilsTest {
   @Test
   public void testToByte_Short() {
     assertEquals(ByteUtils.DEFAULT, ShortUtils.toByte(null));
-    
+
     for ( int i = 0; i < AREA.length; ++i) {
       final Short x = AREA[i];
       assertEquals((byte) AREA[i], ShortUtils.toByte(x));
@@ -264,7 +254,7 @@ public class ShortUtilsTest {
     for ( int i = 0; i < AREA.length; ++i) {
       assertEquals((byte) AREA[i], ShortUtils.toByte(null, (byte) AREA[i]));
     }
-    
+
     for ( int i = 0; i < AREA.length; ++i) {
       final Short x = AREA[i];
       for ( int j = Byte.MIN_VALUE; j <= Byte.MAX_VALUE; ++j) {
@@ -290,7 +280,7 @@ public class ShortUtilsTest {
   @Test
   public void testToByteObject_Short() {
     assertEquals(null, ShortUtils.toByteObject(null));
-    
+
     for ( int i = 0; i < AREA.length; ++i) {
       final Short x = AREA[i];
       final Byte y = (byte) AREA[i];
@@ -304,12 +294,12 @@ public class ShortUtilsTest {
   @Test
   public void testToByteObject_Short_Byte() {
     assertEquals(null, ShortUtils.toByteObject(null, null));
-    
+
     for ( int i = 0; i < AREA.length; ++i) {
       final Byte x = (byte) AREA[i];
       assertEquals(x, ShortUtils.toByteObject(null, x));
     }
-    
+
     for ( int i = 0; i < AREA.length; ++i) {
       final Short x = AREA[i];
       final Byte y = (byte) AREA[i];
@@ -337,7 +327,7 @@ public class ShortUtilsTest {
   @Test
   public void testToInt_Short() {
     assertEquals(IntUtils.DEFAULT, ShortUtils.toInt(null));
-    
+
     for ( int i = 0; i < AREA.length; ++i) {
       final Short x = AREA[i];
       assertEquals(AREA[i], ShortUtils.toInt(x));
@@ -351,11 +341,11 @@ public class ShortUtilsTest {
   public void testToInt_Short_int() {
     final int[] a = {Integer.MIN_VALUE, Integer.MIN_VALUE/2, -1, 0, 1,
                      Integer.MAX_VALUE/2, Integer.MAX_VALUE};
-    
+
     for ( int i = 0; i < a.length; ++i) {
       assertEquals(a[i], ShortUtils.toInt(null, a[i]));
     }
-    
+
     for ( int i = 0; i < AREA.length; ++i) {
       final Short x = (short) AREA[i];
       for ( int j = 0; j < a.length; ++j) {
@@ -381,7 +371,7 @@ public class ShortUtilsTest {
   @Test
   public void testToIntObject_Short() {
     assertEquals(null, ShortUtils.toIntObject(null));
-    
+
     for ( int i = 0; i < AREA.length; ++i) {
       final Short x = AREA[i];
       final Integer y = (int) AREA[i];
@@ -396,13 +386,13 @@ public class ShortUtilsTest {
   public void testToIntObject_Short_Integer() {
     final Integer[] a = {Integer.MIN_VALUE, Integer.MIN_VALUE/2, -1, 0, 1,
                      Integer.MAX_VALUE/2, Integer.MAX_VALUE};
-    
+
     assertEquals(null, ShortUtils.toIntObject(null, null));
-    
+
     for ( int i = 0; i < a.length; ++i) {
       assertEquals(a[i], ShortUtils.toIntObject(null, a[i]));
     }
-    
+
     for ( int i = 0; i < AREA.length; ++i) {
       final Short x = AREA[i];
       final Integer y = (int) AREA[i];
@@ -419,7 +409,7 @@ public class ShortUtilsTest {
   @Test
   public void testToLong_short() {
     for ( int i = 0; i < AREA.length; ++i) {
-      assertEquals((long) AREA[i], ShortUtils.toLong(AREA[i]));
+      assertEquals(AREA[i], ShortUtils.toLong(AREA[i]));
     }
   }
 
@@ -429,10 +419,10 @@ public class ShortUtilsTest {
   @Test
   public void testToLong_Short() {
     assertEquals(LongUtils.DEFAULT, ShortUtils.toLong(null));
-    
+
     for ( int i = 0; i < AREA.length; ++i) {
       final Short x = AREA[i];
-      assertEquals((long) AREA[i], ShortUtils.toLong(x));
+      assertEquals(AREA[i], ShortUtils.toLong(x));
     }
   }
 
@@ -441,17 +431,17 @@ public class ShortUtilsTest {
    */
   @Test
   public void testToLong_Short_long() {
-    final long[] a = {Long.MIN_VALUE, Long.MIN_VALUE/2, (long) -1, (long) 0, (long) 1,
+    final long[] a = {Long.MIN_VALUE, Long.MIN_VALUE/2, -1, 0, 1,
                     Long.MAX_VALUE/2, Long.MAX_VALUE};
-    
+
     for ( int i = 0; i < a.length; ++i) {
       assertEquals(a[i], ShortUtils.toLong(null, a[i]));
     }
-    
+
     for ( int i = 0; i < AREA.length; ++i) {
       final Short x = (short) AREA[i];
       for ( int j = 0; j < a.length; ++j) {
-        assertEquals((long) AREA[i], ShortUtils.toLong(x, a[j]));
+        assertEquals(AREA[i], ShortUtils.toLong(x, a[j]));
       }
     }
   }
@@ -463,7 +453,7 @@ public class ShortUtilsTest {
   public void testToLongObject_short() {
     for ( int i = 0; i < AREA.length; ++i) {
       final Long x = (long) AREA[i];
-      assertEquals(x, ShortUtils.toLongObject((short) AREA[i]));
+      assertEquals(x, ShortUtils.toLongObject(AREA[i]));
     }
   }
 
@@ -473,7 +463,7 @@ public class ShortUtilsTest {
   @Test
   public void testToLongObject_Short() {
     assertEquals(null, ShortUtils.toLongObject(null));
-    
+
     for ( int i = 0; i < AREA.length; ++i) {
       final Short x = (short) AREA[i];
       final Long y = (long) AREA[i];
@@ -488,13 +478,13 @@ public class ShortUtilsTest {
   public void testToLongObject_Short_Long() {
     final Long[] a = {Long.MIN_VALUE, Long.MIN_VALUE/2, (long) -1, (long) 0, (long) 1,
                       Long.MAX_VALUE/2, Long.MAX_VALUE};
-    
+
     assertEquals(null, ShortUtils.toLongObject(null, null));
-    
+
     for ( int i = 0; i < a.length; ++i) {
       assertEquals(a[i], ShortUtils.toLongObject(null, a[i]));
     }
-    
+
     for ( int i = 0; i < AREA.length; ++i) {
       final Short x = (short) AREA[i];
       final Long y = (long) AREA[i];
@@ -511,7 +501,7 @@ public class ShortUtilsTest {
   @Test
   public void testToFloat_short() {
     for ( int i = 0; i < AREA.length; ++i) {
-      assertEquals((float) AREA[i], ShortUtils.toFloat((short) AREA[i]), FloatUtils.EPSILON);
+      assertEquals(AREA[i], ShortUtils.toFloat(AREA[i]), FloatUtils.EPSILON);
     }
   }
 
@@ -521,10 +511,10 @@ public class ShortUtilsTest {
   @Test
   public void testToFloat_Short() {
     assertEquals(FloatUtils.DEFAULT, ShortUtils.toFloat(null), FloatUtils.EPSILON);
-    
+
     for ( int i = 0; i < AREA.length; ++i) {
       final Short x = (short) AREA[i];
-      assertEquals((float) AREA[i], ShortUtils.toFloat(x), FloatUtils.EPSILON);
+      assertEquals(AREA[i], ShortUtils.toFloat(x), FloatUtils.EPSILON);
     }
   }
 
@@ -533,17 +523,17 @@ public class ShortUtilsTest {
    */
   @Test
   public void testToFloat_Short_float() {
-    final float[] a = {Float.MIN_VALUE, Float.MIN_VALUE/2, (float) -1, (float) 0, (float) 1,
+    final float[] a = {Float.MIN_VALUE, Float.MIN_VALUE/2, -1, 0, 1,
                        Float.MAX_VALUE/2, Float.MAX_VALUE};
-    
+
     for ( int i = 0; i < a.length; ++i) {
       assertEquals(a[i], ShortUtils.toFloat(null, a[i]), FloatUtils.EPSILON);
     }
-    
+
     for ( int i = 0; i < AREA.length; ++i) {
       final Short x = (short) AREA[i];
       for ( int j = 0; j < a.length; ++j) {
-        assertEquals((float) AREA[i], ShortUtils.toFloat(x, a[j]), FloatUtils.EPSILON);
+        assertEquals(AREA[i], ShortUtils.toFloat(x, a[j]), FloatUtils.EPSILON);
       }
     }
   }
@@ -555,7 +545,7 @@ public class ShortUtilsTest {
   public void testToFloatObject_short() {
     for ( int i = 0; i < AREA.length; ++i) {
       final Float x = (float) AREA[i];
-      assertEquals(x, ShortUtils.toFloatObject((short) AREA[i]));
+      assertEquals(x, ShortUtils.toFloatObject(AREA[i]));
     }
   }
 
@@ -565,7 +555,7 @@ public class ShortUtilsTest {
   @Test
   public void testToFloatObject_Short() {
     assertEquals(null, ShortUtils.toFloatObject(null));
-    
+
     for ( int i = 0; i < AREA.length; ++i) {
       final Short x = (short) AREA[i];
       final Float y = (float) AREA[i];
@@ -580,13 +570,13 @@ public class ShortUtilsTest {
   public void testToFloatObject_Short_Float() {
     final Float[] a = {Float.MIN_VALUE, Float.MIN_VALUE/2, (float) -1, (float) 0, (float) 1,
                        Float.MAX_VALUE/2, Float.MAX_VALUE};
-    
+
     assertEquals(null, ShortUtils.toFloatObject(null, null));
-    
+
     for ( int i = 0; i < a.length; ++i) {
       assertEquals(a[i], ShortUtils.toFloatObject(null, a[i]));
     }
-    
+
     for ( int i = 0; i < AREA.length; ++i) {
       final Short x = (short) AREA[i];
       final Float y = (float) AREA[i];
@@ -603,7 +593,7 @@ public class ShortUtilsTest {
   @Test
   public void testToDouble_short() {
     for ( int i = 0; i < AREA.length; ++i) {
-      assertEquals((double) AREA[i], ShortUtils.toDouble((short) AREA[i]), DoubleUtils.EPSILON);
+      assertEquals(AREA[i], ShortUtils.toDouble(AREA[i]), DoubleUtils.EPSILON);
     }
   }
 
@@ -613,10 +603,10 @@ public class ShortUtilsTest {
   @Test
   public void testToDouble_Short() {
     assertEquals(DoubleUtils.DEFAULT, ShortUtils.toDouble(null), DoubleUtils.EPSILON);
-    
+
     for ( int i = 0; i < AREA.length; ++i) {
       final Short x = (short) AREA[i];
-      assertEquals((double) AREA[i], ShortUtils.toDouble(x), DoubleUtils.EPSILON);
+      assertEquals(AREA[i], ShortUtils.toDouble(x), DoubleUtils.EPSILON);
     }
   }
 
@@ -625,17 +615,17 @@ public class ShortUtilsTest {
    */
   @Test
   public void testToDouble_Short_double() {
-    final double[] a = {Double.MIN_VALUE, Double.MIN_VALUE/2, (double) -1, (double) 0, (double) 1,
+    final double[] a = {Double.MIN_VALUE, Double.MIN_VALUE/2, -1, 0, 1,
                         Double.MAX_VALUE/2, Double.MAX_VALUE};
-    
+
     for ( int i = 0; i < a.length; ++i) {
       assertEquals(a[i], ShortUtils.toDouble(null, a[i]), DoubleUtils.EPSILON);
     }
-    
+
     for ( int i = 0; i < AREA.length; ++i) {
       final Short x = (short) AREA[i];
       for ( int j = 0; j < a.length; ++j) {
-        assertEquals((double) AREA[i], ShortUtils.toDouble(x, a[j]), DoubleUtils.EPSILON);
+        assertEquals(AREA[i], ShortUtils.toDouble(x, a[j]), DoubleUtils.EPSILON);
       }
     }
   }
@@ -647,7 +637,7 @@ public class ShortUtilsTest {
   public void testToDoubleObject_short() {
     for ( int i = 0; i < AREA.length; ++i) {
       final Double x = (double) AREA[i];
-      assertEquals(x, ShortUtils.toDoubleObject((short) AREA[i]));
+      assertEquals(x, ShortUtils.toDoubleObject(AREA[i]));
     }
   }
 
@@ -657,7 +647,7 @@ public class ShortUtilsTest {
   @Test
   public void testToDoubleObject_Short() {
     assertEquals(null, ShortUtils.toDoubleObject(null));
-    
+
     for ( int i = 0; i < AREA.length; ++i) {
       final Short x = (short) AREA[i];
       final Double y = (double) AREA[i];
@@ -672,13 +662,13 @@ public class ShortUtilsTest {
   public void testToDoubleObject_Short_Double() {
     final Double[] a = {Double.MIN_VALUE, Double.MIN_VALUE/2, (double) -1, (double) 0, (double) 1,
                         Double.MAX_VALUE/2, Double.MAX_VALUE};
-    
+
     assertEquals(null, ShortUtils.toDoubleObject(null, null));
-    
+
     for ( int i = 0; i < a.length; ++i) {
       assertEquals(a[i], ShortUtils.toDoubleObject(null, a[i]));
     }
-    
+
     for ( int i = 0; i < AREA.length; ++i) {
       final Short x = (short) AREA[i];
       final Double y = (double) AREA[i];
@@ -696,7 +686,7 @@ public class ShortUtilsTest {
   public void testToString_short() {
     for ( int i = 0; i < AREA.length; ++i) {
       final String x = Integer.toString(AREA[i], 10);
-      assertEquals(x, ShortUtils.toString((short) AREA[i]));
+      assertEquals(x, ShortUtils.toString(AREA[i]));
     }
   }
 
@@ -706,7 +696,7 @@ public class ShortUtilsTest {
   @Test
   public void testToString_Short() {
     assertEquals(null, ShortUtils.toString(null));
-    
+
     for ( int i = 0; i < AREA.length; ++i) {
       final Short x = (short) AREA[i];
       final String y = Integer.toString(AREA[i], 10);
@@ -720,12 +710,12 @@ public class ShortUtilsTest {
   @Test
   public void testToString_Short_String() {
     assertEquals(null, ShortUtils.toString(null, null));
-    
+
     for ( int i = 0; i < AREA.length; ++i) {
       final String x = Integer.toString(AREA[i], 10);
       assertEquals(x, ShortUtils.toString(null, x));
     }
-    
+
     for ( int i = 0; i < AREA.length; ++i) {
       final Short x = (short) AREA[i];
       final String y = Integer.toString(AREA[i], 10);
@@ -742,28 +732,28 @@ public class ShortUtilsTest {
    */
   @Test
   public void testToHexString_short_StringBuilder() {
-    StringBuilder builder = new StringBuilder();
-    
+    final StringBuilder builder = new StringBuilder();
+
     builder.setLength(0);
     ShortUtils.toHexString((short)0x0000, builder);
     assertEquals("0x0000", builder.toString());
-    
+
     builder.setLength(0);
     ShortUtils.toHexString((short)0x000A, builder);
     assertEquals("0x000A", builder.toString());
-    
+
     builder.setLength(0);
     ShortUtils.toHexString((short)0x00AB, builder);
     assertEquals("0x00AB", builder.toString());
-    
+
     builder.setLength(0);
     ShortUtils.toHexString((short)0x00FF, builder);
     assertEquals("0x00FF", builder.toString());
-    
+
     builder.setLength(0);
     ShortUtils.toHexString((short)0xAAAA, builder);
     assertEquals("0xAAAA", builder.toString());
-    
+
     builder.setLength(0);
     ShortUtils.toHexString((short)0xFFFF, builder);
     assertEquals("0xFFFF", builder.toString());
@@ -788,8 +778,8 @@ public class ShortUtilsTest {
   @Test
   public void testToDate_short() {
     for ( int i = 0; i < AREA.length; ++i) {
-      final Date x = new Date(AREA[i]);
-      assertEquals(x, ShortUtils.toDate((short) AREA[i]));
+      final Date x = new Date(AREA[i] * 1L);
+      assertEquals(x, ShortUtils.toDate(AREA[i]));
     }
   }
 
@@ -799,10 +789,10 @@ public class ShortUtilsTest {
   @Test
   public void testToDate_Short() {
     assertEquals(null, ShortUtils.toDate(null));
-    
+
     for ( int i = 0; i < AREA.length; ++i) {
       final Short x = (short) AREA[i];
-      final Date y = new Date(AREA[i]);
+      final Date y = new Date(AREA[i] * 1L);
       assertEquals(y, ShortUtils.toDate(x));
     }
   }
@@ -812,19 +802,19 @@ public class ShortUtilsTest {
    */
   @Test
   public void testToDate_Short_Date() {
-    final long[] a = {Long.MIN_VALUE, Long.MIN_VALUE/2, (long) -1, (long) 0, (long) 1,
+    final long[] a = {Long.MIN_VALUE, Long.MIN_VALUE/2, -1, 0, 1,
                       Long.MAX_VALUE/2, Long.MAX_VALUE};
-    
+
     assertEquals(null, ShortUtils.toDate(null, null));
-    
+
     for ( int i = 0; i < AREA.length; ++i) {
-      final Date x = new Date(AREA[i]);
+      final Date x = new Date(AREA[i] * 1L);
       assertEquals(x, ShortUtils.toDate(null, x));
     }
-    
+
     for ( int i = 0; i < AREA.length; ++i) {
       final Short x = (short) AREA[i];
-      final Date y = new Date(AREA[i]);
+      final Date y = new Date(AREA[i] * 1L);
       assertEquals(y, ShortUtils.toDate(x, null));
       for ( int j = 0; j < a.length; ++j) {
         final Date z = new Date(a[j]);
@@ -840,19 +830,19 @@ public class ShortUtilsTest {
   public void testToByteArray_short() {
     final byte[] xa = {(byte) 0x00, (byte) 0x00};
     assertArrayEquals(xa, ShortUtils.toByteArray((short) 0x0000));
-    
+
     final byte[] xb = {(byte) 0xAB, (byte) 0x00};
     assertArrayEquals(xb, ShortUtils.toByteArray((short) 0xAB00));
-    
+
     final byte[] xc = {(byte) 0xAB, (byte) 0xAB};
     assertArrayEquals(xc, ShortUtils.toByteArray((short) 0xABAB));
-    
+
     final byte[] xd = {(byte) 0xFF, (byte) 0x00};
     assertArrayEquals(xd, ShortUtils.toByteArray((short) 0xFF00));
-    
+
     final byte[] xe = {(byte) 0xFF, (byte) 0xFF};
     assertArrayEquals(xe, ShortUtils.toByteArray((short) 0xFFFF));
-    
+
     final byte[] xf = {(byte) 0xBB, (byte) 0xAA};
     assertArrayEquals(xf, ShortUtils.toByteArray((short) 0xBBAA));
   }
@@ -865,31 +855,31 @@ public class ShortUtilsTest {
     final byte[] xa = {(byte) 0x00, (byte) 0x00};
     assertArrayEquals(xa, ShortUtils.toByteArray((short) 0x0000, ByteOrder.LITTLE_ENDIAN));
     assertArrayEquals(xa, ShortUtils.toByteArray((short) 0x0000, ByteOrder.BIG_ENDIAN));
-    
+
     final byte[] xb = {(byte) 0xAB, (byte) 0x00};
     assertArrayEquals(xb, ShortUtils.toByteArray((short) 0x00AB, ByteOrder.LITTLE_ENDIAN));
     assertArrayEquals(xb, ShortUtils.toByteArray((short) 0xAB00, ByteOrder.BIG_ENDIAN));
-    
+
     final byte[] xc = {(byte) 0xAB, (byte) 0xAB};
     assertArrayEquals(xc, ShortUtils.toByteArray((short) 0xABAB, ByteOrder.LITTLE_ENDIAN));
     assertArrayEquals(xc, ShortUtils.toByteArray((short) 0xABAB, ByteOrder.BIG_ENDIAN));
-    
+
     final byte[] xd = {(byte) 0xFF, (byte) 0x00};
     assertArrayEquals(xd, ShortUtils.toByteArray((short) 0x00FF, ByteOrder.LITTLE_ENDIAN));
     assertArrayEquals(xd, ShortUtils.toByteArray((short) 0xFF00, ByteOrder.BIG_ENDIAN));
-    
+
     final byte[] xe = {(byte) 0xFF, (byte) 0xFF};
     assertArrayEquals(xe, ShortUtils.toByteArray((short) 0xFFFF, ByteOrder.LITTLE_ENDIAN));
     assertArrayEquals(xe, ShortUtils.toByteArray((short) 0xFFFF, ByteOrder.BIG_ENDIAN));
-    
+
     final byte[] xf = {(byte) 0xBB, (byte) 0xAA};
     assertArrayEquals(xf, ShortUtils.toByteArray((short) 0xAABB, ByteOrder.LITTLE_ENDIAN));
     assertArrayEquals(xf, ShortUtils.toByteArray((short) 0xBBAA, ByteOrder.BIG_ENDIAN));
-    
+
     try {
       ShortUtils.toByteArray((short)10, null);
       fail("should throw");
-    } catch (UnsupportedByteOrderException e) {
+    } catch (final UnsupportedByteOrderException e) {
       // pass
     }
   }
@@ -900,15 +890,15 @@ public class ShortUtilsTest {
   @Test
   public void testToByteArray_Short() {
     assertArrayEquals(null, ShortUtils.toByteArray(null));
-    
+
     final byte[] xa = {(byte) 0x00, (byte) 0x00};
     final Short ya = (short) 0x0000;
     assertArrayEquals(xa, ShortUtils.toByteArray(ya));
-    
+
     final byte[] xb = {(byte) 0xAB, (byte) 0x00};
     final Short yb = (short) 0xAB00;
     assertArrayEquals(xb, ShortUtils.toByteArray(yb));
-    
+
     final byte[] xc = {(byte) 0xAB, (byte) 0xAB};
     final Short yc = (short) 0xABAB;
     assertArrayEquals(xc, ShortUtils.toByteArray(yc));
@@ -916,11 +906,11 @@ public class ShortUtilsTest {
     final byte[] xd = {(byte) 0xFF, (byte) 0x00};
     final Short yd = (short) 0xFF00;
     assertArrayEquals(xd, ShortUtils.toByteArray(yd));
-    
+
     final byte[] xe = {(byte) 0xFF, (byte) 0xFF};
     final Short ye = (short) 0xFFFF;
     assertArrayEquals(xe, ShortUtils.toByteArray(ye));
-    
+
     final byte[] xf = {(byte) 0xBB, (byte) 0xAA};
     final Short yf = (short) 0xBBAA;
     assertArrayEquals(xf, ShortUtils.toByteArray(yf));
@@ -933,34 +923,34 @@ public class ShortUtilsTest {
   public void testToByteArray_Short_ByteOrder() {
     assertArrayEquals(null, ShortUtils.toByteArray(null, ByteOrder.BIG_ENDIAN));
     assertArrayEquals(null, ShortUtils.toByteArray(null, ByteOrder.LITTLE_ENDIAN));
-    
+
     final byte[] xa = {(byte) 0x00, (byte) 0x00};
     final Short ya = (short) 0x0000;
     assertArrayEquals(xa, ShortUtils.toByteArray(ya, ByteOrder.LITTLE_ENDIAN));
     assertArrayEquals(xa, ShortUtils.toByteArray(ya, ByteOrder.BIG_ENDIAN));
-    
+
     final byte[] xb = {(byte) 0xAB, (byte) 0x00};
     final Short yb1 = (short) 0x00AB;
     assertArrayEquals(xb, ShortUtils.toByteArray(yb1, ByteOrder.LITTLE_ENDIAN));
     final Short yb2 = (short) 0xAB00;
     assertArrayEquals(xb, ShortUtils.toByteArray(yb2, ByteOrder.BIG_ENDIAN));
-    
+
     final byte[] xc = {(byte) 0xAB, (byte) 0xAB};
     final Short yc = (short) 0xABAB;
     assertArrayEquals(xc, ShortUtils.toByteArray(yc, ByteOrder.LITTLE_ENDIAN));
     assertArrayEquals(xc, ShortUtils.toByteArray(yc, ByteOrder.BIG_ENDIAN));
-    
+
     final byte[] xd = {(byte) 0xFF, (byte) 0x00};
     final Short yd1 = (short) 0x00FF;
     assertArrayEquals(xd, ShortUtils.toByteArray(yd1, ByteOrder.LITTLE_ENDIAN));
     final Short yd2 = (short) 0xFF00;
     assertArrayEquals(xd, ShortUtils.toByteArray(yd2, ByteOrder.BIG_ENDIAN));
-    
+
     final byte[] xe = {(byte) 0xFF, (byte) 0xFF};
     final Short ye = (short) 0xFFFF;
     assertArrayEquals(xe, ShortUtils.toByteArray(ye, ByteOrder.LITTLE_ENDIAN));
     assertArrayEquals(xe, ShortUtils.toByteArray(ye, ByteOrder.BIG_ENDIAN));
-    
+
     final byte[] xf = {(byte) 0xBB, (byte) 0xAA};
     final Short yf1 = (short) 0xAABB;
     assertArrayEquals(xf, ShortUtils.toByteArray(yf1, ByteOrder.LITTLE_ENDIAN));
@@ -975,7 +965,7 @@ public class ShortUtilsTest {
   public void testToByteArray_Short_byteArray() {
     final byte[] x = null;
     assertEquals(null, ShortUtils.toByteArray(null, x));
-    
+
     final byte[] a = {(byte) 0x00, (byte) 0x00};
     assertArrayEquals(a, ShortUtils.toByteArray(null, a));
     final byte[] b = {(byte) 0xAB, (byte) 0x00};
@@ -988,7 +978,7 @@ public class ShortUtilsTest {
     assertArrayEquals(e, ShortUtils.toByteArray(null, e));
     final byte[] f = {(byte) 0xBB, (byte) 0xAA};
     assertArrayEquals(f, ShortUtils.toByteArray(null, f));
-    
+
     final byte[] xa = {(byte) 0x00, (byte) 0x00};
     final Short ya = (short) 0x0000;
     final byte[] za = {};
@@ -1029,7 +1019,7 @@ public class ShortUtilsTest {
     final byte[] x = null;
     assertEquals(null, ShortUtils.toByteArray(null, x, ByteOrder.BIG_ENDIAN));
     assertEquals(null, ShortUtils.toByteArray(null, x, ByteOrder.LITTLE_ENDIAN));
-    
+
     final byte[] a = {(byte) 0x00, (byte) 0x00};
     assertArrayEquals(a, ShortUtils.toByteArray(null, a, ByteOrder.BIG_ENDIAN));
     assertArrayEquals(a, ShortUtils.toByteArray(null, a, ByteOrder.LITTLE_ENDIAN));
@@ -1048,7 +1038,7 @@ public class ShortUtilsTest {
     final byte[] f = {(byte) 0xBB, (byte) 0xAA};
     assertArrayEquals(f, ShortUtils.toByteArray(null, f, ByteOrder.BIG_ENDIAN));
     assertArrayEquals(f, ShortUtils.toByteArray(null, f, ByteOrder.LITTLE_ENDIAN));
-    
+
     final byte[] xa = {(byte) 0x00, (byte) 0x00};
     final Short ya = (short) 0x0000;
     final byte[] za = {};
@@ -1102,7 +1092,7 @@ public class ShortUtilsTest {
   @Test
   public void testToClass_short() {
     for ( int i = 0; i < AREA.length; ++i) {
-      assertSame(Short.TYPE, ShortUtils.toClass((short) AREA[i]));
+      assertSame(Short.TYPE, ShortUtils.toClass(AREA[i]));
     }
   }
 
@@ -1112,7 +1102,7 @@ public class ShortUtilsTest {
   @Test
   public void testToClass_Short() {
     assertSame(null, ShortUtils.toClass(null));
-    
+
     for ( int i = 0; i < AREA.length; ++i) {
       final Short x = (short) AREA[i];
       assertSame(Short.class, ShortUtils.toClass(x));
@@ -1125,9 +1115,9 @@ public class ShortUtilsTest {
   @Test
   public void testToClass_Short_ClassOfQ() {
     assertSame(null, ShortUtils.toClass(null, null));
-    
+
     assertSame(Short.class, ShortUtils.toClass(null, Short.class));
-    
+
     for ( int i = 0; i < AREA.length; ++i) {
       final Short x = (short) AREA[i];
       assertSame(Short.class, ShortUtils.toClass(x, null));
@@ -1142,7 +1132,7 @@ public class ShortUtilsTest {
   public void testToBigInteger_short() {
     for ( int i = 0; i < AREA.length; ++i) {
       final BigInteger x = BigInteger.valueOf(AREA[i]);
-      assertEquals(x, ShortUtils.toBigInteger((short) AREA[i]));
+      assertEquals(x, ShortUtils.toBigInteger(AREA[i]));
     }
   }
 
@@ -1152,7 +1142,7 @@ public class ShortUtilsTest {
   @Test
   public void testToBigInteger_Short() {
     assertEquals(null, ShortUtils.toBigInteger(null));
-    
+
     for ( int i = 0; i < AREA.length; ++i) {
       final Short x = (short) AREA[i];
       final BigInteger y = BigInteger.valueOf(AREA[i]);
@@ -1166,12 +1156,12 @@ public class ShortUtilsTest {
   @Test
   public void testToBigInteger_Short_BigInteger() {
     assertEquals(null, ShortUtils.toBigInteger(null, null));
-    
+
     for ( int i = 0; i < AREA.length; ++i) {
       final BigInteger x = BigInteger.valueOf(AREA[i]);
       assertEquals(x, ShortUtils.toBigInteger(null, x));
     }
-    
+
     for ( int i = 0; i < AREA.length; ++i) {
       final Short x = (short) AREA[i];
       final BigInteger y = BigInteger.valueOf(AREA[i]);
@@ -1190,7 +1180,7 @@ public class ShortUtilsTest {
   public void testToBigDecimal_short() {
     for ( int i = 0; i < AREA.length; ++i) {
       final BigDecimal x = BigDecimal.valueOf(AREA[i]);
-      assertEquals(x, ShortUtils.toBigDecimal((short) AREA[i]));
+      assertEquals(x, ShortUtils.toBigDecimal(AREA[i]));
     }
   }
 
@@ -1200,7 +1190,7 @@ public class ShortUtilsTest {
   @Test
   public void testToBigDecimal_Short() {
     assertEquals(null, ShortUtils.toBigDecimal(null));
-    
+
     for ( int i = 0; i < AREA.length; ++i) {
       final Short x = (short) AREA[i];
       final BigDecimal y = BigDecimal.valueOf(AREA[i]);
@@ -1214,12 +1204,12 @@ public class ShortUtilsTest {
   @Test
   public void testToBigDecimal_Short_BigDecimal() {
     assertEquals(null, ShortUtils.toBigDecimal(null, null));
-    
+
     for ( int i = 0; i < AREA.length; ++i) {
       final BigDecimal x = BigDecimal.valueOf(AREA[i]);
       assertEquals(x, ShortUtils.toBigDecimal(null, x));
     }
-    
+
     for ( int i = 0; i < AREA.length; ++i) {
       final Short x = (short) AREA[i];
       final BigDecimal y = BigDecimal.valueOf(AREA[i]);

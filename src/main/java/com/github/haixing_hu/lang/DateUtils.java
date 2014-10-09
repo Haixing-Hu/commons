@@ -30,8 +30,8 @@ import com.github.haixing_hu.text.DateFormat;
 /**
  * This class provides operations on {@link {@link Date} objects.
  * <p>
- * This class tries to handle <code>null</code> input gracefully. An exception
- * will not be thrown for a <code>null</code> input. Each method documents its
+ * This class tries to handle {@code null} input gracefully. An exception
+ * will not be thrown for a {@code null} input. Each method documents its
  * behavior in more detail.
  * </p>
  * <p>
@@ -194,7 +194,7 @@ public class DateUtils {
 
   public static String toString(@Nullable final Date value,
       final String pattern) {
-    return toString(value, null);
+    return toString(value, null, pattern);
   }
 
   public static String toString(@Nullable final Date value,

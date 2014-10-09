@@ -20,14 +20,14 @@ package com.github.haixing_hu.collection.primitive;
 
 
 /**
- * An ordered collection of <code>boolean</code> values.
+ * An ordered collection of {@code boolean} values.
  *
  * @author Haixing Hu
  */
 public interface BooleanList extends BooleanCollection {
   /**
    * Appends the specified element to the end of me (optional operation).
-   * Returns <code>true</code> iff I changed as a result of this call.
+   * Returns {@code true} iff I changed as a result of this call.
    * <p/>
    * If a collection refuses to add the specified element for any reason other
    * than that it already contains the element, it <i>must</i> throw an
@@ -37,7 +37,7 @@ public interface BooleanList extends BooleanCollection {
    *
    * @param element
    *          the value whose presence within me is to be ensured
-   * @return <code>true</code> iff I changed as a result of this call
+   * @return {@code true} iff I changed as a result of this call
    * @throws UnsupportedOperationException
    *           when this operation is not supported
    * @throws IllegalArgumentException
@@ -79,7 +79,7 @@ public interface BooleanList extends BooleanCollection {
    *          collection
    * @param collection
    *          the {@link BooleanCollection ByteCollection} of elements to add
-   * @return <code>true</code> iff I changed as a result of this call
+   * @return {@code true} iff I changed as a result of this call
    * @throws UnsupportedOperationException
    *           when this operation is not supported
    * @throws IndexOutOfBoundsException
@@ -88,18 +88,18 @@ public interface BooleanList extends BooleanCollection {
   boolean addAll(int index, BooleanCollection collection);
 
   /**
-   * Returns <code>true</code> iff <i>that</i> is an <code>BooleanList</code>
+   * Returns {@code true} iff <i>that</i> is an {@code BooleanList}
    * that contains the same elements in the same order as me. In other words,
-   * returns <code>true</code> iff <i>that</i> is a <code>BooleanList</code>
+   * returns {@code true} iff <i>that</i> is a {@code BooleanList}
    * that has the same {@link #size() size} as me, and for which the elements
    * returned by its {@link BooleanList#iterator iterator} are equal (
-   * <code>==</code>) to the corresponding elements within me. (This contract
+   * {@code ==}) to the corresponding elements within me. (This contract
    * ensures that this method works properly across different implementations of
-   * the <code>BooleanList</code> interface.)
+   * the {@code BooleanList} interface.)
    *
    * @param that
    *          the object to compare to me
-   * @return <code>true</code> iff <i>that</i> is an <code>BooleanList</code>
+   * @return {@code true} iff <i>that</i> is an {@code BooleanList}
    *         that contains the same elements in the same order as me
    */
   @Override
@@ -119,7 +119,7 @@ public interface BooleanList extends BooleanCollection {
   /**
    * @todo figure something out for this Returns my hash code.
    *       <p />
-   *       The hash code of an <code>BooleanList</code> is defined to be the
+   *       The hash code of an {@code BooleanList} is defined to be the
    *       result of the following calculation:
    *
    *       <pre>
@@ -141,12 +141,12 @@ public interface BooleanList extends BooleanCollection {
 
   /**
    * Returns the current of the first occurrence of the specified element within
-   * me, or <code>-1</code> if I do not contain the element.
+   * me, or {@code -1} if I do not contain the element.
    *
    * @param element
    *          the element to search for
    * @return the smallest current of an element matching the specified value, or
-   *         <code>-1</code> if no such matching element can be found
+   *         {@code -1} if no such matching element can be found
    */
   int indexOf(boolean element);
 
@@ -166,7 +166,7 @@ public interface BooleanList extends BooleanCollection {
    * @param element
    *          the element to search for
    * @return the largest current of an element matching the specified value, or
-   *         <code>-1</code> if no such matching element can be found
+   *         {@code -1} if no such matching element can be found
    */
   int lastIndexOf(boolean element);
 
@@ -224,7 +224,7 @@ public interface BooleanList extends BooleanCollection {
   /**
    * Returns a view of the elements within me between the specified
    * <i>fromIndex</i>, inclusive, and <i>toIndex</i>, exclusive. The returned
-   * <code>BooleanList</code> is backed by me, so that any changes in the
+   * {@code BooleanList} is backed by me, so that any changes in the
    * returned list are reflected in me, and vice-versa. The returned list
    * supports all of the optional operations that I support.
    * <p/>

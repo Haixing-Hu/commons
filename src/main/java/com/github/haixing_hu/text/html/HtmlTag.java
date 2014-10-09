@@ -25,7 +25,7 @@ import java.util.Set;
 /**
  * This interface defines the constant of HTML tag names.
  *
- * The name of the constants are of the form <code>TAG_[uppercase tag name]</code>.
+ * The name of the constants are of the form {@code TAG_[uppercase tag name]}.
  *
  * @author Haixing Hu
  * @see HtmlAttribute
@@ -89,9 +89,9 @@ public final class HtmlTag {
   public static final String TAG_BDO        = "bdo";
 
   /**
-   * The <code>bgsound</code> element is used to play an audio file when the
+   * The {@code bgsound} element is used to play an audio file when the
    * page loads and has a handful of attributes to control that audio, including
-   * balance, volume, loop and the most important of all, the <code>src</code>
+   * balance, volume, loop and the most important of all, the {@code src}
    * attribute which refers to the file required.
    */
   public static final String TAG_BGSOUND    = "bgsound";
@@ -211,7 +211,7 @@ public final class HtmlTag {
   public static final String TAG_EM         = "em";
 
   /**
-   * <code>embed</code> is a non-standard but well-supported element that’s used
+   * {@code embed} is a non-standard but well-supported element that’s used
    * to embed multimedia content, including media types that mightn’t usually be
    * natively supported by the browser. It can also be used for embedding media
    * types that are supported, such as images in .jpg, .gif, or .png format.
@@ -324,12 +324,12 @@ public final class HtmlTag {
   public static final String TAG_KBD        = "kbd";
 
   /**
-   * Defines a label for an <code>input</code> element.
+   * Defines a label for an {@code input} element.
    */
   public static final String TAG_LABEL      = "label";
 
   /**
-   * Defines a caption for a <code>fieldset</code> element.
+   * Defines a caption for a {@code fieldset} element.
    */
   public static final String TAG_LEGEND     = "legend";
 
@@ -377,8 +377,8 @@ public final class HtmlTag {
   public static final String TAG_NOBR       = "nobr";
 
   /**
-   * The <code>noembed</code> element is used to provide alternative content for
-   * browsers that don’t support the <code>embed</code> element. It’s not
+   * The {@code noembed} element is used to provide alternative content for
+   * browsers that don’t support the {@code embed} element. It’s not
    * defined by any standard (it was introduced by early Netscape browsers), and
    * as such there aren’t any guidelines as to what it may or may not contain.
    */
@@ -578,7 +578,7 @@ public final class HtmlTag {
   public static final String TAG_TD         = "td";
 
   /**
-   * Defines a multi-line text <code>input</code> control.
+   * Defines a multi-line text {@code input} control.
    */
   public static final String TAG_TEXTAREA   = "textarea";
 

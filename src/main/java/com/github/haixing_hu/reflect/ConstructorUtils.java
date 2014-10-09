@@ -52,13 +52,13 @@ import static com.github.haixing_hu.lang.Argument.requireNonNull;
  * <p>
  * There is an issue when invoking public constructors contained in a default
  * access superclass. Reflection locates these constructors fine and correctly
- * assigns them as public. However, an <code>IllegalAccessException</code> is
+ * assigns them as public. However, an {@code IllegalAccessException} is
  * thrown if the constructors is invoked.
  * </p>
  *
  * <p>
- * <code>ConstructorUtils</code> contains a workaround for this situation. It
- * will attempt to call <code>setAccessible</code> on this constructor. If this
+ * {@code ConstructorUtils} contains a workaround for this situation. It
+ * will attempt to call {@code setAccessible} on this constructor. If this
  * call succeeds, then the method can be invoked as normal. This call will only
  * succeed when the application has sufficient security privileges. If this call
  * fails then a warning will be logged and the method may fail.
@@ -185,7 +185,7 @@ public class ConstructorUtils {
    * @param paramTypes
    *          The types of the parameters of the constructor to be get, or an
    *          empty array if the constructor to be get has no parameter.
-   * @return the specified constructor, or <code>null</code> if no such field.
+   * @return the specified constructor, or {@code null} if no such field.
    * @throws ReflectionException
    *           if any error occurred.
    */
@@ -229,7 +229,7 @@ public class ConstructorUtils {
    *          The types of the compatible parameters of the constructor to be
    *          get, or an empty array if the constructor to be get has no
    *          parameter.
-   * @return the specified constructor, or <code>null</code> if no such field.
+   * @return the specified constructor, or {@code null} if no such field.
    * @throws ReflectionException
    *           if any error occurred.
    */
@@ -323,9 +323,9 @@ public class ConstructorUtils {
    *          {@link Option#DEFAULT}.
    * @param arguments
    *          The array of arguments. If the constructor has no arguments, it
-   *          could be <code>null</code> or empty.
-   * @return A new instance of <code>cls</code>, which will never be
-   *         <code>null</code>.
+   *          could be {@code null} or empty.
+   * @return A new instance of {@code cls}, which will never be
+   *         {@code null}.
    * @throws ReflectionException
    *           if any error occurred.
    * @since 1.0.0
@@ -361,12 +361,12 @@ public class ConstructorUtils {
    * @param paramTypes
    *          The array of classes of the parameters for the constructor to be
    *          invoked. If the constructor has no arguments, it could be
-   *          <code>null</code> or empty.
+   *          {@code null} or empty.
    * @param arguments
    *          The array of arguments. If the constructor has no arguments, it
-   *          could be <code>null</code> or empty.
-   * @return A new instance of <code>cls</code>, which will never be
-   *         <code>null</code>.
+   *          could be {@code null} or empty.
+   * @return A new instance of {@code cls}, which will never be
+   *         {@code null}.
    * @throws ReflectionException
    *           if any error occurred.
    * @since 1.0.0
@@ -412,9 +412,9 @@ public class ConstructorUtils {
    *          {@link Option#DEFAULT}.
    * @param arguments
    *          The array of arguments. If the constructor has no arguments, it
-   *          could be <code>null</code> or empty.
-   * @return A new instance of <code>cls</code>, which will never be
-   *         <code>null</code>.
+   *          could be {@code null} or empty.
+   * @return A new instance of {@code cls}, which will never be
+   *         {@code null}.
    * @throws ReflectionException
    *           if any error occurred.
    * @since 1.0.0
@@ -450,12 +450,12 @@ public class ConstructorUtils {
    * @param paramTypes
    *          The array of classes of the parameters for the constructor to be
    *          invoked. If the constructor has no arguments, it could be
-   *          <code>null</code> or empty.
+   *          {@code null} or empty.
    * @param arguments
    *          The array of arguments. If the constructor has no arguments, it
-   *          could be <code>null</code> or empty.
-   * @return A new instance of <code>cls</code>, which will never be
-   *         <code>null</code>.
+   *          could be {@code null} or empty.
+   * @return A new instance of {@code cls}, which will never be
+   *         {@code null}.
    * @throws ReflectionException
    *           if any error occurred.
    * @since 1.0.0

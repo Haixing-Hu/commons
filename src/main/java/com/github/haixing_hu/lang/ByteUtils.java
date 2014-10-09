@@ -28,15 +28,15 @@ import javax.annotation.concurrent.ThreadSafe;
 import com.github.haixing_hu.text.NumberFormatSymbols;
 
 /**
- * This class provides operations on <code>byte</code> primitives and
+ * This class provides operations on {@code byte} primitives and
  * {@link Byte} objects.
  * <p>
- * This class tries to handle <code>null</code> input gracefully. An exception
- * will not be thrown for a <code>null</code> input. Each method documents its
+ * This class tries to handle {@code null} input gracefully. An exception
+ * will not be thrown for a {@code null} input. Each method documents its
  * behavior in more detail.
  * </p>
  * <p>
- * This class also handle the conversion from <code>byte</code> values or
+ * This class also handle the conversion from {@code byte} values or
  * {@link Byte} objects to common types.
  * </p>
  *
@@ -46,7 +46,7 @@ import com.github.haixing_hu.text.NumberFormatSymbols;
 public final class ByteUtils {
 
   /**
-   * The default <code>byte</code> value used when necessary.
+   * The default {@code byte} value used when necessary.
    */
   public static final byte DEFAULT = (byte) 0;
 
@@ -261,7 +261,7 @@ public final class ByteUtils {
   }
 
   /**
-   * Convert a <code>byte</code> value into hex string.
+   * Convert a {@code byte} value into hex string.
    *
    * @param value
    *    the value to be converted.
@@ -276,7 +276,7 @@ public final class ByteUtils {
   }
 
   /**
-   * Convert a <code>byte</code> value into hex string.
+   * Convert a {@code byte} value into hex string.
    *
    * @param value
    *          the value to be converted.

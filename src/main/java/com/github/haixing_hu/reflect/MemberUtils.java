@@ -26,7 +26,7 @@ import com.github.haixing_hu.lang.ClassUtils;
 
 /**
  * Contains common code for working with Methods/Constructors, extracted and
- * refactored from <code>MethodUtils</code> when it was imported from Commons
+ * refactored from {@code MethodUtils} when it was imported from Commons
  * BeanUtils.
  *
  * @author Haixing Hu
@@ -94,7 +94,7 @@ abstract class MemberUtils {
    *
    * @param m
    *          Member to check
-   * @return true if <code>m</code> is accessible
+   * @return true if {@code m} is accessible
    */
   static boolean isAccessible(Member m) {
     return (m != null) && Modifier.isPublic(m.getModifiers()) && ! m.isSynthetic();
@@ -110,9 +110,9 @@ abstract class MemberUtils {
    * @param right
    *          the "right" parameter set
    * @param actual
-   *          the runtime parameter types to match against <code>left</code>/
-   *          <code>right</code>
-   * @return int consistent with <code>compare</code> semantics
+   *          the runtime parameter types to match against {@code left}/
+   *          {@code right}
+   * @return int consistent with {@code compare} semantics
    */
   static int compareParameterTypes(Class<?>[] left, Class<?>[] right,
       Class<?>[] actual) {

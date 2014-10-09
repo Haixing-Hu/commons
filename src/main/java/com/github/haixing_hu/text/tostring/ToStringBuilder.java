@@ -25,7 +25,7 @@ import static com.github.haixing_hu.lang.Argument.requireNonNull;
 
 /**
  * This class assists in implementing {@link Object#toString()} methods. This
- * class enables a good and consistent <code>toString()</code> to be built for
+ * class enables a good and consistent {@code toString()} to be built for
  * any class or object. This class aims to simplify the process by:
  * <ul>
  * <li>allowing field names</li>
@@ -61,10 +61,10 @@ import static com.github.haixing_hu.lang.Argument.requireNonNull;
  *   Person@7f54[name=Stephen,age=29,smoker=false]
  * </pre>
  *
- * To add the superclass <code>toString</code>, use {@link #appendSuper}. To
- * append the <code>toString</code> from an object that is delegated to (or any
+ * To add the superclass {@code toString}, use {@link #appendSuper}. To
+ * append the {@code toString} from an object that is delegated to (or any
  * other object), use {@link #appendToString}. The exact format of the
- * <code>toString</code> is determined by the {@link ToStringStyle} passed into
+ * {@code toString} is determined by the {@link ToStringStyle} passed into
  * the constructor. This class has a static StringBuilder object for each
  * thread, and the program could safely call the static function of this class
  * to implement the toString() method.
@@ -384,12 +384,12 @@ public class ToStringBuilder {
   }
 
   /**
-   * Append the <code>toString</code> from the superclass. This method assumes
-   * that the superclass uses the same <code>ToStringStyle</code> as this one.
-   * If <code>superToString</code> is <code>null</code>, no change is made.
+   * Append the {@code toString} from the superclass. This method assumes
+   * that the superclass uses the same {@code ToStringStyle} as this one.
+   * If {@code superToString} is {@code null}, no change is made.
    *
    * @param superToString
-   *          the result of <code>super.toString()</code>
+   *          the result of {@code super.toString()}
    */
   public ToStringBuilder appendSuper(@Nullable final String superToString) {
     if (superToString != null) {
@@ -399,9 +399,9 @@ public class ToStringBuilder {
   }
 
   /**
-   * Append the <code>toString</code> from another object. This method is useful
+   * Append the {@code toString} from another object. This method is useful
    * where a class delegates most of the implementation of its properties to
-   * another class. You can then call <code>toString()</code> on the other class
+   * another class. You can then call {@code toString()} on the other class
    * and pass the result into this method.
    *
    * <pre>
@@ -426,11 +426,11 @@ public class ToStringBuilder {
    * </pre>
    *
    * This method assumes that the other object uses the same
-   * <code>ToStringStyle</code> as this one. If the <code>toString</code> is
-   * <code>null</code>, no change is made.
+   * {@code ToStringStyle} as this one. If the {@code toString} is
+   * {@code null}, no change is made.
    *
    * @param toString
-   *          the result of <code>toString()</code> on another object.
+   *          the result of {@code toString()} on another object.
    */
   public ToStringBuilder appendToString(@Nullable final String toString) {
     if (toString != null) {
@@ -440,9 +440,9 @@ public class ToStringBuilder {
   }
 
   /**
-   * Append the <code>toString</code> from another object. This method is useful
+   * Append the {@code toString} from another object. This method is useful
    * where a class delegates most of the implementation of its properties to
-   * another class. You can then call <code>toString()</code> on the other class
+   * another class. You can then call {@code toString()} on the other class
    * and pass the result into this method.
    *
    * <pre>
@@ -467,13 +467,13 @@ public class ToStringBuilder {
    * </pre>
    *
    * This method assumes that the other object uses the same
-   * <code>ToStringStyle</code> as this one. If the <code>toString</code> is
-   * <code>null</code>, no change is made.
+   * {@code ToStringStyle} as this one. If the {@code toString} is
+   * {@code null}, no change is made.
    *
    * @param fieldName
    *          the field name.
    * @param toString
-   *          the result of <code>toString()</code> on the field.
+   *          the result of {@code toString()} on the field.
    */
   public ToStringBuilder appendToString(final String fieldName,
       @Nullable final String toString) {

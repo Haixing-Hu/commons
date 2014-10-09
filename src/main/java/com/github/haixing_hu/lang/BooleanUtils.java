@@ -30,15 +30,15 @@ import com.github.haixing_hu.collection.primitive.BooleanCollection;
 import com.github.haixing_hu.collection.primitive.BooleanIterator;
 
 /**
- * This class provides operations on <code>boolean</code> primitives and
+ * This class provides operations on {@code boolean} primitives and
  * {@link Boolean} objects.
  * <p>
- * This class tries to handle <code>null</code> input gracefully. An exception
- * will not be thrown for a <code>null</code> input. Each method documents its
+ * This class tries to handle {@code null} input gracefully. An exception
+ * will not be thrown for a {@code null} input. Each method documents its
  * behavior in more detail.
  * </p>
  * <p>
- * This class also handle the conversion from <code>boolean</code> values or
+ * This class also handle the conversion from {@code boolean} values or
  * {@link Boolean} objects to common types.
  * </p>
  *
@@ -48,7 +48,7 @@ import com.github.haixing_hu.collection.primitive.BooleanIterator;
 public final class BooleanUtils {
 
   /**
-   * The default <code>boolean</code> value used when necessary.
+   * The default {@code boolean} value used when necessary.
    */
   public static final boolean DEFAULT = false;
 
@@ -56,8 +56,8 @@ public final class BooleanUtils {
   private BooleanUtils() {}
 
   /**
-   * Checks if a <code>Boolean</code> value is <code>true</code>, handling
-   * <code>null</code> by returning <code>false</code>.
+   * Checks if a {@code Boolean} value is {@code true}, handling
+   * {@code null} by returning {@code false}.
    *
    * <pre>
    *   BooleanUtils.isTrue(Boolean.TRUE)  = true
@@ -66,8 +66,8 @@ public final class BooleanUtils {
    * </pre>
    *
    * @param bool
-   *          the boolean to check, null returns <code>false</code>
-   * @return <code>true</code> only if the input is non-null and true
+   *          the boolean to check, null returns {@code false}
+   * @return {@code true} only if the input is non-null and true
    */
   public static boolean isTrue(final Boolean bool) {
     if (bool == null) {
@@ -78,8 +78,8 @@ public final class BooleanUtils {
   }
 
   /**
-   * Checks if a <code>Boolean</code> value is <i>not</i> <code>true</code>,
-   * handling <code>null</code> by returning <code>true</code>.
+   * Checks if a {@code Boolean} value is <i>not</i> {@code true},
+   * handling {@code null} by returning {@code true}.
    *
    * <pre>
    *   BooleanUtils.isNotTrue(Boolean.TRUE)  = false
@@ -88,16 +88,16 @@ public final class BooleanUtils {
    * </pre>
    *
    * @param bool
-   *          the boolean to check, null returns <code>true</code>
-   * @return <code>true</code> if the input is null or false
+   *          the boolean to check, null returns {@code true}
+   * @return {@code true} if the input is null or false
    */
   public static boolean isNotTrue(final Boolean bool) {
     return ((bool == null) || (bool.booleanValue() == false));
   }
 
   /**
-   * Checks if a <code>Boolean</code> value is <code>false</code>, handling
-   * <code>null</code> by returning <code>false</code>.
+   * Checks if a {@code Boolean} value is {@code false}, handling
+   * {@code null} by returning {@code false}.
    *
    * <pre>
    *   BooleanUtils.isFalse(Boolean.TRUE)  = false
@@ -106,8 +106,8 @@ public final class BooleanUtils {
    * </pre>
    *
    * @param bool
-   *          the boolean to check, null returns <code>false</code>
-   * @return <code>true</code> only if the input is non-null and false
+   *          the boolean to check, null returns {@code false}
+   * @return {@code true} only if the input is non-null and false
    */
   public static boolean isFalse(final Boolean bool) {
     if (bool == null) {
@@ -118,8 +118,8 @@ public final class BooleanUtils {
   }
 
   /**
-   * Checks if a <code>Boolean</code> value is <i>not</i> <code>false</code>,
-   * handling <code>null</code> by returning <code>true</code>.
+   * Checks if a {@code Boolean} value is <i>not</i> {@code false},
+   * handling {@code null} by returning {@code true}.
    *
    * <pre>
    *   BooleanUtils.isNotFalse(Boolean.TRUE)  = true
@@ -128,8 +128,8 @@ public final class BooleanUtils {
    * </pre>
    *
    * @param bool
-   *          the boolean to check, null returns <code>true</code>
-   * @return <code>true</code> if the input is null or true
+   *          the boolean to check, null returns {@code true}
+   * @return {@code true} if the input is null or true
    */
   public static boolean isNotFalse(final Boolean bool) {
     return ((bool == null) || (bool.booleanValue() == true));
@@ -138,7 +138,7 @@ public final class BooleanUtils {
   /**
    * Negates the specified boolean.
    *
-   * If <code>null</code> is passed in, <code>null</code> will be returned.
+   * If {@code null} is passed in, {@code null} will be returned.
    *
    * <pre>
    * BooleanUtils.negate(Boolean.TRUE) = Boolean.FALSE;
@@ -147,11 +147,10 @@ public final class BooleanUtils {
    * </pre>
    *
    * @param bool
-   *          the Boolean to negate, may be null
-   * @return the negated Boolean, or <code>null</code> if <code>null</code>
-   *         input
+   *          the Boolean to negate, may be {@code null}.
+   * @return the negated Boolean, or {@code null} if {@code null} input.
    */
-  public static Boolean negate(final Boolean bool) {
+  public static Boolean negate(@Nullable final Boolean bool) {
     if (bool == null) {
       return null;
     }
@@ -159,8 +158,8 @@ public final class BooleanUtils {
   }
 
   /**
-   * Performs a logic <code>and</code> on an array of
-   * <code>boolean</code> values.
+   * Performs a logic {@code and} on an array of
+   * {@code boolean} values.
    *
    * <pre>
    *   BooleanUtils.and(new boolean[] { true, true })                 = true
@@ -173,12 +172,12 @@ public final class BooleanUtils {
    * </pre>
    *
    * @param array
-   *          an array of <code>Boolean</code> values.
-   * @return the result of the logic <code>and</code> on the array
-   *         of <code>Boolean</code> values. Note that it will returns
+   *          an array of {@code Boolean} values.
+   * @return the result of the logic {@code and} on the array
+   *         of {@code Boolean} values. Note that it will returns
    *         true if the array is empty.
    * @throws NullPointerException
-   *           if <code>array</code> is <code>null</code>.
+   *           if {@code array} is {@code null}.
    */
   public static boolean and(final boolean... array) {
     for (final boolean value : array) {
@@ -190,13 +189,13 @@ public final class BooleanUtils {
   }
 
   /**
-   * Performs a logic <code>and</code> on an {@link BooleanCollection}.
+   * Performs a logic {@code and} on an {@link BooleanCollection}.
    *
    * @param col
    *          an {@link BooleanCollection} objects.
-   * @return the result of the logic <code>and</code> on the
+   * @return the result of the logic {@code and} on the
    *         {@link BooleanCollection} objects. Note that it will returns
-   *         <code>true</code> if the <code>col<code> is empty.
+   *         {@code true} if the <code>col<code> is empty.
    */
   public static boolean and(final BooleanCollection col) {
     final BooleanIterator iter = col.iterator();
@@ -210,8 +209,7 @@ public final class BooleanUtils {
   }
 
   /**
-   * Performs a logic <code>and</code> on an array of <code>Boolean</code>
-   * objects.
+   * Performs a logic {@code and} on an array of {@code Boolean} objects.
    *
    * <pre>
    *   BooleanUtils.and(new Boolean[] { true, true })                 = Boolean.TRUE
@@ -225,13 +223,13 @@ public final class BooleanUtils {
    * </pre>
    *
    * @param array
-   *          an array of <code>Boolean</code> objects.
-   * @return the result of the logic <code>and</code> on the array of
-   *         <code>Boolean</code> objects; or null if any element of
-   *         the array is null. Note that it will returns <code>Boolean.TRUE</code>
-   *         if the array is empty.
+   *          an array of {@code Boolean} objects.
+   * @return the result of the logic {@code and} on the array of {@code Boolean}
+   *         objects; or {@code null} if any element of the array is
+   *         {@code null}. Note that it will returns {@code Boolean.TRUE} if the
+   *         array is empty.
    * @throws NullPointerException
-   *           if <code>array</code> is <code>null</code>.
+   *           if {@code array} is {@code null}.
    */
   public static Boolean and(final Boolean... array) {
     for (int i = 0; i < array.length; ++i) {
@@ -253,17 +251,17 @@ public final class BooleanUtils {
   }
 
   /**
-   * Performs a logic <code>and</code> on an <code>Iterable</code> of
-   * <code>Boolean</code> objects.
+   * Performs a logic {@code and} on an {@code Iterable} of {@code Boolean}
+   * objects.
    *
    * @param iterable
-   *          an <code>Iterable</code> of <code>Boolean</code> objects.
-   * @return the result of the logic <code>and</code> on the iterable of
-   *         <code>Boolean</code> objects; or null if any element of
-   *         the <code>iterable<code> is null. Note that it will returns
-   *         <code>Boolean.TRUE</code> if the <code>iterable<code> is empty.
+   *          an {@code Iterable} of {@code Boolean} objects.
+   * @return the result of the logic {@code and} on the iterable of
+   *         {@code Boolean} objects; or {@code null} if any element of the
+   *         <code>iterable<code> is {@code null}. Note that it will returns
+   *         {@code Boolean.TRUE} if the <code>iterable<code> is empty.
    * @throws NullPointerException
-   *           if <code>iterable</code> is <code>null</code>.
+   *           if {@code iterable} is {@code null}.
    */
   public static Boolean and(final Iterable<Boolean> iterable) {
     final Iterator<Boolean> iter = iterable.iterator();
@@ -286,8 +284,8 @@ public final class BooleanUtils {
   }
 
   /**
-   * Performs a logic <code>or</code> on an array of
-   * <code>boolean</code> values.
+   * Performs a logic {@code or} on an array of
+   * {@code boolean} values.
    *
    * <pre>
    *   BooleanUtils.or(new boolean[] { true, true })                 = true
@@ -300,12 +298,12 @@ public final class BooleanUtils {
    * </pre>
    *
    * @param array
-   *          an array of <code>Boolean</code> values.
-   * @return the result of the logic <code>or</code> on the array
-   *         of <code>Boolean</code> values. Note that it will returns
+   *          an array of {@code Boolean} values.
+   * @return the result of the logic {@code or} on the array
+   *         of {@code Boolean} values. Note that it will returns
    *         false if the array is empty.
    * @throws NullPointerException
-   *           if <code>array</code> is <code>null</code>.
+   *           if {@code array} is {@code null}.
    */
   public static boolean or(final boolean... array) {
     for (final boolean value : array) {
@@ -317,13 +315,13 @@ public final class BooleanUtils {
   }
 
   /**
-   * Performs a logic <code>or</code> on an {@link BooleanCollection}.
+   * Performs a logic {@code or} on an {@link BooleanCollection}.
    *
    * @param col
    *          an {@link BooleanCollection} objects.
-   * @return the result of the logic <code>or</code> on the
+   * @return the result of the logic {@code or} on the
    *         {@link BooleanCollection} objects. Note that it will returns
-   *         <code>false</code> if the <code>col<code> is empty.
+   *         {@code false} if the <code>col<code> is empty.
    */
   public static boolean or(final BooleanCollection col) {
     final BooleanIterator iter = col.iterator();
@@ -337,8 +335,7 @@ public final class BooleanUtils {
   }
 
   /**
-   * Performs a logic <code>or</code> on an array of <code>Boolean</code>
-   * objects.
+   * Performs a logic {@code or} on an array of {@code Boolean} objects.
    *
    * <pre>
    *   BooleanUtils.or(new Boolean[] { true, true })                 = Boolean.TRUE
@@ -352,13 +349,13 @@ public final class BooleanUtils {
    * </pre>
    *
    * @param array
-   *          an array of <code>Boolean</code> objects.
-   * @return the result of the logic <code>or</code> on the array of
-   *         <code>Boolean</code> objects; or null if any element of
-   *         the array is null. Note that it will returns
-   *         <code>Boolean.FALSE</code> if the array is empty.
+   *          an array of {@code Boolean} objects.
+   * @return the result of the logic {@code or} on the array of {@code Boolean}
+   *         objects; or {@code null} if any element of the array is
+   *         {@code null}. Note that it will returns {@code Boolean.FALSE} if
+   *         the array is empty.
    * @throws NullPointerException
-   *           if <code>array</code> is <code>null</code>.
+   *           if {@code array} is {@code null}.
    */
   public static Boolean or(final Boolean... array) {
     for (int i = 0; i < array.length; ++i) {
@@ -380,18 +377,18 @@ public final class BooleanUtils {
   }
 
   /**
-   * Performs a logic <code>or</code> on an <code>Iterable</code> of
-   * <code>Boolean</code> objects.
+   * Performs a logic {@code or} on an {@code Iterable} of
+   * {@code Boolean} objects.
    *
    * @param iterable
-   *          an <code>Iterable</code> of <code>Boolean</code> objects.
-   * @return the result of the logic <code>or</code> on the iterable of
-   *         <code>Boolean</code> objects; or null if any element of the
-   *         <code>iterable</code> is null . Note that it will returns
-   *         <code>Boolean.FALSE</code> if the <code>iterable</code> is
+   *          an {@code Iterable} of {@code Boolean} objects.
+   * @return the result of the logic {@code or} on the iterable of
+   *         {@code Boolean} objects; or null if any element of the
+   *         {@code iterable} is null . Note that it will returns
+   *         {@code Boolean.FALSE} if the {@code iterable} is
    *         empty.
    * @throws NullPointerException
-   *           if <code>iterable</code> is <code>null</code>.
+   *           if {@code iterable} is {@code null}.
    */
   public static Boolean or(final Iterable<Boolean> iterable) {
     final Iterator<Boolean> iter = iterable.iterator();
@@ -414,7 +411,7 @@ public final class BooleanUtils {
   }
 
   /**
-   * Performs a logic <code>xor</code> on an array of <code>boolean</code>
+   * Performs a logic {@code xor} on an array of {@code boolean}
    * values.
    *
    * <pre>
@@ -428,12 +425,12 @@ public final class BooleanUtils {
    * </pre>
    *
    * @param array
-   *          an array of <code>Boolean</code> values.
-   * @return the result of the logic <code>xor</code> on the array
-   *         of <code>Boolean</code> values. Note that it will returns
+   *          an array of {@code Boolean} values.
+   * @return the result of the logic {@code xor} on the array
+   *         of {@code Boolean} values. Note that it will returns
    *         false if the array is empty.
    * @throws NullPointerException
-   *           if <code>array</code> is <code>null</code>.
+   *           if {@code array} is {@code null}.
    */
   public static boolean xor(final boolean... array) {
     int trueCount = 0;
@@ -447,13 +444,13 @@ public final class BooleanUtils {
   }
 
   /**
-   * Performs a logic <code>xor</code> on an {@link BooleanCollection}.
+   * Performs a logic {@code xor} on an {@link BooleanCollection}.
    *
    * @param col
    *          an {@link BooleanCollection} objects.
-   * @return the result of the logic <code>xor</code> on the
+   * @return the result of the logic {@code xor} on the
    *         {@link BooleanCollection} objects. Note that it will returns
-   *         <code>false</code> if the <code>col<code> is empty.
+   *         {@code false} if the <code>col<code> is empty.
    */
   public static boolean xor(final BooleanCollection col) {
     final BooleanIterator iter = col.iterator();
@@ -469,8 +466,7 @@ public final class BooleanUtils {
   }
 
   /**
-   * Performs a logic <code>xor</code> on an array of <code>Boolean</code>
-   * objects.
+   * Performs a logic {@code xor} on an array of {@code Boolean} objects.
    *
    * <pre>
    *   BooleanUtils.xor(new Boolean[] { true, true })                 = Boolean.FALSE
@@ -484,13 +480,13 @@ public final class BooleanUtils {
    * </pre>
    *
    * @param array
-   *          an array of <code>Boolean</code> objects.
-   * @return the result of the logic <code>xor</code> on the array of
-   *         <code>Boolean</code> objects; or null if any element of
-   *         the array is null.  Note that it will returns
-   *         <code>Boolean.FALSE</code> if the array is empty.
+   *          an array of {@code Boolean} objects.
+   * @return the result of the logic {@code xor} on the array of {@code Boolean}
+   *         objects; or {@code null} if any element of the array is
+   *         {@code null}. Note that it will returns {@code Boolean.FALSE} if
+   *         the array is empty.
    * @throws NullPointerException
-   *           if <code>array</code> is <code>null</code>.
+   *           if {@code array} is {@code null}.
    */
   public static Boolean xor(final Boolean... array) {
     int trueCount = 0;
@@ -506,18 +502,18 @@ public final class BooleanUtils {
   }
 
   /**
-   * Performs a logic <code>xor</code> on an <code>Iterable</code> of
-   * <code>Boolean</code> objects.
+   * Performs a logic {@code xor} on an {@code Iterable} of {@code Boolean}
+   * objects.
    *
    * @param iterable
-   *          an <code>Iterable</code> of <code>Boolean</code> objects.
-   * @return the result of the logic <code>xor</code> on the iterable of
-   *         <code>Boolean</code> objects;  or null if any element of
-   *         the <code>iterable<code> is null. Note that it will returns
-   *         <code>Boolean.FALSE</code> if the <code>iterable<code> is
+   *          an {@code Iterable} of {@code Boolean} objects.
+   * @return the result of the logic {@code xor} on the iterable of
+   *         {@code Boolean} objects; or {@code null} if any element of the
+   *         <code>iterable<code> is {@code null}. Note that it will returns
+   *         {@code Boolean.FALSE} if the <code>iterable<code> is
    *         empty.
    * @throws NullPointerException
-   *           if <code>iterable</code> is <code>null</code>.
+   *           if {@code iterable} is {@code null}.
    */
   public static Boolean xor(final Iterable<Boolean> iterable) {
     final Iterator<Boolean> iter = iterable.iterator();
@@ -536,8 +532,8 @@ public final class BooleanUtils {
   }
 
   /**
-   * Converts a <code>Boolean</code> object to a <code>boolean</code> value,
-   * handling <code>null</code> by returning <code>false</code>.
+   * Converts a {@code Boolean} object to a {@code boolean} value,
+   * handling {@code null} by returning {@code false}.
    *
    * <pre>
    *   BooleanUtils.toPrimitive(Boolean.TRUE)  = true
@@ -546,9 +542,9 @@ public final class BooleanUtils {
    * </pre>
    *
    * @param value
-   *          the <code>Boolean</code> object to convert, which could be null.
-   * @return the <code>boolean</code> value of the <code>Boolean</code> object;
-   *         or {@link #DEFAULT} if the <code>Boolean</code> object is
+   *          the {@code Boolean} object to convert, which could be null.
+   * @return the {@code boolean} value of the {@code Boolean} object;
+   *         or {@link #DEFAULT} if the {@code Boolean} object is
    *         null.
    */
   public static boolean toPrimitive(@Nullable final Boolean value) {
@@ -556,8 +552,8 @@ public final class BooleanUtils {
   }
 
   /**
-   * Converts a <code>Boolean</code> object to a <code>boolean</code> value,
-   * handling <code>null</code> by returning <code>defaultValue</code>.
+   * Converts a {@code Boolean} object to a {@code boolean} value,
+   * handling {@code null} by returning {@code defaultValue}.
    *
    * <pre>
    *   BooleanUtils.toPrimitive(Boolean.TRUE, false) = true
@@ -566,11 +562,11 @@ public final class BooleanUtils {
    * </pre>
    *
    * @param value
-   *          the <code>Boolean</code> object to convert, which could be null.
+   *          the {@code Boolean} object to convert, which could be null.
    * @param defaultValue
    *          the default value.
-   * @return the <code>boolean</code> value of the <code>Boolean</code> object;
-   *         or the default value if the <code>Boolean</code> object is
+   * @return the {@code boolean} value of the {@code Boolean} object;
+   *         or the default value if the {@code Boolean} object is
    *         null.
    */
   public static boolean toPrimitive(@Nullable final Boolean value,
@@ -846,11 +842,11 @@ public final class BooleanUtils {
    * @param bool
    *          the Boolean to check
    * @param trueString
-   *          the String to return if <code>true</code>, may be
-   *          <code>null</code>
+   *          the String to return if {@code true}, may be
+   *          {@code null}
    * @param falseString
-   *          the String to return if <code>false</code>, may be
-   *          <code>null</code>
+   *          the String to return if {@code false}, may be
+   *          {@code null}
    * @return one of the two input Strings
    */
   public static String toString(final boolean bool, final String trueString,
@@ -870,14 +866,14 @@ public final class BooleanUtils {
    * @param bool
    *          the Boolean to check
    * @param trueString
-   *          the String to return if <code>true</code>, may be
-   *          <code>null</code>
+   *          the String to return if {@code true}, may be
+   *          {@code null}
    * @param falseString
-   *          the String to return if <code>false</code>, may be
-   *          <code>null</code>
+   *          the String to return if {@code false}, may be
+   *          {@code null}
    * @param nullString
-   *          the String to return if <code>null</code>, may be
-   *          <code>null</code>
+   *          the String to return if {@code null}, may be
+   *          {@code null}
    * @return one of the three input Strings
    */
   public static String toString(final Boolean bool, final String trueString,
@@ -890,7 +886,7 @@ public final class BooleanUtils {
   }
 
   /**
-   * Converts a boolean to a String returning <code>'on'</code> or <code>'off'</code>.
+   * Converts a boolean to a String returning {@code 'on'} or {@code 'off'}.
    *
    * <pre>
    *   BooleanUtils.toStringOnOff(true)   = "on"
@@ -899,15 +895,15 @@ public final class BooleanUtils {
    *
    * @param bool
    *          the Boolean to check
-   * @return <code>'on'</code>, <code>'off'</code>, or <code>null</code>
+   * @return {@code 'on'}, {@code 'off'}, or {@code null}
    */
   public static String toStringOnOff(final boolean bool) {
     return (bool ? StringUtils.ON : StringUtils.OFF);
   }
 
   /**
-   * Converts a Boolean to a String returning <code>'on'</code>, <code>'off'</code>, or
-   * <code>null</code>.
+   * Converts a Boolean to a String returning {@code 'on'}, {@code 'off'}, or
+   * {@code null}.
    *
    * <pre>
    *   BooleanUtils.toStringOnOff(Boolean.TRUE)  = "on"
@@ -917,7 +913,7 @@ public final class BooleanUtils {
    *
    * @param bool
    *          the Boolean to check
-   * @return <code>'on'</code>, <code>'off'</code>, or <code>null</code>
+   * @return {@code 'on'}, {@code 'off'}, or {@code null}
    */
   public static String toStringOnOff(final Boolean bool) {
     if (bool == null) {
@@ -928,7 +924,7 @@ public final class BooleanUtils {
   }
 
   /**
-   * Converts a boolean to a String returning <code>'yes'</code> or <code>'no'</code>.
+   * Converts a boolean to a String returning {@code 'yes'} or {@code 'no'}.
    *
    * <pre>
    *   BooleanUtils.toStringYesNo(true)   = "yes"
@@ -937,15 +933,15 @@ public final class BooleanUtils {
    *
    * @param bool
    *          the Boolean to check
-   * @return <code>'yes'</code>, <code>'no'</code>, or <code>null</code>
+   * @return {@code 'yes'}, {@code 'no'}, or {@code null}
    */
   public static String toStringYesNo(final boolean bool) {
     return (bool ? StringUtils.YES : StringUtils.NO);
   }
 
   /**
-   * Converts a Boolean to a String returning <code>'yes'</code>, <code>'no'</code>, or
-   * <code>null</code>.
+   * Converts a Boolean to a String returning {@code 'yes'}, {@code 'no'}, or
+   * {@code null}.
    *
    * <pre>
    *   BooleanUtils.toStringYesNo(Boolean.TRUE)  = "yes"
@@ -955,7 +951,7 @@ public final class BooleanUtils {
    *
    * @param bool
    *          the Boolean to check
-   * @return <code>'yes'</code>, <code>'no'</code>, or <code>null</code>
+   * @return {@code 'yes'}, {@code 'no'}, or {@code null}
    */
   public static String toStringYesNo(final Boolean bool) {
     if (bool == null) {

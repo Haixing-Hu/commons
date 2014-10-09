@@ -46,14 +46,14 @@ import com.github.haixing_hu.collection.primitive.ShortCollection;
 public final class Comparison {
 
   /**
-   * Compares two <code>boolean</code> values for order.
+   * Compares two {@code boolean} values for order.
    *
-   * We assume that <code>true > false</code> for <code>boolean</code> values.
+   * We assume that {@code true > false} for {@code boolean} values.
    *
    * @param value1
-   *          the first <code>boolean</code> value.
+   *          the first {@code boolean} value.
    * @param value2
-   *          the second <code>boolean</code> value.
+   *          the second {@code boolean} value.
    * @return An integer less than, equal to or greater than 0, if the
    *         first value compares lexicographically less than, equal to, or
    *         greater than the second value.
@@ -67,14 +67,14 @@ public final class Comparison {
   }
 
   /**
-   * Compares two <code>boolean</code> arrays lexically.
+   * Compares two {@code boolean} arrays lexically.
    *
-   * We assume that <code>true > false</code> for <code>boolean</code> values.
+   * We assume that {@code true > false} for {@code boolean} values.
    *
    * @param array1
-   *          the first <code>boolean</code> array, which could be null.
+   *          the first {@code boolean} array, which could be null.
    * @param array2
-   *          the second <code>boolean</code> array, which could be null.
+   *          the second {@code boolean} array, which could be null.
    * @return An integer less than, equal to or greater than 0, if the
    *         first array compares lexicographically less than, equal to, or
    *         greater than the second array.
@@ -91,18 +91,18 @@ public final class Comparison {
   }
 
   /**
-   * Compares two <code>boolean</code> arrays lexically.
+   * Compares two {@code boolean} arrays lexically.
    *
-   * We assume that <code>true > false</code> for <code>boolean</code> values.
+   * We assume that {@code true > false} for {@code boolean} values.
    *
    * @param array1
-   *          the first <code>boolean</code> array.
+   *          the first {@code boolean} array.
    * @param n1
-   *          the length of the first <code>boolean</code> array.
+   *          the length of the first {@code boolean} array.
    * @param array2
-   *          the second <code>boolean</code> array.
+   *          the second {@code boolean} array.
    * @param n1
-   *          the length of the second <code>boolean</code> array.
+   *          the length of the second {@code boolean} array.
    * @return An integer less than, equal to or greater than 0, if the
    *         first array compares lexicographically less than, equal to, or
    *         greater than the second array.
@@ -121,25 +121,23 @@ public final class Comparison {
   }
 
   /**
-   * Compares two <code>Boolean</code> objects for order.
+   * Compares two {@code Boolean} objects for order.
    *
-   * We assume that <code>Boolean.TRUE > Boolean.FALSE > null</code> for
-   * <code>Boolean</code> objects.
+   * We assume that {@code Boolean.TRUE > Boolean.FALSE > null} for
+   * {@code Boolean} objects.
    *
    * @param value1
-   *          the first <code>Boolean</code> object, which could be null.
+   *          the first {@code Boolean} object, which could be null.
    * @param value2
-   *          the second <code>Boolean</code> object, which could be null.
+   *          the second {@code Boolean} object, which could be null.
    * @return An integer less than, equal to or greater than 0, if the
    *         first value compares lexicographically less than, equal to, or
    *         greater than the second value.
    */
   public static int compare(@Nullable final Boolean value1,
       @Nullable final Boolean value2) {
-    if (value1 == value2) {
-      return 0;
-    } else if (value1 == null) {
-      return -1;
+    if (value1 == null) {
+      return (value2 == null ? 0 : -1);
     } else if (value2 == null) {
       return +1;
     } else {
@@ -154,15 +152,15 @@ public final class Comparison {
   }
 
   /**
-   * Compares two <code>Boolean</code> arrays lexically.
+   * Compares two {@code Boolean} arrays lexically.
    *
-   * We assume that <code>Boolean.TRUE > Boolean.FALSE > null</code> for
-   * <code>Boolean</code> objects.
+   * We assume that {@code Boolean.TRUE > Boolean.FALSE > null} for
+   * {@code Boolean} objects.
    *
    * @param array1
-   *          the first <code>Boolean</code> array, which could be null.
+   *          the first {@code Boolean} array, which could be null.
    * @param array2
-   *          the second <code>Boolean</code> array, which could be null.
+   *          the second {@code Boolean} array, which could be null.
    * @return An integer less than, equal to or greater than 0, if the
    *         first array compares lexicographically less than, equal to, or
    *         greater than the second array.
@@ -179,19 +177,19 @@ public final class Comparison {
   }
 
   /**
-   * Compares two <code>Boolean</code> arrays lexically.
+   * Compares two {@code Boolean} arrays lexically.
    *
-   * We assume that <code>Boolean.TRUE > Boolean.FALSE > null</code> for
-   * <code>Boolean</code> objects.
+   * We assume that {@code Boolean.TRUE > Boolean.FALSE > null} for
+   * {@code Boolean} objects.
    *
    * @param array1
-   *          the first <code>Boolean</code> array.
+   *          the first {@code Boolean} array.
    * @param n1
-   *          the length of the first <code>Boolean</code> array.
+   *          the length of the first {@code Boolean} array.
    * @param array2
-   *          the second <code>Boolean</code> array.
+   *          the second {@code Boolean} array.
    * @param n2
-   *          the length of the second <code>Boolean</code> array.
+   *          the length of the second {@code Boolean} array.
    * @return An integer less than, equal to or greater than 0, if the
    *         first array compares lexicographically less than, equal to, or
    *         greater than the second array.
@@ -200,34 +198,23 @@ public final class Comparison {
       final Boolean[] array2, final int n2) {
     final int n = (n1 < n2 ? n1 : n2);
     for (int i = 0; i < n; ++i) {
-      final Boolean x = array1[i];
-      final Boolean y = array2[i];
-      if (x != y) {
-        if (x == null) {
-          return -1;
-        } else if (y == null) {
-          return +1;
-        } else {
-          final boolean vx = x.booleanValue();
-          final boolean vy = y.booleanValue();
-          if (vx != vy) {
-            return (vx ? +1 : -1);
-          }
-        }
+      final int rc = compare(array1[i], array2[i]);
+      if (rc != 0) {
+        return rc;
       }
     }
     return (n1 - n2);
   }
 
   /**
-   * Compares two <code>char</code> value lexically.
+   * Compares two {@code char} value lexically.
    *
-   * The function compares two <code>char</code> value by their numeric values.
+   * The function compares two {@code char} value by their numeric values.
    *
    * @param value1
-   *          the first <code>char</code> value.
+   *          the first {@code char} value.
    * @param value2
-   *          the second <code>char</code> value.
+   *          the second {@code char} value.
    * @return An integer less than, equal to or greater than 0, if the
    *         first value compares lexicographically less than, equal to, or
    *         greater than the second value.
@@ -237,14 +224,14 @@ public final class Comparison {
   }
 
   /**
-   * Compares two <code>char</code> arrays lexically.
+   * Compares two {@code char} arrays lexically.
    *
-   * The function compares two <code>char</code> value by their numeric values.
+   * The function compares two {@code char} value by their numeric values.
    *
    * @param array1
-   *          the first <code>char</code> array, which could be null.
+   *          the first {@code char} array, which could be null.
    * @param array2
-   *          the second <code>char</code> array, which could be null.
+   *          the second {@code char} array, which could be null.
    * @return An integer less than, equal to or greater than 0, if the
    *         first array compares lexicographically less than, equal to, or
    *         greater than the second array.
@@ -261,15 +248,15 @@ public final class Comparison {
   }
 
   /**
-   * Compares two <code>char</code> arrays lexically ignoring the case.
+   * Compares two {@code char} arrays lexically ignoring the case.
    *
-   * The function compares two <code>char</code> value by their numeric values
+   * The function compares two {@code char} value by their numeric values
    * of lowercase.
    *
    * @param array1
-   *          the first <code>char</code> array, which could be null.
+   *          the first {@code char} array, which could be null.
    * @param array2
-   *          the second <code>char</code> array, which could be null.
+   *          the second {@code char} array, which could be null.
    * @return An integer less than, equal to or greater than 0, if the
    *         first array compares lexicographically less than, equal to, or
    *         greater than the second array.
@@ -286,18 +273,18 @@ public final class Comparison {
   }
 
   /**
-   * Compares two <code>char</code> arrays lexically.
+   * Compares two {@code char} arrays lexically.
    *
-   * The function compares two <code>char</code> value by their numeric values.
+   * The function compares two {@code char} value by their numeric values.
    *
    * @param array1
-   *          the first <code>char</code> array.
+   *          the first {@code char} array.
    * @param n1
-   *          the length of the first <code>char</code> array.
+   *          the length of the first {@code char} array.
    * @param array2
-   *          the second <code>char</code> array.
+   *          the second {@code char} array.
    * @param n2
-   *          the length of the second <code>char</code> array.
+   *          the length of the second {@code char} array.
    * @return An integer less than, equal to or greater than 0, if the
    *         first array compares lexicographically less than, equal to, or
    *         greater than the second array.
@@ -317,19 +304,19 @@ public final class Comparison {
 
 
   /**
-   * Compares two <code>char</code> arrays lexically ignoring the case.
+   * Compares two {@code char} arrays lexically ignoring the case.
    *
-   * The function compares two <code>char</code> value by their numeric values
+   * The function compares two {@code char} value by their numeric values
    * of lowercase.
    *
    * @param array1
-   *          the first <code>char</code> array.
+   *          the first {@code char} array.
    * @param n1
-   *          the length of the first <code>char</code> array.
+   *          the length of the first {@code char} array.
    * @param array2
-   *          the second <code>char</code> array.
+   *          the second {@code char} array.
    * @param n2
-   *          the length of the second <code>char</code> array.
+   *          the length of the second {@code char} array.
    * @return An integer less than, equal to or greater than 0, if the
    *         first array compares lexicographically less than, equal to, or
    *         greater than the second array.
@@ -348,25 +335,23 @@ public final class Comparison {
   }
 
   /**
-   * Compares two <code>Character</code> objects for order.
+   * Compares two {@code Character} objects for order.
    *
-   * We assume that <code>null</code> is the minimum value for
-   * <code>Character</code> objects.
+   * We assume that {@code null} is the minimum value for
+   * {@code Character} objects.
    *
    * @param value1
-   *          the first <code>Character</code> object, which could be null.
+   *          the first {@code Character} object, which could be null.
    * @param value2
-   *          the second <code>Character</code> object, which could be null.
+   *          the second {@code Character} object, which could be null.
    * @return An integer less than, equal to or greater than 0, if the
    *         first value compares lexicographically less than, equal to, or
    *         greater than the second value.
    */
   public static int compare(@Nullable final Character value1,
       @Nullable final Character value2) {
-    if (value1 == value2) {
-      return 0;
-    } else if (value1 == null) {
-      return -1;
+    if (value1 == null) {
+      return (value2 == null ? 0 : -1);
     } else if (value2 == null) {
       return +1;
     } else {
@@ -380,16 +365,48 @@ public final class Comparison {
     }
   }
 
+
   /**
-   * Compares two <code>Character</code> arrays lexically.
+   * Compares two {@code Character} objects for order, ignoring the case.
    *
-   * We assume that <code>null</code> is the minimum value for
-   * <code>Character</code> objects.
+   * We assume that {@code null} is the minimum value for
+   * {@code Character} objects.
+   *
+   * @param value1
+   *          the first {@code Character} object, which could be null.
+   * @param value2
+   *          the second {@code Character} object, which could be null.
+   * @return An integer less than, equal to or greater than 0, if the
+   *         first value compares lexicographically less than, equal to, or
+   *         greater than the second value.
+   */
+  public static int compareIgnoreCase(@Nullable final Character value1,
+      @Nullable final Character value2) {
+    if (value1 == null) {
+      return (value2 == null ? 0 : -1);
+    } else if (value2 == null) {
+      return +1;
+    } else {
+      final char vl = Character.toLowerCase(value1.charValue());
+      final char vr = Character.toLowerCase(value2.charValue());
+      if (vl == vr) {
+        return 0;
+      } else {
+        return (vl - vr);
+      }
+    }
+  }
+
+  /**
+   * Compares two {@code Character} arrays lexically.
+   *
+   * We assume that {@code null} is the minimum value for
+   * {@code Character} objects.
    *
    * @param array1
-   *          the first <code>Character</code> array, which could be null.
+   *          the first {@code Character} array, which could be null.
    * @param array2
-   *          the second <code>Character</code> array, which could be null.
+   *          the second {@code Character} array, which could be null.
    * @return An integer less than, equal to or greater than 0, if the
    *         first array compares lexicographically less than, equal to, or
    *         greater than the second array.
@@ -406,15 +423,15 @@ public final class Comparison {
   }
 
   /**
-   * Compares two <code>Character</code> arrays lexically ignoring the case.
+   * Compares two {@code Character} arrays lexically ignoring the case.
    *
-   * We assume that <code>null</code> is the minimum value for the lowercase of
-   * <code>Character</code> objects.
+   * We assume that {@code null} is the minimum value for the lowercase of
+   * {@code Character} objects.
    *
    * @param array1
-   *          the first <code>Character</code> array, which could be null.
+   *          the first {@code Character} array, which could be null.
    * @param array2
-   *          the second <code>Character</code> array, which could be null.
+   *          the second {@code Character} array, which could be null.
    * @return An integer less than, equal to or greater than 0, if the
    *         first array compares lexicographically less than, equal to, or
    *         greater than the second array.
@@ -431,19 +448,19 @@ public final class Comparison {
   }
 
   /**
-   * Compares two <code>Character</code> arrays lexically.
+   * Compares two {@code Character} arrays lexically.
    *
-   * We assume that <code>null</code> is the minimum value for
-   * <code>Character</code> objects.
+   * We assume that {@code null} is the minimum value for
+   * {@code Character} objects.
    *
    * @param array1
-   *          the first <code>Character</code> array.
+   *          the first {@code Character} array.
    * @param n1
-   *          the length of the first <code>Character</code> array.
+   *          the length of the first {@code Character} array.
    * @param array2
-   *          the second <code>Character</code> array.
+   *          the second {@code Character} array.
    * @param n2
-   *          the length of the second <code>Character</code> array.
+   *          the length of the second {@code Character} array.
    * @return An integer less than, equal to or greater than 0, if the
    *         first array compares lexicographically less than, equal to, or
    *         greater than the second array.
@@ -452,39 +469,28 @@ public final class Comparison {
       final Character[] array2, final int n2) {
     final int n = (n1 < n2 ? n1 : n2);
     for (int i = 0; i < n; ++i) {
-      final Character x = array1[i];
-      final Character y = array2[i];
-      if (x != y) {
-        if (x == null) {
-          return -1;
-        } else if (y == null) {
-          return +1;
-        } else {
-          final char vx = x.charValue();
-          final char vy = y.charValue();
-          if (vx != vy) {
-            return (vx - vy);
-          }
-        }
+      final int rc = compare(array1[i], array2[i]);
+      if (rc != 0) {
+        return rc;
       }
     }
     return (n1 - n2);
   }
 
   /**
-   * Compares two <code>Character</code> arrays lexically ignoring the case.
+   * Compares two {@code Character} arrays lexically ignoring the case.
    *
-   * We assume that <code>null</code> is the minimum value for the lowercase of
-   * <code>Character</code> objects.
+   * We assume that {@code null} is the minimum value for the lowercase of
+   * {@code Character} objects.
    *
    * @param array1
-   *          the first <code>Character</code> array.
+   *          the first {@code Character} array.
    * @param n1
-   *          the length of the first <code>Character</code> array.
+   *          the length of the first {@code Character} array.
    * @param array2
-   *          the second <code>Character</code> array.
+   *          the second {@code Character} array.
    * @param n2
-   *          the length of the second <code>Character</code> array.
+   *          the length of the second {@code Character} array.
    * @return An integer less than, equal to or greater than 0, if the
    *         first array compares lexicographically less than, equal to, or
    *         greater than the second array.
@@ -493,32 +499,21 @@ public final class Comparison {
       final Character[] array2, final int n2) {
     final int n = (n1 < n2 ? n1 : n2);
     for (int i = 0; i < n; ++i) {
-      final Character x = array1[i];
-      final Character y = array2[i];
-      if (x != y) {
-        if (x == null) {
-          return -1;
-        } else if (y == null) {
-          return +1;
-        } else {
-          final char vx = Character.toLowerCase(x.charValue());
-          final char vy = Character.toLowerCase(y.charValue());
-          if (vx != vy) {
-            return (vx - vy);
-          }
-        }
+      final int rc = compareIgnoreCase(array1[i], array2[i]);
+      if (rc != 0) {
+        return rc;
       }
     }
     return (n1 - n2);
   }
 
   /**
-   * Compares two <code>byte</code> value lexically.
+   * Compares two {@code byte} value lexically.
    *
    * @param value1
-   *          the first <code>byte</code> value.
+   *          the first {@code byte} value.
    * @param value2
-   *          the second <code>byte</code> value.
+   *          the second {@code byte} value.
    * @return An integer less than, equal to or greater than 0, if the
    *         first value compares lexicographically less than, equal to, or
    *         greater than the second value.
@@ -528,12 +523,12 @@ public final class Comparison {
   }
 
   /**
-   * Compares two <code>byte</code> arrays lexically.
+   * Compares two {@code byte} arrays lexically.
    *
    * @param array1
-   *          the first <code>byte</code> array, which could be null.
+   *          the first {@code byte} array, which could be null.
    * @param array2
-   *          the second <code>byte</code> array, which could be null.
+   *          the second {@code byte} array, which could be null.
    * @return An integer less than, equal to or greater than 0, if the
    *         first array compares lexicographically less than, equal to, or
    *         greater than the second array.
@@ -550,16 +545,16 @@ public final class Comparison {
   }
 
   /**
-   * Compares two <code>byte</code> arrays lexically.
+   * Compares two {@code byte} arrays lexically.
    *
    * @param array1
-   *          the first <code>byte</code> array.
+   *          the first {@code byte} array.
    * @param n1
-   *          the length of the first <code>byte</code> array.
+   *          the length of the first {@code byte} array.
    * @param array2
-   *          the second <code>byte</code> array.
+   *          the second {@code byte} array.
    * @param n2
-   *          the length of the second <code>byte</code> array.
+   *          the length of the second {@code byte} array.
    * @return An integer less than, equal to or greater than 0, if the
    *         first array compares lexicographically less than, equal to, or
    *         greater than the second array.
@@ -578,25 +573,23 @@ public final class Comparison {
   }
 
   /**
-   * Compares two <code>Byte</code> objects for order.
+   * Compares two {@code Byte} objects for order.
    *
-   * We assume that <code>null</code> is the minimum value for <code>Byte</code>
+   * We assume that {@code null} is the minimum value for {@code Byte}
    * objects.
    *
    * @param value1
-   *          the first <code>Byte</code> object, which could be null.
+   *          the first {@code Byte} object, which could be null.
    * @param value2
-   *          the second <code>Byte</code> object, which could be null.
+   *          the second {@code Byte} object, which could be null.
    * @return An integer less than, equal to or greater than 0, if the
    *         first value compares lexicographically less than, equal to, or
    *         greater than the second value.
    */
   public static int compare(@Nullable final Byte value1,
         @Nullable final Byte value2) {
-    if (value1 == value2) {
-      return 0;
-    } else if (value1 == null) {
-      return -1;
+    if (value1 == null) {
+      return (value2 == null ? 0 : -1);
     } else if (value2 == null) {
       return +1;
     } else {
@@ -611,15 +604,15 @@ public final class Comparison {
   }
 
   /**
-   * Compares two <code>Byte</code> arrays lexically.
+   * Compares two {@code Byte} arrays lexically.
    *
-   * We assume that <code>null</code> is the minimum value for <code>Byte</code>
+   * We assume that {@code null} is the minimum value for {@code Byte}
    * objects.
    *
    * @param array1
-   *          the first <code>Byte</code> array, which could be null.
+   *          the first {@code Byte} array, which could be null.
    * @param array2
-   *          the second <code>Byte</code> array, which could be null.
+   *          the second {@code Byte} array, which could be null.
    * @return An integer less than, equal to or greater than 0, if the
    *         first array compares lexicographically less than, equal to, or
    *         greater than the second array.
@@ -636,19 +629,19 @@ public final class Comparison {
   }
 
   /**
-   * Compares two <code>Byte</code> arrays lexically.
+   * Compares two {@code Byte} arrays lexically.
    *
-   * We assume that <code>null</code> is the minimum value for <code>Byte</code>
+   * We assume that {@code null} is the minimum value for {@code Byte}
    * objects.
    *
    * @param array1
-   *          the first <code>Byte</code> array.
+   *          the first {@code Byte} array.
    * @param n1
-   *          the length of the first <code>Byte</code> array.
+   *          the length of the first {@code Byte} array.
    * @param array2
-   *          the second <code>Byte</code> array.
+   *          the second {@code Byte} array.
    * @param n2
-   *          the length of the second <code>Byte</code> array.
+   *          the length of the second {@code Byte} array.
    * @return An integer less than, equal to or greater than 0, if the
    *         first array compares lexicographically less than, equal to, or
    *         greater than the second array.
@@ -657,32 +650,21 @@ public final class Comparison {
       final Byte[] array2, final int n2) {
     final int n = (n1 < n2 ? n1 : n2);
     for (int i = 0; i < n; ++i) {
-      final Byte x = array1[i];
-      final Byte y = array2[i];
-      if (x != y) {
-        if (x == null) {
-          return -1;
-        } else if (y == null) {
-          return +1;
-        } else {
-          final byte vx = x.byteValue();
-          final byte vy = y.byteValue();
-          if (vx != vy) {
-            return (vx - vy);
-          }
-        }
+      final int rc = compare(array1[i], array2[i]);
+      if (rc != 0) {
+        return rc;
       }
     }
     return (n1 - n2);
   }
 
   /**
-   * Compares two <code>short</code> value lexically.
+   * Compares two {@code short} value lexically.
    *
    * @param value1
-   *          the first <code>short</code> value.
+   *          the first {@code short} value.
    * @param value2
-   *          the second <code>short</code> value.
+   *          the second {@code short} value.
    * @return An integer less than, equal to or greater than 0, if the
    *         first value compares lexicographically less than, equal to, or
    *         greater than the second value.
@@ -692,12 +674,12 @@ public final class Comparison {
   }
 
   /**
-   * Compares two <code>short</code> arrays lexically.
+   * Compares two {@code short} arrays lexically.
    *
    * @param array1
-   *          the first <code>short</code> array, which could be null.
+   *          the first {@code short} array, which could be null.
    * @param array2
-   *          the second <code>short</code> array, which could be null.
+   *          the second {@code short} array, which could be null.
    * @return An integer less than, equal to or greater than 0, if the
    *         first array compares lexicographically less than, equal to, or
    *         greater than the second array.
@@ -714,16 +696,16 @@ public final class Comparison {
   }
 
   /**
-   * Compares two <code>short</code> arrays lexically.
+   * Compares two {@code short} arrays lexically.
    *
    * @param array1
-   *          the first <code>short</code> array.
+   *          the first {@code short} array.
    * @param n1
-   *          the length of the first <code>short</code> array.
+   *          the length of the first {@code short} array.
    * @param array2
-   *          the second <code>short</code> array.
+   *          the second {@code short} array.
    * @param n2
-   *          the length of the second <code>short</code> array.
+   *          the length of the second {@code short} array.
    * @return An integer less than, equal to or greater than 0, if the
    *         first array compares lexicographically less than, equal to, or
    *         greater than the second array.
@@ -742,25 +724,23 @@ public final class Comparison {
   }
 
   /**
-   * Compares two <code>Short</code> objects for order.
+   * Compares two {@code Short} objects for order.
    *
-   * We assume that <code>null</code> is the minimum value for
-   * <code>Short</code> objects.
+   * We assume that {@code null} is the minimum value for
+   * {@code Short} objects.
    *
    * @param value1
-   *          the first <code>Short</code> object, which could be null.
+   *          the first {@code Short} object, which could be null.
    * @param value2
-   *          the second <code>Short</code> object, which could be null.
+   *          the second {@code Short} object, which could be null.
    * @return An integer less than, equal to or greater than 0, if the
    *         first value compares lexicographically less than, equal to, or
    *         greater than the second value.
    */
   public static int compare(@Nullable final Short value1,
       @Nullable final Short value2) {
-    if (value1 == value2) {
-      return 0;
-    } else if (value1 == null) {
-      return -1;
+    if (value1 == null) {
+      return (value2 == null ? 0 : -1);
     } else if (value2 == null) {
       return +1;
     } else {
@@ -775,15 +755,15 @@ public final class Comparison {
   }
 
   /**
-   * Compares two <code>Short</code> arrays lexically.
+   * Compares two {@code Short} arrays lexically.
    *
-   * We assume that <code>null</code> is the minimum value for
-   * <code>Short</code> objects.
+   * We assume that {@code null} is the minimum value for
+   * {@code Short} objects.
    *
    * @param array1
-   *          the first <code>Short</code> array, which could be null.
+   *          the first {@code Short} array, which could be null.
    * @param array2
-   *          the second <code>Short</code> array, which could be null.
+   *          the second {@code Short} array, which could be null.
    * @return An integer less than, equal to or greater than 0, if the
    *         first array compares lexicographically less than, equal to, or
    *         greater than the second array.
@@ -800,19 +780,19 @@ public final class Comparison {
   }
 
   /**
-   * Compares two <code>Short</code> arrays lexically.
+   * Compares two {@code Short} arrays lexically.
    *
-   * We assume that <code>null</code> is the minimum value for
-   * <code>Short</code> objects.
+   * We assume that {@code null} is the minimum value for
+   * {@code Short} objects.
    *
    * @param array1
-   *          the first <code>Short</code> array.
+   *          the first {@code Short} array.
    * @param n1
-   *          the length of the first <code>Short</code> array.
+   *          the length of the first {@code Short} array.
    * @param array2
-   *          the second <code>Short</code> array.
+   *          the second {@code Short} array.
    * @param n2
-   *          the length of the second <code>Short</code> array.
+   *          the length of the second {@code Short} array.
    * @return An integer less than, equal to or greater than 0, if the
    *         first array compares lexicographically less than, equal to, or
    *         greater than the second array.
@@ -821,32 +801,21 @@ public final class Comparison {
       final Short[] array2, final int n2) {
     final int n = (n1 < n2 ? n1 : n2);
     for (int i = 0; i < n; ++i) {
-      final Short x = array1[i];
-      final Short y = array2[i];
-      if (x != y) {
-        if (x == null) {
-          return -1;
-        } else if (y == null) {
-          return +1;
-        } else {
-          final short vx = x.shortValue();
-          final short vy = y.shortValue();
-          if (vx != vy) {
-            return (vx - vy);
-          }
-        }
+      final int rc = compare(array1[i], array2[i]);
+      if (rc != 0) {
+        return rc;
       }
     }
     return (n1 - n2);
   }
 
   /**
-   * Compares two <code>int</code> value lexically.
+   * Compares two {@code int} value lexically.
    *
    * @param value1
-   *          the first <code>int</code> value.
+   *          the first {@code int} value.
    * @param value2
-   *          the second <code>int</code> value.
+   *          the second {@code int} value.
    * @return An integer less than, equal to or greater than 0, if the
    *         first value compares lexicographically less than, equal to, or
    *         greater than the second value.
@@ -856,12 +825,12 @@ public final class Comparison {
   }
 
   /**
-   * Compares two <code>int</code> arrays lexically.
+   * Compares two {@code int} arrays lexically.
    *
    * @param array1
-   *          the first <code>int</code> array, which could be null.
+   *          the first {@code int} array, which could be null.
    * @param array2
-   *          the second <code>int</code> array, which could be null.
+   *          the second {@code int} array, which could be null.
    * @return An integer less than, equal to or greater than 0, if the
    *         first array compares lexicographically less than, equal to, or
    *         greater than the second array.
@@ -878,16 +847,16 @@ public final class Comparison {
   }
 
   /**
-   * Compares two <code>int</code> arrays lexically.
+   * Compares two {@code int} arrays lexically.
    *
    * @param array1
-   *          the first <code>int</code> array.
+   *          the first {@code int} array.
    * @param n1
-   *          the length of the first <code>int</code> array.
+   *          the length of the first {@code int} array.
    * @param array2
-   *          the second <code>int</code> array.
+   *          the second {@code int} array.
    * @param n2
-   *          the length of the second <code>int</code> array.
+   *          the length of the second {@code int} array.
    * @return An integer less than, equal to or greater than 0, if the
    *         first array compares lexicographically less than, equal to, or
    *         greater than the second array.
@@ -906,25 +875,23 @@ public final class Comparison {
   }
 
   /**
-   * Compares two <code>Integer</code> objects for order.
+   * Compares two {@code Integer} objects for order.
    *
-   * We assume that <code>null</code> is the minimum value for
-   * <code>Integer</code> objects.
+   * We assume that {@code null} is the minimum value for
+   * {@code Integer} objects.
    *
    * @param value1
-   *          the first <code>Integer</code> object, which could be null.
+   *          the first {@code Integer} object, which could be null.
    * @param value2
-   *          the second <code>Integer</code> object, which could be null.
+   *          the second {@code Integer} object, which could be null.
    * @return An integer less than, equal to or greater than 0, if the
    *         first value compares lexicographically less than, equal to, or
    *         greater than the second value.
    */
   public static int compare(@Nullable final Integer value1,
       @Nullable final Integer value2) {
-    if (value1 == value2) {
-      return 0;
-    } else if (value1 == null) {
-      return -1;
+    if (value1 == null) {
+      return (value2 == null ? 0 : -1);
     } else if (value2 == null) {
       return +1;
     } else {
@@ -939,15 +906,15 @@ public final class Comparison {
   }
 
   /**
-   * Compares two <code>Integer</code> arrays lexically.
+   * Compares two {@code Integer} arrays lexically.
    *
-   * We assume that <code>null</code> is the minimum value for
-   * <code>Integer</code> objects.
+   * We assume that {@code null} is the minimum value for
+   * {@code Integer} objects.
    *
    * @param array1
-   *          the first <code>Integer</code> array, which could be null.
+   *          the first {@code Integer} array, which could be null.
    * @param array2
-   *          the second <code>Integer</code> array, which could be null.
+   *          the second {@code Integer} array, which could be null.
    * @return An integer less than, equal to or greater than 0, if the
    *         first array compares lexicographically less than, equal to, or
    *         greater than the second array.
@@ -964,19 +931,19 @@ public final class Comparison {
   }
 
   /**
-   * Compares two <code>Integer</code> arrays lexically.
+   * Compares two {@code Integer} arrays lexically.
    *
-   * We assume that <code>null</code> is the minimum value for
-   * <code>Integer</code> objects.
+   * We assume that {@code null} is the minimum value for
+   * {@code Integer} objects.
    *
    * @param array1
-   *          the first <code>Integer</code> array.
+   *          the first {@code Integer} array.
    * @param n1
-   *          the length of the first <code>Integer</code> array.
+   *          the length of the first {@code Integer} array.
    * @param array2
-   *          the second <code>Integer</code> array.
+   *          the second {@code Integer} array.
    * @param n2
-   *          the length of the second <code>Integer</code> array.
+   *          the length of the second {@code Integer} array.
    * @return An integer less than, equal to or greater than 0, if the
    *         first array compares lexicographically less than, equal to, or
    *         greater than the second array.
@@ -985,32 +952,21 @@ public final class Comparison {
       final Integer[] array2, final int n2) {
     final int n = (n1 < n2 ? n1 : n2);
     for (int i = 0; i < n; ++i) {
-      final Integer x = array1[i];
-      final Integer y = array2[i];
-      if (x != y) {
-        if (x == null) {
-          return -1;
-        } else if (y == null) {
-          return +1;
-        } else {
-          final int vx = x.intValue();
-          final int vy = y.intValue();
-          if (vx != vy) {
-            return (vx - vy);
-          }
-        }
+      final int rc = compare(array1[i], array2[i]);
+      if (rc != 0) {
+        return rc;
       }
     }
     return (n1 - n2);
   }
 
   /**
-   * Compares two <code>long</code> value lexically.
+   * Compares two {@code long} value lexically.
    *
    * @param value1
-   *          the first <code>long</code> value.
+   *          the first {@code long} value.
    * @param value2
-   *          the second <code>long</code> value.
+   *          the second {@code long} value.
    * @return An integer less than, equal to or greater than 0, if the
    *         first value compares lexicographically less than, equal to, or
    *         greater than the second value.
@@ -1024,12 +980,12 @@ public final class Comparison {
   }
 
   /**
-   * Compares two <code>long</code> arrays lexically.
+   * Compares two {@code long} arrays lexically.
    *
    * @param array1
-   *          the first <code>long</code> array, which could be null.
+   *          the first {@code long} array, which could be null.
    * @param array2
-   *          the second <code>long</code> array, which could be null.
+   *          the second {@code long} array, which could be null.
    * @return An integer less than, equal to or greater than 0, if the
    *         first array compares lexicographically less than, equal to, or
    *         greater than the second array.
@@ -1046,16 +1002,16 @@ public final class Comparison {
   }
 
   /**
-   * Compares two <code>long</code> arrays lexically.
+   * Compares two {@code long} arrays lexically.
    *
    * @param array1
-   *          the first <code>long</code> array.
+   *          the first {@code long} array.
    * @param n1
-   *          the length of the first <code>long</code> array.
+   *          the length of the first {@code long} array.
    * @param array2
-   *          the second <code>long</code> array.
+   *          the second {@code long} array.
    * @param n2
-   *          the length of the second <code>long</code> array.
+   *          the length of the second {@code long} array.
    * @return An integer less than, equal to or greater than 0, if the
    *         first array compares lexicographically less than, equal to, or
    *         greater than the second array.
@@ -1074,25 +1030,23 @@ public final class Comparison {
   }
 
   /**
-   * Compares two <code>Long</code> objects for order.
+   * Compares two {@code Long} objects for order.
    *
-   * We assume that <code>null</code> is the minimum value for <code>Long</code>
+   * We assume that {@code null} is the minimum value for {@code Long}
    * objects.
    *
    * @param value1
-   *          the first <code>Long</code> object, which could be null.
+   *          the first {@code Long} object, which could be null.
    * @param value2
-   *          the second <code>Long</code> object, which could be null.
+   *          the second {@code Long} object, which could be null.
    * @return An integer less than, equal to or greater than 0, if the
    *         first value compares lexicographically less than, equal to, or
    *         greater than the second value.
    */
   public static int compare(@Nullable final Long value1,
       @Nullable final Long value2) {
-    if (value1 == value2) {
-      return 0;
-    } else if (value1 == null) {
-      return -1;
+    if (value1 == null) {
+      return (value2 == null ? 0 : -1);
     } else if (value2 == null) {
       return +1;
     } else {
@@ -1107,15 +1061,15 @@ public final class Comparison {
   }
 
   /**
-   * Compares two <code>Long</code> arrays lexically.
+   * Compares two {@code Long} arrays lexically.
    *
-   * We assume that <code>null</code> is the minimum value for <code>Long</code>
+   * We assume that {@code null} is the minimum value for {@code Long}
    * objects.
    *
    * @param array1
-   *          the first <code>Long</code> array, which could be null.
+   *          the first {@code Long} array, which could be null.
    * @param array2
-   *          the second <code>Long</code> array, which could be null.
+   *          the second {@code Long} array, which could be null.
    * @return An integer less than, equal to or greater than 0, if the
    *         first array compares lexicographically less than, equal to, or
    *         greater than the second array.
@@ -1132,19 +1086,19 @@ public final class Comparison {
   }
 
   /**
-   * Compares two <code>Long</code> arrays lexically.
+   * Compares two {@code Long} arrays lexically.
    *
-   * We assume that <code>null</code> is the minimum value for <code>Long</code>
+   * We assume that {@code null} is the minimum value for {@code Long}
    * objects.
    *
    * @param array1
-   *          the first <code>Long</code> array.
+   *          the first {@code Long} array.
    * @param n1
-   *          the length of the first <code>Long</code> array.
+   *          the length of the first {@code Long} array.
    * @param array2
-   *          the second <code>Long</code> array.
+   *          the second {@code Long} array.
    * @param n2
-   *          the length of the second <code>Long</code> array.
+   *          the length of the second {@code Long} array.
    * @return An integer less than, equal to or greater than 0, if the
    *         first array compares lexicographically less than, equal to, or
    *         greater than the second array.
@@ -1153,36 +1107,25 @@ public final class Comparison {
       final Long[] array2, final int n2) {
     final int n = (n1 < n2 ? n1 : n2);
     for (int i = 0; i < n; ++i) {
-      final Long x = array1[i];
-      final Long y = array2[i];
-      if (x != y) {
-        if (x == null) {
-          return -1;
-        } else if (y == null) {
-          return +1;
-        } else {
-          final long vx = x.longValue();
-          final long vy = y.longValue();
-          if (vx != vy) {
-            return (vx < vy ? -1 : +1);
-          }
-        }
+      final int rc = compare(array1[i], array2[i]);
+      if (rc != 0) {
+        return rc;
       }
     }
     return (n1 - n2);
   }
 
   /**
-   * Compares two <code>float</code> values for order.
+   * Compares two {@code float} values for order.
    *
    * This method is more comprehensive than the standard Java greater than, less
    * than and equals operators.
    *
    * <ul>
-   * <li>It returns <code>-1</code> if the first value is less than the second.
-   * <li>It returns <code>+1</code> if the first value is greater than the
+   * <li>It returns {@code -1} if the first value is less than the second.
+   * <li>It returns {@code +1} if the first value is greater than the
    * second.
-   * <li>It returns <code>0</code> if the values are equal.
+   * <li>It returns {@code 0} if the values are equal.
    * </ul>
    *
    * The ordering is as follows, largest to smallest:
@@ -1195,17 +1138,17 @@ public final class Comparison {
    * <li>+0.0
    * <li>-0.0
    * <li>Normal negative numbers
-   * <li>Minimum float (<code>-Float.MAX_VALUE</code>)
+   * <li>Minimum float ({@code -Float.MAX_VALUE})
    * <li>Negative infinity
    * </ul>
    *
-   * Comparing <code>NaN</code> with <code>NaN</code> will return <code>0</code>
+   * Comparing {@code NaN} with {@code NaN} will return {@code 0}
    * .
    *
    * @param value1
-   *          the first <code>float</code> value.
+   *          the first {@code float} value.
    * @param value2
-   *          the second <code>float</code> value.
+   *          the second {@code float} value.
    * @return An integer less than, equal to or greater than 0, if the
    *         first value compares lexicographically less than, equal to, or
    *         greater than the second value.
@@ -1239,12 +1182,12 @@ public final class Comparison {
   }
 
   /**
-   * Compares two <code>float</code> arrays lexically.
+   * Compares two {@code float} arrays lexically.
    *
    * @param array1
-   *          the first <code>float</code> array, which could be null.
+   *          the first {@code float} array, which could be null.
    * @param array2
-   *          the second <code>float</code> array, which could be null.
+   *          the second {@code float} array, which could be null.
    * @return An integer less than, equal to or greater than 0, if the
    *         first array compares lexicographically less than, equal to, or
    *         greater than the second array.
@@ -1261,16 +1204,16 @@ public final class Comparison {
   }
 
   /**
-   * Compares two <code>float</code> arrays lexically.
+   * Compares two {@code float} arrays lexically.
    *
    * @param array1
-   *          the first <code>float</code> array.
+   *          the first {@code float} array.
    * @param n1
-   *          the length of the first <code>float</code> array.
+   *          the length of the first {@code float} array.
    * @param array2
-   *          the second <code>float</code> array.
+   *          the second {@code float} array.
    * @param n2
-   *          the length of the second <code>float</code> array.
+   *          the length of the second {@code float} array.
    * @return An integer less than, equal to or greater than 0, if the
    *         first array compares lexicographically less than, equal to, or
    *         greater than the second array.
@@ -1288,16 +1231,16 @@ public final class Comparison {
   }
 
   /**
-   * Compares two <code>Float</code> values for order.
+   * Compares two {@code Float} values for order.
    *
    * This method is more comprehensive than the standard Java greater than, less
    * than and equals operators.
    *
    * <ul>
-   * <li>It returns <code>-1</code> if the first value is less than the second.
-   * <li>It returns <code>+1</code> if the first value is greater than the
+   * <li>It returns {@code -1} if the first value is less than the second.
+   * <li>It returns {@code +1} if the first value is greater than the
    * second.
-   * <li>It returns <code>0</code> if the values are equal.
+   * <li>It returns {@code 0} if the values are equal.
    * </ul>
    *
    * The ordering is as follows, largest to smallest:
@@ -1310,27 +1253,25 @@ public final class Comparison {
    * <li>+0.0
    * <li>-0.0
    * <li>Normal negative numbers
-   * <li>Minimum float (<code>-Float.MAX_VALUE</code>)
+   * <li>Minimum float ({@code -Float.MAX_VALUE})
    * <li>Negative infinityfloat
    * </ul>
    *
-   * Comparing <code>NaN</code> with <code>NaN</code> will return <code>0</code>
+   * Comparing {@code NaN} with {@code NaN} will return {@code 0}
    * .
    *
    * @param value1
-   *          the first <code>Float</code> value, which could be null.
+   *          the first {@code Float} value, which could be null.
    * @param value2
-   *          the second <code>Float</code> value, which could be null.
+   *          the second {@code Float} value, which could be null.
    * @return An integer less than, equal to or greater than 0, if the first
    *         value compares lexicographically less than, equal to, or greater
    *         than the second value.
    */
   public static int compare(@Nullable final Float value1,
       @Nullable final Float value2) {
-    if (value1 == value2) {
-      return 0;
-    } else if (value1 == null) {
-      return -1;
+    if (value1 == null) {
+      return (value2 == null ? 0 : -1);
     } else if (value2 == null) {
       return +1;
     }
@@ -1364,12 +1305,12 @@ public final class Comparison {
   }
 
   /**
-   * Compares two <code>Float</code> arrays lexically.
+   * Compares two {@code Float} arrays lexically.
    *
    * @param array1
-   *          the first <code>Float</code> array, which could be null.
+   *          the first {@code Float} array, which could be null.
    * @param array2
-   *          the second <code>Float</code> array, which could be null.
+   *          the second {@code Float} array, which could be null.
    * @return An integer less than, equal to or greater than 0, if the
    *         first array compares lexicographically less than, equal to, or
    *         greater than the second array.
@@ -1386,16 +1327,16 @@ public final class Comparison {
   }
 
   /**
-   * Compares two <code>Float</code> arrays lexically.
+   * Compares two {@code Float} arrays lexically.
    *
    * @param array1
-   *          the first <code>Float</code> array.
+   *          the first {@code Float} array.
    * @param n1
-   *          the length of the first <code>Float</code> array.
+   *          the length of the first {@code Float} array.
    * @param array2
-   *          the second <code>Float</code> array.
+   *          the second {@code Float} array.
    * @param n2
-   *          the length of the second <code>Float</code> array.
+   *          the length of the second {@code Float} array.
    * @return An integer less than, equal to or greater than 0, if the
    *         first array compares lexicographically less than, equal to, or
    *         greater than the second array.
@@ -1413,16 +1354,16 @@ public final class Comparison {
   }
 
   /**
-   * Compares two <code>float</code> values for order, with regard to an
+   * Compares two {@code float} values for order, with regard to an
    * epsilon.
    *
-   * If the distance between two <code>float</code> values less than or equals
+   * If the distance between two {@code float} values less than or equals
    * to the epsilon, they are equal.
    *
    * @param value1
-   *          the first <code>float</code> value.
+   *          the first {@code float} value.
    * @param value2
-   *          the second <code>float</code> value.
+   *          the second {@code float} value.
    * @param epsilon
    *          the epsilon.
    * @return An integer less than, equal to or greater than 0, if the
@@ -1440,16 +1381,16 @@ public final class Comparison {
   }
 
   /**
-   * Compares two <code>float</code> arrays lexically, with regard to an
+   * Compares two {@code float} arrays lexically, with regard to an
    * epsilon.
    *
-   * If the distance between two <code>float</code> values less than or equals
+   * If the distance between two {@code float} values less than or equals
    * to the epsilon, they are equal.
    *
    * @param array1
-   *          the first <code>float</code> array, which could be null.
+   *          the first {@code float} array, which could be null.
    * @param array2
-   *          the second <code>float</code> array, which could be null.
+   *          the second {@code float} array, which could be null.
    * @param epsilon
    *        the epsilon.
    * @return An integer less than, equal to or greater than 0, if the
@@ -1468,20 +1409,20 @@ public final class Comparison {
   }
 
   /**
-   * Compares two <code>float</code> arrays lexically, with regard to an
+   * Compares two {@code float} arrays lexically, with regard to an
    * epsilon.
    *
-   * If the distance between two <code>float</code> values less than or equals
+   * If the distance between two {@code float} values less than or equals
    * to the epsilon, they are equal.
    *
    * @param array1
-   *          the first <code>float</code> array.
+   *          the first {@code float} array.
    * @param n1
-   *          the length of the first <code>float</code> array.
+   *          the length of the first {@code float} array.
    * @param array2
-   *          the second <code>float</code> array.
+   *          the second {@code float} array.
    * @param n2
-   *          the length of the second <code>float</code> array.
+   *          the length of the second {@code float} array.
    * @param epsilon
    *        the epsilon.
    * @return An integer less than, equal to or greater than 0, if the
@@ -1501,16 +1442,16 @@ public final class Comparison {
   }
 
   /**
-   * Compares two <code>Float</code> values for order, with regard to an
+   * Compares two {@code Float} values for order, with regard to an
    * epsilon.
    *
-   * If the distance between two <code>Float</code> values less than or equals
+   * If the distance between two {@code Float} values less than or equals
    * to the epsilon, they are equal.
    *
    * @param value1
-   *          the first <code>Float</code> value, which could be null.
+   *          the first {@code Float} value, which could be null.
    * @param value2
-   *          the second <code>Float</code> value, which could be null.
+   *          the second {@code Float} value, which could be null.
    * @param epsilon
    *          the epsilon.
    * @return An integer less than, equal to or greater than 0, if the
@@ -1519,10 +1460,8 @@ public final class Comparison {
    */
   public static int compare(@Nullable final Float value1,
       @Nullable final Float value2, final float epsilon) {
-    if (value1 == value2) {
-      return 0;
-    } else if (value1 == null) {
-      return -1;
+    if (value1 == null) {
+      return (value2 == null ? 0 : -1);
     } else if (value2 == null) {
       return +1;
     }
@@ -1535,16 +1474,16 @@ public final class Comparison {
   }
 
   /**
-   * Compares two <code>Float</code> arrays lexically, with regard to an
+   * Compares two {@code Float} arrays lexically, with regard to an
    * epsilon.
    *
-   * If the distance between two <code>Float</code> values less than or equals
+   * If the distance between two {@code Float} values less than or equals
    * to the epsilon, they are equal.
    *
    * @param array1
-   *          the first <code>Float</code> array, which could be null.
+   *          the first {@code Float} array, which could be null.
    * @param array2
-   *          the second <code>Float</code> array, which could be null.
+   *          the second {@code Float} array, which could be null.
    * @param epsilon
    *          the epsilon.
    * @return An integer less than, equal to or greater than 0, if the
@@ -1563,20 +1502,20 @@ public final class Comparison {
   }
 
   /**
-   * Compares two <code>Float</code> arrays lexically, with regard to an
+   * Compares two {@code Float} arrays lexically, with regard to an
    * epsilon.
    *
-   * If the distance between two <code>Float</code> values less than or equals
+   * If the distance between two {@code Float} values less than or equals
    * to the epsilon, they are equal.
    *
    * @param array1
-   *          the first <code>Float</code> array.
+   *          the first {@code Float} array.
    * @param n1
-   *          the length of the first <code>Float</code> array.
+   *          the length of the first {@code Float} array.
    * @param array2
-   *          the second <code>Float</code> array.
+   *          the second {@code Float} array.
    * @param n2
-   *          the length of the second <code>Float</code> array.
+   *          the length of the second {@code Float} array.
    * @param epsilon
    *          the epsilon.
    * @return An integer less than, equal to or greater than 0, if the
@@ -1596,16 +1535,16 @@ public final class Comparison {
   }
 
   /**
-   * Compares two <code>doubles</code> for order.
+   * Compares two {@code doubles} for order.
    *
    * This method is more comprehensive than the standard Java greater than, less
    * than and equals operators.
    *
    * <ul>
-   * <li>It returns <code>-1</code> if the first value is less than the second.</li>
-   * <li>It returns <code>+1</code> if the first value is greater than the
+   * <li>It returns {@code -1} if the first value is less than the second.</li>
+   * <li>It returns {@code +1} if the first value is greater than the
    * second.</li>
-   * <li>It returns <code>0</code> if the values are equal.</li>
+   * <li>It returns {@code 0} if the values are equal.</li>
    * </ul>
    *
    * The ordering is as follows, largest to smallest:
@@ -1618,17 +1557,17 @@ public final class Comparison {
    * <li>+0.0
    * <li>-0.0
    * <li>Normal negative numbers
-   * <li>Minimum double (<code>-Double.MAX_VALUE</code>)
+   * <li>Minimum double ({@code -Double.MAX_VALUE})
    * <li>Negative infinity
    * </ul>
    *
-   * Comparing <code>NaN</code> with <code>NaN</code> will return <code>0</code>
+   * Comparing {@code NaN} with {@code NaN} will return {@code 0}
    * .
    *
    * @param value1
-   *          the first <code>double</code> value.
+   *          the first {@code double} value.
    * @param value2
-   *          the second <code>double</code> value.
+   *          the second {@code double} value.
    * @return An integer less than, equal to or greater than 0, if the
    *         first value compares lexicographically less than, equal to, or
    *         greater than the second value.
@@ -1662,12 +1601,12 @@ public final class Comparison {
   }
 
   /**
-   * Compares two <code>double</code> arrays lexically.
+   * Compares two {@code double} arrays lexically.
    *
    * @param array1
-   *          the first <code>double</code> array, which could be null.
+   *          the first {@code double} array, which could be null.
    * @param array2
-   *          the second <code>double</code> array, which could be null.
+   *          the second {@code double} array, which could be null.
    * @return An integer less than, equal to or greater than 0, if the
    *         first array compares lexicographically less than, equal to, or
    *         greater than the second array.
@@ -1684,16 +1623,16 @@ public final class Comparison {
   }
 
   /**
-   * Compares two <code>double</code> arrays lexically.
+   * Compares two {@code double} arrays lexically.
    *
    * @param array1
-   *          the first <code>double</code> array.
+   *          the first {@code double} array.
    * @param n1
-   *          the length of the first <code>double</code> array.
+   *          the length of the first {@code double} array.
    * @param array2
-   *          the second <code>double</code> array.
+   *          the second {@code double} array.
    * @param n2
-   *          the length of the second <code>double</code> array.
+   *          the length of the second {@code double} array.
    * @return An integer less than, equal to or greater than 0, if the
    *         first array compares lexicographically less than, equal to, or
    *         greater than the second array.
@@ -1711,16 +1650,16 @@ public final class Comparison {
   }
 
   /**
-   * Compares two <code>Double</code> for order.
+   * Compares two {@code Double} for order.
    *
    * This method is more comprehensive than the standard Java greater than, less
    * than and equals operators.
    *
    * <ul>
-   * <li>It returns <code>-1</code> if the first value is less than the second.</li>
-   * <li>It returns <code>+1</code> if the first value is greater than the
+   * <li>It returns {@code -1} if the first value is less than the second.</li>
+   * <li>It returns {@code +1} if the first value is greater than the
    * second.</li>
-   * <li>It returns <code>0</code> if the values are equal.</li>
+   * <li>It returns {@code 0} if the values are equal.</li>
    * </ul>
    *
    * The ordering is as follows, largest to smallest:
@@ -1733,27 +1672,25 @@ public final class Comparison {
    * <li>+0.0
    * <li>-0.0
    * <li>Normal negative numbers
-   * <li>Minimum double (<code>-Double.MAX_VALUE</code>)
+   * <li>Minimum double ({@code -Double.MAX_VALUE})
    * <li>Negative infinity
    * </ul>
    *
-   * Comparing <code>NaN</code> with <code>NaN</code> will return <code>0</code>
+   * Comparing {@code NaN} with {@code NaN} will return {@code 0}
    * .
    *
    * @param value1
-   *          the first <code>Double</code> value, which could be null.
+   *          the first {@code Double} value, which could be null.
    * @param value2
-   *          the second <code>Double</code> value, which could be null.
+   *          the second {@code Double} value, which could be null.
    * @return An integer less than, equal to or greater than 0, if the
    *         first value compares lexicographically less than, equal to, or
    *         greater than the second value.
    */
   public static int compare(@Nullable final Double value1,
       @Nullable final Double value2) {
-    if (value1 == value2) {
-      return 0;
-    } else if (value1 == null) {
-      return -1;
+   if (value1 == null) {
+      return (value2 == null ? 0 : -1);
     } else if (value2 == null) {
       return +1;
     }
@@ -1787,12 +1724,12 @@ public final class Comparison {
   }
 
   /**
-   * Compares two <code>Double</code> arrays lexically.
+   * Compares two {@code Double} arrays lexically.
    *
    * @param array1
-   *          the first <code>Double</code> array, which could be null.
+   *          the first {@code Double} array, which could be null.
    * @param array2
-   *          the second <code>Double</code> array, which could be null.
+   *          the second {@code Double} array, which could be null.
    * @return An integer less than, equal to or greater than 0, if the
    *         first array compares lexicographically less than, equal to, or
    *         greater than the second array.
@@ -1809,16 +1746,16 @@ public final class Comparison {
   }
 
   /**
-   * Compares two <code>Double</code> arrays lexically.
+   * Compares two {@code Double} arrays lexically.
    *
    * @param array1
-   *          the first <code>Double</code> array.
+   *          the first {@code Double} array.
    * @param n1
-   *          the length of the first <code>Double</code> array.
+   *          the length of the first {@code Double} array.
    * @param array2
-   *          the second <code>Double</code> array.
+   *          the second {@code Double} array.
    * @param n1
-   *          the length of the first <code>Double</code> array.
+   *          the length of the first {@code Double} array.
    * @return An integer less than, equal to or greater than 0, if the
    *         first array compares lexicographically less than, equal to, or
    *         greater than the second array.
@@ -1836,16 +1773,16 @@ public final class Comparison {
   }
 
   /**
-   * Compares two <code>double</code> values for order, with regard to an
+   * Compares two {@code double} values for order, with regard to an
    * epsilon.
    *
-   * If the distance between two <code>double</code> values less than or equals
+   * If the distance between two {@code double} values less than or equals
    * to the epsilon, they are equal.
    *
    * @param value1
-   *          the first <code>double</code> value.
+   *          the first {@code double} value.
    * @param value2
-   *          the second <code>double</code> value.
+   *          the second {@code double} value.
    * @param epsilon
    *          the epsilon.
    * @return An integer less than, equal to or greater than 0, if the
@@ -1863,16 +1800,16 @@ public final class Comparison {
   }
 
   /**
-   * Compares two <code>double</code> arrays lexically, with regard to an
+   * Compares two {@code double} arrays lexically, with regard to an
    * epsilon.
    *
-   * If the distance between two <code>double</code> values less than or equals
+   * If the distance between two {@code double} values less than or equals
    * to the epsilon, they are equal.
    *
    * @param array1
-   *          the first <code>double</code> array, which could be null.
+   *          the first {@code double} array, which could be null.
    * @param array2
-   *          the second <code>double</code> array, which could be null.
+   *          the second {@code double} array, which could be null.
    * @param epsilon
    *          the epsilon.
    * @return An integer less than, equal to or greater than 0, if the
@@ -1891,20 +1828,20 @@ public final class Comparison {
   }
 
   /**
-   * Compares two <code>double</code> arrays lexically, with regard to an
+   * Compares two {@code double} arrays lexically, with regard to an
    * epsilon.
    *
-   * If the distance between two <code>double</code> values less than or equals
+   * If the distance between two {@code double} values less than or equals
    * to the epsilon, they are equal.
    *
    * @param array1
-   *          the first <code>double</code> array.
+   *          the first {@code double} array.
    * @param n1
-   *          the length of the first <code>double</code> array.
+   *          the length of the first {@code double} array.
    * @param array2
-   *          the second <code>double</code> array.
+   *          the second {@code double} array.
    * @param n2
-   *          the length of the second <code>double</code> array.
+   *          the length of the second {@code double} array.
    * @param epsilon
    *          the epsilon.
    * @return An integer less than, equal to or greater than 0, if the
@@ -1924,16 +1861,16 @@ public final class Comparison {
   }
 
   /**
-   * Compares two <code>Double</code> values for order, with regard to an
+   * Compares two {@code Double} values for order, with regard to an
    * epsilon.
    *
-   * If the distance between two <code>Double</code> values less than or equals
+   * If the distance between two {@code Double} values less than or equals
    * to the epsilon, they are equal.
    *
    * @param value1
-   *          the first <code>Double</code> value, which could be null.
+   *          the first {@code Double} value, which could be null.
    * @param value2
-   *          the second <code>Double</code> value, which could be null.
+   *          the second {@code Double} value, which could be null.
    * @param epsilon
    *          the epsilon.
    * @return An integer less than, equal to or greater than 0, if the
@@ -1942,10 +1879,8 @@ public final class Comparison {
    */
   public static int compare(@Nullable final Double value1,
       @Nullable final Double value2, final double epsilon) {
-    if (value1 == value2) {
-      return 0;
-    } else if (value1 == null) {
-      return -1;
+    if (value1 == null) {
+      return (value2 == null ? 0 : -1);
     } else if (value2 == null) {
       return +1;
     }
@@ -1958,16 +1893,16 @@ public final class Comparison {
   }
 
   /**
-   * Compares two <code>Double</code> arrays lexically, with regard to an
+   * Compares two {@code Double} arrays lexically, with regard to an
    * epsilon.
    *
-   * If the distance between two <code>Double</code> values less than or equals
+   * If the distance between two {@code Double} values less than or equals
    * to the epsilon, they are equal.
    *
    * @param array1
-   *          the first <code>Double</code> array, which could be null.
+   *          the first {@code Double} array, which could be null.
    * @param array2
-   *          the second <code>Double</code> array, which could be null.
+   *          the second {@code Double} array, which could be null.
    * @param epsilon
    *          the epsilon.
    * @return An integer less than, equal to or greater than 0, if the
@@ -1986,20 +1921,20 @@ public final class Comparison {
   }
 
   /**
-   * Compares two <code>Double</code> arrays lexically, with regard to an
+   * Compares two {@code Double} arrays lexically, with regard to an
    * epsilon.
    *
-   * If the distance between two <code>Double</code> values less than or equals
+   * If the distance between two {@code Double} values less than or equals
    * to the epsilon, they are equal.
    *
    * @param array1
-   *          the first <code>Double</code> array.
+   *          the first {@code Double} array.
    * @param n1
-   *          the length of the first <code>Double</code> array.
+   *          the length of the first {@code Double} array.
    * @param array2
-   *          the second <code>Double</code> array.
+   *          the second {@code Double} array.
    * @param n2
-   *          the length of the second <code>Double</code> array.
+   *          the length of the second {@code Double} array.
    * @param epsilon
    *          the epsilon.
    * @return An integer less than, equal to or greater than 0, if the
@@ -2019,15 +1954,15 @@ public final class Comparison {
   }
 
   /**
-   * Compares two <code>Enum</code> objects for order.
+   * Compares two {@code Enum} objects for order.
    *
-   * We assume that <code>null</code> is the minimum value for <code>Enum</code>
+   * We assume that {@code null} is the minimum value for {@code Enum}
    * objects.
    *
    * @param value1
-   *          the first <code>Enum</code> object, which could be null.
+   *          the first {@code Enum} object, which could be null.
    * @param value2
-   *          the second <code>Enum</code> object, which could be null.
+   *          the second {@code Enum} object, which could be null.
    * @return An integer less than, equal to or greater than 0, if the
    *         first value compares lexicographically less than, equal to, or
    *         greater than the second value.
@@ -2046,17 +1981,17 @@ public final class Comparison {
   }
 
   /**
-   * Compares two <code>Enum</code> arrays lexically.
+   * Compares two {@code Enum} arrays lexically.
    *
-   * We assume that <code>null</code> is the minimum value for <code>Enum</code>
+   * We assume that {@code null} is the minimum value for {@code Enum}
    * objects.
    *
    * @param <E>
-   *          the type of an <code>Enum</code> class.
+   *          the type of an {@code Enum} class.
    * @param array1
-   *          the first <code>Enum</code> array, which could be null.
+   *          the first {@code Enum} array, which could be null.
    * @param array2
-   *          the second <code>Enum</code> array, which could be null.
+   *          the second {@code Enum} array, which could be null.
    * @return An integer less than, equal to or greater than 0, if the first
    *         array compares lexicographically less than, equal to, or greater
    *         than the second array.
@@ -2075,21 +2010,21 @@ public final class Comparison {
   }
 
   /**
-   * Compares two <code>Enum</code> arrays lexically.
+   * Compares two {@code Enum} arrays lexically.
    *
-   * We assume that <code>null</code> is the minimum value for <code>Enum</code>
+   * We assume that {@code null} is the minimum value for {@code Enum}
    * objects.
    *
    * @param <E>
-   *          the type of an <code>Enum</code> class.
+   *          the type of an {@code Enum} class.
    * @param array1
-   *          the first <code>Enum</code> array.
+   *          the first {@code Enum} array.
    * @param n1
-   *          the length of the first <code>Enum</code> array.
+   *          the length of the first {@code Enum} array.
    * @param array2
-   *          the second <code>Enum</code> array.
+   *          the second {@code Enum} array.
    * @param n2
-   *          the length of the second <code>Enum</code> array.
+   *          the length of the second {@code Enum} array.
    * @return An integer less than, equal to or greater than 0, if the first
    *         array compares lexicographically less than, equal to, or greater
    *         than the second array.
@@ -2117,25 +2052,23 @@ public final class Comparison {
   }
 
   /**
-   * Compares two <code>String</code> objects for order.
+   * Compares two {@code String} objects for order.
    *
-   * We assume that <code>null</code> is the minimum value for
-   * <code>String</code> objects.
+   * We assume that {@code null} is the minimum value for
+   * {@code String} objects.
    *
    * @param value1
-   *          the first <code>String</code> object, which could be null.
+   *          the first {@code String} object, which could be null.
    * @param value2
-   *          the second <code>String</code> object, which could be null.
+   *          the second {@code String} object, which could be null.
    * @return An integer less than, equal to or greater than 0, if the first
    *         value compares lexicographically less than, equal to, or greater
    *         than the second value.
    */
   public static int compare(@Nullable final String value1,
       @Nullable final String value2) {
-    if (value1 == value2) {
-      return 0;
-    } else if (value1 == null) {
-      return -1;
+    if (value1 == null) {
+      return (value2 == null ? 0 : -1);
     } else if (value2 == null) {
       return +1;
     } else {
@@ -2144,15 +2077,15 @@ public final class Comparison {
   }
 
   /**
-   * Compares two <code>String</code> arrays lexically.
+   * Compares two {@code String} arrays lexically.
    *
-   * We assume that <code>null</code> is the minimum value for
-   * <code>String</code> objects.
+   * We assume that {@code null} is the minimum value for
+   * {@code String} objects.
    *
    * @param array1
-   *          the first <code>String</code> array, which could be null.
+   *          the first {@code String} array, which could be null.
    * @param array2
-   *          the second <code>String</code> array, which could be null.
+   *          the second {@code String} array, which could be null.
    * @return An integer less than, equal to or greater than 0, if the first
    *         array compares lexicographically less than, equal to, or greater
    *         than the second array.
@@ -2171,19 +2104,19 @@ public final class Comparison {
   }
 
   /**
-   * Compares two <code>String</code> arrays lexically.
+   * Compares two {@code String} arrays lexically.
    *
-   * We assume that <code>null</code> is the minimum value for
-   * <code>String</code> objects.
+   * We assume that {@code null} is the minimum value for
+   * {@code String} objects.
    *
    * @param array1
-   *          the first <code>String</code> array.
+   *          the first {@code String} array.
    * @param n1
-   *          the length of the first <code>String</code> array.
+   *          the length of the first {@code String} array.
    * @param array2
-   *          the second <code>String</code> array.
+   *          the second {@code String} array.
    * @param n2
-   *          the length of the second <code>String</code> array.
+   *          the length of the second {@code String} array.
    * @return An integer less than, equal to or greater than 0, if the first
    *         array compares lexicographically less than, equal to, or greater
    *         than the second array.
@@ -2192,44 +2125,32 @@ public final class Comparison {
       final String[] array2, final int n2) {
     final int n = (n1 < n2 ? n1 : n2);
     for (int i = 0; i < n; ++i) {
-      final String x = array1[i];
-      final String y = array2[i];
-      if (x != y) {
-        if (x == null) {
-          return -1;
-        } else if (y == null) {
-          return +1;
-        } else {
-          final int rc = x.compareTo(y);
-          if (rc != 0) {
-            return rc;
-          }
-        }
+      final int rc = compare(array1[i], array2[i]);
+      if (rc != 0) {
+        return rc;
       }
     }
     return (n1 - n2);
   }
 
   /**
-   * Compares two <code>Class</code> objects for order.
+   * Compares two {@code Class} objects for order.
    *
-   * We assume that <code>null</code> is the minimum value for
-   * <code>Class</code> objects.
+   * We assume that {@code null} is the minimum value for
+   * {@code Class} objects.
    *
    * @param value1
-   *          the first <code>Class</code> object, which could be null.
+   *          the first {@code Class} object, which could be null.
    * @param value2
-   *          the second <code>Class</code> object, which could be null.
+   *          the second {@code Class} object, which could be null.
    * @return An integer less than, equal to or greater than 0, if the first
    *         value compares lexicographically less than, equal to, or greater
    *         than the second value.
    */
   public static int compare(@Nullable final Class<?> value1,
       @Nullable final Class<?> value2) {
-    if (value1 == value2) {
-      return 0;
-    } else if (value1 == null) {
-      return -1;
+    if (value1 == null) {
+      return (value2 == null ? 0 : -1);
     } else if (value2 == null) {
       return +1;
     } else {
@@ -2238,15 +2159,15 @@ public final class Comparison {
   }
 
   /**
-   * Compares two <code>Class</code> arrays lexically.
+   * Compares two {@code Class} arrays lexically.
    *
-   * We assume that <code>null</code> is the minimum value for
-   * <code>Class</code> objects.
+   * We assume that {@code null} is the minimum value for
+   * {@code Class} objects.
    *
    * @param array1
-   *          the first <code>Class</code> array, which could be null.
+   *          the first {@code Class} array, which could be null.
    * @param array2
-   *          the second <code>Class</code> array, which could be null.
+   *          the second {@code Class} array, which could be null.
    * @return An integer less than, equal to or greater than 0, if the first
    *         array compares lexicographically less than, equal to, or greater
    *         than the second array.
@@ -2265,19 +2186,19 @@ public final class Comparison {
   }
 
   /**
-   * Compares two <code>Class</code> arrays lexically.
+   * Compares two {@code Class} arrays lexically.
    *
-   * We assume that <code>null</code> is the minimum value for
-   * <code>Class</code> objects.
+   * We assume that {@code null} is the minimum value for
+   * {@code Class} objects.
    *
    * @param array1
-   *          the first <code>Class</code> array.
+   *          the first {@code Class} array.
    * @param n1
-   *          the length of the first <code>Class</code> array.
+   *          the length of the first {@code Class} array.
    * @param array2
-   *          the second <code>Class</code> array.
+   *          the second {@code Class} array.
    * @param n2
-   *          the length of the second <code>Class</code> array.
+   *          the length of the second {@code Class} array.
    * @return An integer less than, equal to or greater than 0, if the first
    *         array compares lexicographically less than, equal to, or greater
    *         than the second array.
@@ -2286,44 +2207,32 @@ public final class Comparison {
       final Class<?>[] array2, final int n2) {
     final int n = (n1 < n2 ? n1 : n2);
     for (int i = 0; i < n; ++i) {
-      final Class<?> x = array1[i];
-      final Class<?> y = array2[i];
-      if (x != y) {
-        if (x == null) {
-          return -1;
-        } else if (y == null) {
-          return +1;
-        } else {
-          final int rc = x.getName().compareTo(y.getName());
-          if (rc != 0) {
-            return rc;
-          }
-        }
+      final int rc = compare(array1[i], array2[i]);
+      if (rc != 0) {
+        return rc;
       }
     }
     return (n1 - n2);
   }
 
   /**
-   * Compares two <code>Date</code> objects for order.
+   * Compares two {@code Date} objects for order.
    *
-   * We assume that <code>null</code> is the minimum value for
-   * <code>Date</code> objects.
+   * We assume that {@code null} is the minimum value for
+   * {@code Date} objects.
    *
    * @param value1
-   *          the first <code>Date</code> object.
+   *          the first {@code Date} object.
    * @param value2
-   *          the second <code>Date</code> object.
+   *          the second {@code Date} object.
    * @return An integer less than, equal to or greater than 0, if the first
    *         value compares lexicographically less than, equal to, or greater
    *         than the second value.
    */
   public static int compare(@Nullable final Date value1,
       @Nullable final Date value2) {
-    if (value1 == value2) {
-      return 0;
-    } else if (value1 == null) {
-      return -1;
+    if (value1 == null) {
+      return (value2 == null ? 0 : -1);
     } else if (value2 == null) {
       return +1;
     } else {
@@ -2332,15 +2241,15 @@ public final class Comparison {
   }
 
   /**
-   * Compares two <code>Date</code> arrays lexically.
+   * Compares two {@code Date} arrays lexically.
    *
-   * We assume that <code>null</code> is the minimum value for <code>Date</code>
+   * We assume that {@code null} is the minimum value for {@code Date}
    * objects.
    *
    * @param array1
-   *          the first <code>Date</code> array, which could be null.
+   *          the first {@code Date} array, which could be null.
    * @param array2
-   *          the second <code>Date</code> array, which could be null.
+   *          the second {@code Date} array, which could be null.
    * @return An integer less than, equal to or greater than 0, if the first
    *         array compares lexicographically less than, equal to, or greater
    *         than the second array.
@@ -2359,19 +2268,19 @@ public final class Comparison {
   }
 
   /**
-   * Compares two <code>Date</code> arrays lexically.
+   * Compares two {@code Date} arrays lexically.
    *
-   * We assume that <code>null</code> is the minimum value for <code>Date</code>
+   * We assume that {@code null} is the minimum value for {@code Date}
    * objects.
    *
    * @param array1
-   *          the first <code>Date</code> array.
+   *          the first {@code Date} array.
    * @param n1
-   *          the length of the first <code>Date</code> array.
+   *          the length of the first {@code Date} array.
    * @param array2
-   *          the second <code>Date</code> array.
+   *          the second {@code Date} array.
    * @param n2
-   *          the length of the second <code>Date</code> array.
+   *          the length of the second {@code Date} array.
    * @return An integer less than, equal to or greater than 0, if the first
    *         array compares lexicographically less than, equal to, or greater
    *         than the second array.
@@ -2380,44 +2289,32 @@ public final class Comparison {
       final Date[] array2, final int n2) {
     final int n = (n1 < n2 ? n1 : n2);
     for (int i = 0; i < n; ++i) {
-      final Date x = array1[i];
-      final Date y = array2[i];
-      if (x != y) {
-        if (x == null) {
-          return -1;
-        } else if (y == null) {
-          return +1;
-        } else {
-          final int rc = x.compareTo(y);
-          if (rc != 0) {
-            return rc;
-          }
-        }
+      final int rc = compare(array1[i], array2[i]);
+      if (rc != 0) {
+        return rc;
       }
     }
     return (n1 - n2);
   }
 
   /**
-   * Compares two <code>BigInteger</code> objects for order.
+   * Compares two {@code BigInteger} objects for order.
    *
-   * We assume that <code>null</code> is the minimum value for
-   * <code>BigInteger</code> objects.
+   * We assume that {@code null} is the minimum value for
+   * {@code BigInteger} objects.
    *
    * @param value1
-   *          the first <code>BigInteger</code> object, which could be null.
+   *          the first {@code BigInteger} object, which could be null.
    * @param value2
-   *          the second <code>BigInteger</code> object, which could be null.
+   *          the second {@code BigInteger} object, which could be null.
    * @return An integer less than, equal to or greater than 0, if the first
    *         value compares lexicographically less than, equal to, or greater
    *         than the second value.
    */
   public static int compare(@Nullable final BigInteger value1,
       @Nullable final BigInteger value2) {
-    if (value1 == value2) {
-      return 0;
-    } else if (value1 == null) {
-      return -1;
+    if (value1 == null) {
+      return (value2 == null ? 0 : -1);
     } else if (value2 == null) {
       return +1;
     } else {
@@ -2426,15 +2323,15 @@ public final class Comparison {
   }
 
   /**
-   * Compares two <code>BigInteger</code> arrays lexically.
+   * Compares two {@code BigInteger} arrays lexically.
    *
-   * We assume that <code>null</code> is the minimum value for
-   * <code>BigInteger</code> objects.
+   * We assume that {@code null} is the minimum value for
+   * {@code BigInteger} objects.
    *
    * @param array1
-   *          the first <code>BigInteger</code> array, which could be null.
+   *          the first {@code BigInteger} array, which could be null.
    * @param array2
-   *          the second <code>BigInteger</code> array, which could be null.
+   *          the second {@code BigInteger} array, which could be null.
    * @return An integer less than, equal to or greater than 0, if the first
    *         array compares lexicographically less than, equal to, or greater
    *         than the second array.
@@ -2453,19 +2350,19 @@ public final class Comparison {
   }
 
   /**
-   * Compares two <code>BigInteger</code> arrays lexically.
+   * Compares two {@code BigInteger} arrays lexically.
    *
-   * We assume that <code>null</code> is the minimum value for
-   * <code>BigInteger</code> objects.
+   * We assume that {@code null} is the minimum value for
+   * {@code BigInteger} objects.
    *
    * @param array1
-   *          the first <code>BigInteger</code> array.
+   *          the first {@code BigInteger} array.
    * @param n1
-   *          the length of the first <code>BigInteger</code> array.
+   *          the length of the first {@code BigInteger} array.
    * @param array2
-   *          the second <code>BigInteger</code> array.
+   *          the second {@code BigInteger} array.
    * @param n2
-   *          the length of the second <code>BigInteger</code> array.
+   *          the length of the second {@code BigInteger} array.
    * @return An integer less than, equal to or greater than 0, if the first
    *         array compares lexicographically less than, equal to, or greater
    *         than the second array.
@@ -2474,44 +2371,32 @@ public final class Comparison {
       final BigInteger[] array2, final int n2) {
     final int n = (n1 < n2 ? n1 : n2);
     for (int i = 0; i < n; ++i) {
-      final BigInteger x = array1[i];
-      final BigInteger y = array2[i];
-      if (x != y) {
-        if (x == null) {
-          return -1;
-        } else if (y == null) {
-          return +1;
-        } else {
-          final int rc = x.compareTo(y);
-          if (rc != 0) {
-            return rc;
-          }
-        }
+      final int rc = compare(array1[i], array2[i]);
+      if (rc != 0) {
+        return rc;
       }
     }
     return (n1 - n2);
   }
 
   /**
-   * Compares two <code>BigDecimal</code> objects for order.
+   * Compares two {@code BigDecimal} objects for order.
    *
-   * We assume that <code>null</code> is the minimum value for
-   * <code>BigDecimal</code> objects.
+   * We assume that {@code null} is the minimum value for
+   * {@code BigDecimal} objects.
    *
    * @param value1
-   *          the first <code>BigDecimal</code> object.
+   *          the first {@code BigDecimal} object.
    * @param value2
-   *          the second <code>BigDecimal</code> object.
+   *          the second {@code BigDecimal} object.
    * @return An integer less than, equal to or greater than 0, if the first
    *         value compares lexicographically less than, equal to, or greater
    *         than the second value.
    */
   public static int compare(@Nullable final BigDecimal value1,
       @Nullable final BigDecimal value2) {
-    if (value1 == value2) {
-      return 0;
-    } else if (value1 == null) {
-      return -1;
+    if (value1 == null) {
+      return (value2 == null ? 0 : -1);
     } else if (value2 == null) {
       return +1;
     } else {
@@ -2520,15 +2405,15 @@ public final class Comparison {
   }
 
   /**
-   * Compares two <code>BigDecimal</code> arrays lexically.
+   * Compares two {@code BigDecimal} arrays lexically.
    *
-   * We assume that <code>null</code> is the minimum value for
-   * <code>BigDecimal</code> objects.
+   * We assume that {@code null} is the minimum value for
+   * {@code BigDecimal} objects.
    *
    * @param array1
-   *          the first <code>BigDecimal</code> array, which could be null.
+   *          the first {@code BigDecimal} array, which could be null.
    * @param array2
-   *          the second <code>BigDecimal</code> array, which could be null.
+   *          the second {@code BigDecimal} array, which could be null.
    * @return An integer less than, equal to or greater than 0, if the first
    *         array compares lexicographically less than, equal to, or greater
    *         than the second array.
@@ -2547,19 +2432,19 @@ public final class Comparison {
   }
 
   /**
-   * Compares two <code>BigDecimal</code> arrays lexically.
+   * Compares two {@code BigDecimal} arrays lexically.
    *
-   * We assume that <code>null</code> is the minimum value for
-   * <code>BigDecimal</code> objects.
+   * We assume that {@code null} is the minimum value for
+   * {@code BigDecimal} objects.
    *
    * @param array1
-   *          the first <code>BigDecimal</code> array.
+   *          the first {@code BigDecimal} array.
    * @param n1
-   *          the length of the first <code>BigDecimal</code> array.
+   *          the length of the first {@code BigDecimal} array.
    * @param array2
-   *          the second <code>BigDecimal</code> array.
+   *          the second {@code BigDecimal} array.
    * @param n2
-   *          the length of the second <code>BigDecimal</code> array.
+   *          the length of the second {@code BigDecimal} array.
    * @return An integer less than, equal to or greater than 0, if the first
    *         array compares lexicographically less than, equal to, or greater
    *         than the second array.
@@ -2568,38 +2453,28 @@ public final class Comparison {
       final BigDecimal[] array2, final int n2) {
     final int n = (n1 < n2 ? n1 : n2);
     for (int i = 0; i < n; ++i) {
-      final BigDecimal x = array1[i];
-      final BigDecimal y = array2[i];
-      if (x != y) {
-        if (x == null) {
-          return -1;
-        } else if (y == null) {
-          return +1;
-        } else {
-          final int rc = x.compareTo(y);
-          if (rc != 0) {
-            return rc;
-          }
-        }
+      final int rc = compare(array1[i], array2[i]);
+      if (rc != 0) {
+        return rc;
       }
     }
     return (n1 - n2);
   }
 
   /**
-   * Compares two <code>Comparable</code> objects for order.
+   * Compares two {@code Comparable} objects for order.
    *<p>
-   * We assume that <code>null</code> is the minimum value for
-   * <code>Comparable</code> objects.
+   * We assume that {@code null} is the minimum value for
+   * {@code Comparable} objects.
    *<p>
    * Note that the implementation of this function is non-trivial, since the
    * multi-dimensional array is also an Object in Java.
    *
    * @param value1
-   *          the first <code>Comparable</code> object. Note that it could
+   *          the first {@code Comparable} object. Note that it could
    *          be null or a multi-dimensional array.
    * @param value2
-   *          the second <code>Comparable</code> object. Note that it could
+   *          the second {@code Comparable} object. Note that it could
    *          be null or a multi-dimensional array.
    * @return An integer less than, equal to or greater than 0, if the first
    *         value compares lexicographically less than, equal to, or greater
@@ -2608,12 +2483,10 @@ public final class Comparison {
   @SuppressWarnings({ "unchecked", "rawtypes" })
   public static int compare(@Nullable final Object value1,
       @Nullable final Object value2) {
-    if (value1 == value2) {
-      return 0;
-    } else if (value1 == null) {
-      return -1; // note that rhs != null
+    if (value1 == null) {
+      return (value2 == null ? 0 : -1);
     } else if (value2 == null) {
-      return +1; // note that lhs != null
+      return +1;
     } else {
       final Class<?> class1 = value1.getClass();
       final Class<?> class2 = value2.getClass();
@@ -2723,16 +2596,16 @@ public final class Comparison {
   }
 
   /**
-   * Compares two <code>Comparable</code> object arrays lexically.
+   * Compares two {@code Comparable} object arrays lexically.
    *<p>
    * Note that the implementation of this function is non-trivial, since the
    * multi-dimensional array is also an Object in Java.
    *
    * @param array1
-   *          the first <code>Comparable</code> object array, which could be
+   *          the first {@code Comparable} object array, which could be
    *          null or array of arrays.
    * @param array2
-   *          the second <code>Comparable</code> object array, which could be
+   *          the second {@code Comparable} object array, which could be
    *          null or array of arrays.
    * @return An integer less than, equal to or greater than 0, if the first
    *         array compares lexicographically less than, equal to, or greater
@@ -2750,21 +2623,21 @@ public final class Comparison {
   }
 
   /**
-   * Compares two <code>Comparable</code> object arrays lexically.
+   * Compares two {@code Comparable} object arrays lexically.
    *<p>
    * Note that the implementation of this function is non-trivial, since the
    * multi-dimensional array is also an Object in Java.
    *
    * @param array1
-   *          the first <code>Comparable</code> object array, which could be
+   *          the first {@code Comparable} object array, which could be
    *          array of arrays.
    * @param n1
-   *          the length of the first <code>Comparable</code> object array.
+   *          the length of the first {@code Comparable} object array.
    * @param array2
-   *          the second <code>Comparable</code> object array, which could be
+   *          the second {@code Comparable} object array, which could be
    *          array of arrays.
    * @param n2
-   *          the length of the second <code>Comparable</code> object array.
+   *          the length of the second {@code Comparable} object array.
    * @return An integer less than, equal to or greater than 0, if the first
    *         array compares lexicographically less than, equal to, or greater
    *         than the second array.
@@ -2785,19 +2658,19 @@ public final class Comparison {
   }
 
   /**
-   * Compares two <code>Comparable</code> objects for order.
+   * Compares two {@code Comparable} objects for order.
    *<p>
-   * We assume that <code>null</code> is the minimum value for
-   * <code>Comparable</code> objects.
+   * We assume that {@code null} is the minimum value for
+   * {@code Comparable} objects.
    *<p>
    * Note that the implementation of this function is non-trivial, since the
    * multi-dimensional array is also an Object in Java.
    *
    * @param value1
-   *          the first <code>Comparable</code> object. Note that it could
+   *          the first {@code Comparable} object. Note that it could
    *          be null or a multi-dimensional array.
    * @param value2
-   *          the second <code>Comparable</code> object. Note that it could
+   *          the second {@code Comparable} object. Note that it could
    *          be null or a multi-dimensional array.
    * @param epsilon
    *          the epsilon used to compare float or double values.
@@ -2929,16 +2802,16 @@ public final class Comparison {
   }
 
   /**
-   * Compares two <code>Comparable</code> object arrays lexically.
+   * Compares two {@code Comparable} object arrays lexically.
    *<p>
    * Note that the implementation of this function is non-trivial, since the
    * multi-dimensional array is also an Object in Java.
    *
    * @param array1
-   *          the first <code>Comparable</code> object array, which could be
+   *          the first {@code Comparable} object array, which could be
    *          null or array of arrays.
    * @param array2
-   *          the second <code>Comparable</code> object array, which could be
+   *          the second {@code Comparable} object array, which could be
    *          null or array of arrays.
    * @param epsilon
    *          the epsilon used to compare float or double values.
@@ -2958,21 +2831,21 @@ public final class Comparison {
   }
 
   /**
-   * Compares two <code>Comparable</code> object arrays lexically.
+   * Compares two {@code Comparable} object arrays lexically.
    *<p>
    * Note that the implementation of this function is non-trivial, since the
    * multi-dimensional array is also an Object in Java.
    *
    * @param array1
-   *          the first <code>Comparable</code> object array, which could be
+   *          the first {@code Comparable} object array, which could be
    *          array of arrays.
    * @param n1
-   *          the length of the first <code>Comparable</code> object array.
+   *          the length of the first {@code Comparable} object array.
    * @param array2
-   *          the second <code>Comparable</code> object array, which could be
+   *          the second {@code Comparable} object array, which could be
    *          array of arrays.
    * @param n2
-   *          the length of the second <code>Comparable</code> object array.
+   *          the length of the second {@code Comparable} object array.
    * @param epsilon
    *          the epsilon used to compare float or double values.
    * @return An integer less than, equal to or greater than 0, if the first
@@ -2995,19 +2868,19 @@ public final class Comparison {
   }
 
   /**
-   * Compares two <code>Comparable</code> objects for order.
+   * Compares two {@code Comparable} objects for order.
    *<p>
-   * We assume that <code>null</code> is the minimum value for
-   * <code>Comparable</code> objects.
+   * We assume that {@code null} is the minimum value for
+   * {@code Comparable} objects.
    *<p>
    * Note that the implementation of this function is non-trivial, since the
    * multi-dimensional array is also an Object in Java.
    *
    * @param value1
-   *          the first <code>Comparable</code> object. Note that it could
+   *          the first {@code Comparable} object. Note that it could
    *          be null or a multi-dimensional array.
    * @param value2
-   *          the second <code>Comparable</code> object. Note that it could
+   *          the second {@code Comparable} object. Note that it could
    *          be null or a multi-dimensional array.
    * @param comparator
    *          the comparator used to compare the underlying objects.
@@ -3133,16 +3006,16 @@ public final class Comparison {
   }
 
   /**
-   * Compares two <code>Comparable</code> <code>Object</code> arrays lexically.
+   * Compares two {@code Comparable} {@code Object} arrays lexically.
    *<p>
    * Note that the implementation of this function is non-trivial, since the
    * multi-dimensional array is also an Object in Java.
    *
    * @param array1
-   *          the first <code>Comparable</code> <code>Object</code> array,
+   *          the first {@code Comparable} {@code Object} array,
    *          which could be null or array of arrays.
    * @param array2
-   *          the second <code>Comparable</code> <code>Object</code> array,
+   *          the second {@code Comparable} {@code Object} array,
    *          which could be null or array of arrays.
    * @param comparator
    *          the comparator used to compare the underlying objects.
@@ -3171,11 +3044,11 @@ public final class Comparison {
    * @param array1
    *          the first object array, which could be array of arrays.
    * @param n1
-   *          the length of the first <code>Comparable</code> object array.
+   *          the length of the first {@code Comparable} object array.
    * @param array2
    *          the second object array, which could be array of arrays.
    * @param n2
-   *          the length of the second <code>Comparable</code> object array.
+   *          the length of the second {@code Comparable} object array.
    * @param comparator
    *          the comparator used to compare the underlying objects.
    * @return An integer less than, equal to or greater than 0, if the first
@@ -3199,19 +3072,19 @@ public final class Comparison {
   }
 
   /**
-   * Compares two collection of <code>boolean</code> values for order.
+   * Compares two collection of {@code boolean} values for order.
    * <p>
-   * We assume that <code>null</code> is the minimum value for
-   * <code>Comparable</code> objects.
+   * We assume that {@code null} is the minimum value for
+   * {@code Comparable} objects.
    * <p>
    * This function could deal with the collection of primitive arrays and
    * muti-dimension arrays.
    *
    * @param col1
-   *          the first collection of <code>boolean</code> values, which
+   *          the first collection of {@code boolean} values, which
    *          could be null.
    * @param col2
-   *          the second collection of <code>boolean</code> values, which
+   *          the second collection of {@code boolean} values, which
    *          could be null.
    * @return An integer less than, equal to or greater than 0, if the first
    *         collection compares lexicographically less than, equal to, or
@@ -3227,19 +3100,19 @@ public final class Comparison {
   }
 
   /**
-   * Compares two collection of <code>char</code> values for order.
+   * Compares two collection of {@code char} values for order.
    * <p>
-   * We assume that <code>null</code> is the minimum value for
-   * <code>Comparable</code> objects.
+   * We assume that {@code null} is the minimum value for
+   * {@code Comparable} objects.
    * <p>
    * This function could deal with the collection of primitive arrays and
    * muti-dimension arrays.
    *
    * @param col1
-   *          the first collection of <code>char</code> values, which
+   *          the first collection of {@code char} values, which
    *          could be null.
    * @param col2
-   *          the second collection of <code>char</code> values, which
+   *          the second collection of {@code char} values, which
    *          could be null.
    * @return An integer less than, equal to or greater than 0, if the first
    *         collection compares lexicographically less than, equal to, or
@@ -3255,19 +3128,19 @@ public final class Comparison {
   }
 
   /**
-   * Compares two collection of <code>byte</code> values for order.
+   * Compares two collection of {@code byte} values for order.
    * <p>
-   * We assume that <code>null</code> is the minimum value for
-   * <code>Comparable</code> objects.
+   * We assume that {@code null} is the minimum value for
+   * {@code Comparable} objects.
    * <p>
    * This function could deal with the collection of primitive arrays and
    * muti-dimension arrays.
    *
    * @param col1
-   *          the first collection of <code>byte</code> values, which
+   *          the first collection of {@code byte} values, which
    *          could be null.
    * @param col2
-   *          the second collection of <code>byte</code> values, which
+   *          the second collection of {@code byte} values, which
    *          could be null.
    * @return An integer less than, equal to or greater than 0, if the first
    *         collection compares lexicographically less than, equal to, or
@@ -3283,19 +3156,19 @@ public final class Comparison {
   }
 
   /**
-   * Compares two collection of <code>short</code> values for order.
+   * Compares two collection of {@code short} values for order.
    * <p>
-   * We assume that <code>null</code> is the minimum value for
-   * <code>Comparable</code> objects.
+   * We assume that {@code null} is the minimum value for
+   * {@code Comparable} objects.
    * <p>
    * This function could deal with the collection of primitive arrays and
    * muti-dimension arrays.
    *
    * @param col1
-   *          the first collection of <code>short</code> values, which
+   *          the first collection of {@code short} values, which
    *          could be null.
    * @param col2
-   *          the second collection of <code>short</code> values, which
+   *          the second collection of {@code short} values, which
    *          could be null.
    * @return An integer less than, equal to or greater than 0, if the first
    *         collection compares lexicographically less than, equal to, or
@@ -3311,19 +3184,19 @@ public final class Comparison {
   }
 
   /**
-   * Compares two collection of <code>int</code> values for order.
+   * Compares two collection of {@code int} values for order.
    * <p>
-   * We assume that <code>null</code> is the minimum value for
-   * <code>Comparable</code> objects.
+   * We assume that {@code null} is the minimum value for
+   * {@code Comparable} objects.
    * <p>
    * This function could deal with the collection of primitive arrays and
    * muti-dimension arrays.
    *
    * @param col1
-   *          the first collection of <code>int</code> values, which
+   *          the first collection of {@code int} values, which
    *          could be null.
    * @param col2
-   *          the second collection of <code>int</code> values, which
+   *          the second collection of {@code int} values, which
    *          could be null.
    * @return An integer less than, equal to or greater than 0, if the first
    *         collection compares lexicographically less than, equal to, or
@@ -3339,19 +3212,19 @@ public final class Comparison {
   }
 
   /**
-   * Compares two collection of <code>long</code> values for order.
+   * Compares two collection of {@code long} values for order.
    * <p>
-   * We assume that <code>null</code> is the minimum value for
-   * <code>Comparable</code> objects.
+   * We assume that {@code null} is the minimum value for
+   * {@code Comparable} objects.
    * <p>
    * This function could deal with the collection of primitive arrays and
    * muti-dimension arrays.
    *
    * @param col1
-   *          the first collection of <code>long</code> values, which
+   *          the first collection of {@code long} values, which
    *          could be null.
    * @param col2
-   *          the second collection of <code>long</code> values, which
+   *          the second collection of {@code long} values, which
    *          could be null.
    * @return An integer less than, equal to or greater than 0, if the first
    *         collection compares lexicographically less than, equal to, or
@@ -3367,19 +3240,19 @@ public final class Comparison {
   }
 
   /**
-   * Compares two collection of <code>float</code> values for order.
+   * Compares two collection of {@code float} values for order.
    * <p>
-   * We assume that <code>null</code> is the minimum value for
-   * <code>Comparable</code> objects.
+   * We assume that {@code null} is the minimum value for
+   * {@code Comparable} objects.
    * <p>
    * This function could deal with the collection of primitive arrays and
    * muti-dimension arrays.
    *
    * @param col1
-   *          the first collection of <code>float</code> values, which
+   *          the first collection of {@code float} values, which
    *          could be null.
    * @param col2
-   *          the second collection of <code>float</code> values, which
+   *          the second collection of {@code float} values, which
    *          could be null.
    * @return An integer less than, equal to or greater than 0, if the first
    *         collection compares lexicographically less than, equal to, or
@@ -3395,19 +3268,19 @@ public final class Comparison {
   }
 
   /**
-   * Compares two collection of <code>double</code> values for order.
+   * Compares two collection of {@code double} values for order.
    * <p>
-   * We assume that <code>null</code> is the minimum value for
-   * <code>Comparable</code> objects.
+   * We assume that {@code null} is the minimum value for
+   * {@code Comparable} objects.
    * <p>
    * This function could deal with the collection of primitive arrays and
    * muti-dimension arrays.
    *
    * @param col1
-   *          the first collection of <code>double</code> values, which
+   *          the first collection of {@code double} values, which
    *          could be null.
    * @param col2
-   *          the second collection of <code>double</code> values, which
+   *          the second collection of {@code double} values, which
    *          could be null.
    * @return An integer less than, equal to or greater than 0, if the first
    *         collection compares lexicographically less than, equal to, or
@@ -3423,10 +3296,10 @@ public final class Comparison {
   }
 
   /**
-   * Compares two collection of <code>Comparable</code> objects for order.
+   * Compares two collection of {@code Comparable} objects for order.
    * <p>
-   * We assume that <code>null</code> is the minimum value for
-   * <code>Comparable</code> objects.
+   * We assume that {@code null} is the minimum value for
+   * {@code Comparable} objects.
    * <p>
    * This function could deal with the collection of primitive arrays and
    * muti-dimension arrays.
@@ -3434,10 +3307,10 @@ public final class Comparison {
    * @param <T>
    *          the type of the elements of the collection.
    * @param col1
-   *          the first collection of <code>Comparable</code> objects, which
+   *          the first collection of {@code Comparable} objects, which
    *          could be null.
    * @param col2
-   *          the second collection of <code>Comparable</code> objects, which
+   *          the second collection of {@code Comparable} objects, which
    *          could be null.
    * @return An integer less than, equal to or greater than 0, if the first
    *         collection compares lexicographically less than, equal to, or
@@ -3470,10 +3343,10 @@ public final class Comparison {
   }
 
   /**
-   * Compares two collection of <code>Comparable</code> objects for order.
+   * Compares two collection of {@code Comparable} objects for order.
    * <p>
-   * We assume that <code>null</code> is the minimum value for
-   * <code>Comparable</code> objects.
+   * We assume that {@code null} is the minimum value for
+   * {@code Comparable} objects.
    * <p>
    * This function could deal with the collection of primitive arrays and
    * muti-dimension arrays.
@@ -3481,10 +3354,10 @@ public final class Comparison {
    * @param <T>
    *          the type of the elements of the collection.
    * @param col1
-   *          the first collection of <code>Comparable</code> objects, which
+   *          the first collection of {@code Comparable} objects, which
    *          could be null.
    * @param col2
-   *          the second collection of <code>Comparable</code> objects, which
+   *          the second collection of {@code Comparable} objects, which
    *          could be null.
    * @param epsilon
    *          the epsilon used to compare float or double values.
@@ -3519,10 +3392,10 @@ public final class Comparison {
   }
 
   /**
-   * Compares two collection of <code>Comparable</code> objects for order.
+   * Compares two collection of {@code Comparable} objects for order.
    * <p>
-   * We assume that <code>null</code> is the minimum value for
-   * <code>Comparable</code> objects.
+   * We assume that {@code null} is the minimum value for
+   * {@code Comparable} objects.
    * <p>
    * This function could deal with the collection of primitive arrays and
    * muti-dimension arrays.
@@ -3530,10 +3403,10 @@ public final class Comparison {
    * @param <T>
    *          the type of the elements of the collection.
    * @param col1
-   *          the first collection of <code>Comparable</code> objects, which
+   *          the first collection of {@code Comparable} objects, which
    *          could be null.
    * @param col2
-   *          the second collection of <code>Comparable</code> objects, which
+   *          the second collection of {@code Comparable} objects, which
    *          could be null.
    * @param comparator
    *          the comparator used to compare the underlying objects.

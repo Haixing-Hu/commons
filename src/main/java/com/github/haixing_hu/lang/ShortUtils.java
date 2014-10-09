@@ -28,15 +28,15 @@ import javax.annotation.Nullable;
 import com.github.haixing_hu.text.NumberFormatSymbols;
 
 /**
- * This class provides operations on <code>short</code> primitives and
+ * This class provides operations on {@code short} primitives and
  * {@link Short} objects.
  * <p>
- * This class tries to handle <code>null</code> input gracefully. An exception
- * will not be thrown for a <code>null</code> input. Each method documents its
+ * This class tries to handle {@code null} input gracefully. An exception
+ * will not be thrown for a {@code null} input. Each method documents its
  * behavior in more detail.
  * </p>
  * <p>
- * This class also handle the conversion from <code>short</code> values or
+ * This class also handle the conversion from {@code short} values or
  * {@link Short} objects to common types.
  * </p>
  *
@@ -45,7 +45,7 @@ import com.github.haixing_hu.text.NumberFormatSymbols;
 public class ShortUtils {
 
   /**
-   * The default <code>short</code> value used when necessary.
+   * The default {@code short} value used when necessary.
    */
   public static final short DEFAULT = (short) 0;
 
@@ -258,7 +258,7 @@ public class ShortUtils {
   }
 
   /**
-   * Convert a <code>short</code> value into hex string.
+   * Convert a {@code short} value into hex string.
    *
    * @param value
    *    the value to be converted.
@@ -275,7 +275,7 @@ public class ShortUtils {
   }
 
   /**
-   * Convert a <code>short</code> value into hex string.
+   * Convert a {@code short} value into hex string.
    *
    * @param value
    *          the value to be converted.
@@ -288,7 +288,7 @@ public class ShortUtils {
   }
 
   public static Date toDate(final short value) {
-    return new Date(value);
+    return new Date(value * 1L);
   }
 
   public static Date toDate(@Nullable final Short value) {

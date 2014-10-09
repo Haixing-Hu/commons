@@ -40,7 +40,7 @@ public class Assert {
    *
    * @param message
    *          the identifying message for the {@link AssertionError} (
-   *          <code>null</code> okay)
+   *          {@code null} okay)
    * @param expecteds
    *          boolean array with expected values.
    * @param actuals
@@ -87,7 +87,7 @@ public class Assert {
    *
    * @param message
    *          the identifying message for the {@link AssertionError} (
-   *          <code>null</code> okay)
+   *          {@code null} okay)
    * @param expecteds
    *          byte array with expected values.
    * @param actuals
@@ -134,7 +134,7 @@ public class Assert {
    *
    * @param message
    *          the identifying message for the {@link AssertionError} (
-   *          <code>null</code> okay)
+   *          {@code null} okay)
    * @param expecteds
    *          char array with expected values.
    * @param actuals
@@ -180,7 +180,7 @@ public class Assert {
    *
    * @param message
    *          the identifying message for the {@link AssertionError} (
-   *          <code>null</code> okay)
+   *          {@code null} okay)
    * @param expecteds
    *          short array with expected values.
    * @param actuals
@@ -227,7 +227,7 @@ public class Assert {
    *
    * @param message
    *          the identifying message for the {@link AssertionError} (
-   *          <code>null</code> okay)
+   *          {@code null} okay)
    * @param expecteds
    *          int array with expected values.
    * @param actuals
@@ -273,7 +273,7 @@ public class Assert {
    *
    * @param message
    *          the identifying message for the {@link AssertionError} (
-   *          <code>null</code> okay)
+   *          {@code null} okay)
    * @param expecteds
    *          long array with expected values.
    * @param actuals
@@ -320,7 +320,7 @@ public class Assert {
    *
    * @param message
    *          the identifying message for the {@link AssertionError} (
-   *          <code>null</code> okay)
+   *          {@code null} okay)
    * @param expecteds
    *          double array with expected values.
    * @param actuals
@@ -367,7 +367,7 @@ public class Assert {
    *
    * @param message
    *          the identifying message for the {@link AssertionError} (
-   *          <code>null</code> okay)
+   *          {@code null} okay)
    * @param expecteds
    *          float array with expected values.
    * @param actuals
@@ -411,12 +411,12 @@ public class Assert {
   /**
    * Asserts that two generic type arrays are equal. If they are not, an
    * {@link AssertionError} is thrown with the given message. If
-   * <code>expecteds</code> and <code>actuals</code> are <code>null</code>, they
+   * {@code expecteds} and {@code actuals} are {@code null}, they
    * are considered equal.
    *
    * @param message
    *          the identifying message for the {@link AssertionError} (
-   *          <code>null</code> okay)
+   *          {@code null} okay)
    * @param expecteds
    *          Generic type array with expected values.
    * @param actuals
@@ -429,8 +429,8 @@ public class Assert {
 
   /**
    * Asserts that two Class arrays are equal. If they are not, an
-   * {@link AssertionError} is thrown. If <code>expected</code> and
-   * <code>actual</code> are <code>null</code>, they are considered equal.
+   * {@link AssertionError} is thrown. If {@code expected} and
+   * {@code actual} are {@code null}, they are considered equal.
    *
    * @param expecteds
    *          Class array with expected values

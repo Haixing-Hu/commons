@@ -105,10 +105,10 @@ public final class UrlUtils {
    *
    * For example,
    *
-   * <code>
+   * {@code 
    *    UrlUtils.getDomain("www.google.com")    = "google.com"
    *    UrlUtils.getDomain("www.sina.com.cn")   = "sina.com.cn"
-   * </code>
+   * }
    *
    * @param host
    *          a host name
@@ -138,10 +138,10 @@ public final class UrlUtils {
    *
    * For example,
    *
-   * <code>
+   * {@code 
    *    UrlUtils.getDomainSuffix("www.google.com")    = "com"
    *    UrlUtils.getDomainSuffix("www.sina.com.cn")   = "com.cn"
-   * </code>
+   * }
    *
    * @param host
    *          a host name.

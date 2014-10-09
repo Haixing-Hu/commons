@@ -65,7 +65,7 @@ public final class IoUtils {
     "The maxLength argument can't be negative.";
 
   /**
-   * Unconditionally close a <code>Closeable</code> object.
+   * Unconditionally close a {@code Closeable} object.
    * <p>
    * Equivalent to {@link Closeable#close()}, except any exceptions will be
    * ignored and logged as an warning message. This is typically used in finally
@@ -86,7 +86,7 @@ public final class IoUtils {
   }
 
   /**
-   * Unconditionally close a <code>Socket</code> object.
+   * Unconditionally close a {@code Socket} object.
    * <p>
    * Equivalent to {@link Socket#close()}, except any exceptions will be
    * ignored and logged as an warning message. This is typically used in finally
@@ -192,7 +192,7 @@ public final class IoUtils {
    *          the {@link InputStream} to read from.
    * @param maxBytes
    *          the maximum number of bytes to be copied. It could be
-   *          <code>Long.MAX_VALUE</code>, indicating no limit.
+   *          {@code Long.MAX_VALUE}, indicating no limit.
    * @param output
    *          the {@link OutputStream} to write to.
    * @return the number of bytes copied, which may be larger than 2 GB.
@@ -223,7 +223,7 @@ public final class IoUtils {
    *          the {@link OutputStream} to write to.
    * @param maxBytes
    *          the maximum number of bytes to be copied. It could be
-   *          <code>Long.MAX_VALUE</code>, indicating no limit.
+   *          {@code Long.MAX_VALUE}, indicating no limit.
    * @param buffer
    *          a buffer used for copying.
    * @return the number of bytes copied, which may be larger than 2 GB.
@@ -265,23 +265,23 @@ public final class IoUtils {
   }
 
   /**
-   * Copy bytes from a <code>Reader</code> to an <code>Writer</code>.
+   * Copy bytes from a {@code Reader} to an {@code Writer}.
    *
    * This method buffers the input internally, so there is no need to use a
-   * <code>BufferedReader</code>.
+   * {@code BufferedReader}.
    *
-   * Note that after calling this function, the <code>Writer</code> was NOT
+   * Note that after calling this function, the {@code Writer} was NOT
    * flushed NOR closed, instead, it MUST be flushed or closed by the caller.
    *
    * TODO: add the supporting of a progress displaying call-back function.
    *
    * @param input
-   *          the <code>Reader</code> to read from.
+   *          the {@code Reader} to read from.
    * @param maxChars
    *          the maximum number of characters to be copied. It count be
    *          Long.MAX_VALUE, indicating no limit.
    * @param output
-   *          the <code>Writer</code> to write to.
+   *          the {@code Writer} to write to.
    * @return the number of characters copied, which may be larger than 2 GB.
    * @throws IOException
    *           if an I/O error occurs
@@ -294,23 +294,23 @@ public final class IoUtils {
   }
 
   /**
-   * Copy bytes from a <code>Reader</code> to an <code>Writer</code>.
+   * Copy bytes from a {@code Reader} to an {@code Writer}.
    *
    * This method buffers the input internally, so there is no need to use a
-   * <code>BufferedReader</code>.
+   * {@code BufferedReader}.
    *
-   * Note that after calling this function, the <code>Writer</code> was NOT
+   * Note that after calling this function, the {@code Writer} was NOT
    * flushed NOR closed, instead, it MUST be flushed or closed by the caller.
    *
    * TODO: add the supporting of a progress displaying call-back function.
    *
    * @param input
-   *          the <code>Reader</code> to read from.
+   *          the {@code Reader} to read from.
    * @param maxChars
    *          the maximum number of characters to be copied. It count be
    *          Long.MAX_VALUE, indicating no limit.
    * @param output
-   *          the <code>Writer</code> to write to.
+   *          the {@code Writer} to write to.
    * @param buffer
    *          a buffer used for copying.
    * @return the number of characters copied, which may be larger than 2 GB.
@@ -365,9 +365,9 @@ public final class IoUtils {
    * @return the first few bytes of the {@link InputStream}; if the
    *         {@link InputStream}> has less than maxLength bytes, all the bytes
    *         of the {@link InputStream} were get and returned; otherwise, the
-   *         first <code>maxLength</code> bytes of the {@link InputStream} were
+   *         first {@code maxLength} bytes of the {@link InputStream} were
    *         get and returned; if the {@link InputStream} has no content because
-   *         of the <code>EOF</code>, a byte array of length 0 is returned.
+   *         of the {@code EOF}, a byte array of length 0 is returned.
    * @throws IOException
    *           if any I/O error occurs.
    */
@@ -408,13 +408,13 @@ public final class IoUtils {
   }
 
   /**
-   * Get the contents of an <code>InputStream</code> as a <code>byte[]</code>.
+   * Get the contents of an {@code InputStream} as a {@code byte[]}.
    *
    * This method buffers the input internally, so there is no need to use a
-   * <code>BufferedInputStream</code>.
+   * {@code BufferedInputStream}.
    *
    * @param input
-   *          the <code>InputStream</code> to read from.
+   *          the {@code InputStream} to read from.
    * @return the requested byte array
    * @throws IOException
    *           if an I/O error occurs
@@ -426,13 +426,13 @@ public final class IoUtils {
   }
 
   /**
-   * Get the contents of a <code>Reader</code> as a character array.
+   * Get the contents of a {@code Reader} as a character array.
    *
    * This method buffers the input internally, so there is no need to use a
-   * <code>BufferedReader</code>.
+   * {@code BufferedReader}.
    *
    * @param input
-   *          the <code>Reader</code> to read from
+   *          the {@code Reader} to read from
    * @return the requested character array
    * @throws NullPointerException
    *           if the input is null
@@ -446,13 +446,13 @@ public final class IoUtils {
   }
 
   /**
-   * Get the contents of a <code>Reader</code> as a String.
+   * Get the contents of a {@code Reader} as a String.
    *
    * This method buffers the input internally, so there is no need to use a
-   * <code>BufferedReader</code>.
+   * {@code BufferedReader}.
    *
    * @param input
-   *          the <code>Reader</code> to read from
+   *          the {@code Reader} to read from
    * @return the requested String
    * @throws IOException
    *           if an I/O error occurs
@@ -464,16 +464,16 @@ public final class IoUtils {
   }
 
   /**
-   * Get the contents of a <code>Reader</code> as a list of Strings, one entry
+   * Get the contents of a {@code Reader} as a list of Strings, one entry
    * per line.
    *
    * This method buffers the input internally, so there is no need to use a
-   * <code>BufferedReader</code>.
+   * {@code BufferedReader}.
    *
    * Note that the caller MUST close the reader by itself.
    *
    * @param input
-   *          the <code>Reader</code> to read from, not null
+   *          the {@code Reader} to read from, not null
    * @return the array list of Strings. It never be null, but could be empty.
    * @throws IOException
    *           if an I/O error occurs
@@ -490,10 +490,10 @@ public final class IoUtils {
   }
 
   /**
-   * Writes the <code>toString()</code> value of each item in a collection to a
-   * <code>Writer</code> line by line, using the specified line ending.
+   * Writes the {@code toString()} value of each item in a collection to a
+   * {@code Writer} line by line, using the specified line ending.
    *
-   * Note that after calling this function, the <code>OutputStream</code> was
+   * Note that after calling this function, the {@code OutputStream} was
    * NOT flushed NOR closed, instead, it MUST be flushed or closed by the
    * caller.
    *
@@ -502,7 +502,7 @@ public final class IoUtils {
    * @param lineEnding
    *          the line separator to use, null is system default
    * @param writer
-   *          the <code>Writer</code> to write to, not null, not closed
+   *          the {@code Writer} to write to, not null, not closed
    * @throws IOException
    *           if an I/O error occurs
    */
@@ -526,7 +526,7 @@ public final class IoUtils {
    * Compare the contents of two input streams lexicographically.
    *
    * This method buffers the input internally using
-   * <code>BufferedInputStream</code> if they are not already buffered.
+   * {@code BufferedInputStream} if they are not already buffered.
    *
    * Note that after calling this function, the two input streams were NOT
    * closed by this function, instead, they MUST be closed by the caller.
@@ -573,7 +573,7 @@ public final class IoUtils {
   /**
    * Compare the contents of two readers lexicographically.
    *
-   * This method buffers the input internally using <code>BufferedReader</code>
+   * This method buffers the input internally using {@code BufferedReader}
    * if they are not already buffered.
    *
    * Note that after calling this function, the two readers were NOT closed by

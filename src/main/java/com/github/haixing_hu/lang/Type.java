@@ -31,17 +31,17 @@ import java.util.Map;
  * Currently this enumeration supports the following types:
  *
  * <ul>
- * <li><code>boolean</code></li>
- * <li><code>char</code></li>
- * <li><code>byte</code></li>
- * <li><code>short</code></li>
- * <li><code>int</code></li>
- * <li><code>long</code></li>
- * <li><code>float</code></li>
- * <li><code>double</code></li>
+ * <li>{@code boolean}</li>
+ * <li>{@code char}</li>
+ * <li>{@code byte}</li>
+ * <li>{@code short}</li>
+ * <li>{@code int}</li>
+ * <li>{@code long}</li>
+ * <li>{@code float}</li>
+ * <li>{@code double}</li>
  * <li>{@link String}</li>
  * <li>{@link Date}</li>
- * <li><code>byte[]</code></li>
+ * <li>{@code byte[]}</li>
  * <li>{@link Class}</li>
  * <li>{@link BigInteger}</li>
  * <li>{@link BigDecimal}</li>

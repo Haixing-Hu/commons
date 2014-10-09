@@ -27,7 +27,7 @@ import com.github.haixing_hu.lang.Hash;
 import com.github.haixing_hu.text.tostring.ToStringBuilder;
 
 /**
- * This class is used to represent a triple of <code>float</code> values.
+ * This class is used to represent a triple of {@code float} values.
  *
  * @author Haixing Hu
  */

@@ -30,7 +30,7 @@ import com.github.haixing_hu.collection.primitive.RandomAccessFloatList;
 
 import static com.github.haixing_hu.lang.Argument.*;
 /**
- * An {@link FloatList} backed by an array of <code>float</code>s. This
+ * An {@link FloatList} backed by an array of {@code float}s. This
  * implementation supports all optional methods.
  *
  * @author Haixing Hu
@@ -70,9 +70,9 @@ public class ArrayFloatList extends RandomAccessFloatList implements FloatList,
    *
    * @see ArrayFloatList#addAll(org.apache.commons.collections.primitives.FloatCollection)
    * @param that
-   *          the non-<code>null</code> collection of <code>float</code>s to add
+   *          the non-{@code null} collection of {@code float}s to add
    * @throws NullPointerException
-   *           if <i>that</i> is <code>null</code>
+   *           if <i>that</i> is {@code null}
    */
   public ArrayFloatList(final FloatCollection that) {
     this(that.size());
@@ -85,7 +85,7 @@ public class ArrayFloatList extends RandomAccessFloatList implements FloatList,
    * @param array
    *          the array to initialize the collection with
    * @throws NullPointerException
-   *           if the array is <code>null</code>
+   *           if the array is {@code null}
    */
   public ArrayFloatList(final float[] array) {
     this(array.length);

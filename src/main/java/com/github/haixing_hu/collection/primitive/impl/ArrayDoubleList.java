@@ -31,7 +31,7 @@ import com.github.haixing_hu.collection.primitive.RandomAccessDoubleList;
 import static com.github.haixing_hu.lang.Argument.*;
 
 /**
- * An {@link DoubleList} backed by an array of <code>double</code>s. This
+ * An {@link DoubleList} backed by an array of {@code double}s. This
  * implementation supports all optional methods.
  *
  * @author Haixing Hu
@@ -71,10 +71,10 @@ public class ArrayDoubleList extends RandomAccessDoubleList implements
    *
    * @see ArrayDoubleList#addAll(org.apache.commons.collections.primitives.DoubleCollection)
    * @param that
-   *          the non-<code>null</code> collection of <code>double</code>s to
+   *          the non-{@code null} collection of {@code double}s to
    *          add
    * @throws NullPointerException
-   *           if <i>that</i> is <code>null</code>
+   *           if <i>that</i> is {@code null}
    */
   public ArrayDoubleList(final DoubleCollection that) {
     this(that.size());
@@ -87,7 +87,7 @@ public class ArrayDoubleList extends RandomAccessDoubleList implements
    * @param array
    *          the array to initialize the collection with
    * @throws NullPointerException
-   *           if the array is <code>null</code>
+   *           if the array is {@code null}
    */
   public ArrayDoubleList(final double[] array) {
     this(array.length);

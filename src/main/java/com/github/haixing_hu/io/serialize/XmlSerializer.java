@@ -54,7 +54,7 @@ public interface XmlSerializer {
    *          The root node of the XML DOM tree.
    * @return The object deserialized from XML DOM tree.
    * @throws NullPointerException
-   *           If the <code>root</code> is null.
+   *           If the {@code root} is null.
    * @throws XmlException
    *           If any XML error occurred.
    */
@@ -69,7 +69,7 @@ public interface XmlSerializer {
    *          The object to be serialized. It can't be null.
    * @return The root node of the resulting XML DOM tree.
    * @throws NullPointerException
-   *           If the <code>obj</code> is null.
+   *           If the {@code obj} is null.
    * @throws XmlException
    *           If any XML error occurred.
    */

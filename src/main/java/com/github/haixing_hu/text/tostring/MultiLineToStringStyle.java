@@ -23,9 +23,9 @@ import javax.annotation.concurrent.Immutable;
 import com.github.haixing_hu.lang.SystemUtils;
 
 /**
- * The multi-line <code>toString()</code> style.
+ * The multi-line {@code toString()} style.
  * <p>
- * Using the <code>Person</code> example from {@link ToStringBuilder}, the
+ * Using the {@code Person} example from {@link ToStringBuilder}, the
  * output would look like this:
  * </p>
  *

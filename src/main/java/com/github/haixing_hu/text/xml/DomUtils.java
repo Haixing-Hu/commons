@@ -178,7 +178,7 @@ public final class DomUtils {
    * Note that this function DOES check the number of children nodes with the
    * specified child name. If the node has only one child node with the
    * specified name, the child node is returned; if the node has no child node
-   * with the specified name, <code>null</code> is returned; otherwise, the node
+   * with the specified name, {@code null} is returned; otherwise, the node
    * has more than one child node with the specified name, an XmlException is
    * thrown.
    *
@@ -1914,16 +1914,16 @@ public final class DomUtils {
    *          a node. It must has one and only one text child.
    * @param prevSpaceAttr
    *          the attribute name of the "preserve space" attribute. If this
-   *          argument is not null and the <code>node</code> has the attribute
+   *          argument is not null and the {@code node} has the attribute
    *          with this name, the function will use the attribute value to
    *          decide whether to strip the returned string; otherwise, the
-   *          function will use the <code>defaultTrim</code> argument value to
+   *          function will use the {@code defaultTrim} argument value to
    *          decide whether to strip the returned string.
    * @param defaultTrim
    *          the function will use this argument value to decide whether to
-   *          strip the returned string in case that <code>prevSpaceAttr</code>
-   *          argument is null or the <code>node</code> has no attribute of name
-   *          <code>prevSpaceAttr</code>.
+   *          strip the returned string in case that {@code prevSpaceAttr}
+   *          argument is null or the {@code node} has no attribute of name
+   *          {@code prevSpaceAttr}.
    * @param defaultValue
    *          the default value to be returned if the node is empty (i.e., no
    *          children). Note that the defaultValue could be null.
@@ -1975,24 +1975,24 @@ public final class DomUtils {
    *          a node. It must has one and only one text child.
    * @param prevSpaceAttr
    *          the attribute name of the "preserve space" attribute. If this
-   *          argument is not null and the <code>node</code> has the attribute
+   *          argument is not null and the {@code node} has the attribute
    *          with this name, the function will use the attribute value to
    *          decide whether to strip the returned string; otherwise, the
-   *          function will use the <code>defaultTrim</code> argument value to
+   *          function will use the {@code defaultTrim} argument value to
    *          decide whether to strip the returned string.
    * @param defaultTrim
    *          the function will use this argument value to decide whether to
-   *          strip the returned string in case that <code>prevSpaceAttr</code>
-   *          argument is null or the <code>node</code> has no attribute of name
-   *          <code>prevSpaceAttr</code>.
+   *          strip the returned string in case that {@code prevSpaceAttr}
+   *          argument is null or the {@code node} has no attribute of name
+   *          {@code prevSpaceAttr}.
    * @param allowEmpty
    *          whether the text content allows to be empty.
    * @return the character data of the ONLY text child node of a specified node.
    * @throws EmptyXmlNodeException
-   *           if the node has no children nodes or its <code>Text</code> child
+   *           if the node has no children nodes or its {@code Text} child
    *           node has an empty content.
    * @throws InvalidXmlNodeStructException
-   *           if the node has no <code>Text</code> child node.
+   *           if the node has no {@code Text} child node.
    */
   public static String getReqString(final Element node,
       @Nullable final String prevSpaceAttr, final boolean defaultTrim,
@@ -2255,7 +2255,7 @@ public final class DomUtils {
     return value;
   }
 
-  public static byte[] getReqByteArray(@Nullable final Element node,
+  public static byte[] getReqByteArray(final Element node,
       @Nullable final String separator) throws XmlException {
     final String str = getReqString(node, null, false, false);
     final HexCodec codec = new HexCodec();
@@ -2796,7 +2796,7 @@ public final class DomUtils {
   }
 
   @SuppressWarnings("unchecked")
-  public static <T> T getReqInstance(@Nullable final Element node)
+  public static <T> T getReqInstance(final Element node)
       throws XmlException {
     final String className = getReqString(node, null, true, false);
     try {
@@ -4700,7 +4700,7 @@ public final class DomUtils {
   public static void appendOptByteArrayChild(final Document doc,
       final Element parent, final String childName,
       @Nullable final byte[] value, @Nullable final byte[] defaultValue) {
-    if ((value != null) && (! value.equals(defaultValue))) {
+    if ((value != null) && (! Equality.equals(value, defaultValue))) {
       final Element node = doc.createElement(childName);
       final String str = ByteArrayUtils.toString(value);
       doc.setTextContent(str);

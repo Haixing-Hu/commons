@@ -19,16 +19,16 @@
 package com.github.haixing_hu.lang;
 
 /**
- * Thrown to indicate that an argument was <code>null</code> and should not have
+ * Thrown to indicate that an argument was {@code null} and should not have
  * been. This exception supplements the standard
- * <code>IllegalArgumentException</code> by providing a more semantically rich
+ * {@code IllegalArgumentException} by providing a more semantically rich
  * description of the problem.
  *
- * <code>NullArgumentException</code> represents the case where a method takes
- * in a parameter that must not be <code>null</code>. Some coding standards
- * would use <code>NullPointerException</code> for this case, others will use
- * <code>IllegalArgumentException</code>. Thus this exception would be used in
- * place of <code>IllegalArgumentException</code>, yet it still extends it.
+ * {@code NullArgumentException} represents the case where a method takes
+ * in a parameter that must not be {@code null}. Some coding standards
+ * would use {@code NullPointerException} for this case, others will use
+ * {@code IllegalArgumentException}. Thus this exception would be used in
+ * place of {@code IllegalArgumentException}, yet it still extends it.
  *
  * <pre>
  * public void foo(String str) {
@@ -54,7 +54,7 @@ public class NullArgumentException extends IllegalArgumentException {
    * Instantiates with the given argument name.
    *
    * @param argName
-   *          the name of the argument that was <code>null</code>.
+   *          the name of the argument that was {@code null}.
    */
   public NullArgumentException(final String argName) {
     super("The "

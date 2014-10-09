@@ -37,7 +37,7 @@ public class CollectionComparisonFailure extends AssertionError {
   private final AssertionError cause;
 
   /**
-   * Construct a new <code>CollectionComparisonFailure</code> with an error text
+   * Construct a new {@code CollectionComparisonFailure} with an error text
    * and the collection's dimension that was not equal
    *
    * @param cause

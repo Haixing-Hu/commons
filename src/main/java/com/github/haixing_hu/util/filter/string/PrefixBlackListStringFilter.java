@@ -24,9 +24,9 @@ import javax.annotation.concurrent.NotThreadSafe;
  * A string filter with a prefix black list.
  *
  * Given a string, if it has a prefix in the black list of a
- * <code>PrefixBlackListStringFilter</code> object, it is rejected by the
- * <code>PrefixBlackListStringFilter</code> object; otherwise, it is accepted by
- * the <code>PrefixBlackListStringFilter</code> object.
+ * {@code PrefixBlackListStringFilter} object, it is rejected by the
+ * {@code PrefixBlackListStringFilter} object; otherwise, it is accepted by
+ * the {@code PrefixBlackListStringFilter} object.
  *
  * @author Haixing Hu
  */

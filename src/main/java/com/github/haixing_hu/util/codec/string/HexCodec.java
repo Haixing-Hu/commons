@@ -25,7 +25,7 @@ import com.github.haixing_hu.lang.ArrayUtils;
 import com.github.haixing_hu.lang.ByteUtils;
 import com.github.haixing_hu.lang.StringUtils;
 import com.github.haixing_hu.lang.SystemUtils;
-import com.github.haixing_hu.text.ParsePosition;
+import com.github.haixing_hu.text.ParsingPosition;
 import com.github.haixing_hu.util.codec.Decoder;
 import com.github.haixing_hu.util.codec.Encoder;
 
@@ -60,7 +60,7 @@ public class HexCodec implements Encoder<byte[], String>,
   private boolean uppercaseDigit;
   private boolean skipBlanks;
   private int maxPerLine;
-  private final transient ParsePosition position;
+  private final transient ParsingPosition position;
   private final transient ArrayByteList byteList;
   private final transient StringBuilder builder;
 
@@ -71,7 +71,7 @@ public class HexCodec implements Encoder<byte[], String>,
     uppercaseDigit = DEFAULT_UPPERCASE_DIGIT;
     skipBlanks = DEFAULT_SKIP_BLANKS;
     maxPerLine = DEFAULT_MAX_PER_LINE;
-    position = new ParsePosition();
+    position = new ParsingPosition();
     byteList = new ArrayByteList();
     builder = new StringBuilder();
   }
@@ -221,7 +221,7 @@ public class HexCodec implements Encoder<byte[], String>,
     this.maxPerLine = maxPerLine;
   }
 
-  public ParsePosition getParsePosition() {
+  public ParsingPosition getParsePosition() {
     return position;
   }
 

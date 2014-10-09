@@ -61,7 +61,7 @@ public class EnumUtils {
    * @param enumClass
    *          The class object of the {@link Enum} class.
    * @return the {@link Enum} value corresponds to the name, or
-   *         <code>null</code> if no such value.
+   *         {@code null} if no such value.
    */
   public static <E extends Enum<E>> E forName(final String name,
       final boolean isShortName, final boolean ignoreCase,
@@ -85,7 +85,7 @@ public class EnumUtils {
    *          indicates whether to convert to short name of the enumerator. A
    *          short name of an {@link Enum} value comes from lowercase the
    *          enumeration name of the {@link Enum} value and replacing all '_'
-   *          with '-'. If this argument is <code>false</code>, the string
+   *          with '-'. If this argument is {@code false}, the string
    *          representation of an enumerator is its name (without case
    *          changing).
    * @return the string representation of the enumerator.

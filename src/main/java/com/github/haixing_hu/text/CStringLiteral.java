@@ -163,7 +163,7 @@ public class CStringLiteral {
    *          be null, and must has a non-zero length. Note also that this
    *          string should not contain any character greater than 0xFF.
    * @return the byte array of the decoded result.
-   * @throws ParseException
+   * @throws ParsingException
    *           if the given C-style string literal is ill-formed.
    */
   public static byte[] decode(final CharSequence str)
@@ -188,7 +188,7 @@ public class CStringLiteral {
    *          the current where to start parsing. The parsing will stop at the
    *          end of str.
    * @return the byte array of the decoded result.
-   * @throws ParseException
+   * @throws ParsingException
    *           if the given C-style string literal is ill-formed.
    */
   public static byte[] decode(final CharSequence str, final int startIndex)

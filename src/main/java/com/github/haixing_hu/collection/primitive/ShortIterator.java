@@ -19,17 +19,17 @@
 package com.github.haixing_hu.collection.primitive;
 
 /**
- * An iterator over <code>short</code> values.
+ * An iterator over {@code short} values.
  *
  * @author Haixing Hu
  */
 public interface ShortIterator {
   /**
-   * Returns <code>true</code> iff I have more elements. (In other words,
-   * returns <code>true</code> iff a subsequent call to {@link #next next} will
+   * Returns {@code true} iff I have more elements. (In other words,
+   * returns {@code true} iff a subsequent call to {@link #next next} will
    * return an element rather than throwing an exception.)
    *
-   * @return <code>true</code> iff I have more elements
+   * @return {@code true} iff I have more elements
    */
   boolean hasNext();
 

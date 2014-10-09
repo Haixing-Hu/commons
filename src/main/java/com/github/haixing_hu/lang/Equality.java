@@ -53,7 +53,7 @@ import com.github.haixing_hu.collection.primitive.ShortIterator;
 public final class Equality {
 
   /**
-   * Tests the equality of two <code>boolean</code> arrays.
+   * Tests the equality of two {@code boolean} arrays.
    *
    * @param array1
    *          the first array, which could be null.
@@ -75,7 +75,7 @@ public final class Equality {
   }
 
   /**
-   * Tests the equality of segments of two <code>boolean</code> arrays.
+   * Tests the equality of segments of two {@code boolean} arrays.
    *
    * @param array1
    *          the first array, which can't be null.
@@ -179,7 +179,7 @@ public final class Equality {
   }
 
   /**
-   * Tests the equality of two <code>char</code> arrays.
+   * Tests the equality of two {@code char} arrays.
    *
    * @param array1
    *          the first array, which could be null.
@@ -201,7 +201,7 @@ public final class Equality {
   }
 
   /**
-   * Tests the equality of segments of two <code>char</code> arrays.
+   * Tests the equality of segments of two {@code char} arrays.
    *
    * @param array1
    *          the first array, which can't be null.
@@ -242,9 +242,9 @@ public final class Equality {
    */
   public static boolean equals(@Nullable final Character value1,
       @Nullable final Character value2) {
-    if (value1 == value2) {
-      return true;
-    } else if ((value1 == null) || (value2 == null)) {
+    if (value1 == null) {
+      return (value2 == null);
+    } else if (value2 == null) {
       return false;
     } else {
       return value1.charValue() == value2.charValue();
@@ -305,7 +305,7 @@ public final class Equality {
   }
 
   /**
-   * Tests the equality of two <code>char</code> value ignoring the case.
+   * Tests the equality of two {@code char} value ignoring the case.
    *
    * @param ch1
    *          the first character.
@@ -319,7 +319,7 @@ public final class Equality {
   }
 
   /**
-   * Tests the equality of two <code>char</code> arrays ignoring the case.
+   * Tests the equality of two {@code char} arrays ignoring the case.
    *
    * @param array1
    *          the first array, which could be null.
@@ -342,7 +342,7 @@ public final class Equality {
   }
 
   /**
-   * Tests the equality of segments of two <code>char</code> arrays ignoring the
+   * Tests the equality of segments of two {@code char} arrays ignoring the
    * case.
    *
    * @param array1
@@ -386,9 +386,9 @@ public final class Equality {
    */
   public static boolean equalsIgnoreCase(@Nullable final Character value1,
       @Nullable final Character value2) {
-    if (value1 == value2) {
-      return true;
-    } else if ((value1 == null) || (value2 == null)) {
+    if (value1 == null) {
+      return (value2 == null);
+    } else if (value2 == null) {
       return false;
     } else {
       final char ch1 = value1.charValue();
@@ -454,7 +454,7 @@ public final class Equality {
   }
 
   /**
-   * Tests the equality of two <code>byte</code> arrays.
+   * Tests the equality of two {@code byte} arrays.
    *
    * @param array1
    *          the first array, which could be null.
@@ -476,7 +476,7 @@ public final class Equality {
   }
 
   /**
-   * Tests the equality of segments of two <code>byte</code> arrays.
+   * Tests the equality of segments of two {@code byte} arrays.
    *
    * @param array1
    *          the first array, which can't be null.
@@ -517,9 +517,9 @@ public final class Equality {
    */
   public static boolean equals(@Nullable final Byte value1,
       @Nullable final Byte value2) {
-    if (value1 == value2) {
-      return true;
-    } else if ((value1 == null) || (value2 == null)) {
+    if (value1 == null) {
+      return (value2 == null);
+    } else if (value2 == null) {
       return false;
     } else {
       return value1.byteValue() == value2.byteValue();
@@ -580,7 +580,7 @@ public final class Equality {
   }
 
   /**
-   * Tests the equality of two <code>short</code> arrays.
+   * Tests the equality of two {@code short} arrays.
    *
    * @param array1
    *          the first array, which could be null.
@@ -602,7 +602,7 @@ public final class Equality {
   }
 
   /**
-   * Tests the equality of segments of two <code>short</code> arrays.
+   * Tests the equality of segments of two {@code short} arrays.
    *
    * @param array1
    *          the first array, which can't be null.
@@ -643,9 +643,9 @@ public final class Equality {
    */
   public static boolean equals(@Nullable final Short value1,
       @Nullable final Short value2) {
-    if (value1 == value2) {
-      return true;
-    } else if ((value1 == null) || (value2 == null)) {
+    if (value1 == null) {
+      return (value2 == null);
+    } else if (value2 == null) {
       return false;
     } else {
       return value1.shortValue() == value2.shortValue();
@@ -706,7 +706,7 @@ public final class Equality {
   }
 
   /**
-   * Tests the equality of two <code>int</code> arrays.
+   * Tests the equality of two {@code int} arrays.
    *
    * @param array1
    *          the first array, which could be null.
@@ -728,7 +728,7 @@ public final class Equality {
   }
 
   /**
-   * Tests the equality of segments of two <code>int</code> arrays.
+   * Tests the equality of segments of two {@code int} arrays.
    *
    * @param array1
    *          the first array, which can't be null.
@@ -769,9 +769,9 @@ public final class Equality {
    */
   public static boolean equals(@Nullable final Integer value1,
       @Nullable final Integer value2) {
-    if (value1 == value2) {
-      return true;
-    } else if ((value1 == null) || (value2 == null)) {
+    if (value1 == null) {
+      return (value2 == null);
+    } else if (value2 == null) {
       return false;
     } else {
       return value1.intValue() == value2.intValue();
@@ -832,7 +832,7 @@ public final class Equality {
   }
 
   /**
-   * Tests the equality of two <code>long</code> arrays.
+   * Tests the equality of two {@code long} arrays.
    *
    * @param array1
    *          the first array, which could be null.
@@ -854,7 +854,7 @@ public final class Equality {
   }
 
   /**
-   * Tests the equality of segments of two <code>long</code> arrays.
+   * Tests the equality of segments of two {@code long} arrays.
    *
    * @param array1
    *          the first array, which can't be null.
@@ -895,9 +895,9 @@ public final class Equality {
    */
   public static boolean equals(@Nullable final Long value1,
       @Nullable final Long value2) {
-    if (value1 == value2) {
-      return true;
-    } else if ((value1 == null) || (value2 == null)) {
+    if (value1 == null) {
+      return (value2 == null);
+    } else if (value2 == null) {
       return false;
     } else {
       return value1.longValue() == value2.longValue();
@@ -958,7 +958,7 @@ public final class Equality {
   }
 
   /**
-   * Tests the equality of two <code>float</code> values exactly.
+   * Tests the equality of two {@code float} values exactly.
    * <p>
    * This function compare the float numbers with their bits representations,
    * therefore this function should be used to implement the
@@ -977,7 +977,7 @@ public final class Equality {
   }
 
   /**
-   * Tests the equality of two <code>float</code> arrays exactly.
+   * Tests the equality of two {@code float} arrays exactly.
    * <p>
    * This function compare the float numbers with their bits representations,
    * therefore this function should be used to implement the
@@ -1004,7 +1004,7 @@ public final class Equality {
   }
 
   /**
-   * Tests the equality of segments of two <code>float</code> arrays exactly.
+   * Tests the equality of segments of two {@code float} arrays exactly.
    * <p>
    * This function compare the float numbers with their bits representations,
    * therefore this function should be used to implement the
@@ -1056,9 +1056,9 @@ public final class Equality {
    */
   public static boolean equals(@Nullable final Float value1,
       @Nullable final Float value2) {
-    if (value1 == value2) {
-      return true;
-    } else if ((value1 == null) || (value2 == null)) {
+    if (value1 == null) {
+      return (value2 == null);
+    } else if (value2 == null) {
       return false;
     } else {
       final float x = value1.floatValue();
@@ -1131,7 +1131,7 @@ public final class Equality {
   }
 
   /**
-   * Tests the equality of the represented values of two <code>float</code>
+   * Tests the equality of the represented values of two {@code float}
    * numbers with regard to a given epsilon.
    * <p>
    * That is, if the distance between the two float numbers is less than or
@@ -1168,7 +1168,7 @@ public final class Equality {
   }
 
   /**
-   * Tests the equality of the represented values of two <code>float</code>
+   * Tests the equality of the represented values of two {@code float}
    * arrays with regard to a given epsilon.
    * <p>
    * That is, if the distance between the two float numbers is less than or
@@ -1209,7 +1209,7 @@ public final class Equality {
 
   /**
    * Tests the equality of the represented values of segments of two
-   * <code>float</code> arrays with regard to a given epsilon.
+   * {@code float} arrays with regard to a given epsilon.
    * <p>
    * That is, if the distance between the two float numbers is less than or
    * equal to the given epsilon, the two float numbers are considered to be
@@ -1285,9 +1285,9 @@ public final class Equality {
    */
   public static boolean valueEquals(@Nullable final Float value1,
       @Nullable final Float value2, final float epsilon) {
-    if (value1 == value2) {
-      return true;
-    } else if ((value1 == null) || (value2 == null)) {
+    if (value1 == null) {
+      return (value2 == null);
+    } else if (value2 == null) {
       return false;
     } else {
       final float x = value1.floatValue();
@@ -1386,7 +1386,7 @@ public final class Equality {
   }
 
   /**
-   * Tests the equality of two <code>double</code> values exactly.
+   * Tests the equality of two {@code double} values exactly.
    * <p>
    * This function compare the double numbers with their bits representations,
    * therefore this function should be used to implement the
@@ -1405,7 +1405,7 @@ public final class Equality {
   }
 
   /**
-   * Tests the equality of two <code>double</code> arrays exactly.
+   * Tests the equality of two {@code double} arrays exactly.
    * <p>
    * This function compare the double numbers with their bits representations,
    * therefore this function should be used to implement the
@@ -1432,7 +1432,7 @@ public final class Equality {
   }
 
   /**
-   * Tests the equality of segments of two <code>double</code> arrays exactly.
+   * Tests the equality of segments of two {@code double} arrays exactly.
    * <p>
    * This function compare the double numbers with their bits representations,
    * therefore this function should be used to implement the
@@ -1484,9 +1484,9 @@ public final class Equality {
    */
   public static boolean equals(@Nullable final Double value1,
       @Nullable final Double value2) {
-    if (value1 == value2) {
-      return true;
-    } else if ((value1 == null) || (value2 == null)) {
+    if (value1 == null) {
+      return (value2 == null);
+    } else if (value2 == null) {
       return false;
     } else {
       final double x = value1.doubleValue();
@@ -1559,7 +1559,7 @@ public final class Equality {
   }
 
   /**
-   * Tests the equality of the represented values of two <code>double</code>
+   * Tests the equality of the represented values of two {@code double}
    * numbers with regard to a given epsilon.
    * <p>
    * That is, if the distance between the two double numbers is less than or
@@ -1596,7 +1596,7 @@ public final class Equality {
   }
 
   /**
-   * Tests the equality of the represented values of two <code>double</code>
+   * Tests the equality of the represented values of two {@code double}
    * arrays with regard to a given epsilon.
    * <p>
    * That is, if the distance between the two double numbers is less than or
@@ -1637,7 +1637,7 @@ public final class Equality {
 
   /**
    * Tests the equality of the represented values of segments of two
-   * <code>double</code> arrays with regard to a given epsilon.
+   * {@code double} arrays with regard to a given epsilon.
    * <p>
    * That is, if the distance between the two double numbers is less than or
    * equal to the given epsilon, the two double numbers are considered to be
@@ -1713,9 +1713,9 @@ public final class Equality {
    */
   public static boolean valueEquals(@Nullable final Double value1,
       @Nullable final Double value2, final double epsilon) {
-    if (value1 == value2) {
-      return true;
-    } else if ((value1 == null) || (value2 == null)) {
+    if (value1 == null) {
+      return (value2 == null);
+    } else if (value2 == null) {
       return false;
     } else {
       final double x = value1.doubleValue();
@@ -1966,9 +1966,9 @@ public final class Equality {
    */
   public static boolean equalsIgnoreCase(@Nullable final String value1,
       @Nullable final String value2) {
-    if (value1 == value2) {
-      return true;
-    } else if ((value1 == null) || (value2 == null)) {
+    if (value1 == null) {
+      return (value2 == null);
+    } else if (value2 == null) {
       return false;
     } else {
       return value1.equalsIgnoreCase(value2);
@@ -2988,7 +2988,7 @@ public final class Equality {
   }
 
   /**
-   * Tests the equality of two <code>boolean</code> collections.
+   * Tests the equality of two {@code boolean} collections.
    *
    * @param col1
    *          the first collection, which may be null.
@@ -3021,7 +3021,7 @@ public final class Equality {
   }
 
   /**
-   * Tests the equality of two <code>char</code> collections.
+   * Tests the equality of two {@code char} collections.
    *
    * @param col1
    *          the first collection, which may be null.
@@ -3054,7 +3054,7 @@ public final class Equality {
   }
 
   /**
-   * Tests the equality of two <code>byte</code> collections.
+   * Tests the equality of two {@code byte} collections.
    *
    * @param col1
    *          the first collection, which may be null.
@@ -3087,7 +3087,7 @@ public final class Equality {
   }
 
   /**
-   * Tests the equality of two <code>short</code> collections.
+   * Tests the equality of two {@code short} collections.
    *
    * @param col1
    *          the first collection, which may be null.
@@ -3120,7 +3120,7 @@ public final class Equality {
   }
 
   /**
-   * Tests the equality of two <code>int</code> collections.
+   * Tests the equality of two {@code int} collections.
    *
    * @param col1
    *          the first collection, which may be null.
@@ -3153,7 +3153,7 @@ public final class Equality {
   }
 
   /**
-   * Tests the equality of two <code>long</code> collections.
+   * Tests the equality of two {@code long} collections.
    *
    * @param col1
    *          the first collection, which may be null.
@@ -3186,7 +3186,7 @@ public final class Equality {
   }
 
   /**
-   * Tests the equality of two <code>float</code> collections.
+   * Tests the equality of two {@code float} collections.
    * <p>
    * This function compare the float numbers with their bits representations,
    * therefore this function should be used to implement the
@@ -3224,7 +3224,7 @@ public final class Equality {
   }
 
   /**
-   * Tests the equality of the represented values of two <code>float</code>
+   * Tests the equality of the represented values of two {@code float}
    * collections with regard to a given epsilon.
    * <p>
    * That is, if the distance between the two float numbers is less than or
@@ -3269,7 +3269,7 @@ public final class Equality {
   }
 
   /**
-   * Tests the equality of two <code>double</code> collections.
+   * Tests the equality of two {@code double} collections.
    * <p>
    * This function compare the double numbers with their bits representations,
    * therefore this function should be used to implement the
@@ -3307,7 +3307,7 @@ public final class Equality {
   }
 
   /**
-   * Tests the equality of the represented values of two <code>double</code>
+   * Tests the equality of the represented values of two {@code double}
    * collections with regard to a given epsilon.
    * <p>
    * That is, if the distance between the two double numbers is less than or

@@ -24,7 +24,7 @@ import java.io.OutputStream;
 import javax.annotation.concurrent.Immutable;
 
 /**
- * A <code>NullOutputStream</code> object writes all data to the famous <b>/dev/null</b>.
+ * A {@code NullOutputStream} object writes all data to the famous <b>/dev/null</b>.
  *
  * <p>This output stream has no destination (file/socket etc.) and all bytes written to
  * it are ignored and lost.</p>
@@ -47,7 +47,7 @@ public final class NullOutputStream extends OutputStream {
   }
 
   /**
-   * Does nothing - output to <code>/dev/null</code>.
+   * Does nothing - output to {@code /dev/null}.
    *
    * @param b
    *          The bytes to write
@@ -62,7 +62,7 @@ public final class NullOutputStream extends OutputStream {
   }
 
   /**
-   * Does nothing - output to <code>/dev/null</code>.
+   * Does nothing - output to {@code /dev/null}.
    *
    * @param b
    *          The byte to write
@@ -73,7 +73,7 @@ public final class NullOutputStream extends OutputStream {
   }
 
   /**
-   * Does nothing - output to <code>/dev/null</code>.
+   * Does nothing - output to {@code /dev/null}.
    *
    * @param b
    *          The bytes to write

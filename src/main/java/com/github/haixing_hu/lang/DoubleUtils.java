@@ -26,15 +26,15 @@ import java.util.Date;
 import javax.annotation.Nullable;
 
 /**
- * This class provides operations on <code>double</code> primitives and
+ * This class provides operations on {@code double} primitives and
  * {@link Double} objects.
  * <p>
- * This class tries to handle <code>null</code> input gracefully. An exception
- * will not be thrown for a <code>null</code> input. Each method documents its
+ * This class tries to handle {@code null} input gracefully. An exception
+ * will not be thrown for a {@code null} input. Each method documents its
  * behavior in more detail.
  * </p>
  * <p>
- * This class also handle the conversion from <code>double</code> values or
+ * This class also handle the conversion from {@code double} values or
  * {@link Double} objects to common types.
  * </p>
  *
@@ -43,12 +43,12 @@ import javax.annotation.Nullable;
 public class DoubleUtils {
 
   /**
-   * The default <code>double</code> value used when necessary.
+   * The default {@code double} value used when necessary.
    */
   public static final double DEFAULT = 0.0;
 
   /**
-   * The default epsilon for <code>double</code> values.
+   * The default epsilon for {@code double} values.
    */
   public static final double EPSILON = 0.0000001;
 

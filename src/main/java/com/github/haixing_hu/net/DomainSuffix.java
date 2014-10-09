@@ -31,7 +31,7 @@ import com.github.haixing_hu.text.tostring.ToStringBuilder;
  * authorities, not individuals. This information is needed to find the domain
  * name of a host. The domain name of a host is defined to be the last part
  * before the domain suffix, without sub-domain names. As an example the domain
- * name of <code> http://www.sina.com.cn/</code> is <code>sina.com.cn</code>.
+ * name of {@code  http://www.sina.com.cn/} is {@code sina.com.cn}.
  *
  * This class holds two fields, <strong>domain</strong> field represents the
  * suffix (such as "co.uk"), <strong>status</strong> field represents domain's

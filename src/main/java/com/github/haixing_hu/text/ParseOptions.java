@@ -20,7 +20,6 @@ package com.github.haixing_hu.text;
 
 import java.io.Serializable;
 
-import com.github.haixing_hu.lang.Cloneable;
 import com.github.haixing_hu.lang.Hash;
 import com.github.haixing_hu.text.tostring.ToStringBuilder;
 
@@ -30,7 +29,7 @@ import com.github.haixing_hu.text.tostring.ToStringBuilder;
  *
  * @author Haixing Hu
  */
-public class ParseOptions implements Serializable, Cloneable<ParseOptions> {
+public class ParseOptions implements Serializable {
 
   private static final long serialVersionUID = 1340148038313182446L;
 
@@ -85,6 +84,12 @@ public class ParseOptions implements Serializable, Cloneable<ParseOptions> {
     this.maxDigits = maxDigits;
   }
 
+  public ParseOptions(ParseOptions other) {
+    flags = other.flags;
+    defaultRadix = other.defaultRadix;
+    maxDigits = other.maxDigits;
+  }
+
   public final int getFlags() {
     return flags;
   }
@@ -119,7 +124,7 @@ public class ParseOptions implements Serializable, Cloneable<ParseOptions> {
   }
 
   public void resetMaxDigits() {
-    this.maxDigits = DEFAULT_MAX_DIGITS;
+    maxDigits = DEFAULT_MAX_DIGITS;
   }
 
   public final boolean isBoolAlpha() {
@@ -277,15 +282,6 @@ public class ParseOptions implements Serializable, Cloneable<ParseOptions> {
     flags = DEFAULT_FLAGS;
     defaultRadix = DEFAULT_RADIX;
     maxDigits = DEFAULT_MAX_DIGITS;
-  }
-
-  @Override
-  public ParseOptions clone() {
-    final ParseOptions cloned = new ParseOptions();
-    cloned.flags = flags;
-    cloned.defaultRadix = defaultRadix;
-    cloned.maxDigits = maxDigits;
-    return cloned;
   }
 
   @Override

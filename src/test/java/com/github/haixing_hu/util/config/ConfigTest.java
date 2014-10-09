@@ -47,11 +47,9 @@ import com.github.haixing_hu.collection.primitive.impl.ArrayShortList;
 import com.github.haixing_hu.lang.Equality;
 import com.github.haixing_hu.lang.SystemUtils;
 import com.github.haixing_hu.lang.Type;
-import com.github.haixing_hu.util.config.Config;
-import com.github.haixing_hu.util.config.MergingPolicy;
 import com.github.haixing_hu.util.config.error.ConfigurationError;
 import com.github.haixing_hu.util.config.impl.DefaultConfig;
-import com.github.haixing_hu.util.config.impl.DefaultProperty;
+import com.github.haixing_hu.util.value.MultiValues;
 
 import static org.junit.Assert.*;
 
@@ -1404,7 +1402,7 @@ public class ConfigTest {
     }
 
     config.setFinal("prop1", true);
-    assertSame(DefaultProperty.DEFAULT_TYPE, config.getType("prop1"));
+    assertSame(MultiValues.DEFAULT_TYPE, config.getType("prop1"));
 
     config.setType("prop1", Type.INT);
     assertSame(Type.INT, config.getType("prop1"));

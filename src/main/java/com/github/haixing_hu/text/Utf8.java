@@ -334,7 +334,7 @@ public final class Utf8 {
    *           startIndex is a trailing byte, if it is, an INCOMPLETE_UNICODE
    *           will be returned; otherwise, a 0 will be returned.
    */
-  public static int setToStart(final ParsePosition pos, final byte[] buffer,
+  public static int setToStart(final ParsingPosition pos, final byte[] buffer,
       final int startIndex) {
     final int index = pos.getIndex();
     if ((startIndex < 0) || (index < startIndex)) {
@@ -401,7 +401,7 @@ public final class Utf8 {
    *           if current.value == endIndex, the function does nothing and returns
    *           0.
    */
-  public static int setToTerminal(final ParsePosition pos, final byte[] buffer,
+  public static int setToTerminal(final ParsingPosition pos, final byte[] buffer,
       final int endIndex) {
     final int index = pos.getIndex();
     if ((endIndex > buffer.length) || (index > endIndex)) {
@@ -468,7 +468,7 @@ public final class Utf8 {
    *           if current.value == endIndex, the function does nothing and returns
    *           0.
    */
-  public static int forward(final ParsePosition pos, final byte[] buffer,
+  public static int forward(final ParsingPosition pos, final byte[] buffer,
       final int endIndex) {
     final int index = pos.getIndex();
     if ((endIndex > buffer.length) || (index > endIndex)) {
@@ -542,7 +542,7 @@ public final class Utf8 {
    *           current.value == startIndex, the function does nothing and returns
    *           0.
    */
-  public static int backward(final ParsePosition pos, final byte[] buffer,
+  public static int backward(final ParsingPosition pos, final byte[] buffer,
       final int startIndex) {
     final int index = pos.getIndex();
     if ((startIndex < 0) || (index < startIndex)) {
@@ -622,7 +622,7 @@ public final class Utf8 {
    *           if current.value == endIndex, the function does nothing and returns
    *           0.
    */
-  public static int getNext(final ParsePosition pos, final byte[] buffer,
+  public static int getNext(final ParsingPosition pos, final byte[] buffer,
       final int endIndex) {
     final int index = pos.getIndex();
     if ((endIndex > buffer.length) || (index > endIndex)) {
@@ -788,7 +788,7 @@ public final class Utf8 {
    *           current.value == startIndex, the function does nothing and returns
    *           0.
    */
-  public static int getPrevious(final ParsePosition pos, final byte[] buffer,
+  public static int getPrevious(final ParsingPosition pos, final byte[] buffer,
       final int startIndex) {
     final int index = pos.getIndex();
     if ((startIndex < 0) || (index < startIndex)) {

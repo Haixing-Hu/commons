@@ -28,7 +28,7 @@ import com.github.haixing_hu.io.exception.AlreadyClosedException;
 
 /**
  * A {@link SeekableOutputStream} which writes data to a file using the
- * <code>java.nio</code> APIs.
+ * {@code java.nio} APIs.
  *
  * @author Haixing Hu
  */

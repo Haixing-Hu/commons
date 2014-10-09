@@ -43,11 +43,11 @@ public final class ResourceUtils {
    * The name may have one of the following formats:
    * </p>
    *
-   * <code>
+   * {@code 
    *  [bundleName].properties
    *  [bundleName]_[language].properties
    *  [bundleName]_[language]_[country].properties
-   * </code>
+   * }
    *
    * <p>
    * where [bundleName] is the name of the bundle, which can not contains the

@@ -41,7 +41,7 @@ public class BasicNamedValue extends BasicValue implements NamedValue {
 
   public BasicNamedValue() {
     super();
-    this.name = StringUtils.EMPTY;
+    name = StringUtils.EMPTY;
   }
 
   public BasicNamedValue(final String name) {
@@ -136,9 +136,8 @@ public class BasicNamedValue extends BasicValue implements NamedValue {
 
   @Override
   public BasicNamedValue clone() {
-    final BasicNamedValue result = new BasicNamedValue();
-    result.name = this.name;
-    result.assignValue(this);
+    final BasicNamedValue result = (BasicNamedValue) super.clone();
+    result.name = name;
     return result;
   }
 

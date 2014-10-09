@@ -53,16 +53,13 @@ public abstract class AbstractConfig implements Config, Serializable {
   protected static Logger LOGGER = LoggerFactory.getLogger(AbstractConfig.class);
 
   @Override
-  public abstract Config clone();
-
-  @Override
   public boolean isEmpty() {
     return size() == 0;
   }
 
   @Override
   public String getDescription(final String name) {
-    final Property prop = this.get(name);
+    final Property prop = get(name);
     if (prop == null) {
       throw new PropertyNotExistError(name);
     }
@@ -71,7 +68,7 @@ public abstract class AbstractConfig implements Config, Serializable {
 
   @Override
   public Type getType(final String name) {
-    final Property prop = this.get(name);
+    final Property prop = get(name);
     if (prop == null) {
       throw new PropertyNotExistError(name);
     }
@@ -80,7 +77,7 @@ public abstract class AbstractConfig implements Config, Serializable {
 
   @Override
   public boolean isFinal(final String name) {
-    final Property prop = this.get(name);
+    final Property prop = get(name);
     if (prop == null) {
       throw new PropertyNotExistError(name);
     }
@@ -89,7 +86,7 @@ public abstract class AbstractConfig implements Config, Serializable {
 
   @Override
   public int getCount(final String name) {
-    final Property prop = this.get(name);
+    final Property prop = get(name);
     if (prop == null) {
       return 0;
     } else {
@@ -99,7 +96,7 @@ public abstract class AbstractConfig implements Config, Serializable {
 
   @Override
   public boolean getBoolean(final String name) {
-    final Property prop = this.get(name);
+    final Property prop = get(name);
     if (prop == null) {
       throw new PropertyNotExistError(name);
     }
@@ -111,7 +108,7 @@ public abstract class AbstractConfig implements Config, Serializable {
 
   @Override
   public boolean getBoolean(final String name, final boolean defaultValue) {
-    final Property prop = this.get(name);
+    final Property prop = get(name);
     if ((prop == null) || prop.isEmpty()) {
       return defaultValue;
     }
@@ -120,7 +117,7 @@ public abstract class AbstractConfig implements Config, Serializable {
 
   @Override
   public boolean[] getBooleans(final String name) {
-    final Property prop = this.get(name);
+    final Property prop = get(name);
     if (prop == null) {
       throw new PropertyNotExistError(name);
     }
@@ -130,7 +127,7 @@ public abstract class AbstractConfig implements Config, Serializable {
   @Override
   public boolean[] getBooleans(final String name,
       @Nullable final boolean[] defaultValues) {
-    final Property prop = this.get(name);
+    final Property prop = get(name);
     if (prop == null) {
       return defaultValues;
     }
@@ -139,7 +136,7 @@ public abstract class AbstractConfig implements Config, Serializable {
 
   @Override
   public char getChar(final String name) {
-    final Property prop = this.get(name);
+    final Property prop = get(name);
     if (prop == null) {
       throw new PropertyNotExistError(name);
     }
@@ -151,7 +148,7 @@ public abstract class AbstractConfig implements Config, Serializable {
 
   @Override
   public char getChar(final String name, final char defaultValue) {
-    final Property prop = this.get(name);
+    final Property prop = get(name);
     if ((prop == null) || prop.isEmpty()) {
       return defaultValue;
     }
@@ -160,7 +157,7 @@ public abstract class AbstractConfig implements Config, Serializable {
 
   @Override
   public char[] getChars(final String name) {
-    final Property prop = this.get(name);
+    final Property prop = get(name);
     if (prop == null) {
       throw new PropertyNotExistError(name);
     }
@@ -169,7 +166,7 @@ public abstract class AbstractConfig implements Config, Serializable {
 
   @Override
   public char[] getChars(final String name, @Nullable final char[] defaultValues) {
-    final Property prop = this.get(name);
+    final Property prop = get(name);
     if (prop == null) {
       return defaultValues;
     }
@@ -178,7 +175,7 @@ public abstract class AbstractConfig implements Config, Serializable {
 
   @Override
   public byte getByte(final String name) {
-    final Property prop = this.get(name);
+    final Property prop = get(name);
     if (prop == null) {
       throw new PropertyNotExistError(name);
     }
@@ -190,7 +187,7 @@ public abstract class AbstractConfig implements Config, Serializable {
 
   @Override
   public byte getByte(final String name, final byte defaultValue) {
-    final Property prop = this.get(name);
+    final Property prop = get(name);
     if ((prop == null) || prop.isEmpty()) {
       return defaultValue;
     }
@@ -199,7 +196,7 @@ public abstract class AbstractConfig implements Config, Serializable {
 
   @Override
   public byte[] getBytes(final String name) {
-    final Property prop = this.get(name);
+    final Property prop = get(name);
     if (prop == null) {
       throw new PropertyNotExistError(name);
     }
@@ -208,7 +205,7 @@ public abstract class AbstractConfig implements Config, Serializable {
 
   @Override
   public byte[] getBytes(final String name, @Nullable final byte[] defaultValues) {
-    final Property prop = this.get(name);
+    final Property prop = get(name);
     if (prop == null) {
       return defaultValues;
     }
@@ -217,7 +214,7 @@ public abstract class AbstractConfig implements Config, Serializable {
 
   @Override
   public short getShort(final String name) {
-    final Property prop = this.get(name);
+    final Property prop = get(name);
     if (prop == null) {
       throw new PropertyNotExistError(name);
     }
@@ -229,7 +226,7 @@ public abstract class AbstractConfig implements Config, Serializable {
 
   @Override
   public short getShort(final String name, final short defaultValue) {
-    final Property prop = this.get(name);
+    final Property prop = get(name);
     if ((prop == null) || prop.isEmpty()) {
       return defaultValue;
     }
@@ -238,7 +235,7 @@ public abstract class AbstractConfig implements Config, Serializable {
 
   @Override
   public short[] getShorts(final String name) {
-    final Property prop = this.get(name);
+    final Property prop = get(name);
     if (prop == null) {
       throw new PropertyNotExistError(name);
     }
@@ -248,7 +245,7 @@ public abstract class AbstractConfig implements Config, Serializable {
   @Override
   public short[] getShorts(final String name,
       @Nullable final short[] defaultValues) {
-    final Property prop = this.get(name);
+    final Property prop = get(name);
     if (prop == null) {
       return defaultValues;
     }
@@ -257,7 +254,7 @@ public abstract class AbstractConfig implements Config, Serializable {
 
   @Override
   public int getInt(final String name) {
-    final Property prop = this.get(name);
+    final Property prop = get(name);
     if (prop == null) {
       throw new PropertyNotExistError(name);
     }
@@ -269,7 +266,7 @@ public abstract class AbstractConfig implements Config, Serializable {
 
   @Override
   public int getInt(final String name, final int defaultValue) {
-    final Property prop = this.get(name);
+    final Property prop = get(name);
     if ((prop == null) || prop.isEmpty()) {
       return defaultValue;
     }
@@ -278,7 +275,7 @@ public abstract class AbstractConfig implements Config, Serializable {
 
   @Override
   public int[] getInts(final String name) {
-    final Property prop = this.get(name);
+    final Property prop = get(name);
     if (prop == null) {
       throw new PropertyNotExistError(name);
     }
@@ -287,7 +284,7 @@ public abstract class AbstractConfig implements Config, Serializable {
 
   @Override
   public int[] getInts(final String name, @Nullable final int[] defaultValues) {
-    final Property prop = this.get(name);
+    final Property prop = get(name);
     if (prop == null) {
       return defaultValues;
     }
@@ -296,7 +293,7 @@ public abstract class AbstractConfig implements Config, Serializable {
 
   @Override
   public long getLong(final String name) {
-    final Property prop = this.get(name);
+    final Property prop = get(name);
     if (prop == null) {
       throw new PropertyNotExistError(name);
     }
@@ -308,7 +305,7 @@ public abstract class AbstractConfig implements Config, Serializable {
 
   @Override
   public long getLong(final String name, final long defaultValue) {
-    final Property prop = this.get(name);
+    final Property prop = get(name);
     if ((prop == null) || prop.isEmpty()) {
       return defaultValue;
     }
@@ -317,7 +314,7 @@ public abstract class AbstractConfig implements Config, Serializable {
 
   @Override
   public long[] getLongs(final String name) {
-    final Property prop = this.get(name);
+    final Property prop = get(name);
     if (prop == null) {
       throw new PropertyNotExistError(name);
     }
@@ -326,7 +323,7 @@ public abstract class AbstractConfig implements Config, Serializable {
 
   @Override
   public long[] getLongs(final String name, @Nullable final long[] defaultValues) {
-    final Property prop = this.get(name);
+    final Property prop = get(name);
     if (prop == null) {
       return defaultValues;
     }
@@ -335,7 +332,7 @@ public abstract class AbstractConfig implements Config, Serializable {
 
   @Override
   public float getFloat(final String name) {
-    final Property prop = this.get(name);
+    final Property prop = get(name);
     if (prop == null) {
       throw new PropertyNotExistError(name);
     }
@@ -347,7 +344,7 @@ public abstract class AbstractConfig implements Config, Serializable {
 
   @Override
   public float getFloat(final String name, final float defaultValue) {
-    final Property prop = this.get(name);
+    final Property prop = get(name);
     if ((prop == null) || prop.isEmpty()) {
       return defaultValue;
     }
@@ -356,7 +353,7 @@ public abstract class AbstractConfig implements Config, Serializable {
 
   @Override
   public float[] getFloats(final String name) {
-    final Property prop = this.get(name);
+    final Property prop = get(name);
     if (prop == null) {
       throw new PropertyNotExistError(name);
     }
@@ -366,7 +363,7 @@ public abstract class AbstractConfig implements Config, Serializable {
   @Override
   public float[] getFloats(final String name,
       @Nullable final float[] defaultValues) {
-    final Property prop = this.get(name);
+    final Property prop = get(name);
     if (prop == null) {
       return defaultValues;
     }
@@ -375,7 +372,7 @@ public abstract class AbstractConfig implements Config, Serializable {
 
   @Override
   public double getDouble(final String name) {
-    final Property prop = this.get(name);
+    final Property prop = get(name);
     if (prop == null) {
       throw new PropertyNotExistError(name);
     }
@@ -387,7 +384,7 @@ public abstract class AbstractConfig implements Config, Serializable {
 
   @Override
   public double getDouble(final String name, final double defaultValue) {
-    final Property prop = this.get(name);
+    final Property prop = get(name);
     if ((prop == null) || prop.isEmpty()) {
       return defaultValue;
     }
@@ -396,7 +393,7 @@ public abstract class AbstractConfig implements Config, Serializable {
 
   @Override
   public double[] getDoubles(final String name) {
-    final Property prop = this.get(name);
+    final Property prop = get(name);
     if (prop == null) {
       throw new PropertyNotExistError(name);
     }
@@ -406,7 +403,7 @@ public abstract class AbstractConfig implements Config, Serializable {
   @Override
   public double[] getDoubles(final String name,
       @Nullable final double[] defaultValues) {
-    final Property prop = this.get(name);
+    final Property prop = get(name);
     if (prop == null) {
       return defaultValues;
     }
@@ -415,7 +412,7 @@ public abstract class AbstractConfig implements Config, Serializable {
 
   @Override
   public String getRawString(final String name) {
-    final Property prop = this.get(name);
+    final Property prop = get(name);
     if (prop == null) {
       throw new PropertyNotExistError(name);
     }
@@ -428,7 +425,7 @@ public abstract class AbstractConfig implements Config, Serializable {
   @Override
   public String getRawString(final String name,
       @Nullable final String defaultValue) {
-    final Property prop = this.get(name);
+    final Property prop = get(name);
     if ((prop == null) || prop.isEmpty()) {
       return defaultValue;
     }
@@ -437,7 +434,7 @@ public abstract class AbstractConfig implements Config, Serializable {
 
   @Override
   public String[] getRawStrings(final String name) {
-    final Property prop = this.get(name);
+    final Property prop = get(name);
     if (prop == null) {
       throw new PropertyNotExistError(name);
     }
@@ -447,7 +444,7 @@ public abstract class AbstractConfig implements Config, Serializable {
   @Override
   public String[] getRawStrings(final String name,
       @Nullable final String[] defaultValues) {
-    final Property prop = this.get(name);
+    final Property prop = get(name);
     if (prop == null) {
       return defaultValues;
     }
@@ -515,7 +512,7 @@ public abstract class AbstractConfig implements Config, Serializable {
       // now find the substituted value
       String varValue = null;
       // try to find the name in this DefaultConfiguration object
-      final Property varItem = this.get(varName);
+      final Property varItem = get(varName);
       if (varItem != null) {
         try {
           varValue = varItem.getValueAsString();
@@ -564,7 +561,7 @@ public abstract class AbstractConfig implements Config, Serializable {
 
   @Override
   public BigDecimal getBigDecimal(final String name) {
-    final Property prop = this.get(name);
+    final Property prop = get(name);
     if (prop == null) {
       throw new PropertyNotExistError(name);
     }
@@ -577,7 +574,7 @@ public abstract class AbstractConfig implements Config, Serializable {
   @Override
   public BigDecimal getBigDecimal(final String name,
       @Nullable final BigDecimal defaultValue) {
-    final Property prop = this.get(name);
+    final Property prop = get(name);
     if ((prop == null) || prop.isEmpty()) {
       return defaultValue;
     }
@@ -586,7 +583,7 @@ public abstract class AbstractConfig implements Config, Serializable {
 
   @Override
   public BigDecimal[] getBigDecimals(final String name) {
-    final Property prop = this.get(name);
+    final Property prop = get(name);
     if (prop == null) {
       throw new PropertyNotExistError(name);
     }
@@ -596,7 +593,7 @@ public abstract class AbstractConfig implements Config, Serializable {
   @Override
   public BigDecimal[] getBigDecimals(final String name,
       @Nullable final BigDecimal[] defaultValues) {
-    final Property prop = this.get(name);
+    final Property prop = get(name);
     if (prop == null) {
       return defaultValues;
     }
@@ -605,7 +602,7 @@ public abstract class AbstractConfig implements Config, Serializable {
 
   @Override
   public BigInteger getBigInteger(final String name) {
-    final Property prop = this.get(name);
+    final Property prop = get(name);
     if (prop == null) {
       throw new PropertyNotExistError(name);
     }
@@ -618,7 +615,7 @@ public abstract class AbstractConfig implements Config, Serializable {
   @Override
   public BigInteger getBigInteger(final String name,
       @Nullable final BigInteger defaultValue) {
-    final Property prop = this.get(name);
+    final Property prop = get(name);
     if ((prop == null) || prop.isEmpty()) {
       return defaultValue;
     }
@@ -627,7 +624,7 @@ public abstract class AbstractConfig implements Config, Serializable {
 
   @Override
   public BigInteger[] getBigIntegers(final String name) {
-    final Property prop = this.get(name);
+    final Property prop = get(name);
     if (prop == null) {
       throw new PropertyNotExistError(name);
     }
@@ -637,7 +634,7 @@ public abstract class AbstractConfig implements Config, Serializable {
   @Override
   public BigInteger[] getBigIntegers(final String name,
       @Nullable final BigInteger[] defaultValues) {
-    final Property prop = this.get(name);
+    final Property prop = get(name);
     if (prop == null) {
       return defaultValues;
     }
@@ -646,7 +643,7 @@ public abstract class AbstractConfig implements Config, Serializable {
 
   @Override
   public Date getDate(final String name) {
-    final Property prop = this.get(name);
+    final Property prop = get(name);
     if (prop == null) {
       throw new PropertyNotExistError(name);
     }
@@ -658,7 +655,7 @@ public abstract class AbstractConfig implements Config, Serializable {
 
   @Override
   public Date getDate(final String name, @Nullable final Date defaultValue) {
-    final Property prop = this.get(name);
+    final Property prop = get(name);
     if ((prop == null) || prop.isEmpty()) {
       return defaultValue;
     }
@@ -667,7 +664,7 @@ public abstract class AbstractConfig implements Config, Serializable {
 
   @Override
   public Date[] getDates(final String name) {
-    final Property prop = this.get(name);
+    final Property prop = get(name);
     if (prop == null) {
       throw new PropertyNotExistError(name);
     }
@@ -676,7 +673,7 @@ public abstract class AbstractConfig implements Config, Serializable {
 
   @Override
   public Date[] getDates(final String name, @Nullable final Date[] defaultValues) {
-    final Property prop = this.get(name);
+    final Property prop = get(name);
     if (prop == null) {
       return defaultValues;
     }
@@ -685,7 +682,7 @@ public abstract class AbstractConfig implements Config, Serializable {
 
   @Override
   public byte[] getByteArray(final String name) {
-    final Property prop = this.get(name);
+    final Property prop = get(name);
     if (prop == null) {
       throw new PropertyNotExistError(name);
     }
@@ -698,7 +695,7 @@ public abstract class AbstractConfig implements Config, Serializable {
   @Override
   public byte[] getByteArray(final String name,
       @Nullable final byte[] defaultValue) {
-    final Property prop = this.get(name);
+    final Property prop = get(name);
     if ((prop == null) || prop.isEmpty()) {
       return defaultValue;
     }
@@ -707,7 +704,7 @@ public abstract class AbstractConfig implements Config, Serializable {
 
   @Override
   public byte[][] getByteArrays(final String name) {
-    final Property prop = this.get(name);
+    final Property prop = get(name);
     if (prop == null) {
       throw new PropertyNotExistError(name);
     }
@@ -717,7 +714,7 @@ public abstract class AbstractConfig implements Config, Serializable {
   @Override
   public byte[][] getByteArrays(final String name,
       @Nullable final byte[][] defaultValues) {
-    final Property prop = this.get(name);
+    final Property prop = get(name);
     if (prop == null) {
       return defaultValues;
     }
@@ -726,7 +723,7 @@ public abstract class AbstractConfig implements Config, Serializable {
 
   @Override
   public Class<?> getClass(final String name) {
-    final Property prop = this.get(name);
+    final Property prop = get(name);
     if (prop == null) {
       throw new PropertyNotExistError(name);
     }
@@ -739,7 +736,7 @@ public abstract class AbstractConfig implements Config, Serializable {
   @Override
   public Class<?> getClass(final String name,
       @Nullable final Class<?> defaultValue) {
-    final Property prop = this.get(name);
+    final Property prop = get(name);
     if ((prop == null) || prop.isEmpty()) {
       return defaultValue;
     }
@@ -749,7 +746,7 @@ public abstract class AbstractConfig implements Config, Serializable {
   @Override
   public Class<?> getClass(final String name,
       @Nullable final String defaultClassName) {
-    final Property prop = this.get(name);
+    final Property prop = get(name);
     if ((prop == null) || (prop.getCount() == 0)) {
       if (defaultClassName == null) {
         return null;
@@ -767,7 +764,7 @@ public abstract class AbstractConfig implements Config, Serializable {
 
   @Override
   public Class<?>[] getClasses(final String name) {
-    final Property prop = this.get(name);
+    final Property prop = get(name);
     if (prop == null) {
       throw new PropertyNotExistError(name);
     }
@@ -777,7 +774,7 @@ public abstract class AbstractConfig implements Config, Serializable {
   @Override
   public Class<?>[] getClasses(final String name,
       @Nullable final Class<?>[] defaultValues) {
-    final Property prop = this.get(name);
+    final Property prop = get(name);
     if (prop == null) {
       return defaultValues;
     }
@@ -787,7 +784,7 @@ public abstract class AbstractConfig implements Config, Serializable {
   @Override
   public Class<?>[] getClasses(final String name,
       @Nullable final String[] defaultClassNames) {
-    final Property prop = this.get(name);
+    final Property prop = get(name);
     if (prop == null) {
       if (defaultClassNames == null) {
         return null;
@@ -988,4 +985,14 @@ public abstract class AbstractConfig implements Config, Serializable {
       throw new ConfigurationError(e);
     }
   }
+
+  @Override
+  public Config clone() {
+    try {
+      return (Config) super.clone();
+    } catch (final CloneNotSupportedException e) {
+      throw new UnsupportedOperationException(e);
+    }
+  }
+
 }

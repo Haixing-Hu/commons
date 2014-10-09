@@ -47,7 +47,7 @@ import static com.github.haixing_hu.lang.Argument.*;
  * <li>Deserialize managing finally and IOException
  * </ul>
  *
- * This class throws exceptions for invalid <code>null</code> inputs. Each
+ * This class throws exceptions for invalid {@code null} inputs. Each
  * method documents its behavior in more detail.
  *
  * @ThreadSafe
@@ -58,7 +58,7 @@ public final class Serializer {
   private Serializer() {}
 
   /**
-   * Serializes an <code>Object</code> to the specified stream.
+   * Serializes an {@code Object} to the specified stream.
    *
    * The stream will be closed once the object is written. This avoids the need
    * for a finally clause, and maybe also exception handling, in the application
@@ -73,8 +73,8 @@ public final class Serializer {
    *          the stream to write to, must not be null
    * @throws SerializationException
    * @throws NullPointerException
-   *           if <code>object</code> or <code>output</code> is
-   *           <code>null</code>
+   *           if {@code object} or {@code output} is
+   *           {@code null}
    * @throws SerializationException
    *           if the serialization failed.
    */
@@ -95,7 +95,7 @@ public final class Serializer {
   }
 
   /**
-   * Serializes an <code>Object</code> to a file for storage/serialization.
+   * Serializes an {@code Object} to a file for storage/serialization.
    *
    * @param object
    *          the object to serialize to bytes
@@ -103,8 +103,8 @@ public final class Serializer {
    *          the abstract pathname of the file to store the serialization of
    *          the object.
    * @throws NullPointerException
-   *           if <code>object</code> or <code>file</code> is
-   *           <code>null</code>
+   *           if {@code object} or {@code file} is
+   *           {@code null}
    * @throws SerializationException
    *           if the serialization failed.
    */
@@ -131,14 +131,14 @@ public final class Serializer {
   }
 
   /**
-   * Serializes an <code>Object</code> to a byte array for
+   * Serializes an {@code Object} to a byte array for
    * storage/serialization.
    *
    * @param object
    *          the object to serialize to bytes
    * @return a byte array for the converted Serializable object.
    * @throws NullPointerException
-   *           if <code>object</code> is <code>null</code>.
+   *           if {@code object} is {@code null}.
    * @throws SerializationException
    *           if the serialization failed.
    */
@@ -160,7 +160,7 @@ public final class Serializer {
   }
 
   /**
-   * Deserializes an <code>Object</code> from the specified stream.
+   * Deserializes an {@code Object} from the specified stream.
    *
    * The stream will be closed once the object is written. This avoids the need
    * for a finally clause, and maybe also exception handling, in the application
@@ -174,7 +174,7 @@ public final class Serializer {
    * @return the deserialized object
    * @throws IOException
    * @throws NullPointerException
-   *           if <code>inputStream</code> is <code>null</code>
+   *           if {@code inputStream} is {@code null}
    * @throws SerializationException
    *           if the deserialization failed.
    */
@@ -197,14 +197,14 @@ public final class Serializer {
   }
 
   /**
-   * Deserializes a single <code>Object</code> from a file.
+   * Deserializes a single {@code Object} from a file.
    *
    * @param file
    *          the abstract pathname of a file.
    * @return the deserialized object
    * @throws SerializationException
    * @throws NullPointerException
-   *           if <code>file</code> is <code>null</code>.
+   *           if {@code file} is {@code null}.
    * @throws SerializationException
    *           if the deserialization failed.
    */
@@ -231,14 +231,14 @@ public final class Serializer {
   }
 
   /**
-   * Deserializes a single <code>Object</code> from a URL.
+   * Deserializes a single {@code Object} from a URL.
    *
    * @param url
    *          a URL.
    * @return the deserialized object
    * @throws SerializationException
    * @throws NullPointerException
-   *           if <code>url</code> is <code>null</code>.
+   *           if {@code url} is {@code null}.
    * @throws SerializationException
    *           if the deserialization failed.
    */
@@ -265,14 +265,14 @@ public final class Serializer {
   }
 
   /**
-   * Deserializes a single <code>Object</code> from an array of bytes.
+   * Deserializes a single {@code Object} from an array of bytes.
    *
    * @param data
    *          the serialized object, must not be null
    * @return the deserialized object
    * @throws SerializationException
    * @throws NullPointerException
-   *           if <code>objectData</code> is <code>null</code> or empty.
+   *           if {@code objectData} is {@code null} or empty.
    * @throws SerializationException
    *           if the deserialization failed.
    */

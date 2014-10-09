@@ -21,9 +21,9 @@ package com.github.haixing_hu.text.tostring;
 import javax.annotation.concurrent.Immutable;
 
 /**
- * The short prefix <code>toString()</code> style.
+ * The short prefix {@code toString()} style.
  * <p>
- * Using the <code>Person</code> example from {@link ToStringBuilder}, the
+ * Using the {@code Person} example from {@link ToStringBuilder}, the
  * output would look like this:
  * </p>
  *

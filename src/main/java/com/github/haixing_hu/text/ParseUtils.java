@@ -35,7 +35,7 @@ public final class ParseUtils {
    * returns the first current of graph character.
    *
    * @param pos
-   *          a {@link ParsePosition} object indicate the current position in
+   *          a {@link ParsingPosition} object indicate the current position in
    *          the character sequence to be parsed; after calling this function,
    *          the current of the position would be changed.
    * @param str
@@ -43,7 +43,7 @@ public final class ParseUtils {
    * @param endIndex
    *          the skipping end at this current.
    */
-  public static void skipBlanks(final ParsePosition pos,
+  public static void skipBlanks(final ParsingPosition pos,
       final CharSequence str, final int endIndex) {
     int index = pos.getIndex();
     while (index < endIndex) {
@@ -65,7 +65,7 @@ public final class ParseUtils {
    * current of blank character.
    *
    * @param pos
-   *          a {@link ParsePosition} object indicate the current position in
+   *          a {@link ParsingPosition} object indicate the current position in
    *          the character sequence to be parsed; after calling this function,
    *          the current of the position would be changed.
    * @param str
@@ -73,7 +73,7 @@ public final class ParseUtils {
    * @param endIndex
    *          the skipping end at this current.
    */
-  public static void skipNonBlanks(final ParsePosition pos,
+  public static void skipNonBlanks(final ParsingPosition pos,
       final CharSequence str, final int endIndex) {
     int index = pos.getIndex();
     while (index < endIndex) {
@@ -95,7 +95,7 @@ public final class ParseUtils {
    * separator of a string, returns the first current of printable character.
    *
    * @param pos
-   *          a {@link ParsePosition} object indicate the current position in
+   *          a {@link ParsingPosition} object indicate the current position in
    *          the character sequence to be parsed; after calling this function,
    *          the current of the position would be changed.
    * @param str
@@ -106,7 +106,7 @@ public final class ParseUtils {
    *          the specified separator to be skipped. Note that the separator is
    *          treated as a substring.
    */
-//  public static void skipSeparators(final ParsePosition pos,
+//  public static void skipSeparators(final ParsingPosition pos,
 //      final CharSequence str, final int endIndex, final CharSequence separator) {
 //    int index = pos.getIndex();
 //    while (index < endIndex) {
@@ -133,7 +133,7 @@ public final class ParseUtils {
    * Skips the optional prefix.
    *
    * @param pos
-   *          a {@link ParsePosition} object indicate the current position in
+   *          a {@link ParsingPosition} object indicate the current position in
    *          the character sequence to be parsed; after calling this function,
    *          if the prefix is successfully skipped, this position will be set
    *          to the position after skipping the prefix; otherwise, this
@@ -146,7 +146,7 @@ public final class ParseUtils {
    *          the optional prefix to be skipped.
    * @return true if the prefix successfully skipped; false otherwise.
    */
-  public static boolean skipPrefix(final ParsePosition pos,
+  public static boolean skipPrefix(final ParsingPosition pos,
       final CharSequence str, final int endIndex, final String prefix) {
     final int prefixLen = prefix.length();
     final int startIndex = pos.getIndex();
@@ -170,7 +170,7 @@ public final class ParseUtils {
    * valid.
    *
    * @param pos
-   *          a {@link ParsePosition} object indicate the current position in
+   *          a {@link ParsingPosition} object indicate the current position in
    *          the character sequence to be parsed; after calling this function,
    *          the current of the position would be changed.
    * @param str
@@ -186,7 +186,7 @@ public final class ParseUtils {
    * @return -1 if the input character sequence has a negative sign; +1
    *         otherwise.
    */
-  public static int getSign(final ParsePosition pos, final CharSequence str,
+  public static int getSign(final ParsingPosition pos, final CharSequence str,
       final int endIndex, final char positiveSign, final char negativeSign) {
     int sign = + 1;
     final int index = pos.getIndex();
@@ -211,7 +211,7 @@ public final class ParseUtils {
    * arguments are valid.
    *
    * @param pos
-   *          a {@link ParsePosition} object indicate the current position in
+   *          a {@link ParsingPosition} object indicate the current position in
    *          the character sequence to be parsed; after calling this function,
    *          the current of the position would be changed.
    * @param str
@@ -227,7 +227,7 @@ public final class ParseUtils {
    *          the radix nor has the radix prefix.
    * @return the radix of the number to be parsed.
    */
-  public static int getRadix(final ParsePosition pos, final CharSequence str,
+  public static int getRadix(final ParsingPosition pos, final CharSequence str,
       final int endIndex, final int flags, final int defaultRadix) {
     int index = pos.getIndex();
     switch (flags & FormatFlag.RADIX_MASK) {
@@ -307,15 +307,15 @@ public final class ParseUtils {
    * occurs; otherwise, pos.errorCode is set to {@link ErrorCode#NONE} and
    * pos.errorIndex is set to -1. Note that this function does NOT skip the
    * leading whitespace, nor does it geet the radix prefix and sign. In order to
-   * do that, call {@link #skipNonBlanks(ParsePosition, CharSequence, int)},
-   * {@link #getRadix(ParsePosition, CharSequence, int, int, int)} and
-   * {@link #getSign(ParsePosition, CharSequence, int, char, char)} before
+   * do that, call {@link #skipNonBlanks(ParsingPosition, CharSequence, int)},
+   * {@link #getRadix(ParsingPosition, CharSequence, int, int, int)} and
+   * {@link #getSign(ParsingPosition, CharSequence, int, char, char)} before
    * calling this function. <b>IMPORTANT NOTE:</b> this function does not check
    * the validity of the arguments, therefore, the caller MUST make sure that
    * the arguments are valid.
    *
    * @param pos
-   *          a {@link ParsePosition} object indicate the current position in
+   *          a {@link ParsingPosition} object indicate the current position in
    *          the character sequence to be parsed; after calling this function,
    *          the current of the position would be changed.
    * @param str
@@ -337,11 +337,11 @@ public final class ParseUtils {
    * @return the int value parsed by this function. If this.errorCode is set to
    *         ParseError.EMPTY, 0 is returned; If this.errorCode is set to
    *         ParseError.OVERFLOW, the maxValue is returned.
-   * @see #skipNonBlanks(ParsePosition, CharSequence, int)
-   * @see #getRadix(ParsePosition, CharSequence, int, int, int)
-   * @see #getSign(ParsePosition, CharSequence, int, char, char)
+   * @see #skipNonBlanks(ParsingPosition, CharSequence, int)
+   * @see #getRadix(ParsingPosition, CharSequence, int, int, int)
+   * @see #getSign(ParsingPosition, CharSequence, int, char, char)
    */
-  public static int getSpecialRadixInt(final ParsePosition pos,
+  public static int getSpecialRadixInt(final ParsingPosition pos,
       final CharSequence str, final int endIndex, final int sign,
       final int radix, final int maxValue, final int maxDigits) {
     if ((radix != 2) && (radix != 4) && (radix != 8) && (radix != 16)) {
@@ -415,15 +415,15 @@ public final class ParseUtils {
    * {@link ErrorCode#NONE} and pos.errorIndex is set to -1. Note that this
    * function does NOT skip the leading whitespace, nor does it geet the radix
    * prefix and sign. In order to do that, call
-   * {@link #skipNonBlanks(ParsePosition, CharSequence, int)},
-   * {@link #getRadix(ParsePosition, CharSequence, int, int, int)} and
-   * {@link #getSign(ParsePosition, CharSequence, int, char, char)} before
+   * {@link #skipNonBlanks(ParsingPosition, CharSequence, int)},
+   * {@link #getRadix(ParsingPosition, CharSequence, int, int, int)} and
+   * {@link #getSign(ParsingPosition, CharSequence, int, char, char)} before
    * calling this function. <b>IMPORTANT NOTE:</b> this function does not check
    * the validity of the arguments, therefore, the caller MUST make sure that
    * the arguments are valid.
    *
    * @param pos
-   *          a {@link ParsePosition} object indicate the current position in
+   *          a {@link ParsingPosition} object indicate the current position in
    *          the character sequence to be parsed; after calling this function,
    *          the current of the position would be changed.
    * @param str
@@ -440,11 +440,11 @@ public final class ParseUtils {
    *         ParseError.OVERFLOW, the UNSIGNED_LONG_MAX is returned.
    * @param maxDigits
    *          the maximum number of digits could be parsed.
-   * @see #skipNonBlanks(ParsePosition, CharSequence, int)
-   * @see #getRadix(ParsePosition, CharSequence, int, int, int)
-   * @see #getSign(ParsePosition, CharSequence, int, char, char)
+   * @see #skipNonBlanks(ParsingPosition, CharSequence, int)
+   * @see #getRadix(ParsingPosition, CharSequence, int, int, int)
+   * @see #getSign(ParsingPosition, CharSequence, int, char, char)
    */
-  public static long getSpecialRadixLong(final ParsePosition pos,
+  public static long getSpecialRadixLong(final ParsingPosition pos,
       final CharSequence str, final int endIndex, final int sign,
       final int radix, final int maxDigits) {
     if ((radix != 2) && (radix != 4) && (radix != 8) && (radix != 16)) {
@@ -515,15 +515,15 @@ public final class ParseUtils {
    * pos.errorCode is set to {@link ErrorCode#NONE} and pos.errorIndex is set to
    * -1. Note that this function does NOT skip the leading whitespace, nor does
    * it geet the radix prefix and sign. In order to do that, call
-   * {@link #skipNonBlanks(ParsePosition, CharSequence, int)},
-   * {@link #getRadix(ParsePosition, CharSequence, int, int, int)} and
-   * {@link #getSign(ParsePosition, CharSequence, int, char, char)} before
+   * {@link #skipNonBlanks(ParsingPosition, CharSequence, int)},
+   * {@link #getRadix(ParsingPosition, CharSequence, int, int, int)} and
+   * {@link #getSign(ParsingPosition, CharSequence, int, char, char)} before
    * calling this function. <b>IMPORTANT NOTE:</b> this function does not check
    * the validity of the arguments, therefore, the caller MUST make sure that
    * the arguments are valid. TODO: add support to digit grouping.
    *
    * @param pos
-   *          a {@link ParsePosition} object indicate the current position in
+   *          a {@link ParsingPosition} object indicate the current position in
    *          the character sequence to be parsed; after calling this function,
    *          the current of the position would be changed.
    * @param str
@@ -546,11 +546,11 @@ public final class ParseUtils {
    *         ParseError.EMPTY, returned value is 0; If this.errorCode is
    *         ParseError.OVERFLOW, returned value is maxValue if sign >= 0, or (-
    *         maxValue - 1) if sign < 0.
-   * @see #skipNonBlanks(ParsePosition, CharSequence, int)
-   * @see #getRadix(ParsePosition, CharSequence, int, int, int)
-   * @see #getSign(ParsePosition, CharSequence, int, char, char)
+   * @see #skipNonBlanks(ParsingPosition, CharSequence, int)
+   * @see #getRadix(ParsingPosition, CharSequence, int, int, int)
+   * @see #getSign(ParsingPosition, CharSequence, int, char, char)
    */
-  public static int getDecimalInt(final ParsePosition pos,
+  public static int getDecimalInt(final ParsingPosition pos,
       final CharSequence str, final int endIndex, final int sign,
       final int maxValue, final int maxDigits) {
     if (sign == 0) {
@@ -633,15 +633,15 @@ public final class ParseUtils {
    * pos.errorCode is set to {@link ErrorCode#NONE} and pos.errorIndex is set to
    * -1. Note that this function does NOT skip the leading whitespace, nor does
    * it geet the radix prefix and sign. In order to do that, call
-   * {@link #skipNonBlanks(ParsePosition, CharSequence, int)},
-   * {@link #getRadix(ParsePosition, CharSequence, int, int, int)} and
-   * {@link #getSign(ParsePosition, CharSequence, int, char, char)} before
+   * {@link #skipNonBlanks(ParsingPosition, CharSequence, int)},
+   * {@link #getRadix(ParsingPosition, CharSequence, int, int, int)} and
+   * {@link #getSign(ParsingPosition, CharSequence, int, char, char)} before
    * calling this function. <b>IMPORTANT NOTE:</b> this function does not check
    * the validity of the arguments, therefore, the caller MUST make sure that
    * the arguments are valid. TODO: add support to digit grouping.
    *
    * @param pos
-   *          a {@link ParsePosition} object indicate the current position in
+   *          a {@link ParsingPosition} object indicate the current position in
    *          the character sequence to be parsed; after calling this function,
    *          the current of the position would be changed.
    * @param str
@@ -660,11 +660,11 @@ public final class ParseUtils {
    *         ParseError.EMPTY, returned value is 0; If this.errorCode is
    *         ParseError.OVERFLOW, returned value is Long.MAX_VALUE if sign >= 0,
    *         or Long.MIN_VALUE if sign < 0.
-   * @see #skipNonBlanks(ParsePosition, CharSequence, int)
-   * @see #getRadix(ParsePosition, CharSequence, int, int, int)
-   * @see #getSign(ParsePosition, CharSequence, int, char, char)
+   * @see #skipNonBlanks(ParsingPosition, CharSequence, int)
+   * @see #getRadix(ParsingPosition, CharSequence, int, int, int)
+   * @see #getSign(ParsingPosition, CharSequence, int, char, char)
    */
-  public static long getDecimalLong(final ParsePosition pos,
+  public static long getDecimalLong(final ParsingPosition pos,
       final CharSequence str, final int endIndex, final int sign,
       final int maxDigits) {
     if (sign == 0) {
@@ -737,7 +737,7 @@ public final class ParseUtils {
    * Parses a char value.
    *
    * @param pos
-   *          a {@link ParsePosition} object indicate the current position in
+   *          a {@link ParsingPosition} object indicate the current position in
    *          the character sequence to be parsed; after calling this function,
    *          the current of the position would be changed, and if any error
    *          occurs during the parsing, the error code of this object will also
@@ -750,7 +750,7 @@ public final class ParseUtils {
    *          the parsing options.
    * @return the parsed value.
    */
-  public static char parseChar(final ParsePosition pos, final CharSequence str,
+  public static char parseChar(final ParsingPosition pos, final CharSequence str,
       final int endIndex, final ParseOptions options) {
     // skip the leading white space if necessary
     if (! options.isKeepBlank()) {
@@ -789,7 +789,7 @@ public final class ParseUtils {
    */
   public static char parseChar(final CharSequence str, final int startIndex,
       final int endIndex, final ParseOptions options) throws TextParseException {
-    final ParsePosition pos = new ParsePosition(startIndex);
+    final ParsingPosition pos = new ParsingPosition(startIndex);
     final char result = parseChar(pos, str, endIndex, options);
     if (pos.fail()) {
       throw new TextParseException(str, startIndex, endIndex, pos);
@@ -815,7 +815,7 @@ public final class ParseUtils {
    */
   public static char parseChar(final CharSequence str, final int startIndex,
       final int endIndex) throws TextParseException {
-    final ParsePosition pos = new ParsePosition(startIndex);
+    final ParsingPosition pos = new ParsingPosition(startIndex);
     pos.reset(startIndex);
     final char result = parseChar(pos, str, endIndex,
         ParseOptions.DEFAULT_KEEP_BLANKS);
@@ -836,7 +836,7 @@ public final class ParseUtils {
    */
   public static char parseChar(final CharSequence str)
       throws TextParseException {
-    final ParsePosition pos = new ParsePosition();
+    final ParsingPosition pos = new ParsingPosition();
     final char result = parseChar(pos, str, str.length(),
         ParseOptions.DEFAULT_KEEP_BLANKS);
     if (pos.fail()) {
@@ -845,7 +845,7 @@ public final class ParseUtils {
     return result;
   }
 //
-//  public static Date parseDate(final ParsePosition pos, final CharSequence str,
+//  public static Date parseDate(final ParsingPosition pos, final CharSequence str,
 //      final int endIndex, final ParseOptions options,
 //      final NumberFormatSymbols symbols, final String formatPattern) {
 //    // skip the leading white space if necessary
@@ -872,7 +872,7 @@ public final class ParseUtils {
 //  public static Date parseDate(final CharSequence str, final int startIndex,
 //      final int endIndex, final ParseOptions options) throws TextParseException {
 //    final ParsePositionPool pool = ParsePositionPool.getInstance();
-//    final ParsePosition pos = pool.borrow();
+//    final ParsingPosition pos = pool.borrow();
 //    try {
 //      pos.reset(startIndex);
 //      final Date result = parseDate(pos, str, endIndex, options,
@@ -891,7 +891,7 @@ public final class ParseUtils {
 //  public static Date parseDate(final CharSequence str, final int startIndex,
 //      final int endIndex) throws TextParseException {
 //    final ParsePositionPool pool = ParsePositionPool.getInstance();
-//    final ParsePosition pos = pool.borrow();
+//    final ParsingPosition pos = pool.borrow();
 //    try {
 //      pos.reset(startIndex);
 //      final Date result = parseDate(pos, str, endIndex, ParseOptions.DEFAULT,
@@ -910,7 +910,7 @@ public final class ParseUtils {
 //  public static Date parseDate(final CharSequence str)
 //      throws TextParseException {
 //    final ParsePositionPool pool = ParsePositionPool.getInstance();
-//    final ParsePosition pos = pool.borrow();
+//    final ParsingPosition pos = pool.borrow();
 //    try {
 //      final Date result = parseDate(pos, str, str.length(),
 //          ParseOptions.DEFAULT, FormatSymbols.DEFAULT,

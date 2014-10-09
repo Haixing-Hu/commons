@@ -42,7 +42,7 @@ import static com.github.haixing_hu.lang.Argument.*;
 import static com.github.haixing_hu.lang.ArrayUtils.EMPTY_CHAR_ARRAY;
 
 /**
- * A simple auto-expansion buffer for <code>char</code> values.
+ * A simple auto-expansion buffer for {@code char} values.
  *
  * @author Haixing Hu
  */
@@ -315,7 +315,7 @@ public final class CharBuffer implements Swapable<CharBuffer>,
   }
 
   /**
-   * Appends <code>n</code> bytes to this buffer from the given source array .
+   * Appends {@code n} bytes to this buffer from the given source array .
    * The capacity of the buffer is increased, if necessary, to accommodate all
    * bytes.
    * <p>
@@ -340,9 +340,9 @@ public final class CharBuffer implements Swapable<CharBuffer>,
   }
 
   /**
-   * Appends <code>n</code> bytes to this buffer from the given source array
-   * starting at current <code>off</code>. The capacity of the buffer is
-   * increased, if necessary, to accommodate all <code>n</code> bytes.
+   * Appends {@code n} bytes to this buffer from the given source array
+   * starting at current {@code off}. The capacity of the buffer is
+   * increased, if necessary, to accommodate all {@code n} bytes.
    * <p>
    * NOTE: The bytes are converted to chars using simple cast.
    * </p>
@@ -354,8 +354,8 @@ public final class CharBuffer implements Swapable<CharBuffer>,
    * @param n
    *          the number of bytes to append.
    * @throws IndexOutOfBoundsException
-   *           if <code>off</code> is out of range, <code>n</code> is negative,
-   *           or <code>off</code> + <code>n</code> is out of range.
+   *           if {@code off} is out of range, {@code n} is negative,
+   *           or {@code off} + {@code n} is out of range.
    */
   public void append(@Nullable final byte[] array, final int off, final int n) {
     if (array == null) {
@@ -376,7 +376,7 @@ public final class CharBuffer implements Swapable<CharBuffer>,
   }
 
   /**
-   * Appends <code>n</code> bytes to this buffer from the given source char
+   * Appends {@code n} bytes to this buffer from the given source char
    * array buffer. The capacity of the buffer is increased if necessary to
    * accommodate all chars.
    * <p>
@@ -394,9 +394,9 @@ public final class CharBuffer implements Swapable<CharBuffer>,
   }
 
   /**
-   * Appends <code>n</code> bytes to this buffer from the given source char
-   * array buffer starting at current <code>off</code>. The capacity of the
-   * buffer is increased if necessary to accommodate all <code>n</code> chars.
+   * Appends {@code n} bytes to this buffer from the given source char
+   * array buffer starting at current {@code off}. The capacity of the
+   * buffer is increased if necessary to accommodate all {@code n} chars.
    * <p>
    * NOTE: The bytes are converted to chars using simple cast.
    * </p>
@@ -408,8 +408,8 @@ public final class CharBuffer implements Swapable<CharBuffer>,
    * @param n
    *          the number of bytes to append.
    * @throws IndexOutOfBoundsException
-   *           if <code>off</code> if out of range, <code>n</code> is negative,
-   *           or <code>off</code> + <code>n</code> is out of range.
+   *           if {@code off} if out of range, {@code n} is negative,
+   *           or {@code off} + {@code n} is out of range.
    */
   public void append(@Nullable final ByteBuffer array, final int off,
       final int n) {
@@ -422,16 +422,16 @@ public final class CharBuffer implements Swapable<CharBuffer>,
   /**
    * Returns the current within this buffer of the first occurrence of the
    * specified character, starting the search at the specified
-   * <code>beginIndex</code> and finishing at <code>endIndex</code>. If no such
+   * {@code beginIndex} and finishing at {@code endIndex}. If no such
    * character occurs in this buffer within the specified bounds,
-   * <code>-1</code> is returned.
+   * {@code -1} is returned.
    * <p>
-   * There is no restriction on the value of <code>beginIndex</code> and
-   * <code>endIndex</code>. If <code>beginIndex</code> is negative, it has the
-   * same effect as if it were zero. If <code>endIndex</code> is greater than
+   * There is no restriction on the value of {@code beginIndex} and
+   * {@code endIndex}. If {@code beginIndex} is negative, it has the
+   * same effect as if it were zero. If {@code endIndex} is greater than
    * {@link #length()}, it has the same effect as if it were {@link #length()}.
-   * If the <code>beginIndex</code> is greater than the <code>endIndex</code>,
-   * <code>-1</code> is returned.
+   * If the {@code beginIndex} is greater than the {@code endIndex},
+   * {@code -1} is returned.
    *
    * @param ch
    *          the char to search for.
@@ -440,7 +440,7 @@ public final class CharBuffer implements Swapable<CharBuffer>,
    * @param endIndex
    *          the current to finish the search at.
    * @return the current of the first occurrence of the character in the buffer
-   *         within the given bounds, or <code>-1</code> if the character does
+   *         within the given bounds, or {@code -1} if the character does
    *         not occur.
    */
   public int indexOf(final int ch, int beginIndex, int endIndex) {
@@ -464,16 +464,16 @@ public final class CharBuffer implements Swapable<CharBuffer>,
   /**
    * Returns the current within this buffer of the last occurrence of the
    * specified character, starting the search at the specified
-   * <code>beginIndex</code> and finishing at <code>endIndex</code>. If no such
+   * {@code beginIndex} and finishing at {@code endIndex}. If no such
    * character occurs in this buffer within the specified bounds,
-   * <code>-1</code> is returned.
+   * {@code -1} is returned.
    * <p>
-   * There is no restriction on the value of <code>beginIndex</code> and
-   * <code>endIndex</code>. If <code>beginIndex</code> is negative, it has the
-   * same effect as if it were zero. If <code>endIndex</code> is greater than
+   * There is no restriction on the value of {@code beginIndex} and
+   * {@code endIndex}. If {@code beginIndex} is negative, it has the
+   * same effect as if it were zero. If {@code endIndex} is greater than
    * {@link #length()}, it has the same effect as if it were {@link #length()}.
-   * If the <code>beginIndex</code> is greater than the <code>endIndex</code>,
-   * <code>-1</code> is returned.
+   * If the {@code beginIndex} is greater than the {@code endIndex},
+   * {@code -1} is returned.
    *
    * @param ch
    *          the char to search for.
@@ -483,7 +483,7 @@ public final class CharBuffer implements Swapable<CharBuffer>,
    *          the current to finish the search at. If it is larger than the
    *          length of this buffer, it is treated as the length of this buffer.
    * @return the current of the first occurrence of the character in the buffer
-   *         within the given bounds, or <code>-1</code> if the character does
+   *         within the given bounds, or {@code -1} if the character does
    *         not occur.
    */
   public int lastIndexOf(final int ch, int beginIndex, int endIndex) {
@@ -506,14 +506,14 @@ public final class CharBuffer implements Swapable<CharBuffer>,
 
   /**
    * Returns the current within this buffer of the first occurrence of the
-   * specified character, starting the search at <code>0</code> and finishing at
+   * specified character, starting the search at {@code 0} and finishing at
    * {@link #length()}. If no such character occurs in this buffer within those
-   * bounds, <code>-1</code> is returned.
+   * bounds, {@code -1} is returned.
    *
    * @param ch
    *          the char to search for.
    * @return the current of the first occurrence of the character in the buffer,
-   *         or <code>-1</code> if the character does not occur.
+   *         or {@code -1} if the character does not occur.
    */
   public int indexOf(final int ch) {
     return indexOf(ch, 0, length);
@@ -521,14 +521,14 @@ public final class CharBuffer implements Swapable<CharBuffer>,
 
   /**
    * Returns the current within this buffer of the last occurrence of the
-   * specified character, starting the search at <code>0</code> and finishing at
+   * specified character, starting the search at {@code 0} and finishing at
    * {@link #length()}. If no such character occurs in this buffer within those
-   * bounds, <code>-1</code> is returned.
+   * bounds, {@code -1} is returned.
    *
    * @param ch
    *          the char to search for.
    * @return the current of the first occurrence of the character in the buffer,
-   *         or <code>-1</code> if the character does not occur.
+   *         or {@code -1} if the character does not occur.
    */
   public int lastIndexOf(final int ch) {
     return lastIndexOf(ch, 0, length);
@@ -730,8 +730,8 @@ public final class CharBuffer implements Swapable<CharBuffer>,
 
   /**
    * Returns a substring of this buffer. The substring begins at the specified
-   * <code>beginIndex</code> and extends to the character at current
-   * <code>endIndex - 1</code>.
+   * {@code beginIndex} and extends to the character at current
+   * {@code endIndex - 1}.
    *
    * @param beginIndex
    *          the beginning current, inclusive.
@@ -739,10 +739,10 @@ public final class CharBuffer implements Swapable<CharBuffer>,
    *          the ending current, exclusive.
    * @return the specified substring.
    * @exception StringIndexOutOfBoundsException
-   *              if the <code>beginIndex</code> is negative, or
-   *              <code>endIndex</code> is larger than the length of this
-   *              buffer, or <code>beginIndex</code> is larger than
-   *              <code>endIndex</code>.
+   *              if the {@code beginIndex} is negative, or
+   *              {@code endIndex} is larger than the length of this
+   *              buffer, or {@code beginIndex} is larger than
+   *              {@code endIndex}.
    */
   public String substring(final int beginIndex, final int endIndex) {
     return new String(buffer, beginIndex, endIndex - beginIndex);
@@ -751,8 +751,8 @@ public final class CharBuffer implements Swapable<CharBuffer>,
   /**
    * Returns a substring of this buffer with leading and trailing whitespace
    * omitted. The substring begins with the first non-whitespace character from
-   * <code>beginIndex</code> and extends to the last non-whitespace character
-   * with the current lesser than <code>endIndex</code>.
+   * {@code beginIndex} and extends to the last non-whitespace character
+   * with the current lesser than {@code endIndex}.
    *
    * @param beginIndex
    *          the beginning current, inclusive.
@@ -760,10 +760,10 @@ public final class CharBuffer implements Swapable<CharBuffer>,
    *          the ending current, exclusive.
    * @return the specified substring.
    * @exception IndexOutOfBoundsException
-   *              if the <code>beginIndex</code> is negative, or
-   *              <code>endIndex</code> is larger than the length of this
-   *              buffer, or <code>beginIndex</code> is larger than
-   *              <code>endIndex</code>.
+   *              if the {@code beginIndex} is negative, or
+   *              {@code endIndex} is larger than the length of this
+   *              buffer, or {@code beginIndex} is larger than
+   *              {@code endIndex}.
    */
   public String substringTrimmed(int beginIndex, int endIndex) {
     if (beginIndex < 0) {
@@ -789,8 +789,8 @@ public final class CharBuffer implements Swapable<CharBuffer>,
   /**
    * Returns a substring of this buffer with leading and trailing ASCII
    * whitespace omitted. The substring begins with the first non-whitespace
-   * character from <code>beginIndex</code> and extends to the last
-   * non-whitespace character with the current lesser than <code>endIndex</code>
+   * character from {@code beginIndex} and extends to the last
+   * non-whitespace character with the current lesser than {@code endIndex}
    * .
    *
    * @param beginIndex
@@ -799,10 +799,10 @@ public final class CharBuffer implements Swapable<CharBuffer>,
    *          the ending current, exclusive.
    * @return the specified substring.
    * @exception IndexOutOfBoundsException
-   *              if the <code>beginIndex</code> is negative, or
-   *              <code>endIndex</code> is larger than the length of this
-   *              buffer, or <code>beginIndex</code> is larger than
-   *              <code>endIndex</code>.
+   *              if the {@code beginIndex} is negative, or
+   *              {@code endIndex} is larger than the length of this
+   *              buffer, or {@code beginIndex} is larger than
+   *              {@code endIndex}.
    */
   public String substringTrimmedAscii(int beginIndex, int endIndex) {
     if (beginIndex < 0) {

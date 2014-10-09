@@ -137,7 +137,7 @@ public final class TypeUtils {
    *
    * @param cls
    *          a {@link Class} object to be converted.
-   * @return the corresponding {@link Type} object of the <code>Class</code>
+   * @return the corresponding {@link Type} object of the {@code Class}
    *         object.
    * @throws UnsupportedTypeException
    *           if the {@link Class} object has no corresponding {@link Type}
@@ -791,7 +791,7 @@ public final class TypeUtils {
    * @throws TextParseException
    *           if the string representation can not be successfully parsed.
    * @throws ClassNotFoundException
-   *           if the <code>type</code> is a {@link Type} object corresponding
+   *           if the {@code type} is a {@link Type} object corresponding
    *           to {@link Class} class, and the string representation of the
    *           class can not be initialized to a {@link Class} instance by the
    *           current class loader.
@@ -908,14 +908,14 @@ public final class TypeUtils {
 
 
   /**
-   * Converts an object of the specified type to a <code>boolean</code> value.
+   * Converts an object of the specified type to a {@code boolean} value.
    *
    * @param type
    *          the {@link Type} object corresponding to the type of the object to
    *          be converted.
    * @param value
    *          the object to be converted, which could be null.
-   * @return a <code>boolean</code> value corresponds to the object to be
+   * @return a {@code boolean} value corresponds to the object to be
    *         converted.
    * @throws ClassCastException
    *           if the {@link Type} object does not correspond to the type of the
@@ -923,7 +923,7 @@ public final class TypeUtils {
    * @throws UnsupportedTypeException
    *           if the {@link Type} object is not supported.
    * @throws TypeConvertException
-   *           if the object can not be converted into a <code>boolean</code>
+   *           if the object can not be converted into a {@code boolean}
    *           value.
    */
   public static boolean objectAsBoolean(final Type type, @Nullable final Object value)
@@ -963,14 +963,14 @@ public final class TypeUtils {
   }
 
   /**
-   * Converts an object of the specified type to a <code>char</code> value.
+   * Converts an object of the specified type to a {@code char} value.
    *
    * @param type
    *          the {@link Type} object corresponding to the type of the object to
    *          be converted.
    * @param value
    *          the object to be converted, which could be null.
-   * @return a <code>char</code> value corresponds to the object to be
+   * @return a {@code char} value corresponds to the object to be
    *         converted.
    * @throws ClassCastException
    *           if the {@link Type} object does not correspond to the type of the
@@ -978,7 +978,7 @@ public final class TypeUtils {
    * @throws UnsupportedTypeException
    *           if the {@link Type} object is not supported.
    * @throws TypeConvertException
-   *           if the object can not be converted into a <code>char</code>
+   *           if the object can not be converted into a {@code char}
    *           value.
    */
   public static char objectAsChar(final Type type, @Nullable final Object value)
@@ -1018,14 +1018,14 @@ public final class TypeUtils {
   }
 
   /**
-   * Converts an object of the specified type to a <code>byte</code> value.
+   * Converts an object of the specified type to a {@code byte} value.
    *
    * @param type
    *          the {@link Type} object corresponding to the type of the object to
    *          be converted.
    * @param value
    *          the object to be converted, which could be null.
-   * @return a <code>byte</code> value corresponds to the object to be
+   * @return a {@code byte} value corresponds to the object to be
    *         converted.
    * @throws ClassCastException
    *           if the {@link Type} object does not correspond to the type of the
@@ -1033,7 +1033,7 @@ public final class TypeUtils {
    * @throws UnsupportedTypeException
    *           if the {@link Type} object is not supported.
    * @throws TypeConvertException
-   *           if the object can not be converted into a <code>byte</code>
+   *           if the object can not be converted into a {@code byte}
    *           value.
    */
   public static byte objectAsByte(final Type type, @Nullable final Object value)
@@ -1073,14 +1073,14 @@ public final class TypeUtils {
   }
 
   /**
-   * Converts an object of the specified type to a <code>short</code> value.
+   * Converts an object of the specified type to a {@code short} value.
    *
    * @param type
    *          the {@link Type} object corresponding to the type of the object to
    *          be converted.
    * @param value
    *          the object to be converted, which could be null.
-   * @return a <code>short</code> value corresponds to the object to be
+   * @return a {@code short} value corresponds to the object to be
    *         converted.
    * @throws ClassCastException
    *           if the {@link Type} object does not correspond to the type of the
@@ -1088,7 +1088,7 @@ public final class TypeUtils {
    * @throws UnsupportedTypeException
    *           if the {@link Type} object is not supported.
    * @throws TypeConvertException
-   *           if the object can not be converted into a <code>short</code>
+   *           if the object can not be converted into a {@code short}
    *           value.
    */
   public static short objectAsShort(final Type type, @Nullable final Object value)
@@ -1128,21 +1128,21 @@ public final class TypeUtils {
   }
 
   /**
-   * Converts an object of the specified type to a <code>int</code> value.
+   * Converts an object of the specified type to a {@code int} value.
    *
    * @param type
    *          the {@link Type} object corresponding to the type of the object to
    *          be converted.
    * @param value
    *          the object to be converted, which could be null.
-   * @return a <code>int</code> value corresponds to the object to be converted.
+   * @return a {@code int} value corresponds to the object to be converted.
    * @throws ClassCastException
    *           if the {@link Type} object does not correspond to the type of the
    *           object to be converted.
    * @throws UnsupportedTypeException
    *           if the {@link Type} object is not supported.
    * @throws TypeConvertException
-   *           if the object can not be converted into a <code>int</code> value.
+   *           if the object can not be converted into a {@code int} value.
    */
   public static int objectAsInt(final Type type, @Nullable final Object value)
       throws ClassCastException, UnsupportedTypeException, TypeConvertException {
@@ -1181,14 +1181,14 @@ public final class TypeUtils {
   }
 
   /**
-   * Converts an object of the specified type to a <code>long</code> value.
+   * Converts an object of the specified type to a {@code long} value.
    *
    * @param type
    *          the {@link Type} object corresponding to the type of the object to
    *          be converted.
    * @param value
    *          the object to be converted, which could be null.
-   * @return a <code>long</code> value corresponds to the object to be
+   * @return a {@code long} value corresponds to the object to be
    *         converted.
    * @throws ClassCastException
    *           if the {@link Type} object does not correspond to the type of the
@@ -1196,7 +1196,7 @@ public final class TypeUtils {
    * @throws UnsupportedTypeException
    *           if the {@link Type} object is not supported.
    * @throws TypeConvertException
-   *           if the object can not be converted into a <code>long</code>
+   *           if the object can not be converted into a {@code long}
    *           value.
    */
   public static long objectAsLong(final Type type, @Nullable final Object value)
@@ -1236,14 +1236,14 @@ public final class TypeUtils {
   }
 
   /**
-   * Converts an object of the specified type to a <code>float</code> value.
+   * Converts an object of the specified type to a {@code float} value.
    *
    * @param type
    *          the {@link Type} object corresponding to the type of the object to
    *          be converted.
    * @param value
    *          the object to be converted, which could be null.
-   * @return a <code>float</code> value corresponds to the object to be
+   * @return a {@code float} value corresponds to the object to be
    *         converted.
    * @throws ClassCastException
    *           if the {@link Type} object does not correspond to the type of the
@@ -1251,7 +1251,7 @@ public final class TypeUtils {
    * @throws UnsupportedTypeException
    *           if the {@link Type} object is not supported.
    * @throws TypeConvertException
-   *           if the object can not be converted into a <code>float</code>
+   *           if the object can not be converted into a {@code float}
    *           value.
    */
   public static float objectAsFloat(final Type type, @Nullable final Object value)
@@ -1291,14 +1291,14 @@ public final class TypeUtils {
   }
 
   /**
-   * Converts an object of the specified type to a <code>double</code> value.
+   * Converts an object of the specified type to a {@code double} value.
    *
    * @param type
    *          the {@link Type} object corresponding to the type of the object to
    *          be converted.
    * @param value
    *          the object to be converted, which could be null.
-   * @return a <code>double</code> value corresponds to the object to be
+   * @return a {@code double} value corresponds to the object to be
    *         converted.
    * @throws ClassCastException
    *           if the {@link Type} object does not correspond to the type of the
@@ -1306,7 +1306,7 @@ public final class TypeUtils {
    * @throws UnsupportedTypeException
    *           if the {@link Type} object is not supported.
    * @throws TypeConvertException
-   *           if the object can not be converted into a <code>double</code>
+   *           if the object can not be converted into a {@code double}
    *           value.
    */
   public static double objectAsDouble(final Type type, @Nullable final Object value)
@@ -1453,16 +1453,16 @@ public final class TypeUtils {
   }
 
   /**
-   * Converts an object of the specified type to a <code>byte[]</code> value.
+   * Converts an object of the specified type to a {@code byte[]} value.
    *
    * @param type
    *          the {@link Type} object corresponding to the type of the object to
    *          be converted.
    * @param value
    *          the object to be converted, which could be null.
-   * @return a <code>byte[]</code> value corresponds to the object to be
+   * @return a {@code byte[]} value corresponds to the object to be
    *         converted. Note that if the specified object is of the
-   *         <code>byte[]</code> type, the returned <code>byte[]</code> value is
+   *         {@code byte[]} type, the returned {@code byte[]} value is
    *         a cloned copy of the original value.
    * @throws ClassCastException
    *           if the {@link Type} object does not correspond to the type of the
@@ -1470,7 +1470,7 @@ public final class TypeUtils {
    * @throws UnsupportedTypeException
    *           if the {@link Type} object is not supported.
    * @throws TypeConvertException
-   *           if the object can not be converted into a <code>byte[]</code>
+   *           if the object can not be converted into a {@code byte[]}
    *           value.
    */
   public static byte[] objectAsByteArray(final Type type, @Nullable final Object value)
@@ -1674,7 +1674,7 @@ public final class TypeUtils {
 
   /**
    * Converts the first element in a collection of values of the specified type
-   * into a <code>boolean</code> value.
+   * into a {@code boolean} value.
    *
    * @param type
    *          the {@link Type} object corresponding to the type of the object to
@@ -1682,7 +1682,7 @@ public final class TypeUtils {
    * @param col
    *          the collection of objects of the specified type, which can't be
    *          null.
-   * @return a <code>boolean</code> value converted from the first object in the
+   * @return a {@code boolean} value converted from the first object in the
    *         collection.
    * @throws ClassCastException
    *           if the {@link Type} object does not correspond to the type of the
@@ -1690,7 +1690,7 @@ public final class TypeUtils {
    * @throws UnsupportedTypeException
    *           if the {@link Type} object is not supported.
    * @throws TypeConvertException
-   *           if the object can not be converted into a <code>boolean</code>
+   *           if the object can not be converted into a {@code boolean}
    *           value.
    * @param NoSuchElementException
    *          if the collection is empty.
@@ -1778,7 +1778,7 @@ public final class TypeUtils {
 
   /**
    * Converts the first element in a collection of values of the specified type
-   * into a <code>char</code> value.
+   * into a {@code char} value.
    *
    * @param type
    *          the {@link Type} object corresponding to the type of the object to
@@ -1786,7 +1786,7 @@ public final class TypeUtils {
    * @param col
    *          the collection of objects of the specified type, which can't be
    *          null.
-   * @return a <code>char</code> value converted from the first object in the
+   * @return a {@code char} value converted from the first object in the
    *         collection.
    * @throws ClassCastException
    *           if the {@link Type} object does not correspond to the type of the
@@ -1794,7 +1794,7 @@ public final class TypeUtils {
    * @throws UnsupportedTypeException
    *           if the {@link Type} object is not supported.
    * @throws TypeConvertException
-   *           if the object can not be converted into a <code>boolean</code>
+   *           if the object can not be converted into a {@code boolean}
    *           value.
    * @param NoSuchElementException
    *          if the collection is empty.
@@ -1883,7 +1883,7 @@ public final class TypeUtils {
 
   /**
    * Converts the first element in a collection of values of the specified type
-   * into a <code>byte</code> value.
+   * into a {@code byte} value.
    *
    * @param type
    *          the {@link Type} object corresponding to the type of the object to
@@ -1891,7 +1891,7 @@ public final class TypeUtils {
    * @param col
    *          the collection of objects of the specified type, which can't be
    *          null.
-   * @return a <code>byte</code> value converted from the first object in the
+   * @return a {@code byte} value converted from the first object in the
    *         collection.
    * @throws ClassCastException
    *           if the {@link Type} object does not correspond to the type of the
@@ -1899,7 +1899,7 @@ public final class TypeUtils {
    * @throws UnsupportedTypeException
    *           if the {@link Type} object is not supported.
    * @throws TypeConvertException
-   *           if the object can not be converted into a <code>boolean</code>
+   *           if the object can not be converted into a {@code boolean}
    *           value.
    * @param NoSuchElementException
    *          if the collection is empty.
@@ -1987,7 +1987,7 @@ public final class TypeUtils {
 
   /**
    * Converts the first element in a collection of values of the specified type
-   * into a <code>short</code> value.
+   * into a {@code short} value.
    *
    * @param type
    *          the {@link Type} object corresponding to the type of the object to
@@ -1995,7 +1995,7 @@ public final class TypeUtils {
    * @param col
    *          the collection of objects of the specified type, which can't be
    *          null.
-   * @return a <code>short</code> value converted from the first object in the
+   * @return a {@code short} value converted from the first object in the
    *         collection.
    * @throws ClassCastException
    *           if the {@link Type} object does not correspond to the type of the
@@ -2003,7 +2003,7 @@ public final class TypeUtils {
    * @throws UnsupportedTypeException
    *           if the {@link Type} object is not supported.
    * @throws TypeConvertException
-   *           if the object can not be converted into a <code>boolean</code>
+   *           if the object can not be converted into a {@code boolean}
    *           value.
    * @param NoSuchElementException
    *          if the collection is empty.
@@ -2091,7 +2091,7 @@ public final class TypeUtils {
 
   /**
    * Converts the first element in a collection of values of the specified type
-   * into a <code>int</code> value.
+   * into a {@code int} value.
    *
    * @param type
    *          the {@link Type} object corresponding to the type of the object to
@@ -2099,7 +2099,7 @@ public final class TypeUtils {
    * @param col
    *          the collection of objects of the specified type, which can't be
    *          null.
-   * @return a <code>int</code> value converted from the first object in the
+   * @return a {@code int} value converted from the first object in the
    *         collection.
    * @throws ClassCastException
    *           if the {@link Type} object does not correspond to the type of the
@@ -2107,7 +2107,7 @@ public final class TypeUtils {
    * @throws UnsupportedTypeException
    *           if the {@link Type} object is not supported.
    * @throws TypeConvertException
-   *           if the object can not be converted into a <code>boolean</code>
+   *           if the object can not be converted into a {@code boolean}
    *           value.
    * @param NoSuchElementException
    *          if the collection is empty.
@@ -2196,7 +2196,7 @@ public final class TypeUtils {
 
   /**
    * Converts the first element in a collection of values of the specified type
-   * into a <code>long</code> value.
+   * into a {@code long} value.
    *
    * @param type
    *          the {@link Type} object corresponding to the type of the object to
@@ -2204,7 +2204,7 @@ public final class TypeUtils {
    * @param col
    *          the collection of objects of the specified type, which can't be
    *          null.
-   * @return a <code>long</code> value converted from the first object in the
+   * @return a {@code long} value converted from the first object in the
    *         collection.
    * @throws ClassCastException
    *           if the {@link Type} object does not correspond to the type of the
@@ -2212,7 +2212,7 @@ public final class TypeUtils {
    * @throws UnsupportedTypeException
    *           if the {@link Type} object is not supported.
    * @throws TypeConvertException
-   *           if the object can not be converted into a <code>boolean</code>
+   *           if the object can not be converted into a {@code boolean}
    *           value.
    * @param NoSuchElementException
    *          if the collection is empty.
@@ -2300,7 +2300,7 @@ public final class TypeUtils {
 
   /**
    * Converts the first element in a collection of values of the specified type
-   * into a <code>float</code> value.
+   * into a {@code float} value.
    *
    * @param type
    *          the {@link Type} object corresponding to the type of the object to
@@ -2308,7 +2308,7 @@ public final class TypeUtils {
    * @param col
    *          the collection of objects of the specified type, which can't be
    *          null.
-   * @return a <code>float</code> value converted from the first object in the
+   * @return a {@code float} value converted from the first object in the
    *         collection.
    * @throws ClassCastException
    *           if the {@link Type} object does not correspond to the type of the
@@ -2316,7 +2316,7 @@ public final class TypeUtils {
    * @throws UnsupportedTypeException
    *           if the {@link Type} object is not supported.
    * @throws TypeConvertException
-   *           if the object can not be converted into a <code>boolean</code>
+   *           if the object can not be converted into a {@code boolean}
    *           value.
    * @param NoSuchElementException
    *          if the collection is empty.
@@ -2405,7 +2405,7 @@ public final class TypeUtils {
 
   /**
    * Converts the first element in a collection of values of the specified type
-   * into a <code>double</code> value.
+   * into a {@code double} value.
    *
    * @param type
    *          the {@link Type} object corresponding to the type of the object to
@@ -2413,7 +2413,7 @@ public final class TypeUtils {
    * @param col
    *          the collection of objects of the specified type, which can't be
    *          null.
-   * @return a <code>double</code> value converted from the first object in the
+   * @return a {@code double} value converted from the first object in the
    *         collection.
    * @throws ClassCastException
    *           if the {@link Type} object does not correspond to the type of the
@@ -2421,7 +2421,7 @@ public final class TypeUtils {
    * @throws UnsupportedTypeException
    *           if the {@link Type} object is not supported.
    * @throws TypeConvertException
-   *           if the object can not be converted into a <code>boolean</code>
+   *           if the object can not be converted into a {@code boolean}
    *           value.
    * @param NoSuchElementException
    *          if the collection is empty.
@@ -2509,7 +2509,7 @@ public final class TypeUtils {
 
   /**
    * Converts the first element in a collection of values of the specified type
-   * into a <code>String</code> value.
+   * into a {@code String} value.
    *
    * @param type
    *          the {@link Type} object corresponding to the type of the object to
@@ -2517,7 +2517,7 @@ public final class TypeUtils {
    * @param col
    *          the collection of objects of the specified type, which can't be
    *          null.
-   * @return a <code>String</code> value converted from the first object in the
+   * @return a {@code String} value converted from the first object in the
    *         collection.
    * @throws ClassCastException
    *           if the {@link Type} object does not correspond to the type of the
@@ -2525,7 +2525,7 @@ public final class TypeUtils {
    * @throws UnsupportedTypeException
    *           if the {@link Type} object is not supported.
    * @throws TypeConvertException
-   *           if the object can not be converted into a <code>boolean</code>
+   *           if the object can not be converted into a {@code boolean}
    *           value.
    * @param NoSuchElementException
    *          if the collection is empty.
@@ -2613,7 +2613,7 @@ public final class TypeUtils {
 
   /**
    * Converts the first element in a collection of values of the specified type
-   * into a <code>Date</code> value.
+   * into a {@code Date} value.
    *
    * @param type
    *          the {@link Type} object corresponding to the type of the object to
@@ -2621,7 +2621,7 @@ public final class TypeUtils {
    * @param col
    *          the collection of objects of the specified type, which can't be
    *          null.
-   * @return a <code>Date</code> value converted from the first object in the
+   * @return a {@code Date} value converted from the first object in the
    *         collection.
    * @throws ClassCastException
    *           if the {@link Type} object does not correspond to the type of the
@@ -2629,7 +2629,7 @@ public final class TypeUtils {
    * @throws UnsupportedTypeException
    *           if the {@link Type} object is not supported.
    * @throws TypeConvertException
-   *           if the object can not be converted into a <code>boolean</code>
+   *           if the object can not be converted into a {@code boolean}
    *           value.
    * @param NoSuchElementException
    *          if the collection is empty.
@@ -2717,7 +2717,7 @@ public final class TypeUtils {
 
   /**
    * Converts the first element in a collection of values of the specified type
-   * into a <code>byte[]</code> value.
+   * into a {@code byte[]} value.
    *
    * @param type
    *          the {@link Type} object corresponding to the type of the object to
@@ -2725,7 +2725,7 @@ public final class TypeUtils {
    * @param col
    *          the collection of objects of the specified type, which can't be
    *          null.
-   * @return a <code>byte[]</code> value converted from the first object in the
+   * @return a {@code byte[]} value converted from the first object in the
    *         collection.
    * @throws ClassCastException
    *           if the {@link Type} object does not correspond to the type of the
@@ -2733,7 +2733,7 @@ public final class TypeUtils {
    * @throws UnsupportedTypeException
    *           if the {@link Type} object is not supported.
    * @throws TypeConvertException
-   *           if the object can not be converted into a <code>boolean</code>
+   *           if the object can not be converted into a {@code boolean}
    *           value.
    * @param NoSuchElementException
    *          if the collection is empty.
@@ -2822,7 +2822,7 @@ public final class TypeUtils {
 
   /**
    * Converts the first element in a collection of values of the specified type
-   * into a <code>Class</code> value.
+   * into a {@code Class} value.
    *
    * @param type
    *          the {@link Type} object corresponding to the type of the object to
@@ -2830,7 +2830,7 @@ public final class TypeUtils {
    * @param col
    *          the collection of objects of the specified type, which can't be
    *          null.
-   * @return a <code>Class</code> value converted from the first object in the
+   * @return a {@code Class} value converted from the first object in the
    *         collection.
    * @throws ClassCastException
    *           if the {@link Type} object does not correspond to the type of the
@@ -2838,7 +2838,7 @@ public final class TypeUtils {
    * @throws UnsupportedTypeException
    *           if the {@link Type} object is not supported.
    * @throws TypeConvertException
-   *           if the object can not be converted into a <code>boolean</code>
+   *           if the object can not be converted into a {@code boolean}
    *           value.
    * @param NoSuchElementException
    *          if the collection is empty.
@@ -2931,7 +2931,7 @@ public final class TypeUtils {
 
   /**
    * Converts the first element in a collection of values of the specified type
-   * into a <code>BigInteger</code> value.
+   * into a {@code BigInteger} value.
    *
    * @param type
    *          the {@link Type} object corresponding to the type of the object to
@@ -2939,7 +2939,7 @@ public final class TypeUtils {
    * @param col
    *          the collection of objects of the specified type, which can't be
    *          null.
-   * @return a <code>BigInteger</code> value converted from the first object in the
+   * @return a {@code BigInteger} value converted from the first object in the
    *         collection.
    * @throws ClassCastException
    *           if the {@link Type} object does not correspond to the type of the
@@ -2947,7 +2947,7 @@ public final class TypeUtils {
    * @throws UnsupportedTypeException
    *           if the {@link Type} object is not supported.
    * @throws TypeConvertException
-   *           if the object can not be converted into a <code>boolean</code>
+   *           if the object can not be converted into a {@code boolean}
    *           value.
    * @param NoSuchElementException
    *          if the collection is empty.
@@ -3036,7 +3036,7 @@ public final class TypeUtils {
 
   /**
    * Converts the first element in a collection of values of the specified type
-   * into a <code>BigDecimal</code> value.
+   * into a {@code BigDecimal} value.
    *
    * @param type
    *          the {@link Type} object corresponding to the type of the object to
@@ -3044,7 +3044,7 @@ public final class TypeUtils {
    * @param col
    *          the collection of objects of the specified type, which can't be
    *          null.
-   * @return a <code>BigDecimal</code> value converted from the first object in the
+   * @return a {@code BigDecimal} value converted from the first object in the
    *         collection.
    * @throws ClassCastException
    *           if the {@link Type} object does not correspond to the type of the
@@ -3052,7 +3052,7 @@ public final class TypeUtils {
    * @throws UnsupportedTypeException
    *           if the {@link Type} object is not supported.
    * @throws TypeConvertException
-   *           if the object can not be converted into a <code>boolean</code>
+   *           if the object can not be converted into a {@code boolean}
    *           value.
    * @param NoSuchElementException
    *          if the collection is empty.
@@ -3140,7 +3140,7 @@ public final class TypeUtils {
 
   /**
    * Converts a collection of objects of the specified type to a
-   * <code>boolean</code> array.
+   * {@code boolean} array.
    *
    * @param type
    *          the {@link Type} object corresponding to the type of the object to
@@ -3150,7 +3150,7 @@ public final class TypeUtils {
    *          a empty array will be returned. If the type is primitive type, the
    *          collection must be a primitive collection; otherwise, it must be a
    *          generic collection.
-   * @return a <code>boolean</code> array corresponds to the collection of
+   * @return a {@code boolean} array corresponds to the collection of
    *         objects to be converted.
    * @throws ClassCastException
    *           if the {@link Type} object does not correspond to the type of the
@@ -3159,7 +3159,7 @@ public final class TypeUtils {
    *           if the {@link Type} object is not supported.
    * @throws TypeConvertException
    *           if the objects in the collection can not be converted into
-   *           <code>boolean</code> values.
+   *           {@code boolean} values.
    */
   public static boolean[] collectionAsBooleans(final Type type,
       @Nullable final Object col) throws ClassCastException,
@@ -3359,7 +3359,7 @@ public final class TypeUtils {
 
   /**
    * Converts a collection of objects of the specified type to a
-   * <code>char</code> array.
+   * {@code char} array.
    *
    * @param type
    *          the {@link Type} object corresponding to the type of the object to
@@ -3369,7 +3369,7 @@ public final class TypeUtils {
    *          a empty array will be returned. If the type is primitive type, the
    *          collection must be a primitive collection; otherwise, it must be a
    *          generic collection.
-   * @return a <code>char</code> array corresponds to the collection of objects
+   * @return a {@code char} array corresponds to the collection of objects
    *         to be converted.
    * @throws ClassCastException
    *           if the {@link Type} object does not correspond to the type of the
@@ -3379,7 +3379,7 @@ public final class TypeUtils {
    *           supported.
    * @throws TypeConvertException
    *           if the objects in the collection can not be converted into
-   *           <code>char</code> values.
+   *           {@code char} values.
    */
   public static char[] collectionAsChars(final Type type,
       @Nullable final Object col) throws ClassCastException,
@@ -3580,7 +3580,7 @@ public final class TypeUtils {
 
   /**
    * Converts a collection of objects of the specified type to a
-   * <code>byte</code> array.
+   * {@code byte} array.
    *
    * @param type
    *          the {@link Type} object corresponding to the type of the object to
@@ -3590,7 +3590,7 @@ public final class TypeUtils {
    *          a empty array will be returned. If the type is primitive type, the
    *          collection must be a primitive collection; otherwise, it must be a
    *          generic collection.
-   * @return a <code>byte</code> array corresponds to the collection of objects
+   * @return a {@code byte} array corresponds to the collection of objects
    *         to be converted.
    * @throws ClassCastException
    *           if the {@link Type} object does not correspond to the type of the
@@ -3599,7 +3599,7 @@ public final class TypeUtils {
    *           if the {@link Type} object is not supported.
    * @throws TypeConvertException
    *           if the objects in the collection can not be converted into
-   *           <code>byte</code> values.
+   *           {@code byte} values.
    */
   public static byte[] collectionAsBytes(final Type type,
       @Nullable final Object col) throws ClassCastException,
@@ -3800,7 +3800,7 @@ public final class TypeUtils {
 
   /**
    * Converts a collection of objects of the specified type to a
-   * <code>short</code> array.
+   * {@code short} array.
    *
    * @param type
    *          the {@link Type} object corresponding to the type of the object to
@@ -3810,7 +3810,7 @@ public final class TypeUtils {
    *          a empty array will be returned. If the type is primitive type, the
    *          collection must be a primitive collection; otherwise, it must be a
    *          generic collection.
-   * @return a <code>short</code> array corresponds to the collection of objects
+   * @return a {@code short} array corresponds to the collection of objects
    *         to be converted.
    * @throws ClassCastException
    *           if the {@link Type} object does not correspond to the type of the
@@ -3819,7 +3819,7 @@ public final class TypeUtils {
    *           if the {@link Type} object is not supported.
    * @throws TypeConvertException
    *           if the objects in the collection can not be converted into
-   *           <code>short</code> values.
+   *           {@code short} values.
    */
   public static short[] collectionAsShorts(final Type type,
       @Nullable final Object col) throws ClassCastException,
@@ -4020,7 +4020,7 @@ public final class TypeUtils {
 
   /**
    * Converts a collection of objects of the specified type to a
-   * <code>int</code> array.
+   * {@code int} array.
    *
    * @param type
    *          the {@link Type} object corresponding to the type of the object to
@@ -4030,7 +4030,7 @@ public final class TypeUtils {
    *          a empty array will be returned. If the type is primitive type, the
    *          collection must be a primitive collection; otherwise, it must be a
    *          generic collection.
-   * @return a <code>int</code> array corresponds to the collection of objects
+   * @return a {@code int} array corresponds to the collection of objects
    *         to be converted.
    * @throws ClassCastException
    *           if the {@link Type} object does not correspond to the type of the
@@ -4039,7 +4039,7 @@ public final class TypeUtils {
    *           if the {@link Type} object is not supported.
    * @throws TypeConvertException
    *           if the objects in the collection can not be converted into
-   *           <code>int</code> values.
+   *           {@code int} values.
    */
   public static int[] collectionAsInts(final Type type, @Nullable final Object col)
       throws ClassCastException, UnsupportedTypeException, TypeConvertException {
@@ -4239,7 +4239,7 @@ public final class TypeUtils {
 
   /**
    * Converts a collection of objects of the specified type to a
-   * <code>long</code> array.
+   * {@code long} array.
    *
    * @param type
    *          the {@link Type} object corresponding to the type of the object to
@@ -4249,7 +4249,7 @@ public final class TypeUtils {
    *          a empty array will be returned. If the type is primitive type, the
    *          collection must be a primitive collection; otherwise, it must be a
    *          generic collection.
-   * @return a <code>long</code> array corresponds to the collection of objects
+   * @return a {@code long} array corresponds to the collection of objects
    *         to be converted.
    * @throws ClassCastException
    *           if the {@link Type} object does not correspond to the type of the
@@ -4258,7 +4258,7 @@ public final class TypeUtils {
    *           if the {@link Type} object is not supported.
    * @throws TypeConvertException
    *           if the objects in the collection can not be converted into
-   *           <code>long</code> values.
+   *           {@code long} values.
    */
   public static long[] collectionAsLongs(final Type type,
       @Nullable final Object col) throws ClassCastException,
@@ -4459,7 +4459,7 @@ public final class TypeUtils {
 
   /**
    * Converts a collection of objects of the specified type to a
-   * <code>float</code> array.
+   * {@code float} array.
    *
    * @param type
    *          the {@link Type} object corresponding to the type of the object to
@@ -4469,7 +4469,7 @@ public final class TypeUtils {
    *          a empty array will be returned. If the type is primitive type, the
    *          collection must be a primitive collection; otherwise, it must be a
    *          generic collection.
-   * @return a <code>float</code> array corresponds to the collection of objects
+   * @return a {@code float} array corresponds to the collection of objects
    *         to be converted.
    * @throws ClassCastException
    *           if the {@link Type} object does not correspond to the type of the
@@ -4478,7 +4478,7 @@ public final class TypeUtils {
    *           if the {@link Type} object is not supported.
    * @throws TypeConvertException
    *           if the objects in the collection can not be converted into
-   *           <code>float</code> values.
+   *           {@code float} values.
    */
   public static float[] collectionAsFloats(final Type type,
       @Nullable final Object col) throws ClassCastException,
@@ -4679,7 +4679,7 @@ public final class TypeUtils {
 
   /**
    * Converts a collection of objects of the specified type to a
-   * <code>double</code> array.
+   * {@code double} array.
    *
    * @param type
    *          the {@link Type} object corresponding to the type of the object to
@@ -4689,7 +4689,7 @@ public final class TypeUtils {
    *          a empty array will be returned. If the type is primitive type, the
    *          collection must be a primitive collection; otherwise, it must be a
    *          generic collection.
-   * @return a <code>double</code> array corresponds to the collection of
+   * @return a {@code double} array corresponds to the collection of
    *         objects to be converted.
    * @throws ClassCastException
    *           if the {@link Type} object does not correspond to the type of the
@@ -4698,7 +4698,7 @@ public final class TypeUtils {
    *           if the {@link Type} object is not supported.
    * @throws TypeConvertException
    *           if the objects in the collection can not be converted into
-   *           <code>double</code> values.
+   *           {@code double} values.
    */
   public static double[] collectionAsDoubles(final Type type,
       @Nullable final Object col) throws ClassCastException,
@@ -5359,7 +5359,7 @@ public final class TypeUtils {
 
   /**
    * Converts a collection of objects of the specified type to a
-   * <code>byte[]</code> array.
+   * {@code byte[]} array.
    *
    * @param type
    *          the {@link Type} object corresponding to the type of the object to
@@ -5369,10 +5369,10 @@ public final class TypeUtils {
    *          a empty array will be returned. If the type is primitive type, the
    *          collection must be a primitive collection; otherwise, it must be a
    *          generic collection.
-   * @return a <code>byte[]</code> array corresponds to the collection of
+   * @return a {@code byte[]} array corresponds to the collection of
    *         objects to be converted. Note that if the specified object is of
    *         the <code>Collection<byte[]></code> type, each element in the
-   *         returned <code>byte[][]</code> array is a cloned copy of the
+   *         returned {@code byte[][]} array is a cloned copy of the
    *         original corresponding value.
    * @throws ClassCastException
    *           if the {@link Type} object does not correspond to the type of the
@@ -5381,7 +5381,7 @@ public final class TypeUtils {
    *           if the {@link Type} object is not supported.
    * @throws TypeConvertException
    *           if the objects in the collection can not be converted into
-   *           <code>byte[]</code> values.
+   *           {@code byte[]} values.
    */
   public static byte[][] collectionAsByteArrays(final Type type,
       @Nullable final Object col) throws ClassCastException,
@@ -6267,7 +6267,7 @@ public final class TypeUtils {
 
   /**
    * Converts an array of objects of the specified type to a
-   * <code>boolean</code> array.
+   * {@code boolean} array.
    *
    * @param type
    *          the {@link Type} object corresponding to the type of the object to
@@ -6276,7 +6276,7 @@ public final class TypeUtils {
    *          the array of objects to be converted; if it is null or empty, a
    *          empty array will be returned. If the type is primitive type, the
    *          array must be the array of that primitive type.
-   * @return a <code>boolean</code> array corresponds to the collection of
+   * @return a {@code boolean} array corresponds to the collection of
    *         objects to be converted.
    * @throws ClassCastException
    *           if the {@link Type} object does not correspond to the type of the
@@ -6285,7 +6285,7 @@ public final class TypeUtils {
    *           if the {@link Type} object is not supported.
    * @throws TypeConvertException
    *           if the objects in the collection can not be converted into
-   *           <code>boolean</code> values.
+   *           {@code boolean} values.
    */
   public static boolean[] arrayAsBooleans(final Type type,
       @Nullable final Object array) throws ClassCastException,
@@ -6455,7 +6455,7 @@ public final class TypeUtils {
   }
 
   /**
-   * Converts an array of objects of the specified type to a <code>char</code>
+   * Converts an array of objects of the specified type to a {@code char}
    * array.
    *
    * @param type
@@ -6465,7 +6465,7 @@ public final class TypeUtils {
    *          the array of objects to be converted; if it is null or empty, a
    *          empty array will be returned. If the type is primitive type, the
    *          array must be the array of that primitive type.
-   * @return a <code>char</code> array corresponds to the collection of objects
+   * @return a {@code char} array corresponds to the collection of objects
    *         to be converted.
    * @throws ClassCastException
    *           if the {@link Type} object does not correspond to the type of the
@@ -6475,7 +6475,7 @@ public final class TypeUtils {
    *           supported.
    * @throws TypeConvertException
    *           if the objects in the collection can not be converted into
-   *           <code>char</code> values.
+   *           {@code char} values.
    */
   public static char[] arrayAsChars(final Type type, @Nullable final Object array)
       throws ClassCastException, UnsupportedTypeException, TypeConvertException {
@@ -6645,7 +6645,7 @@ public final class TypeUtils {
 
   /**
    * Converts a array of objects of the specified type to a
-   * <code>byte</code> array.
+   * {@code byte} array.
    *
    * @param type
    *          the {@link Type} object corresponding to the type of the object to
@@ -6654,7 +6654,7 @@ public final class TypeUtils {
    *          the array of objects to be converted; if it is null or empty, a
    *          empty array will be returned. If the type is primitive type, the
    *          array must be the array of that primitive type.
-   * @return a <code>byte</code> array corresponds to the collection of objects
+   * @return a {@code byte} array corresponds to the collection of objects
    *         to be converted.
    * @throws ClassCastException
    *           if the {@link Type} object does not correspond to the type of the
@@ -6663,7 +6663,7 @@ public final class TypeUtils {
    *           if the {@link Type} object is not supported.
    * @throws TypeConvertException
    *           if the objects in the collection can not be converted into
-   *           <code>byte</code> values.
+   *           {@code byte} values.
    */
   public static byte[] arrayAsBytes(final Type type,
       @Nullable final Object array) throws ClassCastException,
@@ -6834,7 +6834,7 @@ public final class TypeUtils {
 
   /**
    * Converts a array of objects of the specified type to a
-   * <code>short</code> array.
+   * {@code short} array.
    *
    * @param type
    *          the {@link Type} object corresponding to the type of the object to
@@ -6843,7 +6843,7 @@ public final class TypeUtils {
    *          the array of objects to be converted; if it is null or empty, a
    *          empty array will be returned. If the type is primitive type, the
    *          array must be the array of that primitive type.
-   * @return a <code>short</code> array corresponds to the collection of objects
+   * @return a {@code short} array corresponds to the collection of objects
    *         to be converted.
    * @throws ClassCastException
    *           if the {@link Type} object does not correspond to the type of the
@@ -6852,7 +6852,7 @@ public final class TypeUtils {
    *           if the {@link Type} object is not supported.
    * @throws TypeConvertException
    *           if the objects in the collection can not be converted into
-   *           <code>short</code> values.
+   *           {@code short} values.
    */
   public static short[] arrayAsShorts(final Type type,
       @Nullable final Object array) throws ClassCastException,
@@ -7023,7 +7023,7 @@ public final class TypeUtils {
 
   /**
    * Converts a array of objects of the specified type to a
-   * <code>int</code> array.
+   * {@code int} array.
    *
    * @param type
    *          the {@link Type} object corresponding to the type of the object to
@@ -7032,7 +7032,7 @@ public final class TypeUtils {
    *          the array of objects to be converted; if it is null or empty, a
    *          empty array will be returned. If the type is primitive type, the
    *          array must be the array of that primitive type.
-   * @return a <code>int</code> array corresponds to the collection of objects
+   * @return a {@code int} array corresponds to the collection of objects
    *         to be converted.
    * @throws ClassCastException
    *           if the {@link Type} object does not correspond to the type of the
@@ -7041,7 +7041,7 @@ public final class TypeUtils {
    *           if the {@link Type} object is not supported.
    * @throws TypeConvertException
    *           if the objects in the collection can not be converted into
-   *           <code>int</code> values.
+   *           {@code int} values.
    */
   public static int[] arrayAsInts(final Type type, @Nullable final Object array)
       throws ClassCastException, UnsupportedTypeException, TypeConvertException {
@@ -7211,7 +7211,7 @@ public final class TypeUtils {
 
   /**
    * Converts a array of objects of the specified type to a
-   * <code>long</code> array.
+   * {@code long} array.
    *
    * @param type
    *          the {@link Type} object corresponding to the type of the object to
@@ -7220,7 +7220,7 @@ public final class TypeUtils {
    *          the array of objects to be converted; if it is null or empty, a
    *          empty array will be returned. If the type is primitive type, the
    *          array must be the array of that primitive type.
-   * @return a <code>long</code> array corresponds to the collection of objects
+   * @return a {@code long} array corresponds to the collection of objects
    *         to be converted.
    * @throws ClassCastException
    *           if the {@link Type} object does not correspond to the type of the
@@ -7229,7 +7229,7 @@ public final class TypeUtils {
    *           if the {@link Type} object is not supported.
    * @throws TypeConvertException
    *           if the objects in the collection can not be converted into
-   *           <code>long</code> values.
+   *           {@code long} values.
    */
   public static long[] arrayAsLongs(final Type type,
       @Nullable final Object array) throws ClassCastException,
@@ -7400,7 +7400,7 @@ public final class TypeUtils {
 
   /**
    * Converts a array of objects of the specified type to a
-   * <code>float</code> array.
+   * {@code float} array.
    *
    * @param type
    *          the {@link Type} object corresponding to the type of the object to
@@ -7409,7 +7409,7 @@ public final class TypeUtils {
    *          the array of objects to be converted; if it is null or empty, a
    *          empty array will be returned. If the type is primitive type, the
    *          array must be the array of that primitive type.
-   * @return a <code>float</code> array corresponds to the collection of objects
+   * @return a {@code float} array corresponds to the collection of objects
    *         to be converted.
    * @throws ClassCastException
    *           if the {@link Type} object does not correspond to the type of the
@@ -7418,7 +7418,7 @@ public final class TypeUtils {
    *           if the {@link Type} object is not supported.
    * @throws TypeConvertException
    *           if the objects in the collection can not be converted into
-   *           <code>float</code> values.
+   *           {@code float} values.
    */
   public static float[] arrayAsFloats(final Type type,
       @Nullable final Object array) throws ClassCastException,
@@ -7589,7 +7589,7 @@ public final class TypeUtils {
 
   /**
    * Converts a array of objects of the specified type to a
-   * <code>double</code> array.
+   * {@code double} array.
    *
    * @param type
    *          the {@link Type} object corresponding to the type of the object to
@@ -7598,7 +7598,7 @@ public final class TypeUtils {
    *          the array of objects to be converted; if it is null or empty, a
    *          empty array will be returned. If the type is primitive type, the
    *          array must be the array of that primitive type.
-   * @return a <code>double</code> array corresponds to the collection of
+   * @return a {@code double} array corresponds to the collection of
    *         objects to be converted.
    * @throws ClassCastException
    *           if the {@link Type} object does not correspond to the type of the
@@ -7607,7 +7607,7 @@ public final class TypeUtils {
    *           if the {@link Type} object is not supported.
    * @throws TypeConvertException
    *           if the objects in the collection can not be converted into
-   *           <code>double</code> values.
+   *           {@code double} values.
    */
   public static double[] arrayAsDoubles(final Type type,
       @Nullable final Object array) throws ClassCastException,
@@ -8150,7 +8150,7 @@ public final class TypeUtils {
 
   /**
    * Converts a array of objects of the specified type to a
-   * <code>byte[]</code> array.
+   * {@code byte[]} array.
    *
    * @param type
    *          the {@link Type} object corresponding to the type of the object to
@@ -8159,10 +8159,10 @@ public final class TypeUtils {
    *          the array of objects to be converted; if it is null or empty, a
    *          empty array will be returned. If the type is primitive type, the
    *          array must be the array of that primitive type.
-   * @return a <code>byte[]</code> array corresponds to the collection of
+   * @return a {@code byte[]} array corresponds to the collection of
    *         objects to be converted. Note that if the specified object is of
    *         the <code>Collection<byte[]></code> type, each element in the
-   *         returned <code>byte[][]</code> array is a cloned copy of the
+   *         returned {@code byte[][]} array is a cloned copy of the
    *         original corresponding value.
    * @throws ClassCastException
    *           if the {@link Type} object does not correspond to the type of the
@@ -8171,7 +8171,7 @@ public final class TypeUtils {
    *           if the {@link Type} object is not supported.
    * @throws TypeConvertException
    *           if the objects in the collection can not be converted into
-   *           <code>byte[]</code> values.
+   *           {@code byte[]} values.
    */
   public static byte[][] arrayAsByteArrays(final Type type,
       @Nullable final Object array) throws ClassCastException,
@@ -9420,7 +9420,7 @@ public final class TypeUtils {
    * @return the list of objects read from the data input. If the type is a
    *         primitive type, the returned list is the corresponding primitive
    *         list; otherwise, the returned list is the corresponding generic
-   *         list. If <code>n</code> is zero, the returned list is an empty
+   *         list. If {@code n} is zero, the returned list is an empty
    *         list.
    * @throws IOException
    *           if any I/O error occurs.

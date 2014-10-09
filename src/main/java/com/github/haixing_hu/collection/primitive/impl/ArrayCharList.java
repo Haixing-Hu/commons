@@ -31,7 +31,7 @@ import com.github.haixing_hu.collection.primitive.RandomAccessCharList;
 import static com.github.haixing_hu.lang.Argument.*;
 
 /**
- * An {@link CharList} backed by an array of <code>char</code>s. This
+ * An {@link CharList} backed by an array of {@code char}s. This
  * implementation supports all optional methods.
  *
  * @author Haixing Hu
@@ -71,9 +71,9 @@ public class ArrayCharList extends RandomAccessCharList implements CharList,
    *
    * @see ArrayCharList#addAll(org.apache.commons.collections.primitives.CharCollection)
    * @param that
-   *          the non-<code>null</code> collection of <code>char</code>s to add
+   *          the non-{@code null} collection of {@code char}s to add
    * @throws NullPointerException
-   *           if <i>that</i> is <code>null</code>
+   *           if <i>that</i> is {@code null}
    */
   public ArrayCharList(final CharCollection that) {
     this(that.size());
@@ -86,7 +86,7 @@ public class ArrayCharList extends RandomAccessCharList implements CharList,
    * @param array
    *          the array to initialize the collection with
    * @throws NullPointerException
-   *           if the array is <code>null</code>
+   *           if the array is {@code null}
    */
   public ArrayCharList(final char[] array) {
     this(array.length);

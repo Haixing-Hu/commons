@@ -22,7 +22,7 @@ package com.github.haixing_hu.text.html;
  * This interface defines the constant of HTML event names.
  *
  * The name of the constants are of the form
- * <code>ATTR_[uppercase event attribute name]</code>.
+ * {@code ATTR_[uppercase event attribute name]}.
  *
  * @author Haixing Hu
  * @see HtmlTag

@@ -28,15 +28,15 @@ import javax.annotation.Nullable;
 import com.github.haixing_hu.text.NumberFormatSymbols;
 
 /**
- * This class provides operations on <code>long</code> primitives and
+ * This class provides operations on {@code long} primitives and
  * {@link Long} objects.
  * <p>
- * This class tries to handle <code>null</code> input gracefully. An exception
- * will not be thrown for a <code>null</code> input. Each method documents its
+ * This class tries to handle {@code null} input gracefully. An exception
+ * will not be thrown for a {@code null} input. Each method documents its
  * behavior in more detail.
  * </p>
  * <p>
- * This class also handle the conversion from <code>long</code> values or
+ * This class also handle the conversion from {@code long} values or
  * {@link Long} objects to common types.
  * </p>
  *
@@ -45,7 +45,7 @@ import com.github.haixing_hu.text.NumberFormatSymbols;
 public class LongUtils {
 
   /**
-   * The default <code>long</code> value used when necessary.
+   * The default {@code long} value used when necessary.
    */
   public static final long DEFAULT = 0L;
 
@@ -258,7 +258,7 @@ public class LongUtils {
   }
 
   /**
-   * Convert a <code>long</code> value into hex string.
+   * Convert a {@code long} value into hex string.
    *
    * @param value
    *    the value to be converted.
@@ -289,7 +289,7 @@ public class LongUtils {
   }
 
   /**
-   * Convert a <code>long</code> value into hex string.
+   * Convert a {@code long} value into hex string.
    *
    * @param value
    *          the value to be converted.

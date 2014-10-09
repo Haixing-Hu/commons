@@ -18,6 +18,8 @@
 
 package com.github.haixing_hu.text;
 
+import java.text.ParsePosition;
+
 import com.github.haixing_hu.lang.Hash;
 import com.github.haixing_hu.text.tostring.ToStringBuilder;
 
@@ -29,16 +31,16 @@ import com.github.haixing_hu.text.tostring.ToStringBuilder;
  * </p>
  * @author Haixing Hu
  */
-public final class ParsePosition extends java.text.ParsePosition {
+public final class ParsingPosition extends ParsePosition {
 
   private int errorCode;
 
-  public ParsePosition() {
+  public ParsingPosition() {
     super(0);
     errorCode = ErrorCode.NONE;
   }
 
-  public ParsePosition(final int index) {
+  public ParsingPosition(final int index) {
     super(index);
     errorCode = ErrorCode.NONE;
   }
@@ -103,18 +105,11 @@ public final class ParsePosition extends java.text.ParsePosition {
 
   @Override
   public boolean equals(final Object obj) {
-    if (this == obj) {
-      return true;
-    } else if (obj == null) {
+    if (! super.equals(obj)) {
       return false;
     }
-    if (! (obj instanceof ParsePosition)) {
-      return false;
-    }
-    final ParsePosition other = (ParsePosition) obj;
-    return (errorCode == other.errorCode)
-    	 && (getIndex() == other.getIndex())
-    	 && (getErrorIndex() == other.getErrorIndex());
+    final ParsingPosition other = (ParsingPosition) obj;
+    return (errorCode == other.errorCode);
   }
 
   @Override

@@ -21,7 +21,7 @@ package com.github.haixing_hu.text.html;
 /**
  * This interface defines the constant of HTML attribute values.
  *
- * All constant names are of the form: <code>[uppercase attribute value]</code>.
+ * All constant names are of the form: {@code [uppercase attribute value]}.
  *
  * @author Haixing Hu
  * @see HtmlTag

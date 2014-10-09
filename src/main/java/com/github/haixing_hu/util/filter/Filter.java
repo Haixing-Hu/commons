@@ -31,7 +31,7 @@ public interface Filter<T> {
    * @param t
    *    the object to be test.
    * @return
-   *    true if the object <code>t</code> is accepted by this filter; false otherwise.
+   *    true if the object {@code t} is accepted by this filter; false otherwise.
    */
   public boolean accept(T t);
 }

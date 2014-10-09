@@ -67,7 +67,7 @@ public class BasicValue implements Value {
 
   public BasicValue(final Type type) {
     this.type = requireNonNull("type", type);
-    this.value = null;
+    value = null;
   }
 
   public BasicValue(final boolean value) {
@@ -167,10 +167,13 @@ public class BasicValue implements Value {
     }
     final Type type = other.getType();
     if (other.isEmpty()) {
-      this.clear();
-      this.setType(type);
+      value = null;
+      this.type = type;
       return;
     }
+    //  note that the other Value may NOT store its value as an Object;
+    //  for example, the other Value implementation choose to store all value
+    //  in its string representation.
     switch (type) {
       case BOOLEAN: {
         final boolean value = other.getBooleanValue();
@@ -290,7 +293,7 @@ public class BasicValue implements Value {
     final Element child = DomUtils.getOptChild(parent, tagName);
     if (child == null) {
       this.type = type;
-      this.value = null;
+      value = null;
     } else {
       final Object value = TypeUtils.fromXmlNode(type, child, prevSpaceAttr);
       this.type = type;
@@ -323,7 +326,7 @@ public class BasicValue implements Value {
 
   @Override
   public void setBooleanValue(final boolean value) {
-    this.type = Type.BOOLEAN;
+    type = Type.BOOLEAN;
     this.value = Boolean.valueOf(value);
   }
 
@@ -341,7 +344,7 @@ public class BasicValue implements Value {
 
   @Override
   public void setCharValue(final char value) {
-    this.type = Type.CHAR;
+    type = Type.CHAR;
     this.value = Character.valueOf(value);
   }
 
@@ -359,7 +362,7 @@ public class BasicValue implements Value {
 
   @Override
   public void setByteValue(final byte value) {
-    this.type = Type.BYTE;
+    type = Type.BYTE;
     this.value = Byte.valueOf(value);
   }
 
@@ -377,7 +380,7 @@ public class BasicValue implements Value {
 
   @Override
   public void setShortValue(final short value) {
-    this.type = Type.SHORT;
+    type = Type.SHORT;
     this.value = Short.valueOf(value);
   }
 
@@ -394,7 +397,7 @@ public class BasicValue implements Value {
 
   @Override
   public void setIntValue(final int value) {
-    this.type = Type.INT;
+    type = Type.INT;
     this.value = Integer.valueOf(value);
   }
 
@@ -412,7 +415,7 @@ public class BasicValue implements Value {
 
   @Override
   public void setLongValue(final long value) {
-    this.type = Type.LONG;
+    type = Type.LONG;
     this.value = Long.valueOf(value);
   }
 
@@ -430,7 +433,7 @@ public class BasicValue implements Value {
 
   @Override
   public void setFloatValue(final float value) {
-    this.type = Type.FLOAT;
+    type = Type.FLOAT;
     this.value = Float.valueOf(value);
   }
 
@@ -448,7 +451,7 @@ public class BasicValue implements Value {
 
   @Override
   public void setDoubleValue(final double value) {
-    this.type = Type.DOUBLE;
+    type = Type.DOUBLE;
     this.value = Double.valueOf(value);
   }
 
@@ -466,7 +469,7 @@ public class BasicValue implements Value {
 
   @Override
   public void setStringValue(final String value) {
-    this.type = Type.STRING;
+    type = Type.STRING;
     this.value = value;
   }
 
@@ -484,7 +487,7 @@ public class BasicValue implements Value {
 
   @Override
   public void setDateValue(final Date value) {
-    this.type = Type.DATE;
+    type = Type.DATE;
     this.value = Assignment.clone(value);
   }
 
@@ -502,7 +505,7 @@ public class BasicValue implements Value {
 
   @Override
   public void setBigIntegerValue(final BigInteger value) {
-    this.type = Type.BIG_INTEGER;
+    type = Type.BIG_INTEGER;
     this.value = value;
   }
 
@@ -520,7 +523,7 @@ public class BasicValue implements Value {
 
   @Override
   public void setBigDecimalValue(final BigDecimal value) {
-    this.type = Type.BIG_DECIMAL;
+    type = Type.BIG_DECIMAL;
     this.value = value;
   }
 
@@ -538,7 +541,7 @@ public class BasicValue implements Value {
 
   @Override
   public void setByteArrayValue(final byte[] value) {
-    this.type = Type.BYTE_ARRAY;
+    type = Type.BYTE_ARRAY;
     this.value = Assignment.clone(value);
   }
 
@@ -556,7 +559,7 @@ public class BasicValue implements Value {
 
   @Override
   public void setClassValue(final Class<?> value) {
-    this.type = Type.CLASS;
+    type = Type.CLASS;
     this.value = value;
   }
 
@@ -638,7 +641,7 @@ public class BasicValue implements Value {
     if (value == null) {
       throw new NoSuchElementException();
     }
-    final Type type = this.getType();
+    final Type type = getType();
     return TypeUtils.objectAsString(type, value);
   }
 
@@ -648,7 +651,7 @@ public class BasicValue implements Value {
     if (value == null) {
       throw new NoSuchElementException();
     }
-    final Type type = this.getType();
+    final Type type = getType();
     return TypeUtils.objectAsDate(type, value);
   }
 
@@ -658,7 +661,7 @@ public class BasicValue implements Value {
     if (value == null) {
       throw new NoSuchElementException();
     }
-    final Type type = this.getType();
+    final Type type = getType();
     return TypeUtils.objectAsByteArray(type, value);
   }
 
@@ -686,16 +689,20 @@ public class BasicValue implements Value {
     if (value == null) {
       throw new NoSuchElementException();
     }
-    final Type type = this.getType();
+    final Type type = getType();
     return TypeUtils.objectAsBigDecimal(type, value);
   }
 
   @Override
   public BasicValue clone() {
-    final BasicValue result = new BasicValue();
-    result.type = this.type;
-    result.value = TypeUtils.cloneObject(this.type, this.type);
-    return result;
+    try {
+      final BasicValue result = (BasicValue) super.clone();
+      result.type = type;
+      result.value = TypeUtils.cloneObject(type, type);
+      return result;
+    } catch (final CloneNotSupportedException e) {
+      throw new UnsupportedOperationException(e);
+    }
   }
 
   @Override

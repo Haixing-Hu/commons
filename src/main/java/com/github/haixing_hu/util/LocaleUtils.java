@@ -44,9 +44,9 @@ public class LocaleUtils {
    * where
    *
    * <ul>
-   * <li><code>language</code> is a 2-letter ISO-639 codes, in lower case.</li>
-   * <li><code>country</code> is a 2-letter ISO-3166 codes, in upper case.</li>
-   * <li><code>variant</code> specify particular variants of the locale,
+   * <li>{@code language} is a 2-letter ISO-639 codes, in lower case.</li>
+   * <li>{@code country} is a 2-letter ISO-3166 codes, in upper case.</li>
+   * <li>{@code variant} specify particular variants of the locale,
    * typically with special options. </li>
    * </ul>
    *
@@ -119,16 +119,16 @@ public class LocaleUtils {
    * <ul>
    * <li>the string "C" is used to represent a unspecified locale id. It acts as
    * the current default locale of the current process.</li>
-   * <li><code>language</code> is a 2-letter ISO-639 codes, in lower case</li>
-   * <li><code>script</code> is a 4-letter ISO-15924 codes, in title case.
-   * <li><code>script</code> is a 2-letter ISO-3166 codes, in upper case. Also
+   * <li>{@code language} is a 2-letter ISO-639 codes, in lower case</li>
+   * <li>{@code script} is a 4-letter ISO-15924 codes, in title case.
+   * <li>{@code script} is a 2-letter ISO-3166 codes, in upper case. Also
    * known as a country code, although the territories may not be countries.</li>
-   * <li><code>variant</code> specify particular variants of the locale,
+   * <li>{@code variant} specify particular variants of the locale,
    * typically with special options. They cannot overlap with script or
    * territory codes, so they must have either one letter or have more than 4
    * letters.</li>
-   * <li><code>encoding</code> is the text encoding for ANSI applications.</li>
-   * <li><code>key</code>, <code>value</code> pair is the user predefined
+   * <li>{@code encoding} is the text encoding for ANSI applications.</li>
+   * <li>{@code key}, {@code value} pair is the user predefined
    * configuration items.</li>
    * </ul>
    *

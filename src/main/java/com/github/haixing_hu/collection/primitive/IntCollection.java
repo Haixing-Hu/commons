@@ -19,14 +19,14 @@
 package com.github.haixing_hu.collection.primitive;
 
 /**
- * A collection of <code>int</code> values.
+ * A collection of {@code int} values.
  *
  * @author Haixing Hu
  */
 public interface IntCollection extends Comparable<IntCollection> {
   /**
    * Ensures that I contain the specified element (optional operation). Returns
-   * <code>true</code> iff I changed as a result of this call.
+   * {@code true} iff I changed as a result of this call.
    * <p>
    * If a collection refuses to add the specified element for any reason other
    * than that it already contains the element, it <i>must</i> throw an
@@ -37,7 +37,7 @@ public interface IntCollection extends Comparable<IntCollection> {
    *
    * @param element
    *          the value whose presence within me is to be ensured
-   * @return <code>true</code> iff I changed as a result of this call
+   * @return {@code true} iff I changed as a result of this call
    * @throws UnsupportedOperationException
    *           when this operation is not supported
    * @throws IllegalArgumentException
@@ -53,7 +53,7 @@ public interface IntCollection extends Comparable<IntCollection> {
    * @param c
    *          the collection of elements whose presence within me is to be
    *          ensured
-   * @return <code>true</code> iff I changed as a result of this call
+   * @return {@code true} iff I changed as a result of this call
    * @throws UnsupportedOperationException
    *           when this operation is not supported
    * @throws IllegalArgumentException
@@ -72,29 +72,29 @@ public interface IntCollection extends Comparable<IntCollection> {
   void clear();
 
   /**
-   * Returns <code>true</code> iff I contain the specified element.
+   * Returns {@code true} iff I contain the specified element.
    *
    * @param element
    *          the value whose presence within me is to be tested
-   * @return <code>true</code> iff I contain the specified element
+   * @return {@code true} iff I contain the specified element
    */
   boolean contains(int element);
 
   /**
-   * Returns <code>true</code> iff I {@link #contains contain} all of the
+   * Returns {@code true} iff I {@link #contains contain} all of the
    * elements in the given collection.
    *
    * @param c
    *          the collection of elements whose presence within me is to be
    *          tested
-   * @return <code>true</code> iff I contain the all the specified elements
+   * @return {@code true} iff I contain the all the specified elements
    */
   boolean containsAll(IntCollection c);
 
   /**
-   * Returns <code>true</code> iff I contain no elements.
+   * Returns {@code true} iff I contain no elements.
    *
-   * @return <code>true</code> iff I contain no elements.
+   * @return {@code true} iff I contain no elements.
    */
   boolean isEmpty();
 
@@ -116,8 +116,8 @@ public interface IntCollection extends Comparable<IntCollection> {
    *
    * @param c
    *          the collection of elements to remove
-   * @return <code>true</code> iff I contained the at least one of the specified
-   *         elements, in other words, returns <code>true</code> iff I changed
+   * @return {@code true} iff I contained the at least one of the specified
+   *         elements, in other words, returns {@code true} iff I changed
    *         as a result of this call
    * @throws UnsupportedOperationException
    *           when this operation is not supported
@@ -129,7 +129,7 @@ public interface IntCollection extends Comparable<IntCollection> {
    *
    * @param element
    *          the element to remove, if present
-   * @return <code>true</code> iff I contained the specified element, in other
+   * @return {@code true} iff I contained the specified element, in other
    *         words, iff I changed as a result of this call
    * @throws UnsupportedOperationException
    *           when this operation is not supported
@@ -145,7 +145,7 @@ public interface IntCollection extends Comparable<IntCollection> {
    *
    * @param c
    *          the collection of elements to retain
-   * @return <code>true</code> iff I changed as a result of this call
+   * @return {@code true} iff I changed as a result of this call
    * @throws UnsupportedOperationException
    *           when this operation is not supported
    */

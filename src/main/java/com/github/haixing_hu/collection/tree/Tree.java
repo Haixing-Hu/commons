@@ -23,6 +23,10 @@ import java.util.Collection;
 /**
  * The interface of the tree structure.
  *
+ * @param <KEY>
+ *          the type of the keys of tree nodes.
+ * @param <VALUE>
+ *          the type of the values of tree nodes.
  * @author Haixing Hu
  */
 public interface Tree<KEY, VALUE> {

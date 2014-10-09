@@ -27,7 +27,7 @@ import com.github.haixing_hu.lang.Hash;
 import com.github.haixing_hu.text.tostring.ToStringBuilder;
 
 /**
- * This class is used to represent a pair of <code>boolean</code> values.
+ * This class is used to represent a pair of {@code boolean} values.
  *
  * @author Haixing Hu
  */

@@ -23,7 +23,7 @@ import java.text.ParseException;
 /**
  * Thrown to indicate a error occurs during parsing the text.
  *
- * This class extends {@link ParseException}, except it provides more detailed
+ * This class extends {@link ParsingException}, except it provides more detailed
  * information about the parsing and it will automatically build the error
  * message from those information.
  *
@@ -71,17 +71,17 @@ public class TextParseException extends ParseException {
     this.endIndex = endIndex;
   }
 
-  public TextParseException(final CharSequence text, final ParsePosition pos) {
+  public TextParseException(final CharSequence text, final ParsingPosition pos) {
     this(text, 0, text.length(), pos);
   }
 
   public TextParseException(final CharSequence text, final int startIndex,
-      final ParsePosition pos) {
+      final ParsingPosition pos) {
     this(text, startIndex, text.length(), pos);
   }
 
   public TextParseException(final CharSequence text, final int startIndex,
-      final int endIndex, final ParsePosition pos) {
+      final int endIndex, final ParsingPosition pos) {
     super(buildErrorMessage(text, startIndex, endIndex,
         ErrorCode.getMessage(pos.getErrorCode())), pos.getErrorIndex());
     this.text = text.toString();

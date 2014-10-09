@@ -24,13 +24,13 @@ import java.util.List;
 import javax.annotation.concurrent.NotThreadSafe;
 
 /**
- * A <code>ChainedTransformer</code> object is a instance of
- * <code>Transformer</code> consists of a list of <code>Transformer</code>
+ * A {@code ChainedTransformer} object is a instance of
+ * {@code Transformer} consists of a list of {@code Transformer}
  * objects.
  *
  * A ChainedTransformer object will transform the input object using all the
  * transformers in its chain one by one, until the object become
- * <code>null</code>.
+ * {@code null}.
  *
  * Note that the order of the transformers in the chain is crucial.
  *

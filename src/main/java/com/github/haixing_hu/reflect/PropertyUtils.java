@@ -61,7 +61,7 @@ public final class PropertyUtils {
    *          Bean class for which property descriptors are requested
    * @return the property descriptors
    * @exception NullPointerException
-   *              if <code>beanClass</code> is null
+   *              if {@code beanClass} is null
    */
   public static PropertyDescriptor[] getPropertyDescriptors(final Class<?> cls) {
     requireNonNull("cls", cls);
@@ -91,7 +91,7 @@ public final class PropertyUtils {
 
   /**
    * Retrieve the property descriptor for the specified property of the
-   * specified bean, or return <code>null</code> if there is no such descriptor.
+   * specified bean, or return {@code null} if there is no such descriptor.
    *
    * This method resolves indexed and nested property references in the same
    * manner as other methods in this class, except that if the last (or only)
@@ -105,7 +105,7 @@ public final class PropertyUtils {
    *          property descriptor is requested.
    * @return the property descriptor
    * @exception NullPointerException
-   *              if <code>bean</code> or <code>name</code> is null.
+   *              if {@code bean} or {@code name} is null.
    */
   public static PropertyDescriptor getPropertyDescriptor(final Class<?> cls,
       final String name) {
@@ -124,7 +124,7 @@ public final class PropertyUtils {
 
   /**
    * Return an accessible property getter method for this property, if there is
-   * one; otherwise return <code>null</code>.
+   * one; otherwise return {@code null}.
    *
    * @param clazz
    *          The class of the read method will be invoked on
@@ -141,7 +141,7 @@ public final class PropertyUtils {
 
   /**
    * Return an accessible property setter method for this property, if there is
-   * one; otherwise return <code>null</code>.
+   * one; otherwise return {@code null}.
    *
    * @param clazz
    *          The class of the write method will be invoked on.
@@ -170,7 +170,7 @@ public final class PropertyUtils {
    *              if the caller does not have access to the property accessor
    *              method
    * @exception NullPointerException
-   *              if <code>bean</code> or <code>name</code> is null
+   *              if {@code bean} or {@code name} is null
    * @exception InvocationTargetException
    *              if the property accessor method throws an exception
    * @exception NoSuchMethodException
@@ -199,12 +199,12 @@ public final class PropertyUtils {
 
   /**
    * Return the Java Class representing the property type of the specified
-   * property, or <code>null</code> if there is no such property for the
+   * property, or {@code null} if there is no such property for the
    * specified bean. This method follows the same name resolution rules used by
-   * <code>getPropertyDescriptor()</code>, so if the last element of a name
+   * {@code getPropertyDescriptor()}, so if the last element of a name
    * reference is indexed, the type of the property itself will be returned. If
    * the last (or only) element has no property with the specified name,
-   * <code>null</code> is returned.
+   * {@code null} is returned.
    *
    * @param beanClass
    *          the class of the bean for which a property descriptor is requested
@@ -217,7 +217,7 @@ public final class PropertyUtils {
    *              if the caller does not have access to the property accessor
    *              method
    * @exception NullPointerException
-   *              if <code>bean</code> or <code>name</code> is null
+   *              if {@code bean} or {@code name} is null
    * @exception InvocationTargetException
    *              if the property accessor method throws an exception
    * @exception NoSuchMethodException
@@ -251,7 +251,7 @@ public final class PropertyUtils {
    *              if the caller does not have access to the property accessor
    *              method
    * @exception NullPointerException
-   *              if <code>bean</code> or <code>name</code> is null
+   *              if {@code bean} or {@code name} is null
    * @exception InvocationTargetException
    *              if the property accessor method throws an exception
    * @exception NoSuchMethodException

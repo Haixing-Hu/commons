@@ -30,9 +30,9 @@ public interface CharFilter {
    *
    * @param codePoint
    *          the Unicode code point to be test. Note that it could be a value of
-   *          type <code>char</code>.
+   *          type {@code char}.
    * @return
-   *    true if the object <code>t</code> is accepted by this filter; false otherwise.
+   *    true if the object {@code t} is accepted by this filter; false otherwise.
    */
   public boolean accept(int codePoint);
 }
