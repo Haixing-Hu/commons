@@ -30,11 +30,11 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
 import com.github.haixing_hu.CommonsConfig;
+import com.github.haixing_hu.config.Config;
 import com.github.haixing_hu.lang.StringUtils;
 import com.github.haixing_hu.text.xml.InvalidXmlNodeContentException;
 import com.github.haixing_hu.text.xml.XmlException;
 import com.github.haixing_hu.text.xml.XmlUtils;
-import com.github.haixing_hu.util.config.Config;
 
 import static com.github.haixing_hu.text.xml.DomUtils.*;
 

@@ -24,7 +24,7 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.ThreadSafe;
 
 import com.github.haixing_hu.CommonsConfig;
-import com.github.haixing_hu.util.config.Config;
+import com.github.haixing_hu.config.Config;
 
 /**
  * The {@link ExpansionPolicy} is used to calculate the capacity while expanding

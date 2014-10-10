@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+  <property name="prop1" type="class">
+    <description>description 1</description>
+    <value>com.github.haixing_hu.config.impl.DefaultConfig</value>
+  </property>
+  
+  <property type="class" name="prop2" final="true">
+    <description>description 2</description>
+  </property>
+  
+  <property name="prop3" final="false" type="class">
+    <value>com.github.haixing_hu.config.impl.MyConfigurableClass</value>
+    <value>com.github.haixing_hu.config.Configured</value>    
+  </property>
+  
+
+</configuration>

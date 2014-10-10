@@ -130,8 +130,8 @@ public class XmlSerialization {
     if (serializer == null) {
       throw new NoXmlSerializerRegisteredException(objClass);
     }
-    final org.w3c.dom.Document doc = XmlUtils.newDocument();
-    final org.w3c.dom.Element node = serializer.serialize(doc, obj);
+    final Document doc = XmlUtils.newDocument();
+    final Element node = serializer.serialize(doc, obj);
     final StringWriter out = new StringWriter();
     XmlUtils.print(node, out);
     return out.toString();
@@ -183,8 +183,8 @@ public class XmlSerialization {
     if (serializer == null) {
       throw new NoXmlSerializerRegisteredException(objClass);
     }
-    final org.w3c.dom.Document doc = XmlUtils.newDocument();
-    final org.w3c.dom.Element root = serializer.serialize(doc, obj);
+    final Document doc = XmlUtils.newDocument();
+    final Element root = serializer.serialize(doc, obj);
     doc.appendChild(root);
     XmlUtils.print(doc, out);
   }
@@ -211,8 +211,8 @@ public class XmlSerialization {
     if (serializer == null) {
       throw new NoXmlSerializerRegisteredException(objClass);
     }
-    final org.w3c.dom.Document doc = XmlUtils.newDocument();
-    final org.w3c.dom.Element root = serializer.serialize(doc, obj);
+    final Document doc = XmlUtils.newDocument();
+    final Element root = serializer.serialize(doc, obj);
     doc.appendChild(root);
     XmlUtils.print(doc, out);
   }
@@ -239,8 +239,8 @@ public class XmlSerialization {
     if (serializer == null) {
       throw new NoXmlSerializerRegisteredException(objClass);
     }
-    final org.w3c.dom.Document doc = XmlUtils.newDocument();
-    final org.w3c.dom.Element root = serializer.serialize(doc, obj);
+    final Document doc = XmlUtils.newDocument();
+    final Element root = serializer.serialize(doc, obj);
     doc.appendChild(root);
     XmlUtils.print(doc, writer);
   }
@@ -270,8 +270,8 @@ public class XmlSerialization {
     try {
       os = new FileOutputStream(file);
       writer = new OutputStreamWriter(os, CharsetUtils.UTF_8);
-      final org.w3c.dom.Document doc = XmlUtils.newDocument();
-      final org.w3c.dom.Element root = serializer.serialize(doc, obj);
+      final Document doc = XmlUtils.newDocument();
+      final Element root = serializer.serialize(doc, obj);
       doc.appendChild(root);
       XmlUtils.print(doc, writer);
     } catch (final FileNotFoundException e) {
@@ -332,8 +332,8 @@ public class XmlSerialization {
       throw new NoXmlSerializerRegisteredException(objClass);
     }
     final StringReader reader = new StringReader(xml);
-    final org.w3c.dom.Document doc = XmlUtils.parse(reader);
-    final org.w3c.dom.Element root = doc.getDocumentElement();
+    final Document doc = XmlUtils.parse(reader);
+    final Element root = doc.getDocumentElement();
     try {
       return (T) serializer.deserialize(root);
     } catch (final ClassCastException e) {
@@ -363,8 +363,8 @@ public class XmlSerialization {
     if (serializer == null) {
       throw new NoXmlSerializerRegisteredException(objClass);
     }
-    final org.w3c.dom.Document doc = XmlUtils.parse(reader);
-    final org.w3c.dom.Element root = doc.getDocumentElement();
+    final Document doc = XmlUtils.parse(reader);
+    final Element root = doc.getDocumentElement();
     try {
       return (T) serializer.deserialize(root);
     } catch (final ClassCastException e) {
@@ -395,8 +395,8 @@ public class XmlSerialization {
     if (serializer == null) {
       throw new NoXmlSerializerRegisteredException(objClass);
     }
-    final org.w3c.dom.Document doc = XmlUtils.parse(in);
-    final org.w3c.dom.Element root = doc.getDocumentElement();
+    final Document doc = XmlUtils.parse(in);
+    final Element root = doc.getDocumentElement();
     try {
       return (T) serializer.deserialize(root);
     } catch (final ClassCastException e) {
@@ -424,8 +424,8 @@ public class XmlSerialization {
     if (serializer == null) {
       throw new NoXmlSerializerRegisteredException(objClass);
     }
-    final org.w3c.dom.Document doc = XmlUtils.parse(file);
-    final org.w3c.dom.Element root = doc.getDocumentElement();
+    final Document doc = XmlUtils.parse(file);
+    final Element root = doc.getDocumentElement();
     try {
       return (T) serializer.deserialize(root);
     } catch (final ClassCastException e) {
@@ -454,8 +454,8 @@ public class XmlSerialization {
     if (serializer == null) {
       throw new NoXmlSerializerRegisteredException(objClass);
     }
-    final org.w3c.dom.Document doc = XmlUtils.parse(url);
-    final org.w3c.dom.Element root = doc.getDocumentElement();
+    final Document doc = XmlUtils.parse(url);
+    final Element root = doc.getDocumentElement();
     try {
       return (T) serializer.deserialize(root);
     } catch (final ClassCastException e) {
@@ -484,8 +484,8 @@ public class XmlSerialization {
     if (serializer == null) {
       throw new NoXmlSerializerRegisteredException(objClass);
     }
-    final org.w3c.dom.Document doc = XmlUtils.parse(url);
-    final org.w3c.dom.Element root = doc.getDocumentElement();
+    final Document doc = XmlUtils.parse(url);
+    final Element root = doc.getDocumentElement();
     try {
       return (T) serializer.deserialize(root);
     } catch (final ClassCastException e) {
@@ -514,8 +514,8 @@ public class XmlSerialization {
     if (serializer == null) {
       throw new NoXmlSerializerRegisteredException(objClass);
     }
-    final org.w3c.dom.Document doc = XmlUtils.parse(uri);
-    final org.w3c.dom.Element root = doc.getDocumentElement();
+    final Document doc = XmlUtils.parse(uri);
+    final Element root = doc.getDocumentElement();
     try {
       return (T) serializer.deserialize(root);
     } catch (final ClassCastException e) {
@@ -546,8 +546,8 @@ public class XmlSerialization {
     if (serializer == null) {
       throw new NoXmlSerializerRegisteredException(objClass);
     }
-    final org.w3c.dom.Document doc = XmlUtils.parse(resource, loaderClass);
-    final org.w3c.dom.Element root = doc.getDocumentElement();
+    final Document doc = XmlUtils.parse(resource, loaderClass);
+    final Element root = doc.getDocumentElement();
     try {
       return (T) serializer.deserialize(root);
     } catch (final ClassCastException e) {
@@ -578,8 +578,8 @@ public class XmlSerialization {
     if (serializer == null) {
       throw new NoXmlSerializerRegisteredException(objClass);
     }
-    final org.w3c.dom.Document doc = XmlUtils.parse(resource, loader);
-    final org.w3c.dom.Element root = doc.getDocumentElement();
+    final Document doc = XmlUtils.parse(resource, loader);
+    final Element root = doc.getDocumentElement();
     try {
       return (T) serializer.deserialize(root);
     } catch (final ClassCastException e) {

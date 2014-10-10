@@ -40,6 +40,9 @@ import javax.annotation.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.github.haixing_hu.config.error.ConfigurationError;
+import com.github.haixing_hu.config.error.InvalidPropertyValueError;
+import com.github.haixing_hu.config.error.PropertyNotExistError;
 import com.github.haixing_hu.io.IoUtils;
 import com.github.haixing_hu.lang.ArrayUtils;
 import com.github.haixing_hu.lang.EnumUtils;
@@ -49,9 +52,6 @@ import com.github.haixing_hu.net.Url;
 import com.github.haixing_hu.net.UrlUtils;
 import com.github.haixing_hu.text.BooleanFormat;
 import com.github.haixing_hu.text.NumberFormat;
-import com.github.haixing_hu.util.config.error.ConfigurationError;
-import com.github.haixing_hu.util.config.error.InvalidPropertyValueError;
-import com.github.haixing_hu.util.config.error.PropertyNotExistError;
 
 import static com.github.haixing_hu.CommonsMessages.RESOURCE_NOT_FOUND;
 

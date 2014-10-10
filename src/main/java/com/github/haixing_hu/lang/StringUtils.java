@@ -1814,15 +1814,15 @@ public class StringUtils {
       return fromIndex;
     }
     outer:
-    for (int i = fromIndex; i < strLen; i++) {
-      final char ch = str.charAt(i);
-      for (int j = 0; j < searchChars.length; j++) {
-        if (searchChars[j] == ch) {
-          continue outer;
+      for (int i = fromIndex; i < strLen; i++) {
+        final char ch = str.charAt(i);
+        for (int j = 0; j < searchChars.length; j++) {
+          if (searchChars[j] == ch) {
+            continue outer;
+          }
         }
+        return i;
       }
-      return i;
-    }
     return - 1;
   }
 
@@ -2285,15 +2285,15 @@ public class StringUtils {
       return fromIndex;
     }
     outer:
-    for (int i = fromIndex; i >= 0; --i) {
-      final char ch = str.charAt(i);
-      for (int j = 0; j < searchChars.length; j++) {
-        if (searchChars[j] == ch) {
-          continue outer;
+      for (int i = fromIndex; i >= 0; --i) {
+        final char ch = str.charAt(i);
+        for (int j = 0; j < searchChars.length; j++) {
+          if (searchChars[j] == ch) {
+            continue outer;
+          }
         }
+        return i;
       }
-      return i;
-    }
     return - 1;
   }
 
@@ -2585,7 +2585,7 @@ public class StringUtils {
    * @return {@code true} if the {@code str} is not {@code null} and contains
    *         {@code ch}; {@code false} otherwise.
    */
-  public static boolean containsChar(@Nullable String str, char ch) {
+  public static boolean containsChar(@Nullable final String str, final char ch) {
     if (str == null) {
       return false;
     } else {
@@ -8340,7 +8340,7 @@ public class StringUtils {
               builder_len = builder.length();
               builder.setCharAt(builder_len - 1, '\n');
             } else { // otherwise, this is the first time to append, simply
-                     // append a line break
+              // append a line break
               builder.append('\n');
               ++appended;
             }

@@ -123,7 +123,7 @@ public final class DomUtils {
 
   public static void checkClassAttribute(final Element node,
       final Class<?> clazz, @Nullable String classAttribute)
-      throws XmlException {
+          throws XmlException {
     if (classAttribute == null) {
       classAttribute = DEFAULT_CLASS_ATTRIBUTE;
     }
@@ -333,7 +333,7 @@ public final class DomUtils {
    */
   public static List<Element> getReqChildren(final Element parent,
       final int minCount, final int maxCount, @Nullable List<Element> result)
-      throws XmlException {
+          throws XmlException {
 
     result = getChildren(parent, result);
     final int actual = (result == null ? 0 : result.size());
@@ -490,7 +490,7 @@ public final class DomUtils {
 
   public static char getOptCharAttr(final Element node, final String attrName,
       final char minValue, final char maxValue, final char defaultValue)
-      throws XmlException {
+          throws XmlException {
     if (! node.hasAttribute(attrName)) {
       return defaultValue;
     }
@@ -557,7 +557,7 @@ public final class DomUtils {
 
   public static byte getOptByteAttr(final Element node, final String attrName,
       final byte minValue, final byte maxValue, final byte defaultValue)
-      throws XmlException {
+          throws XmlException {
     if (! node.hasAttribute(attrName)) {
       return defaultValue;
     }
@@ -661,7 +661,7 @@ public final class DomUtils {
 
   public static short getReqShortAttr(final Element node,
       final String attrName, final short minValue, final short maxValue)
-      throws XmlException {
+          throws XmlException {
     if (! node.hasAttribute(attrName)) {
       throw new EmptyXmlAttributeException(node.getTagName(), attrName);
     }
@@ -696,7 +696,7 @@ public final class DomUtils {
 
   public static int getOptIntAttr(final Element node, final String attrName,
       final int minValue, final int maxValue, final int defaultValue)
-      throws XmlException {
+          throws XmlException {
     if (! node.hasAttribute(attrName)) {
       return defaultValue;
     }
@@ -765,7 +765,7 @@ public final class DomUtils {
 
   public static long getOptLongAttr(final Element node, final String attrName,
       final long minValue, final long maxValue, final long defaultValue)
-      throws XmlException {
+          throws XmlException {
     if (! node.hasAttribute(attrName)) {
       return defaultValue;
     }
@@ -870,7 +870,7 @@ public final class DomUtils {
 
   public static float getReqFloatAttr(final Element node,
       final String attrName, final float minValue, final float maxValue)
-      throws XmlException {
+          throws XmlException {
     if (! node.hasAttribute(attrName)) {
       throw new EmptyXmlAttributeException(node.getTagName(), attrName);
     }
@@ -942,7 +942,7 @@ public final class DomUtils {
 
   public static double getReqDoubleAttr(final Element node,
       final String attrName, final double minValue, final double maxValue)
-      throws XmlException {
+          throws XmlException {
     if (! node.hasAttribute(attrName)) {
       throw new EmptyXmlAttributeException(node.getTagName(), attrName);
     }
@@ -976,7 +976,7 @@ public final class DomUtils {
 
   public static String getReqStringAttr(final Element node,
       final String attrName, final boolean strip, final boolean allowEmpty)
-      throws XmlException {
+          throws XmlException {
     if (! node.hasAttribute(attrName)) {
       throw new EmptyXmlAttributeException(node.getTagName(), attrName);
     }
@@ -992,7 +992,7 @@ public final class DomUtils {
 
   public static Date getOptDateAttr(final Element node, final String attrName,
       final String pattern, @Nullable final Date defaultValue)
-      throws XmlException {
+          throws XmlException {
     if (! node.hasAttribute(attrName)) {
       return defaultValue;
     }
@@ -1039,7 +1039,7 @@ public final class DomUtils {
 
   public static byte[] getReqByteArrayAttr(final Element node,
       final String attrName, @Nullable final String separator)
-      throws XmlException {
+          throws XmlException {
     if (! node.hasAttribute(attrName)) {
       throw new EmptyXmlAttributeException(node.getTagName(), attrName);
     }
@@ -1055,7 +1055,7 @@ public final class DomUtils {
 
   public static Class<?> getOptClassAttr(final Element node,
       final String attrName, @Nullable final Class<?> defaultValue)
-      throws XmlException {
+          throws XmlException {
     if (! node.hasAttribute(attrName)) {
       return defaultValue;
     }
@@ -1086,7 +1086,7 @@ public final class DomUtils {
 
   public static BigInteger getOptBigIntegerAttr(final Element node,
       final String attrName, @Nullable final BigInteger defaultValue)
-      throws XmlException {
+          throws XmlException {
     if (! node.hasAttribute(attrName)) {
       return defaultValue;
     }
@@ -1117,7 +1117,7 @@ public final class DomUtils {
 
   public static BigDecimal getOptBigDecimalAttr(final Element node,
       final String attrName, @Nullable final BigDecimal defaultValue)
-      throws XmlException {
+          throws XmlException {
     if (! node.hasAttribute(attrName)) {
       return defaultValue;
     }
@@ -1149,7 +1149,7 @@ public final class DomUtils {
   public static <T extends Enum<T>> T getOptEnumAttr(final Element node,
       final String attrName, final boolean useShortName,
       final Class<T> enumClass, @Nullable final T defaultValue)
-      throws XmlException {
+          throws XmlException {
     if (! node.hasAttribute(attrName)) {
       return defaultValue;
     }
@@ -1188,7 +1188,7 @@ public final class DomUtils {
   @SuppressWarnings("unchecked")
   public static <T> T getOptObjectAttr(final Element node,
       final String attrName, @Nullable final T defaultValue)
-      throws XmlException {
+          throws XmlException {
     if (! node.hasAttribute(attrName)) {
       return defaultValue;
     }
@@ -1260,7 +1260,7 @@ public final class DomUtils {
 
   public static BooleanList getOptBooleanList(
       @Nullable final List<Element> nodes, @Nullable BooleanList result)
-      throws XmlException {
+          throws XmlException {
     if (result != null) {
       result.clear();
     }
@@ -1286,7 +1286,7 @@ public final class DomUtils {
 
   public static BooleanList getReqBooleanList(
       @Nullable final List<Element> nodes, @Nullable BooleanList result)
-      throws XmlException {
+          throws XmlException {
     if (result != null) {
       result.clear();
     }
@@ -1859,7 +1859,7 @@ public final class DomUtils {
 
   public static DoubleList getOptDoubleList(
       @Nullable final List<Element> nodes, @Nullable DoubleList result)
-      throws XmlException {
+          throws XmlException {
     if (result != null) {
       result.clear();
     }
@@ -1885,7 +1885,7 @@ public final class DomUtils {
 
   public static DoubleList getReqDoubleList(
       @Nullable final List<Element> nodes, @Nullable DoubleList result)
-      throws XmlException {
+          throws XmlException {
     if (result != null) {
       result.clear();
     }
@@ -1926,8 +1926,8 @@ public final class DomUtils {
    *          {@code prevSpaceAttr}.
    * @param defaultValue
    *          the default value to be returned if the node is empty (i.e., no
-   *          children). Note that the defaultValue could be null.
-   * @return the character data of the ONLY text child node of a spe cified
+   *          children). Note that the it could be {@code null}.
+   * @return the character data of the ONLY text child node of a specified
    *         node; or the defaultValue if the node is empty (i.e., has no
    *         children).
    */
@@ -1953,19 +1953,18 @@ public final class DomUtils {
     final int childrenCount = childrenList.getLength();
     for (int i = 0; i < childrenCount; ++i) {
       final Node child = childrenList.item(i);
-      if (child.getNodeType() != Node.TEXT_NODE) {
-        // skip non Text children
-        continue;
+      if (child.getNodeType() == Node.TEXT_NODE) {
+        final Text textChild = (Text) child;
+        result = textChild.getData();
+        if ((result != null) && strip) {
+          result = StringUtils.strip(result);
+        }
+        // only get the text from the first Text child
+        return result;
       }
-      final Text textChild = (Text) child;
-      result = textChild.getData();
-      if ((result != null) && strip) {
-        result = StringUtils.strip(result);
-      }
-      // only get the text from the first Text child
-      break;
     }
-    return result;
+    //  the node has no text child
+    return defaultValue;
   }
 
   /**
@@ -2044,7 +2043,7 @@ public final class DomUtils {
       @Nullable final List<Element> nodes,
       @Nullable final String prevSpaceAttr, final boolean defaultTrim,
       final boolean ignoreEmpty, @Nullable List<String> result)
-      throws XmlException {
+          throws XmlException {
     if (result != null) {
       result.clear();
     }
@@ -2071,7 +2070,7 @@ public final class DomUtils {
       @Nullable final List<Element> nodes,
       @Nullable final String prevSpaceAttr, final boolean defaultTrim,
       final boolean ignoreEmpty, @Nullable List<String> result)
-      throws XmlException {
+          throws XmlException {
     if (result != null) {
       result.clear();
     }
@@ -2093,7 +2092,7 @@ public final class DomUtils {
 
   public static Date getOptDate(@Nullable final Element node,
       final String pattern, @Nullable final Date defaultValue)
-      throws XmlException {
+          throws XmlException {
     final String str = getOptString(node, null, false, null);
     if (str == null) {
       return defaultValue;
@@ -2189,7 +2188,7 @@ public final class DomUtils {
 
   public static List<Class<?>> getOptClassList(
       @Nullable final List<Element> nodes, @Nullable List<Class<?>> result)
-      throws XmlException {
+          throws XmlException {
     if (result != null) {
       result.clear();
     }
@@ -2216,7 +2215,7 @@ public final class DomUtils {
 
   public static List<Class<?>> getReqClassList(
       @Nullable final List<Element> nodes, @Nullable List<Class<?>> result)
-      throws XmlException {
+          throws XmlException {
     if (result != null) {
       result.clear();
     }
@@ -2241,7 +2240,7 @@ public final class DomUtils {
 
   public static byte[] getOptByteArray(@Nullable final Element node,
       @Nullable final String separator, @Nullable final byte[] defaultValue)
-      throws XmlException {
+          throws XmlException {
     final String str = getOptString(node, null, false, null);
     if (str == null) {
       return defaultValue;
@@ -2346,7 +2345,7 @@ public final class DomUtils {
 
   public static List<BigInteger> getOptBigIntegerList(
       @Nullable final List<Element> nodes, @Nullable List<BigInteger> result)
-      throws XmlException {
+          throws XmlException {
     if (result != null) {
       result.clear();
     }
@@ -2372,7 +2371,7 @@ public final class DomUtils {
 
   public static List<BigInteger> getReqBigIntegerList(
       @Nullable final List<Element> nodes, @Nullable List<BigInteger> result)
-      throws XmlException {
+          throws XmlException {
     if (result != null) {
       result.clear();
     }
@@ -2421,7 +2420,7 @@ public final class DomUtils {
 
   public static List<BigDecimal> getOptBigDecimalList(
       @Nullable final List<Element> nodes, @Nullable List<BigDecimal> result)
-      throws XmlException {
+          throws XmlException {
     if (result != null) {
       result.clear();
     }
@@ -2447,7 +2446,7 @@ public final class DomUtils {
 
   public static List<BigDecimal> getReqBigDecimalList(
       @Nullable final List<Element> nodes, @Nullable List<BigDecimal> result)
-      throws XmlException {
+          throws XmlException {
     if (result != null) {
       result.clear();
     }
@@ -2542,7 +2541,7 @@ public final class DomUtils {
   public static <T> T getOptSer(@Nullable final Element node,
       final Class<T> objClass, final boolean allowConfig,
       @Nullable final String configAttr, @Nullable final T defaultValue)
-      throws XmlException {
+          throws XmlException {
     final XmlSerializer serializer = XmlSerialization.getSerializer(objClass);
     if (serializer == null) {
       throw new NoXmlSerializerRegisteredException(objClass);
@@ -2580,7 +2579,7 @@ public final class DomUtils {
 
   public static <T> T getReqSer(final Element node, final Class<T> objClass,
       final boolean allowConfig, @Nullable final String configAttr)
-      throws XmlException {
+          throws XmlException {
     final XmlSerializer serializer = XmlSerialization.getSerializer(objClass);
     if (serializer == null) {
       throw new NoXmlSerializerRegisteredException(objClass);
@@ -2653,7 +2652,7 @@ public final class DomUtils {
   public static <T> T getOptPolySer(@Nullable final Element node,
       @Nullable String classAttr, final boolean allowConfig,
       @Nullable String configAttr, @Nullable final T defaultValue)
-      throws XmlException {
+          throws XmlException {
     if (node == null) {
       return defaultValue;
     }
@@ -2731,7 +2730,7 @@ public final class DomUtils {
   public static <T> List<T> getPolySerList(@Nullable final List<Element> nodes,
       @Nullable String classAttr, final boolean allowConfig,
       @Nullable String configAttr, @Nullable List<T> result)
-      throws XmlException {
+          throws XmlException {
     if (result != null) {
       result.clear();
     }
@@ -2810,7 +2809,7 @@ public final class DomUtils {
   @SuppressWarnings("unchecked")
   public static <T> List<T> getOptInstanceList(
       @Nullable final List<Element> nodes, @Nullable List<T> result)
-      throws XmlException {
+          throws XmlException {
     if (result != null) {
       result.clear();
     }
@@ -2841,7 +2840,7 @@ public final class DomUtils {
   @SuppressWarnings("unchecked")
   public static <T> List<T> getReqInstanceList(
       @Nullable final List<Element> nodes, @Nullable List<T> result)
-      throws XmlException {
+          throws XmlException {
     if (result != null) {
       result.clear();
     }
@@ -2870,7 +2869,7 @@ public final class DomUtils {
       @Nullable final String prevSpaceAttr, final boolean defaultTrim,
       @Nullable final String separatorAttr, final char defaultSeparator,
       final boolean ignoreEmpty, @Nullable final List<String> result)
-      throws XmlException {
+          throws XmlException {
     if ((node == null) || (! node.hasChildNodes())) {
       if (result != null) {
         result.clear();
@@ -2997,7 +2996,7 @@ public final class DomUtils {
 
   public static Boolean getOptBooleanChild(final Element node,
       final String childName, @Nullable final Boolean defaultValue)
-      throws XmlException {
+          throws XmlException {
     final Element child = getOptChild(node, childName);
     return getOptBoolean(child, defaultValue);
   }
@@ -3017,7 +3016,7 @@ public final class DomUtils {
 
   public static Character getOptCharChild(final Element node,
       final String childName, @Nullable final Character defaultValue)
-      throws XmlException {
+          throws XmlException {
     final Element child = getOptChild(node, childName);
     return getOptChar(child, defaultValue);
   }
@@ -3036,7 +3035,7 @@ public final class DomUtils {
 
   public static Byte getOptByteChild(final Element node,
       final String childName, @Nullable final Byte defaultValue)
-      throws XmlException {
+          throws XmlException {
     final Element child = getOptChild(node, childName);
     return getOptByte(child, defaultValue);
   }
@@ -3055,7 +3054,7 @@ public final class DomUtils {
 
   public static Short getOptShortChild(final Element node,
       final String childName, @Nullable final Short defaultValue)
-      throws XmlException {
+          throws XmlException {
     final Element child = getOptChild(node, childName);
     return getOptShort(child, defaultValue);
   }
@@ -3074,7 +3073,7 @@ public final class DomUtils {
 
   public static Integer getOptIntChild(final Element node,
       final String childName, @Nullable final Integer defaultValue)
-      throws XmlException {
+          throws XmlException {
     final Element child = getOptChild(node, childName);
     return getOptInt(child, defaultValue);
   }
@@ -3093,7 +3092,7 @@ public final class DomUtils {
 
   public static Long getOptLongChild(final Element node,
       final String childName, @Nullable final Long defaultValue)
-      throws XmlException {
+          throws XmlException {
     final Element child = getOptChild(node, childName);
     return getOptLong(child, defaultValue);
   }
@@ -3112,7 +3111,7 @@ public final class DomUtils {
 
   public static Float getOptFloatChild(final Element node,
       final String childName, @Nullable final Float defaultValue)
-      throws XmlException {
+          throws XmlException {
     final Element child = getOptChild(node, childName);
     return getOptFloat(child, defaultValue);
   }
@@ -3131,7 +3130,7 @@ public final class DomUtils {
 
   public static Double getOptDoubleChild(final Element node,
       final String childName, @Nullable final Double defaultValue)
-      throws XmlException {
+          throws XmlException {
     final Element child = getOptChild(node, childName);
     return getOptDouble(child, defaultValue);
   }
@@ -3145,9 +3144,14 @@ public final class DomUtils {
   public static String getOptStringChild(final Element node,
       final String childName, @Nullable final String prevSpaceAttr,
       final boolean defaultTrim, @Nullable final String defaultValue)
-      throws XmlException {
+          throws XmlException {
     final Element child = getOptChild(node, childName);
-    return getOptString(child, prevSpaceAttr, defaultTrim, defaultValue);
+    //  if the child exist but has no children, we must returns an empty string
+    if ((child != null) && (! child.hasChildNodes())) {
+      return StringUtils.EMPTY;
+    } else {
+      return getOptString(child, prevSpaceAttr, defaultTrim, defaultValue);
+    }
   }
 
   public static String getReqStringChild(final Element node,
@@ -3179,14 +3183,14 @@ public final class DomUtils {
 
   public static byte[] getReqByteArrayChild(final Element node,
       final String childName, @Nullable final String separator)
-      throws XmlException {
+          throws XmlException {
     final Element child = getReqChild(node, childName);
     return getReqByteArray(child, separator);
   }
 
   public static Class<?> getOptClassChild(final Element node,
       final String childName, @Nullable final Class<?> defaultValue)
-      throws XmlException {
+          throws XmlException {
     final Element child = getOptChild(node, childName);
     return getOptClass(child, defaultValue);
   }
@@ -3199,7 +3203,7 @@ public final class DomUtils {
 
   public static BigInteger getOptBigIntegerChild(final Element node,
       final String childName, @Nullable final BigInteger defaultValue)
-      throws XmlException {
+          throws XmlException {
     final Element child = getOptChild(node, childName);
     return getOptBigInteger(child, defaultValue);
   }
@@ -3212,7 +3216,7 @@ public final class DomUtils {
 
   public static BigDecimal getOptBigDecimalChild(final Element node,
       final String childName, @Nullable final BigDecimal defaultValue)
-      throws XmlException {
+          throws XmlException {
     final Element child = getOptChild(node, childName);
     return getOptBigDecimal(child, defaultValue);
   }
@@ -3226,7 +3230,7 @@ public final class DomUtils {
   public static <T extends Enum<T>> T getOptEnumChild(final Element node,
       final String childName, final boolean useShortName,
       final Class<T> enumClass, @Nullable final T defaultValue)
-      throws XmlException {
+          throws XmlException {
     final Element child = getOptChild(node, childName);
     return getOptEnum(child, useShortName, enumClass, defaultValue);
   }
@@ -3241,7 +3245,7 @@ public final class DomUtils {
   public static <T> T getOptSerChild(final Element node,
       final Class<T> objClass, final boolean allowConfig,
       @Nullable final String configAttr, @Nullable final T defaultValue)
-      throws XmlException {
+          throws XmlException {
     final XmlSerializer serializer = XmlSerialization.getSerializer(objClass);
     if (serializer == null) {
       throw new NoXmlSerializerRegisteredException(objClass);
@@ -3274,14 +3278,14 @@ public final class DomUtils {
   public static <T> T getReqPolySerChild(final Element node,
       final String childName, @Nullable final String classAttr,
       final boolean allowConfig, @Nullable final String configAttr)
-      throws XmlException {
+          throws XmlException {
     final Element child = getReqChild(node, childName);
     return getReqPolySer(child, classAttr, allowConfig, configAttr);
   }
 
   public static <T> T getOptInstanceChild(final Element node,
       final String childName, @Nullable final T defaultValue)
-      throws XmlException {
+          throws XmlException {
     final Element child = getOptChild(node, childName);
     return getOptInstance(child, defaultValue);
   }
@@ -3307,7 +3311,7 @@ public final class DomUtils {
       final boolean defaultTrim, final boolean allowEmpty,
       @Nullable final String separatorAttr, final char defaultSeparator,
       final boolean ignoreEmpty, @Nullable final List<String> result)
-      throws XmlException {
+          throws XmlException {
     final Element child = getReqChild(node, childName);
     return getReqStrings(child, prevSpaceAttr, defaultTrim, allowEmpty,
         separatorAttr, defaultSeparator, ignoreEmpty, result);
@@ -3315,7 +3319,7 @@ public final class DomUtils {
 
   public static BooleanList getOptBooleanChildren(final Element node,
       final String childName, @Nullable final BooleanList result)
-      throws XmlException {
+          throws XmlException {
     final List<Element> children = getChildren(node, childName, null);
     return getOptBooleanList(children, result);
   }
@@ -3335,7 +3339,7 @@ public final class DomUtils {
 
   public static CharList getOptCharChildren(final Element node,
       final String childName, @Nullable final CharList result)
-      throws XmlException {
+          throws XmlException {
     final List<Element> children = getChildren(node, childName, null);
     return getOptCharList(children, result);
   }
@@ -3355,7 +3359,7 @@ public final class DomUtils {
 
   public static ByteList getOptByteChildren(final Element node,
       final String childName, @Nullable final ByteList result)
-      throws XmlException {
+          throws XmlException {
     final List<Element> children = getChildren(node, childName, null);
     return getOptByteList(children, result);
   }
@@ -3375,7 +3379,7 @@ public final class DomUtils {
 
   public static ShortList getOptShortChildren(final Element node,
       final String childName, @Nullable final ShortList result)
-      throws XmlException {
+          throws XmlException {
     final List<Element> children = getChildren(node, childName, null);
     return getOptShortList(children, result);
   }
@@ -3395,7 +3399,7 @@ public final class DomUtils {
 
   public static IntList getOptIntChildren(final Element node,
       final String childName, @Nullable final IntList result)
-      throws XmlException {
+          throws XmlException {
     final List<Element> children = getChildren(node, childName, null);
     return getOptIntList(children, result);
   }
@@ -3415,7 +3419,7 @@ public final class DomUtils {
 
   public static LongList getOptLongChildren(final Element node,
       final String childName, @Nullable final LongList result)
-      throws XmlException {
+          throws XmlException {
     final List<Element> children = getChildren(node, childName, null);
     return getOptLongList(children, result);
   }
@@ -3435,7 +3439,7 @@ public final class DomUtils {
 
   public static FloatList getOptFloatChildren(final Element node,
       final String childName, @Nullable final FloatList result)
-      throws XmlException {
+          throws XmlException {
     final List<Element> children = getChildren(node, childName, null);
     return getOptFloatList(children, result);
   }
@@ -3455,7 +3459,7 @@ public final class DomUtils {
 
   public static DoubleList getOptDoubleChildren(final Element node,
       final String childName, @Nullable final DoubleList result)
-      throws XmlException {
+          throws XmlException {
     final List<Element> children = getChildren(node, childName, null);
     return getOptDoubleList(children, result);
   }
@@ -3527,7 +3531,7 @@ public final class DomUtils {
   public static List<byte[]> getReqByteArrayChildren(final Element node,
       final String childName, @Nullable final String separator,
       final int minCount, final int maxCount, @Nullable List<byte[]> result)
-      throws XmlException {
+          throws XmlException {
     final List<Element> children = getChildren(node, childName, null);
     result = getReqByteArrayList(children, separator, result);
     final int count = (result == null ? 0 : result.size());
@@ -3540,7 +3544,7 @@ public final class DomUtils {
 
   public static List<BigInteger> getOptBigIntegerChildren(final Element node,
       final String childName, @Nullable final List<BigInteger> result)
-      throws XmlException {
+          throws XmlException {
     final List<Element> children = getChildren(node, childName, null);
     return getOptBigIntegerList(children, result);
   }
@@ -3560,7 +3564,7 @@ public final class DomUtils {
 
   public static List<BigDecimal> getOptBigDecimalChildren(final Element node,
       final String childName, @Nullable final List<BigDecimal> result)
-      throws XmlException {
+          throws XmlException {
     final List<Element> children = getChildren(node, childName, null);
     return getOptBigDecimalList(children, result);
   }
@@ -3581,7 +3585,7 @@ public final class DomUtils {
   public static <T extends Enum<T>> List<T> getOptEnumChildren(
       final Element node, final String childName, final boolean useShortName,
       final Class<T> enumClass, @Nullable final List<T> result)
-      throws XmlException {
+          throws XmlException {
     final List<Element> children = getChildren(node, childName, null);
     return getOptEnumList(children, useShortName, enumClass, result);
   }
@@ -3602,7 +3606,7 @@ public final class DomUtils {
 
   public static List<Class<?>> getOptClassChildren(final Element node,
       final String childName, @Nullable final List<Class<?>> result)
-      throws XmlException {
+          throws XmlException {
     final List<Element> children = getChildren(node, childName, null);
     return getOptClassList(children, result);
   }
@@ -3623,7 +3627,7 @@ public final class DomUtils {
   public static <T> List<T> getOptSerChildren(final Element node,
       final Class<T> objClass, final boolean allowConfig,
       @Nullable final String configAttr, @Nullable final List<T> result)
-      throws XmlException {
+          throws XmlException {
     final XmlSerializer serializer = XmlSerialization.getSerializer(objClass);
     if (serializer == null) {
       throw new NoXmlSerializerRegisteredException(objClass);
@@ -3666,7 +3670,7 @@ public final class DomUtils {
       final String childName, final int minCount, final int maxCount,
       final String classAttr, final boolean allowConfig,
       @Nullable final String configAttr, @Nullable List<T> result)
-      throws XmlException {
+          throws XmlException {
     final List<Element> children = getChildren(node, childName, null);
     result = getPolySerList(children, classAttr, allowConfig, configAttr,
         result);
@@ -3680,7 +3684,7 @@ public final class DomUtils {
 
   public static <T> List<T> getOptInstanceChildren(final Element node,
       final String childName, @Nullable final List<T> result)
-      throws XmlException {
+          throws XmlException {
     final List<Element> children = getChildren(node, childName, null);
     return getOptInstanceList(children, result);
   }
@@ -3723,7 +3727,7 @@ public final class DomUtils {
       final String childName, final int minCount, final int maxCount,
       final Class<T> objClass, final boolean allowConfig,
       @Nullable final String configAttr, @Nullable List<T> result)
-      throws XmlException {
+          throws XmlException {
     if (result != null) {
       result.clear();
     }
@@ -3755,7 +3759,7 @@ public final class DomUtils {
       final String childName, final String grandchildName,
       @Nullable final String classAttr, final boolean allowConfig,
       @Nullable final String configAttr, @Nullable final List<T> result)
-      throws XmlException {
+          throws XmlException {
     if (result != null) {
       result.clear();
     }
@@ -3772,7 +3776,7 @@ public final class DomUtils {
       final String childName, final String grandchildName, final int minCount,
       final int maxCount, final String classAttr, final boolean allowConfig,
       @Nullable final String configAttr, @Nullable List<T> result)
-      throws XmlException {
+          throws XmlException {
     if (result != null) {
       result.clear();
     }
@@ -4836,7 +4840,7 @@ public final class DomUtils {
 
   public static <T> void appendOptSerChild(final Document doc,
       final Element parent, final Class<T> valueClass, @Nullable final T value)
-      throws XmlException {
+          throws XmlException {
     if (value != null) {
       final XmlSerializer serializer = XmlSerialization.getSerializer(valueClass);
       if (serializer == null) {
@@ -4862,7 +4866,7 @@ public final class DomUtils {
 
   public static <T> void appendReqSerChild(final Document doc,
       final Element parent, final Class<T> valueClass, final T value)
-      throws XmlException {
+          throws XmlException {
     final XmlSerializer serializer = XmlSerialization.getSerializer(valueClass);
     if (serializer == null) {
       throw new NoXmlSerializerRegisteredException(valueClass);
@@ -5262,7 +5266,7 @@ public final class DomUtils {
   public static <T> void appendSerChildren(final Document doc,
       final Element parent, @Nullable final String containerName,
       final Class<T> valueClass, @Nullable final Collection<T> values)
-      throws XmlException {
+          throws XmlException {
     Element container = parent;
     if (containerName != null) {
       container = doc.createElement(containerName);

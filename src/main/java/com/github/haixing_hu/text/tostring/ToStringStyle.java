@@ -27,13 +27,13 @@ import java.util.Stack;
 import javax.annotation.concurrent.Immutable;
 
 import com.github.haixing_hu.CommonsConfig;
+import com.github.haixing_hu.config.Config;
 import com.github.haixing_hu.lang.ClassUtils;
 import com.github.haixing_hu.lang.Equality;
 import com.github.haixing_hu.lang.Hash;
 import com.github.haixing_hu.lang.ObjectUtils;
 import com.github.haixing_hu.lang.StringUtils;
 import com.github.haixing_hu.lang.SystemUtils;
-import com.github.haixing_hu.util.config.Config;
 
 /**
  * Controls {@code String} formatting for {@link ToStringBuilder}.

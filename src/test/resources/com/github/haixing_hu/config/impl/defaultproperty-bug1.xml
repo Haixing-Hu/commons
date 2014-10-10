@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<property name="prop2" type="string" final="true">
+    <description>  </description>
+    <value>value2</value>
+</property>

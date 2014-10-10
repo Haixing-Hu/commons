@@ -18,8 +18,8 @@
 
 package com.github.haixing_hu;
 
-import com.github.haixing_hu.util.config.Config;
-import com.github.haixing_hu.util.config.ConfigUtils;
+import com.github.haixing_hu.config.Config;
+import com.github.haixing_hu.config.ConfigUtils;
 
 /**
  * Provides functions to get the configuration of the commons module and defines
