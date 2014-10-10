@@ -76,6 +76,7 @@ public class ChainedFilter<T> extends AbstractFilter<T> {
     }
   }
 
+  @SuppressWarnings("unchecked")
   public void addFilters(final Filter<T>... filters) {
     requireNonNull("filters", filters);
     for (final Filter<T> filter : filters) {

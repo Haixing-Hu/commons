@@ -26,6 +26,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
+import javax.annotation.Nullable;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -66,13 +68,30 @@ public class DefaultConfig extends AbstractConfig {
     XmlSerialization.register(DefaultConfig.class, DefaultConfigXmlSerializer.INSTANCE);
   }
 
+  protected String description;
   protected Map<String, DefaultProperty> properties;
 
   /**
    * Constructs an empty {@link DefaultConfig} object.
    */
   public DefaultConfig() {
+    description = null;
     properties = new HashMap<String, DefaultProperty>();
+  }
+
+  @Override
+  public String getDescription() {
+    return description;
+  }
+
+  /**
+   * Sets the description.
+   *
+   * @param description
+   *          the new description to set, or {@code null} if none.
+   */
+  public void setDescription(@Nullable final String description) {
+    this.description = description;
   }
 
   @Override
@@ -1029,8 +1048,8 @@ public class DefaultConfig extends AbstractConfig {
   @Override
   public String toString() {
     return new ToStringBuilder(this)
-               .append("properties", properties)
-               .toString();
+    .append("properties", properties)
+    .toString();
   }
 
 }

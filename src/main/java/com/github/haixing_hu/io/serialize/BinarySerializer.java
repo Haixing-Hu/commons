@@ -29,9 +29,7 @@ import javax.annotation.concurrent.ThreadSafe;
  * A {@link BinarySerializer} provides interface to serialize and deserialize
  * objects to and from binary streams.
  * <p>
- * <b>IMPORTANT NOTE</b>: the implementation of this interface <emph>MUST</emph>
- * be thread safe.
- * </p>
+ * <b>NOTE</b>: the implementation of this interface <b>MUST</b> be thread safe.
  *
  * @author Haixing Hu
  */
@@ -44,10 +42,11 @@ public interface BinarySerializer {
    * @param in
    *          A binary input stream.
    * @param allowNull
-   *          Indicates whether to allowed the returned object to be null.
-   * @return The object deserialized from the binary input stream, or null if
-   *         the object stored in the binary input stream is null and the
-   *         argument {@code allowNull} is true.
+   *          Indicates whether to allowed the returned object to be
+   *          {@code null}.
+   * @return The object deserialized from the binary input stream, or
+   *         {@code null} if the object stored in the binary input stream is
+   *         null and the argument {@code allowNull} is true.
    * @throws IOException
    *           If any I/O error occurred.
    */
@@ -62,7 +61,7 @@ public interface BinarySerializer {
    * @param out
    *          A binary output stream.
    * @param obj
-   *          The object to be serialized. It could be null.
+   *          The object to be serialized. It could be {@code null}.
    * @throws IOException
    *           If any I/O error occurred.
    */

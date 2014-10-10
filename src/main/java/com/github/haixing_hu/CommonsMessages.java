@@ -256,4 +256,8 @@ public interface CommonsMessages {
 
   public static final String UNSUPPORTED_CHECKSUM_ALGORITHM     =
     "Unsupported checksum algorithm. ";
+
+  public static final String RESOURCE_NOT_FOUND                 =
+      "Can not find the specified resource: ";
+
 }

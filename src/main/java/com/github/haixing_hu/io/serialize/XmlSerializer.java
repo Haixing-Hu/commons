@@ -29,9 +29,7 @@ import com.github.haixing_hu.text.xml.XmlException;
  * A {@link XmlSerializer} provides interface to serialize and deserialize
  * objects to and from an XML DOM true.
  * <p>
- * <b>IMPORTANT NOTE</b>: the implementation of this interface <emph>MUST</emph>
- * be thread safe.
- * </p>
+ * <b>NOTE</b>: All implementation of this interface <b>MUST</b> be thread safe.
  *
  * @author Haixing Hu
  */
@@ -54,7 +52,7 @@ public interface XmlSerializer {
    *          The root node of the XML DOM tree.
    * @return The object deserialized from XML DOM tree.
    * @throws NullPointerException
-   *           If the {@code root} is null.
+   *           If the {@code root} is {@code null}.
    * @throws XmlException
    *           If any XML error occurred.
    */
@@ -66,10 +64,10 @@ public interface XmlSerializer {
    * @param doc
    *          The XML DOM document used to create XML DOM node.
    * @param obj
-   *          The object to be serialized. It can't be null.
+   *          The object to be serialized. It can't be {@code null}.
    * @return The root node of the resulting XML DOM tree.
    * @throws NullPointerException
-   *           If the {@code obj} is null.
+   *           If the {@code obj} is {@code null}.
    * @throws XmlException
    *           If any XML error occurred.
    */

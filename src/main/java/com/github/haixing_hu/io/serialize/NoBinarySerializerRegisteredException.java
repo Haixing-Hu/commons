@@ -21,11 +21,13 @@ package com.github.haixing_hu.io.serialize;
 import com.github.haixing_hu.io.exception.SerializationException;
 
 /**
- * Thrown to indicate that no binary serializer was registered for the specified class.
+ * Thrown to indicate that no binary serializer was registered for the specified
+ * class.
  *
  * @author Haixing Hu
  */
-public class NoBinarySerializerRegisteredException extends SerializationException {
+public class NoBinarySerializerRegisteredException extends
+    SerializationException {
 
   private static final long serialVersionUID = - 7020988206462175166L;
 

@@ -18,35 +18,345 @@
 
 package com.github.haixing_hu.util;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.PrintStream;
 import java.lang.reflect.Array;
+import java.net.URI;
+import java.net.URL;
+import java.nio.charset.Charset;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
 import javax.annotation.Nullable;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.github.haixing_hu.io.IoUtils;
 import com.github.haixing_hu.lang.ArrayUtils;
 import com.github.haixing_hu.lang.EnumUtils;
 import com.github.haixing_hu.lang.StringUtils;
+import com.github.haixing_hu.lang.SystemUtils;
+import com.github.haixing_hu.net.Url;
+import com.github.haixing_hu.net.UrlUtils;
 import com.github.haixing_hu.text.BooleanFormat;
 import com.github.haixing_hu.text.NumberFormat;
 import com.github.haixing_hu.util.config.error.ConfigurationError;
 import com.github.haixing_hu.util.config.error.InvalidPropertyValueError;
 import com.github.haixing_hu.util.config.error.PropertyNotExistError;
 
+import static com.github.haixing_hu.CommonsMessages.RESOURCE_NOT_FOUND;
+
 /**
- * Provides functions dealing with the {@link java.util.Properties} class.
+ * Provides functions dealing with the {@link Properties} class.
  *
  * @author Haixing Hu
  */
 public final class PropertiesUtils {
 
+  private static final Logger LOGGER = LoggerFactory
+      .getLogger(PropertiesUtils.class);
+
+  /**
+   * Loads a properties file from an input stream using a specified charset.
+   * <p>
+   * After calling this function, the input stream remains opened.
+   *
+   * @param in
+   *          the input stream.
+   * @param charset
+   *          the specified charset.
+   * @return the {@link Properties} load from the specified resource.
+   * @throws IOException
+   *           if any error occurs.
+   */
+  public static Properties load(final InputStream in, final Charset charset)
+      throws IOException {
+    LOGGER.debug("Loading a properties from an input stream: {}", in);
+    final InputStreamReader reader = new InputStreamReader(in, charset);
+    final Properties prop = new Properties();
+    prop.load(reader);
+    return prop;
+  }
+
+  /**
+   * Loads a properties file from a local file using a specified charset.
+   *
+   * @param file
+   *          the properties file.
+   * @param charset
+   *          the specified charset.
+   * @return the {@link Properties} load from the specified resource.
+   * @throws IOException
+   *           if any error occurs.
+   */
+  public static Properties load(final File file, final Charset charset)
+      throws IOException {
+    LOGGER.debug("Loading a properties from a file: {}", file);
+    final InputStream is = new FileInputStream(file);
+    try {
+      final InputStreamReader reader = new InputStreamReader(is, charset);
+      final Properties prop = new Properties();
+      prop.load(reader);
+      return prop;
+    } finally {
+      IoUtils.closeQuietly(is);
+    }
+  }
+
+  /**
+   * Loads a properties file from a resource using a specified charset.
+   *
+   * @param resource
+   *          the resource path.
+   * @param charset
+   *          the specified charset.
+   * @return the {@link Properties} load from the specified resource.
+   * @throws IOException
+   *           if any error occurs.
+   */
+  public static Properties load(final String resource, final Charset charset)
+      throws IOException {
+    LOGGER.debug("Loading a properties from a resource: {}", resource);
+    final URL url = SystemUtils.getResource(resource);
+    if (url == null) {
+      throw new IOException(RESOURCE_NOT_FOUND + resource);
+    }
+    final InputStream is = UrlUtils.openStream(url);
+    try {
+      final InputStreamReader reader = new InputStreamReader(is, charset);
+      final Properties prop = new Properties();
+      prop.load(reader);
+      return prop;
+    } finally {
+      IoUtils.closeQuietly(is);
+    }
+  }
+
+  /**
+   * Loads a properties file from a resource using a specified charset.
+   *
+   * @param resource
+   *          the resource path.
+   * @param loaderClass
+   *          the class used to load the resource.
+   * @param charset
+   *          the specified charset.
+   * @return the {@link Properties} load from the specified resource.
+   * @throws IOException
+   *           if any error occurs.
+   */
+  public static Properties load(final String resource,
+      final Class<?> loaderClass, final Charset charset) throws IOException {
+    LOGGER.debug("Loading a properties from a resource: {}", resource);
+    final URL url = SystemUtils.getResource(resource, loaderClass);
+    if (url == null) {
+      throw new IOException(RESOURCE_NOT_FOUND + resource);
+    }
+    final InputStream is = UrlUtils.openStream(url);
+    try {
+      final InputStreamReader reader = new InputStreamReader(is, charset);
+      final Properties prop = new Properties();
+      prop.load(reader);
+      return prop;
+    } finally {
+      IoUtils.closeQuietly(is);
+    }
+  }
+
+  /**
+   * Loads a properties file from a resource using a specified charset.
+   *
+   * @param resource
+   *          the resource path.
+   * @param loader
+   *          the class loader used to load the resource.
+   * @param charset
+   *          the specified charset.
+   * @return the {@link Properties} load from the specified resource.
+   * @throws IOException
+   *           if any error occurs.
+   */
+  public static Properties load(final String resource,
+      final ClassLoader loader, final Charset charset) throws IOException {
+    LOGGER.debug("Loading a properties from a resource: {}", resource);
+    final URL url = SystemUtils.getResource(resource, loader);
+    if (url == null) {
+      throw new IOException(RESOURCE_NOT_FOUND + resource);
+    }
+    final InputStream is = UrlUtils.openStream(url);
+    try {
+      final InputStreamReader reader = new InputStreamReader(is, charset);
+      final Properties prop = new Properties();
+      prop.load(reader);
+      return prop;
+    } finally {
+      IoUtils.closeQuietly(is);
+    }
+  }
+
+  /**
+   * Loads a properties file from a resource using a specified charset.
+   *
+   * @param url
+   *          the URL of the resource.
+   * @param charset
+   *          the specified charset.
+   * @return the {@link Properties} load from the specified resource.
+   * @throws IOException
+   *           if any error occurs.
+   */
+  public static Properties load(final URL url, final Charset charset)
+      throws IOException {
+    LOGGER.debug("Loading a properties from a URL: {}", url);
+    final InputStream is = UrlUtils.openStream(url);
+    try {
+      final InputStreamReader reader = new InputStreamReader(is, charset);
+      final Properties prop = new Properties();
+      prop.load(reader);
+      return prop;
+    } finally {
+      IoUtils.closeQuietly(is);
+    }
+  }
+
+  /**
+   * Loads a properties file from a resource using a specified charset.
+   *
+   * @param url
+   *          the URL of the resource.
+   * @param charset
+   *          the specified charset.
+   * @return the {@link Properties} load from the specified resource.
+   * @throws IOException
+   *           if any error occurs.
+   */
+  public static Properties load(final Url url, final Charset charset)
+      throws IOException {
+    LOGGER.debug("Loading a properties from a URL: {}", url);
+    final InputStream is = url.openStream();
+    try {
+      final InputStreamReader reader = new InputStreamReader(is, charset);
+      final Properties prop = new Properties();
+      prop.load(reader);
+      return prop;
+    } finally {
+      IoUtils.closeQuietly(is);
+    }
+  }
+
+  /**
+   * Loads a properties file from a resource using a specified charset.
+   *
+   * @param uri
+   *          the URI of the resource.
+   * @param charset
+   *          the specified charset.
+   * @return the {@link Properties} load from the specified resource.
+   * @throws IOException
+   *           if any error occurs.
+   */
+  public static Properties load(final URI uri, final Charset charset)
+      throws IOException {
+    LOGGER.debug("Loading a properties from a URI: {}", uri);
+    final URL url = uri.toURL();
+    final InputStream is = UrlUtils.openStream(url);
+    try {
+      final InputStreamReader reader = new InputStreamReader(is, charset);
+      final Properties prop = new Properties();
+      prop.load(reader);
+      return prop;
+    } finally {
+      IoUtils.closeQuietly(is);
+    }
+  }
+
+  /**
+   * Stores a properties file to an output stream using a specified charset.
+   * <p>
+   * After calling this function, the stream is flushed, but it remains open.
+   *
+   * @param prop
+   *          a properties.
+   * @param out
+   *          the output stream.
+   * @param charset
+   *          the specified charset.
+   * @param comment
+   *          a description of the property list, or {@code null} if none.
+   * @throws IOException
+   *           if any error occurs.
+   */
+  public static void store(final Properties prop, final OutputStream out,
+      final Charset charset, @Nullable final String comment) throws IOException {
+    LOGGER.debug("Storing a properties to an output stream: {}", out);
+    final OutputStreamWriter writer = new OutputStreamWriter(out, charset);
+    prop.store(writer, comment);
+  }
+
+  /**
+   * Stores a properties file to a print stream using a specified charset.
+   * <p>
+   * After calling this function, the stream is flushed but remains opened.
+   *
+   * @param prop
+   *          a properties.
+   * @param out
+   *          the print stream.
+   * @param charset
+   *          the specified charset.
+   * @param comment
+   *          a description of the property list, or {@code null} if none.
+   * @throws IOException
+   *           if any error occurs.
+   */
+  public static void store(final Properties prop, final PrintStream out,
+      final Charset charset, @Nullable final String comment) throws IOException {
+    LOGGER.debug("Storing a properties to a print stream: {}", out);
+    final OutputStreamWriter writer = new OutputStreamWriter(out, charset);
+    prop.store(writer, comment);
+  }
+
+  /**
+   * Stores a properties file to a local file using a specified charset.
+   *
+   * @param prop
+   *          a properties.
+   * @param file
+   *          the file to store the properties.
+   * @param charset
+   *          the specified charset.
+   * @param comment
+   *          a description of the property list, or {@code null} if none.
+   * @throws IOException
+   *           if any error occurs.
+   */
+  public static void store(final Properties prop, final File file,
+      final Charset charset, @Nullable final String comment) throws IOException {
+    LOGGER.debug("Storing a properties to a file: {}", file);
+    final FileOutputStream os = new FileOutputStream(file);
+    try {
+      final OutputStreamWriter writer = new OutputStreamWriter(os, charset);
+      prop.store(writer, comment);
+    } finally {
+      IoUtils.closeQuietly(os);
+    }
+  }
+
   public static String[][] toArray(final Properties props) {
-    String[][] result = new String[props.size()][2];
+    final String[][] result = new String[props.size()][2];
     int i = 0;
-    for (Map.Entry<Object, Object> entry : props.entrySet()) {
-      String key = (String) entry.getKey();
-      String value = (String) entry.getValue();
+    for (final Map.Entry<Object, Object> entry : props.entrySet()) {
+      final String key = (String) entry.getKey();
+      final String value = (String) entry.getValue();
       result[i][0] = key;
       result[i][1] = value;
       ++i;
@@ -55,10 +365,10 @@ public final class PropertiesUtils {
   }
 
   public static Properties fromArray(final String[][] array) {
-    Properties result = new Properties();
+    final Properties result = new Properties();
     for (int i = 0; i < array.length; ++i) {
-      String key = array[i][0];
-      String value = array[i][1];
+      final String key = array[i][0];
+      final String value = array[i][1];
       result.put(key, value);
     }
     return result;
@@ -93,14 +403,14 @@ public final class PropertiesUtils {
     }
   }
 
-  public static boolean[] getBooleans(final Properties props, final String name,
-      final char separator) throws ConfigurationError {
+  public static boolean[] getBooleans(final Properties props,
+      final String name, final char separator) throws ConfigurationError {
     final String strValue = props.getProperty(name);
     if (strValue == null) {
       throw new PropertyNotExistError(name);
     }
-    final List<String> strValues = StringUtils.split(strValue, separator,
-        true, true, null);
+    final List<String> strValues = StringUtils.split(strValue, separator, true,
+        true, null);
     if ((strValues == null) || strValues.isEmpty()) {
       return ArrayUtils.EMPTY_BOOLEAN_ARRAY;
     }
@@ -117,14 +427,15 @@ public final class PropertiesUtils {
     return result;
   }
 
-  public static boolean[] getBooleans(final Properties props, final String name,
-      final char separator, @Nullable final boolean[] defaultValues) {
+  public static boolean[] getBooleans(final Properties props,
+      final String name, final char separator,
+      @Nullable final boolean[] defaultValues) {
     final String strValue = props.getProperty(name);
     if (strValue == null) {
       return defaultValues;
     }
-    final List<String> strValues = StringUtils.split(strValue, separator,
-        true, true, null);
+    final List<String> strValues = StringUtils.split(strValue, separator, true,
+        true, null);
     if ((strValues == null) || strValues.isEmpty()) {
       return ArrayUtils.EMPTY_BOOLEAN_ARRAY;
     }
@@ -176,8 +487,8 @@ public final class PropertiesUtils {
     if (strValue == null) {
       throw new PropertyNotExistError(name);
     }
-    final List<String> strValues = StringUtils.split(strValue, separator,
-        true, true, null);
+    final List<String> strValues = StringUtils.split(strValue, separator, true,
+        true, null);
     if ((strValues == null) || strValues.isEmpty()) {
       return ArrayUtils.EMPTY_BYTE_ARRAY;
     }
@@ -200,8 +511,8 @@ public final class PropertiesUtils {
     if (strValue == null) {
       return defaultValues;
     }
-    final List<String> strValues = StringUtils.split(strValue, separator,
-        true, true, null);
+    final List<String> strValues = StringUtils.split(strValue, separator, true,
+        true, null);
     if ((strValues == null) || strValues.isEmpty()) {
       return ArrayUtils.EMPTY_BYTE_ARRAY;
     }
@@ -253,8 +564,8 @@ public final class PropertiesUtils {
     if (strValue == null) {
       throw new PropertyNotExistError(name);
     }
-    final List<String> strValues = StringUtils.split(strValue, separator,
-        true, true, null);
+    final List<String> strValues = StringUtils.split(strValue, separator, true,
+        true, null);
     if ((strValues == null) || strValues.isEmpty()) {
       return ArrayUtils.EMPTY_SHORT_ARRAY;
     }
@@ -277,8 +588,8 @@ public final class PropertiesUtils {
     if (strValue == null) {
       return defaultValues;
     }
-    final List<String> strValues = StringUtils.split(strValue, separator,
-        true, true, null);
+    final List<String> strValues = StringUtils.split(strValue, separator, true,
+        true, null);
     if ((strValues == null) || strValues.isEmpty()) {
       return ArrayUtils.EMPTY_SHORT_ARRAY;
     }
@@ -330,8 +641,8 @@ public final class PropertiesUtils {
     if (strValue == null) {
       throw new PropertyNotExistError(name);
     }
-    final List<String> strValues = StringUtils.split(strValue, separator,
-        true, true, null);
+    final List<String> strValues = StringUtils.split(strValue, separator, true,
+        true, null);
     if ((strValues == null) || strValues.isEmpty()) {
       return ArrayUtils.EMPTY_INT_ARRAY;
     }
@@ -354,8 +665,8 @@ public final class PropertiesUtils {
     if (strValue == null) {
       return defaultValues;
     }
-    final List<String> strValues = StringUtils.split(strValue, separator,
-        true, true, null);
+    final List<String> strValues = StringUtils.split(strValue, separator, true,
+        true, null);
     if ((strValues == null) || strValues.isEmpty()) {
       return ArrayUtils.EMPTY_INT_ARRAY;
     }
@@ -407,8 +718,8 @@ public final class PropertiesUtils {
     if (strValue == null) {
       throw new PropertyNotExistError(name);
     }
-    final List<String> strValues = StringUtils.split(strValue, separator,
-        true, true, null);
+    final List<String> strValues = StringUtils.split(strValue, separator, true,
+        true, null);
     if ((strValues == null) || strValues.isEmpty()) {
       return ArrayUtils.EMPTY_LONG_ARRAY;
     }
@@ -431,8 +742,8 @@ public final class PropertiesUtils {
     if (strValue == null) {
       return defaultValues;
     }
-    final List<String> strValues = StringUtils.split(strValue, separator,
-        true, true, null);
+    final List<String> strValues = StringUtils.split(strValue, separator, true,
+        true, null);
     if ((strValues == null) || strValues.isEmpty()) {
       return ArrayUtils.EMPTY_LONG_ARRAY;
     }
@@ -484,8 +795,8 @@ public final class PropertiesUtils {
     if (strValue == null) {
       throw new PropertyNotExistError(name);
     }
-    final List<String> strValues = StringUtils.split(strValue, separator,
-        true, true, null);
+    final List<String> strValues = StringUtils.split(strValue, separator, true,
+        true, null);
     if ((strValues == null) || strValues.isEmpty()) {
       return ArrayUtils.EMPTY_FLOAT_ARRAY;
     }
@@ -508,8 +819,8 @@ public final class PropertiesUtils {
     if (strValue == null) {
       return defaultValues;
     }
-    final List<String> strValues = StringUtils.split(strValue, separator,
-        true, true, null);
+    final List<String> strValues = StringUtils.split(strValue, separator, true,
+        true, null);
     if ((strValues == null) || strValues.isEmpty()) {
       return ArrayUtils.EMPTY_FLOAT_ARRAY;
     }
@@ -561,8 +872,8 @@ public final class PropertiesUtils {
     if (strValue == null) {
       throw new PropertyNotExistError(name);
     }
-    final List<String> strValues = StringUtils.split(strValue, separator,
-        true, true, null);
+    final List<String> strValues = StringUtils.split(strValue, separator, true,
+        true, null);
     if ((strValues == null) || strValues.isEmpty()) {
       return ArrayUtils.EMPTY_DOUBLE_ARRAY;
     }
@@ -585,8 +896,8 @@ public final class PropertiesUtils {
     if (strValue == null) {
       return defaultValues;
     }
-    final List<String> strValues = StringUtils.split(strValue, separator,
-        true, true, null);
+    final List<String> strValues = StringUtils.split(strValue, separator, true,
+        true, null);
     if ((strValues == null) || strValues.isEmpty()) {
       return ArrayUtils.EMPTY_DOUBLE_ARRAY;
     }
@@ -628,8 +939,8 @@ public final class PropertiesUtils {
     if (strValue == null) {
       throw new PropertyNotExistError(name);
     }
-    final List<String> strValues = StringUtils.split(strValue, separator,
-        true, true, null);
+    final List<String> strValues = StringUtils.split(strValue, separator, true,
+        true, null);
     if ((strValues == null) || strValues.isEmpty()) {
       return ArrayUtils.EMPTY_STRING_ARRAY;
     } else {
@@ -643,8 +954,8 @@ public final class PropertiesUtils {
     if (strValue == null) {
       return defaultValues;
     }
-    final List<String> strValues = StringUtils.split(strValue, separator,
-        true, true, null);
+    final List<String> strValues = StringUtils.split(strValue, separator, true,
+        true, null);
     if ((strValues == null) || strValues.isEmpty()) {
       return ArrayUtils.EMPTY_STRING_ARRAY;
     } else {
@@ -668,9 +979,8 @@ public final class PropertiesUtils {
   }
 
   public static <E extends Enum<E>> E getEnum(final Properties props,
-      final String name, final boolean isShortName,
-      final boolean ignoreCase,  final Class<E> enumClass,
-      @Nullable final E defaultValue) {
+      final String name, final boolean isShortName, final boolean ignoreCase,
+      final Class<E> enumClass, @Nullable final E defaultValue) {
     final String strValue = props.getProperty(name);
     if (strValue == null) {
       return defaultValue;
@@ -688,7 +998,7 @@ public final class PropertiesUtils {
   public static <E extends Enum<E>> E[] getEnums(final Properties props,
       final String name, final char separator, final boolean isShortName,
       final boolean ignoreCase, final Class<E> enumClass)
-      throws ConfigurationError {
+          throws ConfigurationError {
     final String strValue = props.getProperty(name);
     if (strValue == null) {
       throw new PropertyNotExistError(name);
@@ -701,8 +1011,8 @@ public final class PropertiesUtils {
     final E[] result = (E[]) Array.newInstance(enumClass, strValues.size());
     int index = 0;
     for (final String str : strValues) {
-      final E value = EnumUtils.forName(str, isShortName, ignoreCase,
-          enumClass);
+      final E value = EnumUtils
+          .forName(str, isShortName, ignoreCase, enumClass);
       if (value == null) {
         throw new InvalidPropertyValueError(name, strValue);
       }
@@ -728,7 +1038,8 @@ public final class PropertiesUtils {
     final E[] result = (E[]) Array.newInstance(enumClass, strValues.size());
     int index = 0;
     for (final String str : strValues) {
-      final E value = EnumUtils.forName(str, isShortName, ignoreCase, enumClass);
+      final E value = EnumUtils
+          .forName(str, isShortName, ignoreCase, enumClass);
       if (value == null) {
         return defaultValues;
       }

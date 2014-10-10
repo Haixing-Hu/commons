@@ -21,11 +21,13 @@ package com.github.haixing_hu.io.serialize;
 import com.github.haixing_hu.text.xml.XmlSerializationException;
 
 /**
- * Thrown to indicate that no XML serializer was registered for the specified class.
+ * Thrown to indicate that no XML serializer was registered for the specified
+ * class.
  *
  * @author Haixing Hu
  */
-public class NoXmlSerializerRegisteredException extends XmlSerializationException {
+public class NoXmlSerializerRegisteredException extends
+    XmlSerializationException {
 
   private static final long serialVersionUID = - 7020988206462175166L;
 

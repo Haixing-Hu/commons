@@ -22,6 +22,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.io.PrintStream;
 import java.io.Reader;
 import java.io.StringWriter;
@@ -59,6 +60,7 @@ import com.github.haixing_hu.lang.SystemUtils;
 import com.github.haixing_hu.net.Url;
 import com.github.haixing_hu.net.UrlUtils;
 
+import static com.github.haixing_hu.CommonsMessages.RESOURCE_NOT_FOUND;
 import static com.github.haixing_hu.lang.Argument.requireNonNull;
 
 /**
@@ -96,16 +98,19 @@ public class XmlUtils {
 
   private static final String TRANSFORMING_XML = "Transforming the XML ...";
 
-  private static final String RESOURCE_NOT_FOUND = "Can not find the specified resource: ";
-
   private static final String INCLUSION_NOT_SUPPORTED = "The XML document builder factory does not support the XML inclusions feature. ";
 
   private static final String INDENT_AMOUNT_KEY = "{http://xml.apache.org/xslt}indent-amount";
 
-  public static final ThreadLocal<DocumentBuilderFactory> BUILDER_FACTORY = new ThreadLocal<DocumentBuilderFactory>() {
+  /**
+   * A global thread-local XML document builder factory.
+   */
+  public static final ThreadLocal<DocumentBuilderFactory> BUILDER_FACTORY =
+      new ThreadLocal<DocumentBuilderFactory>() {
     @Override
     protected DocumentBuilderFactory initialValue() {
-      final DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+      final DocumentBuilderFactory factory = DocumentBuilderFactory
+          .newInstance();
       factory.setIgnoringComments(true);
       factory.setIgnoringElementContentWhitespace(true);
       factory.setNamespaceAware(true);
@@ -118,7 +123,11 @@ public class XmlUtils {
     }
   };
 
-  public static final ThreadLocal<DocumentBuilder> BUILDER = new ThreadLocal<DocumentBuilder>() {
+  /**
+   * A global thread-local XML document builder.
+   */
+  public static final ThreadLocal<DocumentBuilder> BUILDER =
+      new ThreadLocal<DocumentBuilder>() {
     @Override
     protected DocumentBuilder initialValue() {
       try {
@@ -131,7 +140,11 @@ public class XmlUtils {
     }
   };
 
-  public static final ThreadLocal<TransformerFactory> TRANSFORMER_FACTORY = new ThreadLocal<TransformerFactory>() {
+  /**
+   * A global thread-local XML transformer factory.
+   */
+  public static final ThreadLocal<TransformerFactory> TRANSFORMER_FACTORY =
+      new ThreadLocal<TransformerFactory>() {
     @Override
     protected TransformerFactory initialValue() {
       final TransformerFactory factory = TransformerFactory.newInstance();
@@ -139,7 +152,11 @@ public class XmlUtils {
     }
   };
 
-  public static final ThreadLocal<Transformer> TRANSFORMER = new ThreadLocal<Transformer>() {
+  /**
+   * A global thread-local XML transformer.
+   */
+  public static final ThreadLocal<Transformer> TRANSFORMER =
+      new ThreadLocal<Transformer>() {
     @Override
     protected Transformer initialValue() {
       try {
@@ -152,7 +169,11 @@ public class XmlUtils {
     }
   };
 
-  public static final ThreadLocal<XPathFactory> XPATH_FACTORY = new ThreadLocal<XPathFactory>() {
+  /**
+   * A global thread-local XPath factory.
+   */
+  public static final ThreadLocal<XPathFactory> XPATH_FACTORY =
+      new ThreadLocal<XPathFactory>() {
     @Override
     protected XPathFactory initialValue() {
       final XPathFactory factory = XPathFactory.newInstance();
@@ -160,6 +181,9 @@ public class XmlUtils {
     }
   };
 
+  /**
+   * A global thread-local XPath.
+   */
   public static final ThreadLocal<XPath> XPATH = new ThreadLocal<XPath>() {
     @Override
     protected XPath initialValue() {
@@ -169,6 +193,13 @@ public class XmlUtils {
     }
   };
 
+  /**
+   * Creates a new XML document builder.
+   *
+   * @return a new XML document builder.
+   * @throws XmlException
+   *           if any error occurs.
+   */
   public static final DocumentBuilder newBuilder() throws XmlException {
     final DocumentBuilderFactory factory = BUILDER_FACTORY.get();
     try {
@@ -179,6 +210,13 @@ public class XmlUtils {
     }
   }
 
+  /**
+   * Creates a new XML transformer.
+   *
+   * @return a new XML transformer.
+   * @throws XmlException
+   *           if any error occurs.
+   */
   public static Transformer newTransformer() throws XmlException {
     final TransformerFactory factory = TRANSFORMER_FACTORY.get();
     try {
@@ -189,120 +227,237 @@ public class XmlUtils {
     }
   }
 
+  /**
+   * Creates a new XPath.
+   *
+   * @return a new XPath.
+   * @throws XmlException
+   *           if any error occurs.
+   */
   public static XPath newXPath() {
     final XPathFactory factory = XPATH_FACTORY.get();
     LOGGER.debug(CREATING_XPATH);
     return factory.newXPath();
   }
 
+  /**
+   * Creates a new XML document.
+   *
+   * @return a new XML document.
+   * @throws XmlException
+   *           if any error occurs.
+   */
   public static Document newDocument() throws XmlException {
     final DocumentBuilder builder = BUILDER.get();
     builder.reset();
     return builder.newDocument();
   }
 
+  /**
+   * Parses an XML document.
+   *
+   * @param resource
+   *          the path of resource containing the XML document.
+   * @return the parsed XML document.
+   * @throws XmlException
+   *           if any error occurs.
+   */
+  public static Document parse(final String resource) throws XmlException {
+    final URL url = SystemUtils.getResource(resource);
+    if (url == null) {
+      throw new XmlParseException(RESOURCE_NOT_FOUND + resource);
+    }
+    InputStream in = null;
+    try {
+      in = UrlUtils.openStream(url);
+      LOGGER.debug(PARSING_XML, url);
+      return parseInputStream(in);
+    } catch (final IOException e) {
+      throw new XmlParseException(url, e);
+    } finally {
+      IoUtils.closeQuietly(in);
+    }
+  }
+
+  /**
+   * Parses an XML document.
+   *
+   * @param resource
+   *          the path of resource containing the XML document.
+   * @param classLoader
+   *          a class loader used to load the resource.
+   * @return the parsed XML document.
+   * @throws XmlException
+   *           if any error occurs.
+   */
   public static Document parse(final String resource,
       final ClassLoader classLoader) throws XmlException {
     final URL url = SystemUtils.getResource(resource, classLoader);
     if (url == null) {
       throw new XmlParseException(RESOURCE_NOT_FOUND + resource);
     }
-    InputStream in;
+    InputStream in = null;
     try {
       in = UrlUtils.openStream(url);
+      LOGGER.debug(PARSING_XML, url);
+      return parseInputStream(in);
     } catch (final IOException e) {
       throw new XmlParseException(url, e);
+    } finally {
+      IoUtils.closeQuietly(in);
     }
-    LOGGER.debug(PARSING_XML, url);
-    return parseInputStream(in);
   }
 
+  /**
+   * Parses an XML document.
+   *
+   * @param resource
+   *          the path of resource containing the XML document.
+   * @param clazz
+   *          a class used to load the resource.
+   * @return the parsed XML document.
+   * @throws XmlException
+   *           if any error occurs.
+   */
   public static Document parse(final String resource, final Class<?> clazz)
       throws XmlException {
     final URL url = SystemUtils.getResource(resource, clazz);
     if (url == null) {
       throw new XmlParseException(RESOURCE_NOT_FOUND + resource);
     }
-    InputStream in;
+    InputStream in = null;
     try {
       in = UrlUtils.openStream(url);
+      LOGGER.debug(PARSING_XML, url);
+      return parseInputStream(in);
     } catch (final IOException e) {
       throw new XmlParseException(url, e);
+    }  finally {
+      IoUtils.closeQuietly(in);
     }
-    LOGGER.debug(PARSING_XML, url);
-    return parseInputStream(in);
   }
 
+  /**
+   * Parses an XML document.
+   *
+   * @param file
+   *          an XML file.
+   * @return the parsed XML document.
+   * @throws XmlException
+   *           if any error occurs.
+   */
   public static Document parse(final File file) throws XmlException {
-    InputStream in;
+    InputStream in = null;
     try {
       in = new FileInputStream(file);
+      LOGGER.debug(PARSING_XML, file);
+      return parseInputStream(in);
     } catch (final IOException e) {
       throw new XmlParseException(file, e);
-    }
-    LOGGER.debug(PARSING_XML, file);
-    return parseInputStream(in);
-  }
-
-  public static Document parse(final Url url) throws XmlException {
-    InputStream in;
-    try {
-      in = UrlUtils.openStream(url.toURL());
-    } catch (final MalformedURLException e) {
-      throw new XmlParseException(url, e);
-    } catch (final IOException e) {
-      throw new XmlParseException(url, e);
-    }
-    LOGGER.debug(PARSING_XML, url);
-    return parseInputStream(in);
-  }
-
-  public static Document parse(final URL url) throws XmlException {
-    InputStream in;
-    try {
-      in = UrlUtils.openStream(url);
-    } catch (final IOException e) {
-      throw new XmlParseException(url, e);
-    }
-    LOGGER.debug(PARSING_XML, url);
-    return parseInputStream(in);
-  }
-
-  public static Document parse(final URI uri) throws XmlException {
-    InputStream in;
-    try {
-      in = UrlUtils.openStream(uri.toURL());
-    } catch (final IllegalArgumentException e) {
-      throw new XmlParseException(uri, e);
-    } catch (final MalformedURLException e) {
-      throw new XmlParseException(uri, e);
-    } catch (final IOException e) {
-      throw new XmlParseException(uri, e);
-    }
-    LOGGER.debug(PARSING_XML, uri);
-    return parseInputStream(in);
-  }
-
-  public static Document parse(final InputStream in) throws XmlException {
-    LOGGER.debug(PARSING_XML, in);
-    return parseInputStream(in);
-  }
-
-  private static Document parseInputStream(final InputStream in)
-      throws XmlException {
-    final DocumentBuilder builder = BUILDER.get();
-    try {
-      builder.reset();
-      return builder.parse(in);
-    } catch (final SAXException e) {
-      throw new XmlParseException(in, e);
-    } catch (final IOException e) {
-      throw new XmlParseException(in, e);
     } finally {
       IoUtils.closeQuietly(in);
     }
   }
 
+  /**
+   * Parses an XML document.
+   *
+   * @param url
+   *          the URL to the XML file.
+   * @return the parsed XML document.
+   * @throws XmlException
+   *           if any error occurs.
+   */
+  public static Document parse(final Url url) throws XmlException {
+    InputStream in = null;
+    try {
+      in = UrlUtils.openStream(url);
+      LOGGER.debug(PARSING_XML, url);
+      return parseInputStream(in);
+    } catch (final MalformedURLException e) {
+      throw new XmlParseException(url, e);
+    } catch (final IOException e) {
+      throw new XmlParseException(url, e);
+    } finally {
+      IoUtils.closeQuietly(in);
+    }
+  }
+
+  /**
+   * Parses an XML document.
+   *
+   * @param url
+   *          the URL to the XML file.
+   * @return the parsed XML document.
+   * @throws XmlException
+   *           if any error occurs.
+   */
+  public static Document parse(final URL url) throws XmlException {
+    InputStream in = null;
+    try {
+      in = UrlUtils.openStream(url);
+      LOGGER.debug(PARSING_XML, url);
+      return parseInputStream(in);
+    } catch (final MalformedURLException e) {
+      throw new XmlParseException(url, e);
+    } catch (final IOException e) {
+      throw new XmlParseException(url, e);
+    } finally {
+      IoUtils.closeQuietly(in);
+    }
+  }
+
+  /**
+   * Parses an XML document.
+   *
+   * @param uri
+   *          the URI to the XML file.
+   * @return the parsed XML document.
+   * @throws XmlException
+   *           if any error occurs.
+   */
+  public static Document parse(final URI uri) throws XmlException {
+    InputStream in = null;
+    try {
+      in = UrlUtils.openStream(uri);
+      LOGGER.debug(PARSING_XML, uri);
+      return parseInputStream(in);
+    } catch (final MalformedURLException e) {
+      throw new XmlParseException(uri, e);
+    } catch (final IOException e) {
+      throw new XmlParseException(uri, e);
+    } finally {
+      IoUtils.closeQuietly(in);
+    }
+  }
+
+  /**
+   * Parses an XML document from an input stream.
+   * <p>
+   * The input stream remains opened after calling this function.
+   *
+   * @param in
+   *          an input stream.
+   * @return a parsed XML document.
+   * @throws XmlException
+   *           if any error occurs.
+   */
+  public static Document parse(final InputStream in) throws XmlException {
+    LOGGER.debug(PARSING_XML, in);
+    return parseInputStream(in);
+  }
+
+  /**
+   * Parses an XML document from a reader.
+   * <p>
+   * The reader remains opened after calling this function.
+   *
+   * @param reader
+   *          a reader.
+   * @return a parsed XML document.
+   * @throws XmlException
+   *           if any error occurs.
+   */
   public static Document parse(final Reader reader) throws XmlException {
     final DocumentBuilder builder = BUILDER.get();
     try {
@@ -314,17 +469,49 @@ public class XmlUtils {
       throw new XmlParseException(reader, e);
     } catch (final IOException e) {
       throw new XmlParseException(reader, e);
-    } finally {
-      IoUtils.closeQuietly(reader);
     }
   }
 
-  public static void print(final Document doc, final Writer out)
+  /**
+   * Parses an XML document from an input stream.
+   * <p>
+   * The input stream remains opened after calling this function.
+   *
+   * @param in
+   *          an input stream.
+   * @return a parsed XML document.
+   * @throws XmlException
+   *           if any error occurs.
+   */
+  private static Document parseInputStream(final InputStream in)
       throws XmlException {
-    requireNonNull("doc", doc);
-    requireNonNull("out", out);
-    final DOMSource source = new DOMSource(doc);
-    final StreamResult result = new StreamResult(out);
+    final DocumentBuilder builder = BUILDER.get();
+    try {
+      builder.reset();
+      return builder.parse(in);
+    } catch (final SAXException e) {
+      throw new XmlParseException(in, e);
+    } catch (final IOException e) {
+      throw new XmlParseException(in, e);
+    }
+  }
+
+  /**
+   * Prints an XML document to a writer.
+   * <p>
+   * After calling this function, the writer is flushed but remains opened.
+   *
+   * @param doc
+   *          an XML document.
+   * @param writer
+   *          a writer where to print the XML document.
+   * @throws XmlException
+   *           if any error occurs.
+   */
+  public static void print(final Document doc, final Writer writer)
+      throws XmlException {
+    final DOMSource source = new DOMSource(requireNonNull("doc", doc));
+    final StreamResult sr = new StreamResult(requireNonNull("writer", writer));
     final Transformer transformer = TRANSFORMER.get();
     transformer.reset();
     transformer.setOutputProperty(OutputKeys.ENCODING, ENCODING);
@@ -332,18 +519,28 @@ public class XmlUtils {
     transformer.setOutputProperty(INDENT_AMOUNT_KEY, INDENT_AMOUNT);
     try {
       LOGGER.debug(TRANSFORMING_XML);
-      transformer.transform(source, result);
+      transformer.transform(source, sr);
     } catch (final TransformerException e) {
       throw new XmlTransformException(e);
     }
   }
 
+  /**
+   * Prints an XML document to a print stream.
+   * <p>
+   * After calling this function, the stream is flushed but remains opened.
+   *
+   * @param doc
+   *          an XML document.
+   * @param out
+   *          a print stream where to print the XML document.
+   * @throws XmlException
+   *           if any error occurs.
+   */
   public static void print(final Document doc, final PrintStream out)
       throws XmlException {
-    requireNonNull("doc", doc);
-    requireNonNull("out", out);
-    final DOMSource source = new DOMSource(doc);
-    final StreamResult result = new StreamResult(out);
+    final DOMSource source = new DOMSource(requireNonNull("doc", doc));
+    final StreamResult sr = new StreamResult(requireNonNull("out", out));
     final Transformer transformer = TRANSFORMER.get();
     transformer.reset();
     transformer.setOutputProperty(OutputKeys.ENCODING, ENCODING);
@@ -351,18 +548,57 @@ public class XmlUtils {
     transformer.setOutputProperty(INDENT_AMOUNT_KEY, INDENT_AMOUNT);
     try {
       LOGGER.debug(TRANSFORMING_XML);
-      transformer.transform(source, result);
+      transformer.transform(source, sr);
     } catch (final TransformerException e) {
       throw new XmlTransformException(e);
     }
   }
 
-  public static void print(final Node node, final Writer out)
+  /**
+   * Prints an XML document to an output stream.
+   * <p>
+   * After calling this function, the stream is flushed but remains opened.
+   *
+   * @param doc
+   *          an XML document.
+   * @param out
+   *          an output stream where to print the XML document.
+   * @throws XmlException
+   *           if any error occurs.
+   */
+  public static void print(final Document doc, final OutputStream out)
       throws XmlException {
-    requireNonNull("node", node);
-    requireNonNull("out", out);
-    final DOMSource source = new DOMSource(node);
-    final StreamResult result = new StreamResult(out);
+    final DOMSource source = new DOMSource(requireNonNull("doc", doc));
+    final StreamResult sr = new StreamResult(requireNonNull("out", out));
+    final Transformer transformer = TRANSFORMER.get();
+    transformer.reset();
+    transformer.setOutputProperty(OutputKeys.ENCODING, ENCODING);
+    transformer.setOutputProperty(OutputKeys.INDENT, StringUtils.YES);
+    transformer.setOutputProperty(INDENT_AMOUNT_KEY, INDENT_AMOUNT);
+    try {
+      LOGGER.debug(TRANSFORMING_XML);
+      transformer.transform(source, sr);
+    } catch (final TransformerException e) {
+      throw new XmlTransformException(e);
+    }
+  }
+
+  /**
+   * Prints an XML node to a writer.
+   * <p>
+   * After calling this function, the writer is flushed but remains opened.
+   *
+   * @param node
+   *          an XML node.
+   * @param writer
+   *          a writer where to print the XML node.
+   * @throws XmlException
+   *           if any error occurs.
+   */
+  public static void print(final Node node, final Writer writer)
+      throws XmlException {
+    final DOMSource source = new DOMSource(requireNonNull("node", node));
+    final StreamResult sr = new StreamResult(requireNonNull("writer", writer));
     final Transformer transformer = TRANSFORMER.get();
     transformer.reset();
     transformer.setOutputProperty(OutputKeys.ENCODING, ENCODING);
@@ -372,18 +608,28 @@ public class XmlUtils {
         StringUtils.YES);
     try {
       LOGGER.debug(TRANSFORMING_XML);
-      transformer.transform(source, result);
+      transformer.transform(source, sr);
     } catch (final TransformerException e) {
       throw new XmlTransformException(e);
     }
   }
 
+  /**
+   * Prints an XML node to a print stream.
+   * <p>
+   * After calling this function, the stream is flushed but remains opened.
+   *
+   * @param node
+   *          an XML node.
+   * @param out
+   *          a print stream where to print the XML node.
+   * @throws XmlException
+   *           if any error occurs.
+   */
   public static void print(final Node node, final PrintStream out)
       throws XmlException {
-    requireNonNull("node", node);
-    requireNonNull("out", out);
-    final DOMSource source = new DOMSource(node);
-    final StreamResult result = new StreamResult(out);
+    final DOMSource source = new DOMSource(requireNonNull("node", node));
+    final StreamResult sr = new StreamResult(requireNonNull("out", out));
     final Transformer transformer = TRANSFORMER.get();
     transformer.reset();
     transformer.setOutputProperty(OutputKeys.ENCODING, ENCODING);
@@ -393,12 +639,22 @@ public class XmlUtils {
         StringUtils.YES);
     try {
       LOGGER.debug(TRANSFORMING_XML);
-      transformer.transform(source, result);
+      transformer.transform(source, sr);
     } catch (final TransformerException e) {
       throw new XmlTransformException(e);
     }
   }
 
+  /**
+   * Formats an XML document to a string.
+   * <p>
+   * <b>NOTE:</b> This function does not throws any error. Instead, it will
+   * returns the string containing the exception information in case of error.
+   *
+   * @param document
+   *          an XML document.
+   * @return a string contains the formated XML document.
+   */
   public static String toString(final Document doc) {
     if (doc == null) {
       return StringUtils.EMPTY;
@@ -413,6 +669,16 @@ public class XmlUtils {
     }
   }
 
+  /**
+   * Formats an XML node to a string.
+   * <p>
+   * <b>NOTE:</b> This function does not throws any error. Instead, it will
+   * returns the string containing the exception information in case of error.
+   *
+   * @param node
+   *          an XML node.
+   * @return a string contains the formated XML node.
+   */
   public static String toString(final Node node) {
     if (node == null) {
       return StringUtils.EMPTY;
@@ -427,6 +693,15 @@ public class XmlUtils {
     }
   }
 
+  /**
+   * Compiles a XPath expression to an {@link XPath} object.
+   *
+   * @param expression
+   *          the expression of an XPath.
+   * @return the compiled {@link XPath} object.
+   * @throws InvalidXPathExpressionException
+   *           if any error occurs.
+   */
   public static XPathExpression compileXPath(final String expression)
       throws InvalidXPathExpressionException {
     requireNonNull("expression", expression);

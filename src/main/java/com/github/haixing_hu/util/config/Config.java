@@ -51,12 +51,20 @@ public interface Config extends Cloneable<Config> {
    * The regular expression pattern of variables substitution.
    */
   public static Pattern VARIABLE_PATTERN         =
-    Pattern.compile("\\$\\{[^\\}\\$\u0020]+\\}");
+      Pattern.compile("\\$\\{[^\\}\\$\u0020]+\\}");
 
   /**
    * The maximum depth of variables substitutions.
    */
   public static int MAX_SUBSTITUTION_DEPTH    = 64;
+
+  /**
+   * Gets the description of this configuration.
+   *
+   * @return
+   *    the description of this configuration, or {@code null} if none.
+   */
+  public String getDescription();
 
   /**
    * Tests whether this Config object is empty.
@@ -113,7 +121,7 @@ public interface Config extends Cloneable<Config> {
    *          the property to be set. If there was a property with the same name
    *          as this property, the old property will be override.
    */
-//  public void set(Property property);
+  //  public void set(Property property);
 
   /**
    * Gets the description of the property with the specified name.

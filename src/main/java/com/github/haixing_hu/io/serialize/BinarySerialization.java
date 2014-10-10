@@ -80,11 +80,11 @@ import static com.github.haixing_hu.lang.Argument.requireNonNull;
  */
 public final class BinarySerialization {
 
-  private static final Logger LOGGER = LoggerFactory.getLogger(BinarySerialization.class);
+  private static final Logger LOGGER = LoggerFactory
+      .getLogger(BinarySerialization.class);
 
   @GuardedBy("registry")
-  private static final Map<Class<?>, BinarySerializer> registry =
-      new HashMap<Class<?>, BinarySerializer>();
+  private static final Map<Class<?>, BinarySerializer> registry = new HashMap<Class<?>, BinarySerializer>();
 
   // register the binary serializer for classes of common data types
   static {
@@ -176,8 +176,8 @@ public final class BinarySerialization {
    * @throws IOException
    *           If any I/O error occurred.
    */
-  public static <T> void serialize(final Class<T> objClass, @Nullable final T obj,
-      final OutputStream out) throws IOException {
+  public static <T> void serialize(final Class<T> objClass,
+      @Nullable final T obj, final OutputStream out) throws IOException {
     final BinarySerializer serializer = getSerializer(objClass);
     if (serializer == null) {
       throw new NoBinarySerializerRegisteredException(objClass);
@@ -204,8 +204,8 @@ public final class BinarySerialization {
    * @throws IOException
    *           If any I/O error occurred.
    */
-  public static <T> void serialize(final Class<T> objClass, @Nullable final T obj,
-      final File file) throws IOException {
+  public static <T> void serialize(final Class<T> objClass,
+      @Nullable final T obj, final File file) throws IOException {
     final BinarySerializer serializer = getSerializer(objClass);
     if (serializer == null) {
       throw new NoBinarySerializerRegisteredException(objClass);

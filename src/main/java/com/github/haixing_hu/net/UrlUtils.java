@@ -20,6 +20,8 @@ package com.github.haixing_hu.net;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URI;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.zip.GZIPInputStream;
@@ -68,7 +70,7 @@ public final class UrlUtils {
 
   /**
    * Tests whether a substring of a string is a valid IPv4 address tuple.
-   *
+   * <p>
    * A valid IPv4 address tuple is a string of a decimal number between [0,
    * 255].
    *
@@ -102,10 +104,10 @@ public final class UrlUtils {
   /**
    * Given a host name, returns the domain name of the host name. The domain of
    * a host is the substring of the host name without the subdomain names.
-   *
+   * <p>
    * For example,
    *
-   * {@code 
+   * {@code
    *    UrlUtils.getDomain("www.google.com")    = "google.com"
    *    UrlUtils.getDomain("www.sina.com.cn")   = "sina.com.cn"
    * }
@@ -135,10 +137,10 @@ public final class UrlUtils {
   /**
    * Given a host name, returns the domain suffix corresponding to the last
    * public part of the host name.
-   *
+   * <p>
    * For example,
    *
-   * {@code 
+   * {@code
    *    UrlUtils.getDomainSuffix("www.google.com")    = "com"
    *    UrlUtils.getDomainSuffix("www.sina.com.cn")   = "com.cn"
    * }
@@ -166,7 +168,7 @@ public final class UrlUtils {
 
   /**
    * Opens an {@link InputStream} for a {@link URL}.
-   *
+   * <p>
    * This function does the same thing as {@link URL#openStream()}, except that
    * it will decode the compressed stream.
    *
@@ -190,8 +192,55 @@ public final class UrlUtils {
     } else if ("deflate".equals(encoding)) {
       return new InflaterInputStream(input);
     } else {
-      LOGGER.warn("Unknown content encoding. The stream is returned without decoding.");
+      LOGGER.warn("Unknown content encoding. "
+          + "The stream is returned without decoding: {}", url);
       return input;
     }
+  }
+
+  /**
+   * Opens an {@link InputStream} for a {@link URL}.
+   * <p>
+   * This function does the same thing as {@link URL#openStream()}, except that
+   * it will decode the compressed stream.
+   *
+   * @param url
+   *          an {@link Url} object.
+   * @return the {@link InputStream} opened for the URL. If the content is
+   *         encoded using some compression algorithm, the function will decode
+   *         the encoded stream.
+   * @throws IOException
+   */
+  public static InputStream openStream(final Url url) throws IOException {
+    final URL the_url;
+    try {
+      the_url = url.toURL();
+    } catch (final MalformedURLException e) {
+      throw new IOException(e);
+    }
+    return UrlUtils.openStream(the_url);
+  }
+
+  /**
+   * Opens an {@link InputStream} for a {@link URI}.
+   * <p>
+   * This function does the same thing as {@link URL#openStream()}, except that
+   * it will decode the compressed stream.
+   *
+   * @param uri
+   *          an {@link URI} object.
+   * @return the {@link InputStream} opened for the URL. If the content is
+   *         encoded using some compression algorithm, the function will decode
+   *         the encoded stream.
+   * @throws IOException
+   */
+  public static InputStream openStream(final URI uri) throws IOException {
+    final URL the_url;
+    try {
+      the_url = uri.toURL();
+    } catch (final MalformedURLException e) {
+      throw new IOException(e);
+    }
+    return UrlUtils.openStream(the_url);
   }
 }

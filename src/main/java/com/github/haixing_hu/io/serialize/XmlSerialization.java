@@ -58,10 +58,12 @@ import static com.github.haixing_hu.lang.Argument.requireNonNull;
  */
 public class XmlSerialization {
 
-  private static final Logger LOGGER = LoggerFactory.getLogger(XmlSerialization.class);
+  private static final Logger LOGGER =
+      LoggerFactory.getLogger(XmlSerialization.class);
 
   @GuardedBy("registry")
-  private static final Map<Class<?>, XmlSerializer> registry = new HashMap<Class<?>, XmlSerializer>();
+  private static final Map<Class<?>, XmlSerializer> registry =
+  new HashMap<Class<?>, XmlSerializer>();
 
   /**
    * Registers an XML serializer for a class.
@@ -108,6 +110,20 @@ public class XmlSerialization {
     }
   }
 
+  /**
+   * Serializes an object into XML.
+   *
+   * @param <T>
+   *          the type of the object to be serialized.
+   * @param objClass
+   *          the class of the object to be serialized.
+   * @param obj
+   *          the object to be serialized.
+   * @return the string representation of the XML node serialized from the
+   *         object.
+   * @throws XmlException
+   *           if any error occurs.
+   */
   public static <T> String serialize(final Class<T> objClass, final T obj)
       throws XmlException {
     final XmlSerializer serializer = getSerializer(objClass);
@@ -121,6 +137,21 @@ public class XmlSerialization {
     return out.toString();
   }
 
+  /**
+   * Serializes an object into XML.
+   *
+   * @param <T>
+   *          the type of the object to be serialized.
+   * @param objClass
+   *          the class of the object to be serialized.
+   * @param obj
+   *          the object to be serialized.
+   * @param doc
+   *          an XML DOM document which is used to construct the XML DOM node.
+   * @return the XML DOM node serialized from the object.
+   * @throws XmlException
+   *           if any error occurs.
+   */
   public static <T> Element serialize(final Class<T> objClass, final T obj,
       final Document doc) throws XmlException {
     final XmlSerializer serializer = getSerializer(objClass);
@@ -130,6 +161,50 @@ public class XmlSerialization {
     return serializer.serialize(doc, obj);
   }
 
+  /**
+   * Serializes an object into XML and prints the XML to an output stream.
+   * <p>
+   * After calling this function, the stream is flushed but remains opened.
+   *
+   * @param <T>
+   *          the type of the object to be serialized.
+   * @param objClass
+   *          the class of the object to be serialized.
+   * @param obj
+   *          the object to be serialized.
+   * @param out
+   *          an output stream where to write the serialized XML.
+   * @throws XmlException
+   *           if any error occurs.
+   */
+  public static <T> void serialize(final Class<T> objClass, final T obj,
+      final OutputStream out) throws XmlException {
+    final XmlSerializer serializer = getSerializer(objClass);
+    if (serializer == null) {
+      throw new NoXmlSerializerRegisteredException(objClass);
+    }
+    final org.w3c.dom.Document doc = XmlUtils.newDocument();
+    final org.w3c.dom.Element root = serializer.serialize(doc, obj);
+    doc.appendChild(root);
+    XmlUtils.print(doc, out);
+  }
+
+  /**
+   * Serializes an object into XML and prints the XML to an print stream.
+   * <p>
+   * After calling this function, the stream is flushed but remains opened.
+   *
+   * @param <T>
+   *          the type of the object to be serialized.
+   * @param objClass
+   *          the class of the object to be serialized.
+   * @param obj
+   *          the object to be serialized.
+   * @param out
+   *          a print stream where to print the serialized XML.
+   * @throws XmlException
+   *           if any error occurs.
+   */
   public static <T> void serialize(final Class<T> objClass, final T obj,
       final PrintStream out) throws XmlException {
     final XmlSerializer serializer = getSerializer(objClass);
@@ -142,6 +217,22 @@ public class XmlSerialization {
     XmlUtils.print(doc, out);
   }
 
+  /**
+   * Serializes an object into XML and prints the XML to a writer.
+   * <p>
+   * After calling this function, the writer is flushed but remains opened.
+   *
+   * @param <T>
+   *          the type of the object to be serialized.
+   * @param objClass
+   *          the class of the object to be serialized.
+   * @param obj
+   *          the object to be serialized.
+   * @param writer
+   *          a writer where to print the serialized XML.
+   * @throws XmlException
+   *           if any error occurs.
+   */
   public static <T> void serialize(final Class<T> objClass, final T obj,
       final Writer writer) throws XmlException {
     final XmlSerializer serializer = getSerializer(objClass);
@@ -154,6 +245,20 @@ public class XmlSerialization {
     XmlUtils.print(doc, writer);
   }
 
+  /**
+   * Serializes an object into XML and store the XML to a file.
+   *
+   * @param <T>
+   *          the type of the object to be serialized.
+   * @param objClass
+   *          the class of the object to be serialized.
+   * @param obj
+   *          the object to be serialized.
+   * @param file
+   *          a file where to store the serialized XML.
+   * @throws XmlException
+   *           if any error occurs.
+   */
   public static <T> void serialize(final Class<T> objClass, final T obj,
       final File file) throws XmlException {
     final XmlSerializer serializer = getSerializer(objClass);
@@ -179,6 +284,19 @@ public class XmlSerialization {
     }
   }
 
+  /**
+   * Deserializes an object from an XML node.
+   *
+   * @param <T>
+   *          the type of the object to be deserialized.
+   * @param objClass
+   *          the class of the object.
+   * @param node
+   *          the XML node.
+   * @return the object deserialized from the XML node.
+   * @throws XmlException
+   *           if any error occurs.
+   */
   @SuppressWarnings("unchecked")
   public static <T> T deserialize(final Class<T> objClass, final Element node)
       throws XmlException {
@@ -193,6 +311,19 @@ public class XmlSerialization {
     }
   }
 
+  /**
+   * Deserializes an object from the string representation of an XML node.
+   *
+   * @param <T>
+   *          the type of the object to be deserialized.
+   * @param objClass
+   *          the class of the object.
+   * @param xml
+   *          the string representation of an XML node.
+   * @return the object deserialized from the XML node.
+   * @throws XmlException
+   *           if any error occurs.
+   */
   @SuppressWarnings("unchecked")
   public static <T> T deserialize(final Class<T> objClass, final String xml)
       throws XmlException {
@@ -210,6 +341,21 @@ public class XmlSerialization {
     }
   }
 
+  /**
+   * Deserializes an object from the string representation of an XML node.
+   * <p>
+   * After calling this function, the reader remains opened.
+   *
+   * @param <T>
+   *          the type of the object to be deserialized.
+   * @param objClass
+   *          the class of the object.
+   * @param reader
+   *          the reader where to read the string representation of an XML node.
+   * @return the object deserialized from the XML node.
+   * @throws XmlException
+   *           if any error occurs.
+   */
   @SuppressWarnings("unchecked")
   public static <T> T deserialize(final Class<T> objClass, final Reader reader)
       throws XmlException {
@@ -226,6 +372,22 @@ public class XmlSerialization {
     }
   }
 
+  /**
+   * Deserializes an object from the string representation of an XML node.
+   * <p>
+   * After calling this function, the input stream remains opened.
+   *
+   * @param <T>
+   *          the type of the object to be deserialized.
+   * @param objClass
+   *          the class of the object.
+   * @param in
+   *          the input stream where to read the string representation of an XML
+   *          node.
+   * @return the object deserialized from the XML node.
+   * @throws XmlException
+   *           if any error occurs.
+   */
   @SuppressWarnings("unchecked")
   public static <T> T deserialize(final Class<T> objClass, final InputStream in)
       throws XmlException {
@@ -242,6 +404,19 @@ public class XmlSerialization {
     }
   }
 
+  /**
+   * Deserializes an object from the string representation of an XML node.
+   *
+   * @param <T>
+   *          the type of the object to be deserialized.
+   * @param objClass
+   *          the class of the object.
+   * @param file
+   *          the file where to read the string representation of an XML node.
+   * @return the object deserialized from the XML node.
+   * @throws XmlException
+   *           if any error occurs.
+   */
   @SuppressWarnings("unchecked")
   public static <T> T deserialize(final Class<T> objClass, final File file)
       throws XmlException {
@@ -258,6 +433,20 @@ public class XmlSerialization {
     }
   }
 
+  /**
+   * Deserializes an object from the string representation of an XML node.
+   *
+   * @param <T>
+   *          the type of the object to be deserialized.
+   * @param objClass
+   *          the class of the object.
+   * @param url
+   *          the URL of the file where to read the string representation of an
+   *          XML node.
+   * @return the object deserialized from the XML node.
+   * @throws XmlException
+   *           if any error occurs.
+   */
   @SuppressWarnings("unchecked")
   public static <T> T deserialize(final Class<T> objClass, final Url url)
       throws XmlException {
@@ -274,6 +463,20 @@ public class XmlSerialization {
     }
   }
 
+  /**
+   * Deserializes an object from the string representation of an XML node.
+   *
+   * @param <T>
+   *          the type of the object to be deserialized.
+   * @param objClass
+   *          the class of the object.
+   * @param url
+   *          the URL of the file where to read the string representation of an
+   *          XML node.
+   * @return the object deserialized from the XML node.
+   * @throws XmlException
+   *           if any error occurs.
+   */
   @SuppressWarnings("unchecked")
   public static <T> T deserialize(final Class<T> objClass, final URL url)
       throws XmlException {
@@ -290,6 +493,20 @@ public class XmlSerialization {
     }
   }
 
+  /**
+   * Deserializes an object from the string representation of an XML node.
+   *
+   * @param <T>
+   *          the type of the object to be deserialized.
+   * @param objClass
+   *          the class of the object.
+   * @param uri
+   *          the URI of the file where to read the string representation of an
+   *          XML node.
+   * @return the object deserialized from the XML node.
+   * @throws XmlException
+   *           if any error occurs.
+   */
   @SuppressWarnings("unchecked")
   public static <T> T deserialize(final Class<T> objClass, final URI uri)
       throws XmlException {
@@ -306,15 +523,30 @@ public class XmlSerialization {
     }
   }
 
-
+  /**
+   * Deserializes an object from the string representation of an XML node.
+   *
+   * @param <T>
+   *          the type of the object to be deserialized.
+   * @param objClass
+   *          the class of the object.
+   * @param resource
+   *          the resource path of the file where to read the string
+   *          representation of an XML node.
+   * @param loaderClass
+   *          the class used to load the resource.
+   * @return the object deserialized from the XML node.
+   * @throws XmlException
+   *           if any error occurs.
+   */
   @SuppressWarnings("unchecked")
   public static <T> T deserialize(final Class<T> objClass,
-      final String resource, final Class<?> resourceClass) throws XmlException {
+      final String resource, final Class<?> loaderClass) throws XmlException {
     final XmlSerializer serializer = getSerializer(objClass);
     if (serializer == null) {
       throw new NoXmlSerializerRegisteredException(objClass);
     }
-    final org.w3c.dom.Document doc = XmlUtils.parse(resource, resourceClass);
+    final org.w3c.dom.Document doc = XmlUtils.parse(resource, loaderClass);
     final org.w3c.dom.Element root = doc.getDocumentElement();
     try {
       return (T) serializer.deserialize(root);
@@ -323,6 +555,22 @@ public class XmlSerialization {
     }
   }
 
+  /**
+   * Deserializes an object from the string representation of an XML node.
+   *
+   * @param <T>
+   *          the type of the object to be deserialized.
+   * @param objClass
+   *          the class of the object.
+   * @param resource
+   *          the resource path of the file where to read the string
+   *          representation of an XML node.
+   * @param loader
+   *          the class loader used to load the resource.
+   * @return the object deserialized from the XML node.
+   * @throws XmlException
+   *           if any error occurs.
+   */
   @SuppressWarnings("unchecked")
   public static <T> T deserialize(final Class<T> objClass,
       final String resource, final ClassLoader loader) throws XmlException {

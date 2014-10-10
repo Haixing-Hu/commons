@@ -53,6 +53,15 @@ public class StackConfig extends AbstractConfig {
     configs = new Stack<Config>();
   }
 
+  @Override
+  public String getDescription() {
+    if (configs.isEmpty()) {
+      return null;
+    } else {
+      return configs.peek().getDescription();
+    }
+  }
+
   /**
    * Pushes a {@link Config} to the stack.
    *
