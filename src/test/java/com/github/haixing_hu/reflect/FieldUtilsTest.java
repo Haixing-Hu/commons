@@ -57,6 +57,10 @@ public class FieldUtilsTest {
         publicChild = new PublicChild();
         publiclyShadowedChild = new PubliclyShadowedChild();
         privatelyShadowedChild = new PrivatelyShadowedChild();
+        publicChild.foo();
+        publiclyShadowedChild.foo();
+        privatelyShadowedChild.foo();
+        System.out.println("parentClass = " + parentClass);
     }
 
     private <T> void fillSet(Set<T> set, T[] array) {
@@ -112,6 +116,16 @@ public class FieldUtilsTest {
           PublicBase.class.getDeclaredField("field_5"),
       });
       fillSet(actual, FieldUtils.getAllFields(PublicBase.class, Option.ALL));
+
+      // remove the JaCoCo injected field
+      final Set<Field> toRemoved = new HashSet<Field>();
+      for (final Field field : actual) {
+	  if (field.toString().contains("$jacocoData")) {
+	      toRemoved.add(field);
+	  }
+      }
+      actual.removeAll(toRemoved);
+
       assertEquals(expected, actual);
 
     }

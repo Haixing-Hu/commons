@@ -21,4 +21,9 @@ package com.github.haixing_hu.reflect.testbed;
 public class PublicChild extends Parent {
   // deliberate reuse of variable name
   static final String VALUE = "child";
+
+
+  public void foo() {
+      System.out.println("PublicChild.foo()");
+  }
 }

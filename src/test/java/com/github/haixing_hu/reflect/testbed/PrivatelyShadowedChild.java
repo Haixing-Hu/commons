@@ -24,4 +24,9 @@ public class PrivatelyShadowedChild extends Parent {
   private final boolean b = true;
   private final int i = 1;
   private final double d = 1.0;
+
+
+  public void foo() {
+      System.out.println("PrivatelyShadowedChild.foo()");
+  }
 }

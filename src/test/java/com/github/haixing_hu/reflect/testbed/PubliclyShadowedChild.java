@@ -24,4 +24,8 @@ public class PubliclyShadowedChild extends Parent {
   public boolean b = true;
   public int i = 1;
   public double d = 1.0;
+
+  public void foo() {
+      System.out.println("PubliclyShadowedChild.foo()");
+  }
 }
