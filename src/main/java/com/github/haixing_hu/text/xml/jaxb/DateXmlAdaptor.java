@@ -16,7 +16,7 @@
  *
  ******************************************************************************/
 
-package com.github.haixing_hu.util.jaxb;
+package com.github.haixing_hu.text.xml.jaxb;
 
 import java.util.Calendar;
 import java.util.Date;

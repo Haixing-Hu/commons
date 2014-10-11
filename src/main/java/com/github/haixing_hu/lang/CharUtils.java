@@ -32,9 +32,9 @@ import com.github.haixing_hu.text.NumberFormatSymbols;
  * This class provides operations on {@code char} primitives and
  * {@link Character} objects.
  * <p>
- * This class tries to handle {@code null} input gracefully. An exception
- * will not be thrown for a {@code null} input. Each method documents its
- * behavior in more detail.
+ * This class tries to handle {@code null} input gracefully. An exception will
+ * not be thrown for a {@code null} input. Each method documents its behavior in
+ * more detail.
  * </p>
  * <p>
  * This class also handle the conversion from {@code char} values or
@@ -51,20 +51,25 @@ public final class CharUtils {
    */
   public static final char DEFAULT = (char) 0;
 
-  public static final char   LOWERCASE_DIGITS[]           = {
-    '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
-    'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j',
-    'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't',
-    'u', 'v', 'w', 'x', 'y', 'z',
-  };
+  /**
+   * The array of lowercase digits and alphabets.
+   */
+  public static final char LOWERCASE_DIGITS[] = { '0', '1', '2', '3', '4', '5',
+      '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j',
+      'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x',
+      'y', 'z', };
 
-  public static final char   UPPERCASE_DIGITS[]           = {
-    '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
-    'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J',
-    'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T',
-    'U', 'V', 'W', 'X', 'Y', 'Z',
-  };
+  /**
+   * The array of uppercase digits and alphabets.
+   */
+  public static final char UPPERCASE_DIGITS[] = { '0', '1', '2', '3', '4', '5',
+      '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J',
+      'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X',
+      'Y', 'Z', };
 
+  /**
+   * The array strings of single ASCII character.
+   */
   private static final String[] CHAR_STRING_CACHE = new String[128];
   static {
     for (char i = 0; i < 128; ++i) {
@@ -73,39 +78,15 @@ public final class CharUtils {
   }
 
   /**
-   * {@code \u000a} line feed LF ('\n').
-   *
-   * @see <a
-   *      href="http://java.sun.com/docs/books/jls/third_edition/html/lexical.html#101089">JLF:
-   *      Escape Sequences for Character and String Literals</a>
-   */
-  public static final char         LF                = '\n';
-
-  /**
-   * {@code \u000d} carriage return CR ('\r').
-   *
-   * @see <a
-   *      href="http://java.sun.com/docs/books/jls/third_edition/html/lexical.html#101089">JLF:
-   *      Escape Sequences for Character and String Literals</a>
-   */
-  public static final char         CR                = '\r';
-
-
-  public static final char         SPACE             = ' ';
-
-
-  public static final char         TAB               = '\t';
-
-  /**
    * Indicates that the Unicode is a printable character except for spaces.
    */
-  public static final int VISIBILITY_GRAPH  = 0x01;
+  public static final int VISIBILITY_GRAPH = 0x01;
 
   /**
-   * Indicates that the Unicode is a "inline blank" character, including
-   * spaces, control characters (except for '\r' and '\n'), etc.
+   * Indicates that the Unicode is a "inline blank" character, including spaces,
+   * control characters (except for '\r' and '\n'), etc.
    */
-  public static final int VISIBILITY_INLINE_BLANK  = 0x02;
+  public static final int VISIBILITY_INLINE_BLANK = 0x02;
 
   /**
    * Indicates that the Unicode is a line break character, including '\r', '\n'
@@ -118,13 +99,14 @@ public final class CharUtils {
    * Indicates that the Unicode is a "blank" character, including "inline blank"
    * characters and "line break" characters.
    *
-   * This value is the bitwise OR of {@link #VISIBILITY_INLINE_BLANK}
-   * and {@link #VISIBILITY_LINE_BREAK}.
+   * This value is the bitwise OR of {@link #VISIBILITY_INLINE_BLANK} and
+   * {@link #VISIBILITY_LINE_BREAK}.
    */
-  public static final int VISIBILITY_BLANK      = VISIBILITY_INLINE_BLANK
-                                                | VISIBILITY_LINE_BREAK;
+  public static final int VISIBILITY_BLANK = VISIBILITY_INLINE_BLANK
+      | VISIBILITY_LINE_BREAK;
 
-  private CharUtils() { }
+  private CharUtils() {
+  }
 
   /**
    * Determines whether the specified code point is a "graphic" character
@@ -137,47 +119,43 @@ public final class CharUtils {
    * Note that a code point is either graph or blank.
    *
    * @param ch
-   *    the code point of an Unicode.
-   * @return
-   *    true if the specified code point is a "graphic" character; false otherwise.
+   *          the code point of an Unicode.
+   * @return true if the specified code point is a "graphic" character; false
+   *         otherwise.
    * @see #isBlank(int)
    */
   public static boolean isGraph(final int codePoint) {
     final int type = Character.getType(codePoint);
-    return (type != Character.CONTROL)
-          && (type != Character.FORMAT)
-          && (type != Character.SURROGATE)
-          && (type != Character.UNASSIGNED)
-          && (type != Character.LINE_SEPARATOR)
-          && (type != Character.SPACE_SEPARATOR)
-          && (type != Character.PARAGRAPH_SEPARATOR);
+    return (type != Character.CONTROL) && (type != Character.FORMAT)
+        && (type != Character.SURROGATE) && (type != Character.UNASSIGNED)
+        && (type != Character.LINE_SEPARATOR)
+        && (type != Character.SPACE_SEPARATOR)
+        && (type != Character.PARAGRAPH_SEPARATOR);
   }
 
   /**
    * Determines whether the specified code point is a "blank" character
    * (non-printable or white spaces).
    *
-   * True for all characters with general categories "Cc" (control
-   * codes), "Cf" (format controls), "Cs" (surrogates), "Cn" (unassigned), and
-   * "Z" (separators).
+   * True for all characters with general categories "Cc" (control codes), "Cf"
+   * (format controls), "Cs" (surrogates), "Cn" (unassigned), and "Z"
+   * (separators).
    *
    * Note that a code point is either graph or blank.
    *
    * @param ch
-   *    the code point of an Unicode.
-   * @return
-   *    true if the specified code point is a "graphic" character; false otherwise.
+   *          the code point of an Unicode.
+   * @return true if the specified code point is a "graphic" character; false
+   *         otherwise.
    * @see #isGraph(int)
    */
   public static boolean isBlank(final int codePoint) {
     final int type = Character.getType(codePoint);
-    return (type == Character.CONTROL)
-          || (type == Character.FORMAT)
-          || (type == Character.SURROGATE)
-          || (type == Character.UNASSIGNED)
-          || (type == Character.LINE_SEPARATOR)
-          || (type == Character.SPACE_SEPARATOR)
-          || (type == Character.PARAGRAPH_SEPARATOR);
+    return (type == Character.CONTROL) || (type == Character.FORMAT)
+        || (type == Character.SURROGATE) || (type == Character.UNASSIGNED)
+        || (type == Character.LINE_SEPARATOR)
+        || (type == Character.SPACE_SEPARATOR)
+        || (type == Character.PARAGRAPH_SEPARATOR);
   }
 
   /**
@@ -188,6 +166,7 @@ public final class CharUtils {
    * (format controls), "Cs" (surrogates), "Cn" (unassigned), and "Zs" (space
    * separators).
    * </p>
+   *
    * @param codePoint
    * @return true if the specified code point is a "inline blank" character;
    *         false otherwise.
@@ -199,10 +178,8 @@ public final class CharUtils {
       return false;
     } else {
       final int type = Character.getType(codePoint);
-      return (type == Character.CONTROL)
-          || (type == Character.FORMAT)
-          || (type == Character.SURROGATE)
-          || (type == Character.UNASSIGNED)
+      return (type == Character.CONTROL) || (type == Character.FORMAT)
+          || (type == Character.SURROGATE) || (type == Character.UNASSIGNED)
           || (type == Character.SPACE_SEPARATOR);
     }
   }
@@ -302,7 +279,7 @@ public final class CharUtils {
     final int type = Character.getType(codePoint);
     if ((type == Character.LINE_SEPARATOR)
         || (type == Character.PARAGRAPH_SEPARATOR)) {
-        return true;
+      return true;
     }
     final int dir = Character.getDirectionality(codePoint);
     return (dir == Character.DIRECTIONALITY_PARAGRAPH_SEPARATOR);
@@ -313,15 +290,14 @@ public final class CharUtils {
    *
    * The visibility of a code point is one of the following values:
    * <ul>
-   *  <li>{@link #VISIBILITY_GRAPH}</li>
-   *  <li>{@link #VISIBILITY_SPACE}</li>
-   *  <li>{@link #VISIBILITY_LINE_BREAK}</li>
+   * <li>{@link #VISIBILITY_GRAPH}</li>
+   * <li>{@link #VISIBILITY_SPACE}</li>
+   * <li>{@link #VISIBILITY_LINE_BREAK}</li>
    * </ul>
    *
    * @param codePoint
-   *    a code point.
-   * @return
-   *    the visibility of the code point.
+   *          a code point.
+   * @return the visibility of the code point.
    */
   public static int getVisibility(final int codePoint) {
     final int dir = Character.getDirectionality(codePoint);
@@ -342,6 +318,112 @@ public final class CharUtils {
         default:
           return VISIBILITY_GRAPH;
       }
+    }
+  }
+
+  /**
+   * Tests whether a string is a quoted character.
+   *
+   * @param str
+   *    a string to be test.
+   * @param escapeChar
+   *      the character used to escape itself and other characters.
+   * @param leftQuote
+   *      the left quotation mark.
+   * @param rightQuote
+   *      the right quotation mark.
+   * @return
+   *      {@code true} if the string is a quoted character, {@code false}
+   *      otherwise.
+   */
+  public static boolean isQuoted(@Nullable final String str,
+      final char escapeChar, final char leftQuote, final char rightQuote) {
+    if (str == null) {
+      return false;
+    }
+    final int n = str.length();
+    if ((n < 3)
+        || (n > 4)
+        || (str.charAt(0) != leftQuote)
+        || (str.charAt(n - 1) != rightQuote)
+        || ((n == 4) && (str.charAt(1) != escapeChar))
+        || ((n == 3) && (str.charAt(1) == escapeChar))) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  /**
+   * Quotes a character.
+   *
+   * @param ch
+   *      the character to be quoted.
+   * @param escapeChar
+   *      the character used to escape itself and other characters.
+   * @param leftQuote
+   *      the left quotation mark.
+   * @param rightQuote
+   *      the right quotation mark.
+   * @return
+   *      the string of quoted character.
+   */
+  public static String quote(final char ch, final char escapeChar,
+      final char leftQuote, final char rightQuote) {
+    final StringBuilder builder = new StringBuilder();
+    quote(ch, escapeChar, leftQuote, rightQuote, builder);
+    return builder.toString();
+  }
+
+  /**
+   * Quotes a character.
+   *
+   * @param ch
+   *      the character to be quoted.
+   * @param escapeChar
+   *      the character used to escape itself and other characters.
+   * @param leftQuote
+   *      the left quotation mark.
+   * @param rightQuote
+   *      the right quotation mark.
+   * @param builder
+   *      the string builder where to append the quoted character.
+   */
+  public static void quote(final char ch, final char escapeChar,
+      final char leftQuote, final char rightQuote, final StringBuilder builder) {
+    builder.append(leftQuote);
+    if ((ch == escapeChar) || (ch == leftQuote) || (ch == rightQuote)) {
+      builder.append(escapeChar);
+    }
+    builder.append(ch).append(rightQuote);
+  }
+
+  /**
+   * Unquotes a character.
+   *
+   * @param str
+   *      the string of a quoted character.
+   * @param escapeChar
+   *      the character used to escape itself and other characters.
+   * @param leftQuote
+   *      the left quotation mark.
+   * @param rightQuote
+   *      the right quotation mark.
+   * @return
+   *      the unquoted character.
+   * @throws IllegalArgumentException
+   *    if the string {@code str} is not a valid quoted character.
+   */
+  public static char unquote(final String str, final char escapeChar,
+      final char leftQuote, final char rightQuote) {
+    final int n = str.length();
+    if (! isQuoted(str, escapeChar, leftQuote, rightQuote)) {
+      throw new IllegalArgumentException("Not a quoted character: " + str);
+    }
+    if (n == 3) {
+      return str.charAt(1);
+    } else {
+      return str.charAt(2);
     }
   }
 
@@ -376,8 +458,8 @@ public final class CharUtils {
    *          the {@link Character} object to convert, which could be null.
    * @param defaultValue
    *          the value to use if the {@link Character} object is null
-   * @return the {@code char} value of the {@link Character} object;
-   *         or the default value if the {@link Character} object is null.
+   * @return the {@code char} value of the {@link Character} object; or the
+   *         default value if the {@link Character} object is null.
    */
   public static char toPrimitive(@Nullable final Character value,
       final char defaultValue) {
@@ -418,7 +500,8 @@ public final class CharUtils {
     return (value == null ? ByteUtils.DEFAULT : toByte(value.charValue()));
   }
 
-  public static byte toByte(@Nullable final Character value, final byte defaultValue) {
+  public static byte toByte(@Nullable final Character value,
+      final byte defaultValue) {
     return (value == null ? defaultValue : toByte(value.charValue()));
   }
 
@@ -443,7 +526,8 @@ public final class CharUtils {
     return (value == null ? ShortUtils.DEFAULT : toShort(value.charValue()));
   }
 
-  public static short toShort(@Nullable final Character value, final short defaultValue) {
+  public static short toShort(@Nullable final Character value,
+      final short defaultValue) {
     return (value == null ? defaultValue : toShort(value.charValue()));
   }
 
@@ -468,7 +552,8 @@ public final class CharUtils {
     return (value == null ? IntUtils.DEFAULT : toInt(value.charValue()));
   }
 
-  public static int toInt(@Nullable final Character value, final int defaultValue) {
+  public static int toInt(@Nullable final Character value,
+      final int defaultValue) {
     return (value == null ? defaultValue : toInt(value.charValue()));
   }
 
@@ -493,7 +578,8 @@ public final class CharUtils {
     return (value == null ? LongUtils.DEFAULT : toLong(value.charValue()));
   }
 
-  public static long toLong(@Nullable final Character value, final long defaultValue) {
+  public static long toLong(@Nullable final Character value,
+      final long defaultValue) {
     return (value == null ? defaultValue : toLong(value.charValue()));
   }
 
@@ -518,7 +604,8 @@ public final class CharUtils {
     return (value == null ? FloatUtils.DEFAULT : toFloat(value.charValue()));
   }
 
-  public static float toFloat(@Nullable final Character value, final float defaultValue) {
+  public static float toFloat(@Nullable final Character value,
+      final float defaultValue) {
     return (value == null ? defaultValue : toFloat(value.charValue()));
   }
 
@@ -543,7 +630,8 @@ public final class CharUtils {
     return (value == null ? DoubleUtils.DEFAULT : toDouble(value.charValue()));
   }
 
-  public static double toDouble(@Nullable final Character value, final double defaultValue) {
+  public static double toDouble(@Nullable final Character value,
+      final double defaultValue) {
     return (value == null ? defaultValue : toDouble(value.charValue()));
   }
 
@@ -579,7 +667,7 @@ public final class CharUtils {
     if (value < 128) {
       return CHAR_STRING_CACHE[value];
     } else {
-      final char data[] = {value};
+      final char data[] = { value };
       return new String(data);
     }
   }
@@ -616,17 +704,18 @@ public final class CharUtils {
    * Convert a {@code char} value into hex string.
    *
    * @param value
-   *    the value to be converted.
+   *          the value to be converted.
    * @param builder
-   *    a {@link StringBuilder} where to append the hex string.
+   *          a {@link StringBuilder} where to append the hex string.
    */
   public static void toHexString(final char value, final StringBuilder builder) {
     final char[] digits = NumberFormatSymbols.DEFAULT_UPPERCASE_DIGITS;
-    builder.append("\\u")
-           .append(digits[(value >>> 12) & 0x0F])
-           .append(digits[(value >>> 8) & 0x0F])
-           .append(digits[(value >>> 4) & 0x0F])
-           .append(digits[value & 0x0F]);
+    builder
+        .append("\\u")
+        .append(digits[(value >>> 12) & 0x0F])
+        .append(digits[(value >>> 8) & 0x0F])
+        .append(digits[(value >>> 4) & 0x0F])
+        .append(digits[value & 0x0F]);
   }
 
   /**
@@ -718,7 +807,8 @@ public final class CharUtils {
 
   public static BigInteger toBigInteger(@Nullable final Character value,
       @Nullable final BigInteger defaultValue) {
-    return (value == null ? defaultValue : BigInteger.valueOf(value.charValue()));
+    return (value == null ? defaultValue : BigInteger
+        .valueOf(value.charValue()));
   }
 
   public static BigDecimal toBigDecimal(final char value) {
@@ -731,7 +821,8 @@ public final class CharUtils {
 
   public static BigDecimal toBigDecimal(@Nullable final Character value,
       @Nullable final BigDecimal defaultValue) {
-    return (value == null ? defaultValue : BigDecimal.valueOf(value.charValue()));
+    return (value == null ? defaultValue : BigDecimal
+        .valueOf(value.charValue()));
   }
 
   /**
@@ -772,11 +863,12 @@ public final class CharUtils {
    */
   public static StringBuilder toUnicodeEscape(final int ch,
       final StringBuilder builder) {
-    return builder.append("\\u")
-                  .append( UPPERCASE_DIGITS[((ch >>> 12) & 0xF)] )
-                  .append( UPPERCASE_DIGITS[((ch >>> 8) & 0xF)] )
-                  .append( UPPERCASE_DIGITS[((ch >>> 4) & 0xF)] )
-                  .append( UPPERCASE_DIGITS[(ch & 0xF)] );
+    return builder
+        .append("\\u")
+        .append(UPPERCASE_DIGITS[((ch >>> 12) & 0xF)])
+        .append(UPPERCASE_DIGITS[((ch >>> 8) & 0xF)])
+        .append(UPPERCASE_DIGITS[((ch >>> 4) & 0xF)])
+        .append(UPPERCASE_DIGITS[(ch & 0xF)]);
   }
 
   /**
@@ -828,10 +920,11 @@ public final class CharUtils {
   public static StringBuilder toUnicodeEscape(final Character ch,
       final StringBuilder builder) {
     final int chValue = ch.charValue();
-    return builder.append("\\u")
-                  .append( UPPERCASE_DIGITS[((chValue >>> 12) & 0xF)] )
-                  .append( UPPERCASE_DIGITS[((chValue >>> 8) & 0xF)] )
-                  .append( UPPERCASE_DIGITS[((chValue >>> 4) & 0xF)] )
-                  .append( UPPERCASE_DIGITS[(chValue & 0xF)] );
+    return builder
+        .append("\\u")
+        .append(UPPERCASE_DIGITS[((chValue >>> 12) & 0xF)])
+        .append(UPPERCASE_DIGITS[((chValue >>> 8) & 0xF)])
+        .append(UPPERCASE_DIGITS[((chValue >>> 4) & 0xF)])
+        .append(UPPERCASE_DIGITS[(chValue & 0xF)]);
   }
 }

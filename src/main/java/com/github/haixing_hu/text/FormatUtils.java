@@ -18,9 +18,10 @@
 
 package com.github.haixing_hu.text;
 
-import com.github.haixing_hu.lang.CharUtils;
-
-import static com.github.haixing_hu.text.FormatFlag.*;
+import static com.github.haixing_hu.text.FormatFlag.ALIGN_CENTER;
+import static com.github.haixing_hu.text.FormatFlag.ALIGN_LEFT;
+import static com.github.haixing_hu.text.FormatFlag.ALIGN_MASK;
+import static com.github.haixing_hu.text.FormatFlag.ALIGN_RIGHT;
 
 /**
  * Provides the utility functions for formatting text.
@@ -192,7 +193,7 @@ public final class FormatUtils {
         } else if (options.isShowPositive()) {
           buffer[--startIndex] = symbols.getPositiveSign();
         } else if (options.isShowSpace()) {
-          buffer[--startIndex] = CharUtils.SPACE;
+          buffer[--startIndex] = Ascii.SPACE;
         }
         break;
     }
@@ -230,7 +231,7 @@ public final class FormatUtils {
         } else if (options.isShowPositive()) {
           buffer[--startIndex] = symbols.getPositiveSign();
         } else if (options.isShowSpace()) {
-          buffer[--startIndex] = CharUtils.SPACE;
+          buffer[--startIndex] = Ascii.SPACE;
         }
         break;
     }

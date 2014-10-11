@@ -16,7 +16,7 @@
  *
  ******************************************************************************/
 
-package com.github.haixing_hu.util.jaxb;
+package com.github.haixing_hu.text.xml.jaxb;
 
 import javax.xml.bind.annotation.adapters.XmlAdapter;
 

@@ -38,73 +38,96 @@ public final class Ascii {
    */
   public static final int MAX_FOLDING                   = 4;
 
-  public static final byte NULL                         = 0x00;
+  public static final char NULL                         = 0x00;
 
-  public static final byte START_OF_HEADER              = 0x01;
+  public static final char START_OF_HEADER              = 0x01;
 
-  public static final byte START_OF_TEXT                = 0x02;
+  public static final char START_OF_TEXT                = 0x02;
 
-  public static final byte END_OF_TEXT                  = 0x03;
+  public static final char END_OF_TEXT                  = 0x03;
 
-  public static final byte START_OF_TRANSMISSION        = 0x04;
+  public static final char START_OF_TRANSMISSION        = 0x04;
 
-  public static final byte ENQUIRY                      = 0x05;
+  public static final char ENQUIRY                      = 0x05;
 
-  public static final byte ACKNOWLEDGMENT               = 0x06;
+  public static final char ACKNOWLEDGMENT               = 0x06;
 
-  public static final byte BELL                         = 0x07;
+  public static final char BELL                         = 0x07;
 
-  public static final byte BACKSPACE                    = 0x08;
+  public static final char BACKSPACE                    = 0x08;
 
-  public static final byte HORIZONTAL_TAB               = 0x09;
+  public static final char HORIZONTAL_TAB               = 0x09;
 
-  public static final byte LINE_FEED                    = 0x0A;
+  public static final char LINE_FEED                    = 0x0A;
 
-  public static final byte VERTICAL_TAB                 = 0x0B;
+  public static final char VERTICAL_TAB                 = 0x0B;
 
-  public static final byte FORM_FEED                    = 0x0C;
+  public static final char FORM_FEED                    = 0x0C;
 
-  public static final byte CARRIAGE_RETURN              = 0x0D;
+  public static final char CARRIAGE_RETURN              = 0x0D;
 
-  public static final byte SHIFT_OUT                    = 0x0E;
+  public static final char SHIFT_OUT                    = 0x0E;
 
-  public static final byte SHIFT_IN                     = 0x0F;
+  public static final char SHIFT_IN                     = 0x0F;
 
-  public static final byte DATA_LINK_ESCAPE             = 0x10;
+  public static final char DATA_LINK_ESCAPE             = 0x10;
 
-  public static final byte DEVICE_CONTROL_1             = 0x11;
+  public static final char DEVICE_CONTROL_1             = 0x11;
 
-  public static final byte DEVICE_CONTROL_2             = 0x12;
+  public static final char DEVICE_CONTROL_2             = 0x12;
 
-  public static final byte DEVICE_CONTROL_3             = 0x13;
+  public static final char DEVICE_CONTROL_3             = 0x13;
 
-  public static final byte DEVICE_CONTROL_4             = 0x14;
+  public static final char DEVICE_CONTROL_4             = 0x14;
 
-  public static final byte NEGATIVE_ACKNOWLEDGEMENT     = 0x15;
+  public static final char NEGATIVE_ACKNOWLEDGEMENT     = 0x15;
 
-  public static final byte SYNCHRONOUS_IDLE             = 0x16;
+  public static final char SYNCHRONOUS_IDLE             = 0x16;
 
-  public static final byte END_OF_TRANS_BLOCK           = 0x17;
+  public static final char END_OF_TRANS_BLOCK           = 0x17;
 
-  public static final byte CANCEL                       = 0x18;
+  public static final char CANCEL                       = 0x18;
 
-  public static final byte END_OF_MEDIUM                = 0x19;
+  public static final char END_OF_MEDIUM                = 0x19;
 
-  public static final byte SUBSTITUTE                   = 0x1A;
+  public static final char SUBSTITUTE                   = 0x1A;
 
-  public static final byte ESCAPE                       = 0x1B;
+  public static final char ESCAPE                       = 0x1B;
 
-  public static final byte FILE_SEPARATOR               = 0x1C;
+  public static final char FILE_SEPARATOR               = 0x1C;
 
-  public static final byte GROUP_SEPARATOR              = 0x1D;
+  public static final char GROUP_SEPARATOR              = 0x1D;
 
-  public static final byte RECORD_SEPARATOR             = 0x1E;
+  public static final char RECORD_SEPARATOR             = 0x1E;
 
-  public static final byte UNIT_SEPARATOR               = 0x1F;
+  public static final char UNIT_SEPARATOR               = 0x1F;
 
-  public static final byte DELETE                       = 0x7F;
+  public static final char DELETE                       = 0x7F;
 
-  public static final byte SPACE                        = 0x20;
+  public static final char SPACE                        = ' ';
+
+  public static final char EXCLAMATION                  = '!';
+
+  public static final char DOUBLE_QUOTE                 = '"';
+
+  public static final char SHARP                        = '#';
+
+  public static final char DOLLAR                       = '$';
+
+  public static final char PERCENT                      = '%';
+
+  public static final char AMPERSAND                    = '&';
+
+  public static final char TAB                          = '\t';
+
+  public static final char BACKSLASH                    = '\\';
+
+  public static final char SINGLE_QUOTE                 = '\'';
+
+  public static final char COMMA                        = ',';
+
+  public static final char PERIOD                       = '.';
+
 
   public static boolean isAscii(final byte ch) {
     return (ch >= 0);

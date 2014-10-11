@@ -91,7 +91,7 @@ import com.github.haixing_hu.util.filter.character.WhitespaceCharFilter;
  * another</li>
  * <li><b>IsAlpha/IsNumeric/IsWhitespace/IsAsciiPrintable</b> - checks the
  * characters in a string</li>
- * <li><b>DefaultString</b> - protects against a null input String</li>
+ * <li><b>DefaultString</b> - protects against a {@code null} input String</li>
  * <li><b>Reverse/ReverseDelimited</b> - reverses a string</li>
  * <li><b>Abbreviate</b> - abbreviates a string using ellipsis</li>
  * <li><b>Difference</b> - compares Strings and reports on their differences</li>
@@ -99,8 +99,7 @@ import com.github.haixing_hu.util.filter.character.WhitespaceCharFilter;
  * String into another</li>
  * </ul>
  * <p>
- * The {@code Strings} class defines certain words related to String
- * handling.
+ * The {@code Strings} class defines certain words related to String handling.
  * <p>
  * <ul>
  * <li>null - {@code null}</li>
@@ -111,14 +110,13 @@ import com.github.haixing_hu.util.filter.character.WhitespaceCharFilter;
  * <li>trim - the characters &lt;= 32 as in {@link String#trim()}</li>
  * </ul>
  * <p>
- * {@code Strings} handles {@code null} input Strings quietly. That is
- * to say that a {@code null} input will return {@code null}. Where a
- * {@code boolean} or {@code int} is being returned details vary by
- * method.
+ * {@code Strings} handles {@code null} input Strings quietly. That is to say
+ * that a {@code null} input will return {@code null}. Where a {@code boolean}
+ * or {@code int} is being returned details vary by method.
  * <p>
  * A side effect of the {@code null} handling is that a
- * {@code NullPointerException} should be considered a bug in
- * {@code Strings} (except for deprecated methods).
+ * {@code NullPointerException} should be considered a bug in {@code Strings}
+ * (except for deprecated methods).
  * <p>
  * Methods in this class give sample code to explain their operation. The symbol
  * {@code *} is used to indicate any input including {@code null}.
@@ -197,10 +195,11 @@ public class StringUtils {
    *          The string to be test, which may be null.
    * @param len
    *          The length to be test.
-   * @return {@code true} if the string is null or its length is not longer
-   *         than {@code len}; {@code false} otherwise.
+   * @return {@code true} if the string is null or its length is not longer than
+   *         {@code len}; {@code false} otherwise.
    */
-  public static boolean isNotLongerThan(@Nullable final String str, final int len) {
+  public static boolean isNotLongerThan(@Nullable final String str,
+      final int len) {
     return (str == null) || (str.length() <= len);
   }
 
@@ -211,7 +210,7 @@ public class StringUtils {
    *          The string to be test, which may be null.
    * @param len
    *          The length to be test.
-   * @return {@code true} if the string is not null and its length is
+   * @return {@code true} if the string is not {@code null} and its length is
    *         longer than {@code len}; {@code false} otherwise.
    */
   public static boolean isLongerThan(@Nullable final String str, final int len) {
@@ -233,14 +232,14 @@ public class StringUtils {
    * @param str
    *          the string to check, may be null
    * @return {@code true} if the string is empty or null; {@code false}
-   *      otherwise.
+   *         otherwise.
    */
   public static boolean isEmpty(@Nullable final String str) {
     return (str == null) || (str.length() == 0);
   }
 
   /**
-   * Checks if a string is not empty ("") and not null.
+   * Checks if a string is not empty ("") and not {@code null}.
    * <p>
    *
    * <pre>
@@ -253,8 +252,8 @@ public class StringUtils {
    *
    * @param str
    *          the string to check, may be null
-   * @return {@code true} if the string is not empty and not null; {@code
-   *      false} otherwise.
+   * @return {@code true} if the string is not empty and not {@code null};
+   *         {@code false} otherwise.
    */
   public static boolean isNotEmpty(@Nullable final String str) {
     return (str != null) && (str.length() > 0);
@@ -297,12 +296,12 @@ public class StringUtils {
    *
    * @param str
    *          the string to check, may be null
-   * @return {@code true} if the string is not null, not empty and not
+   * @return {@code true} if the string is not {@code null}, not empty and not
    *         contains only blanks; {@code false}otherwise.
    * @see #isBlank(String)
    */
   public static boolean isNotBlank(@Nullable final String str) {
-    return (str != null) && (! containsOnly(str, BlankCharFilter.INSTANCE));
+    return (str != null) && (!containsOnly(str, BlankCharFilter.INSTANCE));
   }
 
   /**
@@ -330,8 +329,8 @@ public class StringUtils {
   /**
    * Checks if the string contains only unicode letters.
    * <p>
-   * {@code null} will return {@code false}. An empty String ("") will
-   * return {@code true}.
+   * {@code null} will return {@code false}. An empty String ("") will return
+   * {@code true}.
    * <p>
    *
    * <pre>
@@ -354,8 +353,8 @@ public class StringUtils {
   /**
    * Checks if the string contains only unicode letters and space (' ').
    * <p>
-   * {@code null} will return {@code false} An empty String ("") will
-   * return {@code true}.
+   * {@code null} will return {@code false} An empty String ("") will return
+   * {@code true}.
    * <p>
    *
    * <pre>
@@ -372,8 +371,7 @@ public class StringUtils {
    *
    * @param str
    *          the string to check, may be null
-   * @return {@code true} if only contains letters and space, and is
-   *         non-null
+   * @return {@code true} if only contains letters and space, and is non-null
    */
   public static boolean isLetterSpace(@Nullable final String str) {
     return containsOnly(str, LetterSpaceCharFilter.INSTANCE);
@@ -382,8 +380,8 @@ public class StringUtils {
   /**
    * Checks if the string contains only unicode letters or digits.
    * <p>
-   * {@code null} will return {@code false}. An empty String ("") will
-   * return {@code true}.
+   * {@code null} will return {@code false}. An empty String ("") will return
+   * {@code true}.
    * <p>
    *
    * <pre>
@@ -398,8 +396,7 @@ public class StringUtils {
    *
    * @param str
    *          the string to check, may be null
-   * @return {@code true} if only contains letters or digits, and is
-   *         non-null
+   * @return {@code true} if only contains letters or digits, and is non-null
    */
   public static boolean isLetterDigit(@Nullable final String str) {
     return containsOnly(str, LetterDigitCharFilter.INSTANCE);
@@ -409,8 +406,8 @@ public class StringUtils {
    * Checks if the string contains only unicode letters, digits or space (
    * {@code ' '}).
    * <p>
-   * {@code null} will return {@code false}. An empty String ("") will
-   * return {@code true}.
+   * {@code null} will return {@code false}. An empty String ("") will return
+   * {@code true}.
    * <p>
    *
    * <pre>
@@ -435,8 +432,8 @@ public class StringUtils {
   /**
    * Checks if the string contains only ASCII characters.
    * <p>
-   * {@code null} will return {@code false}. An empty String ("") will
-   * return {@code true}.
+   * {@code null} will return {@code false}. An empty String ("") will return
+   * {@code true}.
    *
    * @param str
    *          the string to check, may be null
@@ -449,7 +446,7 @@ public class StringUtils {
     }
     final int strLen = str.length();
     for (int i = 0; i < strLen; ++i) {
-      if (! Ascii.isAscii(str.charAt(i))) {
+      if (!Ascii.isAscii(str.charAt(i))) {
         return false;
       }
     }
@@ -459,8 +456,8 @@ public class StringUtils {
   /**
    * Checks if the string contains only ASCII printable characters.
    * <p>
-   * {@code null} will return {@code false}. An empty String ("") will
-   * return {@code true}.
+   * {@code null} will return {@code false}. An empty String ("") will return
+   * {@code true}.
    *
    * <pre>
    * StringUtils.isAsciiPrintable(null)     = false
@@ -478,8 +475,8 @@ public class StringUtils {
    *
    * @param str
    *          the string to check, may be null
-   * @return {@code true} if every character is in the range 32 thru 126.
-   *         If the string is null, returns false.
+   * @return {@code true} if every character is in the range 32 thru 126. If the
+   *         string is null, returns false.
    */
   public static boolean isAsciiPrintable(@Nullable final String str) {
     if (str == null) {
@@ -487,7 +484,7 @@ public class StringUtils {
     }
     final int strLen = str.length();
     for (int i = 0; i < strLen; ++i) {
-      if (! Ascii.isPrintable(str.charAt(i))) {
+      if (!Ascii.isPrintable(str.charAt(i))) {
         return false;
       }
     }
@@ -498,8 +495,8 @@ public class StringUtils {
    * Checks if the string contains only unicode digits. A decimal point is not a
    * unicode digit and returns false.
    * <p>
-   * {@code null} will return {@code false}. An empty String ("") will
-   * return {@code true}.
+   * {@code null} will return {@code false}. An empty String ("") will return
+   * {@code true}.
    *
    * <pre>
    * StringUtils.isDigit(null)   = false
@@ -522,12 +519,11 @@ public class StringUtils {
   }
 
   /**
-   * Checks if the string contains only unicode digits or space (
-   * {@code ' '}). A decimal point is not a unicode digit and returns
-   * false.
+   * Checks if the string contains only unicode digits or space ( {@code ' '}).
+   * A decimal point is not a unicode digit and returns false.
    * <p>
-   * {@code null} will return {@code false}. An empty String ("") will
-   * return {@code true}.
+   * {@code null} will return {@code false}. An empty String ("") will return
+   * {@code true}.
    *
    * <pre>
    * StringUtils.isDigitSpace(null)   = false
@@ -542,8 +538,8 @@ public class StringUtils {
    *
    * @param str
    *          the string to check, may be null
-   * @return {@code true} if only contains digits or space. If the string
-   *         is null, returns false.
+   * @return {@code true} if only contains digits or space. If the string is
+   *         null, returns false.
    */
   public static boolean isDigitSpace(@Nullable final String str) {
     return containsOnly(str, DigitSpaceCharFilter.INSTANCE);
@@ -552,12 +548,13 @@ public class StringUtils {
   /**
    * Checks whether the string a valid Java number.
    * <p>
-   * Valid numbers include hexadecimal marked with the {@code 0x}
-   * qualifier, scientific notation and numbers marked with a type qualifier
-   * (e.g. 123L).
+   * Valid numbers include hexadecimal marked with the {@code 0x} qualifier,
+   * scientific notation and numbers marked with a type qualifier (e.g. 123L).
    * <p>
    *
-   *   * <pre>
+   * *
+   *
+   * <pre>
    * StringUtils.isNumber(null)   = false
    * StringUtils.isNumber("")     = true
    * StringUtils.isNumber("  ")   = false
@@ -575,8 +572,8 @@ public class StringUtils {
    *
    * @param str
    *          the {@code String} to check, may be null.
-   * @return {@code true} if the string is a correctly formatted number. If
-   *         the string is null or empty, returns false.
+   * @return {@code true} if the string is a correctly formatted number. If the
+   *         string is null or empty, returns false.
    */
   public static boolean isNumber(@Nullable final String str) {
     if (str == null) {
@@ -616,7 +613,7 @@ public class StringUtils {
     // loop to the next to last char or to the last char if we need another
     // digit to
     // make a valid number (e.g. chars[0..5] = "1234E")
-    while ((i < sz) || ((i < (sz + 1)) && allowSigns && ! foundDigit)) {
+    while ((i < sz) || ((i < (sz + 1)) && allowSigns && !foundDigit)) {
       if ((chars[i] >= '0') && (chars[i] <= '9')) {
         foundDigit = true;
         allowSigns = false;
@@ -632,13 +629,13 @@ public class StringUtils {
           // two E's
           return false;
         }
-        if (! foundDigit) {
+        if (!foundDigit) {
           return false;
         }
         hasExp = true;
         allowSigns = true;
       } else if ((chars[i] == '+') || (chars[i] == '-')) {
-        if (! allowSigns) {
+        if (!allowSigns) {
           return false;
         }
         allowSigns = false;
@@ -657,21 +654,20 @@ public class StringUtils {
         // can't have an E at the last byte
         return false;
       }
-      if (! allowSigns
-          && ((chars[i] == 'd') || (chars[i] == 'D')
-              || (chars[i] == 'f') || (chars[i] == 'F'))) {
+      if (!allowSigns
+          && ((chars[i] == 'd') || (chars[i] == 'D') || (chars[i] == 'f') || (chars[i] == 'F'))) {
         return foundDigit;
       }
       if ((chars[i] == 'l') || (chars[i] == 'L')) {
         // not allowing L with an exponent
-        return foundDigit && ! hasExp;
+        return foundDigit && !hasExp;
       }
       // last character is illegal
       return false;
     }
-    // allowSigns is true iff the val ends in 'E'
+    // allowSigns is {@code true} iff the val ends in 'E'
     // found digit it to make sure weird stuff like '.' and '1E-' doesn't pass
-    return ! allowSigns && foundDigit;
+    return !allowSigns && foundDigit;
   }
 
   /**
@@ -679,10 +675,10 @@ public class StringUtils {
    * marks (') or double quotation marks (").
    *
    * @param str
-   *    The string to be tested, which could be null.
-   * @return
-   *    true if the string is not null and is quoted by either single quotation
-   *    marks (') or double quotation marks ("); false otherwise.
+   *          The string to be tested, which could be {@code null}.
+   * @return {@code true} if the string is not {@code null} and is quoted by
+   *         either single quotation marks (') or double quotation marks (");
+   *         {@code false} otherwise.
    */
   public static boolean isQuoted(@Nullable final String str) {
     if (str == null) {
@@ -693,7 +689,7 @@ public class StringUtils {
       return false;
     }
     final char ch1 = str.charAt(0);
-    if ((ch1 == '\'') || (ch1 == '"')) {
+    if ((ch1 == Ascii.SINGLE_QUOTE) || (ch1 == Ascii.DOUBLE_QUOTE)) {
       final char ch2 = str.charAt(len - 1);
       return (ch1 == ch2);
     } else {
@@ -702,52 +698,31 @@ public class StringUtils {
   }
 
   /**
-   * Tests whether the specified string is quoted by single quotation marks (').
+   * Tests whether the specified string is quoted by the specified left and
+   * right quotation marks.
    *
    * @param str
-   *    The string to be tested, which could be null.
-   * @return
-   *    true if the string is not null and is quoted by single quotation marks
-   *    ('); false otherwise.
+   *          the string to be tested, which could be {@code null}.
+   * @param leftQuote
+   *          the left quotation mark.
+   * @param rightQuote
+   *          the right quotation mark.
+   * @return {@code true} if the string is not {@code null} and is quoted by the
+   *         left and right quotation marks; {@code false} otherwise.
    */
-  public static boolean isSingleQuoted(@Nullable final String str) {
+  public static boolean isQuoted(@Nullable final String str,
+      final char leftQuote, final char rightQuote) {
     if (str == null) {
       return false;
     }
-    int len;
-    if ((len = str.length()) < 2) {
+    int n;
+    if ((n = str.length()) < 2) {
       return false;
     }
     final char ch1 = str.charAt(0);
-    if (ch1 == '\'') {
-      final char ch2 = str.charAt(len - 1);
-      return (ch1 == ch2);
-    } else {
-      return false;
-    }
-  }
-
-  /**
-   * Tests whether the specified string is quoted by double quotation marks (").
-   *
-   * @param str
-   *    The string to be tested, which could be null.
-   * @return
-   *    true if the string is not null and is quoted by double quotation marks
-   *    ("); false otherwise.
-   */
-  public static boolean isDoubleQuoted(@Nullable final String str) {
-    if (str == null) {
-      return false;
-    }
-    int len;
-    if ((len = str.length()) < 2) {
-      return false;
-    }
-    final char ch1 = str.charAt(0);
-    if (ch1 == '"') {
-      final char ch2 = str.charAt(len - 1);
-      return (ch1 == ch2);
+    if (ch1 == leftQuote) {
+      final char ch2 = str.charAt(n - 1);
+      return (ch2 == rightQuote);
     } else {
       return false;
     }
@@ -756,9 +731,9 @@ public class StringUtils {
   /**
    * Compares two Strings, returning {@code true} if they are equal.
    * <p>
-   * {@code null}s are handled without exceptions. Two {@code null}
-   * references are considered to be equal. The comparison could be
-   * case-sensitive or case-insensitive, controlled by an argument.
+   * {@code null}s are handled without exceptions. Two {@code null} references
+   * are considered to be equal. The comparison could be case-sensitive or
+   * case-insensitive, controlled by an argument.
    * <p>
    * Examples:
    * <p>
@@ -795,9 +770,9 @@ public class StringUtils {
   /**
    * Compares two Strings, returning {@code true} if they are equal.
    * <p>
-   * {@code null}s are handled without exceptions. Two {@code null}
-   * references are considered to be equal. The comparison could be
-   * case-sensitive or case-insensitive, controlled by an argument.
+   * {@code null}s are handled without exceptions. Two {@code null} references
+   * are considered to be equal. The comparison could be case-sensitive or
+   * case-insensitive, controlled by an argument.
    * <p>
    * Examples:
    * <p>
@@ -815,8 +790,8 @@ public class StringUtils {
    *          the first String, may be null.
    * @param str2
    *          the second String, may be null.
-   * @return {@code true} if the strings are equal, case insensitive, or
-   *         both {@code null}
+   * @return {@code true} if the strings are equal, case insensitive, or both
+   *         {@code null}
    * @see java.lang.String#equals(Object)
    * @see java.lang.String#equalsIgnoreCase(String)
    */
@@ -863,8 +838,8 @@ public class StringUtils {
    *          a string, which may be null.
    * @param ch
    *          a specified character (Unicode code point).
-   * @return true if the string starts with the specified code point; false
-   *         otherwise.
+   * @return {@code true} if the string starts with the specified code point;
+   *         false otherwise.
    */
   public static boolean startsWithChar(@Nullable final String str, final int ch) {
     if ((str == null) || (str.length() == 0)) {
@@ -886,9 +861,9 @@ public class StringUtils {
    * @param filter
    *          the {@link CharFilter} used to test the code point, which may be
    *          null.
-   * @return true if the string is starting with a code point accepted by a
-   *         {@link CharFilter}; false otherwise. If the string or filter is
-   *         null, returns false.
+   * @return {@code true} if the string is starting with a code point accepted
+   *         by a {@link CharFilter}; {@code false} otherwise. If the string or
+   *         filter is null, returns false.
    */
   public static boolean startsWithChar(@Nullable final String str,
       @Nullable final CharFilter filter) {
@@ -899,8 +874,8 @@ public class StringUtils {
   /**
    * Check whether a string starts with a specified prefix.
    * <p>
-   * {@code null}s are handled without exceptions. Two {@code null}
-   * references are considered to be equal. The comparison is case-sensitive.
+   * {@code null}s are handled without exceptions. Two {@code null} references
+   * are considered to be equal. The comparison is case-sensitive.
    * <p>
    * Examples:
    * <p>
@@ -921,9 +896,8 @@ public class StringUtils {
    *          the string to check, may be null.
    * @param prefix
    *          the prefix to find, may be null.
-   * @return {@code true} if the {@code str} starts with the
-   *         {@code prefix}, in case sensitive mode, or both
-   *         {@code null}
+   * @return {@code true} if the {@code str} starts with the {@code prefix}, in
+   *         case sensitive mode, or both {@code null}
    * @see String#startsWith(String)
    */
   public static boolean startsWith(@Nullable final String str,
@@ -939,9 +913,9 @@ public class StringUtils {
   /**
    * Check if a string starts with a specified prefix.
    * <p>
-   * {@code null}s are handled without exceptions. Two {@code null}
-   * references are considered to be equal. The comparison could be
-   * case-sensitive or case-insensitive, controlled by an argument.
+   * {@code null}s are handled without exceptions. Two {@code null} references
+   * are considered to be equal. The comparison could be case-sensitive or
+   * case-insensitive, controlled by an argument.
    * <p>
    * Examples:
    * <p>
@@ -965,9 +939,8 @@ public class StringUtils {
    * @param ignoreCase
    *          indicates whether the compare should ignore case (case
    *          insensitive) or not.
-   * @return {@code true} if the {@code str} starts with the
-   *         {@code prefix}, in case insensitive mode, or both
-   *         {@code null}
+   * @return {@code true} if the {@code str} starts with the {@code prefix}, in
+   *         case insensitive mode, or both {@code null}
    * @see String#startsWith(String)
    */
   public static boolean startsWithIgnoreCase(@Nullable final String str,
@@ -1010,8 +983,8 @@ public class StringUtils {
    *          a string, which may be null.
    * @param ch
    *          a specified character (Unicode code point).
-   * @return true if the string ends with the specified code point; false
-   *         otherwise.
+   * @return {@code true} if the string ends with the specified code point;
+   *         false otherwise.
    */
   public static boolean endsWithChar(@Nullable final String str, final int ch) {
     final int n;
@@ -1034,9 +1007,9 @@ public class StringUtils {
    * @param filter
    *          the {@link CharFilter} used to test the code point, which may be
    *          null.
-   * @return true if the string is ending with a code point accepted by a
-   *         {@link CharFilter}; false otherwise. If the string or filter is
-   *         null, returns false.
+   * @return {@code true} if the string is ending with a code point accepted by
+   *         a {@link CharFilter}; {@code false} otherwise. If the string or
+   *         filter is null, returns false.
    */
   public static boolean endsWithChar(@Nullable final String str,
       @Nullable final CharFilter filter) {
@@ -1049,9 +1022,9 @@ public class StringUtils {
    * Check if a string ends with a specified suffix (optionally case
    * insensitive).
    * <p>
-   * {@code null}s are handled without exceptions. Two {@code null}
-   * references are considered to be equal. The comparison could be
-   * case-sensitive or case-insensitive, controlled by an argument.
+   * {@code null}s are handled without exceptions. Two {@code null} references
+   * are considered to be equal. The comparison could be case-sensitive or
+   * case-insensitive, controlled by an argument.
    * <p>
    * Examples:
    * <p>
@@ -1090,9 +1063,9 @@ public class StringUtils {
    * Check if a string ends with a specified suffix (optionally case
    * insensitive).
    * <p>
-   * {@code null}s are handled without exceptions. Two {@code null}
-   * references are considered to be equal. The comparison could be
-   * case-sensitive or case-insensitive, controlled by an argument.
+   * {@code null}s are handled without exceptions. Two {@code null} references
+   * are considered to be equal. The comparison could be case-sensitive or
+   * case-insensitive, controlled by an argument.
    * <p>
    * Examples:
    * <p>
@@ -1147,9 +1120,9 @@ public class StringUtils {
    *          the string to be test, which may be null.
    * @param ch
    *          the specified character (Unicode code point).
-   * @return true if the string is starting or ending with a code point
-   *         satisfying the specified {@link CharFilter}; false otherwise. If
-   *         the string is null or empty, returns false.
+   * @return {@code true} if the string is starting or ending with a code point
+   *         satisfying the specified {@link CharFilter}; {@code false}
+   *         otherwise. If the string is null or empty, returns false.
    */
   public static boolean startsOrEndsWithChar(@Nullable final String str,
       final int ch) {
@@ -1172,10 +1145,10 @@ public class StringUtils {
    *          the string to be test, which may be null.
    * @param filter
    *          the specified {@link CharFilter}.
-   * @return true if the string is starting or ending with a code point
-   *         satisfying the specified {@link CharFilter}; false otherwise. If
-   *         the string is null or empty, or if the filter is null, returns
-   *         false.
+   * @return {@code true} if the string is starting or ending with a code point
+   *         satisfying the specified {@link CharFilter}; {@code false}
+   *         otherwise. If the string is null or empty, or if the filter is
+   *         null, returns false.
    */
   public static boolean startsOrEndsWithChar(@Nullable final String str,
       @Nullable final CharFilter filter) {
@@ -1183,7 +1156,8 @@ public class StringUtils {
     return (str != null)
         && ((n = str.length()) > 0)
         && (filter != null)
-        && (filter.accept(str.codePointAt(0)) || filter.accept(str.codePointBefore(n)));
+        && (filter.accept(str.codePointAt(0)) || filter.accept(str
+            .codePointBefore(n)));
   }
 
   /**
@@ -1193,9 +1167,9 @@ public class StringUtils {
    *          the string to be test, which may be null.
    * @param ch
    *          the specified character (Unicode code point).
-   * @return true if the string is starting and ending with a code point
-   *         satisfying the specified {@link CharFilter}; false otherwise. If
-   *         the string is null or empty, returns false.
+   * @return {@code true} if the string is starting and ending with a code point
+   *         satisfying the specified {@link CharFilter}; {@code false}
+   *         otherwise. If the string is null or empty, returns false.
    */
   public static boolean startsAndEndsWithChar(@Nullable final String str,
       final int ch) {
@@ -1218,10 +1192,10 @@ public class StringUtils {
    *          the string to be test, which may be null.
    * @param filter
    *          the specified {@link CharFilter}.
-   * @return true if the string is starting and ending with a code point
-   *         satisfying the specified {@link CharFilter}; false otherwise. If
-   *         the string is null or empty, or if the filter is null, returns
-   *         false.
+   * @return {@code true} if the string is starting and ending with a code point
+   *         satisfying the specified {@link CharFilter}; {@code false}
+   *         otherwise. If the string is null or empty, or if the filter is
+   *         null, returns false.
    */
   public static boolean startsAndEndsWithChar(@Nullable final String str,
       @Nullable final CharFilter filter) {
@@ -1273,12 +1247,12 @@ public class StringUtils {
     if ((i < str2.length()) || (i < str1.length())) {
       return i;
     }
-    return - 1;
+    return -1;
   }
 
   /**
-   * Compares all strings in an array and returns the index at which the
-   * strings begin to differ.
+   * Compares all strings in an array and returns the index at which the strings
+   * begin to differ.
    * <p>
    * For example,
    * <p>
@@ -1310,7 +1284,7 @@ public class StringUtils {
    */
   public static int indexOfDifference(@Nullable final String... strs) {
     if ((strs == null) || (strs.length <= 1)) {
-      return - 1;
+      return -1;
     }
     boolean anyStringNull = false;
     boolean allStringsNull = true;
@@ -1333,8 +1307,8 @@ public class StringUtils {
     }
 
     // handle lists containing all nulls or all empty strings
-    if (allStringsNull || ((longestStrLen == 0) && ! anyStringNull)) {
-      return - 1;
+    if (allStringsNull || ((longestStrLen == 0) && !anyStringNull)) {
+      return -1;
     }
 
     // handle lists containing some nulls or some empty strings
@@ -1343,7 +1317,7 @@ public class StringUtils {
     }
 
     // find the position with the first difference across all strings
-    int firstDiff = - 1;
+    int firstDiff = -1;
     for (int stringPos = 0; stringPos < shortestStrLen; stringPos++) {
       final char comparisonChar = strs[0].charAt(stringPos);
       for (int arrayPos = 1; arrayPos < arrayLen; arrayPos++) {
@@ -1352,12 +1326,12 @@ public class StringUtils {
           break;
         }
       }
-      if (firstDiff != - 1) {
+      if (firstDiff != -1) {
         break;
       }
     }
 
-    if ((firstDiff == - 1) && (shortestStrLen != longestStrLen)) {
+    if ((firstDiff == -1) && (shortestStrLen != longestStrLen)) {
       // we compared all of the characters up to the length of the
       // shortest string and didn't find a match, but the string lengths
       // vary, so return the length of the shortest string.
@@ -1402,7 +1376,7 @@ public class StringUtils {
       return str1;
     }
     final int at = indexOfDifference(str1, str2);
-    if (at == - 1) {
+    if (at == -1) {
       return EMPTY;
     }
     return str2.substring(at);
@@ -1446,7 +1420,7 @@ public class StringUtils {
       return EMPTY;
     }
     final int smallestIndexOfDiff = indexOfDifference(strs);
-    if (smallestIndexOfDiff == - 1) {
+    if (smallestIndexOfDiff == -1) {
       // all strings were identical
       if (strs[0] == null) {
         return EMPTY;
@@ -1576,9 +1550,9 @@ public class StringUtils {
    * start position, handling {@code null}. This method uses
    * {@link String#indexOf(int, int)}.
    * <p>
-   * A {@code null} or empty ("") String will return {@code -1}. A
-   * negative start position is treated as zero. A start position greater than
-   * the string length returns {@code -1}.
+   * A {@code null} or empty ("") String will return {@code -1}. A negative
+   * start position is treated as zero. A start position greater than the string
+   * length returns {@code -1}.
    * <p>
    *
    * <pre>
@@ -1606,7 +1580,7 @@ public class StringUtils {
   public static int indexOfChar(@Nullable final String str,
       final int codePoint, final int fromIndex) {
     if ((str == null) || (str.length() == 0)) {
-      return - 1;
+      return -1;
     }
     return str.indexOf(codePoint, fromIndex);
   }
@@ -1615,8 +1589,7 @@ public class StringUtils {
    * Search a string to find the first occurrence of any code point accepted by
    * the given filter.
    * <p>
-   * A {@code null} string or a {@code null} filter will return
-   * {@code -1}.
+   * A {@code null} string or a {@code null} filter will return {@code -1}.
    * <p>
    *
    * @param str
@@ -1631,15 +1604,15 @@ public class StringUtils {
    *          the same effect as if it were equal to the length of the string:
    *          and -1 is returned.
    * @return the first occurrence of the code point accepted by the
-   *         {@code filter} in the string {@code str} starting from
-   *         the {@code fromIndex}; or -1 if no such code point.
+   *         {@code filter} in the string {@code str} starting from the
+   *         {@code fromIndex}; or -1 if no such code point.
    */
   public static int indexOfChar(@Nullable final String str,
       @Nullable final CharFilter filter, int fromIndex) {
     int strLen;
     if ((str == null) || ((strLen = str.length()) == 0)
         || (fromIndex >= str.length()) || (filter == null)) {
-      return - 1;
+      return -1;
     }
     if (fromIndex < 0) {
       fromIndex = 0;
@@ -1656,15 +1629,15 @@ public class StringUtils {
         ++index;
       }
     }
-    return - 1;
+    return -1;
   }
 
   /**
    * Search a string to find the first occurrence of any character in the given
    * set of characters.
    * <p>
-   * A {@code null} string will return {@code -1}. A {@code null}
-   * or zero length search array will return {@code -1}.
+   * A {@code null} string will return {@code -1}. A {@code null} or zero length
+   * search array will return {@code -1}.
    * <p>
    *
    * <pre>
@@ -1698,7 +1671,7 @@ public class StringUtils {
     if ((str == null) || ((strLen = str.length()) == 0)
         || (fromIndex >= str.length()) || (chars == null)
         || (chars.length == 0)) {
-      return - 1;
+      return -1;
     }
     if (fromIndex < 0) {
       fromIndex = 0;
@@ -1711,15 +1684,15 @@ public class StringUtils {
         }
       }
     }
-    return - 1;
+    return -1;
   }
 
   /**
    * Search a string to find the first occurrence of any character in the given
    * set of characters.
    * <p>
-   * A {@code null} string will return {@code -1}. A {@code null}
-   * search string will return {@code -1}.
+   * A {@code null} string will return {@code -1}. A {@code null} search string
+   * will return {@code -1}.
    * <p>
    *
    * <pre>
@@ -1753,7 +1726,7 @@ public class StringUtils {
     if ((str == null) || ((strLen = str.length()) == 0)
         || (fromIndex >= str.length()) || (chars == null)
         || (chars.length() == 0)) {
-      return - 1;
+      return -1;
     }
     if (fromIndex < 0) {
       fromIndex = 0;
@@ -1763,15 +1736,15 @@ public class StringUtils {
         return i;
       }
     }
-    return - 1;
+    return -1;
   }
 
   /**
    * Search a string to find the first occurrence of any character not in the
    * given set of characters.
    * <p>
-   * A {@code null} string will return {@code -1}. A {@code null}
-   * or zero length search array will return {@code -1}.
+   * A {@code null} string will return {@code -1}. A {@code null} or zero length
+   * search array will return {@code -1}.
    * <p>
    *
    * <pre>
@@ -1805,7 +1778,7 @@ public class StringUtils {
     int strLen;
     if ((str == null) || ((strLen = str.length()) == 0)
         || (fromIndex >= str.length())) {
-      return - 1;
+      return -1;
     }
     if (fromIndex < 0) {
       fromIndex = 0;
@@ -1813,25 +1786,24 @@ public class StringUtils {
     if ((searchChars == null) || (searchChars.length == 0)) {
       return fromIndex;
     }
-    outer:
-      for (int i = fromIndex; i < strLen; i++) {
-        final char ch = str.charAt(i);
-        for (int j = 0; j < searchChars.length; j++) {
-          if (searchChars[j] == ch) {
-            continue outer;
-          }
+    outer: for (int i = fromIndex; i < strLen; i++) {
+      final char ch = str.charAt(i);
+      for (int j = 0; j < searchChars.length; j++) {
+        if (searchChars[j] == ch) {
+          continue outer;
         }
-        return i;
       }
-    return - 1;
+      return i;
+    }
+    return -1;
   }
 
   /**
    * Search a string to find the first occurrence of any character not in the
    * given set of characters.
    * <p>
-   * A {@code null} string will return {@code -1}. A {@code null}
-   * search string will return {@code -1}.
+   * A {@code null} string will return {@code -1}. A {@code null} search string
+   * will return {@code -1}.
    * <p>
    *
    * <pre>
@@ -1865,7 +1837,7 @@ public class StringUtils {
     int strLen;
     if ((str == null) || ((strLen = str.length()) == 0)
         || (fromIndex >= str.length())) {
-      return - 1;
+      return -1;
     }
     if (fromIndex < 0) {
       fromIndex = 0;
@@ -1878,16 +1850,16 @@ public class StringUtils {
         return i;
       }
     }
-    return - 1;
+    return -1;
   }
 
   /**
    * Finds the first occurrence of a substring within a string, handling
    * {@code null}. This method uses {@link String#indexOf(String, int)}.
    * <p>
-   * A {@code null} string will return {@code -1}. A negative start
-   * position is treated as zero. An empty ("") search String always matches. A
-   * start position greater than the string length only matches an empty search
+   * A {@code null} string will return {@code -1}. A negative start position is
+   * treated as zero. An empty ("") search String always matches. A start
+   * position greater than the string length only matches an empty search
    * String.
    * <p>
    *
@@ -1929,7 +1901,7 @@ public class StringUtils {
     int strLen;
     if ((str == null) || ((strLen = str.length()) == 0) || (search == null)
         || (fromIndex >= strLen)) {
-      return - 1;
+      return -1;
     }
     if (fromIndex < 0) {
       fromIndex = 0;
@@ -1965,17 +1937,17 @@ public class StringUtils {
         return i;
       }
     }
-    return - 1;
+    return -1;
   }
 
   /**
    * Find the first occurrence of any of a set of potential substrings.
    * <p>
-   * A {@code null} string will return {@code -1}. A {@code null}
-   * or zero length search array will return {@code -1}. A
-   * {@code null} search array entry will be ignored, but a search array
-   * containing "" will return {@code 0} if {@code str} is not null.
-   * This method uses {@link String#indexOf(String)}.
+   * A {@code null} string will return {@code -1}. A {@code null} or zero length
+   * search array will return {@code -1}. A {@code null} search array entry will
+   * be ignored, but a search array containing "" will return {@code 0} if
+   * {@code str} is not {@code null}. This method uses
+   * {@link String#indexOf(String)}.
    * <p>
    *
    * <pre>
@@ -2013,7 +1985,7 @@ public class StringUtils {
     int strLen;
     if ((str == null) || ((strLen = str.length()) == 0) || (searches == null)
         || (searches.length == 0) || (fromIndex >= strLen)) {
-      return - 1;
+      return -1;
     }
     if (fromIndex < 0) {
       fromIndex = 0;
@@ -2038,16 +2010,16 @@ public class StringUtils {
         result = tmp;
       }
     }
-    return (result == Integer.MAX_VALUE ? - 1 : result);
+    return (result == Integer.MAX_VALUE ? -1 : result);
   }
 
   /**
    * Finds the last current within a string from a start position, handling
    * {@code null}. This method uses {@link String#lastIndexOf(int, int)}.
    * <p>
-   * A {@code null} or empty ("") String will return {@code -1}. A
-   * negative start position returns {@code -1}. A start position greater
-   * than the string length searches the whole string.
+   * A {@code null} or empty ("") String will return {@code -1}. A negative
+   * start position returns {@code -1}. A start position greater than the string
+   * length searches the whole string.
    * <p>
    *
    * <pre>
@@ -2078,7 +2050,7 @@ public class StringUtils {
   public static int lastIndexOfChar(@Nullable final String str,
       final int codePoint, final int fromIndex) {
     if ((str == null) || (str.length() == 0)) {
-      return - 1;
+      return -1;
     }
     return str.lastIndexOf(codePoint, fromIndex);
   }
@@ -2087,8 +2059,8 @@ public class StringUtils {
    * Search a string to find the first occurrence of any character accepted by
    * the given filter.
    * <p>
-   * A {@code null} string will return {@code -1}. A {@code null}
-   * filter will return {@code -1}.
+   * A {@code null} string will return {@code -1}. A {@code null} filter will
+   * return {@code -1}.
    *
    * @param str
    *          the string to check, may be null
@@ -2102,15 +2074,15 @@ public class StringUtils {
    *          searched. If it is negative, it has the same effect as if it were
    *          -1: -1 is returned.
    * @return the first occurrence of the character accepted by the
-   *         {@code filter} in the string {@code str} starting from
-   *         the {@code fromIndex}.
+   *         {@code filter} in the string {@code str} starting from the
+   *         {@code fromIndex}.
    */
   public static int lastIndexOfChar(@Nullable final String str,
       @Nullable final CharFilter filter, int fromIndex) {
     int strLen;
     if ((str == null) || ((strLen = str.length()) == 0) || (fromIndex < 0)
         || (filter == null)) {
-      return - 1;
+      return -1;
     }
     if (fromIndex >= strLen) {
       fromIndex = strLen - 1;
@@ -2127,15 +2099,15 @@ public class StringUtils {
         return index + 1;
       }
     }
-    return - 1;
+    return -1;
   }
 
   /**
    * Search a string to find the first occurrence of any character in the given
    * set of characters.
    * <p>
-   * A {@code null} string will return {@code -1}. A {@code null}
-   * or zero length search array will return {@code -1}.
+   * A {@code null} string will return {@code -1}. A {@code null} or zero length
+   * search array will return {@code -1}.
    * <p>
    *
    * <pre>
@@ -2169,7 +2141,7 @@ public class StringUtils {
     int strLen;
     if ((str == null) || ((strLen = str.length()) == 0) || (fromIndex < 0)
         || (searchChars == null) || (searchChars.length == 0)) {
-      return - 1;
+      return -1;
     }
     if (fromIndex >= strLen) {
       fromIndex = strLen - 1;
@@ -2182,15 +2154,15 @@ public class StringUtils {
         }
       }
     }
-    return - 1;
+    return -1;
   }
 
   /**
    * Search a string to find the first occurrence of any character in the given
    * set of characters.
    * <p>
-   * A {@code null} string will return {@code -1}. A {@code null}
-   * search string will return {@code -1}.
+   * A {@code null} string will return {@code -1}. A {@code null} search string
+   * will return {@code -1}.
    * <p>
    *
    * <pre>
@@ -2224,7 +2196,7 @@ public class StringUtils {
     int strLen;
     if ((str == null) || ((strLen = str.length()) == 0) || (fromIndex < 0)
         || (searchChars == null) || (searchChars.length() == 0)) {
-      return - 1;
+      return -1;
     }
     if (fromIndex >= strLen) {
       fromIndex = strLen - 1;
@@ -2234,15 +2206,15 @@ public class StringUtils {
         return i;
       }
     }
-    return - 1;
+    return -1;
   }
 
   /**
    * Search a string to find the first occurrence of any character not in the
    * given set of characters.
    * <p>
-   * A {@code null} string will return {@code -1}. A {@code null}
-   * or zero length search array will return {@code -1}.
+   * A {@code null} string will return {@code -1}. A {@code null} or zero length
+   * search array will return {@code -1}.
    * <p>
    *
    * <pre>
@@ -2276,7 +2248,7 @@ public class StringUtils {
       @Nullable final char[] searchChars, int fromIndex) {
     int strLen;
     if ((str == null) || ((strLen = str.length()) == 0) || (fromIndex < 0)) {
-      return - 1;
+      return -1;
     }
     if (fromIndex >= strLen) {
       fromIndex = strLen - 1;
@@ -2284,25 +2256,24 @@ public class StringUtils {
     if ((searchChars == null) || (searchChars.length == 0)) {
       return fromIndex;
     }
-    outer:
-      for (int i = fromIndex; i >= 0; --i) {
-        final char ch = str.charAt(i);
-        for (int j = 0; j < searchChars.length; j++) {
-          if (searchChars[j] == ch) {
-            continue outer;
-          }
+    outer: for (int i = fromIndex; i >= 0; --i) {
+      final char ch = str.charAt(i);
+      for (int j = 0; j < searchChars.length; j++) {
+        if (searchChars[j] == ch) {
+          continue outer;
         }
-        return i;
       }
-    return - 1;
+      return i;
+    }
+    return -1;
   }
 
   /**
    * Search a string to find the first occurrence of any character not in the
    * given set of characters.
    * <p>
-   * A {@code null} string will return {@code -1}. A {@code null}
-   * search string will return {@code -1}.
+   * A {@code null} string will return {@code -1}. A {@code null} search string
+   * will return {@code -1}.
    * <p>
    *
    * <pre>
@@ -2336,7 +2307,7 @@ public class StringUtils {
       @Nullable final String searchChars, int fromIndex) {
     int strLen;
     if ((str == null) || ((strLen = str.length()) == 0) || (fromIndex < 0)) {
-      return - 1;
+      return -1;
     }
     if (fromIndex >= strLen) {
       fromIndex = strLen - 1;
@@ -2349,17 +2320,17 @@ public class StringUtils {
         return i;
       }
     }
-    return - 1;
+    return -1;
   }
 
   /**
-   * Finds the first occurrence within a string, handling {@code null}.
-   * This method uses {@link String#lastIndexOf(String, int)}.
+   * Finds the first occurrence within a string, handling {@code null}. This
+   * method uses {@link String#lastIndexOf(String, int)}.
    * <p>
-   * A {@code null} string will return {@code -1}. A negative start
-   * position returns {@code -1}. An empty ("") search String always
-   * matches unless the start position is negative. A start position greater
-   * than the string length searches the whole string.
+   * A {@code null} string will return {@code -1}. A negative start position
+   * returns {@code -1}. An empty ("") search String always matches unless the
+   * start position is negative. A start position greater than the string length
+   * searches the whole string.
    * <p>
    *
    * <pre>
@@ -2396,7 +2367,7 @@ public class StringUtils {
     int strLen;
     if ((str == null) || ((strLen = str.length()) == 0) || (search == null)
         || (fromIndex < 0)) {
-      return - 1;
+      return -1;
     }
     if (fromIndex >= strLen) {
       fromIndex = strLen - 1;
@@ -2431,17 +2402,17 @@ public class StringUtils {
         return i;
       }
     }
-    return - 1;
+    return -1;
   }
 
   /**
    * Find the latest current of any of a set of potential substrings.
    * <p>
-   * A {@code null} string will return {@code -1}. A {@code null}
-   * search array will return {@code -1}. A {@code null} or zero
-   * length search array entry will be ignored, but a search array containing ""
-   * will return the length of {@code str} if {@code str} is not null.
-   * This method uses {@link String#indexOf(String)}
+   * A {@code null} string will return {@code -1}. A {@code null} search array
+   * will return {@code -1}. A {@code null} or zero length search array entry
+   * will be ignored, but a search array containing "" will return the length of
+   * {@code str} if {@code str} is not {@code null}. This method uses
+   * {@link String#indexOf(String)}
    * <p>
    *
    * <pre>
@@ -2477,12 +2448,12 @@ public class StringUtils {
     int strLen;
     if ((str == null) || ((strLen = str.length()) == 0) || (searches == null)
         || (searches.length == 0) || (fromIndex < 0)) {
-      return - 1;
+      return -1;
     }
     if (fromIndex >= strLen) {
       fromIndex = strLen - 1;
     }
-    int result = - 1;
+    int result = -1;
     int tmp = 0;
     for (int i = 0; i < searches.length; ++i) {
       final String search = searches[i];
@@ -2509,9 +2480,9 @@ public class StringUtils {
    *          a string, which may be null or empty.
    * @param ch
    *          the specified character (Unicode code point).
-   * @return true if the specified string contains no character other than the
-   *         specified character; false otherwise. If the specified string is
-   *         null or empty, returns false.
+   * @return {@code true} if the specified string contains no character other
+   *         than the specified character; {@code false} otherwise. If the
+   *         specified string is null or empty, returns false.
    */
   public static boolean containsOnly(@Nullable final String str, final int ch) {
     final int strLen;
@@ -2550,9 +2521,10 @@ public class StringUtils {
    *          the string to be test, which may be null or empty.
    * @param filter
    *          a specified {@link CharFilter}, which may be null.
-   * @return true if the string contains only the code points satisfying the
-   *         specified {@link CharFilter}; false otherwise. If the string is
-   *         null, returns false. If the string is empty, returns true.
+   * @return {@code true} if the string contains only the code points satisfying
+   *         the specified {@link CharFilter}; {@code false} otherwise. If the
+   *         string is null, returns false. If the string is empty, returns
+   *         true.
    */
   public static boolean containsOnly(@Nullable final String str,
       @Nullable final CharFilter filter) {
@@ -2563,7 +2535,7 @@ public class StringUtils {
     int index = 0;
     while (index < strLen) {
       final int codePoint = str.codePointAt(index);
-      if (! filter.accept(codePoint)) {
+      if (!filter.accept(codePoint)) {
         return false;
       }
       if (codePoint >= Unicode.SUPPLEMENTARY_MIN) {
@@ -2602,9 +2574,9 @@ public class StringUtils {
   /**
    * Checks if the string contains only certain characters.
    * <p>
-   * A {@code null} string will return {@code false}. A
-   * {@code null} valid character array will return {@code false}. An
-   * empty String ("") always returns {@code true}.
+   * A {@code null} string will return {@code false}. A {@code null} valid
+   * character array will return {@code false}. An empty String ("") always
+   * returns {@code true}.
    * <p>
    *
    * <pre>
@@ -2621,7 +2593,7 @@ public class StringUtils {
    *          the string to check, may be null
    * @param validChars
    *          an array of valid chars, may be null
-   * @return true if it only contains valid chars and is non-null
+   * @return {@code true} if it only contains valid chars and is non-null
    */
   public static boolean containsOnly(@Nullable final String str,
       @Nullable final char[] validChars) {
@@ -2634,15 +2606,15 @@ public class StringUtils {
     if (validChars.length == 0) {
       return false;
     }
-    return indexOfAnyCharBut(str, validChars, 0) == - 1;
+    return indexOfAnyCharBut(str, validChars, 0) == -1;
   }
 
   /**
    * Checks if the string contains only certain characters.
    * <p>
-   * A {@code null} string will return {@code false}. A
-   * {@code null} valid character String will return {@code false}. An
-   * empty String ("") always returns {@code true}.
+   * A {@code null} string will return {@code false}. A {@code null} valid
+   * character String will return {@code false}. An empty String ("") always
+   * returns {@code true}.
    * <p>
    *
    * <pre>
@@ -2659,7 +2631,7 @@ public class StringUtils {
    *          the string to check, may be null
    * @param validChars
    *          a string of valid chars, may be null
-   * @return true if it only contains valid chars and is non-null
+   * @return {@code true} if it only contains valid chars and is non-null
    */
   public static boolean containsOnly(@Nullable final String str,
       @Nullable final String validChars) {
@@ -2672,7 +2644,7 @@ public class StringUtils {
     if (validChars.length() == 0) {
       return false;
     }
-    return indexOfAnyCharBut(str, validChars, 0) == - 1;
+    return indexOfAnyCharBut(str, validChars, 0) == -1;
   }
 
   /**
@@ -2790,8 +2762,8 @@ public class StringUtils {
    * The function use {@link CharUtils#isGraph(int)} to determinate wheter a
    * code point is a printable non-whitespace character.
    * <p>
-   * A {@code null} input String returns {@code null}. An empty string
-   * ("") input returns the empty string.
+   * A {@code null} input String returns {@code null}. An empty string ("")
+   * input returns the empty string.
    * <p>
    *
    * <pre>
@@ -2863,11 +2835,11 @@ public class StringUtils {
   /**
    * Strips any of a set of characters from the start of a string.
    * <p>
-   * A {@code null} input String returns {@code null}. An empty string
-   * ("") input returns the empty string.
+   * A {@code null} input String returns {@code null}. An empty string ("")
+   * input returns the empty string.
    * <p>
-   * If the stripChars String is {@code null}, it is treated as an empty
-   * string, and the original string is returned.
+   * If the stripChars String is {@code null}, it is treated as an empty string,
+   * and the original string is returned.
    * <p>
    *
    * <pre>
@@ -2941,8 +2913,8 @@ public class StringUtils {
    * Strips any of the characters accepted by a CharFilter from the start of a
    * String.
    * <p>
-   * A {@code null} input String returns {@code null}. An empty string
-   * ("") input returns the empty string.
+   * A {@code null} input String returns {@code null}. An empty string ("")
+   * input returns the empty string.
    * <p>
    * If the filter is {@code null}, the original string is returned.
    *
@@ -2950,10 +2922,10 @@ public class StringUtils {
    *          the string to remove characters from, may be null
    * @param charFilter
    *          a CharFilter. The characters accepted by this filter is striped
-   *          from the start of {@code str}. If it is null, the original
-   *          string is returned.
-   * @return the stripped String, or {@code null} if {@code str} is
-   *         {@code null}.
+   *          from the start of {@code str}. If it is null, the original string
+   *          is returned.
+   * @return the stripped String, or {@code null} if {@code str} is {@code null}
+   *         .
    */
   public static String stripStart(@Nullable final String str,
       @Nullable final CharFilter charFilter) {
@@ -2963,7 +2935,7 @@ public class StringUtils {
     }
     int start = 0;
     while (start < len) {
-      if (! charFilter.accept(str.charAt(start))) {
+      if (!charFilter.accept(str.charAt(start))) {
         break;
       }
       ++start;
@@ -2989,7 +2961,7 @@ public class StringUtils {
     }
     int start = 0;
     while (start < len) {
-      if (! charFilter.accept(str.charAt(start))) {
+      if (!charFilter.accept(str.charAt(start))) {
         break;
       }
       ++start;
@@ -3007,8 +2979,8 @@ public class StringUtils {
    * The function use {@link CharUtils#isGraph(int)} to determinate wheter a
    * code point is a printable non-whitespace character.
    * <p>
-   * A {@code null} input String returns {@code null}. An empty string
-   * ("") input returns the empty string.
+   * A {@code null} input String returns {@code null}. An empty string ("")
+   * input returns the empty string.
    * <p>
    *
    * <pre>
@@ -3102,11 +3074,11 @@ public class StringUtils {
   /**
    * Strips any of a set of characters from the end of a string.
    * <p>
-   * A {@code null} input String returns {@code null}. An empty string
-   * ("") input returns the empty string.
+   * A {@code null} input String returns {@code null}. An empty string ("")
+   * input returns the empty string.
    * <p>
-   * If the stripChars String is {@code null}, it is treated as an empty
-   * string, and the original string is returned.
+   * If the stripChars String is {@code null}, it is treated as an empty string,
+   * and the original string is returned.
    * <p>
    *
    * <pre>
@@ -3180,8 +3152,8 @@ public class StringUtils {
    * Strips any of the characters accepted by a CharFilter from the end of a
    * String.
    * <p>
-   * A {@code null} input String returns {@code null}. An empty string
-   * ("") input returns the empty string.
+   * A {@code null} input String returns {@code null}. An empty string ("")
+   * input returns the empty string.
    * <p>
    * If the filter is null, the original string is returned.
    *
@@ -3189,10 +3161,10 @@ public class StringUtils {
    *          the string to remove characters from, may be null.
    * @param charFilter
    *          a CharFilter. The characters accepted by this filter is striped
-   *          from the end of {@code str}. If it is null, the original
-   *          string is returned.
-   * @return the stripped String, or {@code null} if {@code str} is
-   *         {@code null}.
+   *          from the end of {@code str}. If it is null, the original string is
+   *          returned.
+   * @return the stripped String, or {@code null} if {@code str} is {@code null}
+   *         .
    */
   public static String stripEnd(@Nullable final String str,
       @Nullable final CharFilter charFilter) {
@@ -3203,7 +3175,7 @@ public class StringUtils {
     int end = len;
     while (end > 0) {
       final int nextEnd = end - 1;
-      if (! charFilter.accept(str.charAt(nextEnd))) {
+      if (!charFilter.accept(str.charAt(nextEnd))) {
         break;
       }
       end = nextEnd;
@@ -3230,7 +3202,7 @@ public class StringUtils {
     int end = len;
     while (end > 0) {
       final int nextEnd = end - 1;
-      if (! charFilter.accept(str.charAt(nextEnd))) {
+      if (!charFilter.accept(str.charAt(nextEnd))) {
         break;
       }
       end = nextEnd;
@@ -3250,8 +3222,8 @@ public class StringUtils {
    * {@link CharUtils#isGraph(int)} to determinate whether a code point is a
    * printable non-whitespace character.
    * <p>
-   * A {@code null} input String returns {@code null}. An empty string
-   * ("") input returns the empty string.
+   * A {@code null} input String returns {@code null}. An empty string ("")
+   * input returns the empty string.
    *
    * <pre>
    * StringUtils.strip(null)           = null
@@ -3347,11 +3319,11 @@ public class StringUtils {
    * is similar to {@link String#trim()} but allows the characters to be
    * stripped to be controlled.
    * <p>
-   * A {@code null} input String returns {@code null}. An empty string
-   * ("") input returns the empty string.
+   * A {@code null} input String returns {@code null}. An empty string ("")
+   * input returns the empty string.
    * <p>
-   * If the strip character string is {@code null} or empty, the original
-   * string is returned.
+   * If the strip character string is {@code null} or empty, the original string
+   * is returned.
    * <p>
    *
    * <pre>
@@ -3438,8 +3410,8 @@ public class StringUtils {
    * Strips any of the characters accepted by a CharFilter from both end of a
    * String.
    * <p>
-   * A {@code null} input string returns {@code null}. An empty string
-   * ("") input returns the empty string.
+   * A {@code null} input string returns {@code null}. An empty string ("")
+   * input returns the empty string.
    * <p>
    * If the filter is {@code null}, the original string is returned.
    *
@@ -3447,8 +3419,8 @@ public class StringUtils {
    *          the string to remove characters from, which may be null.
    * @param charFilter
    *          a CharFilter. The characters accepted by this filter is striped
-   *          from both end of {@code str}. If it is null, the original
-   *          string is returned.
+   *          from both end of {@code str}. If it is null, the original string
+   *          is returned.
    * @return the stripped String, {@code null} if null String input
    */
   public static String strip(@Nullable final String str,
@@ -3460,14 +3432,14 @@ public class StringUtils {
     int start = 0;
     int end = len;
     while (start < len) {
-      if (! charFilter.accept(str.charAt(start))) {
+      if (!charFilter.accept(str.charAt(start))) {
         break;
       }
       ++start;
     }
     while (end > start) {
       final int nextEnd = end - 1;
-      if (! charFilter.accept(str.charAt(nextEnd))) {
+      if (!charFilter.accept(str.charAt(nextEnd))) {
         break;
       }
       end = nextEnd;
@@ -3493,7 +3465,7 @@ public class StringUtils {
     }
     int start = 0;
     while (start < len) {
-      if (! charFilter.accept(str.charAt(start))) {
+      if (!charFilter.accept(str.charAt(start))) {
         break;
       }
       ++start;
@@ -3501,7 +3473,7 @@ public class StringUtils {
     int end = len;
     while (end > start) {
       final int nextEnd = end - 1;
-      if (! charFilter.accept(str.charAt(nextEnd))) {
+      if (!charFilter.accept(str.charAt(nextEnd))) {
         break;
       }
       end = nextEnd;
@@ -3535,8 +3507,7 @@ public class StringUtils {
    *
    * @param str
    *          the string to chop last character from, may be null
-   * @return String without last character, {@code null} if null String
-   *         input
+   * @return String without last character, {@code null} if null String input
    */
   public static String chop(@Nullable final String str) {
     if (str == null) {
@@ -3547,9 +3518,9 @@ public class StringUtils {
       return EMPTY;
     }
     final int lastIndex = strLen - 1;
-    if (str.charAt(lastIndex) == CharUtils.LF) {
+    if (str.charAt(lastIndex) == Ascii.LINE_FEED) {
       final int lastLastIndex = lastIndex - 1;
-      if (str.charAt(lastLastIndex) == CharUtils.CR) {
+      if (str.charAt(lastLastIndex) == Ascii.CARRIAGE_RETURN) {
         return str.substring(0, lastLastIndex);
       }
     }
@@ -3562,9 +3533,9 @@ public class StringUtils {
       return;
     }
     final int lastIndex = len - 1;
-    if (str.charAt(lastIndex) == CharUtils.LF) {
+    if (str.charAt(lastIndex) == Ascii.LINE_FEED) {
       final int lastLastIndex = lastIndex - 1;
-      if (str.charAt(lastLastIndex) == CharUtils.CR) {
+      if (str.charAt(lastLastIndex) == Ascii.CARRIAGE_RETURN) {
         output.append(str, 0, lastLastIndex);
         return;
       }
@@ -3574,8 +3545,8 @@ public class StringUtils {
 
   /**
    * Removes one newline from end of a string if it's there, otherwise leave it
-   * alone. A newline is &quot;{@code \n}&quot;, &quot;{@code \r}
-   * &quot;, or &quot;{@code \r\n}&quot;.
+   * alone. A newline is &quot;{@code \n}&quot;, &quot;{@code \r} &quot;, or
+   * &quot;{@code \r\n}&quot;.
    * <p>
    *
    * <pre>
@@ -3603,18 +3574,18 @@ public class StringUtils {
     }
     if (len == 1) {
       final char ch = str.charAt(0);
-      if ((ch == CharUtils.CR) || (ch == CharUtils.LF)) {
+      if ((ch == Ascii.CARRIAGE_RETURN) || (ch == Ascii.LINE_FEED)) {
         return EMPTY;
       }
       return str;
     }
     int lastIndex = len - 1;
     final char last = str.charAt(lastIndex);
-    if (last == CharUtils.LF) {
-      if (str.charAt(lastIndex - 1) == CharUtils.CR) {
+    if (last == Ascii.LINE_FEED) {
+      if (str.charAt(lastIndex - 1) == Ascii.CARRIAGE_RETURN) {
         --lastIndex;
       }
-    } else if (last != CharUtils.CR) {
+    } else if (last != Ascii.CARRIAGE_RETURN) {
       ++lastIndex;
     }
     if (lastIndex == 0) {
@@ -3634,26 +3605,26 @@ public class StringUtils {
     }
     if (len == 1) {
       final char ch = str.charAt(0);
-      if ((ch != CharUtils.CR) && (ch != CharUtils.LF)) {
+      if ((ch != Ascii.CARRIAGE_RETURN) && (ch != Ascii.LINE_FEED)) {
         output.append(ch);
       }
       return;
     }
     int lastIndex = len - 1;
     final char last = str.charAt(lastIndex);
-    if (last == CharUtils.LF) {
-      if (str.charAt(lastIndex - 1) == CharUtils.CR) {
+    if (last == Ascii.LINE_FEED) {
+      if (str.charAt(lastIndex - 1) == Ascii.CARRIAGE_RETURN) {
         --lastIndex;
       }
-    } else if (last != CharUtils.CR) {
+    } else if (last != Ascii.CARRIAGE_RETURN) {
       ++lastIndex;
     }
     output.append(str, 0, lastIndex);
   }
 
   /**
-   * Removes {@code separator} from the end of {@code str} if it's
-   * there, otherwise leave it alone.
+   * Removes {@code separator} from the end of {@code str} if it's there,
+   * otherwise leave it alone.
    * <p>
    * NOTE: This method changed in version 2.0. It now more closely matches Perl
    * chomp. For the previous behavior, use
@@ -3725,9 +3696,9 @@ public class StringUtils {
    * The comparison could be case sensitive or case insensitive, controlled by
    * an argument.
    * <p>
-   * A {@code null} source string will return {@code null}. An empty
-   * ("") source string will return the empty string. A {@code null} search
-   * string will return the source string.
+   * A {@code null} source string will return {@code null}. An empty ("") source
+   * string will return the empty string. A {@code null} search string will
+   * return the source string.
    * <p>
    *
    * <pre>
@@ -3749,8 +3720,8 @@ public class StringUtils {
    * @param ignoreCase
    *          indicates whether the compare should ignore case (case
    *          insensitive) or not.
-   * @return the substring with the string removed if found, {@code null}
-   *         if null String input
+   * @return the substring with the string removed if found, {@code null} if
+   *         null String input
    */
   public static String removePrefix(@Nullable final String str,
       @Nullable final String prefix, final boolean ignoreCase) {
@@ -3798,9 +3769,9 @@ public class StringUtils {
    * The comparison could be case sensitive or case insensitive, controlled by
    * an argument.
    * <p>
-   * A {@code null} source string will return {@code null}. An empty
-   * ("") source string will return the empty string. A {@code null} search
-   * string will return the source string.
+   * A {@code null} source string will return {@code null}. An empty ("") source
+   * string will return the empty string. A {@code null} search string will
+   * return the source string.
    * <p>
    *
    * <pre>
@@ -3822,8 +3793,8 @@ public class StringUtils {
    * @param ignoreCase
    *          indicates whether the compare should ignore case (case
    *          insensitive) or not.
-   * @return the substring with the string removed if found, {@code null}
-   *         if null String input
+   * @return the substring with the string removed if found, {@code null} if
+   *         null String input
    */
   public static String removeSuffix(@Nullable final String str,
       @Nullable final String suffix, final boolean ignoreCase) {
@@ -3869,8 +3840,8 @@ public class StringUtils {
   /**
    * Removes the occurrences of a character from a string.
    * <p>
-   * A {@code null} source string will return {@code null}. An empty
-   * ("") source string will return the empty string.
+   * A {@code null} source string will return {@code null}. An empty ("") source
+   * string will return the empty string.
    * <p>
    *
    * <pre>
@@ -3888,8 +3859,8 @@ public class StringUtils {
    * @param max
    *          the maximum number of characters could be removed; -1 means no
    *          limit.
-   * @return the substring with the char removed if found, {@code null} if
-   *         null String input
+   * @return the substring with the char removed if found, {@code null} if null
+   *         String input
    */
   public static String removeChar(@Nullable final String str, final int ch,
       final int max) {
@@ -3984,10 +3955,10 @@ public class StringUtils {
   /**
    * Removes all occurrences of a substring from within the source string.
    * <p>
-   * A {@code null} source string will return {@code null}. An empty
-   * ("") source string will return the empty string. A {@code null} remove
-   * string will return the source string. An empty ("") remove string will
-   * return the source string.
+   * A {@code null} source string will return {@code null}. An empty ("") source
+   * string will return the empty string. A {@code null} remove string will
+   * return the source string. An empty ("") remove string will return the
+   * source string.
    * <p>
    *
    * <pre>
@@ -4010,8 +3981,8 @@ public class StringUtils {
    * @param ignoreCase
    *          indicates whether the compare should ignore case (case
    *          insensitive) or not.
-   * @return the substring with the string removed if found, {@code null}
-   *         if null String input
+   * @return the substring with the string removed if found, {@code null} if
+   *         null String input
    */
   public static String removeSubstring(@Nullable final String str,
       @Nullable final String remove, final int max, final boolean ignoreCase) {
@@ -4037,9 +4008,7 @@ public class StringUtils {
     if ((str == null) || ((strLen = str.length()) == 0)) {
       return 0;
     }
-    if ((remove == null)
-        || ((removeLen = remove.length()) == 0)
-        || (max == 0)) {
+    if ((remove == null) || ((removeLen = remove.length()) == 0) || (max == 0)) {
       output.append(str);
       return 0;
     }
@@ -4062,8 +4031,8 @@ public class StringUtils {
    * Replaces all occurrences of a character in a string with another. This is a
    * null-safe version of {@link String#replace(char, char)}.
    * <p>
-   * A {@code null} string input returns {@code null}. An empty ("")
-   * string input returns an empty string.
+   * A {@code null} string input returns {@code null}. An empty ("") string
+   * input returns an empty string.
    * <p>
    *
    * <pre>
@@ -4110,9 +4079,9 @@ public class StringUtils {
    * Replaces multiple characters in a string in one go. This method can also be
    * used to delete characters.
    * <p>
-   * A {@code null} string input returns {@code null}. An empty ("")
-   * string input returns an empty string. A null or empty set of search
-   * characters returns the input string.
+   * A {@code null} string input returns {@code null}. An empty ("") string
+   * input returns an empty string. A null or empty set of search characters
+   * returns the input string.
    * <p>
    * The length of the search characters should normally equal the length of the
    * replace characters. If the search characters is longer, then the extra
@@ -4190,8 +4159,8 @@ public class StringUtils {
 
   /**
    * Replaces a string with another String inside a larger String, for the first
-   * {@code max} values of the search String. A {@code null} reference
-   * passed to this method is a no-op.
+   * {@code max} values of the search String. A {@code null} reference passed to
+   * this method is a no-op.
    * <p>
    *
    * <pre>
@@ -4216,8 +4185,7 @@ public class StringUtils {
    * @param replacement
    *          the string to replace it with, may be null
    * @param max
-   *          maximum number of values to replace, or {@code -1} if no
-   *          limit.
+   *          maximum number of values to replace, or {@code -1} if no limit.
    * @param ignoreCase
    *          indicates whether the compare should ignore case (case
    *          insensitive) or not.
@@ -4232,8 +4200,8 @@ public class StringUtils {
       return str;
     }
     final StringBuilder builder = new StringBuilder();
-    final int count = replace(str, search, replacement, max, ignoreCase,
-        builder);
+    final int count =
+        replace(str, search, replacement, max, ignoreCase, builder);
     if (count == 0) {
       return str;
     } else if (builder.length() == 0) {
@@ -4251,10 +4219,8 @@ public class StringUtils {
       return 0;
     }
     final int searchLen;
-    if ((search == null)
-        || ((searchLen = search.length()) == 0)
-        || (replacement == null)
-        || (max == 0)) {
+    if ((search == null) || ((searchLen = search.length()) == 0)
+        || (replacement == null) || (max == 0)) {
       output.append(str);
       return 0;
     }
@@ -4314,11 +4280,8 @@ public class StringUtils {
   public static String replaceEach(@Nullable final String str,
       @Nullable final String[] searches, @Nullable final String[] replaces,
       final boolean ignoreCase) {
-    if ((str == null)
-        || (str.length() == 0)
-        || (searches == null)
-        || (searches.length == 0)
-        || (replaces == null)
+    if ((str == null) || (str.length() == 0) || (searches == null)
+        || (searches.length == 0) || (replaces == null)
         || (replaces.length == 0)) {
       return str;
     }
@@ -4326,8 +4289,9 @@ public class StringUtils {
         "replaces.length", replaces.length);
     final boolean[] noMoreMatches = new boolean[searches.length];
     final StringBuilder builder = new StringBuilder();
-    final int modified = replaceEachImpl(str, searches, replaces, ignoreCase,
-        builder, noMoreMatches);
+    final int modified =
+        replaceEachImpl(str, searches, replaces, ignoreCase, builder,
+            noMoreMatches);
     if (modified == 0) {
       return str;
     }
@@ -4344,9 +4308,7 @@ public class StringUtils {
     if ((str == null) || (str.length() == 0)) {
       return 0;
     }
-    if ((searches == null)
-        || (searches.length == 0)
-        || (replaces == null)
+    if ((searches == null) || (searches.length == 0) || (replaces == null)
         || (replaces.length == 0)) {
       builder.append(str);
       return 0;
@@ -4403,11 +4365,8 @@ public class StringUtils {
   public static String replaceEachRepeatedly(@Nullable String str,
       @Nullable final String[] searches, @Nullable final String[] replaces,
       final boolean ignoreCase) {
-    if ((str == null)
-        || (str.length() == 0)
-        || (searches == null)
-        || (searches.length == 0)
-        || (replaces == null)
+    if ((str == null) || (str.length() == 0) || (searches == null)
+        || (searches.length == 0) || (replaces == null)
         || (replaces.length == 0)) {
       return str;
     }
@@ -4416,8 +4375,9 @@ public class StringUtils {
     final boolean[] noMoreMatches = new boolean[searches.length];
     final StringBuilder builder = new StringBuilder();
     for (int i = 0; i < searches.length; ++i) {
-      final int modifies = replaceEachImpl(str, searches, replaces, ignoreCase,
-          builder, noMoreMatches);
+      final int modifies =
+          replaceEachImpl(str, searches, replaces, ignoreCase, builder,
+              noMoreMatches);
       if (modifies == 0) {
         return str;
       } else if (builder.length() == 0) {
@@ -4427,8 +4387,8 @@ public class StringUtils {
       builder.setLength(0);
     }
     // check for the loop
-    if (replaceEachImpl(str, searches, replaces, ignoreCase,
-        builder, noMoreMatches) > 0) {
+    if (replaceEachImpl(str, searches, replaces, ignoreCase, builder,
+        noMoreMatches) > 0) {
       throw new IllegalStateException("An loop of replacement was detected.");
     }
     return str;
@@ -4440,9 +4400,7 @@ public class StringUtils {
     if ((str == null) || (str.length() == 0)) {
       return 0;
     }
-    if ((searches == null)
-        || (searches.length == 0)
-        || (replaces == null)
+    if ((searches == null) || (searches.length == 0) || (replaces == null)
         || (replaces.length == 0)) {
       builder.append(str);
       return 0;
@@ -4454,8 +4412,9 @@ public class StringUtils {
     final StringBuilder tempBuilder = new StringBuilder();
     int totalModifies = 0;
     for (int i = 0; i < searches.length; ++i) {
-      final int modifies = replaceEachImpl(str, searches, replaces, ignoreCase,
-          tempBuilder, noMoreMatches);
+      final int modifies =
+          replaceEachImpl(str, searches, replaces, ignoreCase, tempBuilder,
+              noMoreMatches);
       if (modifies == 0) {
         break;
       }
@@ -4468,8 +4427,8 @@ public class StringUtils {
     }
     builder.append(str);
     // check for the loop
-    if (replaceEachImpl(str, searches, replaces, ignoreCase,
-        tempBuilder, noMoreMatches) > 0) {
+    if (replaceEachImpl(str, searches, replaces, ignoreCase, tempBuilder,
+        noMoreMatches) > 0) {
       throw new IllegalStateException("An loop of replacement was detected.");
     }
     return totalModifies;
@@ -4496,14 +4455,13 @@ public class StringUtils {
    * @param builder
    *          the temporary {@link StringBuilder} used by this function.
    * @param noMoreMathces
-   *          the temporary {@code boolean} array used by this function. It
-   *          must have the same length as the {@code searches} array.
+   *          the temporary {@code boolean} array used by this function. It must
+   *          have the same length as the {@code searches} array.
    * @return the text with any replacements processed.
    */
-  private static int replaceEachImpl(final String str,
-      final String[] searches, final String[] replaces,
-      final boolean ignoreCase, final StringBuilder builder,
-      final boolean[] noMoreMatches) {
+  private static int replaceEachImpl(final String str, final String[] searches,
+      final String[] replaces, final boolean ignoreCase,
+      final StringBuilder builder, final boolean[] noMoreMatches) {
     // assume searches.length == replaces.length == noMoreMathes.length
     final int searchLen = searches.length;
     // initialize the noMoreMatches array
@@ -4516,7 +4474,7 @@ public class StringUtils {
     int start = 0;
     while (start < strLen) {
       // find the next earliest match
-      int replaceIndex = - 1;
+      int replaceIndex = -1;
       int replacePos = Integer.MAX_VALUE;
       for (int i = 0; i < searchLen; ++i) {
         if (noMoreMatches[i] || (searches[i] == null)
@@ -4553,9 +4511,9 @@ public class StringUtils {
   /**
    * Gets the leftmost {@code len} characters of a string.
    * <p>
-   * If {@code len} characters are not available, or the string is
-   * {@code null}, the string will be returned without an exception. An
-   * exception is thrown if len is negative.
+   * If {@code len} characters are not available, or the string is {@code null},
+   * the string will be returned without an exception. An exception is thrown if
+   * len is negative.
    * <p>
    *
    * <pre>
@@ -4589,9 +4547,9 @@ public class StringUtils {
   /**
    * Gets the rightmost {@code len} characters of a string.
    * <p>
-   * If {@code len} characters are not available, or the string is
-   * {@code null}, the string will be returned without an an exception. An
-   * exception is thrown if len is negative.
+   * If {@code len} characters are not available, or the string is {@code null},
+   * the string will be returned without an an exception. An exception is thrown
+   * if len is negative.
    * <p>
    *
    * <pre>
@@ -4625,10 +4583,9 @@ public class StringUtils {
   /**
    * Gets {@code len} characters from the middle of a string.
    * <p>
-   * If {@code len} characters are not available, the remainder of the
-   * String will be returned without an exception. If the string is
-   * {@code null}, {@code null} will be returned. An exception is
-   * thrown if len is negative.
+   * If {@code len} characters are not available, the remainder of the String
+   * will be returned without an exception. If the string is {@code null},
+   * {@code null} will be returned. An exception is thrown if len is negative.
    * <p>
    *
    * <pre>
@@ -4669,11 +4626,11 @@ public class StringUtils {
   /**
    * Gets a substring from the specified String avoiding exceptions.
    * <p>
-   * A negative start position can be used to start {@code n} characters
-   * from the end of the string.
+   * A negative start position can be used to start {@code n} characters from
+   * the end of the string.
    * <p>
-   * A {@code null} string will return {@code null}. An empty ("")
-   * String will return "".
+   * A {@code null} string will return {@code null}. An empty ("") String will
+   * return "".
    * <p>
    *
    * <pre>
@@ -4691,8 +4648,7 @@ public class StringUtils {
    * @param start
    *          the position to start from, negative means count back from the end
    *          of the string by this many characters
-   * @return substring from start position, {@code null} if null String
-   *         input
+   * @return substring from start position, {@code null} if null String input
    */
   public static String substring(@Nullable final String str, int start) {
     if (str == null) {
@@ -4714,17 +4670,17 @@ public class StringUtils {
   /**
    * Gets a substring from the specified String avoiding exceptions.
    * <p>
-   * A negative start position can be used to start/end {@code n}
-   * characters from the end of the string.
+   * A negative start position can be used to start/end {@code n} characters
+   * from the end of the string.
    * <p>
    * The returned substring starts with the character in the {@code start}
-   * position and ends before the {@code end} position. All position
-   * counting is zero-based -- i.e., to start at the beginning of the string use
-   * {@code start = 0}. Negative start and end positions can be used to
-   * specify offsets relative to the end of the string.
+   * position and ends before the {@code end} position. All position counting is
+   * zero-based -- i.e., to start at the beginning of the string use
+   * {@code start = 0}. Negative start and end positions can be used to specify
+   * offsets relative to the end of the string.
    * <p>
-   * If {@code start} is not strictly to the left of {@code end}, ""
-   * is returned.
+   * If {@code start} is not strictly to the left of {@code end}, "" is
+   * returned.
    * <p>
    *
    * <pre>
@@ -4747,8 +4703,8 @@ public class StringUtils {
    * @param end
    *          the position to end at (exclusive), negative means count back from
    *          the end of the string by this many characters
-   * @return substring from start position to end positon, {@code null} if
-   *         null String input
+   * @return substring from start position to end positon, {@code null} if null
+   *         String input
    */
   public static String substring(@Nullable final String str, int start, int end) {
     if (str == null) {
@@ -4782,9 +4738,9 @@ public class StringUtils {
    * Gets the substring before the first occurrence of a separator. The
    * separator is not returned.
    * <p>
-   * A {@code null} string input will return {@code null}. An empty
-   * ("") string input will return the empty string. A {@code null}
-   * separator will return the input string.
+   * A {@code null} string input will return {@code null}. An empty ("") string
+   * input will return the empty string. A {@code null} separator will return
+   * the input string.
    * <p>
    *
    * <pre>
@@ -4814,7 +4770,7 @@ public class StringUtils {
       return EMPTY;
     }
     final int pos = str.indexOf(separator);
-    if (pos == - 1) {
+    if (pos == -1) {
       return str;
     }
     return str.substring(0, pos);
@@ -4824,10 +4780,9 @@ public class StringUtils {
    * Gets the substring after the first occurrence of a separator. The separator
    * is not returned.
    * <p>
-   * A {@code null} string input will return {@code null}. An empty
-   * ("") string input will return the empty string. A {@code null}
-   * separator will return the empty string if the input string is not
-   * {@code null}.
+   * A {@code null} string input will return {@code null}. An empty ("") string
+   * input will return the empty string. A {@code null} separator will return
+   * the empty string if the input string is not {@code null}.
    * <p>
    *
    * <pre>
@@ -4857,7 +4812,7 @@ public class StringUtils {
       return EMPTY;
     }
     final int pos = str.indexOf(separator);
-    if (pos == - 1) {
+    if (pos == -1) {
       return EMPTY;
     }
     return str.substring(pos + separator.length());
@@ -4867,9 +4822,9 @@ public class StringUtils {
    * Gets the substring before the last occurrence of a separator. The separator
    * is not returned.
    * <p>
-   * A {@code null} string input will return {@code null}. An empty
-   * ("") string input will return the empty string. An empty or
-   * {@code null} separator will return the input string.
+   * A {@code null} string input will return {@code null}. An empty ("") string
+   * input will return the empty string. An empty or {@code null} separator will
+   * return the input string.
    * <p>
    *
    * <pre>
@@ -4897,7 +4852,7 @@ public class StringUtils {
       return str;
     }
     final int pos = str.lastIndexOf(separator);
-    if (pos == - 1) {
+    if (pos == -1) {
       return str;
     }
     return str.substring(0, pos);
@@ -4907,10 +4862,9 @@ public class StringUtils {
    * Gets the substring after the last occurrence of a separator. The separator
    * is not returned.
    * <p>
-   * A {@code null} string input will return {@code null}. An empty
-   * ("") string input will return the empty string. An empty or
-   * {@code null} separator will return the empty string if the input
-   * string is not {@code null}.
+   * A {@code null} string input will return {@code null}. An empty ("") string
+   * input will return the empty string. An empty or {@code null} separator will
+   * return the empty string if the input string is not {@code null}.
    * <p>
    *
    * <pre>
@@ -4941,7 +4895,7 @@ public class StringUtils {
       return EMPTY;
     }
     final int pos = str.lastIndexOf(separator);
-    if ((pos == - 1) || (pos == (str.length() - separator.length()))) {
+    if ((pos == -1) || (pos == (str.length() - separator.length()))) {
       return EMPTY;
     }
     return str.substring(pos + separator.length());
@@ -4950,8 +4904,8 @@ public class StringUtils {
   /**
    * Gets the string that is nested in between two instances of the same String.
    * <p>
-   * A {@code null} input String returns {@code null}. A
-   * {@code null} tag returns {@code null}.
+   * A {@code null} input String returns {@code null}. A {@code null} tag
+   * returns {@code null}.
    * <p>
    *
    * <pre>
@@ -4978,9 +4932,9 @@ public class StringUtils {
    * Gets the string that is nested in between two StringUtils. Only the first
    * match is returned.
    * <p>
-   * A {@code null} input String returns {@code null}. A
-   * {@code null} open/close returns {@code null} (no match). An empty
-   * ("") open and close returns an empty string.
+   * A {@code null} input String returns {@code null}. A {@code null} open/close
+   * returns {@code null} (no match). An empty ("") open and close returns an
+   * empty string.
    * <p>
    *
    * <pre>
@@ -5010,9 +4964,9 @@ public class StringUtils {
       return null;
     }
     final int start = str.indexOf(open);
-    if (start != - 1) {
+    if (start != -1) {
       final int end = str.indexOf(close, start + open.length());
-      if (end != - 1) {
+      if (end != -1) {
         return str.substring(start + open.length(), end);
       }
     }
@@ -5023,9 +4977,9 @@ public class StringUtils {
    * Searches a string for substrings delimited by a start and end tag,
    * returning all matching substrings in an array.
    * <p>
-   * A {@code null} input String returns {@code null}. A
-   * {@code null} open/close returns {@code null} (no match). An empty
-   * ("") open/close returns {@code null} (no match).
+   * A {@code null} input String returns {@code null}. A {@code null} open/close
+   * returns {@code null} (no match). An empty ("") open/close returns
+   * {@code null} (no match).
    * <p>
    *
    * <pre>
@@ -5101,7 +5055,8 @@ public class StringUtils {
    *          the array of values to join together, may be null.
    * @return the joined String, {@code null} if null array input
    */
-  public static String join(final char separator, @Nullable final boolean[] array) {
+  public static String join(final char separator,
+      @Nullable final boolean[] array) {
     if (array == null) {
       return null;
     }
@@ -5131,8 +5086,8 @@ public class StringUtils {
    *          the first occurrence to start joining from. It is an error to pass
    *          in an end current past the end of the array.
    * @param endIndex
-   *          the index to stop joining from (exclusive). It is an error to
-   *          pass in an end current past the end of the array.
+   *          the index to stop joining from (exclusive). It is an error to pass
+   *          in an end current past the end of the array.
    * @return the joined String, {@code null} if null array input.
    */
   public static String join(final char separator,
@@ -5211,8 +5166,8 @@ public class StringUtils {
    *          the first occurrence to start joining from. It is an error to pass
    *          in an end current past the end of the array.
    * @param endIndex
-   *          the index to stop joining from (exclusive). It is an error to
-   *          pass in an end current past the end of the array.
+   *          the index to stop joining from (exclusive). It is an error to pass
+   *          in an end current past the end of the array.
    * @return the joined String, {@code null} if null array input
    */
   public static String join(final char separator, @Nullable final char[] array,
@@ -5291,8 +5246,8 @@ public class StringUtils {
    *          the first occurrence to start joining from. It is an error to pass
    *          in an end current past the end of the array.
    * @param endIndex
-   *          the index to stop joining from (exclusive). It is an error to
-   *          pass in an end current past the end of the array.
+   *          the index to stop joining from (exclusive). It is an error to pass
+   *          in an end current past the end of the array.
    * @return the joined String, {@code null} if null array input
    */
   public static String join(final char separator, @Nullable final byte[] array,
@@ -5341,8 +5296,7 @@ public class StringUtils {
    *          the array of values to join together, may be null
    * @return the joined String, {@code null} if null array input
    */
-  public static String join(final char separator,
-      @Nullable final short[] array) {
+  public static String join(final char separator, @Nullable final short[] array) {
     if (array == null) {
       return null;
     }
@@ -5372,8 +5326,8 @@ public class StringUtils {
    *          the first occurrence to start joining from. It is an error to pass
    *          in an end current past the end of the array.
    * @param endIndex
-   *          the index to stop joining from (exclusive). It is an error to
-   *          pass in an end current past the end of the array.
+   *          the index to stop joining from (exclusive). It is an error to pass
+   *          in an end current past the end of the array.
    * @return the joined String, {@code null} if null array input
    */
   public static String join(final char separator,
@@ -5452,8 +5406,8 @@ public class StringUtils {
    *          the first occurrence to start joining from. It is an error to pass
    *          in an end current past the end of the array.
    * @param endIndex
-   *          the index to stop joining from (exclusive). It is an error to
-   *          pass in an end current past the end of the array.
+   *          the index to stop joining from (exclusive). It is an error to pass
+   *          in an end current past the end of the array.
    * @return the joined String, {@code null} if null array input
    */
   public static String join(final char separator, @Nullable final int[] array,
@@ -5532,8 +5486,8 @@ public class StringUtils {
    *          the first occurrence to start joining from. It is an error to pass
    *          in an end current past the end of the array.
    * @param endIndex
-   *          the index to stop joining from (exclusive). It is an error to
-   *          pass in an end current past the end of the array.
+   *          the index to stop joining from (exclusive). It is an error to pass
+   *          in an end current past the end of the array.
    * @return the joined String, {@code null} if null array input
    */
   public static String join(final char separator, @Nullable final long[] array,
@@ -5582,8 +5536,7 @@ public class StringUtils {
    *          the array of values to join together, may be null
    * @return the joined String, {@code null} if null array input
    */
-  public static String join(final char separator,
-      @Nullable final float[] array) {
+  public static String join(final char separator, @Nullable final float[] array) {
     if (array == null) {
       return null;
     }
@@ -5613,8 +5566,8 @@ public class StringUtils {
    *          the first occurrence to start joining from. It is an error to pass
    *          in an end current past the end of the array.
    * @param endIndex
-   *          the index to stop joining from (exclusive). It is an error to
-   *          pass in an end current past the end of the array.
+   *          the index to stop joining from (exclusive). It is an error to pass
+   *          in an end current past the end of the array.
    * @return the joined String, {@code null} if null array input
    */
   public static String join(final char separator,
@@ -5663,8 +5616,7 @@ public class StringUtils {
    *          the array of values to join together, may be null
    * @return the joined String, {@code null} if null array input
    */
-  public static String join(final char separator,
-      @Nullable final double[] array) {
+  public static String join(final char separator, @Nullable final double[] array) {
     if (array == null) {
       return null;
     }
@@ -5694,8 +5646,8 @@ public class StringUtils {
    *          the first occurrence to start joining from. It is an error to pass
    *          in an end current past the end of the array.
    * @param endIndex
-   *          the index to stop joining from (exclusive). It is an error to
-   *          pass in an end current past the end of the array.
+   *          the index to stop joining from (exclusive). It is an error to pass
+   *          in an end current past the end of the array.
    * @return the joined String, {@code null} if null array input
    */
   public static String join(final char separator,
@@ -5746,8 +5698,7 @@ public class StringUtils {
    *          the array of values to join together, may be null
    * @return the joined String, {@code null} if null array input
    */
-  public static <T> String join(final char separator,
-      @Nullable final T[] array) {
+  public static <T> String join(final char separator, @Nullable final T[] array) {
     if (array == null) {
       return null;
     }
@@ -5779,9 +5730,9 @@ public class StringUtils {
    *          the first occurrence to start joining from. If it is less than
    *          zero, it is treated as zero.
    * @param endIndex
-   *          the index to stop joining from (exclusive). If it is greater
-   *          than the length of the {@code array}, it is treated as the
-   *          length of the {@code array}.
+   *          the index to stop joining from (exclusive). If it is greater than
+   *          the length of the {@code array}, it is treated as the length of
+   *          the {@code array}.
    * @return the joined String, {@code null} if null array input
    */
   public static <T> String join(final char separator,
@@ -5820,8 +5771,8 @@ public class StringUtils {
   }
 
   /**
-   * Joins the elements of the provided {@code Iterator} into a single
-   * String containing the provided elements.
+   * Joins the elements of the provided {@code Iterator} into a single String
+   * containing the provided elements.
    * <p>
    * No delimiter is added before or after the list. Null objects or empty
    * strings within the iteration are represented by empty strings.
@@ -5839,7 +5790,7 @@ public class StringUtils {
     if (iterator == null) {
       return null;
     }
-    if (! iterator.hasNext()) {
+    if (!iterator.hasNext()) {
       return EMPTY;
     }
     final T first = iterator.next();
@@ -5868,8 +5819,8 @@ public class StringUtils {
   }
 
   /**
-   * Joins the elements of the provided {@code Iterable} into a single
-   * String containing the provided elements.
+   * Joins the elements of the provided {@code Iterable} into a single String
+   * containing the provided elements.
    * <p>
    * No delimiter is added before or after the list. Null objects or empty
    * strings within the iteration are represented by empty strings.
@@ -5894,9 +5845,9 @@ public class StringUtils {
    * Joins the elements of the provided array into a single String containing
    * the provided list of elements.
    * <p>
-   * No delimiter is added before or after the list. A {@code null}
-   * separator is the same as an empty String (""). Null objects or empty
-   * strings within the array are represented by empty strings.
+   * No delimiter is added before or after the list. A {@code null} separator is
+   * the same as an empty String (""). Null objects or empty strings within the
+   * array are represented by empty strings.
    * <p>
    *
    * <pre>
@@ -5927,9 +5878,9 @@ public class StringUtils {
    * Joins the elements of the provided array into a single String containing
    * the provided list of elements.
    * <p>
-   * No delimiter is added before or after the list. A {@code null}
-   * separator is the same as an empty String (""). Null objects or empty
-   * strings within the array are represented by empty strings.
+   * No delimiter is added before or after the list. A {@code null} separator is
+   * the same as an empty String (""). Null objects or empty strings within the
+   * array are represented by empty strings.
    * <p>
    *
    * <pre>
@@ -5950,9 +5901,9 @@ public class StringUtils {
    *          the first occurrence to start joining from. If it is less than
    *          zero, it is treated as zero.
    * @param endIndex
-   *          the index to stop joining from (exclusive). If it is greater
-   *          than the length of the {@code array}, it is treated as the
-   *          length of the {@code array}.
+   *          the index to stop joining from (exclusive). If it is greater than
+   *          the length of the {@code array}, it is treated as the length of
+   *          the {@code array}.
    * @return the joined String, {@code null} if null array input
    */
   public static String join(@Nullable String separator,
@@ -5972,8 +5923,8 @@ public class StringUtils {
     if (separator == null) {
       separator = EMPTY;
     }
-    final int bufferSize = (endIndex - startIndex)
-        * (FALSE.length() + separator.length());
+    final int bufferSize =
+        (endIndex - startIndex) * (FALSE.length() + separator.length());
     final StringBuilder builder = new StringBuilder();
     builder.ensureCapacity(bufferSize);
     for (int i = startIndex; i < endIndex; ++i) {
@@ -5988,9 +5939,9 @@ public class StringUtils {
    * Joins the elements of the provided array into a single String containing
    * the provided list of elements.
    * <p>
-   * No delimiter is added before or after the list. A {@code null}
-   * separator is the same as an empty String (""). Null objects or empty
-   * strings within the array are represented by empty strings.
+   * No delimiter is added before or after the list. A {@code null} separator is
+   * the same as an empty String (""). Null objects or empty strings within the
+   * array are represented by empty strings.
    * <p>
    *
    * <pre>
@@ -6021,9 +5972,9 @@ public class StringUtils {
    * Joins the elements of the provided array into a single String containing
    * the provided list of elements.
    * <p>
-   * No delimiter is added before or after the list. A {@code null}
-   * separator is the same as an empty String (""). Null objects or empty
-   * strings within the array are represented by empty strings.
+   * No delimiter is added before or after the list. A {@code null} separator is
+   * the same as an empty String (""). Null objects or empty strings within the
+   * array are represented by empty strings.
    * <p>
    *
    * <pre>
@@ -6044,9 +5995,9 @@ public class StringUtils {
    *          the first occurrence to start joining from. If it is less than
    *          zero, it is treated as zero.
    * @param endIndex
-   *          the index to stop joining from (exclusive). If it is greater
-   *          than the length of the {@code array}, it is treated as the
-   *          length of the {@code array}.
+   *          the index to stop joining from (exclusive). If it is greater than
+   *          the length of the {@code array}, it is treated as the length of
+   *          the {@code array}.
    * @return the joined String, {@code null} if null array input
    */
   public static String join(@Nullable String separator,
@@ -6081,9 +6032,9 @@ public class StringUtils {
    * Joins the elements of the provided array into a single String containing
    * the provided list of elements.
    * <p>
-   * No delimiter is added before or after the list. A {@code null}
-   * separator is the same as an empty String (""). Null objects or empty
-   * strings within the array are represented by empty strings.
+   * No delimiter is added before or after the list. A {@code null} separator is
+   * the same as an empty String (""). Null objects or empty strings within the
+   * array are represented by empty strings.
    * <p>
    *
    * <pre>
@@ -6114,9 +6065,9 @@ public class StringUtils {
    * Joins the elements of the provided array into a single String containing
    * the provided list of elements.
    * <p>
-   * No delimiter is added before or after the list. A {@code null}
-   * separator is the same as an empty String (""). Null objects or empty
-   * strings within the array are represented by empty strings.
+   * No delimiter is added before or after the list. A {@code null} separator is
+   * the same as an empty String (""). Null objects or empty strings within the
+   * array are represented by empty strings.
    * <p>
    *
    * <pre>
@@ -6137,9 +6088,9 @@ public class StringUtils {
    *          the first occurrence to start joining from. If it is less than
    *          zero, it is treated as zero.
    * @param endIndex
-   *          the index to stop joining from (exclusive). If it is greater
-   *          than the length of the {@code array}, it is treated as the
-   *          length of the {@code array}.
+   *          the index to stop joining from (exclusive). If it is greater than
+   *          the length of the {@code array}, it is treated as the length of
+   *          the {@code array}.
    * @return the joined String, {@code null} if null array input
    */
   public static String join(@Nullable String separator,
@@ -6159,8 +6110,8 @@ public class StringUtils {
     if (separator == null) {
       separator = EMPTY;
     }
-    final int bufferSize = (endIndex - startIndex)
-        * (BYTE_MIN.length() + separator.length());
+    final int bufferSize =
+        (endIndex - startIndex) * (BYTE_MIN.length() + separator.length());
     final StringBuilder builder = new StringBuilder();
     builder.ensureCapacity(bufferSize);
     for (int i = startIndex; i < endIndex; ++i) {
@@ -6175,9 +6126,9 @@ public class StringUtils {
    * Joins the elements of the provided array into a single String containing
    * the provided list of elements.
    * <p>
-   * No delimiter is added before or after the list. A {@code null}
-   * separator is the same as an empty String (""). Null objects or empty
-   * strings within the array are represented by empty strings.
+   * No delimiter is added before or after the list. A {@code null} separator is
+   * the same as an empty String (""). Null objects or empty strings within the
+   * array are represented by empty strings.
    * <p>
    *
    * <pre>
@@ -6208,9 +6159,9 @@ public class StringUtils {
    * Joins the elements of the provided array into a single String containing
    * the provided list of elements.
    * <p>
-   * No delimiter is added before or after the list. A {@code null}
-   * separator is the same as an empty String (""). Null objects or empty
-   * strings within the array are represented by empty strings.
+   * No delimiter is added before or after the list. A {@code null} separator is
+   * the same as an empty String (""). Null objects or empty strings within the
+   * array are represented by empty strings.
    * <p>
    *
    * <pre>
@@ -6231,9 +6182,9 @@ public class StringUtils {
    *          the first occurrence to start joining from. If it is less than
    *          zero, it is treated as zero.
    * @param endIndex
-   *          the index to stop joining from (exclusive). If it is greater
-   *          than the length of the {@code array}, it is treated as the
-   *          length of the {@code array}.
+   *          the index to stop joining from (exclusive). If it is greater than
+   *          the length of the {@code array}, it is treated as the length of
+   *          the {@code array}.
    * @return the joined String, {@code null} if null array input
    */
   public static String join(@Nullable String separator,
@@ -6253,8 +6204,8 @@ public class StringUtils {
     if (separator == null) {
       separator = EMPTY;
     }
-    final int bufferSize = (endIndex - startIndex)
-        * (SHORT_MIN.length() + separator.length());
+    final int bufferSize =
+        (endIndex - startIndex) * (SHORT_MIN.length() + separator.length());
     final StringBuilder builder = new StringBuilder();
     builder.ensureCapacity(bufferSize);
     for (int i = startIndex; i < endIndex; ++i) {
@@ -6269,9 +6220,9 @@ public class StringUtils {
    * Joins the elements of the provided array into a single String containing
    * the provided list of elements.
    * <p>
-   * No delimiter is added before or after the list. A {@code null}
-   * separator is the same as an empty String (""). Null objects or empty
-   * strings within the array are represented by empty strings.
+   * No delimiter is added before or after the list. A {@code null} separator is
+   * the same as an empty String (""). Null objects or empty strings within the
+   * array are represented by empty strings.
    * <p>
    *
    * <pre>
@@ -6302,9 +6253,9 @@ public class StringUtils {
    * Joins the elements of the provided array into a single String containing
    * the provided list of elements.
    * <p>
-   * No delimiter is added before or after the list. A {@code null}
-   * separator is the same as an empty String (""). Null objects or empty
-   * strings within the array are represented by empty strings.
+   * No delimiter is added before or after the list. A {@code null} separator is
+   * the same as an empty String (""). Null objects or empty strings within the
+   * array are represented by empty strings.
    * <p>
    *
    * <pre>
@@ -6325,9 +6276,9 @@ public class StringUtils {
    *          the first occurrence to start joining from. If it is less than
    *          zero, it is treated as zero.
    * @param endIndex
-   *          the index to stop joining from (exclusive). If it is greater
-   *          than the length of the {@code array}, it is treated as the
-   *          length of the {@code array}.
+   *          the index to stop joining from (exclusive). If it is greater than
+   *          the length of the {@code array}, it is treated as the length of
+   *          the {@code array}.
    * @return the joined String, {@code null} if null array input
    */
   public static String join(@Nullable String separator,
@@ -6347,8 +6298,8 @@ public class StringUtils {
     if (separator == null) {
       separator = EMPTY;
     }
-    final int bufferSize = (endIndex - startIndex)
-        * (INT_MIN.length() + separator.length());
+    final int bufferSize =
+        (endIndex - startIndex) * (INT_MIN.length() + separator.length());
     final StringBuilder builder = new StringBuilder();
     builder.ensureCapacity(bufferSize);
     for (int i = startIndex; i < endIndex; ++i) {
@@ -6363,9 +6314,9 @@ public class StringUtils {
    * Joins the elements of the provided array into a single String containing
    * the provided list of elements.
    * <p>
-   * No delimiter is added before or after the list. A {@code null}
-   * separator is the same as an empty String (""). Null objects or empty
-   * strings within the array are represented by empty strings.
+   * No delimiter is added before or after the list. A {@code null} separator is
+   * the same as an empty String (""). Null objects or empty strings within the
+   * array are represented by empty strings.
    * <p>
    *
    * <pre>
@@ -6396,9 +6347,9 @@ public class StringUtils {
    * Joins the elements of the provided array into a single String containing
    * the provided list of elements.
    * <p>
-   * No delimiter is added before or after the list. A {@code null}
-   * separator is the same as an empty String (""). Null objects or empty
-   * strings within the array are represented by empty strings.
+   * No delimiter is added before or after the list. A {@code null} separator is
+   * the same as an empty String (""). Null objects or empty strings within the
+   * array are represented by empty strings.
    * <p>
    *
    * <pre>
@@ -6419,9 +6370,9 @@ public class StringUtils {
    *          the first occurrence to start joining from. If it is less than
    *          zero, it is treated as zero.
    * @param endIndex
-   *          the index to stop joining from (exclusive). If it is greater
-   *          than the length of the {@code array}, it is treated as the
-   *          length of the {@code array}.
+   *          the index to stop joining from (exclusive). If it is greater than
+   *          the length of the {@code array}, it is treated as the length of
+   *          the {@code array}.
    * @return the joined String, {@code null} if null array input
    */
   public static String join(@Nullable String separator,
@@ -6441,8 +6392,8 @@ public class StringUtils {
     if (separator == null) {
       separator = EMPTY;
     }
-    final int bufferSize = (endIndex - startIndex)
-        * (LONG_MIN.length() + separator.length());
+    final int bufferSize =
+        (endIndex - startIndex) * (LONG_MIN.length() + separator.length());
     final StringBuilder builder = new StringBuilder();
     builder.ensureCapacity(bufferSize);
     for (int i = startIndex; i < endIndex; ++i) {
@@ -6457,9 +6408,9 @@ public class StringUtils {
    * Joins the elements of the provided array into a single String containing
    * the provided list of elements.
    * <p>
-   * No delimiter is added before or after the list. A {@code null}
-   * separator is the same as an empty String (""). Null objects or empty
-   * strings within the array are represented by empty strings.
+   * No delimiter is added before or after the list. A {@code null} separator is
+   * the same as an empty String (""). Null objects or empty strings within the
+   * array are represented by empty strings.
    * <p>
    *
    * <pre>
@@ -6490,9 +6441,9 @@ public class StringUtils {
    * Joins the elements of the provided array into a single String containing
    * the provided list of elements.
    * <p>
-   * No delimiter is added before or after the list. A {@code null}
-   * separator is the same as an empty String (""). Null objects or empty
-   * strings within the array are represented by empty strings.
+   * No delimiter is added before or after the list. A {@code null} separator is
+   * the same as an empty String (""). Null objects or empty strings within the
+   * array are represented by empty strings.
    * <p>
    *
    * <pre>
@@ -6513,9 +6464,9 @@ public class StringUtils {
    *          the first occurrence to start joining from. If it is less than
    *          zero, it is treated as zero.
    * @param endIndex
-   *          the index to stop joining from (exclusive). If it is greater
-   *          than the length of the {@code array}, it is treated as the
-   *          length of the {@code array}.
+   *          the index to stop joining from (exclusive). If it is greater than
+   *          the length of the {@code array}, it is treated as the length of
+   *          the {@code array}.
    * @return the joined String, {@code null} if null array input
    */
   public static String join(@Nullable String separator,
@@ -6535,8 +6486,8 @@ public class StringUtils {
     if (separator == null) {
       separator = EMPTY;
     }
-    final int bufferSize = (endIndex - startIndex)
-        * (FLOAT_MAX.length() + separator.length());
+    final int bufferSize =
+        (endIndex - startIndex) * (FLOAT_MAX.length() + separator.length());
     final StringBuilder builder = new StringBuilder();
     builder.ensureCapacity(bufferSize);
     for (int i = startIndex; i < endIndex; ++i) {
@@ -6551,9 +6502,9 @@ public class StringUtils {
    * Joins the elements of the provided array into a single String containing
    * the provided list of elements.
    * <p>
-   * No delimiter is added before or after the list. A {@code null}
-   * separator is the same as an empty String (""). Null objects or empty
-   * strings within the array are represented by empty strings.
+   * No delimiter is added before or after the list. A {@code null} separator is
+   * the same as an empty String (""). Null objects or empty strings within the
+   * array are represented by empty strings.
    * <p>
    *
    * <pre>
@@ -6584,9 +6535,9 @@ public class StringUtils {
    * Joins the elements of the provided array into a single String containing
    * the provided list of elements.
    * <p>
-   * No delimiter is added before or after the list. A {@code null}
-   * separator is the same as an empty String (""). Null objects or empty
-   * strings within the array are represented by empty strings.
+   * No delimiter is added before or after the list. A {@code null} separator is
+   * the same as an empty String (""). Null objects or empty strings within the
+   * array are represented by empty strings.
    * <p>
    *
    * <pre>
@@ -6607,9 +6558,9 @@ public class StringUtils {
    *          the first occurrence to start joining from. If it is less than
    *          zero, it is treated as zero.
    * @param endIndex
-   *          the index to stop joining from (exclusive). If it is greater
-   *          than the length of the {@code array}, it is treated as the
-   *          length of the {@code array}.
+   *          the index to stop joining from (exclusive). If it is greater than
+   *          the length of the {@code array}, it is treated as the length of
+   *          the {@code array}.
    * @return the joined String, {@code null} if null array input
    */
   public static String join(@Nullable String separator,
@@ -6629,8 +6580,8 @@ public class StringUtils {
     if (separator == null) {
       separator = EMPTY;
     }
-    final int bufferSize = (endIndex - startIndex)
-        * (DOUBLE_MAX.length() + separator.length());
+    final int bufferSize =
+        (endIndex - startIndex) * (DOUBLE_MAX.length() + separator.length());
     final StringBuilder builder = new StringBuilder();
     builder.ensureCapacity(bufferSize);
     for (int i = startIndex; i < endIndex; ++i) {
@@ -6645,9 +6596,9 @@ public class StringUtils {
    * Joins the elements of the provided array into a single String containing
    * the provided list of elements.
    * <p>
-   * No delimiter is added before or after the list. A {@code null}
-   * separator is the same as an empty String (""). Null objects or empty
-   * strings within the array are represented by empty strings.
+   * No delimiter is added before or after the list. A {@code null} separator is
+   * the same as an empty String (""). Null objects or empty strings within the
+   * array are represented by empty strings.
    * <p>
    *
    * <pre>
@@ -6678,9 +6629,9 @@ public class StringUtils {
    * Joins the elements of the provided array into a single String containing
    * the provided list of elements.
    * <p>
-   * No delimiter is added before or after the list. A {@code null}
-   * separator is the same as an empty String (""). Null objects or empty
-   * strings within the array are represented by empty strings.
+   * No delimiter is added before or after the list. A {@code null} separator is
+   * the same as an empty String (""). Null objects or empty strings within the
+   * array are represented by empty strings.
    * <p>
    *
    * <pre>
@@ -6701,9 +6652,9 @@ public class StringUtils {
    *          the first index to start joining from. If it is less than zero, it
    *          is treated as zero.
    * @param endIndex
-   *          the index to stop joining from (exclusive). If it is greater
-   *          than the length of the {@code array}, it is treated as the
-   *          length of the {@code array}.
+   *          the index to stop joining from (exclusive). If it is greater than
+   *          the length of the {@code array}, it is treated as the length of
+   *          the {@code array}.
    * @return the joined String, {@code null} if null array input
    */
   public static <T> String join(@Nullable String separator,
@@ -6745,11 +6696,11 @@ public class StringUtils {
   }
 
   /**
-   * Joins the elements of the provided {@code Iterator} into a single
-   * String containing the provided elements.
+   * Joins the elements of the provided {@code Iterator} into a single String
+   * containing the provided elements.
    * <p>
-   * No delimiter is added before or after the list. A {@code null}
-   * separator is the same as an empty String ("").
+   * No delimiter is added before or after the list. A {@code null} separator is
+   * the same as an empty String ("").
    * <p>
    * See the examples here: {@link #join(Object[],String)}.
    *
@@ -6765,7 +6716,7 @@ public class StringUtils {
     if (iterator == null) {
       return null;
     }
-    if (! iterator.hasNext()) {
+    if (!iterator.hasNext()) {
       return EMPTY;
     }
     if (separator == null) {
@@ -6797,11 +6748,11 @@ public class StringUtils {
   }
 
   /**
-   * Joins the elements of the provided {@code Iterable} into a single
-   * String containing the provided elements.
+   * Joins the elements of the provided {@code Iterable} into a single String
+   * containing the provided elements.
    * <p>
-   * No delimiter is added before or after the list. A {@code null}
-   * separator is the same as an empty String ("").
+   * No delimiter is added before or after the list. A {@code null} separator is
+   * the same as an empty String ("").
    * <p>
    * See the examples here: {@link #join(Object[],String)}.
    *
@@ -6843,7 +6794,7 @@ public class StringUtils {
    *
    * @param str
    *          the string to splited. If it is null, clear the result (if it is
-   *          not null) and return the result.
+   *          not {@code null}) and return the result.
    * @param separator
    *          the character used as the delimiter
    * @param trim
@@ -6853,12 +6804,12 @@ public class StringUtils {
    * @param result
    *          the string list where to store the split sub-strings. If it is
    *          null, the function will create a new list of strings.
-   * @return an list of splitted strings. If the argument result is not null,
-   *         the function will store the split sub-strings in that argument and
-   *         return that argument; otherwise, a new linked list of string is
-   *         created and stores the split sub-strings and is returned. Note
-   *         that the returned list may be empty or null if the spliting result
-   *         has no substring.
+   * @return an list of splitted strings. If the argument result is not
+   *         {@code null}, the function will store the split sub-strings in that
+   *         argument and return that argument; otherwise, a new linked list of
+   *         string is created and stores the split sub-strings and is returned.
+   *         Note that the returned list may be empty or null if the spliting
+   *         result has no substring.
    */
   public static List<String> split(@Nullable final String str,
       final char separator, final boolean trim, final boolean ignoreEmpty,
@@ -6871,7 +6822,7 @@ public class StringUtils {
     }
     final int len = str.length();
     if (len == 0) {
-      if (! ignoreEmpty) {
+      if (!ignoreEmpty) {
         if (result == null) {
           result = new LinkedList<String>();
         }
@@ -6892,13 +6843,13 @@ public class StringUtils {
         if (trim) {
           substr = substr.trim();
         }
-        if ((! ignoreEmpty) || (substr.length() > 0)) {
+        if ((!ignoreEmpty) || (substr.length() > 0)) {
           if (result == null) {
             result = new LinkedList<String>();
           }
           result.add(substr);
         }
-      } else if (! ignoreEmpty) {
+      } else if (!ignoreEmpty) {
         if (result == null) {
           result = new LinkedList<String>();
         }
@@ -6934,7 +6885,7 @@ public class StringUtils {
    *
    * @param str
    *          the string to splited. If it is null, clear the result (if it is
-   *          not null) and return the result.
+   *          not {@code null}) and return the result.
    * @param separatorChars
    *          the characters used as the delimiters. If it is null or empty
    *          string, the string is not splited and the function will return a
@@ -6946,12 +6897,12 @@ public class StringUtils {
    * @param result
    *          the string list where to store the split sub-strings. If it is
    *          null, the function will create a new list of strings.
-   * @return an list of splitted strings. If the argument result is not null,
-   *         the function will store the split sub-strings in that argument and
-   *         return that argument; otherwise, a new linked list of string is
-   *         created and stores the split sub-strings and is returned. Note
-   *         that the returned list may be empty or null if the spliting result
-   *         has no substring.
+   * @return an list of splitted strings. If the argument result is not
+   *         {@code null}, the function will store the split sub-strings in that
+   *         argument and return that argument; otherwise, a new linked list of
+   *         string is created and stores the split sub-strings and is returned.
+   *         Note that the returned list may be empty or null if the spliting
+   *         result has no substring.
    */
   public static List<String> split(@Nullable final String str,
       @Nullable final String separatorChars, final boolean trim,
@@ -6985,7 +6936,7 @@ public class StringUtils {
    *
    * @param str
    *          the string to splited. If it is null, clear the result (if it is
-   *          not null) and return the result.
+   *          not {@code null}) and return the result.
    * @param separatorChars
    *          the characters used as the delimiters. If it is null or empty
    *          string, the string is not splited and the function will return a
@@ -6997,12 +6948,12 @@ public class StringUtils {
    * @param result
    *          the string list where to store the split sub-strings. If it is
    *          null, the function will create a new list of strings.
-   * @return an list of splitted strings. If the argument result is not null,
-   *         the function will store the split sub-strings in that argument and
-   *         return that argument; otherwise, a new linked list of string is
-   *         created and stores the split sub-strings and is returned. Note
-   *         that the returned list may be empty or null if the spliting result
-   *         has no substring.
+   * @return an list of splitted strings. If the argument result is not
+   *         {@code null}, the function will store the split sub-strings in that
+   *         argument and return that argument; otherwise, a new linked list of
+   *         string is created and stores the split sub-strings and is returned.
+   *         Note that the returned list may be empty or null if the spliting
+   *         result has no substring.
    */
   public static List<String> split(@Nullable final String str,
       @Nullable final char[] separatorChars, final boolean trim,
@@ -7036,7 +6987,7 @@ public class StringUtils {
    *
    * @param str
    *          the string to splited. If it is null, clear the result (if it is
-   *          not null) and return the result.
+   *          not {@code null}) and return the result.
    * @param charFilter
    *          a filter used to filter characters. The function will split the
    *          string by all characters accepted by this filter. This argument
@@ -7048,12 +6999,12 @@ public class StringUtils {
    * @param result
    *          the string list where to store the split sub-strings. If it is
    *          null, the function will create a new list of strings.
-   * @return an list of splitted strings. If the argument result is not null,
-   *         the function will store the split sub-strings in that argument and
-   *         return that argument; otherwise, a new linked list of string is
-   *         created and stores the split sub-strings and is returned. Note
-   *         that the returned list may be empty or null if the spliting result
-   *         has no substring.
+   * @return an list of splitted strings. If the argument result is not
+   *         {@code null}, the function will store the split sub-strings in that
+   *         argument and return that argument; otherwise, a new linked list of
+   *         string is created and stores the split sub-strings and is returned.
+   *         Note that the returned list may be empty or null if the spliting
+   *         result has no substring.
    */
   public static List<String> split(@Nullable final String str,
       @Nullable final CharFilter charFilter, final boolean trim,
@@ -7066,7 +7017,7 @@ public class StringUtils {
     }
     final int len = str.length();
     if (len == 0) {
-      if (! ignoreEmpty) {
+      if (!ignoreEmpty) {
         if (result == null) {
           result = new LinkedList<String>();
         }
@@ -7088,13 +7039,13 @@ public class StringUtils {
         if (trim) {
           substr = substr.trim();
         }
-        if ((! ignoreEmpty) || (substr.length() > 0)) {
+        if ((!ignoreEmpty) || (substr.length() > 0)) {
           if (result == null) {
             result = new LinkedList<String>();
           }
           result.add(substr);
         }
-      } else if (! ignoreEmpty) {
+      } else if (!ignoreEmpty) {
         if (result == null) {
           result = new LinkedList<String>();
         }
@@ -7128,16 +7079,16 @@ public class StringUtils {
    *
    * @param str
    *          the string to splited. If it is null, clear the result (if it is
-   *          not null) and return the result.
+   *          not {@code null}) and return the result.
    * @param result
    *          the string list where to store the split sub-strings. If it is
    *          null, the function will create a new list of strings.
-   * @return an list of splitted strings. If the argument result is not null,
-   *         the function will store the split sub-strings in that argument and
-   *         return that argument; otherwise, a new linked list of string is
-   *         created and stores the split sub-strings and is returned. Note
-   *         that the returned list may be empty or null if the spliting result
-   *         has no substring.
+   * @return an list of splitted strings. If the argument result is not
+   *         {@code null}, the function will store the split sub-strings in that
+   *         argument and return that argument; otherwise, a new linked list of
+   *         string is created and stores the split sub-strings and is returned.
+   *         Note that the returned list may be empty or null if the spliting
+   *         result has no substring.
    */
   public static List<String> split(@Nullable final String str,
       @Nullable List<String> result) {
@@ -7174,14 +7125,14 @@ public class StringUtils {
 
   /**
    * Splits a string by Character type as returned by
-   * {@code java.lang.Character.getType(char)}. Groups of contiguous
-   * characters of the same type are returned as complete tokens, with the
-   * following exception:
+   * {@code java.lang.Character.getType(char)}. Groups of contiguous characters
+   * of the same type are returned as complete tokens, with the following
+   * exception:
    * <p>
    * If {@code camelCase} is {@code true}, the character of type
-   * {@code Character.UPPERCASE_LETTER}, if any, immediately preceding a
-   * token of type {@code Character.LOWERCASE_LETTER} will belong to the
-   * following token rather than to the preceding, if any,
+   * {@code Character.UPPERCASE_LETTER}, if any, immediately preceding a token
+   * of type {@code Character.LOWERCASE_LETTER} will belong to the following
+   * token rather than to the preceding, if any,
    * {@code Character.UPPERCASE_LETTER} token.
    * <p>
    * Examples:
@@ -7213,12 +7164,12 @@ public class StringUtils {
    * @param result
    *          the string list where to store the split sub-strings. If it is
    *          null, the function will create a new list of strings.
-   * @return an list of splitted strings. If the argument result is not null,
-   *         the function will store the split sub-strings in that argument and
-   *         return that argument; otherwise, a new linked list of string is
-   *         created and stores the split sub-strings and is returned. Note
-   *         that the returned list may be empty or null if the spliting result
-   *         has no substring.
+   * @return an list of splitted strings. If the argument result is not
+   *         {@code null}, the function will store the split sub-strings in that
+   *         argument and return that argument; otherwise, a new linked list of
+   *         string is created and stores the split sub-strings and is returned.
+   *         Note that the returned list may be empty or null if the spliting
+   *         result has no substring.
    */
   public static List<String> splitByCharType(@Nullable final String str,
       final boolean camelCase, final boolean trim, final boolean ignoreEmpty,
@@ -7231,7 +7182,7 @@ public class StringUtils {
     }
     final int strLen = str.length();
     if (strLen == 0) {
-      if (! ignoreEmpty) {
+      if (!ignoreEmpty) {
         if (result == null) {
           result = new LinkedList<String>();
         }
@@ -7255,7 +7206,7 @@ public class StringUtils {
           if (trim) {
             substr = substr.trim();
           }
-          if ((! ignoreEmpty) || (substr.length() > 0)) {
+          if ((!ignoreEmpty) || (substr.length() > 0)) {
             if (result == null) {
               result = new LinkedList<String>();
             }
@@ -7268,7 +7219,7 @@ public class StringUtils {
         if (trim) {
           substr = substr.trim();
         }
-        if ((! ignoreEmpty) || (substr.length() > 0)) {
+        if ((!ignoreEmpty) || (substr.length() > 0)) {
           if (result == null) {
             result = new LinkedList<String>();
           }
@@ -7284,7 +7235,7 @@ public class StringUtils {
     if (trim) {
       substr = substr.trim();
     }
-    if ((! ignoreEmpty) || (substr.length() > 0)) {
+    if ((!ignoreEmpty) || (substr.length() > 0)) {
       if (result == null) {
         result = new LinkedList<String>();
       }
@@ -7315,7 +7266,7 @@ public class StringUtils {
    *
    * @param str
    *          the string to splited. If it is null, clear the result (if it is
-   *          not null) and return the result.
+   *          not {@code null}) and return the result.
    * @param separator
    *          the string to be used as the delimiter. If it is null or empty,
    *          the string is splited such that each character become a substring.
@@ -7326,12 +7277,12 @@ public class StringUtils {
    * @param result
    *          the string list where to store the split sub-strings. If it is
    *          null, the function will create a new list of strings.
-   * @return an list of splitted strings. If the argument result is not null,
-   *         the function will store the split sub-strings in that argument and
-   *         return that argument; otherwise, a new linked list of string is
-   *         created and stores the split sub-strings and is returned. Note
-   *         that the returned list may be empty or null if the spliting result
-   *         has no substring.
+   * @return an list of splitted strings. If the argument result is not
+   *         {@code null}, the function will store the split sub-strings in that
+   *         argument and return that argument; otherwise, a new linked list of
+   *         string is created and stores the split sub-strings and is returned.
+   *         Note that the returned list may be empty or null if the spliting
+   *         result has no substring.
    */
   public static List<String> splitByString(@Nullable final String str,
       @Nullable final String separator, final boolean trim,
@@ -7344,7 +7295,7 @@ public class StringUtils {
     }
     final int strLen = str.length();
     if (strLen == 0) {
-      if (! ignoreEmpty) {
+      if (!ignoreEmpty) {
         if (result == null) {
           result = new LinkedList<String>();
         }
@@ -7372,7 +7323,7 @@ public class StringUtils {
         result.add(substr);
       }
     } else {
-      // the separator string is not null nor empty
+      // the separator string is not {@code null} nor empty
       int first = 0;
       int last = 0;
       while (first <= strLen) {
@@ -7388,13 +7339,13 @@ public class StringUtils {
           if (trim) {
             substr = substr.trim();
           }
-          if ((! ignoreEmpty) || (substr.length() > 0)) {
+          if ((!ignoreEmpty) || (substr.length() > 0)) {
             if (result == null) {
               result = new LinkedList<String>();
             }
             result.add(substr);
           }
-        } else if (! ignoreEmpty) {
+        } else if (!ignoreEmpty) {
           if (result == null) {
             result = new LinkedList<String>();
           }
@@ -7409,10 +7360,10 @@ public class StringUtils {
   /**
    * Overlays part of a string with another String.
    * <p>
-   * A {@code null} string input returns {@code null}. A negative
-   * current is treated as zero. An current greater than the string length is
-   * treated as the string length. The start current is always the smaller of
-   * the two indices.
+   * A {@code null} string input returns {@code null}. A negative current is
+   * treated as zero. An current greater than the string length is treated as
+   * the string length. The start current is always the smaller of the two
+   * indices.
    * <p>
    *
    * <pre>
@@ -7468,7 +7419,10 @@ public class StringUtils {
     final int n = ((len + start) - end) + overlay.length() + 1;
     final StringBuilder builder = new StringBuilder();
     builder.ensureCapacity(n);
-    builder.append(str, 0, start).append(overlay).append(str, end, str.length());
+    builder
+        .append(str, 0, start)
+        .append(overlay)
+        .append(str, end, str.length());
     return builder.toString();
   }
 
@@ -7547,9 +7501,9 @@ public class StringUtils {
    * <p>
    * Note: this method doesn't not support padding with <a
    * href="http://www.unicode.org/glossary/#supplementary_character">Unicode
-   * Supplementary Characters</a> as they require a pair of {@code char}s
-   * to be represented. If you are needing to support full I18N of your
-   * applications consider using {@link #repeat(String, int)} instead.
+   * Supplementary Characters</a> as they require a pair of {@code char}s to be
+   * represented. If you are needing to support full I18N of your applications
+   * consider using {@link #repeat(String, int)} instead.
    *
    * @param repeat
    *          number of times to repeat delim
@@ -7770,12 +7724,12 @@ public class StringUtils {
   }
 
   /**
-   * Centers a string in a larger String of size {@code size}. Uses a
-   * supplied character as the value to pad the string with.
+   * Centers a string in a larger String of size {@code size}. Uses a supplied
+   * character as the value to pad the string with.
    * <p>
    * If the size is less than the string length, the string is returned. A
-   * {@code null} string returns {@code null}. A negative size is
-   * treated as zero.
+   * {@code null} string returns {@code null}. A negative size is treated as
+   * zero.
    * <p>
    *
    * <pre>
@@ -7812,12 +7766,12 @@ public class StringUtils {
   }
 
   /**
-   * Centers a string in a larger String of size {@code size}. Uses a
-   * supplied String as the value to pad the string with.
+   * Centers a string in a larger String of size {@code size}. Uses a supplied
+   * String as the value to pad the string with.
    * <p>
    * If the size is less than the string length, the string is returned. A
-   * {@code null} string returns {@code null}. A negative size is
-   * treated as zero.
+   * {@code null} string returns {@code null}. A negative size is treated as
+   * zero.
    * <p>
    *
    * <pre>
@@ -8076,8 +8030,8 @@ public class StringUtils {
    * Specifically:
    * <p>
    * <ul>
-   * <li>If {@code str} is less than {@code maxWidth} characters long,
-   * return it.</li>
+   * <li>If {@code str} is less than {@code maxWidth} characters long, return
+   * it.</li>
    * <li>Else abbreviate it to {@code (substring(str, 0, max-3) + "...")}.</li>
    * <li>If {@code maxWidth} is less than {@code 4}, throw an
    * {@code IllegalArgumentException}.</li>
@@ -8085,8 +8039,7 @@ public class StringUtils {
    * {@code maxWidth}.</li>
    * </ul>
    * <p>
-   * In no case will it return a string of length greater than
-   * {@code maxWidth}.
+   * In no case will it return a string of length greater than {@code maxWidth}.
    * <p>
    *
    * <pre>
@@ -8158,11 +8111,11 @@ public class StringUtils {
    * <p>
    *
    * @param str
-   *          the string to be truncated, which could be null.
+   *          the string to be truncated, which could be {@code null}.
    * @param length
    *          the length of the result string.
    * @return a prefix of str shorter than length, which consists a valid Unicode
-   *         string. A null string will returns a null.
+   *         string. A null string will returns a {@code null}.
    * @throws IllegalArgumentException
    *           if <code>length < 0</code>.
    */
@@ -8350,7 +8303,7 @@ public class StringUtils {
       }
     }
     // eat the last appended space or line break
-    if ((! keepTrailingSpace) && (appended > 0)
+    if ((!keepTrailingSpace) && (appended > 0)
         && ((last & CharUtils.VISIBILITY_BLANK) != 0)) {
       final int n = builder.length();
       assert (n > 0);
@@ -8358,6 +8311,261 @@ public class StringUtils {
       --appended;
     }
     return appended;
+  }
+
+  /**
+   * Quotes a string with the given quotation marks, escaping the characters in
+   * the string if necessary.
+   *
+   * @param str
+   *          the string to be quoted.
+   * @param escapeChar
+   *          the character used to escape itself and other characters.
+   * @param leftQuote
+   *          the left quotation mark.
+   * @param rightQuote
+   *          the right quotation mark.
+   * @return the quoted string, with its original content escaped.
+   */
+  public static String quote(final String str, final char escapeChar,
+      final char leftQuote, final char rightQuote) {
+    final StringBuilder builder = new StringBuilder();
+    quote(str, escapeChar, leftQuote, rightQuote, builder);
+    return builder.toString();
+  }
+
+  /**
+   * Quotes a string with the given quotation marks, escaping the characters in
+   * the string if necessary.
+   *
+   * @param str
+   *          the string to be quoted.
+   * @param escapeChar
+   *          the character used to escape itself and other characters.
+   * @param leftQuote
+   *          the left quotation mark.
+   * @param rightQuote
+   *          the right quotation mark.
+   * @param builder
+   *          a string builder where to append the quoted string, with its
+   *          original content escaped.
+   */
+  public static void quote(final String str, final char escapeChar,
+      final char leftQuote, final char rightQuote, final StringBuilder builder) {
+    final String result = escape(str, escapeChar, leftQuote, rightQuote);
+    builder.append(leftQuote).append(result).append(rightQuote);
+  }
+
+  /**
+   * Unquotes a string with the given quotation marks, without unescaping the
+   * characters in the string.
+   *
+   * @param str
+   *          the string to be unquoted.
+   * @param leftQuote
+   *          the left quotation mark.
+   * @param rightQuote
+   *          the right quotation mark.
+   * @return the unquoted string, without escaping the characters in the string.
+   * @throws IllegalArgumentException
+   *           if the string is not correctly quoted.
+   */
+  public static String unquote(final String str,
+      final char leftQuote, final char rightQuote) {
+    final int n = str.length();
+    if ((n < 2) || (str.charAt(0) != leftQuote)
+        || (str.charAt(n - 1) != rightQuote)) {
+      throw new IllegalArgumentException("String is not quoted: " + str);
+    }
+    return str.substring(1, n - 1);
+  }
+
+  /**
+   * Unquotes a string with the given quotation marks, without unescaping the
+   * characters in the string.
+   *
+   * @param str
+   *          the string to be unquoted.
+   * @param leftQuote
+   *          the left quotation mark.
+   * @param rightQuote
+   *          the right quotation mark.
+   * @param builder
+   *          the string builder used to append the unquoted string, without
+   *           escaping the characters in the string.
+   * @throws IllegalArgumentException
+   *           if the string is not correctly quoted.
+   */
+  public static void unquote(final String str, final char leftQuote,
+      final char rightQuote, final StringBuilder builder) {
+    final int n = str.length();
+    if ((n < 2) || (str.charAt(0) != leftQuote)
+        || (str.charAt(n - 1) != rightQuote)) {
+      throw new IllegalArgumentException("String is not quoted: " + str);
+    }
+    builder.append(str.substring(1, n - 1));
+  }
+
+  /**
+   * Unquotes a string with the given quotation marks, unescaping the characters
+   * in the string if necessary.
+   *
+   * @param str
+   *          the string to be unquoted.
+   * @param escapeChar
+   *          the character used to escape itself and other characters.
+   * @param leftQuote
+   *          the left quotation mark.
+   * @param rightQuote
+   *          the right quotation mark.
+   * @return the unquoted string, with its original content unescaped.
+   * @throws IllegalArgumentException
+   *           if the string is not correctly quoted.
+   */
+  public static String unquote(final String str, final char escapeChar,
+      final char leftQuote, final char rightQuote) {
+    final StringBuilder builder = new StringBuilder(str.length());
+    unquote(str, escapeChar, leftQuote, rightQuote, builder);
+    return builder.toString();
+  }
+
+  /**
+   * Unquotes a string with the given quotation marks, unescaping the characters
+   * in the string if necessary.
+   *
+   * @param str
+   *          the string to be unquoted.
+   * @param escapeChar
+   *          the character used to escape itself and other characters.
+   * @param leftQuote
+   *          the left quotation mark.
+   * @param rightQuote
+   *          the right quotation mark.
+   * @param builder
+   *          a string builder where to append the unquoted string, with its
+   *          original content unescaped.
+   * @throws IllegalArgumentException
+   *          if the string is not correctly quoted.
+   */
+  public static void unquote(final String str, final char escapeChar,
+      final char leftQuote, final char rightQuote,
+      final StringBuilder builder) {
+    final int n = str.length();
+    if ((n < 2)
+        || (str.charAt(0) != leftQuote)
+        || (str.charAt(n - 1) != rightQuote)) {
+      throw new IllegalArgumentException("String is not quoted: " + str);
+    }
+    unescape(str.substring(1, n - 1), escapeChar, builder);
+  }
+
+  /**
+   * Tests whether a character in a escaped string is escaped.
+   *
+   * @param str
+   *          an escaped string.
+   * @param escapeChar
+   *          the character used to escape itself and other characters.
+   * @param index
+   *          the index of a character in the escaped string.
+   * @return {@code true} if the character at the specified index in the escaped
+   *         string is escaped by the escaping character; {@code false}
+   *         otherwise.
+   * @throws IndexOutOfBoundsException
+   *           if {@code index} is out of the bounds of {@code str}.
+   */
+  public static boolean isEscaped(final String str, final char escapeChar,
+      final int index) {
+    final int n = str.length();
+    if ((index < 0) || (index >= n)) {
+      throw new IndexOutOfBoundsException();
+    }
+    boolean escaped = false;
+    for (int i = 0; i < n; ++i) {
+      final char ch = str.charAt(i);
+      if (index == i) {
+        return escaped;
+      }
+      if (escaped) {
+        escaped = false;
+      } else if (ch == escapeChar) {
+        escaped = true;
+      }
+    }
+    return false;
+  }
+
+  /**
+   * Escapes characters in a string using a specified escaped character.
+   *
+   * @param str
+   *          the string to be escaped.
+   * @param escapeChar
+   *          the character used to escape itself and other characters.
+   * @param characters
+   *          the specified characters need to be escaped.
+   * @return the escaped string.
+   */
+  public static String escape(final String str, final char escapeChar,
+      final char... characters) {
+    final int n = str.length();
+    final StringBuilder builder = new StringBuilder(n * 2);
+    for (int i = 0; i < n; ++i) {
+      final char ch = str.charAt(i);
+      if ((ch == escapeChar) || ArrayUtils.contains(characters, ch)) {
+        builder.append(escapeChar);
+      }
+      builder.append(ch);
+    }
+    return builder.toString();
+  }
+
+  /**
+   * Unescapes characters in a escaped string.
+   * <p>
+   * All characters in the escaped string escaped by the specified escape
+   * character will be unescaped.
+   *
+   * @param str
+   *          the escaped string to be unescaped.
+   * @param escapeChar
+   *          the character used to escape itself and other characters.
+   * @return the unescaped string.
+   */
+  public static String unescape(final String str, final char escapeChar) {
+    final StringBuilder builder = new StringBuilder(str.length());
+    unescape(str, escapeChar, builder);
+    return builder.toString();
+  }
+
+  /**
+   * Unescapes characters in a escaped string.
+   * <p>
+   * All characters in the escaped string escaped by the specified escape
+   * character will be unescaped.
+   *
+   * @param str
+   *          the escaped string to be unescaped.
+   * @param escapeChar
+   *          the character used to escape itself and other characters.
+   * @param builder
+   *          a string builder where to append the unescaped string.
+   */
+  public static void unescape(final String str, final char escapeChar,
+      final StringBuilder builder) {
+    final int n = str.length();
+    boolean escaped = false;
+    for (int i = 0; i < n; ++i) {
+      final char ch = str.charAt(i);
+      if (escaped) {
+        builder.append(ch);
+        escaped = false;
+      } else if (ch == escapeChar) {
+        escaped = true;
+      } else {
+        builder.append(ch);
+      }
+    }
   }
 
   /**
@@ -8370,10 +8578,10 @@ public class StringUtils {
    * toBoolean("abc")   = false
    * toBoolean("  abc") = false
    * </pre>
+   *
    * @param str
-   * the string to boolean, may be null
-   * @return
-   * the boolean output, {@code false} if null string input
+   *          the string to boolean, may be null
+   * @return the boolean output, {@code false} if null string input
    */
   public static boolean toBoolean(@Nullable final String str) {
     return toBoolean(str, BooleanUtils.DEFAULT);
@@ -8390,12 +8598,13 @@ public class StringUtils {
    * toBoolean("abc", "false")  = false
    * toBoolean("  abc", "true") = true
    * </pre>
+   *
    * @param str
-   * the string to boolean, may be null
+   *          the string to boolean, may be null
    * @param defaultValue
-   * defaultValue when string is null or not boolean
-   * @return
-   * the boolean output, {@code defaultValue} if input string is null or not boolean
+   *          defaultValue when string is null or not boolean
+   * @return the boolean output, {@code defaultValue} if input string is null or
+   *         not boolean
    */
   public static boolean toBoolean(@Nullable final String str,
       final boolean defaultValue) {
@@ -8420,10 +8629,10 @@ public class StringUtils {
    * toBooleanObject("false") = false
    * toBooleanObject("abc")   = null
    * </pre>
+   *
    * @param str
-   * the string to boolean, may be null
-   * @return
-   * the boolean output, {@code null} if null string input
+   *          the string to boolean, may be null
+   * @return the boolean output, {@code null} if null string input
    */
   public static Boolean toBooleanObject(@Nullable final String str) {
     return toBooleanObject(str, null);
@@ -8440,12 +8649,12 @@ public class StringUtils {
    * toBooleanObject("abc", "false")  = false
    * toBooleanObject("  abc", "true") = true
    * </pre>
+   *
    * @param str
-   * the string to boolean, may be null
+   *          the string to boolean, may be null
    * @param defaultValue
-   * defaultValue when string is null or not boolean
-   * @return
-   * the Boolean output, {@code defaultValue} if null string input
+   *          defaultValue when string is null or not boolean
+   * @return the Boolean output, {@code defaultValue} if null string input
    */
   public static Boolean toBooleanObject(@Nullable final String str,
       @Nullable final Boolean defaultValue) {
