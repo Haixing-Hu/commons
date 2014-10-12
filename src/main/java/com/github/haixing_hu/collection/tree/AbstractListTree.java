@@ -24,7 +24,8 @@ import java.util.ListIterator;
 
 import javax.annotation.concurrent.NotThreadSafe;
 
-import static com.github.haixing_hu.lang.Argument.*;
+import static com.github.haixing_hu.lang.Argument.requireNonNull;
+import static com.github.haixing_hu.lang.Argument.requireNonSame;
 
 /**
  * An implementation of tree using an abstract list to store the children.
@@ -32,7 +33,8 @@ import static com.github.haixing_hu.lang.Argument.*;
  * @author Haixing Hu
  */
 @NotThreadSafe
-public abstract class AbstractListTree<KEY, VALUE> extends AbstractTree<KEY, VALUE> {
+public abstract class AbstractListTree<KEY, VALUE> extends
+    AbstractTree<KEY, VALUE> {
 
   protected List<Tree<KEY, VALUE>> children;
 
