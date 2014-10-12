@@ -1,6 +1,5 @@
-/******************************************************************************
- *
- * Copyright (c) 2013  Haixing Hu
+/*
+ * Copyright (c) 2014  Haixing Hu
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,8 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- ******************************************************************************/
-package com.github.haixing_hu.lang;
+ */package com.github.haixing_hu.lang;
 
 import org.junit.Test;
 
@@ -254,7 +252,7 @@ public class StringUtilsComparisonTest {
         // empty
     }
   }
-  
+
   @Test
   public void testGetOccurrences() {
     IntList result = new ArrayIntList();
@@ -263,24 +261,24 @@ public class StringUtilsComparisonTest {
     Object[][] Cases = {
         {"hello", "", true, new int[]{0, 1, 2, 3, 4}},
         {"hello", "", false, new int[]{0, 1, 2, 3, 4}},
-        
+
         {"hello", "h", true, new int[]{0}},
         {"hello", "e", true, new int[]{1}},
         {"hello", "d", true, new int[]{}},
-        
+
         {"hello", "h", false, new int[]{0}},
         {"hello", "e", false, new int[]{1}},
         {"hello", "d", false, new int[]{}},
-        
+
         {"hello", "H", true, new int[]{0}},
         {"hello", "E", true, new int[]{1}},
         {"hello", "D", true, new int[]{}},
-        
+
         {"hello", "H", false, new int[]{}},
         {"hello", "E", false, new int[]{}},
         {"hello", "D", false, new int[]{}},
     };
-    
+
     assertEquals(null, StringUtils.getOccurrences(null, null, true, null));
     assertEquals(null, StringUtils.getOccurrences(null, null, false, null));
     assertEquals(null, StringUtils.getOccurrences(null, "hello", true, null));
@@ -289,7 +287,7 @@ public class StringUtilsComparisonTest {
     assertEquals(null, StringUtils.getOccurrences(null, "hello", false, result));
     assertEquals(null, StringUtils.getOccurrences("hello", null, true, result));
     assertEquals(null, StringUtils.getOccurrences("hello", null, false, result));
-    
+
     for (Object[] ele : Cases) {
       String name = (String) ele[0];
       String subname = (String) ele[1];

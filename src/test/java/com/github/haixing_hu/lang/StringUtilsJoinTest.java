@@ -1,6 +1,5 @@
-/******************************************************************************
- *
- * Copyright (c) 2013  Haixing Hu
+/*
+ * Copyright (c) 2014  Haixing Hu
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,8 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- ******************************************************************************/
-package com.github.haixing_hu.lang;
+ */package com.github.haixing_hu.lang;
 
 import java.util.Iterator;
 
@@ -228,382 +226,382 @@ public class StringUtilsJoinTest {
     assertEquals("foo----2", StringUtils.join("--", ArrayUtils.asList(objArray)));
     assertEquals("foo2", StringUtils.join("", ArrayUtils.asList(objArray)));
   }
-  
+
   @Test
   public void testJoin_char_boolean() {
     boolean[] values = null;
     assertEquals(null, StringUtils.join(';', values));
-    
+
     values = new boolean[]{};
     assertEquals("", StringUtils.join(';', values));
     assertEquals("", StringUtils.join(';', values, 0, values.length));
     assertEquals("", StringUtils.join(';', values, -1, -1));
     assertEquals("", StringUtils.join(';', values, -1, 20));
-    
+
     values = new boolean[]{true};
     assertEquals("true", StringUtils.join(';', values));
     assertEquals("true", StringUtils.join(';', values, 0, values.length));
     assertEquals("", StringUtils.join(';', values, -1, -1));
     assertEquals("true", StringUtils.join(';', values, -1, 20));
-    
+
     values = new boolean[]{true, false, true};
     assertEquals("true;false;true", StringUtils.join(';', values));
-    assertEquals("true;false;true", StringUtils.join(';', values, 0, values.length));    
+    assertEquals("true;false;true", StringUtils.join(';', values, 0, values.length));
     assertEquals("", StringUtils.join(';', values, -1, -1));
     assertEquals("true;false;true", StringUtils.join(';', values, -1, 20));
   }
- 
+
   @Test
   public void testJoin_char_char() {
     char[] values = null;
     assertEquals(null, StringUtils.join(';', values));
-    
+
     values = new char[]{};
     assertEquals("", StringUtils.join(';', values));
     assertEquals("", StringUtils.join(';', values, 0, values.length));
     assertEquals("", StringUtils.join(';', values, -1, -1));
     assertEquals("", StringUtils.join(';', values, -1, 20));
- 
+
     values = new char[]{'a'};
     assertEquals("a", StringUtils.join(';', values));
     assertEquals("a", StringUtils.join(';', values, 0, values.length));
     assertEquals("", StringUtils.join(';', values, -1, -1));
     assertEquals("a", StringUtils.join(';', values, -1, 20));
-    
+
     values = new char[]{'a', 'b', 'c'};
     assertEquals("a;b;c", StringUtils.join(';', values));
     assertEquals("a;b;c", StringUtils.join(';', values, 0, values.length));
     assertEquals("", StringUtils.join(';', values, -1, -1));
     assertEquals("a;b;c", StringUtils.join(';', values, -1, 20));
   }
-  
+
   @Test
   public void testJoin_char_byte() {
     byte[] values = null;
     assertEquals(null, StringUtils.join(';', values));
-    
+
     values = new byte[]{};
     assertEquals("", StringUtils.join(';', values));
     assertEquals("", StringUtils.join(';', values, 0, values.length));
     assertEquals("", StringUtils.join(';', values, -1, -1));
     assertEquals("", StringUtils.join(';', values, -1, 20));
-    
+
     values = new byte[]{(byte)2};
     assertEquals("2", StringUtils.join(';', values));
     assertEquals("2", StringUtils.join(';', values, 0, values.length));
     assertEquals("", StringUtils.join(';', values, -1, -1));
     assertEquals("2", StringUtils.join(';', values, -1, 20));
-    
+
     values = new byte[]{(byte)20, (byte)10, (byte)2};
     assertEquals("20;10;2", StringUtils.join(';', values));
     assertEquals("20;10;2", StringUtils.join(';', values, 0, values.length));
     assertEquals("", StringUtils.join(';', values, -1, -1));
     assertEquals("20;10;2", StringUtils.join(';', values, -1, 20));
   }
-  
+
   @Test
   public void testJoin_char_double() {
     double[] values = null;
     assertEquals(null, StringUtils.join(';', values));
-    
+
     values = new double[]{};
     assertEquals("", StringUtils.join(';', values));
     assertEquals("", StringUtils.join(';', values, 0, values.length));
     assertEquals("", StringUtils.join(';', values, -1, -1));
     assertEquals("", StringUtils.join(';', values, -1, 20));
-    
+
     values = new double[]{(double)2};
     assertEquals("2.0", StringUtils.join(';', values));
     assertEquals("2.0", StringUtils.join(';', values, 0, values.length));
     assertEquals("", StringUtils.join(';', values, -1, -1));
     assertEquals("2.0", StringUtils.join(';', values, -1, 20));
-    
+
     values = new double[]{(double)20, (double)10, (double)2};
     assertEquals("20.0;10.0;2.0", StringUtils.join(';', values));
     assertEquals("20.0;10.0;2.0", StringUtils.join(';', values, 0, values.length));
     assertEquals("", StringUtils.join(';', values, -1, -1));
     assertEquals("20.0;10.0;2.0", StringUtils.join(';', values, -1, 20));
   }
-  
+
   @Test
   public void testJoin_char_float() {
     float[] values = null;
     assertEquals(null, StringUtils.join(';', values));
-    
+
     values = new float[]{};
     assertEquals("", StringUtils.join(';', values));
     assertEquals("", StringUtils.join(';', values, 0, values.length));
     assertEquals("", StringUtils.join(';', values, -1, -1));
     assertEquals("", StringUtils.join(';', values, -1, 20));
-    
+
     values = new float[]{(float)2};
     assertEquals("2.0", StringUtils.join(';', values));
     assertEquals("2.0", StringUtils.join(';', values, 0, values.length));
     assertEquals("", StringUtils.join(';', values, -1, -1));
     assertEquals("2.0", StringUtils.join(';', values, -1, 20));
-    
+
     values = new float[]{(float)20, (float)10, (float)2};
     assertEquals("20.0;10.0;2.0", StringUtils.join(';', values));
     assertEquals("20.0;10.0;2.0", StringUtils.join(';', values, 0, values.length));
     assertEquals("", StringUtils.join(';', values, -1, -1));
     assertEquals("20.0;10.0;2.0", StringUtils.join(';', values, -1, 20));
   }
-  
+
   @Test
   public void testJoin_char_int() {
     int[] values = null;
     assertEquals(null, StringUtils.join(';', values));
-    
+
     values = new int[]{};
     assertEquals("", StringUtils.join(';', values));
     assertEquals("", StringUtils.join(';', values, 0, values.length));
     assertEquals("", StringUtils.join(';', values, -1, -1));
     assertEquals("", StringUtils.join(';', values, -1, 20));
-    
+
     values = new int[]{2};
     assertEquals("2", StringUtils.join(';', values));
     assertEquals("2", StringUtils.join(';', values, 0, values.length));
     assertEquals("", StringUtils.join(';', values, -1, -1));
     assertEquals("2", StringUtils.join(';', values, -1, 20));
-    
+
     values = new int[]{20, 10, 2};
     assertEquals("20;10;2", StringUtils.join(';', values));
     assertEquals("20;10;2", StringUtils.join(';', values, 0, values.length));
     assertEquals("", StringUtils.join(';', values, -1, -1));
     assertEquals("20;10;2", StringUtils.join(';', values, -1, 20));
   }
-  
+
   @Test
   public void testJoin_char_long() {
     long[] values = null;
     assertEquals(null, StringUtils.join(';', values));
-    
+
     values = new long[]{};
     assertEquals("", StringUtils.join(';', values));
     assertEquals("", StringUtils.join(';', values, 0, values.length));
     assertEquals("", StringUtils.join(';', values, -1, -1));
     assertEquals("", StringUtils.join(';', values, -1, 20));
-    
+
     values = new long[]{(long)2};
     assertEquals("2", StringUtils.join(';', values));
     assertEquals("2", StringUtils.join(';', values, 0, values.length));
     assertEquals("", StringUtils.join(';', values, -1, -1));
     assertEquals("2", StringUtils.join(';', values, -1, 20));
-    
+
     values = new long[]{(long)20, (long)10, (long)2};
     assertEquals("20;10;2", StringUtils.join(';', values));
     assertEquals("20;10;2", StringUtils.join(';', values, 0, values.length));
     assertEquals("", StringUtils.join(';', values, -1, -1));
     assertEquals("20;10;2", StringUtils.join(';', values, -1, 20));
   }
-  
+
   @Test
   public void testJoin_char_short() {
     short[] values = null;
     assertEquals(null, StringUtils.join(';', values));
-    
+
     values = new short[]{};
     assertEquals("", StringUtils.join(';', values));
     assertEquals("", StringUtils.join(';', values, 0, values.length));
     assertEquals("", StringUtils.join(';', values, -1, -1));
     assertEquals("", StringUtils.join(';', values, -1, 20));
-    
+
     values = new short[]{(short)2};
     assertEquals("2", StringUtils.join(';', values));
     assertEquals("2", StringUtils.join(';', values, 0, values.length));
     assertEquals("", StringUtils.join(';', values, -1, -1));
     assertEquals("2", StringUtils.join(';', values, -1, 20));
-    
+
     values = new short[]{(short)20, (short)10, (short)2};
     assertEquals("20;10;2", StringUtils.join(';', values));
     assertEquals("20;10;2", StringUtils.join(';', values, 0, values.length));
     assertEquals("", StringUtils.join(';', values, -1, -1));
     assertEquals("20;10;2", StringUtils.join(';', values, -1, 20));
   }
-  
+
   @Test
   public void testJoin_String_boolean() {
     boolean[] values = null;
     assertEquals(null, StringUtils.join(";", values));
-    
+
     values = new boolean[]{};
     assertEquals("", StringUtils.join(";", values));
     assertEquals("", StringUtils.join(";", values, 0, values.length));
-    
+
     values = new boolean[]{true};
     assertEquals("true", StringUtils.join(";", values));
     assertEquals("true", StringUtils.join(";", values, 0, values.length));
-    
+
     values = new boolean[]{true, false, true};
     assertEquals("true;false;true", StringUtils.join(";", values));
-    assertEquals("true;false;true", StringUtils.join(";", values, 0, values.length));  
+    assertEquals("true;false;true", StringUtils.join(";", values, 0, values.length));
   }
-  
+
   @Test
   public void testJoin_string_char() {
     char[] values = null;
     assertEquals(null, StringUtils.join(';', values));
-    
+
     values = new char[]{};
     assertEquals("", StringUtils.join(";", values));
     assertEquals("", StringUtils.join(";", values, 0, values.length));
     assertEquals("", StringUtils.join(";", values, -1, -1));
     assertEquals("", StringUtils.join(";", values, -1, 20));
- 
+
     values = new char[]{'a'};
     assertEquals("a", StringUtils.join(";", values));
     assertEquals("a", StringUtils.join(";", values, 0, values.length));
     assertEquals("", StringUtils.join(";", values, -1, -1));
     assertEquals("a", StringUtils.join(";", values, -1, 20));
-    
+
     values = new char[]{'a', 'b', 'c'};
     assertEquals("a;b;c", StringUtils.join(";", values));
     assertEquals("a;b;c", StringUtils.join(";", values, 0, values.length));
     assertEquals("", StringUtils.join(";", values, -1, -1));
     assertEquals("a;b;c", StringUtils.join(";", values, -1, 20));
   }
-  
+
   @Test
   public void testJoin_string_byte() {
     byte[] values = null;
     assertEquals(null, StringUtils.join(";", values));
-    
+
     values = new byte[]{};
     assertEquals("", StringUtils.join(";", values));
     assertEquals("", StringUtils.join(";", values, 0, values.length));
     assertEquals("", StringUtils.join(";", values, -1, -1));
     assertEquals("", StringUtils.join(";", values, -1, 20));
-    
+
     values = new byte[]{(byte)2};
     assertEquals("2", StringUtils.join(";", values));
     assertEquals("2", StringUtils.join(";", values, 0, values.length));
     assertEquals("", StringUtils.join(";", values, -1, -1));
     assertEquals("2", StringUtils.join(";", values, -1, 20));
-    
+
     values = new byte[]{(byte)20, (byte)10, (byte)2};
     assertEquals("20;10;2", StringUtils.join(";", values));
     assertEquals("20;10;2", StringUtils.join(";", values, 0, values.length));
     assertEquals("", StringUtils.join(";", values, -1, -1));
     assertEquals("20;10;2", StringUtils.join(";", values, -1, 20));
   }
-  
+
   @Test
   public void testJoin_string_double() {
     double[] values = null;
     assertEquals(null, StringUtils.join(";", values));
-    
+
     values = new double[]{};
     assertEquals("", StringUtils.join(";", values));
     assertEquals("", StringUtils.join(";", values, 0, values.length));
     assertEquals("", StringUtils.join(";", values, -1, -1));
     assertEquals("", StringUtils.join(";", values, -1, 20));
-    
+
     values = new double[]{(double)2};
     assertEquals("2.0", StringUtils.join(";", values));
     assertEquals("2.0", StringUtils.join(";", values, 0, values.length));
     assertEquals("", StringUtils.join(";", values, -1, -1));
     assertEquals("2.0", StringUtils.join(";", values, -1, 20));
-    
+
     values = new double[]{(double)20, (double)10, (double)2};
     assertEquals("20.0;10.0;2.0", StringUtils.join(";", values));
     assertEquals("20.0;10.0;2.0", StringUtils.join(";", values, 0, values.length));
     assertEquals("", StringUtils.join(";", values, -1, -1));
     assertEquals("20.0;10.0;2.0", StringUtils.join(";", values, -1, 20));
   }
-  
+
   @Test
   public void testJoin_string_float() {
     float[] values = null;
     assertEquals(null, StringUtils.join(";", values));
-    
+
     values = new float[]{};
     assertEquals("", StringUtils.join(";", values));
     assertEquals("", StringUtils.join(";", values, 0, values.length));
     assertEquals("", StringUtils.join(";", values, -1, -1));
     assertEquals("", StringUtils.join(";", values, -1, 20));
-    
+
     values = new float[]{(float)2};
     assertEquals("2.0", StringUtils.join(";", values));
     assertEquals("2.0", StringUtils.join(";", values, 0, values.length));
     assertEquals("", StringUtils.join(";", values, -1, -1));
     assertEquals("2.0", StringUtils.join(";", values, -1, 20));
-    
+
     values = new float[]{(float)20, (float)10, (float)2};
     assertEquals("20.0;10.0;2.0", StringUtils.join(";", values));
     assertEquals("20.0;10.0;2.0", StringUtils.join(";", values, 0, values.length));
     assertEquals("", StringUtils.join(";", values, -1, -1));
     assertEquals("20.0;10.0;2.0", StringUtils.join(";", values, -1, 20));
   }
-  
+
   @Test
   public void testJoin_string_int() {
     int[] values = null;
     assertEquals(null, StringUtils.join(";", values));
-    
+
     values = new int[]{};
     assertEquals("", StringUtils.join(";", values));
     assertEquals("", StringUtils.join(";", values, 0, values.length));
     assertEquals("", StringUtils.join(";", values, -1, -1));
     assertEquals("", StringUtils.join(";", values, -1, 20));
-    
+
     values = new int[]{2};
     assertEquals("2", StringUtils.join(";", values));
     assertEquals("2", StringUtils.join(";", values, 0, values.length));
     assertEquals("", StringUtils.join(";", values, -1, -1));
     assertEquals("2", StringUtils.join(";", values, -1, 20));
-    
+
     values = new int[]{20, 10, 2};
     assertEquals("20;10;2", StringUtils.join(";", values));
     assertEquals("20;10;2", StringUtils.join(";", values, 0, values.length));
     assertEquals("", StringUtils.join(";", values, -1, -1));
     assertEquals("20;10;2", StringUtils.join(";", values, -1, 20));
   }
-  
+
   @Test
   public void testJoin_string_long() {
     long[] values = null;
     assertEquals(null, StringUtils.join(";", values));
-    
+
     values = new long[]{};
     assertEquals("", StringUtils.join(";", values));
     assertEquals("", StringUtils.join(";", values, 0, values.length));
     assertEquals("", StringUtils.join(";", values, -1, -1));
     assertEquals("", StringUtils.join(";", values, -1, 20));
-    
+
     values = new long[]{(long)2};
     assertEquals("2", StringUtils.join(";", values));
     assertEquals("2", StringUtils.join(";", values, 0, values.length));
     assertEquals("", StringUtils.join(";", values, -1, -1));
     assertEquals("2", StringUtils.join(";", values, -1, 20));
-    
+
     values = new long[]{(long)20, (long)10, (long)2};
     assertEquals("20;10;2", StringUtils.join(";", values));
     assertEquals("20;10;2", StringUtils.join(";", values, 0, values.length));
     assertEquals("", StringUtils.join(";", values, -1, -1));
     assertEquals("20;10;2", StringUtils.join(";", values, -1, 20));
   }
-  
+
   @Test
   public void testJoin_string_short() {
     short[] values = null;
     assertEquals(null, StringUtils.join(";", values));
-    
+
     values = new short[]{};
     assertEquals("", StringUtils.join(";", values));
     assertEquals("", StringUtils.join(";", values, 0, values.length));
     assertEquals("", StringUtils.join(";", values, -1, -1));
     assertEquals("", StringUtils.join(";", values, -1, 20));
-    
+
     values = new short[]{(short)2};
     assertEquals("2", StringUtils.join(";", values));
     assertEquals("2", StringUtils.join(";", values, 0, values.length));
     assertEquals("", StringUtils.join(";", values, -1, -1));
     assertEquals("2", StringUtils.join(";", values, -1, 20));
-    
+
     values = new short[]{(short)20, (short)10, (short)2};
     assertEquals("20;10;2", StringUtils.join(";", values));
     assertEquals("20;10;2", StringUtils.join(";", values, 0, values.length));
     assertEquals("", StringUtils.join(";", values, -1, -1));
     assertEquals("20;10;2", StringUtils.join(";", values, -1, 20));
-  }  
+  }
 }

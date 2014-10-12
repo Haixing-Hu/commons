@@ -1,6 +1,5 @@
-/******************************************************************************
- *
- * Copyright (c) 2013  Haixing Hu
+/*
+ * Copyright (c) 2014  Haixing Hu
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,8 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- ******************************************************************************/
-package com.github.haixing_hu.lang;
+ */package com.github.haixing_hu.lang;
 
 import org.junit.Test;
 
@@ -193,7 +191,7 @@ public class StringUtilsIsTest {
     assertEquals(true, StringUtils.isAscii("=?iso-8859-1?Q?G=FClc=FC?="));
     assertEquals(false, StringUtils.isAscii("G\u00fclc\u00fc"));
   }
-  
+
   @Test
   public void testIsDigit() {
     assertEquals(false, StringUtils.isDigit(null));
@@ -229,7 +227,7 @@ public class StringUtilsIsTest {
     assertEquals(false, StringUtils.isDigitSpace("_"));
     assertEquals(false, StringUtils.isDigitSpace("hkHKHik*khbkuh"));
   }
-  
+
   @Test
   public void testIsNumber() {
     assertEquals(false, StringUtils.isNumber(null));
