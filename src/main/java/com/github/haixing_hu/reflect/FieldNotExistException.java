@@ -25,10 +25,18 @@ public class FieldNotExistException extends ReflectionException {
 
   private static final long serialVersionUID = 5409166838535034334L;
 
-  public FieldNotExistException(Class<?> cls, int options, String name) {
+  public FieldNotExistException(final Class<?> cls, final int options,
+      final String name) {
     super("There is no "
         + Option.toString(options)
         + " field named with '"
+        + name
+        + "' for the class "
+        + cls.getName());
+  }
+
+  public FieldNotExistException(final Class<?> cls, final String name) {
+    super("There is no field named with '"
         + name
         + "' for the class "
         + cls.getName());

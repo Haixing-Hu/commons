@@ -23,6 +23,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintStream;
 import java.io.Reader;
+import java.io.StringReader;
 import java.io.StringWriter;
 import java.io.Writer;
 import java.net.MalformedURLException;
@@ -689,6 +690,28 @@ public class XmlUtils {
       }
       return out.toString();
     }
+  }
+
+  /**
+   * Formats the string representation of an XML document.
+   * <p>
+   * If any error occurs, the function will returns the string representation
+   * of the exception.
+   *
+   * @param xml
+   *    the string representation of an XML document.
+   * @return
+   *    the formated string representation of the XML document.
+   */
+  public static String formatXml(final String xml) {
+    final StringReader reader = new StringReader(xml);
+    Document doc = null;
+    try {
+      doc = parse(reader);
+    } catch (final XmlException e) {
+      return e.toString();
+    }
+    return toString(doc);
   }
 
   /**

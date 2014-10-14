@@ -41,12 +41,14 @@ import static com.github.haixing_hu.lang.Argument.requireNonNull;
 @ThreadSafe
 public final class PropertyUtils {
 
-  private static final Logger LOGGER = LoggerFactory
-      .getLogger(PropertyUtils.class);
+  private static final Logger LOGGER =
+      LoggerFactory.getLogger(PropertyUtils.class);
 
-  private static final Map<Class<?>, PropertyDescriptor[]> descriptorCache = new ConcurrentHashMap<Class<?>, PropertyDescriptor[]>();
+  private static final Map<Class<?>, PropertyDescriptor[]> descriptorCache =
+      new ConcurrentHashMap<Class<?>, PropertyDescriptor[]>();
 
-  private static final PropertyDescriptor[] EMPTY_PROPERTY_DESCRIPTORS = new PropertyDescriptor[0];
+  private static final PropertyDescriptor[] EMPTY_PROPERTY_DESCRIPTORS =
+      new PropertyDescriptor[0];
 
   /**
    * Retrieve the property descriptors for the specified class, introspecting
@@ -61,7 +63,7 @@ public final class PropertyUtils {
    * @exception NullPointerException
    *              if {@code beanClass} is null
    */
-  public static PropertyDescriptor[] getPropertyDescriptors(final Class<?> cls) {
+  public static PropertyDescriptor[] getDescriptors(final Class<?> cls) {
     requireNonNull("cls", cls);
     // Look up any cached descriptors for this bean class
     PropertyDescriptor[] descriptors = null;
@@ -105,11 +107,11 @@ public final class PropertyUtils {
    * @exception NullPointerException
    *              if {@code bean} or {@code name} is null.
    */
-  public static PropertyDescriptor getPropertyDescriptor(final Class<?> cls,
+  public static PropertyDescriptor getDescriptor(final Class<?> cls,
       final String name) {
     requireNonNull("cls", cls);
     requireNonNull("name", name);
-    final PropertyDescriptor[] descriptors = getPropertyDescriptors(cls);
+    final PropertyDescriptor[] descriptors = getDescriptors(cls);
     if (descriptors != null) {
       for (final PropertyDescriptor descriptor : descriptors) {
         if (name.equals(descriptor.getName())) {
@@ -177,10 +179,8 @@ public final class PropertyUtils {
   public static Object getSimpleProperty(final Object bean, final String name)
       throws IllegalAccessException, InvocationTargetException,
       NoSuchMethodException {
-    requireNonNull("bean", bean);
-    requireNonNull("name", name);
     final Class<?> beanClass = bean.getClass();
-    final PropertyDescriptor descriptor = getPropertyDescriptor(beanClass, name);
+    final PropertyDescriptor descriptor = getDescriptor(beanClass, name);
     if (descriptor == null) {
       throw new NoSuchMethodException("Unknown property '" + name
           + "' in the bean class '" + beanClass.getName() + "'");
@@ -221,10 +221,10 @@ public final class PropertyUtils {
    * @exception NoSuchMethodException
    *              if an accessor method for this propety cannot be found
    */
-  public Class<?> getPropertyType(final Class<?> beanClass, final String name)
-      throws IllegalAccessException, InvocationTargetException,
-      NoSuchMethodException {
-    final PropertyDescriptor descriptor = getPropertyDescriptor(beanClass, name);
+  public static Class<?> getPropertyType(final Class<?> beanClass,
+      final String name) throws IllegalAccessException,
+      InvocationTargetException, NoSuchMethodException {
+    final PropertyDescriptor descriptor = getDescriptor(beanClass, name);
     if (descriptor == null) {
       return (null);
     } else if (descriptor instanceof IndexedPropertyDescriptor) {
@@ -255,14 +255,12 @@ public final class PropertyUtils {
    * @exception NoSuchMethodException
    *              if an accessor method for this propety cannot be found
    */
-  public void setSimpleProperty(final Object bean, final String name,
+  public static void setSimpleProperty(final Object bean, final String name,
       final Object value) throws IllegalAccessException,
       InvocationTargetException, NoSuchMethodException {
-    requireNonNull("bean", bean);
-    requireNonNull("name", name);
     // Retrieve the property setter method for the specified property
     final Class<?> beanClass = bean.getClass();
-    final PropertyDescriptor descriptor = getPropertyDescriptor(beanClass, name);
+    final PropertyDescriptor descriptor = getDescriptor(beanClass, name);
     if (descriptor == null) {
       throw new NoSuchMethodException("Unknown property '" + name
           + "' on class '" + beanClass + "'");

@@ -96,7 +96,7 @@ public class PropertyUtilTest {
   public void testGetPropertyDescriptors() {
 
     try {
-      PropertyUtils.getPropertyDescriptors(null);
+      PropertyUtils.getDescriptors(null);
       fail("Should throw IllegalArgumentException");
     } catch (NullPointerException e) {
       // Expected response
@@ -105,7 +105,7 @@ public class PropertyUtilTest {
     }
 
     PropertyDescriptor pd[] =
-      PropertyUtils.getPropertyDescriptors(bean.getClass());
+      PropertyUtils.getDescriptors(bean.getClass());
     assertNotNull("Got descriptors", pd);
 
     int count[] = new int[Bean.PROPERTIES.length];

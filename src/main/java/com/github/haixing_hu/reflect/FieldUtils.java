@@ -44,7 +44,7 @@ public class FieldUtils {
   private final static Map<Class<?>, List<MemberInfo>> fieldCache =
       new HashMap<Class<?>, List<MemberInfo>>();
 
-  private static void buildFieldCache(Class<?> cls) {
+  private static void buildFieldCache(final Class<?> cls) {
     if (fieldCache.containsKey(cls)) {
       return;
     }
@@ -72,7 +72,7 @@ public class FieldUtils {
     fieldCache.put(cls, fields);
   }
 
-  private static List<MemberInfo> getAllFields(Class<?> cls) {
+  private static List<MemberInfo> getAllFields(final Class<?> cls) {
     requireNonNull("cls", cls);
     synchronized (fieldCache) {
       buildFieldCache(cls);
@@ -94,7 +94,7 @@ public class FieldUtils {
    * @throws ReflectionException
    *           if any error occurred.
    */
-  public static Field[] getAllFields(Class<?> cls, int options)
+  public static Field[] getAllFields(final Class<?> cls, final int options)
       throws ReflectionException {
     final List<MemberInfo> members = getAllFields(cls);
     final List<Field> result = new ArrayList<Field>();
@@ -128,7 +128,7 @@ public class FieldUtils {
    * @throws ReflectionException
    *           if any error occurred.
    */
-  public static Field getField(Class<?> cls, int options, String name)
+  public static Field getField(final Class<?> cls, final int options, final String name)
       throws ReflectionException {
     requireNonNull("name", name);
     final List<MemberInfo> members = getAllFields(cls);
@@ -150,6 +150,9 @@ public class FieldUtils {
     }
     if (ambiguous) {
       throw new AmbiguousMemberException(cls, name);
+    }
+    if (result == null) {
+      return null;
     }
     return (Field) result.member;
   }
@@ -181,8 +184,8 @@ public class FieldUtils {
    * @throws ReflectionException
    *           if any error occurred.
    */
-  public static Object readField(Class<?> cls, int options, String name,
-      @Nullable Object object) throws ReflectionException {
+  public static Object readField(final Class<?> cls, final int options, final String name,
+      @Nullable final Object object) throws ReflectionException {
     final Field field = getField(cls, options, name);
     if (field == null) {
       throw new FieldNotExistException(cls, options, name);
@@ -224,8 +227,8 @@ public class FieldUtils {
    * @throws ReflectionException
    *           if any error occurred.
    */
-  public static void writeField(Class<?> cls, int options, String name,
-      Object object, Object value) throws ReflectionException {
+  public static void writeField(final Class<?> cls, final int options, final String name,
+      final Object object, final Object value) throws ReflectionException {
     requireNonNull("object", object);
     final Field field = getField(cls, options, name);
     if (field == null) {
