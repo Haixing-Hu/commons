@@ -8,8 +8,8 @@
 		<version>1.0.0</version>
 	</parent>
 
-	<artifactId>java-commons</artifactId>
-	<version>${java-commons.version}</version>
+	<artifactId>commons</artifactId>
+	<version>${commons.version}</version>
 	<packaging>jar</packaging>
 	<name>Common Modules for Java Projects</name>
 
