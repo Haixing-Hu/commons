@@ -2,21 +2,240 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<parent>
-		<groupId>com.github.haixing_hu</groupId>
-		<artifactId>pom-root</artifactId>
-		<version>1.0.0</version>
-	</parent>
-
+  <groupId>com.github.haixing-hu</groupId>
 	<artifactId>commons</artifactId>
-	<version>${commons.version}</version>
+	<version>1.3.2</version>
 	<packaging>jar</packaging>
-	<name>Common Modules for Java Projects</name>
+	<name>Common Utilities for Java Projects</name>
+
+  <organization>
+    <name>Haixing Hu</name>
+    <url>https://github.com/Haixing-Hu/</url>
+  </organization>
+
+  <properties>
+    <!-- General configuration constants -->
+    <jdk.version>1.8</jdk.version>
+    <jdk.javadoc.link>http://download.oracle.com/javase/8/docs/api/</jdk.javadoc.link>
+    <project.encoding>UTF-8</project.encoding>
+    <project.url>https://github.com/Haixing-Hu</project.url>
+
+    <!-- Version numbers of the maven plugins -->
+    <maven-compiler-plugin.version>2.3.2</maven-compiler-plugin.version>
+    <maven-javadoc-plugin.version>2.7</maven-javadoc-plugin.version>
+    <maven-source-plugin.version>2.1.2</maven-source-plugin.version>
+    <maven-dependency-plugin.version>2.1</maven-dependency-plugin.version>
+    <maven-assembly-plugin.version>2.2.1</maven-assembly-plugin.version>
+    <maven-resources-plugin.version>2.4.3</maven-resources-plugin.version>
+    <maven-surefire-plugin.version>2.17</maven-surefire-plugin.version>
+    <maven-failsafe-plugin.version>2.17</maven-failsafe-plugin.version>
+    <maven-surefire-report-plugin.version>2.17</maven-surefire-report-plugin.version>
+    <maven-project-info-reports-plugin.version>2.7</maven-project-info-reports-plugin.version>
+    <findbugs-maven-plugin.version>3.0.0</findbugs-maven-plugin.version>
+    <maven-checkstyle-plugin.version>2.13</maven-checkstyle-plugin.version>
+    <jacoco-maven-plugin.version>0.7.2.201409121644</jacoco-maven-plugin.version>
+    <dashboard-maven-plugin.version>1.0.0-beta-1</dashboard-maven-plugin.version>
+
+    <!-- Version numbers for the logging utilities -->
+    <slf4j.version>[1.7.7,2.0.0)</slf4j.version>
+    <logback.version>[1.0.7,2.0.0)</logback.version>
+
+    <!-- Version numbers of the 3rd part components -->
+    <junit.version>[4.11,5.0)</junit.version>
+    <xmlunit.version>[1.5,2.0)</xmlunit.version>
+    <jsr305.version>[3.0.0, 4.0.0)</jsr305.version>
+
+    <guava.collections.version>r03</guava.collections.version>
+  </properties>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${maven-compiler-plugin.version}</version>
+        <configuration>
+          <source>${jdk.version}</source>
+          <target>${jdk.version}</target>
+          <encoding>${project.encoding}</encoding>
+          <optimize>true</optimize>
+          <showDeprecations>true</showDeprecations>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>${maven-javadoc-plugin.version}</version>
+        <configuration>
+          <charset>${project.encoding}</charset>
+          <docencoding>${project.encoding}</docencoding>
+          <!-- reduce console output. Can override with -Dquiet=false -->
+          <quiet>true</quiet>
+          <source>${jdk.version}</source>
+          <links>
+            <link>${jdk.javadoc.link}</link>
+          </links>
+          <executions>
+            <execution>
+              <id>attach-javadoc</id>
+              <goals>
+                <goal>jar</goal>
+              </goals>
+            </execution>
+          </executions>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <version>${maven-source-plugin.version}</version>
+        <executions>
+          <execution>
+            <id>attach-sources</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>jar-no-fork</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>${maven-resources-plugin.version}</version>
+        <configuration>
+          <encoding>${project.encoding}</encoding>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <version>${jacoco-maven-plugin.version}</version>
+          <configuration>
+            <outputEncoding>${project.encoding}</outputEncoding>
+            <sourceEncoding>${project.encoding}</sourceEncoding>
+          </configuration>
+          <executions>
+            <!-- Prepares the property pointing to the JaCoCo runtime agent which
+              is passed as VM argument when Maven the Surefire plugin is executed. -->
+            <execution>
+              <id>pre-unit-test</id>
+              <phase>initialize</phase>
+              <goals>
+                <goal>prepare-agent</goal>
+              </goals>
+              <configuration>
+                <!-- Sets the path to the file which contains the execution data. -->
+                <destFile>${project.build.directory}/coverage-reports/jacoco-ut.exec</destFile>
+                <!-- Sets the name of the property containing the settings for JaCoCo
+                  runtime agent. -->
+                <propertyName>surefireArgLine</propertyName>
+              </configuration>
+            </execution>
+            <!-- Ensures that the code coverage report for unit tests is created
+              after unit tests have been run. -->
+            <execution>
+              <id>post-unit-test</id>
+              <phase>test</phase>
+              <goals>
+                <goal>report</goal>
+              </goals>
+              <configuration>
+                <!-- Sets the path to the file which contains the execution data. -->
+                <dataFile>${project.build.directory}/coverage-reports/jacoco-ut.exec</dataFile>
+                <!-- Sets the output directory for the code coverage report. -->
+                <outputDirectory>${project.reporting.outputDirectory}/jacoco-ut</outputDirectory>
+              </configuration>
+            </execution>
+            <execution>
+              <id>pre-integration-test</id>
+              <phase>pre-integration-test</phase>
+              <goals>
+                <goal>prepare-agent-integration</goal>
+              </goals>
+              <configuration>
+                <!-- Sets the path to the file which contains the execution data. -->
+                <destFile>${project.build.directory}/coverage-reports/jacoco-it.exec</destFile>
+                <!-- Sets the name of the property containing the settings for JaCoCo
+                  runtime agent. -->
+                <propertyName>failsafeArgLine</propertyName>
+              </configuration>
+            </execution>
+            <execution>
+              <id>post-integration-test</id>
+              <phase>post-integration-test</phase>
+              <goals>
+                <goal>report</goal>
+              </goals>
+              <configuration>
+                <!-- Sets the path to the file which contains the execution data. -->
+                <dataFile>${project.build.directory}/coverage-reports/jacoco-it.exec</dataFile>
+                <!-- Sets the output directory for the code coverage report. -->
+                <outputDirectory>${project.reporting.outputDirectory}/jacoco-it</outputDirectory>
+              </configuration>
+            </execution>
+          </executions>
+      </plugin>
+    </plugins>
+  </build>
 
 	<dependencies>
 		<dependency>
-			<groupId>com.google.collections</groupId>
-			<artifactId>google-collections</artifactId>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava-collections</artifactId>
+      <version>${guava.collections.version}</version>
+      <type>jar</type>
+      <scope>compile</scope>
 		</dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>${junit.version}</version>
+      <!-- The JUnit package is defined to be a compile time package, since the
+        java-commons project provides some utility functions for JUnit, and thus it cannot
+        pass the compiling until the JUnit is a compile time dependency. -->
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>xmlunit</groupId>
+      <artifactId>xmlunit</artifactId>
+      <version>${xmlunit.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>${slf4j.version}</version>
+      <type>jar</type>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.google.code.findbugs</groupId>
+      <artifactId>jsr305</artifactId>
+      <version>${jsr305.version}</version>
+      <type>jar</type>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>jcl-over-slf4j</artifactId>
+      <version>${slf4j.version}</version>
+      <type>jar</type>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>log4j-over-slf4j</artifactId>
+      <version>${slf4j.version}</version>
+      <type>jar</type>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+      <version>${logback.version}</version>
+      <type>jar</type>
+      <scope>runtime</scope>
+    </dependency>
 	</dependencies>
 </project>
