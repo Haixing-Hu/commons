@@ -4,7 +4,7 @@
 
   <groupId>com.github.haixing-hu</groupId>
 	<artifactId>java-commons</artifactId>
-	<version>1.3.2</version>
+	<version>1.3.3</version>
 	<packaging>jar</packaging>
 	<name>Common Utilities for Java Projects</name>
 
