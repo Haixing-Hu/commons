@@ -19,6 +19,8 @@ package com.github.haixing_hu.lang;
 import java.lang.reflect.Array;
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.sql.Time;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
@@ -54,6 +56,14 @@ public final class Assignment {
 
   public static Date clone(@Nullable final Date value) {
     return (value == null ? null : (Date) value.clone());
+  }
+
+  public static Time clone(@Nullable final Time value) {
+    return (value == null ? null : (Time) value.clone());
+  }
+
+  public static Timestamp clone(@Nullable final Timestamp value) {
+    return (value == null ? null : (Timestamp) value.clone());
   }
 
   public static char[] clone(@Nullable final char[] array) {
@@ -449,6 +459,34 @@ public final class Assignment {
     }
   }
 
+  public static Time[] deepClone(@Nullable final Time[] array) {
+    if (array == null) {
+      return null;
+    } else if (array.length == 0) {
+      return ArrayUtils.EMPTY_TIME_ARRAY;
+    } else {
+      final Time[] result = new Time[array.length];
+      for (int i = 0; i < array.length; ++i) {
+        result[i] = clone(array[i]);
+      }
+      return result;
+    }
+  }
+
+  public static Timestamp[] deepClone(@Nullable final Timestamp[] array) {
+    if (array == null) {
+      return null;
+    } else if (array.length == 0) {
+      return ArrayUtils.EMPTY_TIMESTAMP_ARRAY;
+    } else {
+      final Timestamp[] result = new Timestamp[array.length];
+      for (int i = 0; i < array.length; ++i) {
+        result[i] = clone(array[i]);
+      }
+      return result;
+    }
+  }
+
   public static byte[][] deepClone(@Nullable final byte[][] array) {
     if (array == null) {
       return null;
@@ -645,6 +683,31 @@ public final class Assignment {
       return (Date) right.clone();
     } else {
       left.setTime(right.getTime());
+      return left;
+    }
+  }
+
+  public static Time assign(@Nullable final Time left,
+      @Nullable final Time right) {
+    if (right == null) {
+      return null;
+    } else if (left == null) {
+      return (Time) right.clone();
+    } else {
+      left.setTime(right.getTime());
+      return left;
+    }
+  }
+
+  public static Timestamp assign(@Nullable final Timestamp left,
+      @Nullable final Timestamp right) {
+    if (right == null) {
+      return null;
+    } else if (left == null) {
+      return (Timestamp) right.clone();
+    } else {
+      left.setTime(right.getTime());
+      left.setNanos(right.getNanos());
       return left;
     }
   }
@@ -919,6 +982,36 @@ public final class Assignment {
     }
   }
 
+  public static Time[] assign(@Nullable Time[] left,
+      @Nullable final Time[] right) {
+    if (right == null) {
+      return null;
+    } else if (right.length == 0) {
+      return ArrayUtils.EMPTY_TIME_ARRAY;
+    } else {
+      if ((left == null) || (left.length != right.length)) {
+        left = new Time[right.length];
+      }
+      System.arraycopy(right, 0, left, 0, right.length);
+      return left;
+    }
+  }
+
+  public static Timestamp[] assign(@Nullable Timestamp[] left,
+      @Nullable final Timestamp[] right) {
+    if (right == null) {
+      return null;
+    } else if (right.length == 0) {
+      return ArrayUtils.EMPTY_TIMESTAMP_ARRAY;
+    } else {
+      if ((left == null) || (left.length != right.length)) {
+        left = new Timestamp[right.length];
+      }
+      System.arraycopy(right, 0, left, 0, right.length);
+      return left;
+    }
+  }
+
   public static byte[][] assign(@Nullable byte[][] left,
       @Nullable final byte[][] right) {
     if (right == null) {
@@ -1074,6 +1167,40 @@ public final class Assignment {
     } else {
       if ((left == null) || (left.length != right.length)) {
         left = new Date[right.length];
+      }
+      for (int i = 0; i < right.length; ++i) {
+        left[i] = assign(left[i], right[i]);
+      }
+      return left;
+    }
+  }
+
+  public static Time[] deepAssign(@Nullable Time[] left,
+      @Nullable final Time[] right) {
+    if (right == null) {
+      return null;
+    } else if (right.length == 0) {
+      return ArrayUtils.EMPTY_TIME_ARRAY;
+    } else {
+      if ((left == null) || (left.length != right.length)) {
+        left = new Time[right.length];
+      }
+      for (int i = 0; i < right.length; ++i) {
+        left[i] = assign(left[i], right[i]);
+      }
+      return left;
+    }
+  }
+
+  public static Timestamp[] deepAssign(@Nullable Timestamp[] left,
+      @Nullable final Timestamp[] right) {
+    if (right == null) {
+      return null;
+    } else if (right.length == 0) {
+      return ArrayUtils.EMPTY_TIMESTAMP_ARRAY;
+    } else {
+      if ((left == null) || (left.length != right.length)) {
+        left = new Timestamp[right.length];
       }
       for (int i = 0; i < right.length; ++i) {
         left[i] = assign(left[i], right[i]);

@@ -20,6 +20,8 @@ import java.io.Serializable;
 import java.lang.reflect.Array;
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.sql.Time;
+import java.sql.Timestamp;
 import java.util.AbstractList;
 import java.util.Collection;
 import java.util.Date;
@@ -163,6 +165,15 @@ public class ArrayUtils {
    */
   public static final Date[]       EMPTY_DATE_ARRAY            = new Date[0];
 
+  /**
+   * An empty immutable {@link Time} array.
+   */
+  public static final Time[]       EMPTY_TIME_ARRAY            = new Time[0];
+
+  /**
+   * An empty immutable {@link Timestamp} array.
+   */
+  public static final Timestamp[] EMPTY_TIMESTAMP_ARRAY        = new Timestamp[0];
 
   /**
    * The current value when an element is not found in a list or array:
@@ -4135,7 +4146,8 @@ public class ArrayUtils {
    */
   @SuppressWarnings("unchecked")
   public static <T> T[] remove(final T[] array, final int index) {
-    return (T[]) remove((Object) array, index);
+    final Object obj = array;
+    return (T[]) remove(obj, index);
   }
 
   /**

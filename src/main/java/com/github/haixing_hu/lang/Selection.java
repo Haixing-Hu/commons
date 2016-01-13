@@ -361,8 +361,7 @@ public final class Selection {
       return null;
     }
     char minValue = min.charValue();
-    for (int i = 0; i < array.length; ++i) {
-      final Character element = array[i];
+    for (final Character element : array) {
       if (element == null) {
         return null;
       } else {
@@ -528,8 +527,7 @@ public final class Selection {
       return null;
     }
     byte minValue = min.byteValue();
-    for (int i = 0; i < array.length; ++i) {
-      final Byte element = array[i];
+    for (final Byte element : array) {
       if (element == null) {
         return null;
       } else {
@@ -694,8 +692,7 @@ public final class Selection {
       return null;
     }
     short minValue = min.shortValue();
-    for (int i = 0; i < array.length; ++i) {
-      final Short element = array[i];
+    for (final Short element : array) {
       if (element == null) {
         return null;
       } else {
@@ -860,8 +857,7 @@ public final class Selection {
       return null;
     }
     int minValue = min.intValue();
-    for (int i = 0; i < array.length; ++i) {
-      final Integer element = array[i];
+    for (final Integer element : array) {
       if (element == null) {
         return null;
       } else {
@@ -1026,8 +1022,7 @@ public final class Selection {
       return null;
     }
     long minValue = min.longValue();
-    for (int i = 0; i < array.length; ++i) {
-      final Long element = array[i];
+    for (final Long element : array) {
       if (element == null) {
         return null;
       } else {
@@ -1199,8 +1194,7 @@ public final class Selection {
       return null;
     }
     float minValue = min.floatValue();
-    for (int i = 0; i < array.length; ++i) {
-      final Float element = array[i];
+    for (final Float element : array) {
       if (element == null) {
         return null;
       } else {
@@ -1373,8 +1367,7 @@ public final class Selection {
       return null;
     }
     double minValue = min.doubleValue();
-    for (int i = 0; i < array.length; ++i) {
-      final Double element = array[i];
+    for (final Double element : array) {
       if (element == null) {
         return null;
       } else {
@@ -1467,8 +1460,7 @@ public final class Selection {
     if (min == null) {
       return null;
     }
-    for (int i = 0; i < array.length; ++i) {
-      final String element = array[i];
+    for (final String element : array) {
       if (element == null) {
         return null;
       } else if (element.compareTo(min) < 0) {
@@ -1551,6 +1543,7 @@ public final class Selection {
    * @throws NullArgumentException
    *           if {@code array} is {@code null} or empty.
    */
+  @SafeVarargs
   public static <T> T min(T ... array) {
     if ((array == null) || (array.length == 0)) {
       throw new NullArgumentException();
@@ -1559,8 +1552,7 @@ public final class Selection {
     if (min == null) {
       return null;
     }
-    for (int i = 0; i < array.length; ++i) {
-      final T element = array[i];
+    for (final T element : array) {
       if (element == null) {
         return null;
       } else if (Comparison.compare(element, min) < 0) {
@@ -3237,6 +3229,7 @@ public final class Selection {
    * @throws NullArgumentException
    *           if {@code array} is {@code null} or empty.
    */
+  @SuppressWarnings("unchecked")
   public static <T> T max(T ... array) {
     if ((array == null) || (array.length == 0)) {
       throw new NullArgumentException();

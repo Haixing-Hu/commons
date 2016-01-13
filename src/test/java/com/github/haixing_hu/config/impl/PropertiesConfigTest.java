@@ -27,8 +27,10 @@ import static org.junit.Assert.assertEquals;
  */
 public class PropertiesConfigTest {
 
+  @SuppressWarnings("unused")
   private static final String PACKAGE_PATH = "com/github/haixing_hu/config/impl/";
 
+  @SuppressWarnings("unused")
   private static final String TEST_DATA = "properties-config.properties";
 
   @Test

@@ -18,6 +18,8 @@ package com.github.haixing_hu.lang;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.sql.Time;
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -38,7 +40,9 @@ import java.util.Map;
  * <li>{@code float}</li>
  * <li>{@code double}</li>
  * <li>{@link String}</li>
- * <li>{@link Date}</li>
+ * <li>{@link java.util.Date}</li>
+ * <li>{@link java.sql.Time}</li>
+ * <li>{@link java.sql.Timestamp}</li>
  * <li>{@code byte[]}</li>
  * <li>{@link Class}</li>
  * <li>{@link BigInteger}</li>
@@ -58,6 +62,8 @@ public enum Type {
   DOUBLE,
   STRING,
   DATE,
+  TIME,
+  TIMESTAMP,
   BYTE_ARRAY,
   CLASS,
   BIG_INTEGER,
@@ -76,6 +82,8 @@ public enum Type {
     CLASS_TYPE_MAP.put(Double.class, DOUBLE);
     CLASS_TYPE_MAP.put(String.class, STRING);
     CLASS_TYPE_MAP.put(Date.class, DATE);
+    CLASS_TYPE_MAP.put(Time.class, TIME);
+    CLASS_TYPE_MAP.put(Timestamp.class, TIMESTAMP);
     CLASS_TYPE_MAP.put(byte[].class, BYTE_ARRAY);
     CLASS_TYPE_MAP.put(Class.class, CLASS);
     CLASS_TYPE_MAP.put(BigInteger.class, BIG_INTEGER);
@@ -95,6 +103,8 @@ public enum Type {
     TYPE_CLASS_MAP.put(DOUBLE, Double.class);
     TYPE_CLASS_MAP.put(STRING, String.class);
     TYPE_CLASS_MAP.put(DATE, Date.class);
+    TYPE_CLASS_MAP.put(TIME, Time.class);
+    TYPE_CLASS_MAP.put(TIMESTAMP, Timestamp.class);
     TYPE_CLASS_MAP.put(BYTE_ARRAY, byte[].class);
     TYPE_CLASS_MAP.put(CLASS, Class.class);
     TYPE_CLASS_MAP.put(BIG_INTEGER, BigInteger.class);
