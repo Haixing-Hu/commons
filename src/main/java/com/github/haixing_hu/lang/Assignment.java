@@ -69,18 +69,6 @@ public final class Assignment {
     return (value == null ? null : (Timestamp) value.clone());
   }
 
-  public static LocalDate clone(@Nullable final LocalDate value) {
-    return value;
-  }
-
-  public static LocalTime clone(@Nullable final LocalTime value) {
-    return value;
-  }
-
-  public static LocalDateTime clone(@Nullable final LocalDateTime value) {
-    return value;
-  }
-
   public static char[] clone(@Nullable final char[] array) {
     if (array == null) {
       return null;
@@ -557,18 +545,6 @@ public final class Assignment {
       }
       return result;
     }
-  }
-
-  public static LocalDate[] deepClone(@Nullable final LocalDate[] array) {
-    return clone(array);
-  }
-
-  public static LocalTime[] deepClone(@Nullable final LocalTime[] array) {
-    return clone(array);
-  }
-
-  public static LocalDateTime[] deepClone(@Nullable final LocalDateTime[] array) {
-    return clone(array);
   }
 
   public static byte[][] deepClone(@Nullable final byte[][] array) {
