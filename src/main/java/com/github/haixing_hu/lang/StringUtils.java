@@ -8916,10 +8916,16 @@ public class StringUtils {
       return defaultValue;
     }
     final DateFormat df = new DateFormat();
-    final Date value = df.parse(str);
+    Date value = df.parse(str);
     if (df.success()) {
       return value;
     } else {
+      // try to parse without timezone
+      df.setPattern(DateUtils.DEFAULT_LOCAL_DATETIME_PATTERN);
+      value = df.parse(str);
+      if (df.success()) {
+        return value;
+      }
       return defaultValue;
     }
   }

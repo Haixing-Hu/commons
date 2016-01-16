@@ -23,7 +23,7 @@ public class StringUtilsTypeTest {
     assertEquals(null, truncateUtf16(null, 10));
     assertEquals("\\uabcd", truncateUtf16("\\uabcd", 10));
     assertEquals("abcdefghijk", truncateUtf16("abcdefghijk\\uabcd", 11));
-    
+
     try {
       truncateUtf16("hello", -10);
       fail("should throw");
@@ -41,20 +41,20 @@ public class StringUtilsTypeTest {
     assertEquals("hello", truncateUtf8("hello我", 6));
   }
 
-  
+
   @Test
   public void testToCharArrayString_String_StringBuilder() {
     StringBuilder builderin = new StringBuilder();
     String str = new String();
     String strout = new String();
-    
+
     Object[][] Cases = {
         {"0", "[\\u0030]"},
         {"0x00", "[\\u0030,\\u0078,\\u0030,\\u0030]"},
         {"0xAA", "[\\u0030,\\u0078,\\u0041,\\u0041]"},
         {"0xFF", "[\\u0030,\\u0078,\\u0046,\\u0046]"}
     };
-    
+
     for (Object[] ele : Cases) {
       builderin.setLength(0);
       str = (String) ele[0];
@@ -63,20 +63,20 @@ public class StringUtilsTypeTest {
       assertEquals(strout, builderin.toString());
     }
   }
-  
+
 
   @Test
   public void testToCharArrayString_String() {
     String str = new String();
     String strout = new String();
-    
+
     Object[][] Cases = {
         {"0", "[\\u0030]"},
         {"0x00", "[\\u0030,\\u0078,\\u0030,\\u0030]"},
         {"0xAA", "[\\u0030,\\u0078,\\u0041,\\u0041]"},
         {"0xFF", "[\\u0030,\\u0078,\\u0046,\\u0046]"}
     };
-    
+
     for (Object[] ele : Cases) {
       str = (String) ele[0];
       strout = (String) ele[1];
@@ -88,7 +88,7 @@ public class StringUtilsTypeTest {
   public void testToBoolean_String() {
     String str = new String();
     boolean booleanout;
-    
+
     Object[][] Cases = {
         {null, false},
         {"true", true},
@@ -98,7 +98,7 @@ public class StringUtilsTypeTest {
         {"abc", false},
         {"  abc", false}
     };
-    
+
     for (Object[] ele : Cases) {
       str = (String) ele[0];
       booleanout = (Boolean) ele[1];
@@ -111,7 +111,7 @@ public class StringUtilsTypeTest {
     String str = new String();
     boolean booleanin;
     boolean booleanout;
-    
+
     Object[][] Cases = {
         {null, true, true},
         {null, false, false},
@@ -126,7 +126,7 @@ public class StringUtilsTypeTest {
         {"abc", true, true},
         {"  abc", false, false}
     };
-    
+
     for (Object[] ele : Cases) {
       str = (String) ele[0];
       booleanin = (Boolean) ele[1];
@@ -139,7 +139,7 @@ public class StringUtilsTypeTest {
   public void testToBooleanObject_String() {
     String str = new String();
     Boolean booleanout = null;
-    
+
     Object[][] Cases = {
         {null, null},
         {"true", true},
@@ -149,7 +149,7 @@ public class StringUtilsTypeTest {
         {"abc", null},
         {"  abc", null}
     };
-    
+
     for (Object[] ele : Cases) {
       str = (String) ele[0];
       booleanout = (Boolean) ele[1];
@@ -162,33 +162,33 @@ public class StringUtilsTypeTest {
     String str = new String();
     Boolean booleanin;
     Boolean booleanout;
-    
+
     Object[][] Cases = {
         {"true", true, true},
         {"true", false, true},
         {"true", null, true},
-        
+
         {"false", true, false},
         {"false", false, false},
         {"false", null, false},
-        
+
         {"  true", true, true},
         {"  true", false, true},
         {"  true", null, true},
-        
+
         {"false  ", true, false},
         {"false  ", false, false},
         {"false  ", null, false},
-        
+
         {"abc", true, true},
         {"  abc", false, false},
         {"abc", null, null},
-        
+
         {null, true, true},
         {null, false, false},
         {null, null, null}
     };
-    
+
     for (Object[] ele : Cases) {
       str = (String) ele[0];
       booleanin = (Boolean) ele[1];
@@ -201,13 +201,13 @@ public class StringUtilsTypeTest {
   public void testToChar_String() {
     String str = new String();
     char charout = (char) 0;
-    
+
     Object[][] Cases = {
         {null, (Character) (char) 0},
         {"", (Character) (char) 0},
         {"abc", (Character) 'a'}
     };
-    
+
     for (Object[] ele : Cases) {
       str = (String) ele[0];
       charout = (Character) ele[1];
@@ -220,7 +220,7 @@ public class StringUtilsTypeTest {
     String str = new String();
     char charin = (char) 0;
     char charout = (char) 0;
-    
+
     Object[][] Cases = {
         {null, (Character) (char) 0, (Character) (char) 0},
         {"", (Character) (char) 0, (Character) (char) 0},
@@ -229,7 +229,7 @@ public class StringUtilsTypeTest {
         {"abc", (Character) 'a', (Character) (char) 'a'},
         {"abc", (Character) 'f', (Character) (char) 'a'}
     };
-    
+
     for (Object[] ele : Cases) {
       str = (String) ele[0];
       charin = (Character) ele[1];
@@ -242,13 +242,13 @@ public class StringUtilsTypeTest {
   public void testToCharObject_String() {
     String str = new String();
     Character charout = (char) 0;
-    
+
     Object[][] Cases = {
         {null, null},
         {"", null},
         {"abc", (Character) (char) 'a'}
     };
-    
+
     for (Object[] ele : Cases) {
       str = (String) ele[0];
       charout = (Character) ele[1];
@@ -261,7 +261,7 @@ public class StringUtilsTypeTest {
     String str = new String();
     Character charin = (char) 0;
     Character charout = (char) 0;
-    
+
     Object[][] Cases = {
         {null, (Character) (char) 0, (Character) (char) 0},
         {null, (Character) 'a', (Character) 'a'},
@@ -273,7 +273,7 @@ public class StringUtilsTypeTest {
         {"abc", (Character) 'f', (Character) (char) 'a'},
         {"abc", null, (Character) (char) 'a'}
     };
-    
+
     for (Object[] ele : Cases) {
       str = (String) ele[0];
       charin = (Character) ele[1];
@@ -286,14 +286,14 @@ public class StringUtilsTypeTest {
   public void testToByte_String() {
     String str = new String();
     byte byteout = (byte) 0;
-    
+
     Object[][] Cases = {
         {null, (byte) 0},
         {"0", (byte) 0},
         {"abc", (byte) 0},
         {"123", (byte) 123}
     };
-    
+
     for (Object[] ele : Cases) {
       str = (String) ele[0];
       byteout = (Byte) ele[1];
@@ -306,7 +306,7 @@ public class StringUtilsTypeTest {
     String str = new String();
     byte bytein= (byte) 0;
     byte byteout = (byte) 0;
-    
+
     Object[][] Cases = {
         {null, (byte) 0, (byte) 0},
         {"0", (byte) 0, (byte) 0},
@@ -315,7 +315,7 @@ public class StringUtilsTypeTest {
         {"12f", (byte) 0, (byte) 12f},
         {"0x12", (byte) 0, (byte) 0x12}
     };
-    
+
     for (Object[] ele : Cases) {
       str = (String) ele[0];
       bytein = (Byte) ele[1];
@@ -328,7 +328,7 @@ public class StringUtilsTypeTest {
   public void testToByteObject_String() {
     String str = new String();
     Byte byteout = (byte) 0;
-    
+
     Object[][] Cases = {
         {null, null},
         {"0", (byte) 0},
@@ -337,7 +337,7 @@ public class StringUtilsTypeTest {
         {"12f", (byte) 12f},
         {"0x12", (byte) 0x12}
     };
-    
+
     for (Object[] ele : Cases) {
       str = (String) ele[0];
       byteout = (Byte) ele[1];
@@ -350,7 +350,7 @@ public class StringUtilsTypeTest {
     String str = new String();
     Byte bytein = (byte) 0;
     Byte byteout = (byte) 0;
-    
+
     Object[][] Cases = {
         {null, null, null},
         {null, (byte) 0, (byte) 0},
@@ -361,7 +361,7 @@ public class StringUtilsTypeTest {
         {"12f", (byte) 0, (byte) 12f},
         {"0x12", (byte) 0, (byte) 0x12}
     };
-    
+
     for (Object[] ele : Cases) {
       str = (String) ele[0];
       bytein = (Byte) ele[1];
@@ -374,7 +374,7 @@ public class StringUtilsTypeTest {
   public void testToShort_String() {
     String str = new String();
     short shortout = (short) 0;
-    
+
     Object[][] Cases = {
         {null, (short) 0},
         {"0",  (short) 0},
@@ -383,7 +383,7 @@ public class StringUtilsTypeTest {
         {"12f", (short) 12f},
         {"0x12", (short) 0x12}
     };
-    
+
     for (Object[] ele : Cases) {
       str = (String) ele[0];
       shortout = (Short) ele[1];
@@ -396,7 +396,7 @@ public class StringUtilsTypeTest {
     String str = new String();
     short shortin = (short) 0;
     short shortout = (short) 0;
-    
+
     Object[][] Cases = {
         {null, (short) 0, (short) 0},
         {"0", (short) 0, (short) 0},
@@ -405,7 +405,7 @@ public class StringUtilsTypeTest {
         {"12f", (short) 0, (short) 12f},
         {"0x12", (short) 0, (short) 0x12}
     };
-    
+
     for (Object[] ele : Cases) {
       str = (String) ele[0];
       shortin = (Short) ele[1];
@@ -418,7 +418,7 @@ public class StringUtilsTypeTest {
   public void testToShortObject_String() {
     String str = new String();
     Short shortout = (short) 0;
-    
+
     Object[][] Cases = {
         {null, null},
         {"0",  (short) 0},
@@ -427,7 +427,7 @@ public class StringUtilsTypeTest {
         {"12f", (short) 12f},
         {"0x12", (short) 0x12}
     };
-    
+
     for (Object[] ele : Cases) {
       str = (String) ele[0];
       shortout = (Short) ele[1];
@@ -440,7 +440,7 @@ public class StringUtilsTypeTest {
     String str = new String();
     Short shortin = (short) 0;
     Short shortout = (short) 0;
-    
+
     Object[][] Cases = {
         {null, null, null},
         {null, (short) 0, (short) 0},
@@ -451,7 +451,7 @@ public class StringUtilsTypeTest {
         {"12f", (short) 0, (short) 12f},
         {"0x12", (short) 0, (short) 0x12}
     };
-    
+
     for (Object[] ele : Cases) {
       str = (String) ele[0];
       shortin = (Short) ele[1];
@@ -464,7 +464,7 @@ public class StringUtilsTypeTest {
   public void testToInt_String() {
     String str = new String();
     int intout = 0;
-    
+
     Object[][] Cases = {
         {null, 0},
         {"0123", 83},
@@ -472,7 +472,7 @@ public class StringUtilsTypeTest {
         {"23f", (int) 23f},
         {"0x23", 0x23}
     };
-    
+
     for (Object[] ele : Cases) {
       str = (String) ele[0];
       intout = (Integer) ele[1];
@@ -485,7 +485,7 @@ public class StringUtilsTypeTest {
     String str = new String();
     int intin = 0;
     int intout = 0;
-    
+
     Object[][] Cases = {
         {null, 20, 20},
         {"abc", 20, 20},
@@ -493,7 +493,7 @@ public class StringUtilsTypeTest {
         {"23f", 23, (int) 23f},
         {"0x23", 34, 35}
     };
-    
+
     for (Object[] ele : Cases) {
       str = (String) ele[0];
       intin = (Integer) ele[1];
@@ -506,7 +506,7 @@ public class StringUtilsTypeTest {
   public void testToIntObject_String() {
     String str = new String();
     Integer intout = 0;
-    
+
     Object[][] Cases = {
         {null, null},
         {"0123", 83},
@@ -514,7 +514,7 @@ public class StringUtilsTypeTest {
         {"23f", (int) 23f},
         {"0x23", 0x23}
     };
-    
+
     for (Object[] ele : Cases) {
       str = (String) ele[0];
       intout = (Integer) ele[1];
@@ -527,7 +527,7 @@ public class StringUtilsTypeTest {
     String str = new String();
     Integer intin = 0;
     Integer intout = 0;
-    
+
     Object[][] Cases = {
         {null, 20, 20},
         {null, null, null},
@@ -537,7 +537,7 @@ public class StringUtilsTypeTest {
         {"23f", 23, (int) 23f},
         {"0x23", 34, 35}
     };
-    
+
     for (Object[] ele : Cases) {
       str = (String) ele[0];
       intin = (Integer) ele[1];
@@ -550,15 +550,15 @@ public class StringUtilsTypeTest {
   public void testToLong_String() {
     String str = new String();
     long longout = (long) 0;
-    
+
     Object[][] Cases = {
         {null, (long) 0},
         {"12", (long) 12},
         {"abc", (long) 0},
         {"23f", (long) 23f},
-        {"0x23", (long) 35} 
+        {"0x23", (long) 35}
     };
-    
+
     for (Object[] ele : Cases) {
       str = (String) ele[0];
       longout = (Long) ele[1];
@@ -571,15 +571,15 @@ public class StringUtilsTypeTest {
     String str = new String();
     long longin = (long) 0;
     long longout = (long) 0;
-    
+
     Object[][] Cases = {
         {null, (long) 20, (long) 20},
         {"12", (long) 20, (long) 12},
         {"abc", (long) 0, (long) 0},
         {"23f", (long) 3, (long) 23f},
-        {"0x23", (long) 3, (long) 35} 
+        {"0x23", (long) 3, (long) 35}
     };
-    
+
     for (Object[] ele : Cases) {
       str = (String) ele[0];
       longin = (Long) ele[1];
@@ -592,15 +592,15 @@ public class StringUtilsTypeTest {
   public void testToLongObject_String() {
     String str = new String();
     Long longout = (long) 0;
-    
+
     Object[][] Cases = {
         {null, null},
         {"12", (long) 12},
         {"abc", null},
         {"23f", (long) 23f},
-        {"0x23", (long) 35} 
+        {"0x23", (long) 35}
     };
-    
+
     for (Object[] ele : Cases) {
       str = (String) ele[0];
       longout = (Long) ele[1];
@@ -613,7 +613,7 @@ public class StringUtilsTypeTest {
     String str = new String();
     Long longin = (long) 0;
     Long longout = (long) 0;
-    
+
     Object[][] Cases = {
         {null, null, null},
         {null, (long) 20, (long) 20},
@@ -621,9 +621,9 @@ public class StringUtilsTypeTest {
         {"abc", null, null},
         {"abc", (long) 0, (long) 0},
         {"23f", (long) 3, (long) 23f},
-        {"0x23", (long) 3, (long) 35} 
+        {"0x23", (long) 3, (long) 35}
     };
-    
+
     for (Object[] ele : Cases) {
       str = (String) ele[0];
       longin = (Long) ele[1];
@@ -636,7 +636,7 @@ public class StringUtilsTypeTest {
   public void testToFloat_String() {
     String str = new String();
     float floatout = (float) 0;
-    
+
     Object[][] Cases = {
         {null, (float) 0},
         {"abc", (float) 0},
@@ -645,7 +645,7 @@ public class StringUtilsTypeTest {
         {"2.3f", 2.3f},
         {"3e-2", 0.03f}
     };
-    
+
     for (Object[] ele : Cases) {
       str = (String) ele[0];
       floatout = (Float) ele[1];
@@ -658,14 +658,14 @@ public class StringUtilsTypeTest {
     String str = new String();
     float floatin = (float) 0;
     float floatout = (float) 0;
-    
+
     Object[][] Cases = {
         {null, (float) 0, (float) 0},
         {"abc", (float) 0, (float) 0},
         {"123", (float) 20, (float) 123},
         {"23f", (float) 20, (float) 23f}
     };
-    
+
     for (Object[] ele : Cases) {
       str = (String) ele[0];
       floatin = (Float) ele[1];
@@ -678,14 +678,14 @@ public class StringUtilsTypeTest {
   public void testToFloatObject_String() {
     String str = new String();
     Float floatout = (float) 0;
-    
+
     Object[][] Cases = {
         {null, null},
         {"abc", null},
         {"23", (float) 23},
         {"23f", 23f}
     };
-    
+
     for (Object[] ele : Cases) {
       str = (String) ele[0];
       floatout = (Float) ele[1];
@@ -698,7 +698,7 @@ public class StringUtilsTypeTest {
     String str = new String();
     Float floatin = (float) 0;
     Float floatout = (float) 0;
-    
+
     Object[][] Cases = {
         {null, null, null},
         {null, (float) 0, (float) 0},
@@ -707,7 +707,7 @@ public class StringUtilsTypeTest {
         {"123", (float) 20, (float) 123},
         {"23f", (float) 20, (float) 23f}
     };
-    
+
     for (Object[] ele : Cases) {
       str = (String) ele[0];
       floatin = (Float) ele[1];
@@ -720,14 +720,14 @@ public class StringUtilsTypeTest {
   public void testToDouble_String() {
     String str = new String();
     double doubleout = (double) 0;
-    
+
     Object[][] Cases = {
         {null, (double) 0},
         {"abc", (double) 0},
         {"123", (double) 123},
         {"23f", (double) 23f}
     };
-    
+
     for (Object[] ele : Cases) {
       str = (String) ele[0];
       doubleout = (Double) ele[1];
@@ -740,14 +740,14 @@ public class StringUtilsTypeTest {
     String str = new String();
     double doublein = (double) 0;
     double doubleout = (double) 0;
-    
+
     Object[][] Cases = {
         {null, (double) 123, (double) 123},
         {"abc", (double) 123, (double) 123},
         {"123", (double) 23, (double) 123},
         {"23f", (double) 23, (double) 23f}
     };
-    
+
     for (Object[] ele : Cases) {
       str = (String) ele[0];
       doublein = (Double) ele[1];
@@ -760,14 +760,14 @@ public class StringUtilsTypeTest {
   public void testToDoubleObject_String() {
     String str = new String();
     Double doubleout = (double) 0;
-    
+
     Object[][] Cases = {
         {null, null},
         {"abc", null},
         {"123", (double) 123},
         {"23f", (double) 23f}
     };
-    
+
     for (Object[] ele : Cases) {
       str = (String) ele[0];
       doubleout = (Double) ele[1];
@@ -780,7 +780,7 @@ public class StringUtilsTypeTest {
     String str = new String();
     Double doublein = (double) 0;
     Double doubleout = (double) 0;
-    
+
     Object[][] Cases = {
         {null, null, null},
         {null, (double) 23, (double) 23},
@@ -789,7 +789,7 @@ public class StringUtilsTypeTest {
         {"123", (double) 23, (double) 123},
         {"123f", (double) 23, (double) 123f}
     };
-    
+
     for (Object[] ele : Cases) {
       str = (String) ele[0];
       doublein = (Double) ele[1];
@@ -802,19 +802,19 @@ public class StringUtilsTypeTest {
   public void testToDate_String() {
     String str = new String();
     Date dateout = new Date();
-    
+
     str = null;
     dateout = null;
     assertEquals(dateout, toDate(str));
-    
+
     str = "";
     dateout = null;
     assertEquals(dateout, toDate(str));
-    
+
     str = "123";
     dateout = null;
     assertEquals(dateout, toDate(str));
-    
+
     GregorianCalendar cal = new GregorianCalendar();
     cal.setTimeInMillis(0);
     cal.set(2012, 0, 12, 0, 0, 0);
@@ -826,25 +826,33 @@ public class StringUtilsTypeTest {
   @Test
   public void testToDateStringDate() {
     String str = null;
-    Date datein = null;
-    
-    assertEquals(null, toDate(str, datein));
-    
+    Date defaultValue = null;
+
+    assertEquals(null, toDate(str, defaultValue));
+
     GregorianCalendar cal = new GregorianCalendar();
     cal.setTimeInMillis(0);
     cal.set(2012, 0, 12, 0, 0, 0);
-    Date dateout = cal.getTime();
-    assertEquals(dateout, toDate(str, dateout));
-    
+    Date expected = cal.getTime();
+    assertEquals(expected, toDate(str, expected));
+
     str = "2012-01-12 00:00:00";
-    assertEquals(dateout, toDate(str, datein));
+    assertEquals(expected, toDate(str, defaultValue));
+
+    cal.setTimeZone(DateUtils.UTC);
+    cal.setTimeInMillis(0);
+    cal.set(2012, 0, 12, 0, 0, 0);
+    expected = cal.getTime();
+    str = "2012-01-12 00:00:00 UTC";
+    assertEquals(expected, toDate(str, defaultValue));
+
   }
 
   @Test
   public void testToClass_String() {
     assertEquals(null, toClass(null));
     assertEquals(null, toClass(""));
-    
+
     String str = new String();
     Class<?> classout = null;
     assertEquals(classout, toClass(str));
@@ -852,7 +860,7 @@ public class StringUtilsTypeTest {
     str = "Integer";
     classout = null;
     assertEquals(classout, toClass(str));
-    
+
     str = "java.lang.Integer";
     Integer x = (Integer) 2;
     classout = x.getClass();
@@ -864,16 +872,16 @@ public class StringUtilsTypeTest {
     String str = null;
     Class<?> classin = null;
     assertEquals(null, toClass(str, classin));
-    
+
     str = null;
     Integer x = (Integer) 2;
     classin = x.getClass();
     assertEquals(classin, toClass(str, classin));
-    
+
     str = "Integer";
     classin = null;
     assertEquals(null, toClass(str, classin));
-    
+
     str = "java.lang.Float";
     Float y = (Float) 0.2f;
     Class<?> classout = y.getClass();
@@ -884,19 +892,19 @@ public class StringUtilsTypeTest {
   public void testToByteArray_String() {
     assertArrayEquals(null, toByteArray(null));
     assertArrayEquals(null, toByteArray(""));
-    
+
     String str = "0x00AA";
     final byte[] xa = {(byte) 0x00, (byte) 0xAA};
     assertArrayEquals(xa, toByteArray(str));
-    
+
     str = "0x00FF";
     final byte[] xb = {(byte) 0x00, (byte) 0xFF};
     assertArrayEquals(xb, toByteArray(str));
-    
+
     str = "0xAAAA";
     final byte[] xc = {(byte) 0xAA, (byte) 0xAA};
     assertArrayEquals(xc, toByteArray(str));
-    
+
     str = "0xFFFF";
     final byte[] xd = {(byte) 0xFF, (byte) 0xFF};
     assertArrayEquals(xd, toByteArray(str));
@@ -906,27 +914,27 @@ public class StringUtilsTypeTest {
   public void testToByteArray_String_ByteArray() {
     assertArrayEquals(null, toByteArray(null, null));
     assertArrayEquals(null, toByteArray("", null));
-    
+
     byte[] bain = {(byte) 0xff};
     byte[] baout = {(byte) 0xff};
     assertArrayEquals(baout, toByteArray(null, bain));
     assertArrayEquals(baout, toByteArray("", bain));
-    
+
     String str = "0x00AA";
     final byte[] xa = {(byte) 0x00, (byte) 0xAA};
     final byte[] ya = {(byte) 0xff};
     assertArrayEquals(xa, toByteArray(str, ya));
-    
+
     str = "0x00FF";
     final byte[] xb = {(byte) 0x00, (byte) 0xFF};
     final byte[] yb = {(byte) 0xff};
     assertArrayEquals(xb, toByteArray(str, yb));
-    
+
     str = "0xAAAA";
     final byte[] xc = {(byte) 0xAA, (byte) 0xAA};
     final byte[] yc = {(byte) 0xff};
     assertArrayEquals(xc, toByteArray(str, yc));
-    
+
     str = "0xFFFF";
     final byte[] xd = {(byte) 0xFF, (byte) 0xFF};
     final byte[] yd = {(byte) 0xff};
@@ -937,15 +945,15 @@ public class StringUtilsTypeTest {
   public void testToBigInteger_String() {
     String str = new String();
     BigInteger biout;
-    
+
     str = null;
     biout = null;
     assertEquals(biout, toBigInteger(str));
-    
+
     str = "";
     biout = null;
     assertEquals(biout, toBigInteger(str));
-    
+
     str = "20";
     biout = BigInteger.valueOf((long)20);
     assertEquals(biout, toBigInteger(str));
@@ -956,32 +964,32 @@ public class StringUtilsTypeTest {
     String str = new String();
     BigInteger biin;
     BigInteger biout;
-    
+
     str = null;
     biin = null;
     biout = biin;
     assertEquals(biout, toBigInteger(str, biin));
-    
+
     str = "";
     biin = null;
     biout = biin;
     assertEquals(biout, toBigInteger(str, biin));
-    
+
     str = null;
     biin = BigInteger.valueOf((long) 20);
     biout = biin;
     assertEquals(biout, toBigInteger(str, biin));
-    
+
     str = "";
     biin = BigInteger.valueOf((long) 20);
     biout = biin;
     assertEquals(biout, toBigInteger(str, biin));
-    
+
     str = "20";
     biin = null;
     biout = BigInteger.valueOf((long) 20);
     assertEquals(biout, toBigInteger(str, biin));
-    
+
     str = "20";
     biin = BigInteger.valueOf((long) 10);
     biout = BigInteger.valueOf((long) 20);
@@ -992,15 +1000,15 @@ public class StringUtilsTypeTest {
   public void testToBigDecimal_String() {
     String str = new String();
     BigDecimal bdout;
-    
+
     str = null;
     bdout = null;
     assertEquals(bdout, toBigDecimal(str));
-    
+
     str = "";
     bdout = null;
     assertEquals(bdout, toBigDecimal(str));
-    
+
     str = "20";
     bdout = BigDecimal.valueOf((long) 20);
     assertEquals(bdout, toBigDecimal(str));
@@ -1011,32 +1019,32 @@ public class StringUtilsTypeTest {
     String str = new String();
     BigDecimal bdin;
     BigDecimal bdout;
-    
+
     str = null;
     bdin = null;
     bdout = null;
     assertEquals(bdout, toBigDecimal(str, bdin));
-    
+
     str = null;
     bdin = BigDecimal.valueOf((long) 20);
     bdout = bdin;
     assertEquals(bdout, toBigDecimal(str, bdin));
-    
+
     str = "";
     bdin = null;
     bdout = null;
     assertEquals(bdout, toBigDecimal(str, bdin));
-    
+
     str = "";
     bdin = BigDecimal.valueOf((long) 20);
     bdout = bdin;
     assertEquals(bdout, toBigDecimal(str, bdin));
-    
+
     str = "20";
     bdin = null;
     bdout = BigDecimal.valueOf((long) 20);
     assertEquals(bdout, toBigDecimal(str, bdin));
-    
+
     str = "20";
     bdin = BigDecimal.valueOf((long) 10);
     bdout = BigDecimal.valueOf((long) 20);

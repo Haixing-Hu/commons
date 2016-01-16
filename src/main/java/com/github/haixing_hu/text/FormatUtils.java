@@ -325,14 +325,14 @@ public final class FormatUtils {
 //
 //  public static String formatDate(final Date value, final FormatOptions options) {
 //    // FIXME:use a better format method, use the format options
-//    final SimpleDateFormat df = new SimpleDateFormat(DateUtils.DEFAULT_PATTERN);
+//    final SimpleDateFormat df = new SimpleDateFormat(DateUtils.DEFAULT_LOCAL_DATETIME_PATTERN);
 //    final String str = df.format(value);
 //    return str;
 //  }
 //
 //  public static String formatDate(final Date value) {
 //    // FIXME: use a better format method
-//    final SimpleDateFormat df = new SimpleDateFormat(DateUtils.DEFAULT_PATTERN);
+//    final SimpleDateFormat df = new SimpleDateFormat(DateUtils.DEFAULT_LOCAL_DATETIME_PATTERN);
 //    final String str = df.format(value);
 //    return str;
 //  }

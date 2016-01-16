@@ -42,7 +42,7 @@ public final class DateFormat {
   /**
    * The default date format pattern.
    */
-  public static final String DEFAULT_PATTERN = DateUtils.DEFAULT_PATTERN;
+  public static final String DEFAULT_PATTERN = DateUtils.DEFAULT_DATETIME_PATTERN;
 
   /**
    * The default locale of dates.

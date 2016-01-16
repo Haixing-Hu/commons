@@ -1380,7 +1380,7 @@ public final class TypeUtils {
       case STRING:
         return (String) value;
       case DATE:
-        return DateUtils.toString((Date) value, DateUtils.DEFAULT_PATTERN);
+        return DateUtils.toString((Date) value, DateUtils.DEFAULT_LOCAL_DATETIME_PATTERN);
       case BYTE_ARRAY:
         return ByteArrayUtils.toString((byte[]) value);
       case CLASS:
@@ -2582,7 +2582,7 @@ public final class TypeUtils {
         @SuppressWarnings("unchecked")
         final Collection<Date> values = (Collection<Date>) col;
         final Date value = values.iterator().next();
-        return DateUtils.toString(value, DateUtils.DEFAULT_PATTERN);
+        return DateUtils.toString(value, DateUtils.DEFAULT_LOCAL_DATETIME_PATTERN);
       }
       case BYTE_ARRAY: {
         @SuppressWarnings("unchecked")
@@ -5061,7 +5061,7 @@ public final class TypeUtils {
         final String[] result = new String[n];
         int i = 0;
         for (final Date value : values) {
-          result[i++] = DateUtils.toString(value, DateUtils.DEFAULT_PATTERN);
+          result[i++] = DateUtils.toString(value, DateUtils.DEFAULT_LOCAL_DATETIME_PATTERN);
         }
         return result;
       }
@@ -7913,7 +7913,7 @@ public final class TypeUtils {
         final String[] result = new String[values.length];
         int i = 0;
         for (final Date value : values) {
-          result[i++] = DateUtils.toString(value, DateUtils.DEFAULT_PATTERN);
+          result[i++] = DateUtils.toString(value, DateUtils.DEFAULT_LOCAL_DATETIME_PATTERN);
         }
         return result;
       }
@@ -9802,7 +9802,7 @@ public final class TypeUtils {
         return DomUtils.getReqString(node, prevSpaceAttr, true, true);
       }
       case DATE: {
-        return DomUtils.getReqDate(node, DateUtils.DEFAULT_PATTERN);
+        return DomUtils.getReqDate(node, DateUtils.DEFAULT_LOCAL_DATETIME_PATTERN);
       }
       case BYTE_ARRAY: {
         return DomUtils.getReqByteArray(node, null);
@@ -9844,7 +9844,7 @@ public final class TypeUtils {
       case STRING:
         return DomUtils.getReqStringList(nodes, prevSpaceAttr, true, false, null);
       case DATE:
-        return DomUtils.getReqDateList(nodes, DateUtils.DEFAULT_PATTERN, null);
+        return DomUtils.getReqDateList(nodes, DateUtils.DEFAULT_LOCAL_DATETIME_PATTERN, null);
       case BYTE_ARRAY:
         return DomUtils.getReqByteArrayList(nodes, null, null);
       case CLASS:
@@ -9942,7 +9942,7 @@ public final class TypeUtils {
         final Date value = (Date) obj;
         final Element node = doc.createElement(tagName);
         if (value != null) {
-          final String str = DateUtils.toString(value, DateUtils.DEFAULT_PATTERN);
+          final String str = DateUtils.toString(value, DateUtils.DEFAULT_LOCAL_DATETIME_PATTERN);
           node.setTextContent(str);
         }
         return node;
@@ -10118,7 +10118,7 @@ public final class TypeUtils {
             continue;
           }
           final Element node = doc.createElement(tagName);
-          final String str = DateUtils.toString(value, DateUtils.DEFAULT_PATTERN);
+          final String str = DateUtils.toString(value, DateUtils.DEFAULT_LOCAL_DATETIME_PATTERN);
           node.setTextContent(str);
           result.add(node);
         }

@@ -48,12 +48,12 @@ public class DateUtils {
   /**
    * The default date format pattern.
    */
-  public static final String DEFAULT_PATTERN = "yyyy-MM-dd HH:mm:ss";
+  public static final String DEFAULT_LOCAL_DATETIME_PATTERN = "yyyy-MM-dd HH:mm:ss";
 
   /**
    * The default date time format pattern.
    */
-  public static final String DEFAULT_DATE_TIME_PATTERN = "yyyy-MM-dd HH:mm:ss z";
+  public static final String DEFAULT_DATETIME_PATTERN = "yyyy-MM-dd HH:mm:ss z";
 
   /**
    * The default date format pattern.

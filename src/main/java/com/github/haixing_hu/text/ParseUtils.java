@@ -874,7 +874,7 @@ public final class ParseUtils {
 //    try {
 //      pos.reset(startIndex);
 //      final Date result = parseDate(pos, str, endIndex, options,
-//          NumberFormatSymbols.DEFAULT, DateUtils.DEFAULT_PATTERN);
+//          NumberFormatSymbols.DEFAULT, DateUtils.DEFAULT_LOCAL_DATETIME_PATTERN);
 //      if (pos.fail()) {
 //        throw new TextParseException(str, startIndex, endIndex, pos);
 //      } else {
@@ -893,7 +893,7 @@ public final class ParseUtils {
 //    try {
 //      pos.reset(startIndex);
 //      final Date result = parseDate(pos, str, endIndex, ParseOptions.DEFAULT,
-//          NumberFormatSymbols.DEFAULT, DateUtils.DEFAULT_PATTERN);
+//          NumberFormatSymbols.DEFAULT, DateUtils.DEFAULT_LOCAL_DATETIME_PATTERN);
 //      if (pos.fail()) {
 //        throw new TextParseException(str, startIndex, endIndex, pos);
 //      } else {
@@ -912,7 +912,7 @@ public final class ParseUtils {
 //    try {
 //      final Date result = parseDate(pos, str, str.length(),
 //          ParseOptions.DEFAULT, FormatSymbols.DEFAULT,
-//          DateUtils.DEFAULT_PATTERN);
+//          DateUtils.DEFAULT_LOCAL_DATETIME_PATTERN);
 //      if (pos.fail()) {
 //        throw new TextParseException(str, pos);
 //      } else {
