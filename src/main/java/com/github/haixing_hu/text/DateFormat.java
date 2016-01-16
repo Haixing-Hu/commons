@@ -19,6 +19,7 @@ package com.github.haixing_hu.text;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+import java.util.TimeZone;
 
 import com.github.haixing_hu.lang.DateUtils;
 
@@ -69,9 +70,25 @@ public final class DateFormat {
     this(pattern, DEFAULT_LOCALE);
   }
 
+  public DateFormat(final String pattern, final TimeZone timeZone) {
+    this.pattern = requireNonNull("pattern", pattern);
+    this.format = new SimpleDateFormat(pattern);
+    this.format.setTimeZone(requireNonNull("timeZone", timeZone));
+    this.position = new ParsingPosition();
+    this.skipBlanks = DEFAULT_SKIP_BLANKS;
+  }
+
   public DateFormat(final String pattern, final Locale locale) {
     this.pattern = requireNonNull("pattern", pattern);
-    this.format = new SimpleDateFormat(pattern, locale);
+    this.format = new SimpleDateFormat(pattern, requireNonNull("locale", locale));
+    this.position = new ParsingPosition();
+    this.skipBlanks = DEFAULT_SKIP_BLANKS;
+  }
+
+  public DateFormat(final String pattern, final Locale locale, final TimeZone timeZone) {
+    this.pattern = requireNonNull("pattern", pattern);
+    this.format = new SimpleDateFormat(pattern, requireNonNull("locale", locale));
+    this.format.setTimeZone(requireNonNull("timeZone", timeZone));
     this.position = new ParsingPosition();
     this.skipBlanks = DEFAULT_SKIP_BLANKS;
   }
@@ -85,6 +102,14 @@ public final class DateFormat {
     if (! this.pattern.equals(pattern)) {
       this.format.applyPattern(pattern);
     }
+  }
+
+  public TimeZone getTimeZone() {
+    return format.getTimeZone();
+  }
+
+  public void setTimeZone(TimeZone timeZone) {
+    format.setTimeZone(requireNonNull("timeZone", timeZone));
   }
 
   public boolean isSkipBlanks() {
