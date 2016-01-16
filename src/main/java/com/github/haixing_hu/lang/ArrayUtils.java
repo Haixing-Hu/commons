@@ -22,6 +22,9 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.sql.Time;
 import java.sql.Timestamp;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.AbstractList;
 import java.util.Collection;
 import java.util.Date;
@@ -174,6 +177,21 @@ public class ArrayUtils {
    * An empty immutable {@link Timestamp} array.
    */
   public static final Timestamp[] EMPTY_TIMESTAMP_ARRAY        = new Timestamp[0];
+
+  /**
+   * An empty immutable {@link LocalDate} array.
+   */
+  public static final LocalDate[]       EMPTY_LOCAL_DATE_ARRAY      = new LocalDate[0];
+
+  /**
+   * An empty immutable {@link LocalTime} array.
+   */
+  public static final LocalTime[]       EMPTY_LOCAL_TIME_ARRAY      = new LocalTime[0];
+
+  /**
+   * An empty immutable {@link LocalDateTime} array.
+   */
+  public static final LocalDateTime[]    EMPTY_LOCAL_DATETIME_ARRAY = new LocalDateTime[0];
 
   /**
    * The current value when an element is not found in a list or array:

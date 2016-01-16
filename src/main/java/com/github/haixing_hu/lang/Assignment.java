@@ -21,6 +21,9 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.sql.Time;
 import java.sql.Timestamp;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
@@ -64,6 +67,18 @@ public final class Assignment {
 
   public static Timestamp clone(@Nullable final Timestamp value) {
     return (value == null ? null : (Timestamp) value.clone());
+  }
+
+  public static LocalDate clone(@Nullable final LocalDate value) {
+    return value;
+  }
+
+  public static LocalTime clone(@Nullable final LocalTime value) {
+    return value;
+  }
+
+  public static LocalDateTime clone(@Nullable final LocalDateTime value) {
+    return value;
   }
 
   public static char[] clone(@Nullable final char[] array) {
@@ -282,6 +297,66 @@ public final class Assignment {
     }
   }
 
+  public static Time[] clone(@Nullable final Time[] array) {
+    if (array == null) {
+      return null;
+    } else if (array.length == 0) {
+      return ArrayUtils.EMPTY_TIME_ARRAY;
+    } else {
+      final Time[] result = new Time[array.length];
+      System.arraycopy(array, 0, result, 0, array.length);
+      return result;
+    }
+  }
+
+  public static Timestamp[] clone(@Nullable final Timestamp[] array) {
+    if (array == null) {
+      return null;
+    } else if (array.length == 0) {
+      return ArrayUtils.EMPTY_TIMESTAMP_ARRAY;
+    } else {
+      final Timestamp[] result = new Timestamp[array.length];
+      System.arraycopy(array, 0, result, 0, array.length);
+      return result;
+    }
+  }
+
+  public static LocalDate[] clone(@Nullable final LocalDate[] array) {
+    if (array == null) {
+      return null;
+    } else if (array.length == 0) {
+      return ArrayUtils.EMPTY_LOCAL_DATE_ARRAY;
+    } else {
+      final LocalDate[] result = new LocalDate[array.length];
+      System.arraycopy(array, 0, result, 0, array.length);
+      return result;
+    }
+  }
+
+  public static LocalTime[] clone(@Nullable final LocalTime[] array) {
+    if (array == null) {
+      return null;
+    } else if (array.length == 0) {
+      return ArrayUtils.EMPTY_LOCAL_TIME_ARRAY;
+    } else {
+      final LocalTime[] result = new LocalTime[array.length];
+      System.arraycopy(array, 0, result, 0, array.length);
+      return result;
+    }
+  }
+
+  public static LocalDateTime[] clone(@Nullable final LocalDateTime[] array) {
+    if (array == null) {
+      return null;
+    } else if (array.length == 0) {
+      return ArrayUtils.EMPTY_LOCAL_DATETIME_ARRAY;
+    } else {
+      final LocalDateTime[] result = new LocalDateTime[array.length];
+      System.arraycopy(array, 0, result, 0, array.length);
+      return result;
+    }
+  }
+
   public static byte[][] clone(@Nullable final byte[][] array) {
     if (array == null) {
       return null;
@@ -340,9 +415,6 @@ public final class Assignment {
    *          The type of the element of the array to be cloned.
    * @param array
    *          The source array to be cloned, which could be null.
-   * @param clazz
-   *          The class object of the type of the element of the array to be
-   *          cloned. It is used to crate the new object array.
    * @return The cloned copy of the source array; or null if the source array is
    *         null. Note that the objects in the source array is simply copied
    *         into the returned array, thus this is a shallow clone.
@@ -487,6 +559,18 @@ public final class Assignment {
     }
   }
 
+  public static LocalDate[] deepClone(@Nullable final LocalDate[] array) {
+    return clone(array);
+  }
+
+  public static LocalTime[] deepClone(@Nullable final LocalTime[] array) {
+    return clone(array);
+  }
+
+  public static LocalDateTime[] deepClone(@Nullable final LocalDateTime[] array) {
+    return clone(array);
+  }
+
   public static byte[][] deepClone(@Nullable final byte[][] array) {
     if (array == null) {
       return null;
@@ -508,9 +592,6 @@ public final class Assignment {
    *          The type of the element of the array to be cloned.
    * @param array
    *          The source array to be cloned, which could be null.
-   * @param clazz
-   *          The class object of the type of the element of the array to be
-   *          cloned. It is used to crate the new object array.
    * @return The cloned copy of the source array; or null if the source array is
    *         null. Note that the objects in the source array is also cloned
    *         into the returned array, thus this is a deep clone.
@@ -539,8 +620,6 @@ public final class Assignment {
    *
    * @param <T>
    *          The type of the element of the list to be cloned.
-   * @param array
-   *          The source list to be cloned, which could be null.
    * @return The cloned copy of the source list; or null if the source list is
    *         null. Note that the objects in the source list is also cloned into
    *         the returned list, thus this is a deep clone.
@@ -568,7 +647,7 @@ public final class Assignment {
    *
    * @param <T>
    *          The type of the element of the set to be cloned.
-   * @param array
+   * @param set
    *          The source set to be cloned, which could be null.
    * @return The cloned copy of the source set; or null if the source set is
    *         null. Note that the objects in the source set is also cloned into
