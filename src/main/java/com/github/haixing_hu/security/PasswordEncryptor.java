@@ -40,7 +40,15 @@ public class PasswordEncryptor {
    */
   public static final int ENCRYPTION_BYTES = 20;
 
-
+  /**
+   * The length of hex string of the encrypted salted password, in the number of
+   * characters.
+   * <p>
+   * The value of this constant is {@value}.
+   * <p>
+   * <b>NOTE:</b> No matter how long the password is, the length of hex string
+   * of the encrypted salted password is always of this length.
+   */
   public static final int ENCRYPTED_SALTED_PASSWORD_LENGTH =
       (2 * SALT_BYTES) + 1 + (2 * ENCRYPTION_BYTES);
 

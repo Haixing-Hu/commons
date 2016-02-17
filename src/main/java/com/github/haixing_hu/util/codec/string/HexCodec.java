@@ -103,13 +103,15 @@ public class HexCodec implements Encoder<byte[], String>,
    * @param separator
    *          the new separator between hex digits. A null string is treated as
    *          an empty string.
+   * @return this object.
    */
-  public void setSeparator(@Nullable final String separator) {
+  public HexCodec setSeparator(@Nullable final String separator) {
     if (separator == null) {
       this.separator = StringUtils.EMPTY;
     } else {
       this.separator = separator;
     }
+    return this;
   }
 
   /**
@@ -129,9 +131,11 @@ public class HexCodec implements Encoder<byte[], String>,
    * @param showRadix
    *          determinate whether the formatting of hex digits should show the
    *          hex radix prefix.
+   * @return this object.
    */
-  public void setShowRadix(final boolean showRadix) {
+  public HexCodec setShowRadix(final boolean showRadix) {
     this.showRadix = showRadix;
+    return this;
   }
 
   /**
@@ -152,9 +156,11 @@ public class HexCodec implements Encoder<byte[], String>,
    * @param uppercaseRadix
    *          determinate whether the formatting of hex digits should use the
    *          uppercase radix prefix.
+   * @return this object.
    */
-  public void setUppercaseRadix(final boolean uppercaseRadix) {
+  public HexCodec setUppercaseRadix(final boolean uppercaseRadix) {
     this.uppercaseRadix = uppercaseRadix;
+    return this;
   }
 
   /**
@@ -175,9 +181,11 @@ public class HexCodec implements Encoder<byte[], String>,
    * @param uppercaseDigit
    *          determinate whether the formatting of hex digits should use the
    *          uppercase hex digits.
+   * @return this object.
    */
-  public void setUppercaseDigit(final boolean uppercaseDigit) {
+  public HexCodec setUppercaseDigit(final boolean uppercaseDigit) {
     this.uppercaseDigit = uppercaseDigit;
+    return this;
   }
 
   /**
@@ -194,9 +202,11 @@ public class HexCodec implements Encoder<byte[], String>,
    *
    * @param skipBlanks
    *          determinate whether to skip the blanks while parsing hex string.
+   * @return this object.
    */
-  public void setSkipBlanks(final boolean skipBlanks) {
+  public HexCodec setSkipBlanks(final boolean skipBlanks) {
     this.skipBlanks = skipBlanks;
+    return this;
   }
 
   /**
@@ -213,10 +223,11 @@ public class HexCodec implements Encoder<byte[], String>,
    *
    * @param maxPerLine
    *          the maximum number of hex digits per line in the formatted string.
+   * @return this object.
    */
-  public void setMaxPerLine(final int maxPerLine) {
-    requireGreater("maxPerLine", maxPerLine, "zero", 0);
-    this.maxPerLine = maxPerLine;
+  public HexCodec setMaxPerLine(final int maxPerLine) {
+    this.maxPerLine = requireGreater("maxPerLine", maxPerLine, "zero", 0);
+    return this;
   }
 
   public ParsingPosition getParsePosition() {
